@@ -174,15 +174,6 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term><option>--pwcheck-no_minlen</option></term>
-        <listitem>
-          <para>
-            Remove <option>minlen=</option><replaceable>N</replaceable>
-            option from pam_pwcheck.so.
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
         <term><option>--pwcheck-tries=</option><replaceable>N</replaceable></term>
         <listitem>
           <para>

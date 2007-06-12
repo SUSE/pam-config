@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-26 16:25+0100\n"
+"POT-Creation-Date: 2007-01-29 13:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -176,14 +176,14 @@ msgstr ""
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:98 src/pam-config.c:135 src/pam-config.c:889
-#: src/pam-config.c:899 src/pam-config.c:909 src/pam-config.c:920
+#: src/pam-config.c:98 src/pam-config.c:135 src/pam-config.c:890
+#: src/pam-config.c:900 src/pam-config.c:910 src/pam-config.c:921
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:891
-#: src/pam-config.c:901 src/pam-config.c:911 src/pam-config.c:922
+#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:892
+#: src/pam-config.c:902 src/pam-config.c:912 src/pam-config.c:923
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -205,7 +205,7 @@ msgid ""
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:780
+#: src/pam-config.c:781
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""

@@ -89,7 +89,9 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
 
 %changelog -n pam-config
-* Fri Jan 26 2006 - kukuk@suse.de 0.14
+* Mon Jan 29 2007 - kukuk@suse.de 0.15
+- Fix -d handling of minlen option of pam_pwcheck
+* Fri Jan 26 2007 - kukuk@suse.de 0.14
 - Add --krb5_ignore_unknown_principals option
 - Add --pam_pwcheck-no_minlen option [bnc#227395]
 * Wed Oct 25 2006 - kukuk@suse.de 0.13

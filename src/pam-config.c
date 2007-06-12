@@ -289,7 +289,6 @@ main (int argc, char *argv[])
 	{"pwcheck-remember",          required_argument, NULL, 1008 },
 	{"pwcheck-nisdir",            required_argument, NULL, 1009 },
 	{"pwcheck-no_obscure_checks", no_argument,       NULL, 1010 },
-	{"pwcheck-no_minlen",         no_argument,       NULL, 1011 },
 	{"mkhomedir",        no_argument,       NULL, 1100 },
 	{"limits",           no_argument,       NULL, 1200 },
         {"env",              no_argument,       NULL, 1300 },
@@ -395,8 +394,13 @@ main (int argc, char *argv[])
 	  config_password.pwcheck_maxlen = atoi (optarg);
 	  break;
 	case 1006:
-	  config_password.pwcheck_minlen = atoi (optarg);
-	  config_password.pwcheck_have_minlen = 1;
+	  if (m_delete)
+	    config_password.pwcheck_have_minlen = 0;
+	  else
+	    {
+	      config_password.pwcheck_minlen = atoi (optarg);
+	      config_password.pwcheck_have_minlen = 1;
+	    }
 	  break;
 	case 1007:
 	  config_password.pwcheck_tries = atoi (optarg);
@@ -409,9 +413,6 @@ main (int argc, char *argv[])
 	  break;
 	case 1010:
 	  config_password.pwcheck_no_obscure_checks = opt_val;
-	  break;
-	case 1011:
-	  config_password.pwcheck_have_minlen = !opt_val;
 	  break;
 	case 1100:
 	  if (m_query)
