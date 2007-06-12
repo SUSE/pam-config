@@ -7,12 +7,12 @@
   <refmeta>
     <refentrytitle>pam-config</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='setdesc'>NIS Reference Manual</refmiscinfo>
+    <refmiscinfo class='setdesc'>Reference Manual</refmiscinfo>
   </refmeta>
 
   <refnamediv id='name'>
     <refname>pam-config</refname>
-    <refpurpose>create or dump a ypserv database file</refpurpose>
+    <refpurpose>Adjust common PAM config files</refpurpose>
   </refnamediv>
 
 <!-- body begins here -->
