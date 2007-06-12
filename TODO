@@ -2,4 +2,12 @@
 - call_modules= from pam_unix2.conf can have more than one entry
 - call_modules= from common-*-pc: strip of ldap and krb5
 
-- Add flag to add pam_loginuid to all relevant PAM config files
+- Implement support for adding pam_loginuid to all relevant PAM
+  config files
+
+- Add pam_mount support
+
+- pam-config should print a list of all supported modules
+  currently only mentioned in the manual page
+
+- Sort modules in manual page alphabetical.
