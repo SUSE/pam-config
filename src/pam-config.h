@@ -49,6 +49,17 @@ struct config_file_t {
   int unix2_nullok;
   int unix2_trace;
   int unix2_not_set_pass; /* XXX */
+  char *unix2_call_modules; /* XXX */
+  /* pam_krb5, used by all types.  */
+  int use_krb5;
+  int krb5_debug;
+  /* pam_ldap, used by all types.  */
+  int use_ldap;
+  int ldap_debug;
+  /* pam_ccreds, used by auth.  */
+  int use_ccreds;
+  /* pam_pkcs11, used by auth.  */
+  int use_pkcs11;
 };
 typedef struct config_file_t config_file_t;
 
@@ -62,5 +73,9 @@ int write_config_account (const char *file, config_file_t *conf);
 int write_config_auth (const char *file, config_file_t *conf);
 int write_config_password (const char *file, config_file_t *conf);
 int write_config_session (const char *file, config_file_t *conf);
+
+int sanitize_check_auth (config_file_t *conf);
+int sanitize_check_password (config_file_t *conf);
+int check_for_pam_module (const char *name);
 
 #endif

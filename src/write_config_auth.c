@@ -58,6 +58,9 @@ write_config_auth (const char *file, config_file_t *conf)
   if (conf->use_env)
     fprintf (fp, "auth\trequired\tpam_env.so\n");
 
+  if (conf->use_pkcs11)
+    fprintf (fp, "auth\tsufficient\tpam_pkcs11.so\n");
+
   if (conf->use_bioapi)
     {
       fprintf (fp, "auth\tsufficient\tpam_bioapi.so\t");
@@ -66,12 +69,56 @@ write_config_auth (const char *file, config_file_t *conf)
       fprintf (fp, "\n");
     }
 
-  fprintf (fp, "auth\trequired\tpam_unix2.so\t");
+  if (conf->use_krb5 || conf->use_ldap)
+    /* Only sufficient if other modules follow */
+    fprintf (fp, "auth\tsufficient\tpam_unix2.so\t");
+  else
+    fprintf (fp, "auth\trequired\tpam_unix2.so\t");
   if (conf->unix2_nullok)
     fprintf (fp, "nullok ");
   if (conf->unix2_debug)
     fprintf (fp, "debug ");
+  if (conf->unix2_call_modules)
+    fprintf (fp, "call_modules=%s ", conf->unix2_call_modules);
   fprintf (fp, "\n");
+
+  if (conf->use_krb5)
+    {
+      if (conf->use_ccreds)
+	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_krb5.so\tuse_first_pass ");
+      else if (conf->use_ldap)
+	fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
+      else
+	fprintf (fp, "auth\trequierd\tpam_krb5.so\tuse_first_pass ");
+
+      if (conf->krb5_debug)
+	fprintf (fp, "debug ");
+      fprintf (fp, "\n");
+
+      if (conf->use_ccreds)
+	{
+	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=validate use_first_pass\n");
+	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=store\n");
+	  fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
+	}
+    }
+
+  if (conf->use_ldap)
+    {
+      if (conf->use_ccreds)
+	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_ldap.so\tuse_first_pass ");
+      else
+	fprintf (fp, "auth\trequired\tpam_ldap.so\tuse_first_pass ");
+      if (conf->ldap_debug)
+	fprintf (fp, "debug ");
+      fprintf (fp, "\n");
+      if (conf->use_ccreds)
+	{
+	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=validate use_first_pass\n");
+	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=store\n");
+	  fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
+	}
+    }
 
   fclose (fp);
 

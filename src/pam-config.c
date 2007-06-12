@@ -254,8 +254,15 @@ main (int argc, char *argv[])
         {"unix2-debug",      no_argument,       NULL, 1601 },
         {"unix2-nullok",     no_argument,       NULL, 1602 },
         {"unix2-trace",      no_argument,       NULL, 1603 },
+        {"unix2-call_modules", required_argument, NULL, 1604 },
 	{"bioapi",           no_argument,       NULL, 1700 },
 	{"bioapi-options",   required_argument, NULL, 1701 },
+	{"krb5",             no_argument,       NULL, 1800 },
+	{"krb5-debug",       no_argument,       NULL, 1801 },
+	{"ldap",             no_argument,       NULL, 1900 },
+	{"ldap-debug",       no_argument,       NULL, 1901 },
+	{"ccreds",           no_argument,       NULL, 2000 },
+	{"pkcs11",           no_argument,       NULL, 2010 },
 	{"debug",   no_argument, NULL, '\254' },
         {"help",    no_argument, NULL, '\255' },
         {NULL,      0,           NULL, '\0'}
@@ -282,9 +289,19 @@ main (int argc, char *argv[])
 	  config_password.pwcheck_debug = opt_val;
 	  config_password.unix2_debug = opt_val;
 	  config_session.unix2_debug = opt_val;
+	  config_account.krb5_debug = opt_val;
+	  config_auth.krb5_debug = opt_val;
+	  config_password.krb5_debug = opt_val;
+	  config_session.krb5_debug = opt_val;
+	  config_account.ldap_debug = opt_val;
+	  config_auth.ldap_debug = opt_val;
+	  config_password.ldap_debug = opt_val;
+	  config_session.ldap_debug = opt_val;
 	  break;
 	/* pam_pwcheck */
 	case 1000:
+	  if (check_for_pam_module ("pam_pwcheck.so") != 0)
+	    return 1;
 	  config_password.use_pwcheck = opt_val;
 	  break;
 	case 1001:
@@ -316,26 +333,38 @@ main (int argc, char *argv[])
 	  config_password.pwcheck_nisdir = optarg;
 	  break;
 	case 1100:
+	  if (check_for_pam_module ("pam_mkhomedir.so") != 0)
+	    return 1;
 	  config_session.use_mkhomedir = opt_val;
 	  break;
 	case 1200:
+	  if (check_for_pam_module ("pam_limits.so") != 0)
+	    return 1;
 	  config_session.use_limits = opt_val;
 	  break;
 	case 1300:
+	  if (check_for_pam_module ("pam_env.so") != 0)
+	    return 1;
 	  /* Remove in every case from auth, else we will have it twice.  */
 	  config_auth.use_env = 0;
 	  config_session.use_env = opt_val;
 	  break;
 	case 1400:
+	  if (check_for_pam_module ("pam_xauth.so") != 0)
+	    return 1;
 	  config_session.use_xauth = opt_val;
 	  break;
 	case 1500:
+	  if (check_for_pam_module ("pam_make.so") != 0)
+	    return 1;
 	  config_session.use_make = opt_val;
 	  break;
 	case 1501:
 	  config_session.make_options = optarg;
 	  break;
 	case 1600:
+	  if (check_for_pam_module ("pam_unix2.so") != 0)
+	    return 1;
 	  /* use_unix2 */
 	  break;
 	case 1601:
@@ -353,11 +382,54 @@ main (int argc, char *argv[])
         case 1603:
           config_session.unix2_trace = opt_val;
           break;
+        case 1604:
+          config_session.unix2_call_modules = optarg;
+          break;
 	case 1700:
+	  if (check_for_pam_module ("pam_bioapi.so") != 0)
+	    return 1;
 	  config_auth.use_bioapi = opt_val;
 	  break;
 	case 1701:
 	  config_auth.bioapi_options = optarg;
+	  break;
+	case 1800:
+	  if (check_for_pam_module ("pam_krb5.so") != 0)
+	    return 1;
+	  config_account.use_krb5 = opt_val;
+	  config_auth.use_krb5 = opt_val;
+	  config_password.use_krb5 = opt_val;
+	  config_session.use_krb5 = opt_val;
+	  break;
+	case 1801:
+	  config_account.krb5_debug = opt_val;
+	  config_auth.krb5_debug = opt_val;
+	  config_password.krb5_debug = opt_val;
+	  config_session.krb5_debug = opt_val;
+	  break;
+	case 1900:
+	  if (check_for_pam_module ("pam_ldap.so") != 0)
+	    return 1;
+	  config_account.use_ldap = opt_val;
+	  config_auth.use_ldap = opt_val;
+	  config_password.use_ldap = opt_val;
+	  config_session.use_ldap = opt_val;
+	  break;
+	case 1901:
+	  config_account.ldap_debug = opt_val;
+	  config_auth.ldap_debug = opt_val;
+	  config_password.ldap_debug = opt_val;
+	  config_session.ldap_debug = opt_val;
+	  break;
+	case 2000:
+	  if (check_for_pam_module ("pam_ccreds.so") != 0)
+	    return 1;
+	  config_auth.use_ccreds = opt_val;
+	  break;
+	case 2010:
+	  if (check_for_pam_module ("pam_pkcs11.so") != 0)
+	    return 1;
+	  config_auth.use_pkcs11 = opt_val;
 	  break;
 	case '\254':
 	  debug = 1;
@@ -387,6 +459,12 @@ main (int argc, char *argv[])
       return 1;
     }
 
+  if (m_add + m_create + m_delete + m_init != 1)
+    {
+      print_error (program);
+      return 1;
+    }
+
   if (m_create)
     {
       /* Write account section.  */
@@ -397,6 +475,8 @@ main (int argc, char *argv[])
 	}
 
       /* Write auth section.  */
+      if (sanitize_check_auth (&config_auth) != 0)
+	return 1;
       if (write_config_auth (CONF_AUTH_PC, &config_auth) != 0)
 	{
 	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_AUTH_PC);
@@ -407,6 +487,8 @@ main (int argc, char *argv[])
       config_password.use_pwcheck = 1;
       config_password.pwcheck_nullok = 1;
       config_password.unix2_nullok = 1;
+      if (sanitize_check_password (&config_password) != 0)
+	return 1;
       if (write_config_password (CONF_PASSWORD_PC, &config_password) != 0)
 	{
 	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_PASSWORD_PC);
@@ -432,6 +514,8 @@ main (int argc, char *argv[])
 	}
 
       /* Write auth section.  */
+      if (sanitize_check_auth (&config_auth) != 0)
+	return 1;
       if (write_config_auth (CONF_AUTH_PC, &config_auth) != 0)
 	{
 	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_AUTH_PC);
@@ -439,6 +523,8 @@ main (int argc, char *argv[])
 	}
 
       /* Write password section.  */
+      if (sanitize_check_password (&config_password) != 0)
+	return 1;
       if (write_config_password (CONF_PASSWORD_PC, &config_password) != 0)
 	{
 	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_PASSWORD_PC);

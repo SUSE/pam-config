@@ -4,6 +4,14 @@ Copyright (C) 2006 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.4:
+* Add ccreds and pkcs11 support
+* Add sanity checks
+* Check if modules are installed
+
+Version 0.3:
+* Add ldap and krb5 support
+
 Version 0.2:
 * Add documentation
 

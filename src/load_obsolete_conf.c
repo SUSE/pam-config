@@ -49,7 +49,7 @@ parse_option_unix2 (const char *file, const char *service,
       else if (strcmp (service, "session") == 0)
 	password->unix2_debug = 1;
       else
-	fprintf (stderr, _("Unknown service: [%s: %s], ignored!\n"), service, option);
+	fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
     }
   else if (strcasecmp (option, "nullok") == 0)
     {
@@ -62,7 +62,7 @@ parse_option_unix2 (const char *file, const char *service,
       else if (strcmp (service, "session") == 0)
 	session->unix2_nullok = 1;
       else
-	fprintf (stderr, _("Unknown service: [%s: %s], ignored!\n"), service, option);
+	fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
     }
   else if (strcasecmp (option, "not_set_pass") == 0)
     password->unix2_not_set_pass = 1;
@@ -70,17 +70,99 @@ parse_option_unix2 (const char *file, const char *service,
     { /* ignored */ }
   else if (strcasecmp (option, "use_authtok") == 0)
     { /* ignored */ }
+  else if (strcasecmp (option, "none") == 0)
+    { /* ignored */ }
+  else if (strcasecmp (option, "krb5") == 0 ||
+	   strcasecmp (option, "use_krb5") == 0)
+    {
+      if (strcmp (service, "auth") == 0)
+	auth->use_krb5 = 1;
+      else if (strcmp (service, "account") == 0)
+	account->use_krb5 = 1;
+      else if (strcmp (service, "password") == 0)
+	password->use_krb5 = 1;
+      else if (strcmp (service, "session") == 0)
+	session->use_krb5 = 1;
+      else
+	fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
+    }
+  else if (strcasecmp (option, "ldap") == 0 ||
+	   strcasecmp (option, "use_ldap") == 0)
+    {
+      if (strcmp (service, "auth") == 0)
+	auth->use_ldap = 1;
+      else if (strcmp (service, "account") == 0)
+	account->use_ldap = 1;
+      else if (strcmp (service, "password") == 0)
+	password->use_ldap = 1;
+      else if (strcmp (service, "session") == 0)
+	session->use_ldap = 1;
+      else
+	fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
+    }
+  else if (strncasecmp (option, "call_modules=", 13) == 0)
+    {
+      char *cp;
+      char *tmp = strdup (&option[13]);
+
+      cp = strtok (tmp, ",");
+      while (cp)
+	{
+	  if (strcmp (cp, "ldap") == 0)
+	    {
+	      if (strcmp (service, "auth") == 0)
+		auth->use_ldap = 1;
+	      else if (strcmp (service, "account") == 0)
+		account->use_ldap = 1;
+	      else if (strcmp (service, "password") == 0)
+		password->use_ldap = 1;
+	      else if (strcmp (service, "session") == 0)
+		session->use_ldap = 1;
+	      else
+		fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
+	    }
+	  else if (strcmp (cp, "krb5") == 0)
+	    {
+	      if (strcmp (service, "auth") == 0)
+		auth->use_krb5 = 1;
+	      else if (strcmp (service, "account") == 0)
+		account->use_krb5 = 1;
+	      else if (strcmp (service, "password") == 0)
+		password->use_krb5 = 1;
+	      else if (strcmp (service, "session") == 0)
+		session->use_krb5 = 1;
+	      else
+		fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
+	    }
+	  else
+	    {
+	      /* XXX this can be more then one. */
+	      if (strcmp (service, "auth") == 0)
+		auth->unix2_call_modules = strdup (cp);
+	      else if (strcmp (service, "account") == 0)
+		account->unix2_call_modules = strdup (cp);
+	      else if (strcmp (service, "password") == 0)
+		password->unix2_call_modules = strdup (cp);
+	      else if (strcmp (service, "session") == 0)
+		session->unix2_call_modules = strdup (cp);
+	      else
+		fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
+	    }
+	  cp = strtok (NULL, ",");
+	}
+      free (tmp);
+    }
   else if (strcasecmp (option, "md5") == 0)
-    fprintf (stderr, _("Please use /etc/default/passwd to set 'md5' option\n"));
+    fprintf (stderr, _("WARNING: Use /etc/default/passwd to set 'md5' option\n"));
   else if (strcasecmp (option, "bigcrypt") == 0)
-    fprintf (stderr, _("Please use /etc/default/passwd to set 'bigcrypt' option\n"));
+    fprintf (stderr, _("WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"));
   else if (strcasecmp (option, "bf") == 0 || strcasecmp (option, "blowfish") == 0 ||
 	   strncasecmp (option, "rounds=", 7) == 0 ||
 	   strncasecmp (option, "crypt_rounds=", 13) == 0)
-    fprintf (stderr, _("Please use /etc/default/passwd to set 'blowfish' option\n"));
+    fprintf (stderr, _("WARNING: Use /etc/default/passwd to set 'blowfish' option\n"));
   else
-    fprintf (stderr, "Unknown option (%s): [%s: %s], ignored!\n", file,
-	     service, option);
+    fprintf (stderr, _("ERROR: Unknown option (%s): [%s: %s], ignored!\n"),
+	     file, service, option);
 }
 
 static void
@@ -97,7 +179,8 @@ parse_option_pwcheck (const char *file, const char *service,
 
   if (strcmp (service, "password") != 0)
     {
-      fprintf (stderr, "Unknown option (%s): [%s: %s], ignored!\n",
+      fprintf (stderr,
+	       _("WARNING: Unknown option (%s): [%s: %s], ignored!\n"),
 	       file, service, option);
       return;
     }
@@ -106,7 +189,8 @@ parse_option_pwcheck (const char *file, const char *service,
     password->pwcheck_debug = 1;
   else if (strcasecmp (option, "nullok") == 0)
     password->pwcheck_nullok = 1;
-  else if (strcasecmp (option, "cracklib") == 0)
+  else if (strcasecmp (option, "cracklib") == 0 ||
+	   strcasecmp (option, "use_cracklib") == 0)
     password->pwcheck_cracklib = 1;
   else if (strncasecmp (option, "cracklib=", 9) == 0)
     password->pwcheck_cracklib_path = strdup (&option[9]);
@@ -135,7 +219,7 @@ parse_option_pwcheck (const char *file, const char *service,
 	   strncasecmp (option, "crypt_rounds=", 13) == 0)
     fprintf (stderr, _("Please use /etc/default/passwd to set 'blowfish' option\n"));
   else
-    fprintf (stderr, "Unknown option (%s): [%s: %s], ignored!\n",
+    fprintf (stderr, _("WARNING: Unknown option (%s): [%s: %s], ignored!\n"),
 	     file, service, option);
 }
 

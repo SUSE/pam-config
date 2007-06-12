@@ -1,6 +1,49 @@
+2006-08-22  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* release version 0.4
+
+	* src/sanity_checks.c (check_for_pam_module): New check.
+	* src/pam-config.c (main): Check if freshly added modules
+	are installed.
+
 2006-08-21  Thorsten Kukuk  <kukuk@thkukuk.de>
 
-	* Release version 0.2
+	* src/sanity_checks.c: New, add sanity checks for auth and
+	password section.
+
+	* src/pam-config.c (main): Add ccreds support.
+	* src/pam-config.h: Likewise.
+	* src/write_config_auth.c (write_config_auth): Likewise.
+	* src/load_config.c (load_config): Likewise.
+
+	* src/pam-config.c (main): Add pkcs11 support.
+	* src/pam-config.h: Likewise.
+	* src/write_config_auth.c (write_config_auth): Likewise.
+	* src/load_config.c (load_config): Likewise.
+
+	* src/pam-config.8.xml: Document ccreds and pkcs11 support.
+
+2006-08-21  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* release version 0.3.
+
+	* src/load_obsolete_conf.c (parse_option_unix2): Parse krb5, ldap
+	and call_modules options.
+
+	* src/pam-config.c (main): Add ldap and krb5 options.
+
+	* src/load_config.c (load_config): Parse krb5 and ldap entries.
+
+	* src/write_config_auth.c (write_config_auth): Add ldap and krb5
+	support.
+	* src/write_config_password.c (write_config_password): Likewise.
+	* src/write_config_session.c (write_config_session): Likewise.
+
+	* src/pam-config.8.xml: Document ldap and krb5 options.
+
+2006-08-21  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* release version 0.2
 
 	* src/pam-config.8.xml: Add all current implementations.
 
@@ -8,4 +51,4 @@
 
 2006-08-20  Thorsten Kukuk  <kukuk@thkukuk.de>
 
-	* Initial release 0.1
+	* initial release 0.1

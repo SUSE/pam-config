@@ -134,10 +134,40 @@ option to pam_unix2.so in session section.
 \fB\-\-bioapi\fR
 Add pam_bioapi.so as sufficient module before pam_unix2.so to auth section.
 .TP 3n
-\fB\-\-bioapi=\fR\fIoption\fR
+\fB\-\-unix2\-call_modules=\fR\fImodule,...\fR
+Add
+\fBcall_modules=\fR\fImodule,...\fR
+as argument to pam_unix2.so.
+.TP 3n
+\fB\-\-bioapi\fR
+Add pam_bioapi.so to the authentication stack before pam_unix2.so.
+.TP 3n
+\fB\-\-bioapi\-options=\fR\fIoption\fR
 Add
 \fIoption\fR
 as argument for pam_bioapi.so.
+.TP 3n
+\fB\-\-krb5\fR
+Use pam_krb5.so after pam_unix2.so to all stacks.
+.TP 3n
+\fB\-\-krb5\-debug\fR
+Add
+\fBdebug\fR
+option to all pam_krb5.so invocations.
+.TP 3n
+\fB\-\-ldap\fR
+Use pam_ldap.so after pam_unix2.so to all stacks.
+.TP 3n
+\fB\-\-ldap\-debug\fR
+Add
+\fBdebug\fR
+option to all pam_ldap.so invocations.
+.TP 3n
+\fB\-\-ccreds\fR
+Add pam_ccreds.so after pam_ldap.so or pam_krb5.so.
+.TP 3n
+\fB\-\-pkcs11\fR
+Add pam_pkcs11.so before pam_unix2.so.
 .SH "SEE ALSO"
 .PP
 

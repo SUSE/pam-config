@@ -95,9 +95,60 @@ parse_unix2_options (config_file_t *conf, char *args)
 	{ /* will be ignored */ }
       else if (strcmp (cp, "use_authtok") == 0)
 	{ /* will be ignored */ }
+      else if (strncmp (cp, "call_modules=", 13) == 0)
+	/* XXX strip krb5 and ldap modules from it */
+	conf->unix2_call_modules = strdup (&cp[13]);
       else
 	fprintf (stderr,
 		 _("Unknown option for pam_unix2.so, ignored: '%s'\n"),
+		 cp);
+    }
+  return;
+}
+
+static void
+parse_krb5_options (config_file_t *conf, char *args)
+{
+  while (args && strlen (args) > 0)
+    {
+      char *cp = strsep (&args, " \t");
+      if (args)
+	while (isspace ((int)*args))
+        ++args;
+
+      if (strcmp (cp, "debug") == 0)
+	conf->krb5_debug = 1;
+      else if (strcmp (cp, "use_first_pass") == 0)
+	{ /* will be ignored */ }
+      else if (strcmp (cp, "use_authtok") == 0)
+	{ /* will be ignored */ }
+      else
+	fprintf (stderr,
+		 _("Unknown option for pam_krb5.so, ignored: '%s'\n"),
+		 cp);
+    }
+  return;
+}
+
+static void
+parse_ldap_options (config_file_t *conf, char *args)
+{
+  while (args && strlen (args) > 0)
+    {
+      char *cp = strsep (&args, " \t");
+      if (args)
+	while (isspace ((int)*args))
+        ++args;
+
+      if (strcmp (cp, "debug") == 0)
+	conf->ldap_debug = 1;
+      else if (strcmp (cp, "use_first_pass") == 0)
+	{ /* will be ignored */ }
+      else if (strcmp (cp, "use_authtok") == 0)
+	{ /* will be ignored */ }
+      else
+	fprintf (stderr,
+		 _("Unknown option for pam_ldap.so, ignored: '%s'\n"),
 		 cp);
     }
   return;
@@ -154,7 +205,19 @@ load_config (const char *file, const char *wanted,
 	}
       while (isspace ((int)*cp))
 	++cp;
-      control = strsep (&cp, " \t");
+
+      if (*cp == '[')
+	{
+	  control = cp;
+	  cp = strchr (cp, ']');
+	  if (cp)
+	    {
+	      cp++;
+	      *cp++ = '\0';
+	    }
+	}
+      else
+	control = strsep (&cp, " \t");
       if (cp == NULL)
 	{
 	  fprintf (stderr, "%s: broken line: '%s'\n", file, buf);
@@ -234,6 +297,22 @@ load_config (const char *file, const char *wanted,
 	      if (arguments)
 		parse_unix2_options (conf, arguments);
 	    }
+	  else if (strcmp (module, "pam_krb5.so") == 0)
+	    {
+	      conf->use_krb5 = 1;
+	      if (arguments)
+		parse_krb5_options (conf, arguments);
+	    }
+	  else if (strcmp (module, "pam_ldap.so") == 0)
+	    {
+	      conf->use_ldap = 1;
+	      if (arguments)
+		parse_ldap_options (conf, arguments);
+	    }
+	  else if (strcmp (module, "pam_ccreds.so") == 0)
+	    conf->use_ccreds = 1;
+	  else if (strcmp (module, "pam_pkcs11.so") == 0)
+	    conf->use_pkcs11 = 1;
 	  else
 	    {
 	      fprintf (stderr, _("%s: Unknown module %s, ignored!\n"),

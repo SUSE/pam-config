@@ -282,7 +282,23 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term><option>--bioapi=</option><replaceable>option</replaceable></term>
+        <term><option>--unix2-call_modules=</option><replaceable>module,...</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>call_modules=</option><replaceable>module,...</replaceable> as argument to pam_unix2.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--bioapi</option></term>
+        <listitem>
+          <para>
+            Add pam_bioapi.so to the authentication stack before pam_unix2.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--bioapi-options=</option><replaceable>option</replaceable></term>
         <listitem>
           <para>
             Add <replaceable>option</replaceable> as argument for
@@ -290,7 +306,56 @@
           </para>
         </listitem>
       </varlistentry>
-
+      <varlistentry>
+        <term><option>--krb5</option></term>
+        <listitem>
+          <para>
+            Use pam_krb5.so after pam_unix2.so to all stacks.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--krb5-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> option to all pam_krb5.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--ldap</option></term>
+        <listitem>
+          <para>
+            Use pam_ldap.so after pam_unix2.so to all stacks.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--ldap-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> option to all pam_ldap.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--ccreds</option></term>
+        <listitem>
+          <para>
+            Add pam_ccreds.so after pam_ldap.so or pam_krb5.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pkcs11</option></term>
+        <listitem>
+          <para>
+            Add pam_pkcs11.so before pam_unix2.so.
+          </para>
+        </listitem>
+      </varlistentry>
     </variablelist>
   </refsect1>
 

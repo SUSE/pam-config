@@ -83,7 +83,10 @@ write_config_password (const char *file, config_file_t *conf)
       fprintf (fp, "\n");
     }
 
-  fprintf (fp, "password\trequired\tpam_unix2.so\t");
+  if (conf->use_krb5 || conf->use_ldap)
+    fprintf (fp, "password\tsufficient\tpam_unix2.so\t");
+  else
+    fprintf (fp, "password\trequired\tpam_unix2.so\t");
   if (conf->unix2_nullok)
     fprintf (fp, "nullok ");
   if (conf->use_pwcheck)
@@ -92,6 +95,8 @@ write_config_password (const char *file, config_file_t *conf)
     fprintf (fp, "debug ");
   if (conf->unix2_not_set_pass)
     fprintf (fp, "not_set_pass ");
+  if (conf->unix2_call_modules)
+    fprintf (fp, "call_modules=%s ", conf->unix2_call_modules);
   fprintf (fp, "\n");
 
   if (conf->use_make)
@@ -101,6 +106,27 @@ write_config_password (const char *file, config_file_t *conf)
 	fprintf (fp, "%s ", conf->make_options);
       fprintf (fp, "\n");
     }
+
+  if (conf->use_krb5)
+    {
+      if (conf->use_ldap)
+	fprintf (fp, "password\tsufficient\tpam_krb5.so\tuse_first_pass use_authtok ");
+      else
+	fprintf (fp, "password\trequired\tpam_krb5.so\tuse_first_pass use_authtok ");
+
+      if (conf->krb5_debug)
+        fprintf (fp, "debug ");
+      fprintf (fp, "\n");
+    }
+
+  if (conf->use_ldap)
+    {
+      fprintf (fp, "password\trequired\tpam_ldap.so\tuse_first_pass use_authtok ");
+      if (conf->ldap_debug)
+        fprintf (fp, "debug ");
+      fprintf (fp, "\n");
+    }
+
   fclose (fp);
 
   return 0;
