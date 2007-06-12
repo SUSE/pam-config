@@ -176,7 +176,13 @@ main (int argc, char *argv[])
       argv++;
     }
 
-  if (strcmp (argv[1], "-a") == 0 || strcmp (argv[1], "--add") == 0)
+
+  if (argc < 2)
+    {
+      print_error (program);
+      return 1;
+    }
+  else if (strcmp (argv[1], "-a") == 0 || strcmp (argv[1], "--add") == 0)
     {
       m_add = 1;
       argc--;
@@ -272,16 +278,17 @@ main (int argc, char *argv[])
 	{"nullok",    no_argument, NULL, 900 },
 	{"pam-debug", no_argument, NULL, 901 },
 	/* pam_pwcheck */
-	{"pwcheck",               no_argument,       NULL, 1000 },
-	{"pwcheck-debug",         no_argument,       NULL, 1001 },
-	{"pwcheck-nullok",        no_argument,       NULL, 1002 },
-	{"pwcheck-cracklib",      no_argument,       NULL, 1003 },
-	{"pwcheck-cracklib-path", required_argument, NULL, 1004 },
-	{"pwcheck-maxlen",   required_argument, NULL, 1005 },
-	{"pwcheck-minlen",   required_argument, NULL, 1006 },
-	{"pwcheck-tries",    required_argument, NULL, 1007 },
-	{"pwcheck-remember", required_argument, NULL, 1008 },
-	{"pwcheck-nisdir",   required_argument, NULL, 1009 },
+	{"pwcheck",                   no_argument,       NULL, 1000 },
+	{"pwcheck-debug",             no_argument,       NULL, 1001 },
+	{"pwcheck-nullok",            no_argument,       NULL, 1002 },
+	{"pwcheck-cracklib",          no_argument,       NULL, 1003 },
+	{"pwcheck-cracklib-path",     required_argument, NULL, 1004 },
+	{"pwcheck-maxlen",            required_argument, NULL, 1005 },
+	{"pwcheck-minlen",            required_argument, NULL, 1006 },
+	{"pwcheck-tries",             required_argument, NULL, 1007 },
+	{"pwcheck-remember",          required_argument, NULL, 1008 },
+	{"pwcheck-nisdir",            required_argument, NULL, 1009 },
+	{"pwcheck-no_obscure_checks", no_argument,       NULL, 1010 },
 	{"mkhomedir",        no_argument,       NULL, 1100 },
 	{"limits",           no_argument,       NULL, 1200 },
         {"env",              no_argument,       NULL, 1300 },
@@ -302,6 +309,7 @@ main (int argc, char *argv[])
 	{"ccreds",                no_argument,       NULL, 2000 },
 	{"pkcs11",                no_argument,       NULL, 2010 },
 	{"apparmor",              no_argument,       NULL, 2020 },
+	{"lum",                   no_argument,       NULL, 2030 },
         {"cracklib",              no_argument,       NULL, 2100 },
         {"cracklib-debug",        no_argument,       NULL, 2101 },
 	{"cracklib-dictpath",     required_argument, NULL, 2102 },
@@ -380,6 +388,9 @@ main (int argc, char *argv[])
 	  break;
 	case 1009:
 	  config_password.pwcheck_nisdir = optarg;
+	  break;
+	case 1010:
+	  config_password.pwcheck_no_obscure_checks = opt_val;
 	  break;
 	case 1100:
 	  if (m_query)
@@ -609,6 +620,23 @@ main (int argc, char *argv[])
 	      if (check_for_pam_module ("pam_apparmor.so", force) != 0)
 		return 1;
 	      config_auth.use_apparmor = opt_val;
+	    }
+	  break;
+	case 2030:
+	  /* pam_nam.so */
+	  if (m_query)
+	    {
+	      if (config_account.use_lum) printf ("account:\n");
+	      if (config_auth.use_lum) printf ("auth:\n");
+	      if (config_password.use_lum) printf ("password:\n");
+	      if (config_session.use_lum) printf ("session:\n");
+	    }
+	  else
+	    {
+
+	      if (check_for_pam_module ("pam_lum.so", force) != 0)
+		return 1;
+	      config_auth.use_lum = opt_val;
 	    }
 	  break;
 	case 2100:

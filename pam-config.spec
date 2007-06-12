@@ -14,7 +14,7 @@
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.7
+Version:        0.8
 Release:        1
 License:        GPL
 Autoreqprov:    on
@@ -88,15 +88,16 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
 
 %changelog -n pam-config
-* Thu Aug 24 2006 - kukuk@suse.de
-- Version 0.7:
-  - Add support for pam_cracklib.
-  - Add support for pam_apparmor.
-  - Fix stacking of pam_unix2 with pam_ldap.
-* Wed Aug 23 2006 - kukuk@suse.de
-- Fix stacking of modules, add query option for YaST2 (version 0.6)
-* Tue Aug 22 2006 - kukuk@suse.de
-- Bug fixes, add --update option (version 0.5)
+* Fri Aug 25 2006 - kukuk@suse.de 0.8
+- Add LUM support and no_obscure_checks option for pam_pwcheck
+* Thu Aug 24 2006 - kukuk@suse.de 0.7
+- Add support for pam_cracklib.
+- Add support for pam_apparmor.
+- Fix stacking of pam_unix2 with pam_ldap.
+* Wed Aug 23 2006 - kukuk@suse.de 0.6
+- Fix stacking of modules, add query option for YaST2
+* Tue Aug 22 2006 - kukuk@suse.de 0.5
+- Bug fixes, add --update option
 * Tue Aug 22 2006 - kukuk@suse.de
 - Add support for ccreds and pkcs11 (version 0.4)
 * Mon Aug 21 2006 - kukuk@suse.de

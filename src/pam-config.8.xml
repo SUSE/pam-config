@@ -201,6 +201,14 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>--pwcheck-no_obscure_checks</option></term>
+        <listitem>
+          <para>
+            Disable obscure checks of pam_pwcheck.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>--mkhomedir</option></term>
         <listitem>
           <para>
@@ -364,6 +372,14 @@
         <listitem>
           <para>
             Add pam_pkcs11.so before pam_unix2.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--apparmor</option></term>
+        <listitem>
+          <para>
+            Add pam_apparmore.so to session config.
           </para>
         </listitem>
       </varlistentry>

@@ -69,7 +69,7 @@ write_config_auth (const char *file, config_file_t *conf)
       fprintf (fp, "\n");
     }
 
-  if (conf->use_krb5 || conf->use_ldap)
+  if (conf->use_krb5 || conf->use_ldap || conf->use_lum)
     /* Only sufficient if other modules follow */
     fprintf (fp, "auth\tsufficient\tpam_unix2.so\t");
   else
@@ -86,7 +86,7 @@ write_config_auth (const char *file, config_file_t *conf)
     {
       if (conf->use_ccreds)
 	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_krb5.so\tuse_first_pass ");
-      else if (conf->use_ldap)
+      else if (conf->use_ldap || conf->use_lum)
 	fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
       else
 	fprintf (fp, "auth\trequired\tpam_krb5.so\tuse_first_pass ");
@@ -119,6 +119,9 @@ write_config_auth (const char *file, config_file_t *conf)
 	  fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
 	}
     }
+
+  if (conf->use_lum)
+    fprintf (fp, "auth\trequired\tpam_nam.so\tuse_first_pass\n");
 
   fclose (fp);
 

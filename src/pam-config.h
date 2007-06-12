@@ -29,6 +29,7 @@ struct config_file_t {
   int pwcheck_tries;
   int pwcheck_remember;
   char *pwcheck_nisdir;
+  int pwcheck_no_obscure_checks;
   /* pam_mkhomedir is session only.  */
   int use_mkhomedir;
   /* pam_limits is session only */
@@ -64,7 +65,10 @@ struct config_file_t {
   int cracklib_debug;
   int cracklib_retry;
   char *cracklib_dictpath;
+  /* pam_apparmor, used by session.  */
   int use_apparmor;
+  /* pam_nam, used by all types.  */
+  int use_lum;
 };
 typedef struct config_file_t config_file_t;
 

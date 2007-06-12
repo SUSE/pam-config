@@ -1,3 +1,29 @@
+2006-08-25  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* release version 0.8
+
+	* src/pam-config.8.xml: Document pwcheck-no_obscure_checks
+	and pam_apparmor.
+
+	* src/pam-config.c: Add no_obscure_checks support for pam_pwcheck.
+	* src/pam-config.h: Likewise.
+	* src/load_config.c (parse_pwcheck_options): Likewise.
+	* src/load_obsolete_conf.c (parse_option_pwcheck): Likewise.
+	* src/write_config_password.c (write_config_password): Likewise.
+
+	* src/print_module.c (print_module_pwcheck): Fix typo, add
+	no_obscure_checks.
+
+	* src/pam-config.c (main): Add support for LUM.
+	(main): Fix seg.fault if only --debug is given.
+
+	* src/pam-config.h: Likewise.
+	* src/load_config.c (load_config): Likewise.
+	* src/write_config_account.c (write_config_account): Likewise.
+	* src/write_config_auth.c (write_config_auth): Likewise.
+	* src/write_config_password.c (write_config_password): Likewise.
+	* src/write_config_session.c (write_config_session): Likewise.
+
 2006-08-24  Thorsten Kukuk  <kukuk@thkukuk.de>
 
 	* release version 0.7

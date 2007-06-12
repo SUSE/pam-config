@@ -76,6 +76,8 @@ write_config_password (const char *file, config_file_t *conf)
 	fprintf (fp, "tries=%d ", conf->pwcheck_tries);
       if (conf->pwcheck_remember)
 	fprintf (fp, "remember=%d ", conf->pwcheck_remember);
+      if (conf->pwcheck_no_obscure_checks)
+	fprintf (fp, "no_obscure_checks ");
       if (conf->pwcheck_nisdir)
 	fprintf (fp, "nisdir=%s ", conf->pwcheck_nisdir);
       fprintf (fp, "\n");
@@ -92,7 +94,7 @@ write_config_password (const char *file, config_file_t *conf)
       fprintf (fp, "\n");
     }
 
-  if (conf->use_krb5 || conf->use_ldap)
+  if (conf->use_krb5 || conf->use_ldap || conf->use_lum)
     fprintf (fp, "password\tsufficient\tpam_unix2.so\t");
   else
     fprintf (fp, "password\trequired\tpam_unix2.so\t");
@@ -116,7 +118,7 @@ write_config_password (const char *file, config_file_t *conf)
 
   if (conf->use_krb5)
     {
-      if (conf->use_ldap)
+      if (conf->use_ldap || conf->use_lum)
 	fprintf (fp, "password\tsufficient\tpam_krb5.so\tuse_authtok ");
       else
 	fprintf (fp, "password\trequired\tpam_krb5.so\tuse_authtok ");
@@ -133,6 +135,9 @@ write_config_password (const char *file, config_file_t *conf)
         fprintf (fp, "debug ");
       fprintf (fp, "\n");
     }
+
+  if (conf->use_lum)
+    fprintf (fp, "password\trequired\tpam_nam.so\ttry_first_pass\n");
 
   fclose (fp);
 

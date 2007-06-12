@@ -206,6 +206,8 @@ parse_option_pwcheck (const char *file, const char *service,
     { /* ignored */ }
   else if (strcasecmp (option, "use_authtok") == 0)
     { /* ignored */ }
+  else if (strcasecmp (option, "no_obscure_checks") == 0)
+    password->pwcheck_no_obscure_checks = 1;
   else if (strcasecmp (option, "md5") == 0)
     fprintf (stderr, _("Please use /etc/default/passwd to set 'md5' option\n"));
   else if (strcasecmp (option, "bigcrypt") == 0)

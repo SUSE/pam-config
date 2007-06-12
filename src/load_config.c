@@ -63,6 +63,8 @@ parse_pwcheck_options (config_file_t *conf, char *args)
 	{ /* will be ignored */ }
       else if (strcmp (cp, "use_authtok") == 0)
 	{ /* will be ignored */ }
+      else if (strcmp (cp, "no_obscure_checks") == 0)
+	conf->pwcheck_no_obscure_checks = 1;
       else
 	fprintf (stderr,
 		 _("Unknown option for pam_pwcheck.so, ignored: '%s'\n"),
@@ -346,6 +348,8 @@ load_config (const char *file, const char *wanted,
 	      if (arguments)
 		parse_cracklib_options (conf, arguments);
 	    }
+	  else if (strcmp (module, "pam_nam.so") == 0)
+	    conf->use_lum = 1;
 	  else if (strcmp (module, "pam_localuser.so") == 0)
 	    { /* ignore, used for account with pam_ldap.so */ }
 	  else

@@ -31,7 +31,7 @@ print_module_pwcheck (config_file_t *conf)
   if (!conf->use_pwcheck)
     return;
 
-  printf ("passwd:");
+  printf ("password:");
   if (conf->pwcheck_debug)
     printf (" debug");
   if (conf->pwcheck_nullok)
@@ -50,6 +50,8 @@ print_module_pwcheck (config_file_t *conf)
     printf (" remember=%d", conf->pwcheck_remember);
   if (conf->pwcheck_nisdir)
     printf (" nisdir=%s", conf->pwcheck_nisdir);
+  if (conf->pwcheck_no_obscure_checks)
+    printf( " no_obscure_checks");
   printf ("\n");
 }
 

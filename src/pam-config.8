@@ -1,11 +1,11 @@
 .\"     Title: pam\-config
 .\"    Author: 
 .\" Generator: DocBook XSL Stylesheets v1.70.1 <http://docbook.sf.net/>
-.\"      Date: 08/23/2006
+.\"      Date: 08/25/2006
 .\"    Manual: NIS Reference Manual
 .\"    Source: NIS Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "08/23/2006" "NIS Reference Manual" "NIS Reference Manual"
+.TH "PAM\-CONFIG" "8" "08/25/2006" "NIS Reference Manual" "NIS Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -96,6 +96,9 @@ Add
 \fBnisdir=\fR\fIpath\fR
 to pam_pwcheck.so.
 .TP 3n
+\fB\-\-pwcheck\-no_obscure_checks\fR
+Disable obscure checks of pam_pwcheck.so.
+.TP 3n
 \fB\-\-mkhomedir\fR
 Add pam_mkhomedir.so as first module to session section.
 .TP 3n
@@ -171,6 +174,9 @@ Add pam_ccreds.so after pam_ldap.so or pam_krb5.so.
 .TP 3n
 \fB\-\-pkcs11\fR
 Add pam_pkcs11.so before pam_unix2.so.
+.TP 3n
+\fB\-\-apparmor\fR
+Add pam_apparmore.so to session config.
 .SH "SEE ALSO"
 .PP
 
