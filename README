@@ -1,0 +1,4 @@
+
+pam-config is a tool to adjust the PAM config from a
+RPM post/pre install script.
+

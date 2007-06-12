@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+                   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+<refentry id='pam-config'>
+
+  <refmeta>
+    <refentrytitle>pam-config</refentrytitle>
+    <manvolnum>8</manvolnum>
+    <refmiscinfo class='setdesc'>NIS Reference Manual</refmiscinfo>
+  </refmeta>
+
+  <refnamediv id='name'>
+    <refname>pam-config</refname>
+    <refpurpose>create or dump a ypserv database file</refpurpose>
+  </refnamediv>
+
+<!-- body begins here -->
+  <refsynopsisdiv id='synopsis'>
+    <cmdsynopsis>
+      <command>pam-config</command>
+      <group choice='opt'><arg choice='plain'>-a</arg><arg choice='plain'>-c</arg><arg choice='plain'>-d</arg></group>
+    </cmdsynopsis>
+    <cmdsynopsis>
+      <command>pam-config</command>
+      <arg choice='plain'>--version </arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+
+  <refsect1 id='description'>
+    <title>DESCRIPTION</title>
+    <para>
+      <emphasis remap='B'>pam-config</emphasis> adjusts predefined
+      PAM config files.
+    </para>
+  </refsect1>
+
+  <refsect1 id='options'>
+    <title>OPTIONS</title>
+    <variablelist remap='TP'>
+      <varlistentry>
+        <term><option>-a</option>, <option>--add</option></term>
+        <listitem>
+          <para>
+            Add options or new PAM modules to existing PAM configuration files.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>-c</option>, <option>--create</option></term>
+        <listitem>
+          <para>
+            Create new PAM configuration files, overwriting
+            existing ones.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>-d</option>, <option>--delete</option></term>
+        <listitem>
+          <para>
+            Remove options or PAM modules from existing PAM configuration
+            files.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id='see_also'>
+    <title>SEE ALSO</title>
+    <para>
+      <citerefentry>
+        <refentrytitle>PAM</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>
+    </para>
+  </refsect1>
+
+  <refsect1 id='author'>
+    <title>AUTHOR</title>
+    <para>
+      <command>pam-config</command> was written by
+      Thorsten Kukuk &lt;kukuk@thkukuk.de&gt;.
+    </para>
+  </refsect1>
+</refentry>
