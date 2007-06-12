@@ -120,6 +120,8 @@ parse_krb5_options (config_file_t *conf, char *args)
 	{ /* will be ignored */ }
       else if (strcmp (cp, "use_authtok") == 0)
 	{ /* will be ignored */ }
+      else if (strncmp (cp, "minimum_uid=", 12) == 0)
+	conf->krb5_minuid = atoi (&cp[12]);
       else
 	fprintf (stderr,
 		 _("Unknown option for pam_krb5.so, ignored: '%s'\n"),
@@ -149,6 +151,32 @@ parse_ldap_options (config_file_t *conf, char *args)
       else
 	fprintf (stderr,
 		 _("Unknown option for pam_ldap.so, ignored: '%s'\n"),
+		 cp);
+    }
+  return;
+}
+
+static void
+parse_winbind_options (config_file_t *conf, char *args)
+{
+  while (args && strlen (args) > 0)
+    {
+      char *cp = strsep (&args, " \t");
+      if (args)
+	while (isspace ((int)*args))
+        ++args;
+
+      if (strcmp (cp, "debug") == 0)
+	conf->winbind_debug = 1;
+      else if (strcmp (cp, "try_first_pass") == 0)
+	{ /* will be ignored */ }
+      else if (strcmp (cp, "use_authtok") == 0)
+	{ /* will be ignored */ }
+      else if (strcmp (cp, "use_first_pass") == 0)
+	{ /* will be ignored */ }
+      else
+	fprintf (stderr,
+		 _("Unknown option for pam_winbind.so, ignored: '%s'\n"),
 		 cp);
     }
   return;
@@ -335,6 +363,12 @@ load_config (const char *file, const char *wanted,
 	      conf->use_ldap = 1;
 	      if (arguments)
 		parse_ldap_options (conf, arguments);
+	    }
+	  else if (strcmp (module, "pam_winbind.so") == 0)
+	    {
+	      conf->use_winbind = 1;
+	      if (arguments)
+		parse_winbind_options (conf, arguments);
 	    }
 	  else if (strcmp (module, "pam_ccreds.so") == 0)
 	    conf->use_ccreds = 1;

@@ -54,6 +54,14 @@ write_config_password (const char *file, config_file_t *conf)
 	   "# used to change user passwords.\n#\n");
 
 
+  if (conf->use_winbind)
+    {
+      fprintf (fp, "password\tsufficient\tpam_winbind.so\t");
+      if (conf->winbind_debug)
+        fprintf (fp, "debug ");
+      fprintf (fp, "\n");
+    }
+
   if (conf->use_pwcheck)
     {
       fprintf (fp, "password\trequisite\tpam_pwcheck.so\t");
@@ -125,6 +133,8 @@ write_config_password (const char *file, config_file_t *conf)
 
       if (conf->krb5_debug)
         fprintf (fp, "debug ");
+      if (conf->krb5_minuid)
+	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
       fprintf (fp, "\n");
     }
 

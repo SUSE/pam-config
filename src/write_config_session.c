@@ -77,6 +77,8 @@ write_config_session (const char *file, config_file_t *conf)
       fprintf (fp, "session\toptional\tpam_krb5.so\t");
       if (conf->krb5_debug)
 	fprintf (fp, "debug ");
+      if (conf->krb5_minuid)
+	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
       fprintf (fp, "\n");
     }
 
@@ -84,6 +86,14 @@ write_config_session (const char *file, config_file_t *conf)
     {
       fprintf (fp, "session\toptional\tpam_ldap.so\t");
       if (conf->ldap_debug)
+	fprintf (fp, "debug ");
+      fprintf (fp, "\n");
+    }
+
+  if (conf->use_winbind)
+    {
+      fprintf (fp, "session\trequired\tpam_winbind.so\t");
+      if (conf->winbind_debug)
 	fprintf (fp, "debug ");
       fprintf (fp, "\n");
     }

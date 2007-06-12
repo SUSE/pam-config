@@ -69,7 +69,8 @@ write_config_auth (const char *file, config_file_t *conf)
       fprintf (fp, "\n");
     }
 
-  if (conf->use_krb5 || conf->use_ldap || conf->use_lum)
+  if (conf->use_krb5 || conf->use_ldap || conf->use_lum ||
+      conf->use_winbind)
     /* Only sufficient if other modules follow */
     fprintf (fp, "auth\tsufficient\tpam_unix2.so\t");
   else
@@ -86,13 +87,15 @@ write_config_auth (const char *file, config_file_t *conf)
     {
       if (conf->use_ccreds)
 	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_krb5.so\tuse_first_pass ");
-      else if (conf->use_ldap || conf->use_lum)
+      else if (conf->use_ldap || conf->use_lum || conf->use_winbind)
 	fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
       else
 	fprintf (fp, "auth\trequired\tpam_krb5.so\tuse_first_pass ");
 
       if (conf->krb5_debug)
 	fprintf (fp, "debug ");
+      if (conf->krb5_minuid)
+	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
       fprintf (fp, "\n");
 
       if (conf->use_ccreds)
@@ -106,11 +109,13 @@ write_config_auth (const char *file, config_file_t *conf)
   if (conf->use_ldap)
     {
       if (conf->use_ccreds)
-	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_ldap.so\tuse_first_pass ");
+	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_ldap.so\tuse_first_pass");
+      else if (conf->use_winbind)
+	fprintf (fp, "auth\tsufficient\tpam_ldap.so\tuse_first_pass");
       else
-	fprintf (fp, "auth\trequired\tpam_ldap.so\tuse_first_pass ");
+	fprintf (fp, "auth\trequired\tpam_ldap.so\tuse_first_pass");
       if (conf->ldap_debug)
-	fprintf (fp, "debug ");
+	fprintf (fp, " debug");
       fprintf (fp, "\n");
       if (conf->use_ccreds)
 	{
@@ -122,6 +127,9 @@ write_config_auth (const char *file, config_file_t *conf)
 
   if (conf->use_lum)
     fprintf (fp, "auth\trequired\tpam_nam.so\tuse_first_pass\n");
+
+  if (conf->use_winbind)
+    fprintf (fp, "auth\trequired\tpam_winbind.so\tuse_first_pass\n");
 
   fclose (fp);
 

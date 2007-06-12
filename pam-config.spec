@@ -14,11 +14,12 @@
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.8
+Version:        0.9
 Release:        1
 License:        GPL
 Autoreqprov:    on
-PreReq:         pam >= 0.99 pam-modules >= 10.2
+PreReq:         pam >= 0.99
+Requires:       pam-modules >= 10.2
 Prefix:         %{_prefix}
 Group:          System/Management
 Source:         %{name}-%{version}.tar.bz2
@@ -88,6 +89,10 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
 
 %changelog -n pam-config
+* Fri Aug 25 2006 - kukuk@suse.de 0.9
+- Add pam_winbind support
+- Rename pam_krb5afs to pam_krb5 if we find it
+- Support minimum_uid for pam_krb5
 * Fri Aug 25 2006 - kukuk@suse.de 0.8
 - Add LUM support and no_obscure_checks option for pam_pwcheck
 * Thu Aug 24 2006 - kukuk@suse.de 0.7

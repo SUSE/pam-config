@@ -1,5 +1,32 @@
 2006-08-25  Thorsten Kukuk  <kukuk@thkukuk.de>
 
+	* release version 0.9
+
+	* src/pam-config.c (main): Add support for pam_winbind.so.
+	* src/pam-config.h: Likewise.
+	* src/load_config.c: Likewise.
+	* src/load_obsolete_conf.c (parse_option_unix2): Likewise.
+	* src/pam-config.h (print_module_winbind): Likewise.
+	* src/print_module.c (print_module_winbind): Likewise.
+	* src/write_config_auth.c (write_config_auth): Likewise.
+	* src/write_config_password.c (write_config_password): Likewise.
+	* src/write_config_session.c (write_config_session): Likewise.
+	* src/write_config_account.c (write_config_account): Likewise.
+
+	* src/load_obsolete_conf.c (parse_option_unix2): Handle krb5afs
+	as krb5.
+
+	* src/pam-config.c (main): Add minimum_uid for krb5.
+	* src/pam-config.h: Likewise.
+	* src/load_config.c (parse_krb5_options): Likewise.
+	* src/print_module.c (print_module_krb5_int): Likewise.
+	* src/write_config_account.c (write_config_account): Likewise.
+	* src/write_config_auth.c (write_config_auth): Likewise.
+	* src/write_config_password.c (write_config_password): Likewise.
+	* src/write_config_session.c (write_config_session): Likewise.
+
+2006-08-25  Thorsten Kukuk  <kukuk@thkukuk.de>
+
 	* release version 0.8
 
 	* src/pam-config.8.xml: Document pwcheck-no_obscure_checks

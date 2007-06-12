@@ -304,6 +304,7 @@ main (int argc, char *argv[])
 	{"bioapi-options",   required_argument, NULL, 1701 },
 	{"krb5",             no_argument,       NULL, 1800 },
 	{"krb5-debug",       no_argument,       NULL, 1801 },
+	{"krb5-minimum_uid", required_argument, NULL, 1802 },
 	{"ldap",             no_argument,       NULL, 1900 },
 	{"ldap-debug",       no_argument,       NULL, 1901 },
 	{"ccreds",                no_argument,       NULL, 2000 },
@@ -314,9 +315,11 @@ main (int argc, char *argv[])
         {"cracklib-debug",        no_argument,       NULL, 2101 },
 	{"cracklib-dictpath",     required_argument, NULL, 2102 },
 	{"cracklib-retry",        required_argument, NULL, 2103 },
-	{"debug",   no_argument, NULL, '\254' },
-        {"help",    no_argument, NULL, '\255' },
-        {NULL,      0,           NULL, '\0'}
+	{"winbind",               no_argument,       NULL, 2200 },
+	{"winbind-debug",         no_argument,       NULL, 2201 },
+	{"debug",                 no_argument,       NULL, '\254' },
+        {"help",                  no_argument,       NULL, '\255' },
+        {NULL,                    0,                 NULL, '\0'}
       };
 
       c = getopt_long (argc, argv, "fvu",
@@ -349,6 +352,10 @@ main (int argc, char *argv[])
 	  config_password.ldap_debug = opt_val;
 	  config_session.ldap_debug = opt_val;
 	  config_password.cracklib_debug = opt_val;
+	  config_account.winbind_debug = opt_val;
+	  config_auth.winbind_debug = opt_val;
+	  config_password.winbind_debug = opt_val;
+	  config_session.winbind_debug = opt_val;
 	  break;
 	/* pam_pwcheck */
 	case 1000:
@@ -557,6 +564,22 @@ main (int argc, char *argv[])
 	  config_password.krb5_debug = opt_val;
 	  config_session.krb5_debug = opt_val;
 	  break;
+	case 1802:
+	  if (m_delete)
+	    {
+	      config_account.krb5_minuid = 0;
+	      config_auth.krb5_minuid = 0;
+	      config_password.krb5_minuid = 0;
+	      config_session.krb5_minuid = 0;
+	    }
+	  else
+	    {
+	      config_account.krb5_minuid = atoi (optarg);
+	      config_auth.krb5_minuid = atoi (optarg);
+	      config_password.krb5_minuid = atoi (optarg);
+	      config_session.krb5_minuid = atoi (optarg);
+	    }
+	  break;
 	case 1900:
 	  /* pam_ldap */
 	  if (m_query)
@@ -659,6 +682,27 @@ main (int argc, char *argv[])
 	case 2103:
 	  config_password.cracklib_retry = atoi (optarg);
 	  break;
+	case 2200:
+	  /* pam_winbind */
+	  if (m_query)
+	    print_module_winbind (&config_account, &config_auth,
+				  &config_password, &config_session);
+	  else
+	    {
+	      if (check_for_pam_module ("pam_winbind.so", force) != 0)
+		return 1;
+	      config_account.use_winbind = opt_val;
+	      config_auth.use_winbind = opt_val;
+	      config_password.use_winbind = opt_val;
+	      config_session.use_winbind = opt_val;
+	    }
+	  break;
+	case 2201:
+	  config_account.winbind_debug = opt_val;
+	  config_auth.winbind_debug = opt_val;
+	  config_password.winbind_debug = opt_val;
+	  config_session.winbind_debug = opt_val;
+	  break;
 	case '\254':
 	  debug = 1;
 	  break;
@@ -701,6 +745,8 @@ main (int argc, char *argv[])
     {
       /* Write account section.  */
       config_account.use_unix2 = 1;
+      if (sanitize_check_account (&config_account) != 0)
+	return 1;
       if (write_config_account (CONF_ACCOUNT_PC, &config_account) != 0)
 	return 1;
 
@@ -728,6 +774,8 @@ main (int argc, char *argv[])
       config_session.use_unix2 = 1;
       config_session.use_limits = 1;
       config_session.use_env = 1;
+      if (sanitize_check_session (&config_session) != 0)
+	return 1;
       if (write_config_session (CONF_SESSION_PC, &config_session) != 0)
 	return 1;
     }

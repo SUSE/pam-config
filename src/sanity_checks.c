@@ -58,6 +58,12 @@ check_for_pam_module (const char *name, int force)
 }
 
 int
+sanitize_check_account (config_file_t *conf __attribute__((unused)))
+{
+  return 0;
+}
+
+int
 sanitize_check_auth (config_file_t *conf)
 {
   if (conf->use_ccreds && !conf->use_ldap && !conf->use_krb5)
@@ -88,5 +94,11 @@ sanitize_check_password (config_file_t *conf)
 	       _("ERROR: pam_make.so does not work with LDAP or Kerberos5.\n"));
       retval = 1;
     }
+  return 0;
+}
+
+int
+sanitize_check_session (config_file_t *conf __attribute__((unused)))
+{
   return 0;
 }

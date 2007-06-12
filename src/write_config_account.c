@@ -54,7 +54,7 @@ write_config_account (const char *file, config_file_t *conf)
 	   "# the central access policy for use on the system.  The default is to\n"
 	   "# only deny service to users whose accounts are expired.\n#\n");
 
-  if (conf->use_krb5 || conf->use_ldap || conf->use_lum)
+  if (conf->use_krb5 || conf->use_ldap || conf->use_lum || conf->use_winbind)
     fprintf (fp, "account\trequisite\tpam_unix2.so\t");
   else
     fprintf (fp, "account\trequired\tpam_unix2.so\t");
@@ -66,28 +66,36 @@ write_config_account (const char *file, config_file_t *conf)
 
   if (conf->use_krb5)
     {
-      if (conf->use_ldap || conf->use_lum)
+      if (conf->use_ldap || conf->use_lum || conf->use_winbind)
 	fprintf (fp, "account\trequisite\tpam_krb5.so\tuse_first_pass ");
       else
 	fprintf (fp, "account\trequired\tpam_krb5.so\tuse_first_pass ");
       if (conf->krb5_debug)
         fprintf (fp, "debug ");
+      if (conf->krb5_minuid)
+	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
       fprintf (fp, "\n");
     }
 
-  if (conf->use_ldap || conf->use_lum)
+  if (conf->use_ldap || conf->use_lum || conf->use_winbind)
     fprintf (fp, "account\tsufficient\tpam_localuser.so\n");
 
   if (conf->use_ldap)
     {
-      fprintf (fp, "account\trequired\tpam_ldap.so\tuse_first_pass ");
+      if (conf->use_winbind)
+	fprintf (fp, "account\tsufficient\tpam_ldap.so\tuse_first_pass");
+      else
+	fprintf (fp, "account\trequired\tpam_ldap.so\tuse_first_pass");
       if (conf->ldap_debug)
-        fprintf (fp, "debug ");
+        fprintf (fp, " debug");
       fprintf (fp, "\n");
     }
 
   if (conf->use_lum)
     fprintf (fp, "account\trequired\tpam_nam.so\tuse_first_pass\n");
+
+  if (conf->use_winbind)
+    fprintf (fp, "account\trequired\tpam_winbind.so\tuse_first_pass\n");
 
   fclose (fp);
 

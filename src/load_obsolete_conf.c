@@ -119,7 +119,7 @@ parse_option_unix2 (const char *file, const char *service,
 	      else
 		fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
 	    }
-	  else if (strcmp (cp, "krb5") == 0)
+	  else if (strcmp (cp, "krb5") == 0 || strcmp (cp, "krb5afs") == 0)
 	    {
 	      if (strcmp (service, "auth") == 0)
 		auth->use_krb5 = 1;
@@ -129,6 +129,19 @@ parse_option_unix2 (const char *file, const char *service,
 		password->use_krb5 = 1;
 	      else if (strcmp (service, "session") == 0)
 		session->use_krb5 = 1;
+	      else
+		fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
+	    }
+	  else if (strcmp (cp, "winbind") == 0)
+	    {
+	      if (strcmp (service, "auth") == 0)
+		auth->use_winbind = 1;
+	      else if (strcmp (service, "account") == 0)
+		account->use_winbind = 1;
+	      else if (strcmp (service, "password") == 0)
+		password->use_winbind = 1;
+	      else if (strcmp (service, "session") == 0)
+		session->use_winbind = 1;
 	      else
 		fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
 	    }

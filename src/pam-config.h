@@ -17,6 +17,8 @@
 #ifndef _PAM_CONFIG_H_
 #define _PAM_CONFIG_H_ 1
 
+#include <stdint.h>
+
 struct config_file_t {
   /* pam_pwcheck is password only.  */
   int use_pwcheck;
@@ -53,6 +55,7 @@ struct config_file_t {
   /* pam_krb5, used by all types.  */
   int use_krb5;
   int krb5_debug;
+  uint32_t krb5_minuid;
   /* pam_ldap, used by all types.  */
   int use_ldap;
   int ldap_debug;
@@ -69,6 +72,9 @@ struct config_file_t {
   int use_apparmor;
   /* pam_nam, used by all types.  */
   int use_lum;
+  /* pam_winbind, used by all types.  */
+  int use_winbind;
+  int winbind_debug;
 };
 typedef struct config_file_t config_file_t;
 
@@ -83,8 +89,10 @@ int write_config_auth (const char *file, config_file_t *conf);
 int write_config_password (const char *file, config_file_t *conf);
 int write_config_session (const char *file, config_file_t *conf);
 
+int sanitize_check_account (config_file_t *conf);
 int sanitize_check_auth (config_file_t *conf);
 int sanitize_check_password (config_file_t *conf);
+int sanitize_check_session (config_file_t *conf);
 int check_for_pam_module (const char *name, int force);
 
 void print_module_pwcheck (config_file_t *conf);
@@ -93,9 +101,11 @@ void print_module_unix2 (config_file_t *account, config_file_t *auth,
 			 config_file_t *password, config_file_t *session);
 void print_module_krb5 (config_file_t *account, config_file_t *auth,
                         config_file_t *password, config_file_t *session);
+void print_module_krb5afs (config_file_t *account, config_file_t *auth,
+			   config_file_t *password, config_file_t *session);
 void print_module_ldap (config_file_t *account, config_file_t *auth,
                         config_file_t *password, config_file_t *session);
-
-
+void print_module_winbind (config_file_t *account, config_file_t *auth,
+			   config_file_t *password, config_file_t *session);
 
 #endif

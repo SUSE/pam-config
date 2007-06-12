@@ -4,6 +4,10 @@ Copyright (C) 2006 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.9:
+* Support minimum_uid option of pam_krb5.so
+* Rename pam_krb5afs.so to pam_krb5.so
+
 Version 0.8:
 * Add pam_nam.so support (LUM)
 * Add no_obscure_checks for pam_pwcheck.so
