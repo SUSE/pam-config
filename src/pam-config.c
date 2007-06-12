@@ -86,7 +86,6 @@ check_symlink (const char *old, const char *new)
 {
   if (access (new, F_OK) == -1)
     {
-      printf ("Hello (%m)\n");
       if (symlink (old, new) != 0)
 	{
 	  fprintf (stderr,
@@ -103,8 +102,8 @@ check_symlink (const char *old, const char *new)
       char buf[1024];
 
       memset (&buf, 0, sizeof (buf));
-      readlink (new, buf, sizeof (buf));
-      if (strcmp (old, buf) != 0)
+      if (readlink (new, buf, sizeof (buf)) <= 0 ||
+          strcmp (old, buf) != 0)
 	{
 	  fprintf (stderr,
 		   _("File %s is no symlink to %s.\n"), new, old);
@@ -122,6 +121,7 @@ main (int argc, char *argv[])
 {
   const char *program = "pam-config";
   int m_add = 0, m_create = 0, m_delete = 0, m_init = 0;
+  int force = 0;
   int opt_val = 1;
   int retval = 0;
   config_file_t config_account, config_auth,
@@ -230,6 +230,7 @@ main (int argc, char *argv[])
       static struct option long_options[] = {
         {"version",   no_argument, NULL, 'v' },
         {"usage",     no_argument, NULL, 'u' },
+        {"force",     no_argument, NULL, 'f' },
 	{"nullok",    no_argument, NULL, 900 },
 	{"pam-debug", no_argument, NULL, 901 },
 	/* pam_pwcheck */
@@ -252,6 +253,7 @@ main (int argc, char *argv[])
         {"unix2",            no_argument,       NULL, 1600 },
         {"unix2-debug",      no_argument,       NULL, 1601 },
         {"unix2-nullok",     no_argument,       NULL, 1602 },
+        {"unix2-trace",      no_argument,       NULL, 1603 },
 	{"bioapi",           no_argument,       NULL, 1700 },
 	{"bioapi-options",   required_argument, NULL, 1701 },
 	{"debug",   no_argument, NULL, '\254' },
@@ -259,13 +261,16 @@ main (int argc, char *argv[])
         {NULL,      0,           NULL, '\0'}
       };
 
-      c = getopt_long (argc, argv, "vu",
+      c = getopt_long (argc, argv, "fvu",
                        long_options, &option_index);
 
       if (c == (-1))
         break;
       switch (c)
 	{
+	case 'f':
+	  force = 1;
+	  break;
 	case 900: /* --nullok */
 	  config_auth.unix2_nullok = opt_val;
 	  config_password.pwcheck_nullok = opt_val;
@@ -345,6 +350,9 @@ main (int argc, char *argv[])
 	  config_password.unix2_nullok = opt_val;
 	  config_session.unix2_nullok = opt_val;
 	  break;
+        case 1603:
+          config_session.unix2_trace = opt_val;
+          break;
 	case 1700:
 	  config_auth.use_bioapi = opt_val;
 	  break;
@@ -444,63 +452,107 @@ main (int argc, char *argv[])
 	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_SESSION_PC);
 	  return 1;
 	}
+    }
 
-      if (m_init)
+  if (m_init || (m_create && force))
+    {
+      if (link (CONF_ACCOUNT, CONF_ACCOUNT".pam-config-backup") != 0 ||
+	  unlink (CONF_ACCOUNT) != 0 ||
+	  symlink (CONF_ACCOUNT_PC, CONF_ACCOUNT) != 0)
 	{
-	  if (link (CONF_ACCOUNT, CONF_ACCOUNT".pam-config-backup") != 0 ||
-	      unlink (CONF_ACCOUNT) != 0 ||
-	      symlink (CONF_ACCOUNT_PC, CONF_ACCOUNT) != 0)
-	    {
-	      fprintf (stderr,
-		       _("Error activating %s (%m)\n"), CONF_ACCOUNT);
-	      fprintf (stderr,
-		       _("New config from %s is not in use!\n"), CONF_ACCOUNT_PC);
-	      retval = 1;
-	    }
+	  fprintf (stderr,
+		   _("Error activating %s (%m)\n"), CONF_ACCOUNT);
+	  fprintf (stderr,
+		   _("New config from %s is not in use!\n"), CONF_ACCOUNT_PC);
+	  retval = 1;
+	}
 
-	  if (link (CONF_AUTH, CONF_AUTH".pam-config-backup") != 0 ||
-	      unlink (CONF_AUTH) != 0 ||
-	      symlink (CONF_AUTH_PC, CONF_AUTH) != 0)
-	    {
-	      fprintf (stderr,
-		       _("Error activating %s (%m)\n"), CONF_AUTH);
-	      fprintf (stderr,
-		       _("New config from %s is not in use!\n"), CONF_AUTH_PC);
-	      retval = 1;
-	    }
+      if (link (CONF_AUTH, CONF_AUTH".pam-config-backup") != 0 ||
+	  unlink (CONF_AUTH) != 0 ||
+	  symlink (CONF_AUTH_PC, CONF_AUTH) != 0)
+	{
+	  fprintf (stderr,
+		   _("Error activating %s (%m)\n"), CONF_AUTH);
+	  fprintf (stderr,
+		   _("New config from %s is not in use!\n"), CONF_AUTH_PC);
+	  retval = 1;
+	}
 
-	  if (link (CONF_PASSWORD, CONF_PASSWORD".pam-config-backup") != 0 ||
-	      unlink (CONF_PASSWORD) != 0 ||
-	      symlink (CONF_PASSWORD_PC, CONF_PASSWORD) != 0)
-	    {
-	      fprintf (stderr,
-		       _("Error activating %s (%m)\n"), CONF_PASSWORD);
-	      fprintf (stderr,
-		       _("New config from %s is not in use!\n"),
-		       CONF_PASSWORD_PC);
-	      retval = 1;
-	    }
+      if (link (CONF_PASSWORD, CONF_PASSWORD".pam-config-backup") != 0 ||
+	  unlink (CONF_PASSWORD) != 0 ||
+	  symlink (CONF_PASSWORD_PC, CONF_PASSWORD) != 0)
+	{
+	  fprintf (stderr,
+		   _("Error activating %s (%m)\n"), CONF_PASSWORD);
+	  fprintf (stderr,
+		   _("New config from %s is not in use!\n"),
+		   CONF_PASSWORD_PC);
+	  retval = 1;
+	}
 
-	  if (link (CONF_SESSION, CONF_SESSION".pam-config-backup") != 0 ||
-	      unlink (CONF_SESSION) != 0 ||
-	      symlink (CONF_SESSION_PC, CONF_SESSION) != 0)
-	    {
-	      fprintf (stderr,
-		       _("Error activating %s (%m)\n"), CONF_SESSION);
-	      fprintf (stderr,
-		       _("New config from %s is not in use!\n"),
-		       CONF_SESSION_PC);
-	      retval = 1;
-	    }
+      if (link (CONF_SESSION, CONF_SESSION".pam-config-backup") != 0 ||
+	  unlink (CONF_SESSION) != 0 ||
+	  symlink (CONF_SESSION_PC, CONF_SESSION) != 0)
+	{
+	  fprintf (stderr,
+		   _("Error activating %s (%m)\n"), CONF_SESSION);
+	  fprintf (stderr,
+		   _("New config from %s is not in use!\n"),
+		   CONF_SESSION_PC);
+	  retval = 1;
+	}
 
-	  if (retval == 0)
-	    {
-	      rename ("/etc/security/pam_pwcheck.conf",
-		      "/etc/security/pam_pwcheck.conf.pam-config-backup");
-	      rename ("/etc/security/pam_unix2.conf",
-		      "/etc/security/pam_unix2.conf.pam-config-backup");
-	    }
-	  return retval;
+      if (m_init && retval == 0)
+	{
+	  rename ("/etc/security/pam_pwcheck.conf",
+		  "/etc/security/pam_pwcheck.conf.pam-config-backup");
+	  rename ("/etc/security/pam_unix2.conf",
+		  "/etc/security/pam_unix2.conf.pam-config-backup");
+	}
+      return retval;
+    }
+  else if (force)
+    {
+      if (unlink (CONF_ACCOUNT) != 0 ||
+	  symlink (CONF_ACCOUNT_PC, CONF_ACCOUNT) != 0)
+	{
+	  fprintf (stderr,
+		   _("Error activating %s (%m)\n"), CONF_ACCOUNT);
+	  fprintf (stderr,
+		   _("New config from %s is not in use!\n"), CONF_ACCOUNT_PC);
+	  retval = 1;
+	}
+
+      if (unlink (CONF_AUTH) != 0 ||
+	  symlink (CONF_AUTH_PC, CONF_AUTH) != 0)
+	{
+	  fprintf (stderr,
+		   _("Error activating %s (%m)\n"), CONF_AUTH);
+	  fprintf (stderr,
+		   _("New config from %s is not in use!\n"), CONF_AUTH_PC);
+	  retval = 1;
+	}
+
+      if (unlink (CONF_PASSWORD) != 0 ||
+	  symlink (CONF_PASSWORD_PC, CONF_PASSWORD) != 0)
+	{
+	  fprintf (stderr,
+		   _("Error activating %s (%m)\n"), CONF_PASSWORD);
+	  fprintf (stderr,
+		   _("New config from %s is not in use!\n"),
+		   CONF_PASSWORD_PC);
+	  retval = 1;
+	}
+
+      if (unlink (CONF_SESSION) != 0 ||
+	  symlink (CONF_SESSION_PC, CONF_SESSION) != 0)
+	{
+	  fprintf (stderr,
+		   _("Error activating %s (%m)\n"), CONF_SESSION);
+	  fprintf (stderr,
+		   _("New config from %s is not in use!\n"),
+		   CONF_SESSION_PC);
+	  retval = 1;
 	}
     }
 

@@ -19,7 +19,8 @@
   <refsynopsisdiv id='synopsis'>
     <cmdsynopsis>
       <command>pam-config</command>
-      <group choice='opt'><arg choice='plain'>-a</arg><arg choice='plain'>-c</arg><arg choice='plain'>-d</arg></group>
+      <arg choice='opt'>--debug</arg>
+      <group choice='plain'><arg choice='plain'>-a</arg><arg choice='plain'>-c</arg><arg choice='plain'>-d</arg></group><arg choice='opt'>...</arg>
     </cmdsynopsis>
     <cmdsynopsis>
       <command>pam-config</command>
@@ -40,6 +41,14 @@
     <title>OPTIONS</title>
     <variablelist remap='TP'>
       <varlistentry>
+        <term><option>--debug</option></term>
+        <listitem>
+          <para>
+            Print debug messages.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>-a</option>, <option>--add</option></term>
         <listitem>
           <para>
@@ -51,8 +60,8 @@
         <term><option>-c</option>, <option>--create</option></term>
         <listitem>
           <para>
-            Create new PAM configuration files, overwriting
-            existing ones.
+            Create new PAM configuration files for plain UNIX authentication,
+            overwriting existing ones.
           </para>
         </listitem>
       </varlistentry>
@@ -65,6 +74,223 @@
           </para>
         </listitem>
       </varlistentry>
+      <varlistentry>
+        <term><option>-f</option>, <option>--force</option></term>
+        <listitem>
+          <para>
+            The new configuration will be activated regardless if there
+            are other local changes.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pam-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> to all modules which supports
+            this.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--nullok</option></term>
+        <listitem>
+          <para>
+            Add <option>nullok</option> to all modules which supports
+            this.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck</option></term>
+        <listitem>
+          <para>
+            Enable/Disable pam_pwcheck.so module in password section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> option to all pam_pwcheck.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck-nullok</option></term>
+        <listitem>
+          <para>
+            Add <option>nullok</option> option to all pam_pwcheck.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck-cracklib</option></term>
+        <listitem>
+          <para>
+            Enable cracklib support of pam_pwcheck.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck-cracklib-path</option></term>
+        <listitem>
+          <para>
+            Specify path where pam_pwcheck.so can find the cracklib
+            dictionaries.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck-maxlen=</option><replaceable>N</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>maxlen=</option><replaceable>N</replaceable>
+            to pam_pwcheck.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck-minlen=</option><replaceable>N</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>minlen=</option><replaceable>N</replaceable>
+            to pam_pwcheck.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck-tries=</option><replaceable>N</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>tries=</option><replaceable>N</replaceable>
+            to pam_pwcheck.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck-remember=</option><replaceable>N</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>remember=</option><replaceable>N</replaceable>
+            to pam_pwcheck.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--pwcheck-nisdir=</option><replaceable>path</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>nisdir=</option><replaceable>path</replaceable>
+            to pam_pwcheck.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--mkhomedir</option></term>
+        <listitem>
+          <para>
+            Add pam_mkhomedir.so as first module to session section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--limits</option></term>
+        <listitem>
+          <para>
+            Add pam_limits.so to session section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--env</option></term>
+        <listitem>
+          <para>
+            Add pam_env.so as optional module to session section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--xauth</option></term>
+        <listitem>
+          <para>
+            Add pam_xauth.so as required module to session section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--make</option></term>
+        <listitem>
+          <para>
+            Add pam_make.so as last module to password section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--make-dir=</option><replaceable>path</replaceable></term>
+        <listitem>
+          <para>
+            Add <replaceable>path</replaceable> as argument for pam_make.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix2</option></term>
+        <listitem>
+          <para>
+            Use pam_unix2.so as standard UNIX PAM module.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix2-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> option to all pam_unix2.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix2-nullok</option></term>
+        <listitem>
+          <para>
+            Add <option>nullok</option> option to all pam_unix2.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix2-trace</option></term>
+        <listitem>
+          <para>
+            Add <option>trace</option> option to pam_unix2.so
+            in session section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--bioapi</option></term>
+        <listitem>
+          <para>
+            Add pam_bioapi.so as sufficient module before pam_unix2.so
+            to auth section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--bioapi=</option><replaceable>option</replaceable></term>
+        <listitem>
+          <para>
+            Add <replaceable>option</replaceable> as argument for
+            pam_bioapi.so.
+          </para>
+        </listitem>
+      </varlistentry>
+
     </variablelist>
   </refsect1>
 
@@ -73,6 +299,27 @@
     <para>
       <citerefentry>
         <refentrytitle>PAM</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>pam_unix2</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>pam_pwcheck</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>pam_mkhomedir</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>pam_limits</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>pam_env</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>pam_xauth</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>pam_make</refentrytitle><manvolnum>8</manvolnum>
       </citerefentry>
     </para>
   </refsect1>

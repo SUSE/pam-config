@@ -1,2 +1,7 @@
-# List of source files which contain translatable strings.
+src/load_config.c
+src/load_obsolete_conf.c
 src/pam-config.c
+src/write_config_account.c
+src/write_config_auth.c
+src/write_config_password.c
+src/write_config_session.c

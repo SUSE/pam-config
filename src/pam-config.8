@@ -1,11 +1,11 @@
 .\"     Title: pam\-config
 .\"    Author: 
 .\" Generator: DocBook XSL Stylesheets v1.70.1 <http://docbook.sf.net/>
-.\"      Date: 08/20/2006
+.\"      Date: 08/21/2006
 .\"    Manual: NIS Reference Manual
 .\"    Source: NIS Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "08/20/2006" "NIS Reference Manual" "NIS Reference Manual"
+.TH "PAM\-CONFIG" "8" "08/21/2006" "NIS Reference Manual" "NIS Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -14,7 +14,7 @@
 pam\-config \- create or dump a ypserv database file
 .SH "SYNOPSIS"
 .HP 11
-\fBpam\-config\fR [\-a | \-c | \-d]
+\fBpam\-config\fR [\-\-debug] \-a | \-c | \-d  [...]
 .HP 11
 \fBpam\-config\fR \-\-version
 .SH "DESCRIPTION"
@@ -24,18 +24,131 @@ pam\-config \- create or dump a ypserv database file
 adjusts predefined PAM config files.
 .SH "OPTIONS"
 .TP 3n
+\fB\-\-debug\fR
+Print debug messages.
+.TP 3n
 \fB\-a\fR, \fB\-\-add\fR
 Add options or new PAM modules to existing PAM configuration files.
 .TP 3n
 \fB\-c\fR, \fB\-\-create\fR
-Create new PAM configuration files, overwriting existing ones.
+Create new PAM configuration files for plain UNIX authentication, overwriting existing ones.
 .TP 3n
 \fB\-d\fR, \fB\-\-delete\fR
 Remove options or PAM modules from existing PAM configuration files.
+.TP 3n
+\fB\-f\fR, \fB\-\-force\fR
+The new configuration will be activated regardless if there are other local changes.
+.TP 3n
+\fB\-\-pam\-debug\fR
+Add
+\fBdebug\fR
+to all modules which supports this.
+.TP 3n
+\fB\-\-nullok\fR
+Add
+\fBnullok\fR
+to all modules which supports this.
+.TP 3n
+\fB\-\-pwcheck\fR
+Enable/Disable pam_pwcheck.so module in password section.
+.TP 3n
+\fB\-\-pwcheck\-debug\fR
+Add
+\fBdebug\fR
+option to all pam_pwcheck.so invocations.
+.TP 3n
+\fB\-\-pwcheck\-nullok\fR
+Add
+\fBnullok\fR
+option to all pam_pwcheck.so invocations.
+.TP 3n
+\fB\-\-pwcheck\-cracklib\fR
+Enable cracklib support of pam_pwcheck.so.
+.TP 3n
+\fB\-\-pwcheck\-cracklib\-path\fR
+Specify path where pam_pwcheck.so can find the cracklib dictionaries.
+.TP 3n
+\fB\-\-pwcheck\-maxlen=\fR\fIN\fR
+Add
+\fBmaxlen=\fR\fIN\fR
+to pam_pwcheck.so.
+.TP 3n
+\fB\-\-pwcheck\-minlen=\fR\fIN\fR
+Add
+\fBminlen=\fR\fIN\fR
+to pam_pwcheck.so.
+.TP 3n
+\fB\-\-pwcheck\-tries=\fR\fIN\fR
+Add
+\fBtries=\fR\fIN\fR
+to pam_pwcheck.so.
+.TP 3n
+\fB\-\-pwcheck\-remember=\fR\fIN\fR
+Add
+\fBremember=\fR\fIN\fR
+to pam_pwcheck.so.
+.TP 3n
+\fB\-\-pwcheck\-nisdir=\fR\fIpath\fR
+Add
+\fBnisdir=\fR\fIpath\fR
+to pam_pwcheck.so.
+.TP 3n
+\fB\-\-mkhomedir\fR
+Add pam_mkhomedir.so as first module to session section.
+.TP 3n
+\fB\-\-limits\fR
+Add pam_limits.so to session section.
+.TP 3n
+\fB\-\-env\fR
+Add pam_env.so as optional module to session section.
+.TP 3n
+\fB\-\-xauth\fR
+Add pam_xauth.so as required module to session section.
+.TP 3n
+\fB\-\-make\fR
+Add pam_make.so as last module to password section.
+.TP 3n
+\fB\-\-make\-dir=\fR\fIpath\fR
+Add
+\fIpath\fR
+as argument for pam_make.so.
+.TP 3n
+\fB\-\-unix2\fR
+Use pam_unix2.so as standard UNIX PAM module.
+.TP 3n
+\fB\-\-unix2\-debug\fR
+Add
+\fBdebug\fR
+option to all pam_unix2.so invocations.
+.TP 3n
+\fB\-\-unix2\-nullok\fR
+Add
+\fBnullok\fR
+option to all pam_unix2.so invocations.
+.TP 3n
+\fB\-\-unix2\-trace\fR
+Add
+\fBtrace\fR
+option to pam_unix2.so in session section.
+.TP 3n
+\fB\-\-bioapi\fR
+Add pam_bioapi.so as sufficient module before pam_unix2.so to auth section.
+.TP 3n
+\fB\-\-bioapi=\fR\fIoption\fR
+Add
+\fIoption\fR
+as argument for pam_bioapi.so.
 .SH "SEE ALSO"
 .PP
 
-\fBPAM\fR(8)
+\fBPAM\fR(8),
+\fBpam_unix2\fR(8),
+\fBpam_pwcheck\fR(8),
+\fBpam_mkhomedir\fR(8),
+\fBpam_limits\fR(8),
+\fBpam_env\fR(8),
+\fBpam_xauth\fR(8),
+\fBpam_make\fR(8)
 .SH "AUTHOR"
 .PP
 

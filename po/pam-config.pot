@@ -8,13 +8,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-21 00:41+0200\n"
+"POT-Creation-Date: 2006-08-21 08:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: src/load_config.c:70
+#, c-format
+msgid "Unknown option for pam_pwcheck.so, ignored: '%s'\n"
+msgstr ""
+
+#: src/load_config.c:100
+#, c-format
+msgid "Unknown option for pam_unix2.so, ignored: '%s'\n"
+msgstr ""
+
+#: src/load_config.c:196 src/load_config.c:203 src/load_config.c:216
+#: src/load_config.c:223
+#, c-format
+msgid "%s (%s): Arguments will be ignored\n"
+msgstr ""
+
+#: src/load_config.c:239
+#, c-format
+msgid "%s: Unknown module %s, ignored!\n"
+msgstr ""
+
+#: src/load_obsolete_conf.c:52 src/load_obsolete_conf.c:65
+#, c-format
+msgid "Unknown service: [%s: %s], ignored!\n"
+msgstr ""
+
+#: src/load_obsolete_conf.c:74 src/load_obsolete_conf.c:130
+#, c-format
+msgid "Please use /etc/default/passwd to set 'md5' option\n"
+msgstr ""
+
+#: src/load_obsolete_conf.c:76 src/load_obsolete_conf.c:132
+#, c-format
+msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
+msgstr ""
+
+#: src/load_obsolete_conf.c:80 src/load_obsolete_conf.c:136
+#, c-format
+msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
+msgstr ""
 
 #: src/pam-config.c:45
 #, c-format
@@ -46,7 +87,7 @@ msgid "  -a, --add      Add options/PAM modules\n"
 msgstr ""
 
 #: src/pam-config.c:77
-msgid "  -c, --create   Create new configuratoin\n"
+msgid "  -c, --create   Create new configuration\n"
 msgstr ""
 
 #: src/pam-config.c:78
@@ -65,14 +106,16 @@ msgstr ""
 msgid "  -v, --version  Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:92 src/pam-config.c:433 src/pam-config.c:444
-#: src/pam-config.c:455 src/pam-config.c:467
+#: src/pam-config.c:92 src/pam-config.c:464 src/pam-config.c:475
+#: src/pam-config.c:486 src/pam-config.c:498 src/pam-config.c:520
+#: src/pam-config.c:530 src/pam-config.c:540 src/pam-config.c:551
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:94 src/pam-config.c:435 src/pam-config.c:446
-#: src/pam-config.c:457 src/pam-config.c:469
+#: src/pam-config.c:94 src/pam-config.c:466 src/pam-config.c:477
+#: src/pam-config.c:488 src/pam-config.c:500 src/pam-config.c:522
+#: src/pam-config.c:532 src/pam-config.c:542 src/pam-config.c:553
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -87,21 +130,27 @@ msgstr ""
 msgid "New config from %s is is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:193
+#: src/pam-config.c:193 src/pam-config.c:215
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:355
+#: src/pam-config.c:385
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""
 
-#: src/pam-config.c:365 src/pam-config.c:372 src/pam-config.c:382
-#: src/pam-config.c:391 src/pam-config.c:400 src/pam-config.c:407
-#: src/pam-config.c:414 src/pam-config.c:422
+#: src/pam-config.c:395 src/pam-config.c:402 src/pam-config.c:412
+#: src/pam-config.c:421 src/pam-config.c:430 src/pam-config.c:437
+#: src/pam-config.c:444 src/pam-config.c:452
 #, c-format
 msgid "Error writing %s: %m\n"
+msgstr ""
+
+#: src/write_config_account.c:42 src/write_config_auth.c:42
+#: src/write_config_password.c:42 src/write_config_session.c:42
+#, c-format
+msgid "Cannot create %s: %m\n"
 msgstr ""

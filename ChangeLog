@@ -1,0 +1,11 @@
+2006-08-21  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* Release version 0.2
+
+	* src/pam-config.8.xml: Add all current implementations.
+
+	* src/pam-config.c (main): Add --force option.
+
+2006-08-20  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* Initial release 0.1
