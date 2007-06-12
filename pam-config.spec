@@ -1,12 +1,19 @@
 #
-# spec file for package pam-config (Version 0.4)
+# spec file for package pam-config (Version 0.6)
+#
+# Copyright (c) 2006 SUSE LINUX Products GmbH, Nuernberg, Germany.
+# This file and all modifications and additions to the pristine
+# package are under the same license as the package itself.
+#
+# Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
 
 # norootforbuild
+# usedforbuild    aaa_base acl attr audit-libs autoconf automake bash bind-libs bind-utils binutils bison bzip2 coreutils cpio cpp cpp41 cracklib cvs cyrus-sasl db diffutils e2fsprogs file filesystem fillup findutils flex gawk gcc gcc41 gdbm gdbm-devel gettext gettext-devel glibc glibc-devel glibc-locale gpm grep groff gzip info insserv klogd less libacl libattr libcom_err libgcc41 libltdl libnscd libstdc++41 libtool libvolume_id libxcrypt libzio m4 make man mktemp module-init-tools ncurses ncurses-devel net-tools netcfg openldap2-client openssl pam pam-modules patch perl permissions popt procinfo procps psmisc pwdutils rcs readline rpm sed strace sysvinit tar tcpd texinfo timezone unzip util-linux vim zlib zlib-devel
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.5
+Version:        0.6
 Release:        1
 License:        GPL
 Autoreqprov:    on
@@ -50,7 +57,7 @@ fi
 
 %postun
 if [ $1 == 0 ]; then
-  # Deinsall
+  # Deinstall
   dir=/etc/security
   for conf in pam_unix2.conf pam_pwcheck.conf ; do
     if [ -f $dir/$conf.pam-config-backup -a ! -f $dir/$conf ]; then
@@ -61,6 +68,10 @@ if [ $1 == 0 ]; then
   for pamd in common-account common-auth common-password common-session ; do
     if [ -f $dir/$pamd.pam-config-backup -a -L $dir/$pamd ]; then
       rm -v $dir/$pamd && mv -v $dir/$pamd.pam-config-backup $dir/$pamd
+    fi
+    # common-*-pc are %ghost, so we have to move them away...
+    if [ -f $dir/$pamd-pc ]; then
+      mv -v $dir/$pamd-pc $dir/$pamd-pc.bak
     fi
   done
 fi
@@ -75,8 +86,11 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
 
 %changelog -n pam-config
+* Wed Aug 23 2006 - kukuk@suse.de
+- Fix stacking of modules, add query option for YaST2 (version 0.6)
 * Tue Aug 22 2006 - kukuk@suse.de
 - Bug fixes, add --update option (version 0.5)
+* Tue Aug 22 2006 - kukuk@suse.de
 - Add support for ccreds and pkcs11 (version 0.4)
 * Mon Aug 21 2006 - kukuk@suse.de
 - Add support for ldap and krb5 (version 0.3)

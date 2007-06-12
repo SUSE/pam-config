@@ -1,11 +1,11 @@
 .\"     Title: pam\-config
 .\"    Author: 
 .\" Generator: DocBook XSL Stylesheets v1.70.1 <http://docbook.sf.net/>
-.\"      Date: 08/22/2006
+.\"      Date: 08/23/2006
 .\"    Manual: NIS Reference Manual
 .\"    Source: NIS Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "08/22/2006" "NIS Reference Manual" "NIS Reference Manual"
+.TH "PAM\-CONFIG" "8" "08/23/2006" "NIS Reference Manual" "NIS Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -14,7 +14,7 @@
 pam\-config \- create or dump a ypserv database file
 .SH "SYNOPSIS"
 .HP 11
-\fBpam\-config\fR [\-\-debug] \-a | \-c | \-d  [\-f] [...]
+\fBpam\-config\fR [\-\-debug] \-a | \-c | \-d | \-q  [\-f] [...]
 .HP 11
 \fBpam\-config\fR \-\-version
 .SH "DESCRIPTION"
@@ -35,6 +35,9 @@ Create new PAM configuration files for plain UNIX authentication, overwriting ex
 .TP 3n
 \fB\-d\fR, \fB\-\-delete\fR
 Remove options or PAM modules from existing PAM configuration files.
+.TP 3n
+\fB\-q\fR, \fB\-\-query\fR
+Print a list of types and the corresponding module options for the queried PAM module.
 .TP 3n
 \fB\-f\fR, \fB\-\-force\fR
 The new configuration will be activated regardless if there are other local changes.

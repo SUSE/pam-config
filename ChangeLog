@@ -1,3 +1,16 @@
+2006-08-23  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* release version 0.6
+
+	* src/print_module.c: New file.
+	* src/load_config.c: Remove obsolete options.
+	* src/load_obsolete_conf.c: Likewise.
+	* src/pam-config.c: Implement --query option for YaST2.
+	* src/pam-config.h: Update prototypes.
+	* src/write_config_password.c: Remove obsolete options,
+	fix stacking of modules.
+	* src/pam-config.8.xml: Document --query.
+
 2006-08-22  Thorsten Kukuk  <kukuk@thkukuk.de>
 
 	* release version 0.5

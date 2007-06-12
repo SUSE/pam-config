@@ -78,8 +78,6 @@ write_config_password (const char *file, config_file_t *conf)
 	fprintf (fp, "remember=%d ", conf->pwcheck_remember);
       if (conf->pwcheck_nisdir)
 	fprintf (fp, "nisdir=%s ", conf->pwcheck_nisdir);
-      if (conf->pwcheck_not_set_pass)
-	fprintf (fp, "not_set_pass ");
       fprintf (fp, "\n");
     }
 
@@ -90,11 +88,9 @@ write_config_password (const char *file, config_file_t *conf)
   if (conf->unix2_nullok)
     fprintf (fp, "nullok ");
   if (conf->use_pwcheck)
-    fprintf (fp, "use_first_pass use_authtok ");
+    fprintf (fp, "use_authtok ");
   if (conf->unix2_debug)
     fprintf (fp, "debug ");
-  if (conf->unix2_not_set_pass)
-    fprintf (fp, "not_set_pass ");
   if (conf->unix2_call_modules)
     fprintf (fp, "call_modules=%s ", conf->unix2_call_modules);
   fprintf (fp, "\n");
@@ -110,9 +106,9 @@ write_config_password (const char *file, config_file_t *conf)
   if (conf->use_krb5)
     {
       if (conf->use_ldap)
-	fprintf (fp, "password\tsufficient\tpam_krb5.so\tuse_first_pass use_authtok ");
+	fprintf (fp, "password\tsufficient\tpam_krb5.so\tuse_authtok ");
       else
-	fprintf (fp, "password\trequired\tpam_krb5.so\tuse_first_pass use_authtok ");
+	fprintf (fp, "password\trequired\tpam_krb5.so\tuse_authtok ");
 
       if (conf->krb5_debug)
         fprintf (fp, "debug ");
@@ -121,7 +117,7 @@ write_config_password (const char *file, config_file_t *conf)
 
   if (conf->use_ldap)
     {
-      fprintf (fp, "password\trequired\tpam_ldap.so\tuse_first_pass use_authtok ");
+      fprintf (fp, "password\trequired\tpam_ldap.so\ttry_first_pass use_authtok ");
       if (conf->ldap_debug)
         fprintf (fp, "debug ");
       fprintf (fp, "\n");

@@ -80,6 +80,8 @@ print_help (const char *program)
 	 stdout);
   fputs (_("      --update      Read current config and write them new\n"),
          stdout);
+  fputs (_("  -q, --query       Query for installed modules and options\n"),
+	 stdout);
   fputs (_("      --help        Give this help list\n"), stdout);
   fputs (_("  -u, --usage       Give a short usage message\n"), stdout);
   fputs (_("  -v, --version     Print program version\n"), stdout);
@@ -125,6 +127,7 @@ main (int argc, char *argv[])
 {
   const char *program = "pam-config";
   int m_add = 0, m_create = 0, m_delete = 0, m_init = 0, m_update = 0;
+  int m_query = 0;
   int force = 0;
   int opt_val = 1;
   int retval = 0;
@@ -210,10 +213,16 @@ main (int argc, char *argv[])
       argc--;
       argv++;
     }
-
-  if (m_add || m_delete || m_update)
+  else if (strcmp (argv[1], "-q") == 0 || strcmp (argv[1], "--query") == 0)
     {
-      if (argc == 1 && !m_update)
+      m_query = 1;
+      argc--;
+      argv++;
+    }
+
+  if (m_add || m_delete || m_update || m_query)
+    {
+      if (argc == 1 && !m_update && !m_query)
 	{
 	  print_error (program);
 	  return 1;
@@ -310,9 +319,14 @@ main (int argc, char *argv[])
 	  break;
 	/* pam_pwcheck */
 	case 1000:
-	  if (check_for_pam_module ("pam_pwcheck.so", force) != 0)
-	    return 1;
-	  config_password.use_pwcheck = opt_val;
+	  if (m_query)
+	    print_module_pwcheck (&config_password);
+	  else
+	    {
+	      if (check_for_pam_module ("pam_pwcheck.so", force) != 0)
+		return 1;
+	      config_password.use_pwcheck = opt_val;
+	    }
 	  break;
 	case 1001:
 	  config_password.pwcheck_debug = opt_val;
@@ -343,39 +357,95 @@ main (int argc, char *argv[])
 	  config_password.pwcheck_nisdir = optarg;
 	  break;
 	case 1100:
-	  if (check_for_pam_module ("pam_mkhomedir.so", force) != 0)
-	    return 1;
-	  config_session.use_mkhomedir = opt_val;
+	  if (m_query)
+	    {
+	      if (config_session.use_mkhomedir)
+		printf ("session:\n");
+	    }
+	  else
+	    {
+	      if (check_for_pam_module ("pam_mkhomedir.so", force) != 0)
+		return 1;
+	      config_session.use_mkhomedir = opt_val;
+	    }
 	  break;
 	case 1200:
-	  if (check_for_pam_module ("pam_limits.so", force) != 0)
-	    return 1;
-	  config_session.use_limits = opt_val;
+	  if (m_query)
+	    {
+	      if (config_session.use_limits)
+		printf ("session:\n");
+	    }
+	  else
+	    {
+	      if (check_for_pam_module ("pam_limits.so", force) != 0)
+		return 1;
+	      config_session.use_limits = opt_val;
+	    }
 	  break;
 	case 1300:
-	  if (check_for_pam_module ("pam_env.so", force) != 0)
-	    return 1;
-	  /* Remove in every case from auth, else we will have it twice.  */
-	  config_auth.use_env = 0;
-	  config_session.use_env = opt_val;
+	  if (m_query)
+	    {
+	      if (config_session.use_env || config_auth.use_env)
+		printf ("session:\n");
+	    }
+	  else
+	    {
+	      if (check_for_pam_module ("pam_env.so", force) != 0)
+		return 1;
+	      /* Remove in every case from auth,
+		 else we will have it twice.  */
+	      config_auth.use_env = 0;
+	      config_session.use_env = opt_val;
+	    }
 	  break;
 	case 1400:
-	  if (check_for_pam_module ("pam_xauth.so", force) != 0)
-	    return 1;
-	  config_session.use_xauth = opt_val;
+	  if (m_query)
+	    {
+	      if (config_session.use_xauth)
+		printf ("session:\n");
+	    }
+	  else
+	    {
+	      if (check_for_pam_module ("pam_xauth.so", force) != 0)
+		return 1;
+	      config_session.use_xauth = opt_val;
+	    }
 	  break;
 	case 1500:
-	  if (check_for_pam_module ("pam_make.so", force) != 0)
-	    return 1;
-	  config_session.use_make = opt_val;
+	  if (m_query)
+	    {
+	      if (config_session.use_make)
+		{
+		  printf ("session:");
+		  if (config_session.make_options)
+		    printf (" %s", config_session.make_options);
+		  printf ("\n");
+		}
+	    }
+	  else
+	    {
+	      if (check_for_pam_module ("pam_make.so", force) != 0)
+		return 1;
+	      config_session.use_make = opt_val;
+	    }
 	  break;
 	case 1501:
 	  config_session.make_options = optarg;
 	  break;
 	case 1600:
-	  if (check_for_pam_module ("pam_unix2.so", force) != 0)
-	    return 1;
 	  /* use_unix2 */
+	  if (m_query)
+	    print_module_unix2 (&config_account, &config_auth,
+				&config_password, &config_session);
+	  else
+	    {
+	      if (check_for_pam_module ("pam_unix2.so", force) != 0)
+		return 1;
+	      config_account.use_unix2 = opt_val;
+	      config_auth.use_unix2 = opt_val;
+	      config_password.use_unix2 = opt_val;
+	      config_session.use_unix2 = opt_val;
+	    }
 	  break;
 	case 1601:
 	  config_account.unix2_debug = opt_val;
@@ -396,20 +466,41 @@ main (int argc, char *argv[])
           config_session.unix2_call_modules = optarg;
           break;
 	case 1700:
-	  if (check_for_pam_module ("pam_bioapi.so", force) != 0)
-	    return 1;
-	  config_auth.use_bioapi = opt_val;
+	  /* pam_bioapi */
+	  if (m_query)
+	    {
+	      if (config_auth.use_bioapi)
+		{
+		  printf ("auth:");
+		  if (config_auth.bioapi_options)
+		    printf (" %s", config_auth.bioapi_options);
+		  printf ("\n");
+		}
+	    }
+	  else
+	    {
+	      if (check_for_pam_module ("pam_bioapi.so", force) != 0)
+		return 1;
+	      config_auth.use_bioapi = opt_val;
+	    }
 	  break;
 	case 1701:
 	  config_auth.bioapi_options = optarg;
 	  break;
 	case 1800:
-	  if (check_for_pam_module ("pam_krb5.so", force) != 0)
-	    return 1;
-	  config_account.use_krb5 = opt_val;
-	  config_auth.use_krb5 = opt_val;
-	  config_password.use_krb5 = opt_val;
-	  config_session.use_krb5 = opt_val;
+	  /* pam_krb5 */
+	  if (m_query)
+	    print_module_krb5 (&config_account, &config_auth,
+			       &config_password, &config_session);
+	  else
+	    {
+	      if (check_for_pam_module ("pam_krb5.so", force) != 0)
+		return 1;
+	      config_account.use_krb5 = opt_val;
+	      config_auth.use_krb5 = opt_val;
+	      config_password.use_krb5 = opt_val;
+	      config_session.use_krb5 = opt_val;
+	    }
 	  break;
 	case 1801:
 	  config_account.krb5_debug = opt_val;
@@ -418,12 +509,19 @@ main (int argc, char *argv[])
 	  config_session.krb5_debug = opt_val;
 	  break;
 	case 1900:
-	  if (check_for_pam_module ("pam_ldap.so", force) != 0)
-	    return 1;
-	  config_account.use_ldap = opt_val;
-	  config_auth.use_ldap = opt_val;
-	  config_password.use_ldap = opt_val;
-	  config_session.use_ldap = opt_val;
+	  /* pam_ldap */
+	  if (m_query)
+	    print_module_ldap (&config_account, &config_auth,
+			       &config_password, &config_session);
+	  else
+	    {
+	      if (check_for_pam_module ("pam_ldap.so", force) != 0)
+		return 1;
+	      config_account.use_ldap = opt_val;
+	      config_auth.use_ldap = opt_val;
+	      config_password.use_ldap = opt_val;
+	      config_session.use_ldap = opt_val;
+	    }
 	  break;
 	case 1901:
 	  config_account.ldap_debug = opt_val;
@@ -432,14 +530,33 @@ main (int argc, char *argv[])
 	  config_session.ldap_debug = opt_val;
 	  break;
 	case 2000:
-	  if (check_for_pam_module ("pam_ccreds.so", force) != 0)
-	    return 1;
-	  config_auth.use_ccreds = opt_val;
+	  /* pam_ccreds */
+	  if (m_query)
+	    {
+	      if (config_auth.use_ccreds)
+		printf ("auth:\n");
+	    }
+	  else
+	    {
+	      if (check_for_pam_module ("pam_ccreds.so", force) != 0)
+		return 1;
+	      config_auth.use_ccreds = opt_val;
+	    }
 	  break;
 	case 2010:
-	  if (check_for_pam_module ("pam_pkcs11.so", force) != 0)
-	    return 1;
-	  config_auth.use_pkcs11 = opt_val;
+	  /* pam_pkcs11 */
+	  if (m_query)
+	    {
+	      if (config_auth.use_pkcs11)
+		printf ("auth:\n");
+	    }
+	  else
+	    {
+
+	      if (check_for_pam_module ("pam_pkcs11.so", force) != 0)
+		return 1;
+	      config_auth.use_pkcs11 = opt_val;
+	    }
 	  break;
 	case '\254':
 	  debug = 1;
@@ -462,36 +579,34 @@ main (int argc, char *argv[])
   argc -= optind;
   argv += optind;
 
-  if (argc > 1)
+  if (argc > 0)
     {
       fprintf (stderr, _("%s: Too many arguments.\n"), program);
       print_error (program);
       return 1;
     }
 
-  if (m_add + m_create + m_delete + m_init + m_update != 1)
+  if (m_add + m_create + m_delete + m_init + m_update + m_query != 1)
     {
       print_error (program);
       return 1;
     }
 
+
+  if (m_query)
+    return 0;
+
   if (m_create)
     {
       /* Write account section.  */
       if (write_config_account (CONF_ACCOUNT_PC, &config_account) != 0)
-	{
-	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_ACCOUNT_PC);
-	  return 1;
-	}
+	return 1;
 
       /* Write auth section.  */
       if (sanitize_check_auth (&config_auth) != 0)
 	return 1;
       if (write_config_auth (CONF_AUTH_PC, &config_auth) != 0)
-	{
-	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_AUTH_PC);
-	  return 1;
-	}
+	return 1;
 
       /* Write password section.  */
       config_password.use_pwcheck = 1;
@@ -500,54 +615,35 @@ main (int argc, char *argv[])
       if (sanitize_check_password (&config_password) != 0)
 	return 1;
       if (write_config_password (CONF_PASSWORD_PC, &config_password) != 0)
-	{
-	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_PASSWORD_PC);
-	  return 1;
-	}
+	return 1;
 
       /* Write session section.  */
       config_session.use_limits = 1;
       config_session.use_env = 1;
       if (write_config_session (CONF_SESSION_PC, &config_session) != 0)
-	{
-	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_SESSION_PC);
-	  return 1;
-	}
+	return 1;
     }
   else
     {
       /* Write account section.  */
       if (write_config_account (CONF_ACCOUNT_PC, &config_account) != 0)
-	{
-	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_ACCOUNT_PC);
-	  return 1;
-	}
+	return 1;
 
       /* Write auth section.  */
       if (sanitize_check_auth (&config_auth) != 0)
 	return 1;
       if (write_config_auth (CONF_AUTH_PC, &config_auth) != 0)
-	{
-	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_AUTH_PC);
-	  return 1;
-	}
+	return 1;
 
       /* Write password section.  */
       if (sanitize_check_password (&config_password) != 0)
 	return 1;
       if (write_config_password (CONF_PASSWORD_PC, &config_password) != 0)
-	{
-	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_PASSWORD_PC);
-	  return 1;
-	}
-
+	return 1;
 
       /* Write session section.  */
       if (write_config_session (CONF_SESSION_PC, &config_session) != 0)
-	{
-	  fprintf (stderr, _("Error writing %s: %m\n"), CONF_SESSION_PC);
-	  return 1;
-	}
+	return 1;
     }
 
   if (m_init || (m_create && force))

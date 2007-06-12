@@ -29,7 +29,6 @@ struct config_file_t {
   int pwcheck_tries;
   int pwcheck_remember;
   char *pwcheck_nisdir;
-  int pwcheck_not_set_pass; /* XXX */
   /* pam_mkhomedir is session only.  */
   int use_mkhomedir;
   /* pam_limits is session only */
@@ -45,10 +44,10 @@ struct config_file_t {
   int use_make;
   char *make_options;
   /* pam_unix2 is account, auth, password and session.  */
+  int use_unix2;
   int unix2_debug;
   int unix2_nullok;
   int unix2_trace;
-  int unix2_not_set_pass; /* XXX */
   char *unix2_call_modules; /* XXX */
   /* pam_krb5, used by all types.  */
   int use_krb5;
@@ -77,5 +76,15 @@ int write_config_session (const char *file, config_file_t *conf);
 int sanitize_check_auth (config_file_t *conf);
 int sanitize_check_password (config_file_t *conf);
 int check_for_pam_module (const char *name, int force);
+
+void print_module_pwcheck (config_file_t *conf);
+void print_module_unix2 (config_file_t *account, config_file_t *auth,
+			 config_file_t *password, config_file_t *session);
+void print_module_krb5 (config_file_t *account, config_file_t *auth,
+                        config_file_t *password, config_file_t *session);
+void print_module_ldap (config_file_t *account, config_file_t *auth,
+                        config_file_t *password, config_file_t *session);
+
+
 
 #endif

@@ -59,8 +59,6 @@ parse_pwcheck_options (config_file_t *conf, char *args)
 	conf->pwcheck_remember = atoi (&cp[9]);
       else if (strncmp (cp, "nisdir=", 7) == 0)
 	conf->pwcheck_nisdir = strdup (&cp[7]);
-      else if (strcmp (cp, "not_set_pass") == 0)
-	conf->pwcheck_not_set_pass = 1;
       else if (strcmp (cp, "use_first_pass") == 0)
 	{ /* will be ignored */ }
       else if (strcmp (cp, "use_authtok") == 0)
@@ -89,8 +87,6 @@ parse_unix2_options (config_file_t *conf, char *args)
 	conf->unix2_nullok = 1;
       else if (strcmp (cp, "trace") == 0)
 	conf->unix2_trace = 1;
-      else if (strcmp (cp, "not_set_pass") == 0)
-	conf->unix2_not_set_pass = 1;
       else if (strcmp (cp, "use_first_pass") == 0)
 	{ /* will be ignored */ }
       else if (strcmp (cp, "use_authtok") == 0)
@@ -142,9 +138,11 @@ parse_ldap_options (config_file_t *conf, char *args)
 
       if (strcmp (cp, "debug") == 0)
 	conf->ldap_debug = 1;
-      else if (strcmp (cp, "use_first_pass") == 0)
+      else if (strcmp (cp, "try_first_pass") == 0)
 	{ /* will be ignored */ }
       else if (strcmp (cp, "use_authtok") == 0)
+	{ /* will be ignored */ }
+      else if (strcmp (cp, "use_first_pass") == 0)
 	{ /* will be ignored */ }
       else
 	fprintf (stderr,
@@ -294,6 +292,7 @@ load_config (const char *file, const char *wanted,
 	    }
 	  else if (strcmp (module, "pam_unix2.so") == 0)
 	    {
+	      conf->use_unix2 = 1;
 	      if (arguments)
 		parse_unix2_options (conf, arguments);
 	    }

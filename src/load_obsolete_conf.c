@@ -64,8 +64,6 @@ parse_option_unix2 (const char *file, const char *service,
       else
 	fprintf (stderr, _("ERROR: Unknown service: [%s: %s], ignored!\n"), service, option);
     }
-  else if (strcasecmp (option, "not_set_pass") == 0)
-    password->unix2_not_set_pass = 1;
   else if (strcasecmp (option, "use_first_pass") == 0)
     { /* ignored */ }
   else if (strcasecmp (option, "use_authtok") == 0)
@@ -204,8 +202,6 @@ parse_option_pwcheck (const char *file, const char *service,
     password->pwcheck_remember = atoi (&option[9]);
   else if (strncasecmp (option, "nisdir=", 7) == 0)
     password->pwcheck_nisdir = strdup (&option[7]);
-  else if (strcasecmp (option, "not_set_pass") == 0)
-    password->pwcheck_not_set_pass = 1;
   else if (strcasecmp (option, "use_first_pass") == 0)
     { /* ignored */ }
   else if (strcasecmp (option, "use_authtok") == 0)
