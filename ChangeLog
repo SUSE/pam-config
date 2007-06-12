@@ -1,3 +1,10 @@
+2006-09-20  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.12
+
+	* src/sanity_checks.c (sanitize_check_password): Don't ignore
+	debug flag if convert from pam_cracklib to pam_pwcheck.
+
 2006-09-14  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.11

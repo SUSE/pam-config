@@ -86,6 +86,8 @@ sanitize_check_password (config_file_t *conf)
 	conf->pwcheck_cracklib = 1;
       if (conf->pwcheck_cracklib_path == NULL)
 	conf->pwcheck_cracklib_path = conf->cracklib_dictpath;
+      if (conf->cracklib_debug)
+	conf->pwcheck_debug = 1;
     }
 
   if (conf->use_make && (conf->use_ldap ||conf->use_krb5))
