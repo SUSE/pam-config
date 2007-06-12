@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-21 17:34+0200\n"
+"POT-Creation-Date: 2006-08-22 15:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,13 +36,13 @@ msgstr ""
 msgid "Unknown option for pam_ldap.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:247 src/load_config.c:254 src/load_config.c:267
-#: src/load_config.c:274
+#: src/load_config.c:259 src/load_config.c:266 src/load_config.c:279
+#: src/load_config.c:286
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr ""
 
-#: src/load_config.c:302
+#: src/load_config.c:318
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr ""
@@ -121,68 +121,76 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:76
-msgid "  -a, --add      Add options/PAM modules\n"
+msgid "  -a, --add         Add options/PAM modules\n"
 msgstr ""
 
 #: src/pam-config.c:77
-msgid "  -c, --create   Create new configuration\n"
+msgid "  -c, --create      Create new configuration\n"
 msgstr ""
 
 #: src/pam-config.c:78
-msgid "  -d, --delete   Remove options/PAM modules\n"
+msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr ""
 
 #: src/pam-config.c:79
-msgid "      --help     Give this help list\n"
-msgstr ""
-
-#: src/pam-config.c:80
-msgid "  -u, --usage    Give a short usage message\n"
+msgid "      --initialize  Convert old config and create new one\n"
 msgstr ""
 
 #: src/pam-config.c:81
-msgid "  -v, --version  Print program version\n"
+msgid "      --update      Read current config and write them new\n"
 msgstr ""
 
-#: src/pam-config.c:92 src/pam-config.c:504 src/pam-config.c:515
-#: src/pam-config.c:526 src/pam-config.c:538 src/pam-config.c:560
-#: src/pam-config.c:570 src/pam-config.c:580 src/pam-config.c:591
+#: src/pam-config.c:83
+msgid "      --help        Give this help list\n"
+msgstr ""
+
+#: src/pam-config.c:84
+msgid "  -u, --usage       Give a short usage message\n"
+msgstr ""
+
+#: src/pam-config.c:85
+msgid "  -v, --version     Print program version\n"
+msgstr ""
+
+#: src/pam-config.c:96 src/pam-config.c:560 src/pam-config.c:571
+#: src/pam-config.c:582 src/pam-config.c:594 src/pam-config.c:616
+#: src/pam-config.c:626 src/pam-config.c:636 src/pam-config.c:647
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:94 src/pam-config.c:506 src/pam-config.c:517
-#: src/pam-config.c:528 src/pam-config.c:540 src/pam-config.c:562
-#: src/pam-config.c:572 src/pam-config.c:582 src/pam-config.c:593
+#: src/pam-config.c:98 src/pam-config.c:562 src/pam-config.c:573
+#: src/pam-config.c:584 src/pam-config.c:596 src/pam-config.c:618
+#: src/pam-config.c:628 src/pam-config.c:638 src/pam-config.c:649
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:109
+#: src/pam-config.c:113
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr ""
 
-#: src/pam-config.c:111
+#: src/pam-config.c:115
 #, c-format
 msgid "New config from %s is is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:193 src/pam-config.c:215
+#: src/pam-config.c:197 src/pam-config.c:225
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:425
+#: src/pam-config.c:467
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""
 
-#: src/pam-config.c:435 src/pam-config.c:442 src/pam-config.c:452
-#: src/pam-config.c:461 src/pam-config.c:470 src/pam-config.c:477
-#: src/pam-config.c:484 src/pam-config.c:492
+#: src/pam-config.c:483 src/pam-config.c:492 src/pam-config.c:504
+#: src/pam-config.c:513 src/pam-config.c:522 src/pam-config.c:531
+#: src/pam-config.c:540 src/pam-config.c:548
 #, c-format
 msgid "Error writing %s: %m\n"
 msgstr ""

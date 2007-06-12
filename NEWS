@@ -4,6 +4,10 @@ Copyright (C) 2006 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.5:
+* Bug fixes
+* Implement --update
+
 Version 0.4:
 * Add ccreds and pkcs11 support
 * Add sanity checks

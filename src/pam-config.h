@@ -76,6 +76,6 @@ int write_config_session (const char *file, config_file_t *conf);
 
 int sanitize_check_auth (config_file_t *conf);
 int sanitize_check_password (config_file_t *conf);
-int check_for_pam_module (const char *name);
+int check_for_pam_module (const char *name, int force);
 
 #endif

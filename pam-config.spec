@@ -1,28 +1,28 @@
 #
-# spec file for package pam-config (Version 0.3)
-#
-# Copyright (c) 2006 SUSE LINUX Products GmbH, Nuernberg, Germany.
-# This file and all modifications and additions to the pristine
-# package are under the same license as the package itself.
-#
-# Please submit bugfixes or comments via http://bugs.opensuse.org/
+# spec file for package pam-config (Version 0.4)
 #
 
 # norootforbuild
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.4
+Version:        0.5
 Release:        1
 License:        GPL
 Autoreqprov:    on
 Prefix:         %{_prefix}
-Group:          System Environment/Base
+Group:          System/Management
 Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
-pam-config is a tool to maintain the common PAM configuration files.
+pam-config is a command line utility to maintain the common PAM
+configuration files included by most PAM application configuration
+files. It can be used to configure a system for different network or
+hardware based authentication schemes. pam-config can also
+add/adjust/remove other PAM modules and their options.
+
+
 
 %prep
 %setup -q
@@ -44,6 +44,8 @@ rm -rf $RPM_BUILD_ROOT
 %post
 if [ ! -f /etc/pam.d/common-auth-pc ] ; then
   pam-config --debug --initialize
+else
+  pam-config --debug --update ||:
 fi
 
 %postun
@@ -63,8 +65,6 @@ if [ $1 == 0 ]; then
   done
 fi
 
-
-
 %files
 %defattr(-,root,root)
 %{_sbindir}/pam-config
@@ -73,3 +73,14 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-auth-pc
 %ghost %config %{_sysconfdir}/pam.d/common-password-pc
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
+
+%changelog -n pam-config
+* Tue Aug 22 2006 - kukuk@suse.de
+- Bug fixes, add --update option (version 0.5)
+- Add support for ccreds and pkcs11 (version 0.4)
+* Mon Aug 21 2006 - kukuk@suse.de
+- Add support for ldap and krb5 (version 0.3)
+* Mon Aug 21 2006 - kukuk@suse.de
+- Add documentation (version 0.2)
+* Mon Aug 21 2006 - kukuk@suse.de
+- Initial release

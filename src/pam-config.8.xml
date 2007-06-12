@@ -20,7 +20,9 @@
     <cmdsynopsis>
       <command>pam-config</command>
       <arg choice='opt'>--debug</arg>
-      <group choice='plain'><arg choice='plain'>-a</arg><arg choice='plain'>-c</arg><arg choice='plain'>-d</arg></group><arg choice='opt'>...</arg>
+      <group choice='plain'><arg choice='plain'>-a</arg><arg choice='plain'>-c</arg><arg choice='plain'>-d</arg></group>
+      <arg choice='opt'>-f</arg>
+      <arg choice='opt'>...</arg>
     </cmdsynopsis>
     <cmdsynopsis>
       <command>pam-config</command>

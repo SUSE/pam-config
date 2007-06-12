@@ -75,7 +75,12 @@ write_config_session (const char *file, config_file_t *conf)
     fprintf (fp, "session\toptional\tpam_krb5.so\n");
 
   if (conf->use_ldap)
-    fprintf (fp, "session\toptional\tpam_ldap.so\n");
+    {
+      fprintf (fp, "session\toptional\tpam_ldap.so\t");
+      if (conf->ldap_debug)
+	fprintf (fp, "debug ");
+      fprintf (fp, "\n");
+    }
 
   if (conf->use_env)
     fprintf (fp, "session\toptional\tpam_env.so\n");

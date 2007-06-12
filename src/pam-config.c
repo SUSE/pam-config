@@ -73,12 +73,16 @@ print_help (const char *program)
   print_usage (stdout, program);
   fprintf (stdout, _("%s - create PAM config files\n\n"), program);
 
-  fputs (_("  -a, --add      Add options/PAM modules\n"), stdout);
-  fputs (_("  -c, --create   Create new configuration\n"), stdout);
-  fputs (_("  -d, --delete   Remove options/PAM modules\n"), stdout);
-  fputs (_("      --help     Give this help list\n"), stdout);
-  fputs (_("  -u, --usage    Give a short usage message\n"), stdout);
-  fputs (_("  -v, --version  Print program version\n"), stdout);
+  fputs (_("  -a, --add         Add options/PAM modules\n"), stdout);
+  fputs (_("  -c, --create      Create new configuration\n"), stdout);
+  fputs (_("  -d, --delete      Remove options/PAM modules\n"), stdout);
+  fputs (_("      --initialize  Convert old config and create new one\n"),
+	 stdout);
+  fputs (_("      --update      Read current config and write them new\n"),
+         stdout);
+  fputs (_("      --help        Give this help list\n"), stdout);
+  fputs (_("  -u, --usage       Give a short usage message\n"), stdout);
+  fputs (_("  -v, --version     Print program version\n"), stdout);
 }
 
 static int
@@ -120,7 +124,7 @@ int
 main (int argc, char *argv[])
 {
   const char *program = "pam-config";
-  int m_add = 0, m_create = 0, m_delete = 0, m_init = 0;
+  int m_add = 0, m_create = 0, m_delete = 0, m_init = 0, m_update = 0;
   int force = 0;
   int opt_val = 1;
   int retval = 0;
@@ -200,10 +204,16 @@ main (int argc, char *argv[])
       if (load_config (CONF_SESSION, "session", &config_session) != 0)
 	goto load_old_config_error;
     }
-
-  if (m_add || m_delete)
+  else if (strcmp (argv[1], "--update") == 0)
     {
-      if (argc == 1)
+      m_update = 1;
+      argc--;
+      argv++;
+    }
+
+  if (m_add || m_delete || m_update)
+    {
+      if (argc == 1 && !m_update)
 	{
 	  print_error (program);
 	  return 1;
@@ -300,7 +310,7 @@ main (int argc, char *argv[])
 	  break;
 	/* pam_pwcheck */
 	case 1000:
-	  if (check_for_pam_module ("pam_pwcheck.so") != 0)
+	  if (check_for_pam_module ("pam_pwcheck.so", force) != 0)
 	    return 1;
 	  config_password.use_pwcheck = opt_val;
 	  break;
@@ -333,29 +343,29 @@ main (int argc, char *argv[])
 	  config_password.pwcheck_nisdir = optarg;
 	  break;
 	case 1100:
-	  if (check_for_pam_module ("pam_mkhomedir.so") != 0)
+	  if (check_for_pam_module ("pam_mkhomedir.so", force) != 0)
 	    return 1;
 	  config_session.use_mkhomedir = opt_val;
 	  break;
 	case 1200:
-	  if (check_for_pam_module ("pam_limits.so") != 0)
+	  if (check_for_pam_module ("pam_limits.so", force) != 0)
 	    return 1;
 	  config_session.use_limits = opt_val;
 	  break;
 	case 1300:
-	  if (check_for_pam_module ("pam_env.so") != 0)
+	  if (check_for_pam_module ("pam_env.so", force) != 0)
 	    return 1;
 	  /* Remove in every case from auth, else we will have it twice.  */
 	  config_auth.use_env = 0;
 	  config_session.use_env = opt_val;
 	  break;
 	case 1400:
-	  if (check_for_pam_module ("pam_xauth.so") != 0)
+	  if (check_for_pam_module ("pam_xauth.so", force) != 0)
 	    return 1;
 	  config_session.use_xauth = opt_val;
 	  break;
 	case 1500:
-	  if (check_for_pam_module ("pam_make.so") != 0)
+	  if (check_for_pam_module ("pam_make.so", force) != 0)
 	    return 1;
 	  config_session.use_make = opt_val;
 	  break;
@@ -363,7 +373,7 @@ main (int argc, char *argv[])
 	  config_session.make_options = optarg;
 	  break;
 	case 1600:
-	  if (check_for_pam_module ("pam_unix2.so") != 0)
+	  if (check_for_pam_module ("pam_unix2.so", force) != 0)
 	    return 1;
 	  /* use_unix2 */
 	  break;
@@ -386,7 +396,7 @@ main (int argc, char *argv[])
           config_session.unix2_call_modules = optarg;
           break;
 	case 1700:
-	  if (check_for_pam_module ("pam_bioapi.so") != 0)
+	  if (check_for_pam_module ("pam_bioapi.so", force) != 0)
 	    return 1;
 	  config_auth.use_bioapi = opt_val;
 	  break;
@@ -394,7 +404,7 @@ main (int argc, char *argv[])
 	  config_auth.bioapi_options = optarg;
 	  break;
 	case 1800:
-	  if (check_for_pam_module ("pam_krb5.so") != 0)
+	  if (check_for_pam_module ("pam_krb5.so", force) != 0)
 	    return 1;
 	  config_account.use_krb5 = opt_val;
 	  config_auth.use_krb5 = opt_val;
@@ -408,7 +418,7 @@ main (int argc, char *argv[])
 	  config_session.krb5_debug = opt_val;
 	  break;
 	case 1900:
-	  if (check_for_pam_module ("pam_ldap.so") != 0)
+	  if (check_for_pam_module ("pam_ldap.so", force) != 0)
 	    return 1;
 	  config_account.use_ldap = opt_val;
 	  config_auth.use_ldap = opt_val;
@@ -422,12 +432,12 @@ main (int argc, char *argv[])
 	  config_session.ldap_debug = opt_val;
 	  break;
 	case 2000:
-	  if (check_for_pam_module ("pam_ccreds.so") != 0)
+	  if (check_for_pam_module ("pam_ccreds.so", force) != 0)
 	    return 1;
 	  config_auth.use_ccreds = opt_val;
 	  break;
 	case 2010:
-	  if (check_for_pam_module ("pam_pkcs11.so") != 0)
+	  if (check_for_pam_module ("pam_pkcs11.so", force) != 0)
 	    return 1;
 	  config_auth.use_pkcs11 = opt_val;
 	  break;
@@ -459,7 +469,7 @@ main (int argc, char *argv[])
       return 1;
     }
 
-  if (m_add + m_create + m_delete + m_init != 1)
+  if (m_add + m_create + m_delete + m_init + m_update != 1)
     {
       print_error (program);
       return 1;
@@ -651,5 +661,5 @@ main (int argc, char *argv[])
   if (check_symlink (CONF_SESSION_PC, CONF_SESSION) != 0)
     retval = 1;
 
-  return 0;
+  return retval;
 }

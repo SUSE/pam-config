@@ -1,5 +1,22 @@
 2006-08-22  Thorsten Kukuk  <kukuk@thkukuk.de>
 
+	* release version 0.5
+
+	* src/pam-config.c (main): Implement --update, fix return value.
+
+	* src/sanity_checks.c (check_for_pam_module): Implement
+	force option.
+
+	* src/pam-config.c (main): Call check_for_pam_module with
+	force argument.
+
+	* src/pam-config.8.xml: Document -f position in args.
+
+	* src/write_config_account.c (write_config_account): Use
+	account, not auth.
+
+2006-08-22  Thorsten Kukuk  <kukuk@thkukuk.de>
+
 	* release version 0.4
 
 	* src/sanity_checks.c (check_for_pam_module): New check.

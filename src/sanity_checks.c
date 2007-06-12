@@ -26,7 +26,7 @@
 #include "pam-config.h"
 
 int
-check_for_pam_module (const char *name)
+check_for_pam_module (const char *name, int force)
 {
   const char *path[] = { "/lib/security", "/lib64/security" };
   int i, retval = 0;
@@ -41,9 +41,16 @@ check_for_pam_module (const char *name)
 
 	  if (access (module, F_OK) != 0)
 	    {
-	      fprintf (stderr, _("ERROR: module %s is not installed.\n"),
-		       module);
-	      retval=1;
+	      if (force)
+		fprintf (stderr, _("WARNING: module %s is not installed.\n"),
+			 module);
+	      else
+		{
+		  fprintf (stderr,
+			   _("ERROR: module %s is not installed.\n"),
+			   module);
+		  retval=1;
+		}
 	    }
 	}
     }

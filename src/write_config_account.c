@@ -50,7 +50,7 @@ write_config_account (const char *file, config_file_t *conf)
   fprintf (fp, "# Account-related modules common to all services\n#\n");
   fprintf (fp,
 	   "# This file is included from other service-specific PAM config files,\n"
-	   "# and should contain a list of the authorization modules that define\n"
+	   "# and should contain a list of the accountorization modules that define\n"
 	   "# the central access policy for use on the system.  The default is to\n"
 	   "# only deny service to users whose accounts are expired.\n#\n");
 
@@ -67,9 +67,9 @@ write_config_account (const char *file, config_file_t *conf)
   if (conf->use_krb5)
     {
       if (conf->use_ldap)
-	fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
+	fprintf (fp, "account\tsufficient\tpam_krb5.so\tuse_first_pass ");
       else
-	fprintf (fp, "auth\trequired\tpam_krb5.so\tuse_first_pass ");
+	fprintf (fp, "account\trequired\tpam_krb5.so\tuse_first_pass ");
       if (conf->krb5_debug)
         fprintf (fp, "debug ");
       fprintf (fp, "\n");
@@ -77,7 +77,7 @@ write_config_account (const char *file, config_file_t *conf)
 
   if (conf->use_ldap)
     {
-      fprintf (fp, "auth\trequired\tpam_ldap.so\tuse_first_pass ");
+      fprintf (fp, "account\trequired\tpam_ldap.so\tuse_first_pass ");
       if (conf->ldap_debug)
         fprintf (fp, "debug ");
       fprintf (fp, "\n");
