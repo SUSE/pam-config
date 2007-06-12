@@ -4,6 +4,10 @@ Copyright (C) 2006 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.11:
+* Changes to account stack with krb5 and ldap
+* Add support for pam_umask.so
+
 Version 0.10:
 * Fix first install if pam-modules was updated before
 * Document missing options in manual page

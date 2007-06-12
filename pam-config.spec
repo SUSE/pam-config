@@ -14,11 +14,11 @@
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.10
+Version:        0.11
 Release:        1
 License:        GPL
 Autoreqprov:    on
-PreReq:         pam >= 0.99
+PreReq:         pam >= 0.99.6.3
 Requires:       pam-modules >= 10.2
 Prefix:         %{_prefix}
 Group:          System/Management
@@ -89,6 +89,9 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
 
 %changelog -n pam-config
+* Thu Sep 14 2006 - kukuk@suse.de 0.11
+- Changes to account stack with krb5 and ldap
+- Add support for pam_umask.so
 * Thu Aug 31 2006 - kukuk@suse.de 0.10
 - Fix first install if pam-modules was updated before
 - Document missing options in manual page

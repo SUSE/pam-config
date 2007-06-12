@@ -409,6 +409,23 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>--umask</option></term>
+        <listitem>
+          <para>
+            Add pam_umask.so as optional session module.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--umask-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> option to all pam_umask.so
+            invocations in session management.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>--cracklib</option></term>
         <listitem>
           <para>

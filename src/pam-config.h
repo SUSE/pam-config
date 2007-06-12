@@ -75,6 +75,9 @@ struct config_file_t {
   /* pam_winbind, used by all types.  */
   int use_winbind;
   int winbind_debug;
+  /* pam_umask, used by session.  */
+  int use_umask;
+  int umask_debug;
 };
 typedef struct config_file_t config_file_t;
 
@@ -107,5 +110,6 @@ void print_module_ldap (config_file_t *account, config_file_t *auth,
                         config_file_t *password, config_file_t *session);
 void print_module_winbind (config_file_t *account, config_file_t *auth,
 			   config_file_t *password, config_file_t *session);
+void print_module_umask (config_file_t *conf);
 
 #endif

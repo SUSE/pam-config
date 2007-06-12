@@ -208,6 +208,26 @@ parse_cracklib_options (config_file_t *conf, char *args)
   return;
 }
 
+static void
+parse_umask_options (config_file_t *conf, char *args)
+{
+  while (args && strlen (args) > 0)
+    {
+      char *cp = strsep (&args, " \t");
+      if (args)
+	while (isspace ((int)*args))
+        ++args;
+
+      if (strcmp (cp, "debug") == 0)
+	conf->umask_debug = 1;
+      else
+	fprintf (stderr,
+		 _("Unknown option for pam_umask.so, ignored: '%s'\n"),
+		 cp);
+    }
+  return;
+}
+
 int
 load_config (const char *file, const char *wanted,
 	     config_file_t *conf)
@@ -384,6 +404,12 @@ load_config (const char *file, const char *wanted,
 	    }
 	  else if (strcmp (module, "pam_nam.so") == 0)
 	    conf->use_lum = 1;
+	  else if (strcmp (module, "pam_umask.so") == 0)
+	    {
+	      conf->use_umask = 1;
+	      if (arguments)
+		parse_umask_options (conf, arguments);
+	    }
 	  else if (strcmp (module, "pam_localuser.so") == 0)
 	    { /* ignore, used for account with pam_ldap.so */ }
 	  else

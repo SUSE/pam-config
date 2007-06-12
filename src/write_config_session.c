@@ -107,6 +107,9 @@ write_config_session (const char *file, config_file_t *conf)
   if (conf->use_xauth)
     fprintf (fp, "session\toptional\tpam_xauth.so\n");
 
+  if (conf->use_umask)
+    fprintf (fp, "session\toptional\tpam_umask.so\n");
+
   fclose (fp);
 
   return 0;

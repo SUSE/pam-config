@@ -67,7 +67,7 @@ write_config_account (const char *file, config_file_t *conf)
   if (conf->use_krb5)
     {
       if (conf->use_ldap || conf->use_lum || conf->use_winbind)
-	fprintf (fp, "account\trequisite\tpam_krb5.so\tuse_first_pass ");
+	fprintf (fp, "account\t[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]\tpam_krb5.so\tuse_first_pass "); /* required with additional user_unknown mapping to ignore */
       else
 	fprintf (fp, "account\trequired\tpam_krb5.so\tuse_first_pass ");
       if (conf->krb5_debug)

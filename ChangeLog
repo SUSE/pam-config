@@ -1,4 +1,25 @@
+2006-09-14  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.11
+
+	* src/write_config_session.c (write_config_session): Add support
+	for pam_umask.so.
+	* src/pam-config.h: Likewise.
+	* src/pam-config.c: Likewise.
+	* src/pam-config.8.xml: Likewise.
+	* src/load_config.c (parse_umask_options): New.
+	* src/print_module.c (print_module_umask): New.
+
+	* src/write_config_account.c (write_config_account): In combination
+	with pam_ldap, USER_UNKNOWN of pam_krb5 should be ignored.
+
+2006-09-05  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/pam-config.c (main): Fix first openlog argument.
+
 2006-08-31  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* release version 0.10
 
 	* src/load_obsolete_conf.c: Don't report error for empty
 	arguments.

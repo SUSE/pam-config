@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-26 12:53+0200\n"
+"POT-Creation-Date: 2006-09-14 16:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,61 +46,66 @@ msgstr ""
 msgid "Unknown option for pam_cracklib.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:313 src/load_config.c:320 src/load_config.c:333
-#: src/load_config.c:340
+#: src/load_config.c:225
+#, c-format
+msgid "Unknown option for pam_umask.so, ignored: '%s'\n"
+msgstr ""
+
+#: src/load_config.c:333 src/load_config.c:340 src/load_config.c:353
+#: src/load_config.c:360
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr ""
 
-#: src/load_config.c:391
+#: src/load_config.c:417
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:53 src/load_obsolete_conf.c:66
-#: src/load_obsolete_conf.c:86 src/load_obsolete_conf.c:100
-#: src/load_obsolete_conf.c:121 src/load_obsolete_conf.c:134
-#: src/load_obsolete_conf.c:147 src/load_obsolete_conf.c:161
+#: src/load_obsolete_conf.c:56 src/load_obsolete_conf.c:69
+#: src/load_obsolete_conf.c:89 src/load_obsolete_conf.c:103
+#: src/load_obsolete_conf.c:124 src/load_obsolete_conf.c:137
+#: src/load_obsolete_conf.c:150 src/load_obsolete_conf.c:164
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:168
+#: src/load_obsolete_conf.c:171
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:170
+#: src/load_obsolete_conf.c:173
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:174
+#: src/load_obsolete_conf.c:177
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:176
+#: src/load_obsolete_conf.c:179
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:195 src/load_obsolete_conf.c:234
+#: src/load_obsolete_conf.c:201 src/load_obsolete_conf.c:240
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:226
+#: src/load_obsolete_conf.c:232
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:228
+#: src/load_obsolete_conf.c:234
 #, c-format
 msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:232
+#: src/load_obsolete_conf.c:238
 #, c-format
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
@@ -166,14 +171,14 @@ msgstr ""
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:98 src/pam-config.c:135 src/pam-config.c:837
-#: src/pam-config.c:847 src/pam-config.c:857 src/pam-config.c:868
+#: src/pam-config.c:98 src/pam-config.c:135 src/pam-config.c:855
+#: src/pam-config.c:865 src/pam-config.c:875 src/pam-config.c:886
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:839
-#: src/pam-config.c:849 src/pam-config.c:859 src/pam-config.c:870
+#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:857
+#: src/pam-config.c:867 src/pam-config.c:877 src/pam-config.c:888
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -195,7 +200,7 @@ msgid ""
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:729
+#: src/pam-config.c:746
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""

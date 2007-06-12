@@ -162,7 +162,7 @@ main (int argc, char *argv[])
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);
 
-  openlog ("login", LOG_ODELAY | LOG_PID, LOG_AUTHPRIV);
+  openlog (program, LOG_ODELAY | LOG_PID, LOG_AUTHPRIV);
 
   if (argc < 2)
     {
@@ -317,6 +317,8 @@ main (int argc, char *argv[])
 	{"cracklib-retry",        required_argument, NULL, 2103 },
 	{"winbind",               no_argument,       NULL, 2200 },
 	{"winbind-debug",         no_argument,       NULL, 2201 },
+	{"umask",                 no_argument,       NULL, 2300 },
+	{"umask-debug",           no_argument,       NULL, 2301 },
 	{"debug",                 no_argument,       NULL, '\254' },
         {"help",                  no_argument,       NULL, '\255' },
         {NULL,                    0,                 NULL, '\0'}
@@ -356,6 +358,7 @@ main (int argc, char *argv[])
 	  config_auth.winbind_debug = opt_val;
 	  config_password.winbind_debug = opt_val;
 	  config_session.winbind_debug = opt_val;
+	  config_session.umask_debug = opt_val;
 	  break;
 	/* pam_pwcheck */
 	case 1000:
@@ -703,6 +706,20 @@ main (int argc, char *argv[])
 	  config_password.winbind_debug = opt_val;
 	  config_session.winbind_debug = opt_val;
 	  break;
+	case 2300:
+	  /* pam_umask.so */
+	  if (m_query)
+	    print_module_umask (&config_session);
+	  else
+	    {
+	      if (check_for_pam_module ("pam_umask.so", force) != 0)
+		return 1;
+	      config_session.use_umask = opt_val;
+	    }
+	  break;
+	case 2301:
+	  config_session.umask_debug = opt_val;
+	  break;
 	case '\254':
 	  debug = 1;
 	  break;
@@ -774,6 +791,7 @@ main (int argc, char *argv[])
       config_session.use_unix2 = 1;
       config_session.use_limits = 1;
       config_session.use_env = 1;
+      config_session.use_umask = 1;
       if (sanitize_check_session (&config_session) != 0)
 	return 1;
       if (write_config_session (CONF_SESSION_PC, &config_session) != 0)
