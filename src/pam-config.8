@@ -1,11 +1,11 @@
 .\"     Title: pam\-config
 .\"    Author: 
-.\" Generator: DocBook XSL Stylesheets vsnapshot_2006\-08\-24_0226 <http://docbook.sf.net/>
-.\"      Date: 09/14/2006
+.\" Generator: DocBook XSL Stylesheets v1.71.0 <http://docbook.sf.net/>
+.\"      Date: 10/25/2006
 .\"    Manual: NIS Reference Manual
 .\"    Source: NIS Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "09/14/2006" "NIS Reference Manual" "NIS Reference Manual"
+.TH "PAM\-CONFIG" "8" "10/25/2006" "NIS Reference Manual" "NIS Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -23,199 +23,314 @@ pam\-config \- create or dump a ypserv database file
 \fBpam\-config\fR
 adjusts predefined PAM config files.
 .SH "OPTIONS"
-.TP 3n
+.PP
 \fB\-\-debug\fR
+.RS 3n
 Print debug messages.
-.TP 3n
+.RE
+.PP
 \fB\-a\fR, \fB\-\-add\fR
+.RS 3n
 Add options or new PAM modules to existing PAM configuration files.
-.TP 3n
+.RE
+.PP
 \fB\-c\fR, \fB\-\-create\fR
+.RS 3n
 Create new PAM configuration files for plain UNIX authentication, overwriting existing ones.
-.TP 3n
+.RE
+.PP
 \fB\-d\fR, \fB\-\-delete\fR
+.RS 3n
 Remove options or PAM modules from existing PAM configuration files.
-.TP 3n
+.RE
+.PP
 \fB\-q\fR, \fB\-\-query\fR
+.RS 3n
 Print a list of types and the corresponding module options for the queried PAM module.
-.TP 3n
+.RE
+.PP
 \fB\-f\fR, \fB\-\-force\fR
+.RS 3n
 The new configuration will be activated regardless if there are other local changes.
-.TP 3n
+.RE
+.PP
 \fB\-\-pam\-debug\fR
+.RS 3n
 Add
 \fBdebug\fR
 to all modules which supports this.
-.TP 3n
+.RE
+.PP
 \fB\-\-nullok\fR
+.RS 3n
 Add
 \fBnullok\fR
 to all modules which supports this.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\fR
+.RS 3n
 Enable/Disable pam_pwcheck.so module in password section.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-debug\fR
+.RS 3n
 Add
 \fBdebug\fR
 option to all pam_pwcheck.so invocations.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-nullok\fR
+.RS 3n
 Add
 \fBnullok\fR
 option to all pam_pwcheck.so invocations.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-cracklib\fR
+.RS 3n
 Enable cracklib support of pam_pwcheck.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-cracklib\-path=\fR\fIpath\fR
+.RS 3n
 Specify
 \fIpath\fR
 where pam_pwcheck.so can find the cracklib dictionaries.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-maxlen=\fR\fIN\fR
+.RS 3n
 Add
 \fBmaxlen=\fR\fIN\fR
 to pam_pwcheck.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-minlen=\fR\fIN\fR
+.RS 3n
 Add
 \fBminlen=\fR\fIN\fR
 to pam_pwcheck.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-tries=\fR\fIN\fR
+.RS 3n
 Add
 \fBtries=\fR\fIN\fR
 to pam_pwcheck.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-remember=\fR\fIN\fR
+.RS 3n
 Add
 \fBremember=\fR\fIN\fR
 to pam_pwcheck.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-nisdir=\fR\fIpath\fR
+.RS 3n
 Add
 \fBnisdir=\fR\fIpath\fR
 to pam_pwcheck.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-pwcheck\-no_obscure_checks\fR
+.RS 3n
 Disable obscure checks of pam_pwcheck.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-mkhomedir\fR
+.RS 3n
 Add pam_mkhomedir.so as first module to session section.
-.TP 3n
+.RE
+.PP
 \fB\-\-limits\fR
+.RS 3n
 Add pam_limits.so to session section.
-.TP 3n
+.RE
+.PP
 \fB\-\-env\fR
+.RS 3n
 Add pam_env.so as optional module to session section.
-.TP 3n
+.RE
+.PP
 \fB\-\-xauth\fR
+.RS 3n
 Add pam_xauth.so as required module to session section.
-.TP 3n
+.RE
+.PP
 \fB\-\-make\fR
+.RS 3n
 Add pam_make.so as last module to password section.
-.TP 3n
+.RE
+.PP
 \fB\-\-make\-dir=\fR\fIpath\fR
+.RS 3n
 Add
 \fIpath\fR
 as argument for pam_make.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-unix2\fR
+.RS 3n
 Use pam_unix2.so as standard UNIX PAM module.
-.TP 3n
+.RE
+.PP
 \fB\-\-unix2\-debug\fR
+.RS 3n
 Add
 \fBdebug\fR
 option to all pam_unix2.so invocations.
-.TP 3n
+.RE
+.PP
 \fB\-\-unix2\-nullok\fR
+.RS 3n
 Add
 \fBnullok\fR
 option to all pam_unix2.so invocations.
-.TP 3n
+.RE
+.PP
 \fB\-\-unix2\-trace\fR
+.RS 3n
 Add
 \fBtrace\fR
 option to pam_unix2.so in session section.
-.TP 3n
+.RE
+.PP
 \fB\-\-bioapi\fR
+.RS 3n
 Add pam_bioapi.so as sufficient module before pam_unix2.so to auth section.
-.TP 3n
+.RE
+.PP
 \fB\-\-unix2\-call_modules=\fR\fImodule,...\fR
+.RS 3n
 Add
 \fBcall_modules=\fR\fImodule,...\fR
 as argument to pam_unix2.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-bioapi\fR
+.RS 3n
 Add pam_bioapi.so to the authentication stack before pam_unix2.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-bioapi\-options=\fR\fIoption\fR
+.RS 3n
 Add
 \fIoption\fR
 as argument for pam_bioapi.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-krb5\fR
+.RS 3n
 Use pam_krb5.so after pam_unix2.so to all stacks.
-.TP 3n
+.RE
+.PP
 \fB\-\-krb5\-debug\fR
+.RS 3n
 Add
 \fBdebug\fR
 option to all pam_krb5.so invocations.
-.TP 3n
+.RE
+.PP
 \fB\-\-ldap\fR
+.RS 3n
 Add pam_ldap.so after pam_unix2.so to all stacks.
-.TP 3n
+.RE
+.PP
 \fB\-\-ldap\-debug\fR
+.RS 3n
 Add
 \fBdebug\fR
 option to all pam_ldap.so invocations.
-.TP 3n
+.RE
+.PP
 \fB\-\-ccreds\fR
+.RS 3n
 Add pam_ccreds.so after pam_ldap.so or pam_krb5.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-pkcs11\fR
+.RS 3n
 Add pam_pkcs11.so before pam_unix2.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-apparmor\fR
+.RS 3n
 Add pam_apparmore.so to session config.
-.TP 3n
+.RE
+.PP
 \fB\-\-lum\fR
+.RS 3n
 Add pam_nam.so to all stacks.
-.TP 3n
+.RE
+.PP
 \fB\-\-winbind\fR
+.RS 3n
 Use pam_winbind.so in all stacks.
-.TP 3n
+.RE
+.PP
 \fB\-\-winbind\-debug\fR
+.RS 3n
 Add
 \fBdebug\fR
 option to all pam_winbind.so invocations.
-.TP 3n
+.RE
+.PP
 \fB\-\-umask\fR
+.RS 3n
 Add pam_umask.so as optional session module.
-.TP 3n
+.RE
+.PP
 \fB\-\-umask\-debug\fR
+.RS 3n
 Add
 \fBdebug\fR
 option to all pam_umask.so invocations in session management.
-.TP 3n
+.RE
+.PP
 \fB\-\-cracklib\fR
+.RS 3n
 Enable/Disable pam_cracklib.so module in password section.
-.TP 3n
+.RE
+.PP
 \fB\-\-cracklib\-debug\fR
+.RS 3n
 Add
 \fBdebug\fR
 option to all pam_cracklib.so invocations.
-.TP 3n
+.RE
+.PP
 \fB\-\-cracklib\-retry=\fR\fIN\fR
+.RS 3n
 Add
 \fBtries=\fR\fIN\fR
 to pam_cracklib.so.
-.TP 3n
+.RE
+.PP
 \fB\-\-cracklib\-dictpath=\fR\fIpath\fR
+.RS 3n
 Specify
 \fIpath\fR
 where pam_cracklib.so can find the cracklib dictionaries.
+.RE
+.PP
+\fB\-\-capability\fR
+.RS 3n
+Enable/Disable pam_capability.so module in session section.
+.RE
+.PP
+\fB\-\-capability\-debug\fR
+.RS 3n
+Add
+\fBdebug\fR
+option to all pam_capability.so invocations.
+.RE
+.PP
+\fB\-\-capability\-conf=\fR\fI/path/config\fR
+.RS 3n
+Specify a different config file for pam_capability.so.
+.RE
 .SH "SEE ALSO"
 .PP
 

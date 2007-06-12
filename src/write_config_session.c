@@ -70,7 +70,17 @@ write_config_session (const char *file, config_file_t *conf)
   fprintf (fp, "\n");
 
   if (conf->use_apparmor)
-    fprintf (fp, "session\trequired\tpam_apparmor.so\n");
+    fprintf (fp, "session\toptional\tpam_apparmor.so\n");
+
+  if (conf->use_capability)
+    {
+      fprintf (fp, "session\trequired\tpam_capability.so\t");
+      if (conf->capability_conf)
+	fprintf (fp, "conf=%s ", conf->capability_conf);
+      if (conf->capability_debug)
+	fprintf (fp, "debug ");
+      fprintf (fp, "\n");
+    }
 
   if (conf->use_krb5)
     {

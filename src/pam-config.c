@@ -319,9 +319,12 @@ main (int argc, char *argv[])
 	{"winbind-debug",         no_argument,       NULL, 2201 },
 	{"umask",                 no_argument,       NULL, 2300 },
 	{"umask-debug",           no_argument,       NULL, 2301 },
-	{"debug",                 no_argument,       NULL, '\254' },
-        {"help",                  no_argument,       NULL, '\255' },
-        {NULL,                    0,                 NULL, '\0'}
+	{"capability",            no_argument,       NULL, 2400 },
+        {"capability-debug",      no_argument,       NULL, 2401 },
+        {"capability-conf",       required_argument, NULL, 2402 },
+	{"debug",                 no_argument,       NULL,  254 },
+        {"help",                  no_argument,       NULL,  255 },
+        {NULL,                    0,                 NULL,    0 }
       };
 
       c = getopt_long (argc, argv, "fvu",
@@ -359,6 +362,7 @@ main (int argc, char *argv[])
 	  config_password.winbind_debug = opt_val;
 	  config_session.winbind_debug = opt_val;
 	  config_session.umask_debug = opt_val;
+	  config_session.capability_debug = opt_val;
 	  break;
 	/* pam_pwcheck */
 	case 1000:
@@ -720,10 +724,27 @@ main (int argc, char *argv[])
 	case 2301:
 	  config_session.umask_debug = opt_val;
 	  break;
-	case '\254':
+	case 2400:
+	  /* pam_capability.so */
+	  if (m_query)
+	    print_module_capability (&config_session);
+	  else
+	    {
+	      if (check_for_pam_module ("pam_capability.so", force) != 0)
+		return 1;
+	      config_session.use_capability = opt_val;
+	    }
+	  break;
+	case 2401:
+	  config_session.capability_debug = opt_val;
+	  break;
+	case 2402:
+	  config_password.capability_conf = optarg;
+	  break;
+	case 254:
 	  debug = 1;
 	  break;
-	case '\255':
+	case 255:
           print_help (program);
           return 0;
         case 'v':

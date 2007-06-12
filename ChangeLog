@@ -1,3 +1,17 @@
+2006-10-25  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/print_module.c (print_module_cracklib): Fix typo.
+
+	* src/pam-config.h: Add support for pam_capability.
+	* src/pam-config.c (main): Likewise.
+	* src/print_module.c (print_module_capability): Likewise.
+	* src/load_config.c (load_config): Likewise.
+	* src/pam-config.8.xml: Likewise.
+
+	* src/write_config_session.c: Make pam_apparmor optional
+	[Fate#300510].
+	(write_config_session): Write pam_capability entry.
+
 2006-09-20  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.12

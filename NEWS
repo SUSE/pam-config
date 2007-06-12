@@ -4,8 +4,13 @@ Copyright (C) 2006 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.13:
+* Bug fixes
+* Add support for pam_capability
+* Add pam_apparmor only as optional
+
 Version 0.12:
-* Fix debug flag handling if changing from pam_cracklib to pam_pwcheck.
+* Fix debug flag handling if changing from pam_cracklib to pam_pwcheck
 
 Version 0.11:
 * Changes to account stack with krb5 and ldap

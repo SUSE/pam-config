@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-14 16:22+0200\n"
+"POT-Creation-Date: 2006-10-25 12:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,13 +51,18 @@ msgstr ""
 msgid "Unknown option for pam_umask.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:333 src/load_config.c:340 src/load_config.c:353
-#: src/load_config.c:360
+#: src/load_config.c:247
+#, c-format
+msgid "Unknown option for pam_capability.so, ignored: '%s'\n"
+msgstr ""
+
+#: src/load_config.c:355 src/load_config.c:362 src/load_config.c:375
+#: src/load_config.c:382
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr ""
 
-#: src/load_config.c:417
+#: src/load_config.c:445
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr ""
@@ -171,14 +176,14 @@ msgstr ""
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:98 src/pam-config.c:135 src/pam-config.c:855
-#: src/pam-config.c:865 src/pam-config.c:875 src/pam-config.c:886
+#: src/pam-config.c:98 src/pam-config.c:135 src/pam-config.c:876
+#: src/pam-config.c:886 src/pam-config.c:896 src/pam-config.c:907
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:857
-#: src/pam-config.c:867 src/pam-config.c:877 src/pam-config.c:888
+#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:878
+#: src/pam-config.c:888 src/pam-config.c:898 src/pam-config.c:909
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -200,7 +205,7 @@ msgid ""
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:746
+#: src/pam-config.c:767
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""

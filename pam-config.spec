@@ -14,7 +14,7 @@
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.11
+Version:        0.13
 Release:        1
 License:        GPL
 Autoreqprov:    on
@@ -89,6 +89,11 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
 
 %changelog -n pam-config
+* Wed Oct 25 2006 - kukuk@suse.de 0.13
+- Add pam_capability support
+- pam_apparmor should only be optional
+* Wed Sep 20 2006 - kukuk@suse.de 0.12
+- Fix debug flag handling for pam_cracklib/pam_pwcheck
 * Thu Sep 14 2006 - kukuk@suse.de 0.11
 - Changes to account stack with krb5 and ldap
 - Add support for pam_umask.so

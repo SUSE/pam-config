@@ -161,7 +161,7 @@ print_module_cracklib (config_file_t *conf)
   if (conf->cracklib_dictpath)
     printf (" dictpath=%s", conf->cracklib_dictpath);
   if (conf->cracklib_retry)
-    printf (" retrz=%d", conf->cracklib_retry);
+    printf (" retry=%d", conf->cracklib_retry);
   printf ("\n");
 }
 
@@ -174,5 +174,19 @@ print_module_umask (config_file_t *conf)
   printf ("session:");
   if (conf->umask_debug)
     printf (" debug");
+  printf ("\n");
+}
+
+void
+print_module_capability (config_file_t *conf)
+{
+  if (!conf->use_capability)
+    return;
+
+  printf ("session:");
+  if (conf->capability_debug)
+    printf (" debug");
+  if (conf->capability_conf)
+    printf (" conf=%s", conf->capability_conf);
   printf ("\n");
 }
