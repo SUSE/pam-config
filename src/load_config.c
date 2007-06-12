@@ -152,6 +152,32 @@ parse_ldap_options (config_file_t *conf, char *args)
   return;
 }
 
+static void
+parse_cracklib_options (config_file_t *conf, char *args)
+{
+  while (args && strlen (args) > 0)
+    {
+      char *cp = strsep (&args, " \t");
+      if (args)
+	while (isspace ((int)*args))
+        ++args;
+
+      if (strcmp (cp, "debug") == 0)
+	conf->cracklib_debug = 1;
+      else if (strcmp (cp, "use_authtok") == 0)
+	{ /* will be ignored */ }
+      else if (strncmp (cp, "dictpath=", 9) == 0)
+	conf->cracklib_dictpath = strdup (&cp[9]);
+      else if (strncmp (cp, "retry=", 6) == 0)
+	conf->cracklib_retry = atoi (&cp[6]);
+      else
+	fprintf (stderr,
+		 _("Unknown option for pam_cracklib.so, ignored: '%s'\n"),
+		 cp);
+    }
+  return;
+}
+
 int
 load_config (const char *file, const char *wanted,
 	     config_file_t *conf)
@@ -312,6 +338,16 @@ load_config (const char *file, const char *wanted,
 	    conf->use_ccreds = 1;
 	  else if (strcmp (module, "pam_pkcs11.so") == 0)
 	    conf->use_pkcs11 = 1;
+	  else if (strcmp (module, "pam_apparmor.so") == 0)
+	    conf->use_apparmor = 1;
+	  else if (strcmp (module, "pam_cracklib.so") == 0)
+	    {
+	      conf->use_cracklib = 1;
+	      if (arguments)
+		parse_cracklib_options (conf, arguments);
+	    }
+	  else if (strcmp (module, "pam_localuser.so") == 0)
+	    { /* ignore, used for account with pam_ldap.so */ }
 	  else
 	    {
 	      fprintf (stderr, _("%s: Unknown module %s, ignored!\n"),

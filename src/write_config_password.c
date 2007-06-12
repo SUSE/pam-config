@@ -56,7 +56,7 @@ write_config_password (const char *file, config_file_t *conf)
 
   if (conf->use_pwcheck)
     {
-      fprintf (fp, "password\trequired\tpam_pwcheck.so\t");
+      fprintf (fp, "password\trequisite\tpam_pwcheck.so\t");
       if (conf->pwcheck_debug)
 	fprintf (fp, "debug ");
       if (conf->pwcheck_nullok)
@@ -80,6 +80,17 @@ write_config_password (const char *file, config_file_t *conf)
 	fprintf (fp, "nisdir=%s ", conf->pwcheck_nisdir);
       fprintf (fp, "\n");
     }
+  else if (conf->use_cracklib)
+    {
+      fprintf (fp, "password\trequisite\tpam_cracklib.so\t");
+      if (conf->cracklib_debug)
+	fprintf (fp, "debug ");
+      if (conf->cracklib_dictpath)
+	fprintf (fp, "dictpath=%s ", conf->cracklib_dictpath);
+      if (conf->cracklib_retry)
+	fprintf (fp, "retry=%d ", conf->cracklib_retry);
+      fprintf (fp, "\n");
+    }
 
   if (conf->use_krb5 || conf->use_ldap)
     fprintf (fp, "password\tsufficient\tpam_unix2.so\t");
@@ -87,7 +98,7 @@ write_config_password (const char *file, config_file_t *conf)
     fprintf (fp, "password\trequired\tpam_unix2.so\t");
   if (conf->unix2_nullok)
     fprintf (fp, "nullok ");
-  if (conf->use_pwcheck)
+  if (conf->use_pwcheck || conf->use_cracklib)
     fprintf (fp, "use_authtok ");
   if (conf->unix2_debug)
     fprintf (fp, "debug ");

@@ -55,7 +55,7 @@ write_config_account (const char *file, config_file_t *conf)
 	   "# only deny service to users whose accounts are expired.\n#\n");
 
   if (conf->use_krb5 || conf->use_ldap)
-    fprintf (fp, "account\tsufficient\tpam_unix2.so\t");
+    fprintf (fp, "account\trequisite\tpam_unix2.so\t");
   else
     fprintf (fp, "account\trequired\tpam_unix2.so\t");
   if (conf->unix2_debug)
@@ -67,7 +67,7 @@ write_config_account (const char *file, config_file_t *conf)
   if (conf->use_krb5)
     {
       if (conf->use_ldap)
-	fprintf (fp, "account\tsufficient\tpam_krb5.so\tuse_first_pass ");
+	fprintf (fp, "account\trequisite\tpam_krb5.so\tuse_first_pass ");
       else
 	fprintf (fp, "account\trequired\tpam_krb5.so\tuse_first_pass ");
       if (conf->krb5_debug)
@@ -77,6 +77,7 @@ write_config_account (const char *file, config_file_t *conf)
 
   if (conf->use_ldap)
     {
+      fprintf (fp, "account\tsufficient\tpam_localuser.so\n");
       fprintf (fp, "account\trequired\tpam_ldap.so\tuse_first_pass ");
       if (conf->ldap_debug)
         fprintf (fp, "debug ");

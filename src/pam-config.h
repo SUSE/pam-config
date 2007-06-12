@@ -59,6 +59,12 @@ struct config_file_t {
   int use_ccreds;
   /* pam_pkcs11, used by auth.  */
   int use_pkcs11;
+  /* pam_cracklib, used by password.  */
+  int use_cracklib;
+  int cracklib_debug;
+  int cracklib_retry;
+  char *cracklib_dictpath;
+  int use_apparmor;
 };
 typedef struct config_file_t config_file_t;
 
@@ -78,6 +84,7 @@ int sanitize_check_password (config_file_t *conf);
 int check_for_pam_module (const char *name, int force);
 
 void print_module_pwcheck (config_file_t *conf);
+void print_module_cracklib (config_file_t *conf);
 void print_module_unix2 (config_file_t *account, config_file_t *auth,
 			 config_file_t *password, config_file_t *session);
 void print_module_krb5 (config_file_t *account, config_file_t *auth,

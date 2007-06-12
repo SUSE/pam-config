@@ -122,3 +122,17 @@ print_module_ldap (config_file_t *account, config_file_t *auth,
   print_module_ldap_int ("password", password);
   print_module_ldap_int ("session", session);
 }
+
+void
+print_module_cracklib (config_file_t *conf)
+{
+  if (!conf->use_cracklib)
+    return;
+
+  printf ("passwd:");
+  if (conf->cracklib_debug)
+    printf (" debug");
+  if (conf->cracklib_dictpath)
+    printf (" dictpath=%s", conf->cracklib_dictpath);
+  printf ("\n");
+}

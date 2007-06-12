@@ -89,7 +89,7 @@ write_config_auth (const char *file, config_file_t *conf)
       else if (conf->use_ldap)
 	fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
       else
-	fprintf (fp, "auth\trequierd\tpam_krb5.so\tuse_first_pass ");
+	fprintf (fp, "auth\trequired\tpam_krb5.so\tuse_first_pass ");
 
       if (conf->krb5_debug)
 	fprintf (fp, "debug ");

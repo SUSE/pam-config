@@ -70,11 +70,23 @@ sanitize_check_auth (config_file_t *conf)
 int
 sanitize_check_password (config_file_t *conf)
 {
+  int retval = 0;
+
+  if (conf->use_pwcheck && conf->use_cracklib)
+    {
+      fprintf (stderr, _("INFO: pam_pwcheck.so and pam_cracklib.so enabled,\nINFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"));
+      conf->use_cracklib = 0;
+      if (conf->pwcheck_cracklib == 0)
+	conf->pwcheck_cracklib = 1;
+      if (conf->pwcheck_cracklib_path == NULL)
+	conf->pwcheck_cracklib_path = conf->cracklib_dictpath;
+    }
+
   if (conf->use_make && (conf->use_ldap ||conf->use_krb5))
     {
       fprintf (stderr,
 	       _("ERROR: pam_make.so does not work with LDAP or Kerberos5.\n"));
-      return 1;
+      retval = 1;
     }
   return 0;
 }

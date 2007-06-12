@@ -1,3 +1,49 @@
+2006-08-24  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* release version 0.7
+
+	* src/write_config_auth.c (write_config_auth): Fix typo when
+	writing pam_krb5 rule.
+
+	* src/load_config.c (load_config): Add pam_apparmor support.
+	* src/write_config_session.c (write_config_session): Likewise.
+	* src/pam-config.h: Likewise.
+	* src/pam-config.c (main): Likewise.
+
+	* src/pam-config.h: Add cracklib_retry.
+	* src/pam-config.c: Likewise.
+	* src/load_config.c (parse_cracklib_options): Likewise.
+	* src/write_config_password.c (write_config_password): Likewise.
+
+	* src/load_config.c (load_config): Ignore pam_localuser.so.
+
+	* src/write_config_account.c (write_config_account): Fix stacking of
+	pam_unix2 with pam_ldap.
+
+	* src/write_config_password.c (write_config_password): Make
+	pam_pwcheck and pam_cracklib requisite, so that no other module
+	changes the password.
+
+2006-08-23  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* src/write_config_account.c (write_config_account):
+	Fix stacking of pam_unix2 with pam_ldap and pam_krb5.
+
+	* src/write_config_password.c (write_config_password): Write
+	rules for pam_cracklib, abort if pam_pwcheck of pam_cracklib
+	fails.
+
+	* src/print_module.c (print_module_cracklib): New function.
+
+	* src/pam-config.c (main): Add support for pam_cracklib.
+	* src/pam-config.h: Likewise.
+	* src/load_config.c: Likewise.
+
+	* src/sanity_checks.c (sanitize_check_password): Check for
+	pam_cracklib and pam_pwcheck at the same time.
+
+	* COPYING: Fix content
+
 2006-08-23  Thorsten Kukuk  <kukuk@thkukuk.de>
 
 	* release version 0.6

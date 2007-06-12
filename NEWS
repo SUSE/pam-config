@@ -4,6 +4,11 @@ Copyright (C) 2006 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.7:
+* Add pam_cracklib support.
+* Add pam_apparmor support.
+* Fix stacking of pam_ldap in auth section.
+
 Version 0.6:
 * Add query option for YaST2
 
@@ -12,12 +17,12 @@ Version 0.5:
 * Implement --update
 
 Version 0.4:
-* Add ccreds and pkcs11 support
+* Add pam_ccreds and pam_pkcs11 support
 * Add sanity checks
 * Check if modules are installed
 
 Version 0.3:
-* Add ldap and krb5 support
+* Add pam_ldap and pam_krb5 support
 
 Version 0.2:
 * Add documentation

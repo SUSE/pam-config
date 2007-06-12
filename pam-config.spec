@@ -1,22 +1,24 @@
 #
-# spec file for package pam-config (Version 0.6)
+# spec file for package pam-config (Version 0.7)
 #
-# Copyright (c) 2006 SUSE LINUX Products GmbH, Nuernberg, Germany.
-# This file and all modifications and additions to the pristine
-# package are under the same license as the package itself.
+# Copyright (c) 2006 Thorsten Kukuk
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as
+# published by the Free Software Foundation.
 #
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
 
 # norootforbuild
-# usedforbuild    aaa_base acl attr audit-libs autoconf automake bash bind-libs bind-utils binutils bison bzip2 coreutils cpio cpp cpp41 cracklib cvs cyrus-sasl db diffutils e2fsprogs file filesystem fillup findutils flex gawk gcc gcc41 gdbm gdbm-devel gettext gettext-devel glibc glibc-devel glibc-locale gpm grep groff gzip info insserv klogd less libacl libattr libcom_err libgcc41 libltdl libnscd libstdc++41 libtool libvolume_id libxcrypt libzio m4 make man mktemp module-init-tools ncurses ncurses-devel net-tools netcfg openldap2-client openssl pam pam-modules patch perl permissions popt procinfo procps psmisc pwdutils rcs readline rpm sed strace sysvinit tar tcpd texinfo timezone unzip util-linux vim zlib zlib-devel
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.6
+Version:        0.7
 Release:        1
 License:        GPL
 Autoreqprov:    on
+PreReq:         pam >= 0.99 pam-modules >= 10.2
 Prefix:         %{_prefix}
 Group:          System/Management
 Source:         %{name}-%{version}.tar.bz2
@@ -86,6 +88,11 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
 
 %changelog -n pam-config
+* Thu Aug 24 2006 - kukuk@suse.de
+- Version 0.7:
+  - Add support for pam_cracklib.
+  - Add support for pam_apparmor.
+  - Fix stacking of pam_unix2 with pam_ldap.
 * Wed Aug 23 2006 - kukuk@suse.de
 - Fix stacking of modules, add query option for YaST2 (version 0.6)
 * Tue Aug 22 2006 - kukuk@suse.de

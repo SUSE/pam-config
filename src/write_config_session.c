@@ -67,12 +67,18 @@ write_config_session (const char *file, config_file_t *conf)
     fprintf (fp, "debug ");
   if (conf->unix2_trace)
     fprintf (fp, "trace ");
-  if (conf->unix2_call_modules)
-    fprintf (fp, "call_modules=%s ",conf->unix2_call_modules);
   fprintf (fp, "\n");
 
+  if (conf->use_apparmor)
+    fprintf (fp, "session\trequired\tpam_apparmor.so\n");
+
   if (conf->use_krb5)
-    fprintf (fp, "session\toptional\tpam_krb5.so\n");
+    {
+      fprintf (fp, "session\toptional\tpam_krb5.so\t");
+      if (conf->krb5_debug)
+	fprintf (fp, "debug ");
+      fprintf (fp, "\n");
+    }
 
   if (conf->use_ldap)
     {
