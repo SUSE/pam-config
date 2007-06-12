@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Thorsten Kukuk
+/* Copyright (C) 2006, 2007 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -78,7 +78,7 @@ write_config_password (const char *file, config_file_t *conf)
 	}
       if (conf->pwcheck_maxlen)
 	fprintf (fp, "maxlen=%d ", conf->pwcheck_maxlen);
-      if (conf->pwcheck_minlen)
+      if (conf->pwcheck_have_minlen)
 	fprintf (fp, "minlen=%d ", conf->pwcheck_minlen);
       if (conf->pwcheck_tries)
 	fprintf (fp, "tries=%d ", conf->pwcheck_tries);

@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Thorsten Kukuk
+/* Copyright (C) 2006, 2007 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -289,6 +289,7 @@ main (int argc, char *argv[])
 	{"pwcheck-remember",          required_argument, NULL, 1008 },
 	{"pwcheck-nisdir",            required_argument, NULL, 1009 },
 	{"pwcheck-no_obscure_checks", no_argument,       NULL, 1010 },
+	{"pwcheck-no_minlen",         no_argument,       NULL, 1011 },
 	{"mkhomedir",        no_argument,       NULL, 1100 },
 	{"limits",           no_argument,       NULL, 1200 },
         {"env",              no_argument,       NULL, 1300 },
@@ -301,12 +302,14 @@ main (int argc, char *argv[])
         {"unix2-trace",      no_argument,       NULL, 1603 },
         {"unix2-call_modules", required_argument, NULL, 1604 },
 	{"bioapi",           no_argument,       NULL, 1700 },
-	{"bioapi-options",   required_argument, NULL, 1701 },
-	{"krb5",             no_argument,       NULL, 1800 },
-	{"krb5-debug",       no_argument,       NULL, 1801 },
-	{"krb5-minimum_uid", required_argument, NULL, 1802 },
-	{"ldap",             no_argument,       NULL, 1900 },
-	{"ldap-debug",       no_argument,       NULL, 1901 },
+	{"bioapi-options",        required_argument, NULL, 1701 },
+	{"krb5",                  no_argument,       NULL, 1800 },
+	{"krb5-debug",            no_argument,       NULL, 1801 },
+	{"krb5-minimum_uid",      required_argument, NULL, 1802 },
+	{"krb5-ignore_unknown_principals",
+	                          no_argument,       NULL, 1803 },
+	{"ldap",                  no_argument,       NULL, 1900 },
+	{"ldap-debug",            no_argument,       NULL, 1901 },
 	{"ccreds",                no_argument,       NULL, 2000 },
 	{"pkcs11",                no_argument,       NULL, 2010 },
 	{"apparmor",              no_argument,       NULL, 2020 },
@@ -393,6 +396,7 @@ main (int argc, char *argv[])
 	  break;
 	case 1006:
 	  config_password.pwcheck_minlen = atoi (optarg);
+	  config_password.pwcheck_have_minlen = 1;
 	  break;
 	case 1007:
 	  config_password.pwcheck_tries = atoi (optarg);
@@ -405,6 +409,9 @@ main (int argc, char *argv[])
 	  break;
 	case 1010:
 	  config_password.pwcheck_no_obscure_checks = opt_val;
+	  break;
+	case 1011:
+	  config_password.pwcheck_have_minlen = !opt_val;
 	  break;
 	case 1100:
 	  if (m_query)
@@ -587,6 +594,12 @@ main (int argc, char *argv[])
 	      config_session.krb5_minuid = atoi (optarg);
 	    }
 	  break;
+	case 1803:
+	  config_account.krb5_ignore_unknown_principals = opt_val;
+	  config_auth.krb5_ignore_unknown_principals = opt_val;
+	  config_password.krb5_ignore_unknown_principals = opt_val;
+	  config_session.krb5_ignore_unknown_principals = opt_val;
+	  break;
 	case 1900:
 	  /* pam_ldap */
 	  if (m_query)
@@ -748,7 +761,7 @@ main (int argc, char *argv[])
           print_help (program);
           return 0;
         case 'v':
-          print_version (program, "2006");
+          print_version (program, "2007");
           return 0;
         case 'u':
           print_usage (stdout, program);

@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Thorsten Kukuk
+/* Copyright (C) 2006, 2007 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -74,6 +74,8 @@ write_config_account (const char *file, config_file_t *conf)
         fprintf (fp, "debug ");
       if (conf->krb5_minuid)
 	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
+      if (conf->krb5_ignore_unknown_principals)
+        fprintf (fp, "ignore_unknown_principals ");
       fprintf (fp, "\n");
     }
 

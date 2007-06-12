@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Thorsten Kukuk
+/* Copyright (C) 2006, 2007 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -52,7 +52,10 @@ parse_pwcheck_options (config_file_t *conf, char *args)
       else if (strncmp (cp, "maxlen=", 7) == 0)
 	conf->pwcheck_maxlen = atoi (&cp[7]);
       else if (strncmp (cp, "minlen=", 7) == 0)
-	conf->pwcheck_minlen = atoi (&cp[7]);
+	{
+	  conf->pwcheck_have_minlen = 1;
+	  conf->pwcheck_minlen = atoi (&cp[7]);
+	}
       else if (strncmp (cp, "tries=", 6) == 0)
 	conf->pwcheck_tries = atoi (&cp[6]);
       else if (strncmp (cp, "remember=", 9) == 0)
@@ -122,6 +125,8 @@ parse_krb5_options (config_file_t *conf, char *args)
 	{ /* will be ignored */ }
       else if (strncmp (cp, "minimum_uid=", 12) == 0)
 	conf->krb5_minuid = atoi (&cp[12]);
+      else if (strcmp (cp, "ignore_unknown_principals") == 0)
+	conf->krb5_ignore_unknown_principals = 1;
       else
 	fprintf (stderr,
 		 _("Unknown option for pam_krb5.so, ignored: '%s'\n"),

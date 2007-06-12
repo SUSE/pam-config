@@ -14,7 +14,7 @@
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.13
+Version:        0.14
 Release:        1
 License:        GPL
 Autoreqprov:    on
@@ -89,6 +89,9 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
 
 %changelog -n pam-config
+* Fri Jan 26 2006 - kukuk@suse.de 0.14
+- Add --krb5_ignore_unknown_principals option
+- Add --pam_pwcheck-no_minlen option [bnc#227395]
 * Wed Oct 25 2006 - kukuk@suse.de 0.13
 - Add pam_capability support
 - pam_apparmor should only be optional

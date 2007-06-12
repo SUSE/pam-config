@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Thorsten Kukuk
+/* Copyright (C) 2006, 2007 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -28,6 +28,7 @@ struct config_file_t {
   char *pwcheck_cracklib_path;
   int pwcheck_maxlen;
   int pwcheck_minlen;
+  int pwcheck_have_minlen;
   int pwcheck_tries;
   int pwcheck_remember;
   char *pwcheck_nisdir;
@@ -56,6 +57,7 @@ struct config_file_t {
   int use_krb5;
   int krb5_debug;
   uint32_t krb5_minuid;
+  int krb5_ignore_unknown_principals;
   /* pam_ldap, used by all types.  */
   int use_ldap;
   int ldap_debug;

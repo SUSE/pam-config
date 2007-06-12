@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-25 12:02+0200\n"
+"POT-Creation-Date: 2007-01-26 16:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,53 +16,53 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/load_config.c:70
+#: src/load_config.c:73
 #, c-format
 msgid "Unknown option for pam_pwcheck.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:101
+#: src/load_config.c:104
 #, c-format
 msgid "Unknown option for pam_unix2.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:127
+#: src/load_config.c:132
 #, c-format
 msgid "Unknown option for pam_krb5.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:153
+#: src/load_config.c:158
 #, c-format
 msgid "Unknown option for pam_ldap.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:179
+#: src/load_config.c:184
 #, c-format
 msgid "Unknown option for pam_winbind.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:205
+#: src/load_config.c:210
 #, c-format
 msgid "Unknown option for pam_cracklib.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:225
+#: src/load_config.c:230
 #, c-format
 msgid "Unknown option for pam_umask.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:247
+#: src/load_config.c:252
 #, c-format
 msgid "Unknown option for pam_capability.so, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:355 src/load_config.c:362 src/load_config.c:375
-#: src/load_config.c:382
+#: src/load_config.c:360 src/load_config.c:367 src/load_config.c:380
+#: src/load_config.c:387
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr ""
 
-#: src/load_config.c:445
+#: src/load_config.c:450
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr ""
@@ -176,14 +176,14 @@ msgstr ""
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:98 src/pam-config.c:135 src/pam-config.c:876
-#: src/pam-config.c:886 src/pam-config.c:896 src/pam-config.c:907
+#: src/pam-config.c:98 src/pam-config.c:135 src/pam-config.c:889
+#: src/pam-config.c:899 src/pam-config.c:909 src/pam-config.c:920
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:878
-#: src/pam-config.c:888 src/pam-config.c:898 src/pam-config.c:909
+#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:891
+#: src/pam-config.c:901 src/pam-config.c:911 src/pam-config.c:922
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -205,7 +205,7 @@ msgid ""
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:767
+#: src/pam-config.c:780
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""

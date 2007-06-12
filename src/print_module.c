@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Thorsten Kukuk
+/* Copyright (C) 2006, 2007 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -42,7 +42,7 @@ print_module_pwcheck (config_file_t *conf)
     printf (" cracklib");
   if (conf->pwcheck_maxlen)
     printf (" maxlen=%d", conf->pwcheck_maxlen);
-  if (conf->pwcheck_minlen)
+  if (conf->pwcheck_have_minlen)
     printf (" minlen=%d", conf->pwcheck_minlen);
   if (conf->pwcheck_tries)
     printf (" tries=%d", conf->pwcheck_tries);
@@ -92,6 +92,8 @@ print_module_krb5_int (const char *type, config_file_t *conf)
     printf (" debug");
   if (conf->krb5_minuid)
     printf (" minimum_uid=%u", conf->krb5_minuid);
+  if (conf->krb5_ignore_unknown_principals)
+    printf (" ignore_unknown_principals");
   printf ("\n");
 }
 
