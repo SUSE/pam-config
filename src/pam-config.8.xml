@@ -147,11 +147,11 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term><option>--pwcheck-cracklib-path</option></term>
+        <term><option>--pwcheck-cracklib-path=</option><replaceable>path</replaceable></term>
         <listitem>
           <para>
-            Specify path where pam_pwcheck.so can find the cracklib
-            dictionaries.
+            Specify <replaceable>path</replaceable> where pam_pwcheck.so can
+            find the cracklib dictionaries.
           </para>
         </listitem>
       </varlistentry>
@@ -346,7 +346,7 @@
         <term><option>--ldap</option></term>
         <listitem>
           <para>
-            Use pam_ldap.so after pam_unix2.so to all stacks.
+            Add pam_ldap.so after pam_unix2.so to all stacks.
           </para>
         </listitem>
       </varlistentry>
@@ -380,6 +380,66 @@
         <listitem>
           <para>
             Add pam_apparmore.so to session config.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--lum</option></term>
+        <listitem>
+          <para>
+            Add pam_nam.so to all stacks.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--winbind</option></term>
+        <listitem>
+          <para>
+            Use pam_winbind.so in all stacks.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--winbind-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> option to all pam_winbind.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--cracklib</option></term>
+        <listitem>
+          <para>
+            Enable/Disable pam_cracklib.so module in password section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--cracklib-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> option to all pam_cracklib.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--cracklib-retry=</option><replaceable>N</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>tries=</option><replaceable>N</replaceable>
+            to pam_cracklib.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--cracklib-dictpath=</option><replaceable>path</replaceable></term>
+        <listitem>
+          <para>
+            Specify <replaceable>path</replaceable> where pam_cracklib.so
+            can find the cracklib dictionaries.
           </para>
         </listitem>
       </varlistentry>

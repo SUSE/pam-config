@@ -14,7 +14,7 @@
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.9
+Version:        0.10
 Release:        1
 License:        GPL
 Autoreqprov:    on
@@ -89,6 +89,9 @@ fi
 %ghost %config %{_sysconfdir}/pam.d/common-session-pc
 
 %changelog -n pam-config
+* Thu Aug 31 2006 - kukuk@suse.de 0.10
+- Fix first install if pam-modules was updated before
+- Document missing options in manual page
 * Fri Aug 25 2006 - kukuk@suse.de 0.9
 - Add pam_winbind support
 - Rename pam_krb5afs to pam_krb5 if we find it

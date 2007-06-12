@@ -22,6 +22,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
@@ -37,6 +38,9 @@ parse_option_unix2 (const char *file, const char *service,
   if (debug)
     printf ("**** parse_option_unix2 (%s, %s, %s, ...)\n",
 	    file, service, option);
+
+  if (option == NULL || *option == '\0')
+    return;
 
   if (strcasecmp (option, "debug") == 0)
     {
@@ -188,6 +192,9 @@ parse_option_pwcheck (const char *file, const char *service,
     printf ("***** parse_option_pwcheck (%s, %s, %s, ...)\n",
 	    file, service, option);
 
+  if (option == NULL || *option == '\0')
+    return;
+
   if (strcmp (service, "password") != 0)
     {
       fprintf (stderr,
@@ -321,13 +328,31 @@ load_obsolete_conf (config_file_t *account, config_file_t *auth,
   if (debug)
     printf ("*** load_obsolete_conf (...)\n");
 
-  if (parse_file ("/etc/security/pam_unix2.conf", account, auth,
-		  password, session, parse_option_unix2) == -1)
-    return -1;
+  if (access ("/etc/security/pam_unix2.conf", R_OK) == 0)
+    {
+      if (parse_file ("/etc/security/pam_unix2.conf", account, auth,
+		      password, session, parse_option_unix2) == -1)
+	return -1;
+    }
+  else if (access ("/etc/security/pam_unix2.conf.rpmsave", R_OK) == 0)
+    {
+      if (parse_file ("/etc/security/pam_unix2.conf.rpmsave", account,
+		      auth, password, session, parse_option_unix2) == -1)
+	return -1;
+    }
 
-  if (parse_file ("/etc/security/pam_pwcheck.conf", account, auth,
-		  password, session, parse_option_pwcheck) == -1)
-    return -1;
+  if (access ("/etc/security/pam_pwcheck.conf", R_OK) == 0)
+    {
+      if (parse_file ("/etc/security/pam_pwcheck.conf", account, auth,
+		      password, session, parse_option_pwcheck) == -1)
+	return -1;
+    }
+  else if (access ("/etc/security/pam_pwcheck.conf.rpmsave", R_OK) == 0)
+    {
+      if (parse_file ("/etc/security/pam_pwcheck.conf.rpmsave", account,
+		      auth, password, session, parse_option_pwcheck) == -1)
+	return -1;
+    }
 
   return 0;
 }

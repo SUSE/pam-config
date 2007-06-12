@@ -1,5 +1,5 @@
 
 - call_modules= from pam_unix2.conf can have more than one entry
 - call_modules= from common-*-pc: strip of ldap and krb5
-- pam_cracklib: document in manual page
-- pam_winbind: document in manual page
+
+- Add flag to add pam_loginuid to all relevant PAM config files

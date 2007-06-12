@@ -1,3 +1,16 @@
+2006-08-31  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* src/load_obsolete_conf.c: Don't report error for empty
+	arguments.
+
+2006-08-26  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* src/pam-config.8.xml: Document --lum, --cracklib* and
+	--winbind* options.
+
+	* src/load_obsolete_conf.c (load_obsolete_conf): Check for
+	.rpmsave files if original ones are already removed.
+
 2006-08-25  Thorsten Kukuk  <kukuk@thkukuk.de>
 
 	* release version 0.9

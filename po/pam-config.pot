@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-25 17:18+0200\n"
+"POT-Creation-Date: 2006-08-26 12:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,50 +57,50 @@ msgstr ""
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:52 src/load_obsolete_conf.c:65
-#: src/load_obsolete_conf.c:85 src/load_obsolete_conf.c:99
-#: src/load_obsolete_conf.c:120 src/load_obsolete_conf.c:133
-#: src/load_obsolete_conf.c:146 src/load_obsolete_conf.c:160
+#: src/load_obsolete_conf.c:53 src/load_obsolete_conf.c:66
+#: src/load_obsolete_conf.c:86 src/load_obsolete_conf.c:100
+#: src/load_obsolete_conf.c:121 src/load_obsolete_conf.c:134
+#: src/load_obsolete_conf.c:147 src/load_obsolete_conf.c:161
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:167
+#: src/load_obsolete_conf.c:168
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:169
+#: src/load_obsolete_conf.c:170
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:173
+#: src/load_obsolete_conf.c:174
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:175
+#: src/load_obsolete_conf.c:176
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:194 src/load_obsolete_conf.c:233
+#: src/load_obsolete_conf.c:195 src/load_obsolete_conf.c:234
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:225
+#: src/load_obsolete_conf.c:226
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:227
+#: src/load_obsolete_conf.c:228
 #, c-format
 msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:231
+#: src/load_obsolete_conf.c:232
 #, c-format
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
