@@ -7,6 +7,8 @@
 
 - Add pam_mount support
 
+- Add plain pam_unix support
+
 - pam-config should print a list of all supported modules
   currently only mentioned in the manual page
 
