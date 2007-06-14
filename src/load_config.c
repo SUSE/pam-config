@@ -29,6 +29,14 @@
 #include "pam-config.h"
 
 static void
+print_unknown_option_error (const char *module, const char *option)
+{
+  /* TRANSLATORS: first argument is name of a PAM module */
+  fprintf (stderr, _("Unknown option for %s, ignored: '%s'\n"),
+	   module, option);
+}
+
+static void
 parse_pwcheck_options (config_file_t *conf, char *args)
 {
   while (args && strlen (args) > 0)
@@ -69,9 +77,7 @@ parse_pwcheck_options (config_file_t *conf, char *args)
       else if (strcmp (cp, "no_obscure_checks") == 0)
 	conf->pwcheck_no_obscure_checks = 1;
       else
-	fprintf (stderr,
-		 _("Unknown option for pam_pwcheck.so, ignored: '%s'\n"),
-		 cp);
+	print_unknown_option_error ("pam_pwcheck.so", cp);
     }
   return;
 }
@@ -100,9 +106,7 @@ parse_unix2_options (config_file_t *conf, char *args)
 	/* XXX strip krb5 and ldap modules from it */
 	conf->unix2_call_modules = strdup (&cp[13]);
       else
-	fprintf (stderr,
-		 _("Unknown option for pam_unix2.so, ignored: '%s'\n"),
-		 cp);
+	print_unknown_option_error ("pam_unix2.so", cp);
     }
   return;
 }
@@ -128,9 +132,7 @@ parse_krb5_options (config_file_t *conf, char *args)
       else if (strcmp (cp, "ignore_unknown_principals") == 0)
 	conf->krb5_ignore_unknown_principals = 1;
       else
-	fprintf (stderr,
-		 _("Unknown option for pam_krb5.so, ignored: '%s'\n"),
-		 cp);
+	print_unknown_option_error ("pam_krb5.so", cp);
     }
   return;
 }
@@ -154,9 +156,7 @@ parse_ldap_options (config_file_t *conf, char *args)
       else if (strcmp (cp, "use_first_pass") == 0)
 	{ /* will be ignored */ }
       else
-	fprintf (stderr,
-		 _("Unknown option for pam_ldap.so, ignored: '%s'\n"),
-		 cp);
+	print_unknown_option_error ("pam_ldap.so", cp);
     }
   return;
 }
@@ -180,9 +180,7 @@ parse_winbind_options (config_file_t *conf, char *args)
       else if (strcmp (cp, "use_first_pass") == 0)
 	{ /* will be ignored */ }
       else
-	fprintf (stderr,
-		 _("Unknown option for pam_winbind.so, ignored: '%s'\n"),
-		 cp);
+	print_unknown_option_error ("pam_winbind.so", cp);
     }
   return;
 }
@@ -206,9 +204,7 @@ parse_cracklib_options (config_file_t *conf, char *args)
       else if (strncmp (cp, "retry=", 6) == 0)
 	conf->cracklib_retry = atoi (&cp[6]);
       else
-	fprintf (stderr,
-		 _("Unknown option for pam_cracklib.so, ignored: '%s'\n"),
-		 cp);
+	print_unknown_option_error ("pam_cracklib.so", cp);
     }
   return;
 }
@@ -226,9 +222,7 @@ parse_umask_options (config_file_t *conf, char *args)
       if (strcmp (cp, "debug") == 0)
 	conf->umask_debug = 1;
       else
-	fprintf (stderr,
-		 _("Unknown option for pam_umask.so, ignored: '%s'\n"),
-		 cp);
+	print_unknown_option_error ("pam_umask.so", cp);
     }
   return;
 }
@@ -248,9 +242,7 @@ parse_capability_options (config_file_t *conf, char *args)
       else if (strncmp (cp, "conf=", 5) == 0)
 	conf->capability_conf = strdup (&cp[5]);
       else
-	fprintf (stderr,
-		 _("Unknown option for pam_capability.so, ignored: '%s'\n"),
-		 cp);
+	print_unknown_option_error ("pam_capability.so", cp);
     }
   return;
 }

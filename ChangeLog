@@ -1,3 +1,8 @@
+2007-06-14  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/load_config.c (print_unknown_option_error): New function
+	to simplify translations.
+
 2007-01-29  Thorsten Kukuk  <kukuk@suse.de>
 
 	* src/pam-config.8.xml: Remove NIS references.

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-29 13:25+0100\n"
+"POT-Creation-Date: 2007-06-14 12:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,53 +16,19 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/load_config.c:73
+#. TRANSLATORS: first argument is name of a PAM module
+#: src/load_config.c:35
 #, c-format
-msgid "Unknown option for pam_pwcheck.so, ignored: '%s'\n"
+msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr ""
 
-#: src/load_config.c:104
-#, c-format
-msgid "Unknown option for pam_unix2.so, ignored: '%s'\n"
-msgstr ""
-
-#: src/load_config.c:132
-#, c-format
-msgid "Unknown option for pam_krb5.so, ignored: '%s'\n"
-msgstr ""
-
-#: src/load_config.c:158
-#, c-format
-msgid "Unknown option for pam_ldap.so, ignored: '%s'\n"
-msgstr ""
-
-#: src/load_config.c:184
-#, c-format
-msgid "Unknown option for pam_winbind.so, ignored: '%s'\n"
-msgstr ""
-
-#: src/load_config.c:210
-#, c-format
-msgid "Unknown option for pam_cracklib.so, ignored: '%s'\n"
-msgstr ""
-
-#: src/load_config.c:230
-#, c-format
-msgid "Unknown option for pam_umask.so, ignored: '%s'\n"
-msgstr ""
-
-#: src/load_config.c:252
-#, c-format
-msgid "Unknown option for pam_capability.so, ignored: '%s'\n"
-msgstr ""
-
-#: src/load_config.c:360 src/load_config.c:367 src/load_config.c:380
-#: src/load_config.c:387
+#: src/load_config.c:352 src/load_config.c:359 src/load_config.c:372
+#: src/load_config.c:379
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr ""
 
-#: src/load_config.c:450
+#: src/load_config.c:442
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr ""
