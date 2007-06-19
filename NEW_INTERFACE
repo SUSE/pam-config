@@ -1,0 +1,13 @@
+
+enum write_type {AUTH, ACCOUNT, PASSWORD, SESSION};
+
+struct pam_module {
+	int (*parse_option)(...);
+	int (*print_module)(...);
+	int (*write_config)(write_type op; ...);
+};
+
+struct pam_module *module_list {
+	{pam_unix2_option, pam_unix2_print, pam_unix2_write},
+	{...}
+};
