@@ -1,0 +1,47 @@
+
+From Linux-PAM:
+pam_access	-> single services, TODO
+pam_cracklib	-> common-*
+pam_debug	-> not supported
+pam_deny	-> single services, common-*, TODO
+pam_echo	-> single services, common-*, TODO
+pam_env		-> common-*
+pam_exec	-> single services, common-*, TODO
+pam_faildelay	-> single services, TODO
+pam_filter	-> not supported
+pam_ftp		-> not supported
+pam_group	-> common-*, TODO
+pam_issue	-> single services, TODO
+pam_keyinit	-> single services, TODO
+pam_lastlog	-> single services, TODO
+pam_limits	-> common-*
+pam_listfile	-> single services, not supported
+pam_localuser	-> common-*
+pam_loginuid	-> single services, TODO
+pam_mail	-> single services, TODO
+pam_mkhomedir	-> common-*
+pam_motd	-> not supported
+pam_namespace	-> not supported
+pam_nologin	-> single services, TODO
+pam_permit	-> single services, common-*, TODO
+pam_rhosts	-> single services, TODO
+pam_rootok	-> single services, TODO
+pam_securetty	-> single services, TODO
+pam_selinux	-> not supported
+pam_shells	-> single services, common-*, TODO
+pam_stress	-> not supported
+pam_succeed_if	-> if, then only internal
+pam_tally	-> single services, TODO
+pam_time	-> common-*, TODO
+pam_umask	-> common-*
+pam_unix	-> common-*, TODO
+pam_userdb	-> not supported
+pam_warn	-> single services, common-*, TODO
+pam_wheel	-> single services, TODO
+pam_xauth	-> common-*
+
+From pam-modules:
+pam_homecheck	-> not supported
+pam_make	-> should be replaced with pam_exec, TODO
+pam_pwcheck	-> common-*
+pam_unix2	-> common-*
