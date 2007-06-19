@@ -9,5 +9,11 @@ struct pam_module {
 
 struct pam_module *module_list {
 	{pam_unix2_option, pam_unix2_print, pam_unix2_write},
-	{...}
+	{...},
+	NULL
+};
+
+while (module_list != NULL) {
+	module_list->write_config(AUTH, ...);
+	module_list++;
 };
