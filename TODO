@@ -5,6 +5,8 @@
 - Implement support for adding pam_loginuid to all relevant PAM
   config files
 
+- Add minclass option for pam_cracklib
+
 - Add pam_mount support
 
 - Add plain pam_unix support
