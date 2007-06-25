@@ -2,8 +2,15 @@
 #define _PAM_MODULES_H_ 1
 
 #include <stdint.h>
+#include "option_set.h"
+
+#define TRUE 1
+#define FALSE 0
+
+typedef enum write_type {AUTH=0, ACCOUNT, PASSWORD, SESSION} write_type_t;
 
 struct config_file_t {
+  write_type_t type;
   /* pam_pwcheck is password only.  */
   int use_pwcheck;
   int pwcheck_debug;
@@ -71,14 +78,14 @@ struct config_file_t {
 };
 typedef struct config_file_t config_file_t;
 
-enum write_type {AUTH, ACCOUNT, PASSWORD, SESSION};
-
 
 typedef struct pam_module {
 	char *name;
-	int (*parse_option)( struct pam_module *this, char *arguments, config_file_t *conf );
-	int (*print_module)( struct pam_module *this, config_file_t *conf );
-	int (*write_config)( struct pam_module *this, enum write_type op, config_file_t *conf);
+	option_set_t **option_sets;
+	int (*parse_option)( struct pam_module *this, char *arguments, write_type_t type );
+	int (*print_module)( struct pam_module *this );
+	int (*write_config)( struct pam_module *this, enum write_type op );
+	option_set_t* (*get_opt_set) ( struct pam_module *this, write_type_t op );
 } pam_module_t;
 
 
@@ -88,7 +95,7 @@ typedef struct pam_module {
  *
  * default parse_option function which just returns false.
  */
-int err_parse_option( pam_module_t *this, char *arguments, config_file_t *conf  );
+int err_parse_option( pam_module_t *this, char *arguments, write_type_t type );
 
 /* def_print_module
  *
@@ -96,9 +103,10 @@ int err_parse_option( pam_module_t *this, char *arguments, config_file_t *conf  
  * name. it can do this, because we pass it a reference to the
  * pam_module_t as first argument.
  */
-int def_print_module( pam_module_t *this, config_file_t *conf );
-int def_write_config( pam_module_t *this, enum write_type op, config_file_t *conf );
+int def_print_module( pam_module_t *this );
+int def_write_config( pam_module_t *this, enum write_type op );
 
+option_set_t* get_opt_set( pam_module_t *this, write_type_t op );
 /* lookup
  *
  * searches through module_list to find a match for the module named
@@ -106,12 +114,16 @@ int def_write_config( pam_module_t *this, enum write_type op, config_file_t *con
  */
 pam_module_t* lookup( pam_module_t **module_list, char *module );
 
+char* type2string( write_type_t wt );
+
+void dump_config( pam_module_t **module_list );
+
 /* handle_module
  *
  * gets called by load_config for each module-name string it
  * encounters. 
  */
-int handle_module( const char *file, char *m, char *arguments , pam_module_t **module_list, config_file_t *conf );
+int handle_module( const char *file, char *m, char *arguments , pam_module_t **module_list, write_type_t type );
 
 void print_unknown_option_error (const char *module, const char *option);
 

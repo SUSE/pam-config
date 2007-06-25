@@ -26,7 +26,7 @@ int load_obsolete_conf (config_file_t *account, config_file_t *auth,
 			config_file_t *password, config_file_t *session);
 
 int load_config (const char *file, const char *service,
-		 config_file_t *conf, pam_module_t **module_list );
+		 write_type_t wtype, pam_module_t **module_list );
 int write_config_account (const char *file, config_file_t *conf);
 int write_config_auth (const char *file, config_file_t *conf);
 int write_config_password (const char *file, config_file_t *conf);

@@ -29,55 +29,13 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
-/* Definition of parse_unix2_options has gone to mod_pam_unix2.c */
-
-static int
-parse_pwcheck_options ( pam_module_t *this, char *args, config_file_t *conf)
-{
-  printf( "parse_pwcheck_options\t%s\n", this->name );
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-
-      if (strcmp (cp, "debug") == 0)
-	conf->pwcheck_debug = 1;
-      else if (strcmp (cp, "nullok") == 0)
-	conf->pwcheck_nullok = 1;
-      else if (strcmp (cp, "cracklib") == 0)
-	conf->pwcheck_cracklib = 1;
-      else if (strncmp (cp, "cracklib=", 9) == 0)
-	{
-	  conf->pwcheck_cracklib = 1;
-	  conf->pwcheck_cracklib_path = strdup (&cp[9]);
-	}
-      else if (strncmp (cp, "maxlen=", 7) == 0)
-	conf->pwcheck_maxlen = atoi (&cp[7]);
-      else if (strncmp (cp, "minlen=", 7) == 0)
-	{
-	  conf->pwcheck_have_minlen = 1;
-	  conf->pwcheck_minlen = atoi (&cp[7]);
-	}
-      else if (strncmp (cp, "tries=", 6) == 0)
-	conf->pwcheck_tries = atoi (&cp[6]);
-      else if (strncmp (cp, "remember=", 9) == 0)
-	conf->pwcheck_remember = atoi (&cp[9]);
-      else if (strncmp (cp, "nisdir=", 7) == 0)
-	conf->pwcheck_nisdir = strdup (&cp[7]);
-      else if (strcmp (cp, "use_first_pass") == 0)
-	{ /* will be ignored */ }
-      else if (strcmp (cp, "use_authtok") == 0)
-	{ /* will be ignored */ }
-      else if (strcmp (cp, "no_obscure_checks") == 0)
-	conf->pwcheck_no_obscure_checks = 1;
-      else
-	print_unknown_option_error ("pam_pwcheck.so", cp);
-    }
-  return 1;
-}
-pam_module_t mod_pam_pwcheck = { "pam_pwcheck.so", &parse_pwcheck_options, &def_print_module, &def_write_config };
+/* Definitions of:
+ *
+ * -  parse_pwcheck_options 
+ * -  parse_unix2_options
+ *
+ * have gone into separate files: mod_<module-name>.c
+ */
 #ifdef NOTDEFINIED
 
 static void
@@ -219,7 +177,7 @@ parse_capability_options (config_file_t *conf, char *args)
 
 int
 load_config (const char *file, const char *wanted,
-	     config_file_t *conf, pam_module_t **module_list )
+	     write_type_t wtype, pam_module_t **module_list )
 {
   FILE *fp;
   char *buf = NULL;
@@ -309,7 +267,7 @@ load_config (const char *file, const char *wanted,
 
       if (strcmp (type, wanted) == 0)
 	{
-	  handle_module( file, module, arguments, module_list, conf );
+	  handle_module( file, module, arguments, module_list, wtype );
 	}
 #ifdef NOTDEFINIED
       if (strcmp (module, "pam_pwcheck.so") == 0)

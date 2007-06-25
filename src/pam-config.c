@@ -158,6 +158,11 @@ main (int argc, char *argv[])
   memset (&config_auth, 0, sizeof (config_auth));
   memset (&config_password, 0, sizeof (config_password));
   memset (&config_session, 0, sizeof (config_session));
+  
+  config_account.type = ACCOUNT;
+  config_auth.type = AUTH;
+  config_password.type = PASSWORD;
+  config_session.type = SESSION;
 
   setlocale(LC_ALL, "");
   bindtextdomain(PACKAGE, LOCALEDIR);
@@ -220,17 +225,17 @@ main (int argc, char *argv[])
       load_obsolete_conf (&config_account, &config_auth,
 			  &config_password, &config_session);
 
-      if (load_config (CONF_ACCOUNT, "account", &config_account, supported_module_list) != 0)
+      if (load_config (CONF_ACCOUNT, "account", ACCOUNT, supported_module_list) != 0)
 	{
 	load_old_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH, "auth", &config_auth, supported_module_list) != 0)
+      if (load_config (CONF_AUTH, "auth", AUTH, supported_module_list) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_PASSWORD, "password", &config_password, supported_module_list) != 0)
+      if (load_config (CONF_PASSWORD, "password", PASSWORD, supported_module_list) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_SESSION, "session", &config_session, supported_module_list) != 0)
+      if (load_config (CONF_SESSION, "session", SESSION, supported_module_list) != 0)
 	goto load_old_config_error;
     }
   else if (strcmp (argv[1], "--update") == 0)
@@ -254,20 +259,23 @@ main (int argc, char *argv[])
 	  return 1;
 	}
 
-      if (load_config (CONF_ACCOUNT_PC, "account", &config_account, supported_module_list) != 0)
+      if (load_config (CONF_ACCOUNT_PC, "account", ACCOUNT, supported_module_list) != 0)
 	{
 	load_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH_PC, "auth", &config_auth, supported_module_list) != 0)
+      if (load_config (CONF_AUTH_PC, "auth", AUTH, supported_module_list) != 0)
 	goto load_config_error;
-      if (load_config (CONF_PASSWORD_PC, "password", &config_password, supported_module_list) != 0)
+      if (load_config (CONF_PASSWORD_PC, "password", PASSWORD, supported_module_list) != 0)
 	goto load_config_error;
-      if (load_config (CONF_SESSION_PC, "session", &config_session, supported_module_list) != 0)
+      if (load_config (CONF_SESSION_PC, "session", SESSION, supported_module_list) != 0)
 	goto load_config_error;
     }
-  
+
+  dump_config( supported_module_list );
+ // TODO: we exit here because we just test parsing (load_config())
+ // ATM... 
   return 0;
   
   while (1)
