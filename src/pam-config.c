@@ -28,6 +28,8 @@
 
 #include <pam-config.h>
 
+#include "supported-modules.h"
+
 #define CONF_ACCOUNT CONFDIR"/pam.d/common-account"
 #define CONF_ACCOUNT_PC CONF_ACCOUNT"-pc"
 #define CONF_AUTH CONFDIR"/pam.d/common-auth"
@@ -140,7 +142,6 @@ relink (const char *file, const char *file_pc, const char *file_bak)
   return 0;
 }
 
-
 int
 main (int argc, char *argv[])
 {
@@ -219,17 +220,17 @@ main (int argc, char *argv[])
       load_obsolete_conf (&config_account, &config_auth,
 			  &config_password, &config_session);
 
-      if (load_config (CONF_ACCOUNT, "account", &config_account) != 0)
+      if (load_config (CONF_ACCOUNT, "account", &config_account, supported_module_list) != 0)
 	{
 	load_old_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH, "auth", &config_auth) != 0)
+      if (load_config (CONF_AUTH, "auth", &config_auth, supported_module_list) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_PASSWORD, "password", &config_password) != 0)
+      if (load_config (CONF_PASSWORD, "password", &config_password, supported_module_list) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_SESSION, "session", &config_session) != 0)
+      if (load_config (CONF_SESSION, "session", &config_session, supported_module_list) != 0)
 	goto load_old_config_error;
     }
   else if (strcmp (argv[1], "--update") == 0)
@@ -253,20 +254,22 @@ main (int argc, char *argv[])
 	  return 1;
 	}
 
-      if (load_config (CONF_ACCOUNT_PC, "account", &config_account) != 0)
+      if (load_config (CONF_ACCOUNT_PC, "account", &config_account, supported_module_list) != 0)
 	{
 	load_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH_PC, "auth", &config_auth) != 0)
+      if (load_config (CONF_AUTH_PC, "auth", &config_auth, supported_module_list) != 0)
 	goto load_config_error;
-      if (load_config (CONF_PASSWORD_PC, "password", &config_password) != 0)
+      if (load_config (CONF_PASSWORD_PC, "password", &config_password, supported_module_list) != 0)
 	goto load_config_error;
-      if (load_config (CONF_SESSION_PC, "session", &config_session) != 0)
+      if (load_config (CONF_SESSION_PC, "session", &config_session, supported_module_list) != 0)
 	goto load_config_error;
     }
-
+  
+  return 0;
+  
   while (1)
     {
       int c;

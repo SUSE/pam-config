@@ -19,7 +19,8 @@ sbin_PROGRAMS = pam-config
 
 pam_config_SOURCES = pam-config.c load_config.c write_config_session.c \
 	write_config_password.c write_config_auth.c write_config_account.c \
-	load_obsolete_conf.c sanity_checks.c print_module.c
+	load_obsolete_conf.c sanity_checks.c print_module.c pam-module.h \
+	pam-module.c supported-modules.h mod_pam_unix2.c
 
 noinst_HEADERS = pam-config.h
 
