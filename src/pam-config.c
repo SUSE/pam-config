@@ -273,10 +273,10 @@ main (int argc, char *argv[])
 	goto load_config_error;
     }
 
-  dump_config( supported_module_list );
+  // dump_config( supported_module_list );
  // TODO: we exit here because we just test parsing (load_config())
  // ATM... 
-  return 0;
+  // return 0;
   
   while (1)
     {
@@ -504,8 +504,7 @@ main (int argc, char *argv[])
 	case 1600:
 	  /* use_unix2 */
 	  if (m_query)
-	    print_module_unix2 (&config_account, &config_auth,
-				&config_password, &config_session);
+            print_module_config (supported_module_list, "pam_unix2.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_unix2.so", force) != 0)

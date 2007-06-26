@@ -56,32 +56,6 @@ print_module_pwcheck (config_file_t *conf)
 }
 
 static void
-print_module_unix2_int (const char *type, config_file_t *conf)
-{
-  if (!conf->use_unix2)
-    return;
-
-  printf ("%s:", type);
-  if (conf->unix2_debug)
-    printf (" debug");
-  if (conf->unix2_nullok)
-    printf (" nullok");
-  if (conf->unix2_trace)
-    printf (" trace");
-  printf ("\n");
-}
-
-void
-print_module_unix2 (config_file_t *account, config_file_t *auth,
-		    config_file_t *password, config_file_t *session)
-{
-  print_module_unix2_int ("account", account);
-  print_module_unix2_int ("auth", auth);
-  print_module_unix2_int ("password", password);
-  print_module_unix2_int ("session", session);
-}
-
-static void
 print_module_krb5_int (const char *type, config_file_t *conf)
 {
   if (!conf->use_krb5)

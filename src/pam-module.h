@@ -116,7 +116,7 @@ pam_module_t* lookup( pam_module_t **module_list, char *module );
 
 char* type2string( write_type_t wt );
 
-void dump_config( pam_module_t **module_list );
+void print_module_config (pam_module_t **module_list, const char *module);
 
 /* handle_module
  *

@@ -56,9 +56,11 @@ int set_opt ( option_set_t *this, char *key, char *value ){
   return FALSE;
 }
 
-void print_bool_opt( bool_option_t *opt ){
-  //if( opt->value ) printf( " %s", opt->key );
-  fprintf( stderr, "%s = %d", opt->key, opt->value );
+void
+print_bool_opt (bool_option_t *opt)
+{
+  if (opt->value)
+     printf (" %s", opt->key);
 }
 
 void for_each_bool_opt( option_set_t *this, void (*action) (bool_option_t *opt) ){

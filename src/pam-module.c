@@ -60,11 +60,14 @@ handle_module( const char *file, char *m, char *arguments , pam_module_t **modul
 } 
 
 void
-dump_config( pam_module_t **module_list ){
-  while (*module_list != NULL) {
-    (*module_list)->print_module( (*module_list) );
-     module_list++;
-  }
+print_module_config (pam_module_t **module_list, const char *module)
+{
+  while (*module_list != NULL) 
+    {
+      if (strcmp ((*module_list)->name, module) == 0)
+        (*module_list)->print_module( (*module_list) );
+      module_list++;
+    }
 } 
 
 void

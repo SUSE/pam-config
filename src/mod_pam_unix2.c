@@ -1,7 +1,10 @@
-#include "pam-module.h"
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+
+#include "pam-config.h"
+#include "pam-module.h"
 
 #define OPT_NAME(PREFIX, NAME) PREFIX ## _opt_ ## NAME
 
@@ -32,7 +35,10 @@ parse_unix2_options ( pam_module_t *this,
 		      write_type_t type )
 {
   option_set_t *opt_set = this->get_opt_set( this, type );
-  printf( "parse_unix2_options:\t%s\t(%s)\n", type2string( type ), this->name );
+
+  if (debug)
+    printf( "parse_unix2_options:\t%s\t(%s)\n", type2string( type ), this->name );
+
   while (args && strlen (args) > 0)
     {
       char *cp = strsep (&args, " \t");
@@ -71,7 +77,6 @@ print_module_unix2_type (  pam_module_t *this, write_type_t type  ) {
 
 static int
 print_module_unix2 ( pam_module_t *this ){
-  printf( "print_module_unix2:\t%s\n", this->name );
   print_module_unix2_type( this, AUTH );
   print_module_unix2_type( this, ACCOUNT );
   print_module_unix2_type( this, PASSWORD );
@@ -82,7 +87,7 @@ print_module_unix2 ( pam_module_t *this ){
 
 /* ---- contruct module object ---- */
 string_option_t *string_opts[] = { NULL };
-CREATE_OPT_SETS_WITH_OPTS_3( debug, null, trace );
+CREATE_OPT_SETS_WITH_OPTS_3( debug, nullok, trace );
 /* at last construct the complete module object */
 pam_module_t mod_pam_unix2 = { "pam_unix2.so", opt_sets,
 			       &parse_unix2_options,
