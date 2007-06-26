@@ -176,12 +176,13 @@ parse_capability_options (config_file_t *conf, char *args)
 #endif
 
 int
-load_config (const char *file, const char *wanted,
-	     write_type_t wtype, pam_module_t **module_list )
+load_config (const char *file, write_type_t wtype,
+             pam_module_t **module_list)
 {
   FILE *fp;
   char *buf = NULL;
   size_t buflen = 0;
+  const char *wanted = type2string (wtype);
 
   if (debug)
     printf ("*** load_config (%s, %s, ...)\n", file, wanted);
@@ -269,7 +270,9 @@ load_config (const char *file, const char *wanted,
 	{
 	  handle_module( file, module, arguments, module_list, wtype );
 	}
-#ifdef NOTDEFINIED
+
+#if 0
+/* XXX remove every module converted */
       if (strcmp (module, "pam_pwcheck.so") == 0)
 	    {
 	      conf->use_pwcheck = 1;
@@ -315,12 +318,6 @@ load_config (const char *file, const char *wanted,
 	      conf->use_make = 1;
 	      if (arguments)
 		conf->make_options = strdup (arguments);
-	    }
-	  else if (strcmp (module, "pam_unix2.so") == 0)
-	    {
-	      conf->use_unix2 = 1;
-	      if (arguments)
-		parse_unix2_options (conf, arguments);
 	    }
 	  else if (strcmp (module, "pam_krb5.so") == 0)
 	    {

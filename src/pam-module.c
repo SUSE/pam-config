@@ -36,8 +36,9 @@ pam_module_t* lookup( pam_module_t **module_list, char *module ){
   return *module_list;
 }
 
-char*
-type2string( write_type_t wt ){
+const char *
+type2string (write_type_t wt)
+{
   if( ACCOUNT == wt ) return "account";
   else if( AUTH == wt ) return "auth";
   else if( PASSWORD == wt ) return "password";

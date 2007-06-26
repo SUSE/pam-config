@@ -114,7 +114,7 @@ option_set_t* get_opt_set( pam_module_t *this, write_type_t op );
  */
 pam_module_t* lookup( pam_module_t **module_list, char *module );
 
-char* type2string( write_type_t wt );
+const char* type2string (write_type_t wt);
 
 void print_module_config (pam_module_t **module_list, const char *module);
 

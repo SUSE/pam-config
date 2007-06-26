@@ -225,17 +225,17 @@ main (int argc, char *argv[])
       load_obsolete_conf (&config_account, &config_auth,
 			  &config_password, &config_session);
 
-      if (load_config (CONF_ACCOUNT, "account", ACCOUNT, supported_module_list) != 0)
+      if (load_config (CONF_ACCOUNT, ACCOUNT, supported_module_list) != 0)
 	{
 	load_old_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH, "auth", AUTH, supported_module_list) != 0)
+      if (load_config (CONF_AUTH, AUTH, supported_module_list) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_PASSWORD, "password", PASSWORD, supported_module_list) != 0)
+      if (load_config (CONF_PASSWORD, PASSWORD, supported_module_list) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_SESSION, "session", SESSION, supported_module_list) != 0)
+      if (load_config (CONF_SESSION, SESSION, supported_module_list) != 0)
 	goto load_old_config_error;
     }
   else if (strcmp (argv[1], "--update") == 0)
@@ -259,17 +259,17 @@ main (int argc, char *argv[])
 	  return 1;
 	}
 
-      if (load_config (CONF_ACCOUNT_PC, "account", ACCOUNT, supported_module_list) != 0)
+      if (load_config (CONF_ACCOUNT_PC, ACCOUNT, supported_module_list) != 0)
 	{
 	load_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH_PC, "auth", AUTH, supported_module_list) != 0)
+      if (load_config (CONF_AUTH_PC, AUTH, supported_module_list) != 0)
 	goto load_config_error;
-      if (load_config (CONF_PASSWORD_PC, "password", PASSWORD, supported_module_list) != 0)
+      if (load_config (CONF_PASSWORD_PC, PASSWORD, supported_module_list) != 0)
 	goto load_config_error;
-      if (load_config (CONF_SESSION_PC, "session", SESSION, supported_module_list) != 0)
+      if (load_config (CONF_SESSION_PC, SESSION, supported_module_list) != 0)
 	goto load_config_error;
     }
 
