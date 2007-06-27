@@ -13,11 +13,11 @@ pam_ftp		-> not supported
 pam_group	-> common-*, TODO
 pam_issue	-> single services, TODO
 pam_keyinit	-> single services, TODO
-pam_lastlog	-> single services, TODO [session,after include,required]
+pam_lastlog	-> single services, [session,after include,required]
 pam_limits	-> common-*
 pam_listfile	-> single services, not supported
 pam_localuser	-> common-*
-pam_loginuid	-> single services, TODO [session,first,required]
+pam_loginuid	-> single services [session,first,required]
 pam_mail	-> single services, TODO [session,last,optional]
 pam_mkhomedir	-> common-*
 pam_motd	-> not supported
