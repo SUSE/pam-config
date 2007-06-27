@@ -158,7 +158,7 @@ main (int argc, char *argv[])
   memset (&config_auth, 0, sizeof (config_auth));
   memset (&config_password, 0, sizeof (config_password));
   memset (&config_session, 0, sizeof (config_session));
-  
+
   config_account.type = ACCOUNT;
   config_auth.type = AUTH;
   config_password.type = PASSWORD;
@@ -275,9 +275,9 @@ main (int argc, char *argv[])
 
   // dump_config( supported_module_list );
  // TODO: we exit here because we just test parsing (load_config())
- // ATM... 
+ // ATM...
   // return 0;
-  
+
   while (1)
     {
       int c;
@@ -303,7 +303,6 @@ main (int argc, char *argv[])
 	{"mkhomedir",        no_argument,       NULL, 1100 },
 	{"limits",           no_argument,       NULL, 1200 },
         {"env",              no_argument,       NULL, 1300 },
-        {"xauth",            no_argument,       NULL, 1400 },
         {"make",             no_argument,       NULL, 1500 },
         {"make-dir",         no_argument,       NULL, 1501 },
         {"unix2",            no_argument,       NULL, 1600 },
@@ -351,9 +350,13 @@ main (int argc, char *argv[])
 	  force = 1;
 	  break;
 	case 900: /* --nullok */
-	  config_auth.unix2_nullok = opt_val;
-	  config_password.pwcheck_nullok = opt_val;
-	  config_password.unix2_nullok = opt_val;
+	  {
+	    option_set_t *opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+	    opt_set->enable (opt_set, "nullok", opt_val);
+	    config_password.pwcheck_nullok = opt_val;
+	    opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+	    opt_set->enable (opt_set, "nullok", opt_val);
+	  }
 	  break;
 	case 901: /* --pam-debug */
 	  config_account.unix2_debug = opt_val;
@@ -465,19 +468,6 @@ main (int argc, char *argv[])
 		 else we will have it twice.  */
 	      config_auth.use_env = 0;
 	      config_session.use_env = opt_val;
-	    }
-	  break;
-	case 1400:
-	  if (m_query)
-	    {
-	      if (config_session.use_xauth)
-		printf ("session:\n");
-	    }
-	  else
-	    {
-	      if (check_for_pam_module ("pam_xauth.so", force) != 0)
-		return 1;
-	      config_session.use_xauth = opt_val;
 	    }
 	  break;
 	case 1500:
@@ -737,7 +727,7 @@ main (int argc, char *argv[])
 	case 2300:
 	  /* pam_umask.so */
 	  if (m_query)
-	    print_module_umask (&config_session);
+	    print_module_config (supported_module_list, "pam_umask.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_umask.so", force) != 0)

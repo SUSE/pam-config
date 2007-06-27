@@ -48,7 +48,6 @@ void print_module_ldap (config_file_t *account, config_file_t *auth,
                         config_file_t *password, config_file_t *session);
 void print_module_winbind (config_file_t *account, config_file_t *auth,
 			   config_file_t *password, config_file_t *session);
-void print_module_umask (config_file_t *conf);
 void print_module_capability (config_file_t *conf);
 
 #endif

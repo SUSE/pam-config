@@ -1,3 +1,4 @@
+
 #include "pam-module.h"
 
 #include <stdio.h>
@@ -6,6 +7,10 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+
+/* XXX only for converting, delete later! */
+config_file_t *gl_conf;
+
 int
 def_parse_config( pam_module_t *this __attribute__ ((unused)), char *arguments, write_type_t type __attribute__ ((unused))){
   if (arguments){
@@ -21,7 +26,7 @@ def_print_module( pam_module_t *this ){
 }
 
 int
-def_write_config( pam_module_t *this, enum write_type op __attribute__ ((unused)) ){
+def_write_config( pam_module_t *this, enum write_type op __attribute__ ((unused)), FILE *fp __attribute__ ((unused)) ){
   printf( "default write module:\t%s\n", this->name );
   return 1;
 }

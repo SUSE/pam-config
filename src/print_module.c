@@ -142,18 +142,6 @@ print_module_cracklib (config_file_t *conf)
 }
 
 void
-print_module_umask (config_file_t *conf)
-{
-  if (!conf->use_umask)
-    return;
-
-  printf ("session:");
-  if (conf->umask_debug)
-    printf (" debug");
-  printf ("\n");
-}
-
-void
 print_module_capability (config_file_t *conf)
 {
   if (!conf->use_capability)

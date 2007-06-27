@@ -137,24 +137,6 @@ parse_cracklib_options (config_file_t *conf, char *args)
 }
 
 static void
-parse_umask_options (config_file_t *conf, char *args)
-{
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-
-      if (strcmp (cp, "debug") == 0)
-	conf->umask_debug = 1;
-      else
-	print_unknown_option_error ("pam_umask.so", cp);
-    }
-  return;
-}
-
-static void
 parse_capability_options (config_file_t *conf, char *args)
 {
   while (args && strlen (args) > 0)
@@ -306,13 +288,6 @@ load_config (const char *file, write_type_t wtype,
 		fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),
 			 file, module);
 	    }
-	  else if (strcmp (module, "pam_xauth.so") == 0)
-	    {
-	      conf->use_xauth = 1;
-	      if (arguments)
-		fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),
-			 file, module);
-	    }
 	  else if (strcmp (module, "pam_make.so") == 0)
 	    {
 	      conf->use_make = 1;
@@ -351,12 +326,6 @@ load_config (const char *file, write_type_t wtype,
 	    }
 	  else if (strcmp (module, "pam_nam.so") == 0)
 	    conf->use_lum = 1;
-	  else if (strcmp (module, "pam_umask.so") == 0)
-	    {
-	      conf->use_umask = 1;
-	      if (arguments)
-		parse_umask_options (conf, arguments);
-	    }
 	  else if (strcmp (module, "pam_capability.so") == 0)
 	    {
 	      conf->use_capability = 1;

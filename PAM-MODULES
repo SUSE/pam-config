@@ -38,7 +38,7 @@ pam_unix	-> common-*, TODO
 pam_userdb	-> not supported
 pam_warn	-> single services, common-*, TODO
 pam_wheel	-> single services, TODO
-pam_xauth	-> common-*
+pam_xauth	-> single services, TODO
 
 From pam-modules:
 pam_homecheck	-> not supported

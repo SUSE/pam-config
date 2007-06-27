@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Thorsten Kukuk
+/* Copyright (C) 2006, 2007 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -25,6 +25,8 @@
 #include <sys/types.h>
 
 #include "pam-config.h"
+
+extern pam_module_t *supported_module_list[];
 
 int
 write_config_session (const char *file, config_file_t *conf)
@@ -54,12 +56,21 @@ write_config_session (const char *file, config_file_t *conf)
 	   "# at the start and end of sessions of *any* kind (both interactive and\n"
 	   "# non-interactive\n#\n");
 
+  pam_module_t *modptr = supported_module_list[0];
+
+  while (modptr != NULL)
+    {
+      modptr->write_config(modptr, SESSION, fp);
+      ++modptr;
+    }
+
   if (conf->use_mkhomedir)
     fprintf (fp, "session\trequired\tpam_mkhomedir.so\n");
 
   if (conf->use_limits)
     fprintf (fp, "session\trequired\tpam_limits.so\n");
 
+#if 0
   fprintf (fp, "session\trequired\tpam_unix2.so\t");
   if (conf->unix2_nullok)
     fprintf (fp, "nullok ");
@@ -68,6 +79,7 @@ write_config_session (const char *file, config_file_t *conf)
   if (conf->unix2_trace)
     fprintf (fp, "trace ");
   fprintf (fp, "\n");
+#endif
 
   if (conf->use_apparmor)
     fprintf (fp, "session\toptional\tpam_apparmor.so\n");
@@ -113,12 +125,6 @@ write_config_session (const char *file, config_file_t *conf)
 
   if (conf->use_env)
     fprintf (fp, "session\toptional\tpam_env.so\n");
-
-  if (conf->use_xauth)
-    fprintf (fp, "session\toptional\tpam_xauth.so\n");
-
-  if (conf->use_umask)
-    fprintf (fp, "session\toptional\tpam_umask.so\n");
 
   fclose (fp);
 
