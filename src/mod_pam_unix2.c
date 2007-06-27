@@ -16,7 +16,7 @@
   bool_option_t * PREFIX ## _bool_opts[] = { &OPT_NAME(PREFIX, OPT_1),\
 					     &OPT_NAME(PREFIX, OPT_2),\
 					     &OPT_NAME(PREFIX, OPT_3),\
-					     NULL }  
+					     NULL }
 
 #define CREATE_OPT_SETS_WITH_OPTS_3(OPT_1, OPT_2, OPT_3) OPT_SET_3( auth, OPT_1, OPT_2, OPT_3 );\
 							 OPT_SET_3( account, OPT_1, OPT_2, OPT_3);\
@@ -27,17 +27,15 @@
 							 option_set_t password_opts = { password_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt };\
 							 option_set_t session_opts = { session_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt };\
 							 option_set_t *opt_sets[] = { &auth_opts, &account_opts, &password_opts, &session_opts, NULL }
-							 
+
 
 static int
-parse_unix2_options ( pam_module_t *this,
-		      char *args,
-		      write_type_t type )
+parse_config_unix2 (pam_module_t *this, char *args, write_type_t type)
 {
   option_set_t *opt_set = this->get_opt_set( this, type );
 
   if (debug)
-    printf( "parse_unix2_options:\t%s\t(%s)\n", type2string( type ), this->name );
+    printf("parse_config_unix2:\t%s\t(%s)\n", type2string(type), this->name);
 
   while (args && strlen (args) > 0)
     {
@@ -57,7 +55,7 @@ parse_unix2_options ( pam_module_t *this,
       else if (strcmp (cp, "use_authtok") == 0)
 	{ /* will be ignored */ }
       else if (strncmp (cp, "call_modules=", 13) == 0){
-	/* XXX strip krb5 and ldap modules from it 
+	/* XXX strip krb5 and ldap modules from it
 	conf->unix2_call_modules = strdup (&cp[13]);*/
       }
       else
@@ -90,7 +88,7 @@ string_option_t *string_opts[] = { NULL };
 CREATE_OPT_SETS_WITH_OPTS_3( debug, nullok, trace );
 /* at last construct the complete module object */
 pam_module_t mod_pam_unix2 = { "pam_unix2.so", opt_sets,
-			       &parse_unix2_options,
+			       &parse_config_unix2,
 			       &print_module_unix2,
 			       &def_write_config,
 			       &get_opt_set};

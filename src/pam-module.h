@@ -82,20 +82,20 @@ typedef struct config_file_t config_file_t;
 typedef struct pam_module {
 	char *name;
 	option_set_t **option_sets;
-	int (*parse_option)( struct pam_module *this, char *arguments, write_type_t type );
-	int (*print_module)( struct pam_module *this );
-	int (*write_config)( struct pam_module *this, enum write_type op );
-	option_set_t* (*get_opt_set) ( struct pam_module *this, write_type_t op );
+	int (*parse_config)(struct pam_module *this, char *arguments, write_type_t type);
+	int (*print_module)(struct pam_module *this);
+	int (*write_config)(struct pam_module *this, enum write_type op);
+	option_set_t* (*get_opt_set) (struct pam_module *this, write_type_t op);
 } pam_module_t;
 
 
 /* default handlers */
 
-/* err_parse_option 
+/* def_parse_config
  *
  * default parse_option function which just returns false.
  */
-int err_parse_option( pam_module_t *this, char *arguments, write_type_t type );
+int def_parse_config (pam_module_t *this, char *arguments, write_type_t type);
 
 /* def_print_module
  *
@@ -103,8 +103,8 @@ int err_parse_option( pam_module_t *this, char *arguments, write_type_t type );
  * name. it can do this, because we pass it a reference to the
  * pam_module_t as first argument.
  */
-int def_print_module( pam_module_t *this );
-int def_write_config( pam_module_t *this, enum write_type op );
+int def_print_module (pam_module_t *this);
+int def_write_config (pam_module_t *this, enum write_type op);
 
 option_set_t* get_opt_set( pam_module_t *this, write_type_t op );
 /* lookup

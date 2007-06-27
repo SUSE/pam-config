@@ -7,7 +7,7 @@
 #include <config.h>
 #endif
 int
-err_parse_option( pam_module_t *this __attribute__ ((unused)), char *arguments, write_type_t type __attribute__ ((unused))){
+def_parse_config( pam_module_t *this __attribute__ ((unused)), char *arguments, write_type_t type __attribute__ ((unused))){
   if (arguments){
     return 0;
   }
@@ -50,7 +50,7 @@ int
 handle_module( const char *file, char *m, char *arguments , pam_module_t **module_list, write_type_t type ){
   pam_module_t *module = lookup( module_list, m );
   if( NULL != module ){
-    if( ! module->parse_option( module, arguments, type ) ){
+    if( ! module->parse_config( module, arguments, type ) ){
       fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),  file, m );
     }
   }
