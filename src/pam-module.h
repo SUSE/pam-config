@@ -81,8 +81,9 @@ typedef struct pam_module {
 	option_set_t* (*get_opt_set) (struct pam_module *this, write_type_t op);
 } pam_module_t;
 
-/* XXX remove after converting of code is finished. */
-extern config_file_t *gl_conf;
+/* modules need access to this to check, which other modules
+   are enabled */
+extern pam_module_t *supported_module_list[];
 
 /* default handlers */
 
@@ -107,11 +108,14 @@ option_set_t* get_opt_set( pam_module_t *this, write_type_t op );
  * searches through module_list to find a match for the module named
  * by the second argument.
  */
-pam_module_t* lookup( pam_module_t **module_list, char *module );
+pam_module_t* lookup( pam_module_t **module_list, const char *module );
 
 const char* type2string (write_type_t wt);
 
 void print_module_config (pam_module_t **module_list, const char *module);
+
+int is_module_enabled (pam_module_t **module_list, const char *module,
+		       write_type_t op);
 
 /* handle_module
  *

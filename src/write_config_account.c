@@ -27,8 +27,9 @@
 #include "pam-config.h"
 
 int
-write_config_account (const char *file, config_file_t *conf)
+write_config_account (const char *file, pam_module_t **module_list)
 {
+  pam_module_t **modptr = module_list;
   FILE *fp;
 
   if (debug)
@@ -54,15 +55,24 @@ write_config_account (const char *file, config_file_t *conf)
 	   "# the central access policy for use on the system.  The default is to\n"
 	   "# only deny service to users whose accounts are expired.\n#\n");
 
-  if (conf->use_krb5 || conf->use_ldap || conf->use_lum || conf->use_winbind)
-    fprintf (fp, "account\trequisite\tpam_unix2.so\t");
-  else
-    fprintf (fp, "account\trequired\tpam_unix2.so\t");
-  if (conf->unix2_debug)
-    fprintf (fp, "debug ");
-  if (conf->unix2_call_modules)
-    fprintf (fp, "call_modules=%s ", conf->unix2_call_modules);
-  fprintf (fp, "\n");
+
+  while (*modptr != NULL)
+    {
+      (*modptr)->write_config (*modptr, ACCOUNT, fp);
+      ++modptr;
+    }
+
+#if 0
+
+  // if (conf->use_krb5 || conf->use_ldap || conf->use_lum || conf->use_winbind)
+  //   fprintf (fp, "account\trequisite\tpam_unix2.so\t");
+  // else
+  //   fprintf (fp, "account\trequired\tpam_unix2.so\t");
+  // if (conf->unix2_debug)
+  //   fprintf (fp, "debug ");
+  // if (conf->unix2_call_modules)
+  //   fprintf (fp, "call_modules=%s ", conf->unix2_call_modules);
+  // fprintf (fp, "\n");
 
   if (conf->use_krb5)
     {
@@ -98,6 +108,8 @@ write_config_account (const char *file, config_file_t *conf)
 
   if (conf->use_winbind)
     fprintf (fp, "account\trequired\tpam_winbind.so\tuse_first_pass\n");
+
+#endif
 
   fclose (fp);
 

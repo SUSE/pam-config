@@ -8,9 +8,6 @@
 #include <config.h>
 #endif
 
-/* XXX only for converting, delete later! */
-config_file_t *gl_conf;
-
 int
 def_parse_config( pam_module_t *this __attribute__ ((unused)), char *arguments, write_type_t type __attribute__ ((unused))){
   if (arguments){
@@ -31,7 +28,7 @@ def_write_config( pam_module_t *this, enum write_type op __attribute__ ((unused)
   return 1;
 }
 
-pam_module_t* lookup( pam_module_t **module_list, char *module ){
+pam_module_t* lookup( pam_module_t **module_list, const char *module ){
   while (*module_list != NULL) {
     if( 0 == strcmp( (*module_list)->name, module ) ){
       return *module_list;
@@ -39,6 +36,20 @@ pam_module_t* lookup( pam_module_t **module_list, char *module ){
     module_list++;
   };
   return *module_list;
+}
+
+int
+is_module_enabled (pam_module_t **module_list, const char *module,
+		   write_type_t op)
+{
+  pam_module_t *mod = lookup (module_list, module);
+
+  if (mod == NULL)
+    return FALSE;
+
+  option_set_t *opt_set = mod->get_opt_set (mod,op);
+
+  return opt_set->is_enabled (opt_set, "is_enabled");
 }
 
 const char *
@@ -63,18 +74,18 @@ handle_module( const char *file, char *m, char *arguments , pam_module_t **modul
     fprintf (stderr, _("%s: Unknown module %s, ignored!\n"), file, m);
   }
   return 1;
-} 
+}
 
 void
 print_module_config (pam_module_t **module_list, const char *module)
 {
-  while (*module_list != NULL) 
+  while (*module_list != NULL)
     {
       if (strcmp ((*module_list)->name, module) == 0)
         (*module_list)->print_module( (*module_list) );
       module_list++;
     }
-} 
+}
 
 void
 print_unknown_option_error (const char *module, const char *option)
@@ -84,7 +95,7 @@ print_unknown_option_error (const char *module, const char *option)
 	   module, option);
 }
 
-option_set_t* 
+option_set_t*
 get_opt_set( pam_module_t *this, write_type_t op ){
   return (this->option_sets)[op];
 }

@@ -27,7 +27,7 @@
 #include "pam-config.h"
 
 int
-write_config_password (const char *file, config_file_t *conf)
+write_config_password (const char *file, pam_module_t **module_list)
 {
   FILE *fp;
 
@@ -53,6 +53,15 @@ write_config_password (const char *file, config_file_t *conf)
 	   "# and should contain a list of modules that define  the services to be\n"
 	   "# used to change user passwords.\n#\n");
 
+  pam_module_t **modptr = module_list;
+
+  while (*modptr != NULL)
+    {
+      (*modptr)->write_config (*modptr, PASSWORD, fp);
+      ++modptr;
+    }
+
+#if 0
 
   if (conf->use_winbind)
     {
@@ -102,19 +111,19 @@ write_config_password (const char *file, config_file_t *conf)
       fprintf (fp, "\n");
     }
 
-  if (conf->use_krb5 || conf->use_ldap || conf->use_lum)
-    fprintf (fp, "password\tsufficient\tpam_unix2.so\t");
-  else
-    fprintf (fp, "password\trequired\tpam_unix2.so\t");
-  if (conf->unix2_nullok)
-    fprintf (fp, "nullok ");
-  if (conf->use_pwcheck || conf->use_cracklib)
-    fprintf (fp, "use_authtok ");
-  if (conf->unix2_debug)
-    fprintf (fp, "debug ");
-  if (conf->unix2_call_modules)
-    fprintf (fp, "call_modules=%s ", conf->unix2_call_modules);
-  fprintf (fp, "\n");
+  // if (conf->use_krb5 || conf->use_ldap || conf->use_lum)
+  //   fprintf (fp, "password\tsufficient\tpam_unix2.so\t");
+  // else
+  //   fprintf (fp, "password\trequired\tpam_unix2.so\t");
+  // if (conf->unix2_nullok)
+  //   fprintf (fp, "nullok ");
+  // if (conf->use_pwcheck || conf->use_cracklib)
+  //   fprintf (fp, "use_authtok ");
+  // if (conf->unix2_debug)
+  //   fprintf (fp, "debug ");
+  // if (conf->unix2_call_modules)
+  //   fprintf (fp, "call_modules=%s ", conf->unix2_call_modules);
+  // fprintf (fp, "\n");
 
   if (conf->use_make)
     {
@@ -148,6 +157,8 @@ write_config_password (const char *file, config_file_t *conf)
 
   if (conf->use_lum)
     fprintf (fp, "password\trequired\tpam_nam.so\ttry_first_pass\n");
+
+#endif
 
   fclose (fp);
 

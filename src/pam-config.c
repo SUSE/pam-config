@@ -825,14 +825,14 @@ main (int argc, char *argv[])
       config_account.use_unix2 = 1;
       if (sanitize_check_account (&config_account) != 0)
 	return 1;
-      if (write_config_account (CONF_ACCOUNT_PC, &config_account) != 0)
+      if (write_config_account (CONF_ACCOUNT_PC, module_list_account) != 0)
 	return 1;
 
       /* Write auth section.  */
       config_auth.use_unix2 = 1;
       if (sanitize_check_auth (&config_auth) != 0)
 	return 1;
-      if (write_config_auth (CONF_AUTH_PC, &config_auth) != 0)
+      if (write_config_auth (CONF_AUTH_PC, module_list_auth) != 0)
 	return 1;
 
       /* Write password section.  */
@@ -845,7 +845,7 @@ main (int argc, char *argv[])
       config_password.unix2_nullok = 1;
       if (sanitize_check_password (&config_password) != 0)
 	return 1;
-      if (write_config_password (CONF_PASSWORD_PC, &config_password) != 0)
+      if (write_config_password (CONF_PASSWORD_PC, module_list_password) != 0)
 	return 1;
 
       /* Write session section.  */
@@ -863,19 +863,19 @@ main (int argc, char *argv[])
   else
     {
       /* Write account section.  */
-      if (write_config_account (CONF_ACCOUNT_PC, &config_account) != 0)
+      if (write_config_account (CONF_ACCOUNT_PC, module_list_account) != 0)
 	return 1;
 
       /* Write auth section.  */
       if (sanitize_check_auth (&config_auth) != 0)
 	return 1;
-      if (write_config_auth (CONF_AUTH_PC, &config_auth) != 0)
+      if (write_config_auth (CONF_AUTH_PC, module_list_auth) != 0)
 	return 1;
 
       /* Write password section.  */
       if (sanitize_check_password (&config_password) != 0)
 	return 1;
-      if (write_config_password (CONF_PASSWORD_PC, &config_password) != 0)
+      if (write_config_password (CONF_PASSWORD_PC, module_list_password) != 0)
 	return 1;
 
       /* Write session section.  */

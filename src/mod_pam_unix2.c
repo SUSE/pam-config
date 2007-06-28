@@ -92,6 +92,8 @@ static int
 write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
+  int with_krb5, with_ldap, with_lum, with_winbind, with_pwcheck,
+    with_cracklib;
 
   if (debug)
     printf ("**** write_config_unix2 (...)\n");
@@ -99,29 +101,34 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
+  with_krb5 = is_module_enabled (supported_module_list, "pam_krb5.so", op);
+  with_ldap = is_module_enabled (supported_module_list, "pam_ldap.so", op);
+  with_lum = is_module_enabled (supported_module_list, "pam_lum.so", op);
+  with_winbind = is_module_enabled (supported_module_list, "pam_winbind.so", op);
+  with_pwcheck = is_module_enabled (supported_module_list, "pam_pwcheck.so", op);
+  with_cracklib = is_module_enabled (supported_module_list, "pam_cracklib.so", op);
+
   switch (op)
     {
     case AUTH:
-      if (gl_conf->use_krb5 || gl_conf->use_ldap || gl_conf->use_lum ||
-	  gl_conf->use_winbind)
+      if (with_krb5 || with_ldap || with_lum || with_winbind)
 	/* Only sufficient if other modules follow */
 	fprintf (fp, "auth\tsufficient\tpam_unix2.so\t");
       else
 	fprintf (fp, "auth\trequired\tpam_unix2.so\t");
       break;
     case ACCOUNT:
-      if (gl_conf->use_krb5 || gl_conf->use_ldap || gl_conf->use_lum ||
-	  gl_conf->use_winbind)
+      if (with_krb5 || with_ldap || with_lum || with_winbind)
 	fprintf (fp, "account\trequisite\tpam_unix2.so\t");
       else
 	fprintf (fp, "account\trequired\tpam_unix2.so\t");
       break;
     case PASSWORD:
-      if (gl_conf->use_krb5 || gl_conf->use_ldap || gl_conf->use_lum)
+      if (with_krb5 || with_ldap || with_lum)
 	fprintf (fp, "password\tsufficient\tpam_unix2.so\t");
       else
 	fprintf (fp, "password\trequired\tpam_unix2.so\t");
-      if (gl_conf->use_pwcheck || gl_conf->use_cracklib)
+      if (with_pwcheck || with_cracklib)
 	fprintf (fp, "use_authtok ");
       break;
     case SESSION:
