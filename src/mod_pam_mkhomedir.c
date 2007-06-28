@@ -40,7 +40,7 @@ parse_config_mkhomedir (pam_module_t *this, char *args, write_type_t type)
     printf("**** parse_config_mkhomedir (%s): '%s'\n", type2string(type),
            args?args:"");
 
-  opt_set->enable (opt_set, "use_mkhomedir", TRUE);
+  opt_set->enable (opt_set, "is_enabled", TRUE);
 
   while (args && strlen (args) > 0)
     {
@@ -82,7 +82,7 @@ write_config_mkhomedir (pam_module_t *this, enum write_type op, FILE *fp)
   if (debug)
     printf ("**** write_config_mkhomedir (...)\n");
 
-  if (!opt_set->is_enabled (opt_set, "use_mkhomedir"))
+  if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
   if (op != SESSION)
@@ -102,7 +102,7 @@ write_config_mkhomedir (pam_module_t *this, enum write_type op, FILE *fp)
 
 /* ---- contruct module object ---- */
 static string_option_t *string_opts[] = { NULL };
-CREATE_OPT_SETS_WITH_OPTS_3( use_mkhomedir, debug, silent );
+CREATE_OPT_SETS_WITH_OPTS_3( is_enabled, debug, silent );
 /* at last construct the complete module object */
 pam_module_t mod_pam_mkhomedir = { "pam_mkhomedir.so", opt_sets,
 			       &parse_config_mkhomedir,

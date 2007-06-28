@@ -444,7 +444,7 @@ main (int argc, char *argv[])
 		return 1;
 	      opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
 						       SESSION);
-	      opt_set->enable (opt_set, "use_mkhomedir", opt_val);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 1101:
@@ -749,7 +749,7 @@ main (int argc, char *argv[])
 	      if (check_for_pam_module ("pam_umask.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
-	      opt_set->enable (opt_set, "use_umask", opt_val);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 2301:
@@ -850,11 +850,11 @@ main (int argc, char *argv[])
 
       /* Write session section.  */
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
-      opt_set->enable (opt_set, "use_unix2", opt_val);
+      opt_set->enable (opt_set, "is_enabled", opt_val);
       config_session.use_limits = 1;
       config_session.use_env = 1;
       opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
-      opt_set->enable (opt_set, "use_umask", opt_val);
+      opt_set->enable (opt_set, "is_enabled", opt_val);
       if (sanitize_check_session (&config_session) != 0)
 	return 1;
       if (write_config_session (CONF_SESSION_PC, module_list_session) != 0)

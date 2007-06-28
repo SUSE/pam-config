@@ -41,7 +41,7 @@ parse_config_unix2 (pam_module_t *this, char *args, write_type_t type)
     printf("**** parse_config_unix2 (%s): '%s'\n", type2string(type),
            args?args:"");
 
-  opt_set->enable (opt_set, "use_unix2", TRUE);
+  opt_set->enable (opt_set, "is_enabled", TRUE);
 
   while (args && strlen (args) > 0)
     {
@@ -96,7 +96,7 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
   if (debug)
     printf ("**** write_config_unix2 (...)\n");
 
-  if (!opt_set->is_enabled (opt_set, "use_unix2"))
+  if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
   switch (op)
@@ -148,7 +148,7 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 
 /* ---- contruct module object ---- */
 string_option_t *string_opts[] = { NULL };
-CREATE_OPT_SETS_WITH_OPTS_4( use_unix2, debug, nullok, trace );
+CREATE_OPT_SETS_WITH_OPTS_4( is_enabled, debug, nullok, trace );
 /* at last construct the complete module object */
 pam_module_t mod_pam_unix2 = { "pam_unix2.so", opt_sets,
 			       &parse_config_unix2,
