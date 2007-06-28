@@ -298,6 +298,8 @@ main (int argc, char *argv[])
 	{"mkhomedir",        no_argument,       NULL, 1100 },
 	{"mkhomedir-debug",  no_argument,       NULL, 1101 },
 	{"mkhomedir-silent", no_argument,       NULL, 1102 },
+	{"mkhomedir-umask",  required_argument, NULL, 1103 },
+	{"mkhomedir-skel",   required_argument, NULL, 1104 },
 	{"limits",           no_argument,       NULL, 1200 },
         {"env",              no_argument,       NULL, 1300 },
         {"make",             no_argument,       NULL, 1500 },
@@ -514,41 +516,62 @@ main (int argc, char *argv[])
 	    {
 	      if (check_for_pam_module ("pam_unix2.so", force) != 0)
 		return 1;
-	      config_account.use_unix2 = opt_val;
-	      config_auth.use_unix2 = opt_val;
-	      config_password.use_unix2 = opt_val;
-	      config_session.use_unix2 = opt_val;
+              opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 1601:
-	  config_account.unix2_debug = opt_val;
-	  config_auth.unix2_debug = opt_val;
-	  config_password.unix2_debug = opt_val;
-	  config_session.unix2_debug = opt_val;
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
 	  break;
 	case 1602:
-	  config_account.unix2_nullok = opt_val;
-	  config_auth.unix2_nullok = opt_val;
-	  config_password.unix2_nullok = opt_val;
-	  config_session.unix2_nullok = opt_val;
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
+	  opt_set->enable (opt_set, "nullok", opt_val);
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+	  opt_set->enable (opt_set, "nullok", opt_val);
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+	  opt_set->enable (opt_set, "nullok", opt_val);
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
+	  opt_set->enable (opt_set, "nullok", opt_val);
 	  break;
         case 1603:
-          config_session.unix2_trace = opt_val;
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
+	  opt_set->enable (opt_set, "trace", opt_val);
           break;
         case 1604:
 	  if (m_delete)
 	    {
-	      config_account.unix2_call_modules = NULL;
-	      config_auth.unix2_call_modules = NULL;
-	      config_password.unix2_call_modules = NULL;
-	      config_session.unix2_call_modules = NULL;
+	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
+	      opt_set->set_opt (opt_set, "call_modules", NULL);
+	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+	      opt_set->set_opt (opt_set, "call_modules", NULL);
+	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+	      opt_set->set_opt (opt_set, "call_modules", NULL);
+	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
+	      opt_set->set_opt (opt_set, "call_modules", NULL);
 	    }
 	  else
 	    {
-	      config_account.unix2_call_modules = optarg;
-	      config_auth.unix2_call_modules = optarg;
-	      config_password.unix2_call_modules = optarg;
-	      config_session.unix2_call_modules = optarg;
+	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
+	      opt_set->set_opt (opt_set, "call_modules", optarg);
+	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+	      opt_set->set_opt (opt_set, "call_modules", optarg);
+	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+	      opt_set->set_opt (opt_set, "call_modules", optarg);
+	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
+	      opt_set->set_opt (opt_set, "call_modules", optarg);
 	    }
           break;
 	case 1700:
@@ -647,15 +670,13 @@ main (int argc, char *argv[])
 	case 2000:
 	  /* pam_ccreds */
 	  if (m_query)
-	    {
-	      if (config_auth.use_ccreds)
-		printf ("auth:\n");
-	    }
+            print_module_config (supported_module_list, "pam_ccreds.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_ccreds.so", force) != 0)
 		return 1;
-	      config_auth.use_ccreds = opt_val;
+	      opt_set = mod_pam_ccreds.get_opt_set (&mod_pam_ccreds, opt_val);
+	      opt_set->enable (opt_set, "is_enabled", TRUE);
 	    }
 	  break;
 	case 2010:
@@ -828,14 +849,16 @@ main (int argc, char *argv[])
   if (m_create)
     {
       /* Write account section.  */
-      config_account.use_unix2 = 1;
+      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_account (supported_module_list) != 0)
 	return 1;
       if (write_config_account (CONF_ACCOUNT_PC, module_list_account) != 0)
 	return 1;
 
       /* Write auth section.  */
-      config_auth.use_unix2 = 1;
+      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_auth (supported_module_list) != 0)
 	return 1;
       if (write_config_auth (CONF_AUTH_PC, module_list_auth) != 0)
@@ -847,8 +870,10 @@ main (int argc, char *argv[])
 	  config_password.use_pwcheck = 1;
 	  config_password.pwcheck_nullok = 1;
 	}
-      config_password.use_unix2 = 1;
-      config_password.unix2_nullok = 1;
+      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
+      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+      opt_set->enable (opt_set, "nullok", TRUE);
       if (sanitize_check_password (supported_module_list) != 0)
 	return 1;
       if (write_config_password (CONF_PASSWORD_PC, module_list_password) != 0)

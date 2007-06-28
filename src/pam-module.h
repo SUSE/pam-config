@@ -114,19 +114,11 @@ struct config_file_t {
   /* pam_make is password only.  */
   int use_make;
   char *make_options;
-  /* pam_unix2 is account, auth, password and session.  */
-  int use_unix2;
-  int unix2_debug;
-  int unix2_nullok;
-  int unix2_trace;
-  char *unix2_call_modules; /* XXX */
   /* pam_krb5, used by all types.  */
   int use_krb5;
   int krb5_debug;
   uint32_t krb5_minuid;
   int krb5_ignore_unknown_principals;
-  /* pam_ccreds, used by auth.  */
-  int use_ccreds;
   /* pam_pkcs11, used by auth.  */
   int use_pkcs11;
   /* pam_cracklib, used by password.  */

@@ -1,5 +1,6 @@
 extern pam_module_t mod_pam_unix2;
 extern pam_module_t mod_pam_ldap;
+extern pam_module_t mod_pam_ccreds;
 extern pam_module_t mod_pam_umask;
 extern pam_module_t mod_pam_mkhomedir;
 
@@ -8,6 +9,7 @@ pam_module_t *supported_module_list[] = {
   &mod_pam_ldap,
   &mod_pam_umask,
   &mod_pam_mkhomedir,
+  &mod_pam_ccreds,
   NULL
 };
 
