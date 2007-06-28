@@ -6,30 +6,6 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
-#define OPT_NAME(PREFIX, NAME) PREFIX ## _opt_ ## NAME
-
-#define INIT_OPT(PREFIX,x) static bool_option_t OPT_NAME(PREFIX,x) = { #x, FALSE }
-
-#define OPT_SET_4(PREFIX, OPT_1, OPT_2, OPT_3, OPT_4) INIT_OPT(PREFIX, OPT_1); \
-  INIT_OPT(PREFIX, OPT_2);\
-  INIT_OPT(PREFIX, OPT_3);\
-  INIT_OPT(PREFIX, OPT_4);\
-  static bool_option_t * PREFIX ## _bool_opts[] = { &OPT_NAME(PREFIX, OPT_1),\
-					     &OPT_NAME(PREFIX, OPT_2),\
-					     &OPT_NAME(PREFIX, OPT_3),\
-					     &OPT_NAME(PREFIX, OPT_4),\
-					     NULL }
-
-#define CREATE_OPT_SETS_WITH_OPTS_4(OPT_1, OPT_2, OPT_3, OPT_4) \
-  OPT_SET_4( auth, OPT_1, OPT_2, OPT_3, OPT_4 );			\
-  OPT_SET_4( account, OPT_1, OPT_2, OPT_3, OPT_4);			\
-  OPT_SET_4( password, OPT_1, OPT_2, OPT_3, OPT_4);			\
-  OPT_SET_4( session, OPT_1, OPT_2, OPT_3, OPT_4);			\
-  static option_set_t auth_opts = { auth_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t account_opts = { account_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t password_opts = { password_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t session_opts = { session_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t *opt_sets[] = { &auth_opts, &account_opts, &password_opts, &session_opts, NULL }
 
 
 static int
@@ -61,8 +37,10 @@ parse_config_unix2 (pam_module_t *this, char *args, write_type_t type)
       else if (strcmp (cp, "use_authtok") == 0)
 	{ /* will be ignored */ }
       else if (strncmp (cp, "call_modules=", 13) == 0){
-	/* XXX strip krb5 and ldap modules from it
-	conf->unix2_call_modules = strdup (&cp[13]);*/
+	/* XXX strip krb5 and ldap modules from it */
+	if( ! opt_set->set_opt( opt_set, "call_modules", strdup (&cp[13]) ) ){
+	  DEBUG( "call_modules option recognized but couldn't be added to option set!\n" );
+	}	 
       }
       else
 	print_unknown_option_error ("pam_unix2.so", cp);
@@ -88,7 +66,7 @@ print_module_unix2 ( pam_module_t *this ){
   return TRUE;
 }
 
-static int
+  static int
 write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
@@ -109,7 +87,7 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
   with_cracklib = is_module_enabled (supported_module_list, "pam_cracklib.so", op);
 
   switch (op)
-    {
+  {
     case AUTH:
       if (with_krb5 || with_ldap || with_lum || with_winbind)
 	/* Only sufficient if other modules follow */
@@ -136,16 +114,17 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
       if (opt_set->is_enabled (opt_set, "trace"))
 	fprintf (fp, "trace ");
       break;
-    }
+  }
 
   if (opt_set->is_enabled (opt_set, "nullok"))
     fprintf (fp, "nullok ");
   if (opt_set->is_enabled (opt_set, "debug"))
     fprintf (fp, "debug ");
-#if 0 /* XXX string options! */
-  if (gl_conf->unix2_call_modules)
-    fprintf (fp, "call_modules=%s ", gl_conf->unix2_call_modules);
-#endif
+  
+  char *call_modules = opt_set->get_opt( opt_set, "call_modules");
+  if (call_modules)
+    fprintf (fp, "call_modules=%s ", call_modules);
+
   fprintf (fp, "\n");
 
   return 0;
@@ -155,10 +134,12 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 
 /* ---- contruct module object ---- */
 string_option_t *string_opts[] = { NULL };
-CREATE_OPT_SETS_WITH_OPTS_4( is_enabled, debug, nullok, trace );
+DECLARE_BOOL_OPTS_4( is_enabled, debug, nullok, trace );
+DECLARE_STRING_OPTS_1( call_modules );
+DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_unix2 = { "pam_unix2.so", opt_sets,
-			       &parse_config_unix2,
-			       &print_module_unix2,
-			       &write_config_unix2,
-			       &get_opt_set};
+  &parse_config_unix2,
+  &print_module_unix2,
+  &write_config_unix2,
+  &get_opt_set};

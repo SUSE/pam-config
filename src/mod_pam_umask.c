@@ -6,33 +6,6 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
-#define OPT_NAME(PREFIX, NAME) PREFIX ## _opt_ ## NAME
-
-#define INIT_OPT(PREFIX,x) static bool_option_t OPT_NAME(PREFIX,x) = { #x, FALSE }
-
-#define OPT_SET_4(PREFIX, OPT_1, OPT_2, OPT_3, OPT_4)	\
-  INIT_OPT(PREFIX, OPT_1);				\
-  INIT_OPT(PREFIX, OPT_2);				\
-  INIT_OPT(PREFIX, OPT_3);				\
-  INIT_OPT(PREFIX, OPT_4);				\
-  static bool_option_t * PREFIX ## _bool_opts[] = { &OPT_NAME(PREFIX, OPT_1),	\
-					     &OPT_NAME(PREFIX, OPT_2),\
-					     &OPT_NAME(PREFIX, OPT_3),\
-					     &OPT_NAME(PREFIX, OPT_4),\
-					     NULL }
-
-#define CREATE_OPT_SETS_WITH_OPTS_4(OPT_1, OPT_2, OPT_3, OPT_4)	\
-  OPT_SET_4( auth, OPT_1, OPT_2, OPT_3, OPT_4 );		\
-  OPT_SET_4( account, OPT_1, OPT_2, OPT_3, OPT_4 );		\
-  OPT_SET_4( password, OPT_1, OPT_2, OPT_3, OPT_4 );		\
-  OPT_SET_4( session, OPT_1, OPT_2, OPT_3, OPT_4);		\
-  static option_set_t auth_opts = { auth_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t account_opts = { account_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t password_opts = { password_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t session_opts = { session_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t *opt_sets[] = { &auth_opts, &account_opts, &password_opts, &session_opts, NULL }
-
-
 static int
 parse_config_umask (pam_module_t *this, char *args, write_type_t type)
 {
@@ -108,8 +81,9 @@ write_config_umask (pam_module_t *this, enum write_type op, FILE *fp)
 
 
 /* ---- contruct module object ---- */
-static string_option_t *string_opts[] = { NULL };
-CREATE_OPT_SETS_WITH_OPTS_4( is_enabled, debug, silent, usergroups );
+DECLARE_BOOL_OPTS_4( is_enabled, debug, silent, usergroups );
+DECLARE_STRING_OPTS_0;
+DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_umask = { "pam_umask.so", opt_sets,
 			       &parse_config_umask,
