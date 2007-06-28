@@ -355,6 +355,12 @@ main (int argc, char *argv[])
 
 	    while (*modptr != NULL)
 	      {
+		opt_set = (*modptr)->get_opt_set (*modptr, AUTH);
+		opt_set->enable (opt_set, "nullok", opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, ACCOUNT);
+		opt_set->enable (opt_set, "nullok", opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, PASSWORD);
+		opt_set->enable (opt_set, "nullok", opt_val);
 		opt_set = (*modptr)->get_opt_set (*modptr, SESSION);
 		opt_set->enable (opt_set, "nullok", opt_val);
 		++modptr;
@@ -367,13 +373,18 @@ main (int argc, char *argv[])
 
 	    while (*modptr != NULL)
 	      {
+		opt_set = (*modptr)->get_opt_set (*modptr, AUTH);
+		opt_set->enable (opt_set, "debug", opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, ACCOUNT);
+		opt_set->enable (opt_set, "debug", opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, PASSWORD);
+		opt_set->enable (opt_set, "debug", opt_val);
 		opt_set = (*modptr)->get_opt_set (*modptr, SESSION);
-		opt_set->enable (opt_set, "nullok", opt_val);
+		opt_set->enable (opt_set, "debug", opt_val);
+
 		++modptr;
 	      }
 	  }
-	  print_module_umask (&mod_pam_umask);
-
 	  break;
 	/* pam_pwcheck */
 	case 1000:
