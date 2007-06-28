@@ -223,8 +223,7 @@ main (int argc, char *argv[])
 
       /* Load old /etc/security/{pam_unix2,pam_pwcheck}.conf
 	 files and delete them afterwards.  */
-      load_obsolete_conf (&config_account, &config_auth,
-			  &config_password, &config_session);
+      load_obsolete_conf (supported_module_list);
 
       if (load_config (CONF_ACCOUNT, ACCOUNT, supported_module_list) != 0)
 	{
@@ -620,23 +619,30 @@ main (int argc, char *argv[])
 	case 1900:
 	  /* pam_ldap */
 	  if (m_query)
-	    print_module_ldap (&config_account, &config_auth,
-			       &config_password, &config_session);
+            print_module_config (supported_module_list, "pam_ldap.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_ldap.so", force) != 0)
 		return 1;
-	      config_account.use_ldap = opt_val;
-	      config_auth.use_ldap = opt_val;
-	      config_password.use_ldap = opt_val;
-	      config_session.use_ldap = opt_val;
+              opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, ACCOUNT);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, AUTH);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, PASSWORD);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, SESSION);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 1901:
-	  config_account.ldap_debug = opt_val;
-	  config_auth.ldap_debug = opt_val;
-	  config_password.ldap_debug = opt_val;
-	  config_session.ldap_debug = opt_val;
+	  opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, ACCOUNT);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, AUTH);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, PASSWORD);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
 	  break;
 	case 2000:
 	  /* pam_ccreds */
@@ -823,14 +829,14 @@ main (int argc, char *argv[])
     {
       /* Write account section.  */
       config_account.use_unix2 = 1;
-      if (sanitize_check_account (&config_account) != 0)
+      if (sanitize_check_account (supported_module_list) != 0)
 	return 1;
       if (write_config_account (CONF_ACCOUNT_PC, module_list_account) != 0)
 	return 1;
 
       /* Write auth section.  */
       config_auth.use_unix2 = 1;
-      if (sanitize_check_auth (&config_auth) != 0)
+      if (sanitize_check_auth (supported_module_list) != 0)
 	return 1;
       if (write_config_auth (CONF_AUTH_PC, module_list_auth) != 0)
 	return 1;
@@ -843,7 +849,7 @@ main (int argc, char *argv[])
 	}
       config_password.use_unix2 = 1;
       config_password.unix2_nullok = 1;
-      if (sanitize_check_password (&config_password) != 0)
+      if (sanitize_check_password (supported_module_list) != 0)
 	return 1;
       if (write_config_password (CONF_PASSWORD_PC, module_list_password) != 0)
 	return 1;
@@ -855,7 +861,7 @@ main (int argc, char *argv[])
       config_session.use_env = 1;
       opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt_val);
-      if (sanitize_check_session (&config_session) != 0)
+      if (sanitize_check_session (supported_module_list) != 0)
 	return 1;
       if (write_config_session (CONF_SESSION_PC, module_list_session) != 0)
 	return 1;
@@ -867,13 +873,13 @@ main (int argc, char *argv[])
 	return 1;
 
       /* Write auth section.  */
-      if (sanitize_check_auth (&config_auth) != 0)
+      if (sanitize_check_auth (supported_module_list) != 0)
 	return 1;
       if (write_config_auth (CONF_AUTH_PC, module_list_auth) != 0)
 	return 1;
 
       /* Write password section.  */
-      if (sanitize_check_password (&config_password) != 0)
+      if (sanitize_check_password (supported_module_list) != 0)
 	return 1;
       if (write_config_password (CONF_PASSWORD_PC, module_list_password) != 0)
 	return 1;

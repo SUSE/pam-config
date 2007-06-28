@@ -147,13 +147,13 @@ write_config_password (const char *file, pam_module_t **module_list)
       fprintf (fp, "\n");
     }
 
-  if (conf->use_ldap)
-    {
-      fprintf (fp, "password\trequired\tpam_ldap.so\ttry_first_pass use_authtok ");
-      if (conf->ldap_debug)
-        fprintf (fp, "debug ");
-      fprintf (fp, "\n");
-    }
+  // if (conf->use_ldap)
+  //   {
+  //     fprintf (fp, "password\trequired\tpam_ldap.so\ttry_first_pass use_authtok ");
+  //     if (conf->ldap_debug)
+  //       fprintf (fp, "debug ");
+  //     fprintf (fp, "\n");
+  //   }
 
   if (conf->use_lum)
     fprintf (fp, "password\trequired\tpam_nam.so\ttry_first_pass\n");

@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Thorsten Kukuk
+/* Copyright (C) 2006, 2007 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -28,6 +28,8 @@
 #include <sys/types.h>
 
 #include "pam-config.h"
+
+#if 0
 
 static void
 parse_option_unix2 (const char *file, const char *service,
@@ -321,12 +323,16 @@ parse_file (const char *file, config_file_t *account, config_file_t *auth,
   return 0;
 }
 
+#endif
+
 int
-load_obsolete_conf (config_file_t *account, config_file_t *auth,
-		    config_file_t *password, config_file_t *session)
+load_obsolete_conf (pam_module_t **module_list __attribute__ ((unused)))
 {
   if (debug)
     printf ("*** load_obsolete_conf (...)\n");
+
+  /* XXX Need to port load_obsolete_conf ! */
+#if 0
 
   if (access ("/etc/security/pam_unix2.conf", R_OK) == 0)
     {
@@ -353,6 +359,8 @@ load_obsolete_conf (config_file_t *account, config_file_t *auth,
 		      auth, password, session, parse_option_pwcheck) == -1)
 	return -1;
     }
+
+#endif
 
   return 0;
 }

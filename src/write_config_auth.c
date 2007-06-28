@@ -117,24 +117,24 @@ write_config_auth (const char *file, pam_module_t **module_list)
 	}
     }
 
-  if (conf->use_ldap)
-    {
-      if (conf->use_ccreds)
-	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_ldap.so\tuse_first_pass");
-      else if (conf->use_winbind)
-	fprintf (fp, "auth\tsufficient\tpam_ldap.so\tuse_first_pass");
-      else
-	fprintf (fp, "auth\trequired\tpam_ldap.so\tuse_first_pass");
-      if (conf->ldap_debug)
-	fprintf (fp, " debug");
-      fprintf (fp, "\n");
+  //if (conf->use_ldap)
+  //  {
+  //    if (conf->use_ccreds)
+  //	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_ldap.so\tuse_first_pass");
+  //     else if (conf->use_winbind)
+  //	fprintf (fp, "auth\tsufficient\tpam_ldap.so\tuse_first_pass");
+  //    else
+  //	fprintf (fp, "auth\trequired\tpam_ldap.so\tuse_first_pass");
+  //    if (conf->ldap_debug)
+  //	fprintf (fp, " debug");
+  //    fprintf (fp, "\n");
       if (conf->use_ccreds)
 	{
 	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=validate use_first_pass\n");
 	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=store\n");
 	  fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
 	}
-    }
+  //  }
 
   if (conf->use_lum)
     fprintf (fp, "auth\trequired\tpam_nam.so\tuse_first_pass\n");

@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Thorsten Kukuk
+/* Copyright (C) 2006, 2007 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -24,6 +24,7 @@
 #include <unistd.h>
 
 #include "pam-config.h"
+#include "pam-module.h"
 
 int
 check_for_pam_module (const char *name, int force)
@@ -58,15 +59,24 @@ check_for_pam_module (const char *name, int force)
 }
 
 int
-sanitize_check_account (config_file_t *conf __attribute__((unused)))
+sanitize_check_account (pam_module_t **module_list __attribute__((unused)))
 {
   return 0;
 }
 
 int
-sanitize_check_auth (config_file_t *conf)
+sanitize_check_auth (pam_module_t **module_list)
 {
-  if (conf->use_ccreds && !conf->use_ldap && !conf->use_krb5)
+  int with_ccreds, with_ldap, with_krb5;
+
+  with_ccreds = is_module_enabled (module_list,
+				   "pam_ccreds.so", AUTH);
+  with_ldap = is_module_enabled (module_list,
+				 "pam_ldap.so", AUTH);
+  with_krb5 = is_module_enabled (module_list,
+				 "pam_krb5.so", AUTH);
+
+  if (with_ccreds && !with_ldap && !with_krb5)
     fprintf (stderr,
 	     _("WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"));
 
@@ -74,33 +84,48 @@ sanitize_check_auth (config_file_t *conf)
 }
 
 int
-sanitize_check_password (config_file_t *conf)
+sanitize_check_password (pam_module_t **module_list)
 {
-  int retval = 0;
+  int with_pwcheck, with_cracklib;
+  option_set_t *opt_set;
 
-  if (conf->use_pwcheck && conf->use_cracklib)
+  with_pwcheck = is_module_enabled (module_list,
+				    "pam_pwcheck.so", PASSWORD);
+  with_cracklib = is_module_enabled (module_list,
+				     "pam_cracklib.so", PASSWORD);
+
+  if (with_pwcheck && with_cracklib)
     {
       fprintf (stderr, _("INFO: pam_pwcheck.so and pam_cracklib.so enabled,\nINFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"));
-      conf->use_cracklib = 0;
+
+      pam_module_t *cracklib_mod = lookup (module_list, "pam_cracklib.so");
+
+      /* conf->use_cracklib = 0; */
+      opt_set = cracklib_mod->get_opt_set (cracklib_mod, PASSWORD);
+      opt_set->enable (opt_set, "is_enabled", FALSE);
+
+      /* XXX convert */
+#if 0
       if (conf->pwcheck_cracklib == 0)
 	conf->pwcheck_cracklib = 1;
       if (conf->pwcheck_cracklib_path == NULL)
 	conf->pwcheck_cracklib_path = conf->cracklib_dictpath;
-      if (conf->cracklib_debug)
-	conf->pwcheck_debug = 1;
+#endif
+      if (opt_set->is_enabled (opt_set, "debug"))
+	{
+	  /* conf->pwcheck_debug = 1; */
+	  pam_module_t *pwcheck_mod = lookup (module_list, "pam_pwcheck.so");
+
+	  opt_set = pwcheck_mod->get_opt_set (pwcheck_mod, PASSWORD);
+	  opt_set->enable (opt_set, "debug", TRUE);
+	}
     }
 
-  if (conf->use_make && (conf->use_ldap ||conf->use_krb5))
-    {
-      fprintf (stderr,
-	       _("ERROR: pam_make.so does not work with LDAP or Kerberos5.\n"));
-      retval = 1;
-    }
   return 0;
 }
 
 int
-sanitize_check_session (config_file_t *conf __attribute__((unused)))
+sanitize_check_session (pam_module_t **module_list __attribute__((unused)))
 {
   return 0;
 }

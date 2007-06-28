@@ -46,9 +46,6 @@ struct config_file_t {
   int krb5_debug;
   uint32_t krb5_minuid;
   int krb5_ignore_unknown_principals;
-  /* pam_ldap, used by all types.  */
-  int use_ldap;
-  int ldap_debug;
   /* pam_ccreds, used by auth.  */
   int use_ccreds;
   /* pam_pkcs11, used by auth.  */

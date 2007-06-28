@@ -101,13 +101,13 @@ write_config_session (const char *file, pam_module_t **module_list)
       fprintf (fp, "\n");
     }
 
-  if (conf->use_ldap)
-    {
-      fprintf (fp, "session\toptional\tpam_ldap.so\t");
-      if (conf->ldap_debug)
-	fprintf (fp, "debug ");
-      fprintf (fp, "\n");
-    }
+  // if (conf->use_ldap)
+  //   {
+  //     fprintf (fp, "session\toptional\tpam_ldap.so\t");
+  //     if (conf->ldap_debug)
+  // 	 fprintf (fp, "debug ");
+  //     fprintf (fp, "\n");
+  //   }
 
   if (conf->use_winbind)
     {

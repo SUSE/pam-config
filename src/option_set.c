@@ -59,7 +59,7 @@ int set_opt ( option_set_t *this, char *key, char *value ){
 void
 print_bool_opt (bool_option_t *opt)
 {
-  if (opt->value)
+  if (opt->value && strcmp (opt->key, "is_enabled") != 0)
      printf (" %s", opt->key);
 }
 

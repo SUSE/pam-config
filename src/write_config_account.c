@@ -92,16 +92,16 @@ write_config_account (const char *file, pam_module_t **module_list)
   if (conf->use_ldap || conf->use_lum || conf->use_winbind)
     fprintf (fp, "account\tsufficient\tpam_localuser.so\n");
 
-  if (conf->use_ldap)
-    {
-      if (conf->use_winbind)
-	fprintf (fp, "account\tsufficient\tpam_ldap.so\tuse_first_pass");
-      else
-	fprintf (fp, "account\trequired\tpam_ldap.so\tuse_first_pass");
-      if (conf->ldap_debug)
-        fprintf (fp, " debug");
-      fprintf (fp, "\n");
-    }
+  // if (conf->use_ldap)
+  //   {
+  //     if (conf->use_winbind)
+  // 	fprintf (fp, "account\tsufficient\tpam_ldap.so\tuse_first_pass");
+  //    else
+  //	fprintf (fp, "account\trequired\tpam_ldap.so\tuse_first_pass");
+  //    if (conf->ldap_debug)
+  //      fprintf (fp, " debug");
+  //    fprintf (fp, "\n");
+  //  }
 
   if (conf->use_lum)
     fprintf (fp, "account\trequired\tpam_nam.so\tuse_first_pass\n");

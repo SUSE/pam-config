@@ -65,30 +65,6 @@ parse_krb5_options (config_file_t *conf, char *args)
 }
 
 static void
-parse_ldap_options (config_file_t *conf, char *args)
-{
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-
-      if (strcmp (cp, "debug") == 0)
-	conf->ldap_debug = 1;
-      else if (strcmp (cp, "try_first_pass") == 0)
-	{ /* will be ignored */ }
-      else if (strcmp (cp, "use_authtok") == 0)
-	{ /* will be ignored */ }
-      else if (strcmp (cp, "use_first_pass") == 0)
-	{ /* will be ignored */ }
-      else
-	print_unknown_option_error ("pam_ldap.so", cp);
-    }
-  return;
-}
-
-static void
 parse_winbind_options (config_file_t *conf, char *args)
 {
   while (args && strlen (args) > 0)
@@ -292,12 +268,6 @@ load_config (const char *file, write_type_t wtype,
 	  conf->use_krb5 = 1;
 	  if (arguments)
 	    parse_krb5_options (conf, arguments);
-	}
-      else if (strcmp (module, "pam_ldap.so") == 0)
-	{
-	  conf->use_ldap = 1;
-	  if (arguments)
-	    parse_ldap_options (conf, arguments);
 	}
       else if (strcmp (module, "pam_winbind.so") == 0)
 	{

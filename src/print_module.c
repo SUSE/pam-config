@@ -82,28 +82,6 @@ print_module_krb5 (config_file_t *account, config_file_t *auth,
 }
 
 static void
-print_module_ldap_int (const char *type, config_file_t *conf)
-{
-  if (!conf->use_ldap)
-    return;
-
-  printf ("%s:", type);
-  if (conf->ldap_debug)
-    printf (" debug");
-  printf ("\n");
-}
-
-void
-print_module_ldap (config_file_t *account, config_file_t *auth,
-		    config_file_t *password, config_file_t *session)
-{
-  print_module_ldap_int ("account", account);
-  print_module_ldap_int ("auth", auth);
-  print_module_ldap_int ("password", password);
-  print_module_ldap_int ("session", session);
-}
-
-static void
 print_module_winbind_int (const char *type, config_file_t *conf)
 {
   if (!conf->use_winbind)

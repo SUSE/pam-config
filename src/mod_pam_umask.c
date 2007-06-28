@@ -53,6 +53,10 @@ parse_config_umask (pam_module_t *this, char *args, write_type_t type)
 
       if (strcmp (cp, "debug") == 0)
 	opt_set->enable( opt_set, "debug", TRUE );
+      else if (strcmp (cp, "silent") == 0)
+	opt_set->enable( opt_set, "silent", TRUE );
+      else if (strcmp (cp, "usergroups") == 0)
+	opt_set->enable( opt_set, "usergroups", TRUE );
       else
 	print_unknown_option_error ("pam_umask.so", cp);
     }

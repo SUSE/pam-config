@@ -16,10 +16,28 @@ def_parse_config( pam_module_t *this __attribute__ ((unused)), char *arguments, 
   return 1;
 }
 
+static void
+def_print_module_type (pam_module_t *this, write_type_t type)
+{
+  option_set_t *opt_set = this->get_opt_set (this, type);
+
+  if (!opt_set->is_enabled (opt_set, "is_enabled"))
+    return;
+
+  printf ("%s:", type2string( type ) );
+  for_each_bool_opt( opt_set,  &print_bool_opt );
+  printf( "\n" );
+}
+
 int
-def_print_module( pam_module_t *this ){
-  printf( "default print module:\t%s\n", this->name );
-  return 1;
+def_print_module (pam_module_t *this)
+{
+  def_print_module_type (this, AUTH);
+  def_print_module_type (this, ACCOUNT);
+  def_print_module_type (this, PASSWORD);
+  def_print_module_type (this, SESSION);
+
+  return TRUE;
 }
 
 int
