@@ -2,6 +2,7 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int
 is_enabled( option_set_t *this,  char *key ){
@@ -27,6 +28,7 @@ enable( option_set_t *this, char *key, int value ){
     }
     current_opt++;
   }
+  abort (); /* XXX for debugging */
   return FALSE;
 }
 

@@ -30,7 +30,7 @@ int load_config (const char *file, write_type_t wtype,
 int write_config_account (const char *file, config_file_t *conf);
 int write_config_auth (const char *file, config_file_t *conf);
 int write_config_password (const char *file, config_file_t *conf);
-int write_config_session (const char *file, config_file_t *conf);
+int write_config_session (const char *file, pam_module_t **module_list);
 
 int sanitize_check_account (config_file_t *conf);
 int sanitize_check_auth (config_file_t *conf);

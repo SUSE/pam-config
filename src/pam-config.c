@@ -151,6 +151,7 @@ main (int argc, char *argv[])
   int force = 0;
   int opt_val = 1;
   int retval = 0;
+  option_set_t *opt_set;
   config_file_t config_account, config_auth,
     config_password, config_session;
 
@@ -273,11 +274,6 @@ main (int argc, char *argv[])
 	goto load_config_error;
     }
 
-  // dump_config( supported_module_list );
- // TODO: we exit here because we just test parsing (load_config())
- // ATM...
-  // return 0;
-
   while (1)
     {
       int c;
@@ -301,6 +297,8 @@ main (int argc, char *argv[])
 	{"pwcheck-nisdir",            required_argument, NULL, 1009 },
 	{"pwcheck-no_obscure_checks", no_argument,       NULL, 1010 },
 	{"mkhomedir",        no_argument,       NULL, 1100 },
+	{"mkhomedir-debug",  no_argument,       NULL, 1101 },
+	{"mkhomedir-silent", no_argument,       NULL, 1102 },
 	{"limits",           no_argument,       NULL, 1200 },
         {"env",              no_argument,       NULL, 1300 },
         {"make",             no_argument,       NULL, 1500 },
@@ -331,6 +329,8 @@ main (int argc, char *argv[])
 	{"winbind-debug",         no_argument,       NULL, 2201 },
 	{"umask",                 no_argument,       NULL, 2300 },
 	{"umask-debug",           no_argument,       NULL, 2301 },
+	{"umask-silent",          no_argument,       NULL, 2302 },
+	{"umask-usergroups",      no_argument,       NULL, 2303 },
 	{"capability",            no_argument,       NULL, 2400 },
         {"capability-debug",      no_argument,       NULL, 2401 },
         {"capability-conf",       required_argument, NULL, 2402 },
@@ -351,7 +351,7 @@ main (int argc, char *argv[])
 	  break;
 	case 900: /* --nullok */
 	  {
-	    option_set_t *opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+	    opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
 	    opt_set->enable (opt_set, "nullok", opt_val);
 	    config_password.pwcheck_nullok = opt_val;
 	    opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
@@ -359,11 +359,15 @@ main (int argc, char *argv[])
 	  }
 	  break;
 	case 901: /* --pam-debug */
-	  config_account.unix2_debug = opt_val;
-	  config_auth.unix2_debug = opt_val;
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
 	  config_password.pwcheck_debug = opt_val;
-	  config_password.unix2_debug = opt_val;
-	  config_session.unix2_debug = opt_val;
 	  config_account.krb5_debug = opt_val;
 	  config_auth.krb5_debug = opt_val;
 	  config_password.krb5_debug = opt_val;
@@ -377,8 +381,9 @@ main (int argc, char *argv[])
 	  config_auth.winbind_debug = opt_val;
 	  config_password.winbind_debug = opt_val;
 	  config_session.winbind_debug = opt_val;
-	  config_session.umask_debug = opt_val;
 	  config_session.capability_debug = opt_val;
+	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
 	  break;
 	/* pam_pwcheck */
 	case 1000:
@@ -430,16 +435,26 @@ main (int argc, char *argv[])
 	  break;
 	case 1100:
 	  if (m_query)
-	    {
-	      if (config_session.use_mkhomedir)
-		printf ("session:\n");
-	    }
+	    print_module_config (supported_module_list,
+				 "pam_mkhomedir.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_mkhomedir.so", force) != 0)
 		return 1;
-	      config_session.use_mkhomedir = opt_val;
+	      opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
+						       SESSION);
+	      opt_set->enable (opt_set, "use_mkhomedir", opt_val);
 	    }
+	  break;
+	case 1101:
+	  opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
+						   SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  break;
+	case 1102:
+	  opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
+						   SESSION);
+	  opt_set->enable (opt_set, "silent", opt_val);
 	  break;
 	case 1200:
 	  if (m_query)
@@ -732,11 +747,21 @@ main (int argc, char *argv[])
 	    {
 	      if (check_for_pam_module ("pam_umask.so", force) != 0)
 		return 1;
-	      config_session.use_umask = opt_val;
+	      opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
+	      opt_set->enable (opt_set, "use_umask", opt_val);
 	    }
 	  break;
 	case 2301:
-	  config_session.umask_debug = opt_val;
+	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  break;
+	case 2302:
+	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
+	  opt_set->enable (opt_set, "silent", opt_val);
+	  break;
+	case 2303:
+	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
+	  opt_set->enable (opt_set, "usergroups", opt_val);
 	  break;
 	case 2400:
 	  /* pam_capability.so */
@@ -823,13 +848,15 @@ main (int argc, char *argv[])
 	return 1;
 
       /* Write session section.  */
-      config_session.use_unix2 = 1;
+      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
+      opt_set->enable (opt_set, "use_unix2", opt_val);
       config_session.use_limits = 1;
       config_session.use_env = 1;
-      config_session.use_umask = 1;
+      opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
+      opt_set->enable (opt_set, "use_umask", opt_val);
       if (sanitize_check_session (&config_session) != 0)
 	return 1;
-      if (write_config_session (CONF_SESSION_PC, &config_session) != 0)
+      if (write_config_session (CONF_SESSION_PC, module_list_session) != 0)
 	return 1;
     }
   else
@@ -851,7 +878,7 @@ main (int argc, char *argv[])
 	return 1;
 
       /* Write session section.  */
-      if (write_config_session (CONF_SESSION_PC, &config_session) != 0)
+      if (write_config_session (CONF_SESSION_PC, module_list_session) != 0)
 	return 1;
     }
 

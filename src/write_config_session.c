@@ -26,10 +26,8 @@
 
 #include "pam-config.h"
 
-extern pam_module_t *supported_module_list[];
-
 int
-write_config_session (const char *file, config_file_t *conf)
+write_config_session (const char *file, pam_module_t **module_list)
 {
   FILE *fp;
 
@@ -56,7 +54,7 @@ write_config_session (const char *file, config_file_t *conf)
 	   "# at the start and end of sessions of *any* kind (both interactive and\n"
 	   "# non-interactive\n#\n");
 
-  pam_module_t **modptr = &supported_module_list[0];
+  pam_module_t **modptr = module_list;
 
   while (*modptr != NULL)
     {
@@ -64,22 +62,21 @@ write_config_session (const char *file, config_file_t *conf)
       ++modptr;
     }
 
-  if (conf->use_mkhomedir)
-    fprintf (fp, "session\trequired\tpam_mkhomedir.so\n");
+#if 0
+  // if (conf->use_mkhomedir)
+  //  fprintf (fp, "session\trequired\tpam_mkhomedir.so\n");
 
   if (conf->use_limits)
     fprintf (fp, "session\trequired\tpam_limits.so\n");
 
-#if 0
-  fprintf (fp, "session\trequired\tpam_unix2.so\t");
-  if (conf->unix2_nullok)
-    fprintf (fp, "nullok ");
-  if (conf->unix2_debug)
-    fprintf (fp, "debug ");
-  if (conf->unix2_trace)
-    fprintf (fp, "trace ");
-  fprintf (fp, "\n");
-#endif
+  //  fprintf (fp, "session\trequired\tpam_unix2.so\t");
+  // if (conf->unix2_nullok)
+  //  fprintf (fp, "nullok ");
+  // if (conf->unix2_debug)
+  //  fprintf (fp, "debug ");
+  // if (conf->unix2_trace)
+  //  fprintf (fp, "trace ");
+  // fprintf (fp, "\n");
 
   if (conf->use_apparmor)
     fprintf (fp, "session\toptional\tpam_apparmor.so\n");
@@ -125,6 +122,8 @@ write_config_session (const char *file, config_file_t *conf)
 
   if (conf->use_env)
     fprintf (fp, "session\toptional\tpam_env.so\n");
+
+#endif
 
   fclose (fp);
 

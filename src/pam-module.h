@@ -25,8 +25,6 @@ struct config_file_t {
   int pwcheck_remember;
   char *pwcheck_nisdir;
   int pwcheck_no_obscure_checks;
-  /* pam_mkhomedir is session only.  */
-  int use_mkhomedir;
   /* pam_limits is session only */
   int use_limits;
   /* pam_bioapi is auth only currently */
@@ -67,9 +65,6 @@ struct config_file_t {
   /* pam_winbind, used by all types.  */
   int use_winbind;
   int winbind_debug;
-  /* pam_umask, used by session.  */
-  int use_umask;
-  int umask_debug;
   /* pam_capability, used by session.  */
   int use_capability;
   char *capability_conf;

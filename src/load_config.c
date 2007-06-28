@@ -31,7 +31,7 @@
 
 /* Definitions of:
  *
- * -  parse_pwcheck_options 
+ * -  parse_pwcheck_options
  * -  parse_unix2_options
  *
  * have gone into separate files: mod_<module-name>.c
@@ -254,91 +254,83 @@ load_config (const char *file, write_type_t wtype,
 	}
 
 #if 0
-/* XXX remove every module converted */
+      /* XXX remove every module converted */
       if (strcmp (module, "pam_pwcheck.so") == 0)
-	    {
-	      conf->use_pwcheck = 1;
-	      if (arguments)
-		parse_pwcheck_options (conf, arguments);
-	    }
-	  else if (strcmp (module, "pam_mkhomedir.so") == 0)
-	    {
-	      conf->use_mkhomedir = 1;
-	      if (arguments)
-		fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),
-			 file, module);
-	    }
-	  else if (strcmp (module, "pam_limits.so") == 0)
-	    {
-	      conf->use_limits = 1;
-	      if (arguments)
-		fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),
-			 file, module);
-	    }
-	  else if (strcmp (module, "pam_bioapi.so") == 0)
-	    {
-	      conf->use_bioapi = 1;
-	      if (arguments)
-		conf->bioapi_options = strdup (arguments);
-	    }
-	  else if (strcmp (module, "pam_env.so") == 0)
-	    {
-	      conf->use_env = 1;
-	      if (arguments)
-		fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),
-			 file, module);
-	    }
-	  else if (strcmp (module, "pam_make.so") == 0)
-	    {
-	      conf->use_make = 1;
-	      if (arguments)
-		conf->make_options = strdup (arguments);
-	    }
-	  else if (strcmp (module, "pam_krb5.so") == 0)
-	    {
-	      conf->use_krb5 = 1;
-	      if (arguments)
-		parse_krb5_options (conf, arguments);
-	    }
-	  else if (strcmp (module, "pam_ldap.so") == 0)
-	    {
-	      conf->use_ldap = 1;
-	      if (arguments)
-		parse_ldap_options (conf, arguments);
-	    }
-	  else if (strcmp (module, "pam_winbind.so") == 0)
-	    {
-	      conf->use_winbind = 1;
-	      if (arguments)
-		parse_winbind_options (conf, arguments);
-	    }
-	  else if (strcmp (module, "pam_ccreds.so") == 0)
-	    conf->use_ccreds = 1;
-	  else if (strcmp (module, "pam_pkcs11.so") == 0)
-	    conf->use_pkcs11 = 1;
-	  else if (strcmp (module, "pam_apparmor.so") == 0)
-	    conf->use_apparmor = 1;
-	  else if (strcmp (module, "pam_cracklib.so") == 0)
-	    {
-	      conf->use_cracklib = 1;
-	      if (arguments)
-		parse_cracklib_options (conf, arguments);
-	    }
-	  else if (strcmp (module, "pam_nam.so") == 0)
-	    conf->use_lum = 1;
-	  else if (strcmp (module, "pam_capability.so") == 0)
-	    {
-	      conf->use_capability = 1;
-	      if (arguments)
-		parse_capability_options (conf, arguments);
-	    }
-	  else if (strcmp (module, "pam_localuser.so") == 0)
-	    { /* ignore, used for account with pam_ldap.so */ }
-	  else
-	    {
-	      fprintf (stderr, _("%s: Unknown module %s, ignored!\n"),
-		       file, module);
-	    }
+	{
+	  conf->use_pwcheck = 1;
+	  if (arguments)
+	    parse_pwcheck_options (conf, arguments);
+	}
+      else if (strcmp (module, "pam_limits.so") == 0)
+	{
+	  conf->use_limits = 1;
+	  if (arguments)
+	    fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),
+		     file, module);
+	}
+      else if (strcmp (module, "pam_bioapi.so") == 0)
+	{
+	  conf->use_bioapi = 1;
+	  if (arguments)
+	    conf->bioapi_options = strdup (arguments);
+	}
+      else if (strcmp (module, "pam_env.so") == 0)
+	{
+	  conf->use_env = 1;
+	  if (arguments)
+	    fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),
+		     file, module);
+	}
+      else if (strcmp (module, "pam_make.so") == 0)
+	{
+	  conf->use_make = 1;
+	  if (arguments)
+	    conf->make_options = strdup (arguments);
+	}
+      else if (strcmp (module, "pam_krb5.so") == 0)
+	{
+	  conf->use_krb5 = 1;
+	  if (arguments)
+	    parse_krb5_options (conf, arguments);
+	}
+      else if (strcmp (module, "pam_ldap.so") == 0)
+	{
+	  conf->use_ldap = 1;
+	  if (arguments)
+	    parse_ldap_options (conf, arguments);
+	}
+      else if (strcmp (module, "pam_winbind.so") == 0)
+	{
+	  conf->use_winbind = 1;
+	  if (arguments)
+	    parse_winbind_options (conf, arguments);
+	}
+      else if (strcmp (module, "pam_ccreds.so") == 0)
+	conf->use_ccreds = 1;
+      else if (strcmp (module, "pam_pkcs11.so") == 0)
+	conf->use_pkcs11 = 1;
+      else if (strcmp (module, "pam_apparmor.so") == 0)
+	conf->use_apparmor = 1;
+      else if (strcmp (module, "pam_cracklib.so") == 0)
+	{
+	  conf->use_cracklib = 1;
+	  if (arguments)
+	    parse_cracklib_options (conf, arguments);
+	}
+      else if (strcmp (module, "pam_nam.so") == 0)
+	conf->use_lum = 1;
+      else if (strcmp (module, "pam_capability.so") == 0)
+	{
+	  conf->use_capability = 1;
+	  if (arguments)
+	    parse_capability_options (conf, arguments);
+	}
+      else if (strcmp (module, "pam_localuser.so") == 0)
+	{ /* ignore, used for account with pam_ldap.so */ }
+      else
+	{
+	  fprintf (stderr, _("%s: Unknown module %s, ignored!\n"),
+		   file, module);
 	}
 #endif
     }
