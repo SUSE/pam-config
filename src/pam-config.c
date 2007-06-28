@@ -351,39 +351,29 @@ main (int argc, char *argv[])
 	  break;
 	case 900: /* --nullok */
 	  {
-	    opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
-	    opt_set->enable (opt_set, "nullok", opt_val);
-	    config_password.pwcheck_nullok = opt_val;
-	    opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
-	    opt_set->enable (opt_set, "nullok", opt_val);
+	    pam_module_t **modptr = supported_module_list;
+
+	    while (*modptr != NULL)
+	      {
+		opt_set = (*modptr)->get_opt_set (*modptr, SESSION);
+		opt_set->enable (opt_set, "nullok", opt_val);
+		++modptr;
+	      }
 	  }
 	  break;
 	case 901: /* --pam-debug */
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
-	  opt_set->enable (opt_set, "debug", opt_val);
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
-	  opt_set->enable (opt_set, "debug", opt_val);
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
-	  opt_set->enable (opt_set, "debug", opt_val);
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
-	  opt_set->enable (opt_set, "debug", opt_val);
-	  config_password.pwcheck_debug = opt_val;
-	  config_account.krb5_debug = opt_val;
-	  config_auth.krb5_debug = opt_val;
-	  config_password.krb5_debug = opt_val;
-	  config_session.krb5_debug = opt_val;
-	  config_account.ldap_debug = opt_val;
-	  config_auth.ldap_debug = opt_val;
-	  config_password.ldap_debug = opt_val;
-	  config_session.ldap_debug = opt_val;
-	  config_password.cracklib_debug = opt_val;
-	  config_account.winbind_debug = opt_val;
-	  config_auth.winbind_debug = opt_val;
-	  config_password.winbind_debug = opt_val;
-	  config_session.winbind_debug = opt_val;
-	  config_session.capability_debug = opt_val;
-	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
-	  opt_set->enable (opt_set, "debug", opt_val);
+	  {
+	    pam_module_t **modptr = supported_module_list;
+
+	    while (*modptr != NULL)
+	      {
+		opt_set = (*modptr)->get_opt_set (*modptr, SESSION);
+		opt_set->enable (opt_set, "nullok", opt_val);
+		++modptr;
+	      }
+	  }
+	  print_module_umask (&mod_pam_umask);
+
 	  break;
 	/* pam_pwcheck */
 	case 1000:

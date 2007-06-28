@@ -217,6 +217,24 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>--mkhomedir-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> option to all pam_mkhomedir.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--mkhomedir-silent</option></term>
+        <listitem>
+          <para>
+            Add <option>silent</option> option to all pam_mkhomedir.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>--limits</option></term>
         <listitem>
           <para>
@@ -439,6 +457,24 @@
         <listitem>
           <para>
             Add <option>debug</option> option to all pam_umask.so
+            invocations in session management.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--umask-silent</option></term>
+        <listitem>
+          <para>
+            Add <option>silent</option> option to all pam_umask.so
+            invocations in session management.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--umask-usergroups</option></term>
+        <listitem>
+          <para>
+            Add <option>usergroups</option> option to all pam_umask.so
             invocations in session management.
           </para>
         </listitem>

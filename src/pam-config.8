@@ -1,11 +1,11 @@
-.\"     Title: pam\-config
+.\"     Title: pam-config
 .\"    Author: 
-.\" Generator: DocBook XSL Stylesheets v1.71.1 <http://docbook.sf.net/>
-.\"      Date: 06/14/2007
+.\" Generator: DocBook XSL Stylesheets v1.72.0 <http://docbook.sf.net/>
+.\"      Date: 06/28/2007
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "06/14/2007" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "06/28/2007" "Reference Manual" "Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -142,6 +142,20 @@ Disable obscure checks of pam_pwcheck.so.
 \fB\-\-mkhomedir\fR
 .RS 4
 Add pam_mkhomedir.so as first module to session section.
+.RE
+.PP
+\fB\-\-mkhomedir\-debug\fR
+.RS 4
+Add
+\fBdebug\fR
+option to all pam_mkhomedir.so invocations.
+.RE
+.PP
+\fB\-\-mkhomedir\-silent\fR
+.RS 4
+Add
+\fBsilent\fR
+option to all pam_mkhomedir.so invocations.
 .RE
 .PP
 \fB\-\-limits\fR
@@ -302,6 +316,20 @@ Add pam_umask.so as optional session module.
 .RS 4
 Add
 \fBdebug\fR
+option to all pam_umask.so invocations in session management.
+.RE
+.PP
+\fB\-\-umask\-silent\fR
+.RS 4
+Add
+\fBsilent\fR
+option to all pam_umask.so invocations in session management.
+.RE
+.PP
+\fB\-\-umask\-usergroups\fR
+.RS 4
+Add
+\fBusergroups\fR
 option to all pam_umask.so invocations in session management.
 .RE
 .PP
