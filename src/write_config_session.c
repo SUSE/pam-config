@@ -56,11 +56,11 @@ write_config_session (const char *file, config_file_t *conf)
 	   "# at the start and end of sessions of *any* kind (both interactive and\n"
 	   "# non-interactive\n#\n");
 
-  pam_module_t *modptr = supported_module_list[0];
+  pam_module_t **modptr = &supported_module_list[0];
 
-  while (modptr != NULL)
+  while (*modptr != NULL)
     {
-      modptr->write_config(modptr, SESSION, fp);
+      (*modptr)->write_config (*modptr, SESSION, fp);
       ++modptr;
     }
 

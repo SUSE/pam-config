@@ -34,7 +34,8 @@ parse_config_umask (pam_module_t *this, char *args, write_type_t type)
   option_set_t *opt_set = this->get_opt_set( this, type );
 
   if (debug)
-    printf("parse_config_umask:\t%s\t(%s)\n", type2string(type), this->name);
+    printf("**** parse_config_umask (%s): '%s'\n", type2string(type),
+           args?args:"");
 
   opt_set->enable (opt_set, "use_umask", TRUE);
 
@@ -72,6 +73,9 @@ static int
 write_config_umask (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
+
+  if (debug)
+    printf ("**** write_config_umask (...)\n");
 
   if (!opt_set->is_enabled (opt_set, "use_umask"))
     return 0;
