@@ -88,7 +88,9 @@ write_config_umask (pam_module_t *this, enum write_type op, FILE *fp)
   if (op != SESSION)
     return 0;
 
-  fprintf (fp, "session\toptional\tpam_umask.so\t\n");
+  print_module_umask (this);
+
+  fprintf (fp, "session\toptional\tpam_umask.so\t");
   if (opt_set->is_enabled (opt_set, "debug"))
     fprintf (fp, "debug ");
   if (opt_set->is_enabled (opt_set, "silent"))

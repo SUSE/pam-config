@@ -88,7 +88,7 @@ write_config_mkhomedir (pam_module_t *this, enum write_type op, FILE *fp)
   if (op != SESSION)
     return 0;
 
-  fprintf (fp, "session\toptional\tpam_mkhomedir.so\t\n");
+  fprintf (fp, "session\toptional\tpam_mkhomedir.so\t");
   if (opt_set->is_enabled (opt_set, "debug"))
     fprintf (fp, "debug ");
   if (opt_set->is_enabled (opt_set, "silent"))
