@@ -33,6 +33,12 @@
 							      OPT_SET_BODY_1(PREFIX,a),\
 							      OPT_SET_END
 
+#define GENERIC_OPT_SET_2(PREFIX,TYPE,DEFAULT, a, b)			\
+  INIT_OPT_2(PREFIX, TYPE, DEFAULT, a, b);				\
+  OPT_SET_START(PREFIX, TYPE)						\
+       OPT_SET_BODY_2(PREFIX,a, b),					\
+    OPT_SET_END
+
 #define GENERIC_OPT_SET_3(PREFIX, TYPE, DEFAULT, a, b, c)     INIT_OPT_3(PREFIX,TYPE,DEFAULT, a, b, c );\
 							      OPT_SET_START(PREFIX, TYPE) \
 							      OPT_SET_BODY_3(PREFIX,a,b,c),\
@@ -43,26 +49,38 @@
 							      OPT_SET_BODY_4(PREFIX,a,b,c,d),\
 							      OPT_SET_END
 
-#define DECLARE_BOOL_OPTS_3(OPT_1, OPT_2, OPT_3) \
-  GENERIC_OPT_SET_3( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3);			\
-  GENERIC_OPT_SET_3( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3);			\
-  GENERIC_OPT_SET_3( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3);			\
+#define DECLARE_BOOL_OPTS_1(OPT_1)					\
+  GENERIC_OPT_SET_1( auth,	bool, BOOL_DEFAULT, OPT_1);		\
+  GENERIC_OPT_SET_1( account,	bool, BOOL_DEFAULT, OPT_1);		\
+  GENERIC_OPT_SET_1( password,	bool, BOOL_DEFAULT, OPT_1);		\
+  GENERIC_OPT_SET_1( session,	bool, BOOL_DEFAULT, OPT_1);
+
+#define DECLARE_BOOL_OPTS_2(OPT_1, OPT_2)			   \
+  GENERIC_OPT_SET_2( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2); \
+  GENERIC_OPT_SET_2( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2); \
+  GENERIC_OPT_SET_2( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2); \
+  GENERIC_OPT_SET_2( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2);
+
+#define DECLARE_BOOL_OPTS_3(OPT_1, OPT_2, OPT_3)			\
+  GENERIC_OPT_SET_3( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3); \
+  GENERIC_OPT_SET_3( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3); \
+  GENERIC_OPT_SET_3( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3); \
   GENERIC_OPT_SET_3( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3);
 
-#define DECLARE_BOOL_OPTS_4(OPT_1, OPT_2, OPT_3, OPT_4) \
-  GENERIC_OPT_SET_4( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4);			\
-  GENERIC_OPT_SET_4( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4);			\
-  GENERIC_OPT_SET_4( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4);			\
+#define DECLARE_BOOL_OPTS_4(OPT_1, OPT_2, OPT_3, OPT_4)			\
+  GENERIC_OPT_SET_4( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4); \
+  GENERIC_OPT_SET_4( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4); \
+  GENERIC_OPT_SET_4( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4); \
   GENERIC_OPT_SET_4( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4);
 
 #define DECLARE_STRING_OPTS_0 DECLARE_STRING_OPTS_1( empty )
-#define DECLARE_STRING_OPTS_1(OPT_1)\
+#define DECLARE_STRING_OPTS_1(OPT_1)				 \
   GENERIC_OPT_SET_1( auth,	string, STRING_DEFAULT, OPT_1 ); \
   GENERIC_OPT_SET_1( account,	string, STRING_DEFAULT, OPT_1 ); \
   GENERIC_OPT_SET_1( password,	string, STRING_DEFAULT, OPT_1 ); \
-  GENERIC_OPT_SET_1( session,	string, STRING_DEFAULT, OPT_1 ); 
-  
-#define DECLARE_OPT_SETS \
+  GENERIC_OPT_SET_1( session,	string, STRING_DEFAULT, OPT_1 );
+
+#define DECLARE_OPT_SETS						\
   static option_set_t auth_opts	    = { auth_bool_opts,	    auth_string_opts,	  &is_enabled, &enable, &get_opt, &set_opt }; \
   static option_set_t account_opts  = { account_bool_opts,  account_string_opts,  &is_enabled, &enable, &get_opt, &set_opt }; \
   static option_set_t password_opts = { password_bool_opts, password_string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
@@ -178,7 +196,7 @@ int is_module_enabled (pam_module_t **module_list, const char *module,
 /* handle_module
  *
  * gets called by load_config for each module-name string it
- * encounters. 
+ * encounters.
  */
 int handle_module( const char *file, char *m, char *arguments , pam_module_t **module_list, write_type_t type );
 

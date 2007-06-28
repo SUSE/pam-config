@@ -6,30 +6,6 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
-#define OPT_NAME(PREFIX, NAME) PREFIX ## _opt_ ## NAME
-
-#define INIT_OPT(PREFIX,x) static bool_option_t OPT_NAME(PREFIX,x) = { #x, FALSE }
-
-#define OPT_SET_2(PREFIX, OPT_1, OPT_2)					\
-  INIT_OPT(PREFIX, OPT_1);						\
-  INIT_OPT(PREFIX, OPT_2);						\
-  static bool_option_t * PREFIX ## _bool_opts[] =			\
-    { &OPT_NAME(PREFIX, OPT_1),						\
-      &OPT_NAME(PREFIX, OPT_2),						\
-      NULL }
-
-#define CREATE_OPT_SETS_WITH_OPTS_2(OPT_1, OPT_2)		\
-  OPT_SET_2( auth, OPT_1, OPT_2 );				\
-  OPT_SET_2( account, OPT_1, OPT_2 );				\
-  OPT_SET_2( password, OPT_1, OPT_2 );				\
-  OPT_SET_2( session, OPT_1, OPT_2 );				\
-  static option_set_t auth_opts = { auth_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t account_opts = { account_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t password_opts = { password_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t session_opts = { session_bool_opts, string_opts, &is_enabled, &enable, &get_opt, &set_opt }; \
-  static option_set_t *opt_sets[] = { &auth_opts, &account_opts, &password_opts, &session_opts, NULL }
-
-
 static int
 parse_config_ldap (pam_module_t *this, char *args, write_type_t type)
 {
@@ -99,8 +75,15 @@ write_config_ldap (pam_module_t *this, enum write_type op, FILE *fp)
     }
 
   if (opt_set->is_enabled (opt_set, "debug"))
-    fprintf (fp, "debug ");
+    fprintf (fp, " debug");
   fprintf (fp, "\n");
+
+  if (op == AUTH && with_ccreds)
+    {
+      fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=validate use_first_pass\n");
+      fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=store\n");
+      fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
+    }
 
   return 0;
 }
@@ -108,8 +91,9 @@ write_config_ldap (pam_module_t *this, enum write_type op, FILE *fp)
 
 
 /* ---- contruct module object ---- */
-static string_option_t *string_opts[] = { NULL };
-CREATE_OPT_SETS_WITH_OPTS_2( is_enabled, debug );
+DECLARE_BOOL_OPTS_2( is_enabled, debug );
+DECLARE_STRING_OPTS_0;
+DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_ldap = { "pam_ldap.so", opt_sets,
 			       &parse_config_ldap,

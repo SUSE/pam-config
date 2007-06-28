@@ -128,12 +128,12 @@ write_config_auth (const char *file, pam_module_t **module_list)
   //    if (conf->ldap_debug)
   //	fprintf (fp, " debug");
   //    fprintf (fp, "\n");
-      if (conf->use_ccreds)
-	{
-	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=validate use_first_pass\n");
-	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=store\n");
-	  fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
-	}
+  //    if (conf->use_ccreds)
+  //	{
+  //	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=validate use_first_pass\n");
+  //	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=store\n");
+  //	  fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
+  //	}
   //  }
 
   if (conf->use_lum)

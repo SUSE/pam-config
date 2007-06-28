@@ -275,8 +275,6 @@ load_config (const char *file, write_type_t wtype,
 	  if (arguments)
 	    parse_winbind_options (conf, arguments);
 	}
-      else if (strcmp (module, "pam_ccreds.so") == 0)
-	conf->use_ccreds = 1;
       else if (strcmp (module, "pam_pkcs11.so") == 0)
 	conf->use_pkcs11 = 1;
       else if (strcmp (module, "pam_apparmor.so") == 0)
