@@ -20,22 +20,28 @@
 #define INIT_OPT_3(PREFIX,TYPE,DEFAULT,a,b,c)	INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);  INIT_OPT_1(PREFIX,TYPE,DEFAULT,c)
 #define INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d) INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);  INIT_OPT_2(PREFIX,TYPE,DEFAULT,c,d)
 
-#define GENERIC_OPT_SET_1(PREFIX,TYPE,DEFAULT,a)	    INIT_OPT_1(PREFIX, TYPE, DEFAULT, a); \
-  static TYPE ## _option_t * PREFIX ## _ ## TYPE ## _opts[] = { &OPT_NAME(PREFIX, a),\
-								NULL }
+#define OPT_SET_START(PREFIX, TYPE) static TYPE ## _option_t * PREFIX ## _ ## TYPE ## _opts[] = {
+#define OPT_SET_END NULL }
 
-#define GENERIC_OPT_SET_3(PREFIX, TYPE, DEFAULT, a, b, c)   INIT_OPT_3(PREFIX,TYPE,DEFAULT, a, b, c );\
-  static bool_option_t * PREFIX ## _ ## TYPE ## _opts[] = { &OPT_NAME(PREFIX, a),\
-							    &OPT_NAME(PREFIX, b),\
-							    &OPT_NAME(PREFIX, c),\
-							    NULL }
+#define OPT_SET_BODY_1(PREFIX, a)	&OPT_NAME(PREFIX, a)
+#define OPT_SET_BODY_2(PREFIX, a,b)	OPT_SET_BODY_1(PREFIX,a),   OPT_SET_BODY_1(PREFIX, b)
+#define OPT_SET_BODY_3(PREFIX, a,b,c)	OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_1(PREFIX, c)
+#define OPT_SET_BODY_4(PREFIX, a,b,c,d)	OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_2(PREFIX, c,d)
 
-#define GENERIC_OPT_SET_4(PREFIX, TYPE, DEFAULT, a, b, c, d) INIT_OPT_4(PREFIX,TYPE,DEFAULT, a, b, c, d );\
-  static bool_option_t * PREFIX ## _ ## TYPE ## _opts[] = { &OPT_NAME(PREFIX, a),\
-							    &OPT_NAME(PREFIX, b),\
-							    &OPT_NAME(PREFIX, c),\
-							    &OPT_NAME(PREFIX, d),\
-							    NULL }
+#define GENERIC_OPT_SET_1(PREFIX,TYPE,DEFAULT,a)	      INIT_OPT_1(PREFIX, TYPE, DEFAULT, a); \
+							      OPT_SET_START(PREFIX, TYPE) \
+							      OPT_SET_BODY_1(PREFIX,a),\
+							      OPT_SET_END
+
+#define GENERIC_OPT_SET_3(PREFIX, TYPE, DEFAULT, a, b, c)     INIT_OPT_3(PREFIX,TYPE,DEFAULT, a, b, c );\
+							      OPT_SET_START(PREFIX, TYPE) \
+							      OPT_SET_BODY_3(PREFIX,a,b,c),\
+							      OPT_SET_END
+
+#define GENERIC_OPT_SET_4(PREFIX, TYPE, DEFAULT, a, b, c, d)  INIT_OPT_4(PREFIX,TYPE,DEFAULT, a, b, c, d );\
+							      OPT_SET_START(PREFIX, TYPE) \
+							      OPT_SET_BODY_4(PREFIX,a,b,c,d),\
+							      OPT_SET_END
 
 #define DECLARE_BOOL_OPTS_3(OPT_1, OPT_2, OPT_3) \
   GENERIC_OPT_SET_3( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3);			\

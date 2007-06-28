@@ -133,7 +133,6 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 
 
 /* ---- contruct module object ---- */
-string_option_t *string_opts[] = { NULL };
 DECLARE_BOOL_OPTS_4( is_enabled, debug, nullok, trace );
 DECLARE_STRING_OPTS_1( call_modules );
 DECLARE_OPT_SETS;
