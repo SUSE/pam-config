@@ -458,6 +458,16 @@ main (int argc, char *argv[])
 						   SESSION);
 	  opt_set->enable (opt_set, "silent", opt_val);
 	  break;
+	case 1103:
+	  opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
+						   SESSION);
+	  opt_set->set_opt (opt_set, "umask", optarg);
+	  break;
+	case 1104:
+	  opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
+						   SESSION);
+	  opt_set->set_opt (opt_set, "skel", optarg);
+	  break;
 	case 1200:
 	  if (m_query)
 	    {

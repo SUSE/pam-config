@@ -80,6 +80,12 @@
   GENERIC_OPT_SET_1( password,	string, STRING_DEFAULT, OPT_1 ); \
   GENERIC_OPT_SET_1( session,	string, STRING_DEFAULT, OPT_1 );
 
+#define DECLARE_STRING_OPTS_2(OPT_1,OPT_2)				\
+  GENERIC_OPT_SET_2( auth,	string, STRING_DEFAULT, OPT_1, OPT_2 );	\
+  GENERIC_OPT_SET_2( account,	string, STRING_DEFAULT, OPT_1, OPT_2 );	\
+  GENERIC_OPT_SET_2( password,	string, STRING_DEFAULT, OPT_1, OPT_2 );	\
+  GENERIC_OPT_SET_2( session,	string, STRING_DEFAULT, OPT_1, OPT_2 );
+
 #define DECLARE_OPT_SETS						\
   static option_set_t auth_opts	    = { auth_bool_opts,	    auth_string_opts,	  &is_enabled, &enable, &get_opt, &set_opt }; \
   static option_set_t account_opts  = { account_bool_opts,  account_string_opts,  &is_enabled, &enable, &get_opt, &set_opt }; \

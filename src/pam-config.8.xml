@@ -235,6 +235,24 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>--mkhomedir-umask=</option><replaceable>mode</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>umask=</option><replaceable>mode</replaceable>
+            to pam_mkhomedir.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--mkhomedir-skel=</option><replaceable>skeldir</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>skel=</option><replaceable>skeldir</replaceable>
+            to pam_mkhomedir.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>--limits</option></term>
         <listitem>
           <para>

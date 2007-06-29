@@ -28,6 +28,10 @@ parse_config_mkhomedir (pam_module_t *this, char *args, write_type_t type)
 	opt_set->enable( opt_set, "debug", TRUE );
       else if (strcmp (cp, "silent") == 0)
 	opt_set->enable( opt_set, "silent", TRUE );
+      else if (strncmp (cp, "umask=", 6) == 0)
+	opt_set->set_opt (opt_set, "umask", &cp[6]);
+      else if (strncmp (cp, "skel=", 5) == 0)
+	opt_set->set_opt (opt_set, "skel", &cp[5]);
       else
 	print_unknown_option_error ("pam_mkhomedir.so", cp);
     }
@@ -53,6 +57,7 @@ static int
 write_config_mkhomedir (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
+  const char *cp;
 
   if (debug)
     printf ("**** write_config_mkhomedir (...)\n");
@@ -68,6 +73,12 @@ write_config_mkhomedir (pam_module_t *this, enum write_type op, FILE *fp)
     fprintf (fp, "debug ");
   if (opt_set->is_enabled (opt_set, "silent"))
     fprintf (fp, "silent ");
+  cp = opt_set->get_opt (opt_set, "umask");
+  if (cp)
+    fprintf (fp, "umask=%s ", cp);
+  cp = opt_set->get_opt (opt_set, "skel");
+  if (cp)
+    fprintf (fp, "skel=%s ", cp);
   fprintf (fp, "\n");
 
   return 0;
@@ -77,7 +88,7 @@ write_config_mkhomedir (pam_module_t *this, enum write_type op, FILE *fp)
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_3( is_enabled, debug, silent );
-DECLARE_STRING_OPTS_0;
+DECLARE_STRING_OPTS_2( umask, skel );
 DECLARE_OPT_SETS;
 
 /* at last construct the complete module object */

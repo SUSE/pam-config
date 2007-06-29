@@ -1,11 +1,11 @@
 .\"     Title: pam-config
 .\"    Author: 
 .\" Generator: DocBook XSL Stylesheets v1.72.0 <http://docbook.sf.net/>
-.\"      Date: 06/28/2007
+.\"      Date: 06/29/2007
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "06/28/2007" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "06/29/2007" "Reference Manual" "Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -156,6 +156,20 @@ option to all pam_mkhomedir.so invocations.
 Add
 \fBsilent\fR
 option to all pam_mkhomedir.so invocations.
+.RE
+.PP
+\fB\-\-mkhomedir\-umask=\fR\fImode\fR
+.RS 4
+Add
+\fBumask=\fR\fImode\fR
+to pam_mkhomedir.so.
+.RE
+.PP
+\fB\-\-mkhomedir\-skel=\fR\fIskeldir\fR
+.RS 4
+Add
+\fBskel=\fR\fIskeldir\fR
+to pam_mkhomedir.so.
 .RE
 .PP
 \fB\-\-limits\fR
