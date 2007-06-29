@@ -29,13 +29,6 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
-/* Definitions of:
- *
- * -  parse_pwcheck_options
- * -  parse_unix2_options
- *
- * have gone into separate files: mod_<module-name>.c
- */
 #ifdef NOTDEFINIED
 
 static void
@@ -60,30 +53,6 @@ parse_krb5_options (config_file_t *conf, char *args)
 	conf->krb5_ignore_unknown_principals = 1;
       else
 	print_unknown_option_error ("pam_krb5.so", cp);
-    }
-  return;
-}
-
-static void
-parse_winbind_options (config_file_t *conf, char *args)
-{
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-
-      if (strcmp (cp, "debug") == 0)
-	conf->winbind_debug = 1;
-      else if (strcmp (cp, "try_first_pass") == 0)
-	{ /* will be ignored */ }
-      else if (strcmp (cp, "use_authtok") == 0)
-	{ /* will be ignored */ }
-      else if (strcmp (cp, "use_first_pass") == 0)
-	{ /* will be ignored */ }
-      else
-	print_unknown_option_error ("pam_winbind.so", cp);
     }
   return;
 }
@@ -231,13 +200,7 @@ load_config (const char *file, write_type_t wtype,
 
 #if 0
       /* XXX remove every module converted */
-      if (strcmp (module, "pam_pwcheck.so") == 0)
-	{
-	  conf->use_pwcheck = 1;
-	  if (arguments)
-	    parse_pwcheck_options (conf, arguments);
-	}
-      else if (strcmp (module, "pam_limits.so") == 0)
+      if (strcmp (module, "pam_limits.so") == 0)
 	{
 	  conf->use_limits = 1;
 	  if (arguments)
@@ -249,13 +212,6 @@ load_config (const char *file, write_type_t wtype,
 	  conf->use_bioapi = 1;
 	  if (arguments)
 	    conf->bioapi_options = strdup (arguments);
-	}
-      else if (strcmp (module, "pam_env.so") == 0)
-	{
-	  conf->use_env = 1;
-	  if (arguments)
-	    fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),
-		     file, module);
 	}
       else if (strcmp (module, "pam_make.so") == 0)
 	{

@@ -112,7 +112,13 @@
   GENERIC_OPT_SET_2( password,	string, STRING_DEFAULT, OPT_1, OPT_2 );	\
   GENERIC_OPT_SET_2( session,	string, STRING_DEFAULT, OPT_1, OPT_2 );
 
-#define DECLARE_STRING_OPTS_6(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5,OPT_6)		\
+#define DECLARE_STRING_OPTS_3(OPT_1,OPT_2,OPT_3)			\
+  GENERIC_OPT_SET_3( auth,	string, STRING_DEFAULT,OPT_1,OPT_2,OPT_3); \
+  GENERIC_OPT_SET_3( account,	string, STRING_DEFAULT,OPT_1,OPT_2,OPT_3); \
+  GENERIC_OPT_SET_3( password,	string, STRING_DEFAULT,OPT_1,OPT_2,OPT_3); \
+  GENERIC_OPT_SET_3( session,	string, STRING_DEFAULT,OPT_1,OPT_2,OPT_3);
+
+#define DECLARE_STRING_OPTS_6(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5,OPT_6)	\
   GENERIC_OPT_SET_6( auth,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6 );	\
   GENERIC_OPT_SET_6( account,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6 );	\
   GENERIC_OPT_SET_6( password,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6 );	\
@@ -135,8 +141,6 @@ struct config_file_t {
   /* pam_bioapi is auth only currently */
   int use_bioapi;
   char *bioapi_options;
-  /* pam_env is auth and session, we use session.  */
-  int use_env;
   /* pam_make is password only.  */
   int use_make;
   char *make_options;

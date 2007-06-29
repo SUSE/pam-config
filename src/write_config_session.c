@@ -120,8 +120,8 @@ write_config_session (const char *file, pam_module_t **module_list)
   if (conf->use_lum)
     fprintf (fp, "session\toptional\tpam_nam.so\n");
 
-  if (conf->use_env)
-    fprintf (fp, "session\toptional\tpam_env.so\n");
+  // if (conf->use_env)
+  //  fprintf (fp, "session\toptional\tpam_env.so\n");
 
 #endif
 

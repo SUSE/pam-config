@@ -277,6 +277,33 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>--env-conffile=</option><replaceable>file</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>conffile=</option><replaceable>file</replaceable>
+            to pam_env.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--env-envfile=</option><replaceable>file</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>envfile=</option><replaceable>file</replaceable>
+            to pam_env.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--env-readenv=</option><replaceable>0|1</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>readenv=</option><replaceable>0|1</replaceable>
+            to pam_env.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>--xauth</option></term>
         <listitem>
           <para>

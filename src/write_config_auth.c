@@ -66,8 +66,8 @@ write_config_auth (const char *file, pam_module_t **module_list)
 
 #if 0
 
-  if (conf->use_env)
-    fprintf (fp, "auth\trequired\tpam_env.so\n");
+  // if (conf->use_env)
+  //  fprintf (fp, "auth\trequired\tpam_env.so\n");
 
   if (conf->use_pkcs11)
     fprintf (fp, "auth\tsufficient\tpam_pkcs11.so\n");

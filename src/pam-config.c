@@ -303,6 +303,10 @@ main (int argc, char *argv[])
 	{"mkhomedir-skel",   required_argument, NULL, 1104 },
 	{"limits",           no_argument,       NULL, 1200 },
         {"env",              no_argument,       NULL, 1300 },
+        {"env-debug",        no_argument,       NULL, 1301 },
+	{"env-conffile",     required_argument, NULL, 1302 },
+	{"env-envfile",      required_argument, NULL, 1303 },
+	{"env-readenv",      required_argument, NULL, 1304 },
         {"make",             no_argument,       NULL, 1500 },
         {"make-dir",         no_argument,       NULL, 1501 },
         {"unix2",            no_argument,       NULL, 1600 },
@@ -497,20 +501,36 @@ main (int argc, char *argv[])
 	    }
 	  break;
 	case 1300:
+	  /* pam_env.so */
 	  if (m_query)
-	    {
-	      if (config_session.use_env || config_auth.use_env)
-		printf ("session:\n");
-	    }
+	    print_module_config (supported_module_list, "pam_env.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_env.so", force) != 0)
 		return 1;
 	      /* Remove in every case from auth,
 		 else we will have it twice.  */
-	      config_auth.use_env = 0;
-	      config_session.use_env = opt_val;
+	      opt_set = mod_pam_env.get_opt_set (&mod_pam_env, AUTH);
+	      opt_set->enable (opt_set, "is_enabled", FALSE);
+	      opt_set = mod_pam_env.get_opt_set (&mod_pam_env, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
+	  break;
+	case 1301:
+	  opt_set = mod_pam_env.get_opt_set (&mod_pam_env, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  break;
+	case 1302:
+	  opt_set = mod_pam_env.get_opt_set (&mod_pam_env, SESSION);
+	  opt_set->set_opt (opt_set, "conffile", optarg);
+	  break;
+	case 1303:
+	  opt_set = mod_pam_env.get_opt_set (&mod_pam_env, SESSION);
+	  opt_set->set_opt (opt_set, "envfile", optarg);
+	  break;
+	case 1304:
+	  opt_set = mod_pam_env.get_opt_set (&mod_pam_env, SESSION);
+	  opt_set->set_opt (opt_set, "readenv", optarg);
 	  break;
 	case 1500:
 	  if (m_query)
@@ -924,7 +944,8 @@ main (int argc, char *argv[])
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt_val);
       config_session.use_limits = 1;
-      config_session.use_env = 1;
+      opt_set = mod_pam_env.get_opt_set (&mod_pam_env, SESSION);
+      opt_set->enable (opt_set, "is_enabled", opt_val);
       opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt_val);
       if (sanitize_check_session (supported_module_list) != 0)
