@@ -54,23 +54,6 @@ parse_config_umask (pam_module_t * this, char *args, write_type_t type)
 }
 
 static int
-print_module_umask_type (pam_module_t * this, write_type_t type)
-{
-  printf ("%s:", type2string (type));
-  option_set_t *opt_set = this->get_opt_set (this, type);
-  for_each_bool_opt (opt_set, &print_bool_opt);
-  printf ("\n");
-  return TRUE;
-}
-
-static int
-print_module_umask (pam_module_t * this)
-{
-  print_module_umask_type (this, SESSION);
-  return TRUE;
-}
-
-static int
 write_config_umask (pam_module_t * this, enum write_type op, FILE * fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
@@ -110,6 +93,6 @@ DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_umask = { "pam_umask.so", opt_sets,
 			       &parse_config_umask,
-			       &print_module_umask,
+			       &def_print_module,
 			       &write_config_umask,
 			       &get_opt_set};

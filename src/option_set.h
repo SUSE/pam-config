@@ -35,4 +35,6 @@ char* get_opt ( struct option_set *this, char *key );
 int set_opt ( struct option_set *this, char *key, char *value );
 void for_each_bool_opt( struct option_set *this, void (*action) (bool_option_t *opt ) );
 void print_bool_opt( bool_option_t *opt );
+void for_each_string_opt( struct option_set *this, void (*action) (string_option_t *opt ) );
+void print_string_opt( string_option_t *opt );
 #endif

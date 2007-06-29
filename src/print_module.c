@@ -81,28 +81,6 @@ print_module_krb5 (config_file_t *account, config_file_t *auth,
   print_module_krb5_int ("session", session);
 }
 
-static void
-print_module_winbind_int (const char *type, config_file_t *conf)
-{
-  if (!conf->use_winbind)
-    return;
-
-  printf ("%s:", type);
-  if (conf->winbind_debug)
-    printf (" debug");
-  printf ("\n");
-}
-
-void
-print_module_winbind (config_file_t *account, config_file_t *auth,
-		      config_file_t *password, config_file_t *session)
-{
-  print_module_winbind_int ("account", account);
-  print_module_winbind_int ("auth", auth);
-  print_module_winbind_int ("password", password);
-  print_module_winbind_int ("session", session);
-}
-
 void
 print_module_cracklib (config_file_t *conf)
 {

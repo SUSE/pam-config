@@ -4,6 +4,7 @@ extern pam_module_t mod_pam_ccreds;
 extern pam_module_t mod_pam_umask;
 extern pam_module_t mod_pam_mkhomedir;
 extern pam_module_t mod_pam_winbind;
+extern pam_module_t mod_pam_localuser;
 
 pam_module_t *supported_module_list[] = {
   &mod_pam_unix2,
@@ -12,6 +13,7 @@ pam_module_t *supported_module_list[] = {
   &mod_pam_mkhomedir,
   &mod_pam_ccreds,
   &mod_pam_winbind,
+  &mod_pam_localuser,
   NULL
 };
 

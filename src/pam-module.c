@@ -26,6 +26,7 @@ def_print_module_type (pam_module_t *this, write_type_t type)
 
   printf ("%s:", type2string( type ) );
   for_each_bool_opt( opt_set,  &print_bool_opt );
+  for_each_string_opt( opt_set, &print_string_opt );
   printf( "\n" );
 }
 

@@ -39,21 +39,6 @@ parse_config_mkhomedir (pam_module_t *this, char *args, write_type_t type)
 }
 
 static int
-print_module_mkhomedir_type (  pam_module_t *this, write_type_t type  ) {
-  printf ("%s:", type2string( type ) );
-  option_set_t *opt_set = this->get_opt_set( this, type );
-  for_each_bool_opt( opt_set,  &print_bool_opt );
-  printf( "\n" );
-  return TRUE;
-}
-
-static int
-print_module_mkhomedir ( pam_module_t *this ){
-  print_module_mkhomedir_type( this, SESSION );
-  return TRUE;
-}
-
-static int
 write_config_mkhomedir (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
@@ -94,6 +79,6 @@ DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_mkhomedir = { "pam_mkhomedir.so", opt_sets,
 			       &parse_config_mkhomedir,
-			       &print_module_mkhomedir,
+			       &def_print_module,
 			       &write_config_mkhomedir,
 			       &get_opt_set};

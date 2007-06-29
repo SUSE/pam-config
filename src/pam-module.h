@@ -136,9 +136,6 @@ struct config_file_t {
   int use_apparmor;
   /* pam_nam, used by all types.  */
   int use_lum;
-  /* pam_winbind, used by all types.  */
-  int use_winbind;
-  int winbind_debug;
   /* pam_capability, used by session.  */
   int use_capability;
   char *capability_conf;

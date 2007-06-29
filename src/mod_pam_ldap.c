@@ -41,6 +41,10 @@ parse_config_ldap (pam_module_t * this, char *args, write_type_t type)
 
       if (strcmp (cp, "debug") == 0)
 	opt_set->enable (opt_set, "debug", TRUE);
+      else if (strcmp (cp, "use_first_pass") == 0 ||
+	       strcmp (cp, "try_first_pass") == 0 ||
+	       strcmp (cp, "use_authtok") == 0)
+	/* Do nothing, this are handled by pam-config if necessary. */ ;
       else
 	print_unknown_option_error ("pam_ldap.so", cp);
     }
