@@ -15,18 +15,22 @@
 
 #define OPT_NAME(PREFIX, NAME) PREFIX ## _opt_ ## NAME
 
-#define INIT_OPT_1(PREFIX,TYPE,DEFAULT,a)	static TYPE ## _option_t OPT_NAME(PREFIX,a) = { #a, DEFAULT }
-#define INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b)	INIT_OPT_1(PREFIX,TYPE,DEFAULT,a);    INIT_OPT_1(PREFIX,TYPE,DEFAULT,b)
-#define INIT_OPT_3(PREFIX,TYPE,DEFAULT,a,b,c)	INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);  INIT_OPT_1(PREFIX,TYPE,DEFAULT,c)
-#define INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d) INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);  INIT_OPT_2(PREFIX,TYPE,DEFAULT,c,d)
+#define INIT_OPT_1(PREFIX,TYPE,DEFAULT,a)	    static TYPE ## _option_t OPT_NAME(PREFIX,a) = { #a, DEFAULT }
+#define INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b)	    INIT_OPT_1(PREFIX,TYPE,DEFAULT,a);       INIT_OPT_1(PREFIX,TYPE,DEFAULT,b)
+#define INIT_OPT_3(PREFIX,TYPE,DEFAULT,a,b,c)	    INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);     INIT_OPT_1(PREFIX,TYPE,DEFAULT,c)
+#define INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d)     INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);     INIT_OPT_2(PREFIX,TYPE,DEFAULT,c,d)
+#define INIT_OPT_5(PREFIX,TYPE,DEFAULT,a,b,c,d,e)   INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_1(PREFIX,TYPE,DEFAULT,e)
+#define INIT_OPT_6(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f) INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_2(PREFIX,TYPE,DEFAULT,e,f)
 
 #define OPT_SET_START(PREFIX, TYPE) static TYPE ## _option_t * PREFIX ## _ ## TYPE ## _opts[] = {
 #define OPT_SET_END NULL }
 
-#define OPT_SET_BODY_1(PREFIX, a)	&OPT_NAME(PREFIX, a)
-#define OPT_SET_BODY_2(PREFIX, a,b)	OPT_SET_BODY_1(PREFIX,a),   OPT_SET_BODY_1(PREFIX, b)
-#define OPT_SET_BODY_3(PREFIX, a,b,c)	OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_1(PREFIX, c)
-#define OPT_SET_BODY_4(PREFIX, a,b,c,d)	OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_2(PREFIX, c,d)
+#define OPT_SET_BODY_1(PREFIX, a)	    &OPT_NAME(PREFIX, a)
+#define OPT_SET_BODY_2(PREFIX, a,b)	    OPT_SET_BODY_1(PREFIX,a),   OPT_SET_BODY_1(PREFIX, b)
+#define OPT_SET_BODY_3(PREFIX, a,b,c)	    OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_1(PREFIX, c)
+#define OPT_SET_BODY_4(PREFIX, a,b,c,d)	    OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_2(PREFIX, c,d)
+#define OPT_SET_BODY_5(PREFIX, a,b,c,d,e)   OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_3(PREFIX, c,d,e)
+#define OPT_SET_BODY_6(PREFIX, a,b,c,d,e,f) OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_4(PREFIX, c,d,e,f)
 
 #define GENERIC_OPT_SET_1(PREFIX,TYPE,DEFAULT,a)	      INIT_OPT_1(PREFIX, TYPE, DEFAULT, a); \
 							      OPT_SET_START(PREFIX, TYPE) \
@@ -47,6 +51,16 @@
 #define GENERIC_OPT_SET_4(PREFIX, TYPE, DEFAULT, a, b, c, d)  INIT_OPT_4(PREFIX,TYPE,DEFAULT, a, b, c, d );\
 							      OPT_SET_START(PREFIX, TYPE) \
 							      OPT_SET_BODY_4(PREFIX,a,b,c,d),\
+							      OPT_SET_END
+
+#define GENERIC_OPT_SET_5(PREFIX, TYPE, DEFAULT, a, b,c,d,e)  INIT_OPT_5(PREFIX,TYPE,DEFAULT, a, b, c, d, e ); \
+							      OPT_SET_START(PREFIX, TYPE) \
+							      OPT_SET_BODY_5(PREFIX,a,b,c,d,e), \
+							      OPT_SET_END
+
+#define GENERIC_OPT_SET_6(PREFIX, TYPE, DEFAULT,a,b,c,d,e,f)  INIT_OPT_6(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f); \
+							      OPT_SET_START(PREFIX, TYPE) \
+							      OPT_SET_BODY_6(PREFIX,a,b,c,d,e,f), \
 							      OPT_SET_END
 
 #define DECLARE_BOOL_OPTS_1(OPT_1)					\
@@ -73,6 +87,18 @@
   GENERIC_OPT_SET_4( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4); \
   GENERIC_OPT_SET_4( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4);
 
+#define DECLARE_BOOL_OPTS_5(OPT_1, OPT_2, OPT_3, OPT_4, OPT_5)		\
+  GENERIC_OPT_SET_5( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5); \
+  GENERIC_OPT_SET_5( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5); \
+  GENERIC_OPT_SET_5( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5); \
+  GENERIC_OPT_SET_5( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5);
+
+#define DECLARE_BOOL_OPTS_6(OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6)		\
+  GENERIC_OPT_SET_6( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6); \
+  GENERIC_OPT_SET_6( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6); \
+  GENERIC_OPT_SET_6( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6); \
+  GENERIC_OPT_SET_6( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6);
+
 #define DECLARE_STRING_OPTS_0 DECLARE_STRING_OPTS_1( empty )
 #define DECLARE_STRING_OPTS_1(OPT_1)				 \
   GENERIC_OPT_SET_1( auth,	string, STRING_DEFAULT, OPT_1 ); \
@@ -86,6 +112,13 @@
   GENERIC_OPT_SET_2( password,	string, STRING_DEFAULT, OPT_1, OPT_2 );	\
   GENERIC_OPT_SET_2( session,	string, STRING_DEFAULT, OPT_1, OPT_2 );
 
+#define DECLARE_STRING_OPTS_6(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5,OPT_6)		\
+  GENERIC_OPT_SET_6( auth,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6 );	\
+  GENERIC_OPT_SET_6( account,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6 );	\
+  GENERIC_OPT_SET_6( password,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6 );	\
+  GENERIC_OPT_SET_6( session,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6 );
+
+
 #define DECLARE_OPT_SETS						\
   static option_set_t auth_opts	    = { auth_bool_opts,	    auth_string_opts,	  &is_enabled, &enable, &get_opt, &set_opt }; \
   static option_set_t account_opts  = { account_bool_opts,  account_string_opts,  &is_enabled, &enable, &get_opt, &set_opt }; \
@@ -97,19 +130,6 @@ typedef enum write_type {AUTH=0, ACCOUNT, PASSWORD, SESSION} write_type_t;
 
 struct config_file_t {
   write_type_t type;
-  /* pam_pwcheck is password only.  */
-  int use_pwcheck;
-  int pwcheck_debug;
-  int pwcheck_nullok;
-  int pwcheck_cracklib;
-  char *pwcheck_cracklib_path;
-  int pwcheck_maxlen;
-  int pwcheck_minlen;
-  int pwcheck_have_minlen;
-  int pwcheck_tries;
-  int pwcheck_remember;
-  char *pwcheck_nisdir;
-  int pwcheck_no_obscure_checks;
   /* pam_limits is session only */
   int use_limits;
   /* pam_bioapi is auth only currently */

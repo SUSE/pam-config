@@ -209,6 +209,14 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>--pwcheck-enforce_for_root</option></term>
+        <listitem>
+          <para>
+            Enforce all checks of pam_pwcheck.so for root.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>--mkhomedir</option></term>
         <listitem>
           <para>

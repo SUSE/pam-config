@@ -2,9 +2,10 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int
-is_enabled (option_set_t * this, char *key)
+is_enabled (option_set_t *this, char *key)
 {
   if (!this)
     return FALSE;
@@ -16,6 +17,12 @@ is_enabled (option_set_t * this, char *key)
 	  return (*current_opt)->value;
 	}
       current_opt++;
+    }
+  /* XXX for debugging */
+  if (strcmp (key, "debug") != 0 && strcmp (key, "nullok") != 0)
+    {
+       fprintf (stderr, "ERROR: is_enabled: key '%s' not found!\n", key);
+       abort ();
     }
   return FALSE;
 }
@@ -35,6 +42,12 @@ enable (option_set_t * this, char *key, int value)
 	}
       current_opt++;
     }
+  /* XXX for debugging */
+  if (strcmp (key, "debug") != 0 && strcmp (key, "nullok") != 0)
+    {
+       fprintf (stderr, "ERROR: enable: key '%s' not found!\n", key);
+       abort ();
+    }
   return FALSE;
 }
 
@@ -53,6 +66,13 @@ get_opt (option_set_t * this, char *key)
 	}
       current_opt++;
     }
+  /* XXX for debugging */
+  if (strcmp (key, "debug") != 0 && strcmp (key, "nullok") != 0)
+    {
+       fprintf (stderr, "ERROR: get_opt: key '%s' not found!\n", key);
+       abort ();
+    }
+
   return NULL;
 }
 
@@ -71,6 +91,13 @@ set_opt (option_set_t * this, char *key, char *value)
 	}
       current_opt++;
     }
+  /* XXX for debugging */
+  if (strcmp (key, "debug") != 0 && strcmp (key, "nullok") != 0)
+    {
+       fprintf (stderr, "ERROR: set_opt: key '%s' not found!\n", key);
+       abort ();
+    }
+
   return FALSE;
 }
 

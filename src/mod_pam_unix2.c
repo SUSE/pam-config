@@ -38,7 +38,7 @@ parse_config_unix2 (pam_module_t *this, char *args, write_type_t type)
 	{ /* will be ignored */ }
       else if (strncmp (cp, "call_modules=", 13) == 0){
 	/* XXX strip krb5 and ldap modules from it */
-	if( ! opt_set->set_opt( opt_set, "call_modules", strdup (&cp[13]) ) ){
+	if( ! opt_set->set_opt( opt_set, "call_modules", strdup (&cp[13])) ){
 	  DEBUG( "call_modules option recognized but couldn't be added to option set!\n" );
 	}	 
       }

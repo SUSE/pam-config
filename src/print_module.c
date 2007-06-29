@@ -25,36 +25,6 @@
 
 #include "pam-config.h"
 
-void
-print_module_pwcheck (config_file_t *conf)
-{
-  if (!conf->use_pwcheck)
-    return;
-
-  printf ("password:");
-  if (conf->pwcheck_debug)
-    printf (" debug");
-  if (conf->pwcheck_nullok)
-    printf (" nullok");
-  if (conf->pwcheck_cracklib_path)
-    printf (" cracklib=%s", conf->pwcheck_cracklib_path);
-  else if (conf->pwcheck_cracklib)
-    printf (" cracklib");
-  if (conf->pwcheck_maxlen)
-    printf (" maxlen=%d", conf->pwcheck_maxlen);
-  if (conf->pwcheck_have_minlen)
-    printf (" minlen=%d", conf->pwcheck_minlen);
-  if (conf->pwcheck_tries)
-    printf (" tries=%d", conf->pwcheck_tries);
-  if (conf->pwcheck_remember)
-    printf (" remember=%d", conf->pwcheck_remember);
-  if (conf->pwcheck_nisdir)
-    printf (" nisdir=%s", conf->pwcheck_nisdir);
-  if (conf->pwcheck_no_obscure_checks)
-    printf( " no_obscure_checks");
-  printf ("\n");
-}
-
 static void
 print_module_krb5_int (const char *type, config_file_t *conf)
 {

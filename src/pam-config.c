@@ -295,6 +295,7 @@ main (int argc, char *argv[])
 	{"pwcheck-remember",          required_argument, NULL, 1008 },
 	{"pwcheck-nisdir",            required_argument, NULL, 1009 },
 	{"pwcheck-no_obscure_checks", no_argument,       NULL, 1010 },
+	{"pwcheck-enforce_for_root",  no_argument,       NULL, 1011 },
 	{"mkhomedir",        no_argument,       NULL, 1100 },
 	{"mkhomedir-debug",  no_argument,       NULL, 1101 },
 	{"mkhomedir-silent", no_argument,       NULL, 1102 },
@@ -391,50 +392,63 @@ main (int argc, char *argv[])
 	/* pam_pwcheck */
 	case 1000:
 	  if (m_query)
-	    print_module_pwcheck (&config_password);
+	    print_module_config (supported_module_list, "pam_pwcheck.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_pwcheck.so", force) != 0)
 		return 1;
-	      config_password.use_pwcheck = opt_val;
+	      opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck,
+						     PASSWORD);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 1001:
-	  config_password.pwcheck_debug = opt_val;
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->enable (opt_set, "debug", opt_val);
 	  break;
 	case 1002:
-	  config_password.pwcheck_nullok = opt_val;
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->enable (opt_set, "nullok", opt_val);
 	  break;
 	case 1003:
-	  config_password.pwcheck_cracklib = opt_val;
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->enable (opt_set, "cracklib", opt_val);
 	  break;
 	case 1004:
-	  config_password.pwcheck_cracklib = opt_val;
-	  config_password.pwcheck_cracklib_path = optarg;
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->enable (opt_set, "cracklib", opt_val);
+	  opt_set->set_opt (opt_set, "cracklib_path", optarg);
 	  break;
 	case 1005:
-	  config_password.pwcheck_maxlen = atoi (optarg);
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->set_opt (opt_set, "maxlen", optarg);
 	  break;
 	case 1006:
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
 	  if (m_delete)
-	    config_password.pwcheck_have_minlen = 0;
+	    opt_set->set_opt (opt_set, "minlen", NULL);
 	  else
-	    {
-	      config_password.pwcheck_minlen = atoi (optarg);
-	      config_password.pwcheck_have_minlen = 1;
-	    }
+	    opt_set->set_opt (opt_set, "minlen", optarg);
 	  break;
 	case 1007:
-	  config_password.pwcheck_tries = atoi (optarg);
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->set_opt (opt_set, "tries", optarg);
 	  break;
 	case 1008:
-	  config_password.pwcheck_remember = atoi (optarg);
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->set_opt (opt_set, "remember", optarg);
 	  break;
 	case 1009:
-	  config_password.pwcheck_nisdir = optarg;
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->set_opt (opt_set, "nisdir", optarg);
 	  break;
 	case 1010:
-	  config_password.pwcheck_no_obscure_checks = opt_val;
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->enable (opt_set, "no_obscure_checks", opt_val);
+	  break;
+	case 1011:
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->enable (opt_set, "enforce_for_root", opt_val);
 	  break;
 	case 1100:
 	  if (m_query)
@@ -893,8 +907,9 @@ main (int argc, char *argv[])
       /* Write password section.  */
       if (!config_password.use_cracklib)
 	{
-	  config_password.use_pwcheck = 1;
-	  config_password.pwcheck_nullok = 1;
+	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set->enable (opt_set, "is_enabled", TRUE);
+	  opt_set->enable (opt_set, "nullok", TRUE);
 	}
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
       opt_set->enable (opt_set, "is_enabled", TRUE);

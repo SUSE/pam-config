@@ -71,34 +71,34 @@ write_config_password (const char *file, pam_module_t **module_list)
   //    fprintf (fp, "\n");
   //  }
 
-  if (conf->use_pwcheck)
-    {
-      fprintf (fp, "password\trequisite\tpam_pwcheck.so\t");
-      if (conf->pwcheck_debug)
-	fprintf (fp, "debug ");
-      if (conf->pwcheck_nullok)
-	fprintf (fp, "nullok ");
-      if (conf->pwcheck_cracklib)
-	{
-	  if (conf->pwcheck_cracklib_path)
-	    fprintf (fp, "cracklib=%s ", conf->pwcheck_cracklib_path);
-	  else
-	    fprintf (fp, "cracklib ");
-	}
-      if (conf->pwcheck_maxlen)
-	fprintf (fp, "maxlen=%d ", conf->pwcheck_maxlen);
-      if (conf->pwcheck_have_minlen)
-	fprintf (fp, "minlen=%d ", conf->pwcheck_minlen);
-      if (conf->pwcheck_tries)
-	fprintf (fp, "tries=%d ", conf->pwcheck_tries);
-      if (conf->pwcheck_remember)
-	fprintf (fp, "remember=%d ", conf->pwcheck_remember);
-      if (conf->pwcheck_no_obscure_checks)
-	fprintf (fp, "no_obscure_checks ");
-      if (conf->pwcheck_nisdir)
-	fprintf (fp, "nisdir=%s ", conf->pwcheck_nisdir);
-      fprintf (fp, "\n");
-    }
+  // if (conf->use_pwcheck)
+  //  {
+  //    fprintf (fp, "password\trequisite\tpam_pwcheck.so\t");
+  //    if (conf->pwcheck_debug)
+  //	fprintf (fp, "debug ");
+  //    if (conf->pwcheck_nullok)
+  //	fprintf (fp, "nullok ");
+  //    if (conf->pwcheck_cracklib)
+  //	{
+  //	  if (conf->pwcheck_cracklib_path)
+  //	    fprintf (fp, "cracklib=%s ", conf->pwcheck_cracklib_path);
+  //	  else
+  //	    fprintf (fp, "cracklib ");
+  //	}
+  //    if (conf->pwcheck_maxlen)
+  //	fprintf (fp, "maxlen=%d ", conf->pwcheck_maxlen);
+  //    if (conf->pwcheck_have_minlen)
+  //	fprintf (fp, "minlen=%d ", conf->pwcheck_minlen);
+  //    if (conf->pwcheck_tries)
+  //	fprintf (fp, "tries=%d ", conf->pwcheck_tries);
+  //    if (conf->pwcheck_remember)
+  //	fprintf (fp, "remember=%d ", conf->pwcheck_remember);
+  //   if (conf->pwcheck_no_obscure_checks)
+  //	fprintf (fp, "no_obscure_checks ");
+  //    if (conf->pwcheck_nisdir)
+  //	fprintf (fp, "nisdir=%s ", conf->pwcheck_nisdir);
+  //    fprintf (fp, "\n");
+  //  }
   else if (conf->use_cracklib)
     {
       fprintf (fp, "password\trequisite\tpam_cracklib.so\t");

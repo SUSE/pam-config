@@ -99,24 +99,30 @@ sanitize_check_password (pam_module_t **module_list)
       fprintf (stderr, _("INFO: pam_pwcheck.so and pam_cracklib.so enabled,\nINFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"));
 
       pam_module_t *cracklib_mod = lookup (module_list, "pam_cracklib.so");
+      pam_module_t *pwcheck_mod = lookup (module_list, "pam_pwcheck.so");
+      option_set_t *pwcheck_opt_set =
+	pwcheck_mod->get_opt_set (pwcheck_mod, PASSWORD);
+      char *cpath;
 
       /* conf->use_cracklib = 0; */
       opt_set = cracklib_mod->get_opt_set (cracklib_mod, PASSWORD);
       opt_set->enable (opt_set, "is_enabled", FALSE);
 
-      /* XXX convert */
-#if 0
-      if (conf->pwcheck_cracklib == 0)
-	conf->pwcheck_cracklib = 1;
-      if (conf->pwcheck_cracklib_path == NULL)
-	conf->pwcheck_cracklib_path = conf->cracklib_dictpath;
-#endif
+      pwcheck_opt_set->enable (pwcheck_opt_set, "cracklib", TRUE);
+
+      cpath = pwcheck_opt_set->get_opt (pwcheck_opt_set, "cracklib_path");
+
+      if (cpath == NULL)
+	{
+	  /* If pam_cracklib has a path set and pam_pwcheck not, copy path
+	     to pam_pwcheck data. */
+	  cpath = opt_set->get_opt (opt_set, "dictpath");
+	  pwcheck_opt_set->set_opt (pwcheck_opt_set, "cracklib_path", cpath);
+	}
+
       if (opt_set->is_enabled (opt_set, "debug"))
 	{
 	  /* conf->pwcheck_debug = 1; */
-	  pam_module_t *pwcheck_mod = lookup (module_list, "pam_pwcheck.so");
-
-	  opt_set = pwcheck_mod->get_opt_set (pwcheck_mod, PASSWORD);
 	  opt_set->enable (opt_set, "debug", TRUE);
 	}
     }

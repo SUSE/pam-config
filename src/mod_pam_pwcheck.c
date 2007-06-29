@@ -1,88 +1,145 @@
-#include "pam-module.h"
+/* Copyright (C) 2007 Thorsten Kukuk
+   Author: Thorsten Kukuk <kukuk@thkukuk.de>
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 as
+   published by the Free Software Foundation.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software Foundation,
+   Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
+
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 #include <ctype.h>
-#ifdef NOTDEFINIED
+
+#include "pam-config.h"
+#include "pam-module.h"
+
+
 static int
-parse_pwcheck_options ( pam_module_t *this, char *args, config_file_t *conf)
+parse_config_pwcheck (pam_module_t *this, char *args, write_type_t type)
 {
-  printf( "parse_pwcheck_options:\t%s\t(%s)\n", type2string( conf->type ), this->name );
-  conf->use_pwcheck = TRUE;
+  option_set_t *opt_set = this->get_opt_set( this, type );
+
+  if (debug)
+    printf("**** parse_config_pwcheck (%s): '%s'\n", type2string(type),
+           args?args:"");
+
+  opt_set->enable (opt_set, "is_enabled", TRUE);
+
   while (args && strlen (args) > 0)
     {
       char *cp = strsep (&args, " \t");
       if (args)
 	while (isspace ((int)*args))
-        ++args;
+	  ++args;
 
       if (strcmp (cp, "debug") == 0)
-	conf->pwcheck_debug = 1;
+        opt_set->enable (opt_set, "debug", TRUE);
       else if (strcmp (cp, "nullok") == 0)
-	conf->pwcheck_nullok = 1;
+        opt_set->enable (opt_set, "nullok", TRUE);
       else if (strcmp (cp, "cracklib") == 0)
-	conf->pwcheck_cracklib = 1;
+	opt_set->enable (opt_set, "cracklib", TRUE);
       else if (strncmp (cp, "cracklib=", 9) == 0)
-	{
-	  conf->pwcheck_cracklib = 1;
-	  conf->pwcheck_cracklib_path = strdup (&cp[9]);
-	}
+        {
+	  opt_set->enable (opt_set, "cracklib", TRUE);
+	  opt_set->set_opt (opt_set, "cracklib_path", strdup (&cp[9]));
+        }
       else if (strncmp (cp, "maxlen=", 7) == 0)
-	conf->pwcheck_maxlen = atoi (&cp[7]);
+	opt_set->set_opt (opt_set, "maxlen", strdup(&cp[7]));
       else if (strncmp (cp, "minlen=", 7) == 0)
-	{
-	  conf->pwcheck_have_minlen = 1;
-	  conf->pwcheck_minlen = atoi (&cp[7]);
-	}
+	opt_set->set_opt (opt_set, "minlen", strdup(&cp[7]));
       else if (strncmp (cp, "tries=", 6) == 0)
-	conf->pwcheck_tries = atoi (&cp[6]);
+	opt_set->set_opt (opt_set, "tries", strdup(&cp[6]));
       else if (strncmp (cp, "remember=", 9) == 0)
-	conf->pwcheck_remember = atoi (&cp[9]);
+	opt_set->set_opt (opt_set, "remember", strdup(&cp[9]));
       else if (strncmp (cp, "nisdir=", 7) == 0)
-	conf->pwcheck_nisdir = strdup (&cp[7]);
+	opt_set->set_opt (opt_set, "nisdir", strdup(&cp[7]));
       else if (strcmp (cp, "use_first_pass") == 0)
-	{ /* will be ignored */ }
+        { /* will be ignored */ }
       else if (strcmp (cp, "use_authtok") == 0)
-	{ /* will be ignored */ }
+        { /* will be ignored */ }
       else if (strcmp (cp, "no_obscure_checks") == 0)
-	conf->pwcheck_no_obscure_checks = 1;
+        opt_set->enable (opt_set, "no_obscure_checks", TRUE);
+      else if (strcmp (cp, "enforce_for_root") == 0)
+        opt_set->enable (opt_set, "enforce_for_root", TRUE);
       else
-	print_unknown_option_error ("pam_pwcheck.so", cp);
+        print_unknown_option_error ("pam_pwcheck.so", cp);
+
     }
-  return TRUE;
+  return 1;
 }
 
 static int
-print_module_pwcheck ( pam_module_t *this, config_file_t *conf ) {
-  printf( "print_module_pwcheck:\t%s\n", this->name );
-  if (!conf->use_pwcheck)
-    return FALSE;
+write_config_pwcheck (pam_module_t *this, enum write_type op, FILE *fp)
+{
+  option_set_t *opt_set = this->get_opt_set (this, op);
+  const char *cp;
 
-  printf ("%s:", type2string( conf->type ) );
-  if (conf->pwcheck_debug)
-    printf (" debug");
-  if (conf->pwcheck_nullok)
-    printf (" nullok");
-  if (conf->pwcheck_cracklib_path)
-    printf (" cracklib=%s", conf->pwcheck_cracklib_path);
-  else if (conf->pwcheck_cracklib)
-    printf (" cracklib");
-  if (conf->pwcheck_maxlen)
-    printf (" maxlen=%d", conf->pwcheck_maxlen);
-  if (conf->pwcheck_have_minlen)
-    printf (" minlen=%d", conf->pwcheck_minlen);
-  if (conf->pwcheck_tries)
-    printf (" tries=%d", conf->pwcheck_tries);
-  if (conf->pwcheck_remember)
-    printf (" remember=%d", conf->pwcheck_remember);
-  if (conf->pwcheck_nisdir)
-    printf (" nisdir=%s", conf->pwcheck_nisdir);
-  if (conf->pwcheck_no_obscure_checks)
-    printf( " no_obscure_checks");
-  printf ("\n");
+  if (debug)
+    printf ("**** write_config_pwcheck (...)\n");
 
-  return TRUE;
+  /* pam_pwcheck is only used in password part.  */
+  if (op != PASSWORD)
+    return 0;
+
+  /* pam_pwcheck is not enabled.  */
+  if (!opt_set->is_enabled (opt_set, "is_enabled"))
+    return 0;
+
+  fprintf (fp, "password\trequisite\tpam_pwcheck.so\t");
+  if (opt_set->is_enabled (opt_set, "debug"))
+    fprintf (fp, "debug ");
+  if (opt_set->is_enabled (opt_set, "nullok"))
+    fprintf (fp, "nullok ");
+  if (opt_set->is_enabled (opt_set, "cracklib"))
+    {
+      cp = opt_set->get_opt (opt_set, "cracklib_path");
+      if (cp)
+	fprintf (fp, "cracklib=%s ", cp);
+      else
+	fprintf (fp, "cracklib ");
+    }
+  cp = opt_set->get_opt (opt_set, "maxlen");
+  if (cp)
+    fprintf (fp, "maxlen=%s ", cp);
+  cp = opt_set->get_opt (opt_set, "minlen");
+  if (cp)
+    fprintf (fp, "minlen=%s ", cp);
+  cp = opt_set->get_opt (opt_set, "tries");
+  if (cp)
+    fprintf (fp, "tries=%s ", cp);
+  cp = opt_set->get_opt (opt_set, "remember");
+  if (cp)
+    fprintf (fp, "remember=%s ", cp);
+  if (opt_set->is_enabled (opt_set, "no_obscure_checks"))
+    fprintf (fp, "no_obscure_checks ");
+  cp = opt_set->get_opt (opt_set, "nisdir");
+  if (cp)
+    fprintf (fp, "nisdir=%s ", cp);
+  if (opt_set->is_enabled (opt_set, "enforce_for_root"))
+    fprintf (fp, "enforce_for_root ");
+
+  fprintf (fp, "\n");
+
+  return 0;
 }
- 
-pam_module_t mod_pam_pwcheck = { "pam_pwcheck.so", &parse_pwcheck_options, &print_module_pwcheck, &def_write_config };
-#endif
+
+
+
+/* ---- contruct module object ---- */
+DECLARE_BOOL_OPTS_6(is_enabled, debug, nullok, cracklib, no_obscure_checks, enforce_for_root);
+DECLARE_STRING_OPTS_6(cracklib_path, maxlen, minlen, tries, remember, nisdir);
+DECLARE_OPT_SETS;
+/* at last construct the complete module object */
+pam_module_t mod_pam_pwcheck = { "pam_pwcheck.so", opt_sets,
+  &parse_config_pwcheck,
+  &def_print_module,
+  &write_config_pwcheck,
+  &get_opt_set};
