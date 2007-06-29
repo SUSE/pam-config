@@ -106,8 +106,8 @@ write_config_account (const char *file, pam_module_t **module_list)
   if (conf->use_lum)
     fprintf (fp, "account\trequired\tpam_nam.so\tuse_first_pass\n");
 
-  if (conf->use_winbind)
-    fprintf (fp, "account\trequired\tpam_winbind.so\tuse_first_pass\n");
+  // if (conf->use_winbind)
+  //  fprintf (fp, "account\trequired\tpam_winbind.so\tuse_first_pass\n");
 
 #endif
 

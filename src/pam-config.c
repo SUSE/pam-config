@@ -760,23 +760,34 @@ main (int argc, char *argv[])
 	case 2200:
 	  /* pam_winbind */
 	  if (m_query)
-	    print_module_winbind (&config_account, &config_auth,
-				  &config_password, &config_session);
+            print_module_config (supported_module_list, "pam_winbind.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_winbind.so", force) != 0)
 		return 1;
-	      config_account.use_winbind = opt_val;
-	      config_auth.use_winbind = opt_val;
-	      config_password.use_winbind = opt_val;
-	      config_session.use_winbind = opt_val;
+              opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind,
+						     ACCOUNT);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind,
+						     AUTH);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind,
+						     PASSWORD);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind,
+						     SESSION);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 2201:
-	  config_account.winbind_debug = opt_val;
-	  config_auth.winbind_debug = opt_val;
-	  config_password.winbind_debug = opt_val;
-	  config_session.winbind_debug = opt_val;
+	  opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind, ACCOUNT);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind, AUTH);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind, PASSWORD);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
 	  break;
 	case 2300:
 	  /* pam_umask.so */

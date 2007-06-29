@@ -63,13 +63,13 @@ write_config_password (const char *file, pam_module_t **module_list)
 
 #if 0
 
-  if (conf->use_winbind)
-    {
-      fprintf (fp, "password\tsufficient\tpam_winbind.so\t");
-      if (conf->winbind_debug)
-        fprintf (fp, "debug ");
-      fprintf (fp, "\n");
-    }
+  // if (conf->use_winbind)
+  //  {
+  //    fprintf (fp, "password\tsufficient\tpam_winbind.so\t");
+  //    if (conf->winbind_debug)
+  //      fprintf (fp, "debug ");
+  //    fprintf (fp, "\n");
+  //  }
 
   if (conf->use_pwcheck)
     {
