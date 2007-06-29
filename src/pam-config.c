@@ -332,6 +332,7 @@ main (int argc, char *argv[])
 	{"umask-debug",           no_argument,       NULL, 2301 },
 	{"umask-silent",          no_argument,       NULL, 2302 },
 	{"umask-usergroups",      no_argument,       NULL, 2303 },
+	{"umask-umask",           required_argument, NULL, 2304 },
 	{"capability",            no_argument,       NULL, 2400 },
         {"capability-debug",      no_argument,       NULL, 2401 },
         {"capability-conf",       required_argument, NULL, 2402 },
@@ -800,6 +801,10 @@ main (int argc, char *argv[])
 	case 2303:
 	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
 	  opt_set->enable (opt_set, "usergroups", opt_val);
+	  break;
+	case 2304:
+	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
+	  opt_set->set_opt (opt_set, "umask", optarg);
 	  break;
 	case 2400:
 	  /* pam_capability.so */

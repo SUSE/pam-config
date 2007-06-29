@@ -498,6 +498,15 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>--umask-umask=</option><replaceable>mode</replaceable></term>
+        <listitem>
+          <para>
+            Add <option>umask=</option><replaceable>mode</replaceable>
+            to pam_umask.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>--cracklib</option></term>
         <listitem>
           <para>
