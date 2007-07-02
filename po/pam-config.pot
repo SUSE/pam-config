@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-14 12:55+0200\n"
+"POT-Creation-Date: 2007-07-02 16:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,77 +16,65 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. TRANSLATORS: first argument is name of a PAM module
-#: src/load_config.c:35
-#, c-format
-msgid "Unknown option for %s, ignored: '%s'\n"
-msgstr ""
-
-#: src/load_config.c:352 src/load_config.c:359 src/load_config.c:372
-#: src/load_config.c:379
-#, c-format
-msgid "%s (%s): Arguments will be ignored\n"
-msgstr ""
-
-#: src/load_config.c:442
+#: src/load_config.c:175
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:56 src/load_obsolete_conf.c:69
-#: src/load_obsolete_conf.c:89 src/load_obsolete_conf.c:103
-#: src/load_obsolete_conf.c:124 src/load_obsolete_conf.c:137
-#: src/load_obsolete_conf.c:150 src/load_obsolete_conf.c:164
+#: src/load_obsolete_conf.c:68 src/load_obsolete_conf.c:93
+#: src/load_obsolete_conf.c:128 src/load_obsolete_conf.c:158
+#: src/load_obsolete_conf.c:194 src/load_obsolete_conf.c:221
+#: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:171
+#: src/load_obsolete_conf.c:288
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:173
+#: src/load_obsolete_conf.c:290
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:177
+#: src/load_obsolete_conf.c:294
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:179
+#: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:201 src/load_obsolete_conf.c:240
+#: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:232
+#: src/load_obsolete_conf.c:354
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:234
+#: src/load_obsolete_conf.c:356
 #, c-format
 msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:238
+#: src/load_obsolete_conf.c:360
 #, c-format
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
 
-#: src/pam-config.c:45
+#: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr ""
 
-#: src/pam-config.c:54
+#: src/pam-config.c:56
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -94,90 +82,99 @@ msgid ""
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
 
-#: src/pam-config.c:66
+#: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr ""
 
-#: src/pam-config.c:74
+#: src/pam-config.c:76
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
 
-#: src/pam-config.c:76
+#: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr ""
 
-#: src/pam-config.c:77
+#: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
 msgstr ""
 
-#: src/pam-config.c:78
+#: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr ""
 
-#: src/pam-config.c:79
+#: src/pam-config.c:81
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr ""
 
-#: src/pam-config.c:81
+#: src/pam-config.c:83
 msgid "      --update      Read current config and write them new\n"
 msgstr ""
 
-#: src/pam-config.c:83
+#: src/pam-config.c:85
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr ""
 
-#: src/pam-config.c:85
+#: src/pam-config.c:87
 msgid "      --help        Give this help list\n"
 msgstr ""
 
-#: src/pam-config.c:86
+#: src/pam-config.c:88
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr ""
 
-#: src/pam-config.c:87
+#: src/pam-config.c:89
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:98 src/pam-config.c:135 src/pam-config.c:890
-#: src/pam-config.c:900 src/pam-config.c:910 src/pam-config.c:921
+#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:1073
+#: src/pam-config.c:1083 src/pam-config.c:1093 src/pam-config.c:1104
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:892
-#: src/pam-config.c:902 src/pam-config.c:912 src/pam-config.c:923
+#: src/pam-config.c:102 src/pam-config.c:139 src/pam-config.c:1075
+#: src/pam-config.c:1085 src/pam-config.c:1095 src/pam-config.c:1106
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:115
+#: src/pam-config.c:117
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr ""
 
-#: src/pam-config.c:117
+#: src/pam-config.c:119
 #, c-format
 msgid "New config from %s is is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:225 src/pam-config.c:259
+#: src/pam-config.c:231 src/pam-config.c:265
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:781
+#: src/pam-config.c:955
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""
 
-#: src/write_config_account.c:42 src/write_config_auth.c:42
-#: src/write_config_password.c:42 src/write_config_session.c:42
+#: src/write_config.c:51
+#, c-format
+msgid "Cannot set permissions for '%s': %m\n"
+msgstr ""
+
+#: src/write_config.c:58
+#, c-format
+msgid "Cannot change owner/group for `%s': %m\n"
+msgstr ""
+
+#: src/write_config.c:66
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr ""

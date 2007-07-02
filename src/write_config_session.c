@@ -78,8 +78,8 @@ write_config_session (const char *file, pam_module_t **module_list)
   //  fprintf (fp, "trace ");
   // fprintf (fp, "\n");
 
-  if (conf->use_apparmor)
-    fprintf (fp, "session\toptional\tpam_apparmor.so\n");
+  // if (conf->use_apparmor)
+  //  fprintf (fp, "session\toptional\tpam_apparmor.so\n");
 
   if (conf->use_capability)
     {
@@ -109,16 +109,16 @@ write_config_session (const char *file, pam_module_t **module_list)
   //     fprintf (fp, "\n");
   //   }
 
-  if (conf->use_winbind)
-    {
-      fprintf (fp, "session\trequired\tpam_winbind.so\t");
-      if (conf->winbind_debug)
-	fprintf (fp, "debug ");
-      fprintf (fp, "\n");
-    }
+  // if (conf->use_winbind)
+  //   {
+  //    fprintf (fp, "session\trequired\tpam_winbind.so\t");
+  //    if (conf->winbind_debug)
+  //	fprintf (fp, "debug ");
+  //    fprintf (fp, "\n");
+  //  }
 
-  if (conf->use_lum)
-    fprintf (fp, "session\toptional\tpam_nam.so\n");
+  // if (conf->use_lum)
+  //  fprintf (fp, "session\toptional\tpam_nam.so\n");
 
   // if (conf->use_env)
   //  fprintf (fp, "session\toptional\tpam_env.so\n");

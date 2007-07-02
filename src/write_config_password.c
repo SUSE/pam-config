@@ -99,17 +99,17 @@ write_config_password (const char *file, pam_module_t **module_list)
   //	fprintf (fp, "nisdir=%s ", conf->pwcheck_nisdir);
   //    fprintf (fp, "\n");
   //  }
-  else if (conf->use_cracklib)
-    {
-      fprintf (fp, "password\trequisite\tpam_cracklib.so\t");
-      if (conf->cracklib_debug)
-	fprintf (fp, "debug ");
-      if (conf->cracklib_dictpath)
-	fprintf (fp, "dictpath=%s ", conf->cracklib_dictpath);
-      if (conf->cracklib_retry)
-	fprintf (fp, "retry=%d ", conf->cracklib_retry);
-      fprintf (fp, "\n");
-    }
+  // else if (conf->use_cracklib)
+  //  {
+  //    fprintf (fp, "password\trequisite\tpam_cracklib.so\t");
+  //    if (conf->cracklib_debug)
+  //	fprintf (fp, "debug ");
+  //    if (conf->cracklib_dictpath)
+  //	fprintf (fp, "dictpath=%s ", conf->cracklib_dictpath);
+  //    if (conf->cracklib_retry)
+  //	fprintf (fp, "retry=%d ", conf->cracklib_retry);
+  //    fprintf (fp, "\n");
+  //  }
 
   // if (conf->use_krb5 || conf->use_ldap || conf->use_lum)
   //   fprintf (fp, "password\tsufficient\tpam_unix2.so\t");
@@ -155,8 +155,8 @@ write_config_password (const char *file, pam_module_t **module_list)
   //     fprintf (fp, "\n");
   //   }
 
-  if (conf->use_lum)
-    fprintf (fp, "password\trequired\tpam_nam.so\ttry_first_pass\n");
+  // if (conf->use_lum)
+  //   fprintf (fp, "password\trequired\tpam_nam.so\ttry_first_pass\n");
 
 #endif
 

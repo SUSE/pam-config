@@ -136,8 +136,8 @@ write_config_auth (const char *file, pam_module_t **module_list)
   //	}
   //  }
 
-  if (conf->use_lum)
-    fprintf (fp, "auth\trequired\tpam_nam.so\tuse_first_pass\n");
+  // if (conf->use_lum)
+  //   fprintf (fp, "auth\trequired\tpam_nam.so\tuse_first_pass\n");
 
   // if (conf->use_winbind)
   //  fprintf (fp, "auth\trequired\tpam_winbind.so\tuse_first_pass\n");

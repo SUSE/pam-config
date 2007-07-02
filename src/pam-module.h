@@ -11,7 +11,7 @@
 #define STRING_DEFAULT	NULL
 #define BOOL_DEFAULT	FALSE
 
-#define DEBUG(args...) fprintf( stderr, args )
+#define DEBUG(args...) /* fprintf( stderr, args ) */
 
 #define OPT_NAME(PREFIX, NAME) PREFIX ## _opt_ ## NAME
 
@@ -144,15 +144,6 @@ struct config_file_t {
   char *make_options;
   /* pam_pkcs11, used by auth.  */
   int use_pkcs11;
-  /* pam_cracklib, used by password.  */
-  int use_cracklib;
-  int cracklib_debug;
-  int cracklib_retry;
-  char *cracklib_dictpath;
-  /* pam_apparmor, used by session.  */
-  int use_apparmor;
-  /* pam_nam, used by all types.  */
-  int use_lum;
   /* pam_capability, used by session.  */
   int use_capability;
   char *capability_conf;

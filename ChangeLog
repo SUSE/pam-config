@@ -1,9 +1,17 @@
 2007-07-02  Thorsten Kukuk  <kukuk@suse.de>
 
+	* src/write_config.c: New file, combine all old 4 variants.
+
+	* src/Makefile.am: Add mod_pam_apparmor and mod_pam_nam
+	* src/supported-modules.h: Likewise.
+	* src/mod_pam_apparmor.c: New.
+	* src/mod_pam_nam.c: New.
+	* src/pam-config.c (main): Convert entries.
+
 	* src/Makefile.am: Add mod_pam_krb5.
 	* src/supported-modules.h: Likewise.
 	* src/mod_pam_cracklib.c: New.
-	* src/pam-config.c (main):
+	* src/pam-config.c (main): Convert pam_krb5 entries.
 
 	* src/mod_pam_krb5.c: New.
 	* src/pam-config.c (main): Convert pam_krb5 entries.

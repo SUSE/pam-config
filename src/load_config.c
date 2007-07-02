@@ -164,10 +164,6 @@ load_config (const char *file, write_type_t wtype,
 	}
       else if (strcmp (module, "pam_pkcs11.so") == 0)
 	conf->use_pkcs11 = 1;
-      else if (strcmp (module, "pam_apparmor.so") == 0)
-	conf->use_apparmor = 1;
-      else if (strcmp (module, "pam_nam.so") == 0)
-	conf->use_lum = 1;
       else if (strcmp (module, "pam_capability.so") == 0)
 	{
 	  conf->use_capability = 1;

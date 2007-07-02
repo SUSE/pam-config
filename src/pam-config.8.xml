@@ -473,7 +473,7 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term><option>--lum</option></term>
+        <term><option>--nam</option></term>
         <listitem>
           <para>
             Add pam_nam.so to all stacks.

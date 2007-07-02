@@ -330,7 +330,7 @@ main (int argc, char *argv[])
 	{"ccreds",                no_argument,       NULL, 2000 },
 	{"pkcs11",                no_argument,       NULL, 2010 },
 	{"apparmor",              no_argument,       NULL, 2020 },
-	{"lum",                   no_argument,       NULL, 2030 },
+	{"nam",                   no_argument,       NULL, 2030 },
         {"cracklib",              no_argument,       NULL, 2100 },
         {"cracklib-debug",        no_argument,       NULL, 2101 },
 	{"cracklib-dictpath",     required_argument, NULL, 2102 },
@@ -784,33 +784,34 @@ main (int argc, char *argv[])
 	case 2020:
 	  /* pam_apparmor */
 	  if (m_query)
-	    {
-	      if (config_session.use_apparmor)
-		printf ("session:\n");
-	    }
+	    print_module_config (common_module_list, "pam_apparmor.so");
 	  else
 	    {
-
 	      if (check_for_pam_module ("pam_apparmor.so", force) != 0)
 		return 1;
-	      config_auth.use_apparmor = opt_val;
+
+	      opt_set = mod_pam_apparmor.get_opt_set (&mod_pam_apparmor,
+						      SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 2030:
 	  /* pam_nam.so */
 	  if (m_query)
-	    {
-	      if (config_account.use_lum) printf ("account:\n");
-	      if (config_auth.use_lum) printf ("auth:\n");
-	      if (config_password.use_lum) printf ("password:\n");
-	      if (config_session.use_lum) printf ("session:\n");
-	    }
+	    print_module_config (common_module_list, "pam_nam.so");
 	  else
 	    {
-
-	      if (check_for_pam_module ("pam_lum.so", force) != 0)
+	      if (check_for_pam_module ("pam_nam.so", force) != 0)
 		return 1;
-	      config_auth.use_lum = opt_val;
+
+	      opt_set = mod_pam_nam.get_opt_set (&mod_pam_nam, ACCOUNT);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	      opt_set = mod_pam_nam.get_opt_set (&mod_pam_nam, AUTH);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	      opt_set = mod_pam_nam.get_opt_set (&mod_pam_nam, PASSWORD);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	      opt_set = mod_pam_nam.get_opt_set (&mod_pam_nam, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 2100:
@@ -973,7 +974,7 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_account (common_module_list) != 0)
 	return 1;
-      if (write_config_account (CONF_ACCOUNT_PC, module_list_account) != 0)
+      if (write_config (ACCOUNT, CONF_ACCOUNT_PC, module_list_account) != 0)
 	return 1;
 
       /* Write auth section.  */
@@ -981,11 +982,12 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_auth (common_module_list) != 0)
 	return 1;
-      if (write_config_auth (CONF_AUTH_PC, module_list_auth) != 0)
+      if (write_config (AUTH, CONF_AUTH_PC, module_list_auth) != 0)
 	return 1;
 
       /* Write password section.  */
-      if (!config_password.use_cracklib)
+      opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, AUTH);
+      if (!opt_set->is_enabled (opt_set, "is_enabled"))
 	{
 	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
 	  opt_set->enable (opt_set, "is_enabled", TRUE);
@@ -993,11 +995,10 @@ main (int argc, char *argv[])
 	}
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
       opt_set->enable (opt_set, "is_enabled", TRUE);
-      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
       opt_set->enable (opt_set, "nullok", TRUE);
       if (sanitize_check_password (common_module_list) != 0)
 	return 1;
-      if (write_config_password (CONF_PASSWORD_PC, module_list_password) != 0)
+      if (write_config (PASSWORD, CONF_PASSWORD_PC, module_list_password) != 0)
 	return 1;
 
       /* Write session section.  */
@@ -1011,29 +1012,29 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", opt_val);
       if (sanitize_check_session (common_module_list) != 0)
 	return 1;
-      if (write_config_session (CONF_SESSION_PC, module_list_session) != 0)
+      if (write_config (SESSION, CONF_SESSION_PC, module_list_session) != 0)
 	return 1;
     }
   else
     {
       /* Write account section.  */
-      if (write_config_account (CONF_ACCOUNT_PC, module_list_account) != 0)
+      if (write_config (ACCOUNT, CONF_ACCOUNT_PC, module_list_account) != 0)
 	return 1;
 
       /* Write auth section.  */
       if (sanitize_check_auth (common_module_list) != 0)
 	return 1;
-      if (write_config_auth (CONF_AUTH_PC, module_list_auth) != 0)
+      if (write_config (AUTH, CONF_AUTH_PC, module_list_auth) != 0)
 	return 1;
 
       /* Write password section.  */
       if (sanitize_check_password (common_module_list) != 0)
 	return 1;
-      if (write_config_password (CONF_PASSWORD_PC, module_list_password) != 0)
+      if (write_config (PASSWORD, CONF_PASSWORD_PC, module_list_password) != 0)
 	return 1;
 
       /* Write session section.  */
-      if (write_config_session (CONF_SESSION_PC, module_list_session) != 0)
+      if (write_config (SESSION, CONF_SESSION_PC, module_list_session) != 0)
 	return 1;
     }
 

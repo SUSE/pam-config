@@ -26,10 +26,8 @@ int load_obsolete_conf (pam_module_t **module_list);
 
 int load_config (const char *file, write_type_t wtype,
                  pam_module_t **module_list);
-int write_config_account (const char *file, pam_module_t **module_list);
-int write_config_auth (const char *file, pam_module_t **module_list);
-int write_config_password (const char *file, pam_module_t **module_list);
-int write_config_session (const char *file, pam_module_t **module_list);
+int write_config (write_type_t op, const char *file,
+		  pam_module_t **module_list);
 
 int sanitize_check_account (pam_module_t **module_list);
 int sanitize_check_auth (pam_module_t **module_list);
