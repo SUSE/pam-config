@@ -37,14 +37,6 @@ int sanitize_check_password (pam_module_t **module_list);
 int sanitize_check_session (pam_module_t **module_list);
 int check_for_pam_module (const char *name, int force);
 
-void print_module_pwcheck (config_file_t *conf);
-void print_module_cracklib (config_file_t *conf);
-void print_module_krb5 (config_file_t *account, config_file_t *auth,
-                        config_file_t *password, config_file_t *session);
-void print_module_krb5afs (config_file_t *account, config_file_t *auth,
-			   config_file_t *password, config_file_t *session);
-void print_module_winbind (config_file_t *account, config_file_t *auth,
-			   config_file_t *password, config_file_t *session);
 void print_module_capability (config_file_t *conf);
 
 #endif

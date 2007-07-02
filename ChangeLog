@@ -1,5 +1,10 @@
 2007-07-02  Thorsten Kukuk  <kukuk@suse.de>
 
+	* src/Makefile.am: Add mod_pam_krb5.
+	* src/supported-modules.h: Likewise.
+	* src/mod_pam_cracklib.c: New.
+	* src/pam-config.c (main):
+
 	* src/mod_pam_krb5.c: New.
 	* src/pam-config.c (main): Convert pam_krb5 entries.
 	* src/Makefile.am: Add mod_pam_krb5.

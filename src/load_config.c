@@ -29,31 +29,7 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
-#ifdef NOTDEFINIED
-
-static void
-parse_cracklib_options (config_file_t *conf, char *args)
-{
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-
-      if (strcmp (cp, "debug") == 0)
-	conf->cracklib_debug = 1;
-      else if (strcmp (cp, "use_authtok") == 0)
-	{ /* will be ignored */ }
-      else if (strncmp (cp, "dictpath=", 9) == 0)
-	conf->cracklib_dictpath = strdup (&cp[9]);
-      else if (strncmp (cp, "retry=", 6) == 0)
-	conf->cracklib_retry = atoi (&cp[6]);
-      else
-	print_unknown_option_error ("pam_cracklib.so", cp);
-    }
-  return;
-}
+#if 0
 
 static void
 parse_capability_options (config_file_t *conf, char *args)
@@ -190,12 +166,6 @@ load_config (const char *file, write_type_t wtype,
 	conf->use_pkcs11 = 1;
       else if (strcmp (module, "pam_apparmor.so") == 0)
 	conf->use_apparmor = 1;
-      else if (strcmp (module, "pam_cracklib.so") == 0)
-	{
-	  conf->use_cracklib = 1;
-	  if (arguments)
-	    parse_cracklib_options (conf, arguments);
-	}
       else if (strcmp (module, "pam_nam.so") == 0)
 	conf->use_lum = 1;
       else if (strcmp (module, "pam_capability.so") == 0)

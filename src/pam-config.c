@@ -335,6 +335,7 @@ main (int argc, char *argv[])
         {"cracklib-debug",        no_argument,       NULL, 2101 },
 	{"cracklib-dictpath",     required_argument, NULL, 2102 },
 	{"cracklib-retry",        required_argument, NULL, 2103 },
+	{"cracklib-minlen",       required_argument, NULL, 2104 },
 	{"winbind",               no_argument,       NULL, 2200 },
 	{"winbind-debug",         no_argument,       NULL, 2201 },
 	{"umask",                 no_argument,       NULL, 2300 },
@@ -429,7 +430,10 @@ main (int argc, char *argv[])
 	  break;
 	case 1005:
 	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
-	  opt_set->set_opt (opt_set, "maxlen", optarg);
+	  if (m_delete)
+	    opt_set->set_opt (opt_set, "maxlen", NULL);
+	  else
+	    opt_set->set_opt (opt_set, "maxlen", optarg);
 	  break;
 	case 1006:
 	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
@@ -812,22 +816,40 @@ main (int argc, char *argv[])
 	case 2100:
 	  /* pam_cracklib */
 	  if (m_query)
-	    print_module_cracklib (&config_password);
+	    print_module_config (common_module_list, "pam_cracklib.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_cracklib.so", force) != 0)
 		return 1;
-	      config_password.use_cracklib = opt_val;
+	      opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib,
+						      PASSWORD);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 2101:
-	  config_password.cracklib_debug = opt_val;
+	  opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
+	  opt_set->enable (opt_set, "debug", opt_val);
 	  break;
 	case 2102:
-	  config_password.cracklib_dictpath = optarg;
+	  opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
+	  if (m_delete)
+	    opt_set->set_opt (opt_set, "dictpath", NULL);
+	  else
+	    opt_set->set_opt (opt_set, "dictpath", optarg);
 	  break;
 	case 2103:
-	  config_password.cracklib_retry = atoi (optarg);
+	  opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
+	  if (m_delete)
+	    opt_set->set_opt (opt_set, "retry", NULL);
+	  else
+	    opt_set->set_opt (opt_set, "retry", optarg);
+	  break;
+	case 2104:
+	  opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
+	  if (m_delete)
+	    opt_set->set_opt (opt_set, "minlen", NULL);
+	  else
+	    opt_set->set_opt (opt_set, "minlen", optarg);
 	  break;
 	case 2200:
 	  /* pam_winbind */

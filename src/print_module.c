@@ -26,22 +26,6 @@
 #include "pam-config.h"
 
 void
-print_module_cracklib (config_file_t *conf)
-{
-  if (!conf->use_cracklib)
-    return;
-
-  printf ("passwd:");
-  if (conf->cracklib_debug)
-    printf (" debug");
-  if (conf->cracklib_dictpath)
-    printf (" dictpath=%s", conf->cracklib_dictpath);
-  if (conf->cracklib_retry)
-    printf (" retry=%d", conf->cracklib_retry);
-  printf ("\n");
-}
-
-void
 print_module_capability (config_file_t *conf)
 {
   if (!conf->use_capability)
