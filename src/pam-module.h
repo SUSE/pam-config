@@ -136,8 +136,6 @@ typedef enum write_type {AUTH=0, ACCOUNT, PASSWORD, SESSION} write_type_t;
 
 struct config_file_t {
   write_type_t type;
-  /* pam_limits is session only */
-  int use_limits;
   /* pam_bioapi is auth only currently */
   int use_bioapi;
   char *bioapi_options;

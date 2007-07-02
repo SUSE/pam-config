@@ -296,12 +296,16 @@ main (int argc, char *argv[])
 	{"pwcheck-nisdir",            required_argument, NULL, 1009 },
 	{"pwcheck-no_obscure_checks", no_argument,       NULL, 1010 },
 	{"pwcheck-enforce_for_root",  no_argument,       NULL, 1011 },
-	{"mkhomedir",        no_argument,       NULL, 1100 },
-	{"mkhomedir-debug",  no_argument,       NULL, 1101 },
-	{"mkhomedir-silent", no_argument,       NULL, 1102 },
-	{"mkhomedir-umask",  required_argument, NULL, 1103 },
-	{"mkhomedir-skel",   required_argument, NULL, 1104 },
-	{"limits",           no_argument,       NULL, 1200 },
+	{"mkhomedir",                 no_argument,       NULL, 1100 },
+	{"mkhomedir-debug",           no_argument,       NULL, 1101 },
+	{"mkhomedir-silent",          no_argument,       NULL, 1102 },
+	{"mkhomedir-umask",           required_argument, NULL, 1103 },
+	{"mkhomedir-skel",            required_argument, NULL, 1104 },
+	{"limits",                    no_argument,       NULL, 1200 },
+	{"limits-debug",              no_argument,       NULL, 1201 },
+	{"limits-change_uid",         no_argument,       NULL, 1202 },
+	{"limits-utmp_early",         no_argument,       NULL, 1203 },
+	{"limits-conf",               required_argument, NULL, 1204 },
         {"env",              no_argument,       NULL, 1300 },
         {"env-debug",        no_argument,       NULL, 1301 },
 	{"env-conffile",     required_argument, NULL, 1302 },
@@ -488,17 +492,32 @@ main (int argc, char *argv[])
 	  opt_set->set_opt (opt_set, "skel", optarg);
 	  break;
 	case 1200:
+	  /* pam_limits.so */
 	  if (m_query)
-	    {
-	      if (config_session.use_limits)
-		printf ("session:\n");
-	    }
+	    print_module_config (supported_module_list, "pam_limits.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_limits.so", force) != 0)
 		return 1;
-	      config_session.use_limits = opt_val;
+	      opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
+	  break;
+	case 1201:
+	  opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  break;
+	case 1202:
+	  opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
+	  opt_set->enable (opt_set, "change_uid", opt_val);
+	  break;
+	case 1203:
+	  opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
+	  opt_set->enable (opt_set, "utmp_early", opt_val);
+	  break;
+	case 1204:
+	  opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
+	  opt_set->set_opt (opt_set, "conv", optarg);
 	  break;
 	case 1300:
 	  /* pam_env.so */
@@ -943,7 +962,8 @@ main (int argc, char *argv[])
       /* Write session section.  */
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt_val);
-      config_session.use_limits = 1;
+      opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
+      opt_set->enable (opt_set, "is_enabled", opt_val);
       opt_set = mod_pam_env.get_opt_set (&mod_pam_env, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt_val);
       opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);

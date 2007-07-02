@@ -66,8 +66,8 @@ write_config_session (const char *file, pam_module_t **module_list)
   // if (conf->use_mkhomedir)
   //  fprintf (fp, "session\trequired\tpam_mkhomedir.so\n");
 
-  if (conf->use_limits)
-    fprintf (fp, "session\trequired\tpam_limits.so\n");
+  // if (conf->use_limits)
+  //   fprintf (fp, "session\trequired\tpam_limits.so\n");
 
   //  fprintf (fp, "session\trequired\tpam_unix2.so\t");
   // if (conf->unix2_nullok)

@@ -200,14 +200,7 @@ load_config (const char *file, write_type_t wtype,
 
 #if 0
       /* XXX remove every module converted */
-      if (strcmp (module, "pam_limits.so") == 0)
-	{
-	  conf->use_limits = 1;
-	  if (arguments)
-	    fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),
-		     file, module);
-	}
-      else if (strcmp (module, "pam_bioapi.so") == 0)
+      if (strcmp (module, "pam_bioapi.so") == 0)
 	{
 	  conf->use_bioapi = 1;
 	  if (arguments)

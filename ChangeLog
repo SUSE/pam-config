@@ -1,3 +1,43 @@
+2007-07-02  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/pam-config.c (main): Convert pam_limits entris.
+	* src/mod-pam_limits.c: new.
+
+2007-06-29  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/mod_pam_env.c: New.
+	* src/pam-config.8.xml: Document new pam_nev options.
+	* src/pam-config.c (main): Add new pam_env options.
+
+	* src/mod_pam_pwcheck.c: New.
+	* src/pam-config.8.xml: Document enforce_for_root option.
+	* src/pam-config.c (main): Convert pwcheck options.
+
+	* src/pam-module.h: Add more defines for more options.
+
+	* src/mod_pam_localuser.c: New.
+
+	* src/mod_pam_winbind.c: New.
+	* src/supported-modules.h: Add mod_pam_winbind.
+	* src/pam-config.c (main): Convert winbind options.
+	* src/Makefile.am: Add mod_pam_winbind.c.
+
+	* src/pam-config.c (main): Add --umask-umask option.
+	* src/pam-config.8.xml: Document --umask-umask option.
+	* src/mod_pam_umask.c: Support umask option.
+
+	* src/pam-module.h (DECLARE_STRING_OPTS_2): Added.
+
+	* src/pam-config.c (main): Support umask and skel for pam_mkhomedir.
+	* src/mod_pam_mkhomedir.c: Likewise.
+
+	* src/pam-config.8.xml: Document new pam_mkhomedir options.
+
+2007-06-28  Thorsten Kukuk  <kukuk@suse.de>
+	    Sven Schober  <sschober@suse.de>
+
+	* */*: Massive changes for new internal interface.
+
 2007-06-14  Thorsten Kukuk  <kukuk@suse.de>
 
 	* src/load_config.c (print_unknown_option_error): New function
