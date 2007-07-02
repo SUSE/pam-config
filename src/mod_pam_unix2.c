@@ -61,12 +61,12 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
-  with_krb5 = is_module_enabled (supported_module_list, "pam_krb5.so", op);
-  with_ldap = is_module_enabled (supported_module_list, "pam_ldap.so", op);
-  with_lum = is_module_enabled (supported_module_list, "pam_lum.so", op);
-  with_winbind = is_module_enabled (supported_module_list, "pam_winbind.so", op);
-  with_pwcheck = is_module_enabled (supported_module_list, "pam_pwcheck.so", op);
-  with_cracklib = is_module_enabled (supported_module_list, "pam_cracklib.so", op);
+  with_krb5 = is_module_enabled (common_module_list, "pam_krb5.so", op);
+  with_ldap = is_module_enabled (common_module_list, "pam_ldap.so", op);
+  with_lum = is_module_enabled (common_module_list, "pam_lum.so", op);
+  with_winbind = is_module_enabled (common_module_list, "pam_winbind.so", op);
+  with_pwcheck = is_module_enabled (common_module_list, "pam_pwcheck.so", op);
+  with_cracklib = is_module_enabled (common_module_list, "pam_cracklib.so", op);
 
   switch (op)
   {

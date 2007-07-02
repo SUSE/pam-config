@@ -223,19 +223,19 @@ main (int argc, char *argv[])
 
       /* Load old /etc/security/{pam_unix2,pam_pwcheck}.conf
 	 files and delete them afterwards.  */
-      load_obsolete_conf (supported_module_list);
+      load_obsolete_conf (common_module_list);
 
-      if (load_config (CONF_ACCOUNT, ACCOUNT, supported_module_list) != 0)
+      if (load_config (CONF_ACCOUNT, ACCOUNT, common_module_list) != 0)
 	{
 	load_old_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH, AUTH, supported_module_list) != 0)
+      if (load_config (CONF_AUTH, AUTH, common_module_list) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_PASSWORD, PASSWORD, supported_module_list) != 0)
+      if (load_config (CONF_PASSWORD, PASSWORD, common_module_list) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_SESSION, SESSION, supported_module_list) != 0)
+      if (load_config (CONF_SESSION, SESSION, common_module_list) != 0)
 	goto load_old_config_error;
     }
   else if (strcmp (argv[1], "--update") == 0)
@@ -259,17 +259,17 @@ main (int argc, char *argv[])
 	  return 1;
 	}
 
-      if (load_config (CONF_ACCOUNT_PC, ACCOUNT, supported_module_list) != 0)
+      if (load_config (CONF_ACCOUNT_PC, ACCOUNT, common_module_list) != 0)
 	{
 	load_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH_PC, AUTH, supported_module_list) != 0)
+      if (load_config (CONF_AUTH_PC, AUTH, common_module_list) != 0)
 	goto load_config_error;
-      if (load_config (CONF_PASSWORD_PC, PASSWORD, supported_module_list) != 0)
+      if (load_config (CONF_PASSWORD_PC, PASSWORD, common_module_list) != 0)
 	goto load_config_error;
-      if (load_config (CONF_SESSION_PC, SESSION, supported_module_list) != 0)
+      if (load_config (CONF_SESSION_PC, SESSION, common_module_list) != 0)
 	goto load_config_error;
     }
 
@@ -362,7 +362,7 @@ main (int argc, char *argv[])
 	  break;
 	case 900: /* --nullok */
 	  {
-	    pam_module_t **modptr = supported_module_list;
+	    pam_module_t **modptr = common_module_list;
 
 	    while (*modptr != NULL)
 	      {
@@ -380,7 +380,7 @@ main (int argc, char *argv[])
 	  break;
 	case 901: /* --pam-debug */
 	  {
-	    pam_module_t **modptr = supported_module_list;
+	    pam_module_t **modptr = common_module_list;
 
 	    while (*modptr != NULL)
 	      {
@@ -400,7 +400,7 @@ main (int argc, char *argv[])
 	/* pam_pwcheck */
 	case 1000:
 	  if (m_query)
-	    print_module_config (supported_module_list, "pam_pwcheck.so");
+	    print_module_config (common_module_list, "pam_pwcheck.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_pwcheck.so", force) != 0)
@@ -460,7 +460,7 @@ main (int argc, char *argv[])
 	  break;
 	case 1100:
 	  if (m_query)
-	    print_module_config (supported_module_list,
+	    print_module_config (common_module_list,
 				 "pam_mkhomedir.so");
 	  else
 	    {
@@ -494,7 +494,7 @@ main (int argc, char *argv[])
 	case 1200:
 	  /* pam_limits.so */
 	  if (m_query)
-	    print_module_config (supported_module_list, "pam_limits.so");
+	    print_module_config (common_module_list, "pam_limits.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_limits.so", force) != 0)
@@ -522,7 +522,7 @@ main (int argc, char *argv[])
 	case 1300:
 	  /* pam_env.so */
 	  if (m_query)
-	    print_module_config (supported_module_list, "pam_env.so");
+	    print_module_config (common_module_list, "pam_env.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_env.so", force) != 0)
@@ -575,7 +575,7 @@ main (int argc, char *argv[])
 	case 1600:
 	  /* use_unix2 */
 	  if (m_query)
-            print_module_config (supported_module_list, "pam_unix2.so");
+            print_module_config (common_module_list, "pam_unix2.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_unix2.so", force) != 0)
@@ -706,7 +706,7 @@ main (int argc, char *argv[])
 	case 1900:
 	  /* pam_ldap */
 	  if (m_query)
-            print_module_config (supported_module_list, "pam_ldap.so");
+            print_module_config (common_module_list, "pam_ldap.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_ldap.so", force) != 0)
@@ -734,7 +734,7 @@ main (int argc, char *argv[])
 	case 2000:
 	  /* pam_ccreds */
 	  if (m_query)
-            print_module_config (supported_module_list, "pam_ccreds.so");
+            print_module_config (common_module_list, "pam_ccreds.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_ccreds.so", force) != 0)
@@ -813,7 +813,7 @@ main (int argc, char *argv[])
 	case 2200:
 	  /* pam_winbind */
 	  if (m_query)
-            print_module_config (supported_module_list, "pam_winbind.so");
+            print_module_config (common_module_list, "pam_winbind.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_winbind.so", force) != 0)
@@ -845,7 +845,7 @@ main (int argc, char *argv[])
 	case 2300:
 	  /* pam_umask.so */
 	  if (m_query)
-	    print_module_config (supported_module_list, "pam_umask.so");
+	    print_module_config (common_module_list, "pam_umask.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_umask.so", force) != 0)
@@ -930,7 +930,7 @@ main (int argc, char *argv[])
       /* Write account section.  */
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
       opt_set->enable (opt_set, "is_enabled", TRUE);
-      if (sanitize_check_account (supported_module_list) != 0)
+      if (sanitize_check_account (common_module_list) != 0)
 	return 1;
       if (write_config_account (CONF_ACCOUNT_PC, module_list_account) != 0)
 	return 1;
@@ -938,7 +938,7 @@ main (int argc, char *argv[])
       /* Write auth section.  */
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
       opt_set->enable (opt_set, "is_enabled", TRUE);
-      if (sanitize_check_auth (supported_module_list) != 0)
+      if (sanitize_check_auth (common_module_list) != 0)
 	return 1;
       if (write_config_auth (CONF_AUTH_PC, module_list_auth) != 0)
 	return 1;
@@ -954,7 +954,7 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", TRUE);
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
       opt_set->enable (opt_set, "nullok", TRUE);
-      if (sanitize_check_password (supported_module_list) != 0)
+      if (sanitize_check_password (common_module_list) != 0)
 	return 1;
       if (write_config_password (CONF_PASSWORD_PC, module_list_password) != 0)
 	return 1;
@@ -968,7 +968,7 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", opt_val);
       opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt_val);
-      if (sanitize_check_session (supported_module_list) != 0)
+      if (sanitize_check_session (common_module_list) != 0)
 	return 1;
       if (write_config_session (CONF_SESSION_PC, module_list_session) != 0)
 	return 1;
@@ -980,13 +980,13 @@ main (int argc, char *argv[])
 	return 1;
 
       /* Write auth section.  */
-      if (sanitize_check_auth (supported_module_list) != 0)
+      if (sanitize_check_auth (common_module_list) != 0)
 	return 1;
       if (write_config_auth (CONF_AUTH_PC, module_list_auth) != 0)
 	return 1;
 
       /* Write password section.  */
-      if (sanitize_check_password (supported_module_list) != 0)
+      if (sanitize_check_password (common_module_list) != 0)
 	return 1;
       if (write_config_password (CONF_PASSWORD_PC, module_list_password) != 0)
 	return 1;

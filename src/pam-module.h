@@ -176,7 +176,7 @@ typedef struct pam_module {
 
 /* modules need access to this to check, which other modules
    are enabled */
-extern pam_module_t *supported_module_list[];
+extern pam_module_t *common_module_list[];
 
 /* default handlers */
 

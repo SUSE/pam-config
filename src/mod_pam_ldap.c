@@ -63,9 +63,9 @@ write_config_ldap (pam_module_t * this, enum write_type op, FILE * fp)
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
-  with_winbind = is_module_enabled (supported_module_list,
+  with_winbind = is_module_enabled (common_module_list,
 				    "pam_winbind.so", op);
-  with_ccreds = is_module_enabled (supported_module_list,
+  with_ccreds = is_module_enabled (common_module_list,
 				   "pam_ccreds.so", op);
 
   switch (op)

@@ -218,12 +218,6 @@ load_config (const char *file, write_type_t wtype,
 	  if (arguments)
 	    parse_krb5_options (conf, arguments);
 	}
-      else if (strcmp (module, "pam_winbind.so") == 0)
-	{
-	  conf->use_winbind = 1;
-	  if (arguments)
-	    parse_winbind_options (conf, arguments);
-	}
       else if (strcmp (module, "pam_pkcs11.so") == 0)
 	conf->use_pkcs11 = 1;
       else if (strcmp (module, "pam_apparmor.so") == 0)
@@ -242,8 +236,6 @@ load_config (const char *file, write_type_t wtype,
 	  if (arguments)
 	    parse_capability_options (conf, arguments);
 	}
-      else if (strcmp (module, "pam_localuser.so") == 0)
-	{ /* ignore, used for account with pam_ldap.so */ }
       else
 	{
 	  fprintf (stderr, _("%s: Unknown module %s, ignored!\n"),
