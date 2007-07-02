@@ -142,11 +142,6 @@ struct config_file_t {
   /* pam_make is password only.  */
   int use_make;
   char *make_options;
-  /* pam_krb5, used by all types.  */
-  int use_krb5;
-  int krb5_debug;
-  uint32_t krb5_minuid;
-  int krb5_ignore_unknown_principals;
   /* pam_pkcs11, used by auth.  */
   int use_pkcs11;
   /* pam_cracklib, used by password.  */

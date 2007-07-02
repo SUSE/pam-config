@@ -40,10 +40,23 @@ write_config_localuser (pam_module_t *this __attribute__((unused)),
 			enum write_type op __attribute__((unused)),
 			FILE *fp __attribute__((unused)))
 {
+  int with_ldap, with_nam, with_winbind;
+
   if (debug)
     printf ("**** write_config_localuser (...)\n");
 
-  /* Nothing to do for us. */
+  if (op != ACCOUNT)
+    return 0;
+
+  with_ldap = is_module_enabled (common_module_list,
+                                 "pam_ldap.so", op);
+  with_nam = is_module_enabled (common_module_list,
+                                "pam_nam.so", op);
+  with_winbind = is_module_enabled (common_module_list,
+                                    "pam_winbind.so", op);
+
+  if (with_ldap || with_nam || with_winbind)
+    fprintf (fp, "account\tsufficient\tpam_localuser.so\n");
 
   return 0;
 }

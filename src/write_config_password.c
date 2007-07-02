@@ -133,19 +133,19 @@ write_config_password (const char *file, pam_module_t **module_list)
       fprintf (fp, "\n");
     }
 
-  if (conf->use_krb5)
-    {
-      if (conf->use_ldap || conf->use_lum)
-	fprintf (fp, "password\tsufficient\tpam_krb5.so\tuse_authtok ");
-      else
-	fprintf (fp, "password\trequired\tpam_krb5.so\tuse_authtok ");
-
-      if (conf->krb5_debug)
-        fprintf (fp, "debug ");
-      if (conf->krb5_minuid)
-	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
-      fprintf (fp, "\n");
-    }
+  //if (conf->use_krb5)
+  //  {
+  //    if (conf->use_ldap || conf->use_lum)
+  //	fprintf (fp, "password\tsufficient\tpam_krb5.so\tuse_authtok ");
+  //    else
+  //	fprintf (fp, "password\trequired\tpam_krb5.so\tuse_authtok ");
+  //
+  //     if (conf->krb5_debug)
+  //      fprintf (fp, "debug ");
+  //    if (conf->krb5_minuid)
+  //	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
+  //    fprintf (fp, "\n");
+  //  }
 
   // if (conf->use_ldap)
   //   {

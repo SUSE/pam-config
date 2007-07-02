@@ -25,32 +25,6 @@
 
 #include "pam-config.h"
 
-static void
-print_module_krb5_int (const char *type, config_file_t *conf)
-{
-  if (!conf->use_krb5)
-    return;
-
-  printf ("%s:", type);
-  if (conf->krb5_debug)
-    printf (" debug");
-  if (conf->krb5_minuid)
-    printf (" minimum_uid=%u", conf->krb5_minuid);
-  if (conf->krb5_ignore_unknown_principals)
-    printf (" ignore_unknown_principals");
-  printf ("\n");
-}
-
-void
-print_module_krb5 (config_file_t *account, config_file_t *auth,
-		    config_file_t *password, config_file_t *session)
-{
-  print_module_krb5_int ("account", account);
-  print_module_krb5_int ("auth", auth);
-  print_module_krb5_int ("password", password);
-  print_module_krb5_int ("session", session);
-}
-
 void
 print_module_cracklib (config_file_t *conf)
 {

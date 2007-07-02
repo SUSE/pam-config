@@ -661,47 +661,66 @@ main (int argc, char *argv[])
 	  config_auth.bioapi_options = optarg;
 	  break;
 	case 1800:
-	  /* pam_krb5 */
+	  /* use_krb5 */
 	  if (m_query)
-	    print_module_krb5 (&config_account, &config_auth,
-			       &config_password, &config_session);
+            print_module_config (common_module_list, "pam_krb5.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_krb5.so", force) != 0)
 		return 1;
-	      config_account.use_krb5 = opt_val;
-	      config_auth.use_krb5 = opt_val;
-	      config_password.use_krb5 = opt_val;
-	      config_session.use_krb5 = opt_val;
+              opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 1801:
-	  config_account.krb5_debug = opt_val;
-	  config_auth.krb5_debug = opt_val;
-	  config_password.krb5_debug = opt_val;
-	  config_session.krb5_debug = opt_val;
+	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
 	  break;
-	case 1802:
+        case 1802:
 	  if (m_delete)
 	    {
-	      config_account.krb5_minuid = 0;
-	      config_auth.krb5_minuid = 0;
-	      config_password.krb5_minuid = 0;
-	      config_session.krb5_minuid = 0;
+	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
+	      opt_set->set_opt (opt_set, "minimum_uid", NULL);
+	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
+	      opt_set->set_opt (opt_set, "minimum_uid", NULL);
+	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
+	      opt_set->set_opt (opt_set, "minimum_uid", NULL);
+	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
+	      opt_set->set_opt (opt_set, "minimum_uid", NULL);
 	    }
 	  else
 	    {
-	      config_account.krb5_minuid = atoi (optarg);
-	      config_auth.krb5_minuid = atoi (optarg);
-	      config_password.krb5_minuid = atoi (optarg);
-	      config_session.krb5_minuid = atoi (optarg);
+	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
+	      opt_set->set_opt (opt_set, "minimum_uid", optarg);
+	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
+	      opt_set->set_opt (opt_set, "minimum_uid", optarg);
+	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
+	      opt_set->set_opt (opt_set, "minimum_uid", optarg);
+	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
+	      opt_set->set_opt (opt_set, "minimum_uid", optarg);
 	    }
-	  break;
+          break;
 	case 1803:
-	  config_account.krb5_ignore_unknown_principals = opt_val;
-	  config_auth.krb5_ignore_unknown_principals = opt_val;
-	  config_password.krb5_ignore_unknown_principals = opt_val;
-	  config_session.krb5_ignore_unknown_principals = opt_val;
+	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
+	  opt_set->enable (opt_set, "ignore_unknown_principals", opt_val);
+	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
+	  opt_set->enable (opt_set, "ignore_unknown_principals", opt_val);
+	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
+	  opt_set->enable (opt_set, "ignore_unknown_principals", opt_val);
+	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
+	  opt_set->enable (opt_set, "ignore_unknown_principals", opt_val);
 	  break;
 	case 1900:
 	  /* pam_ldap */

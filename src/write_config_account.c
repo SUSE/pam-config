@@ -74,23 +74,23 @@ write_config_account (const char *file, pam_module_t **module_list)
   //   fprintf (fp, "call_modules=%s ", conf->unix2_call_modules);
   // fprintf (fp, "\n");
 
-  if (conf->use_krb5)
-    {
-      if (conf->use_ldap || conf->use_lum || conf->use_winbind)
-	fprintf (fp, "account\t[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]\tpam_krb5.so\tuse_first_pass "); /* required with additional user_unknown mapping to ignore */
-      else
-	fprintf (fp, "account\trequired\tpam_krb5.so\tuse_first_pass ");
-      if (conf->krb5_debug)
-        fprintf (fp, "debug ");
-      if (conf->krb5_minuid)
-	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
-      if (conf->krb5_ignore_unknown_principals)
-        fprintf (fp, "ignore_unknown_principals ");
-      fprintf (fp, "\n");
-    }
+  //if (conf->use_krb5)
+  //  {
+  //    if (conf->use_ldap || conf->use_lum || conf->use_winbind)
+  //	fprintf (fp, "account\t[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]\tpam_krb5.so\tuse_first_pass "); /* required with additional user_unknown mapping to ignore */
+  //    else
+  //	fprintf (fp, "account\trequired\tpam_krb5.so\tuse_first_pass ");
+  //    if (conf->krb5_debug)
+  //      fprintf (fp, "debug ");
+  //    if (conf->krb5_minuid)
+  //	  fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
+  //    if (conf->krb5_ignore_unknown_principals)
+  //      fprintf (fp, "ignore_unknown_principals ");
+  //    fprintf (fp, "\n");
+  //  }
 
-  if (conf->use_ldap || conf->use_lum || conf->use_winbind)
-    fprintf (fp, "account\tsufficient\tpam_localuser.so\n");
+  // if (conf->use_ldap || conf->use_lum || conf->use_winbind)
+  //  fprintf (fp, "account\tsufficient\tpam_localuser.so\n");
 
   // if (conf->use_ldap)
   //   {

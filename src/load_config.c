@@ -32,32 +32,6 @@
 #ifdef NOTDEFINIED
 
 static void
-parse_krb5_options (config_file_t *conf, char *args)
-{
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-
-      if (strcmp (cp, "debug") == 0)
-	conf->krb5_debug = 1;
-      else if (strcmp (cp, "use_first_pass") == 0)
-	{ /* will be ignored */ }
-      else if (strcmp (cp, "use_authtok") == 0)
-	{ /* will be ignored */ }
-      else if (strncmp (cp, "minimum_uid=", 12) == 0)
-	conf->krb5_minuid = atoi (&cp[12]);
-      else if (strcmp (cp, "ignore_unknown_principals") == 0)
-	conf->krb5_ignore_unknown_principals = 1;
-      else
-	print_unknown_option_error ("pam_krb5.so", cp);
-    }
-  return;
-}
-
-static void
 parse_cracklib_options (config_file_t *conf, char *args)
 {
   while (args && strlen (args) > 0)
@@ -211,12 +185,6 @@ load_config (const char *file, write_type_t wtype,
 	  conf->use_make = 1;
 	  if (arguments)
 	    conf->make_options = strdup (arguments);
-	}
-      else if (strcmp (module, "pam_krb5.so") == 0)
-	{
-	  conf->use_krb5 = 1;
-	  if (arguments)
-	    parse_krb5_options (conf, arguments);
 	}
       else if (strcmp (module, "pam_pkcs11.so") == 0)
 	conf->use_pkcs11 = 1;

@@ -94,32 +94,32 @@ write_config_auth (const char *file, pam_module_t **module_list)
   //   fprintf (fp, "call_modules=%s ", conf->unix2_call_modules);
   // fprintf (fp, "\n");
 
-  if (conf->use_krb5)
-    {
-      if (conf->use_ccreds)
-	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_krb5.so\tuse_first_pass ");
-      else if (conf->use_ldap || conf->use_lum || conf->use_winbind)
-	fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
-      else
-	fprintf (fp, "auth\trequired\tpam_krb5.so\tuse_first_pass ");
-
-      if (conf->krb5_debug)
-	fprintf (fp, "debug ");
-      if (conf->krb5_minuid)
-	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
-      fprintf (fp, "\n");
-
-      if (conf->use_ccreds)
-	{
-	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=validate use_first_pass\n");
-	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=store\n");
-	  fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
-	}
-    }
+  //if (conf->use_krb5)
+  //  {
+  //    if (conf->use_ccreds)
+  //	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_krb5.so\tuse_first_pass ");
+  //    else if (conf->use_ldap || conf->use_lum || conf->use_winbind)
+  //	fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
+  //    else
+  //	fprintf (fp, "auth\trequired\tpam_krb5.so\tuse_first_pass ");
+  //
+ //     if (conf->krb5_debug)
+  //	fprintf (fp, "debug ");
+  //    if (conf->krb5_minuid)
+  //	fprintf (fp, "minimum_uid=%u ", conf->krb5_minuid);
+  //    fprintf (fp, "\n");
+  //
+ //     if (conf->use_ccreds)
+  //	{
+ //	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=validate use_first_pass\n");
+ //	  fprintf (fp, "auth\t[default=done]\tpam_ccreds.so\taction=store\n");
+ //	  fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
+ //	}
+    // }
 
   //if (conf->use_ldap)
   //  {
-  //    if (conf->use_ccreds)
+ //    if (conf->use_ccreds)
   //	fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_ldap.so\tuse_first_pass");
   //     else if (conf->use_winbind)
   //	fprintf (fp, "auth\tsufficient\tpam_ldap.so\tuse_first_pass");
