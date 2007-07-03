@@ -42,11 +42,11 @@ parse_config_env (pam_module_t * this, char *args, write_type_t type)
       if (strcmp (cp, "debug") == 0)
 	opt_set->enable (opt_set, "debug", TRUE);
       else if (strncmp (cp, "conffile=", 9) == 0)
-	opt_set->set_opt (opt_set, "conffile", &cp[9]);
+	opt_set->set_opt (opt_set, "conffile", strdup (&cp[9]));
       else if (strncmp (cp, "envfile=", 8) == 0)
-	opt_set->set_opt (opt_set, "envfile", &cp[8]);
+	opt_set->set_opt (opt_set, "envfile", strdup (&cp[8]));
       else if (strncmp (cp, "readenv=", 8) == 0)
-	opt_set->set_opt (opt_set, "readenv", &cp[8]);
+	opt_set->set_opt (opt_set, "readenv", strdup (&cp[8]));
       else
 	print_unknown_option_error ("pam_env.so", cp);
     }

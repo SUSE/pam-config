@@ -134,23 +134,6 @@
 
 typedef enum write_type {AUTH=0, ACCOUNT, PASSWORD, SESSION} write_type_t;
 
-struct config_file_t {
-  write_type_t type;
-  /* pam_bioapi is auth only currently */
-  int use_bioapi;
-  char *bioapi_options;
-  /* pam_make is password only.  */
-  int use_make;
-  char *make_options;
-  /* pam_pkcs11, used by auth.  */
-  int use_pkcs11;
-  /* pam_capability, used by session.  */
-  int use_capability;
-  char *capability_conf;
-  int capability_debug;
-};
-typedef struct config_file_t config_file_t;
-
 typedef struct pam_module {
 	char *name;
 	option_set_t **option_sets;

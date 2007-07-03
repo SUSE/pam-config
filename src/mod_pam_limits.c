@@ -46,7 +46,7 @@ parse_config_limits (pam_module_t * this, char *args, write_type_t type)
       else if (strcmp (cp, "utmp_early") == 0)
 	opt_set->enable (opt_set, "utmp_early", TRUE);
       else if (strncmp (cp, "conf=", 5) == 0)
-	opt_set->set_opt (opt_set, "conf", &cp[5]);
+	opt_set->set_opt (opt_set, "conf", strdup (&cp[5]));
       else
 	print_unknown_option_error ("pam_limits.so", cp);
     }

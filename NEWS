@@ -4,6 +4,12 @@ Copyright (C) 2006, 2007 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.20:
+* Rewrite of internal interfaces
+
+Version 0.16:
+* Add support for pam_loginuid.so and pam_lastlog.so
+
 Version 0.15:
 * Fix -d handling of minlen option of pam_pwcheck
 

@@ -1,3 +1,7 @@
+2007-07-03  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/mod_pam_pkcs11.c: New.
+
 2007-07-02  Thorsten Kukuk  <kukuk@suse.de>
 
 	* src/write_config.c: New file, combine all old 4 variants.

@@ -35,6 +35,4 @@ int sanitize_check_password (pam_module_t **module_list);
 int sanitize_check_session (pam_module_t **module_list);
 int check_for_pam_module (const char *name, int force);
 
-void print_module_capability (config_file_t *conf);
-
 #endif

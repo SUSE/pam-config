@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-02 16:22+0200\n"
+"POT-Creation-Date: 2007-07-03 10:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/load_config.c:175
+#: src/load_config.c:160
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr ""
@@ -130,14 +130,14 @@ msgstr ""
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:1073
-#: src/pam-config.c:1083 src/pam-config.c:1093 src/pam-config.c:1104
+#: src/pam-config.c:100 src/pam-config.c:137 src/pam-config.c:1031
+#: src/pam-config.c:1041 src/pam-config.c:1051 src/pam-config.c:1062
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:102 src/pam-config.c:139 src/pam-config.c:1075
-#: src/pam-config.c:1085 src/pam-config.c:1095 src/pam-config.c:1106
+#: src/pam-config.c:102 src/pam-config.c:139 src/pam-config.c:1033
+#: src/pam-config.c:1043 src/pam-config.c:1053 src/pam-config.c:1064
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -152,14 +152,14 @@ msgstr ""
 msgid "New config from %s is is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:231 src/pam-config.c:265
+#: src/pam-config.c:219 src/pam-config.c:253
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:955
+#: src/pam-config.c:913
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""

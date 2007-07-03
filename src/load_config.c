@@ -149,22 +149,7 @@ load_config (const char *file, write_type_t wtype,
 	}
 
 #if 0
-      /* XXX remove every module converted */
-      if (strcmp (module, "pam_bioapi.so") == 0)
-	{
-	  conf->use_bioapi = 1;
-	  if (arguments)
-	    conf->bioapi_options = strdup (arguments);
-	}
-      else if (strcmp (module, "pam_make.so") == 0)
-	{
-	  conf->use_make = 1;
-	  if (arguments)
-	    conf->make_options = strdup (arguments);
-	}
-      else if (strcmp (module, "pam_pkcs11.so") == 0)
-	conf->use_pkcs11 = 1;
-      else if (strcmp (module, "pam_capability.so") == 0)
+      if (strcmp (module, "pam_capability.so") == 0)
 	{
 	  conf->use_capability = 1;
 	  if (arguments)

@@ -46,7 +46,7 @@ parse_config_umask (pam_module_t * this, char *args, write_type_t type)
       else if (strcmp (cp, "usergroups") == 0)
 	opt_set->enable (opt_set, "usergroups", TRUE);
       else if (strncmp (cp, "umask=", 6) == 0)
-	opt_set->set_opt (opt_set, "umask", &cp[6]);
+	opt_set->set_opt (opt_set, "umask", strdup (&cp[6]));
       else
 	print_unknown_option_error ("pam_umask.so", cp);
     }

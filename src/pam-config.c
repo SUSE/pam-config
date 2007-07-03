@@ -152,18 +152,6 @@ main (int argc, char *argv[])
   int opt_val = 1;
   int retval = 0;
   option_set_t *opt_set;
-  config_file_t config_account, config_auth,
-    config_password, config_session;
-
-  memset (&config_account, 0, sizeof (config_account));
-  memset (&config_auth, 0, sizeof (config_auth));
-  memset (&config_password, 0, sizeof (config_password));
-  memset (&config_session, 0, sizeof (config_session));
-
-  config_account.type = ACCOUNT;
-  config_auth.type = AUTH;
-  config_password.type = PASSWORD;
-  config_session.type = SESSION;
 
   setlocale(LC_ALL, "");
   bindtextdomain(PACKAGE, LOCALEDIR);
@@ -318,8 +306,6 @@ main (int argc, char *argv[])
         {"unix2-nullok",     no_argument,       NULL, 1602 },
         {"unix2-trace",      no_argument,       NULL, 1603 },
         {"unix2-call_modules", required_argument, NULL, 1604 },
-	{"bioapi",           no_argument,       NULL, 1700 },
-	{"bioapi-options",        required_argument, NULL, 1701 },
 	{"krb5",                  no_argument,       NULL, 1800 },
 	{"krb5-debug",            no_argument,       NULL, 1801 },
 	{"krb5-minimum_uid",      required_argument, NULL, 1802 },
@@ -343,9 +329,6 @@ main (int argc, char *argv[])
 	{"umask-silent",          no_argument,       NULL, 2302 },
 	{"umask-usergroups",      no_argument,       NULL, 2303 },
 	{"umask-umask",           required_argument, NULL, 2304 },
-	{"capability",            no_argument,       NULL, 2400 },
-        {"capability-debug",      no_argument,       NULL, 2401 },
-        {"capability-conf",       required_argument, NULL, 2402 },
 	{"debug",                 no_argument,       NULL,  254 },
         {"help",                  no_argument,       NULL,  255 },
         {NULL,                    0,                 NULL,    0 }
@@ -556,25 +539,20 @@ main (int argc, char *argv[])
 	  opt_set->set_opt (opt_set, "readenv", optarg);
 	  break;
 	case 1500:
+	  /* pam_make.so */
 	  if (m_query)
-	    {
-	      if (config_session.use_make)
-		{
-		  printf ("session:");
-		  if (config_session.make_options)
-		    printf (" %s", config_session.make_options);
-		  printf ("\n");
-		}
-	    }
+	    print_module_config (common_module_list, "pam_make.so");
 	  else
 	    {
 	      if (check_for_pam_module ("pam_make.so", force) != 0)
 		return 1;
-	      config_session.use_make = opt_val;
+              opt_set = mod_pam_make.get_opt_set (&mod_pam_make, PASSWORD);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 1501:
-	  config_session.make_options = optarg;
+	  opt_set = mod_pam_make.get_opt_set (&mod_pam_make, PASSWORD);
+	  opt_set->set_opt (opt_set, "option", optarg);
 	  break;
 	case 1600:
 	  /* use_unix2 */
@@ -642,28 +620,6 @@ main (int argc, char *argv[])
 	      opt_set->set_opt (opt_set, "call_modules", optarg);
 	    }
           break;
-	case 1700:
-	  /* pam_bioapi */
-	  if (m_query)
-	    {
-	      if (config_auth.use_bioapi)
-		{
-		  printf ("auth:");
-		  if (config_auth.bioapi_options)
-		    printf (" %s", config_auth.bioapi_options);
-		  printf ("\n");
-		}
-	    }
-	  else
-	    {
-	      if (check_for_pam_module ("pam_bioapi.so", force) != 0)
-		return 1;
-	      config_auth.use_bioapi = opt_val;
-	    }
-	  break;
-	case 1701:
-	  config_auth.bioapi_options = optarg;
-	  break;
 	case 1800:
 	  /* use_krb5 */
 	  if (m_query)
@@ -762,23 +718,20 @@ main (int argc, char *argv[])
 	    {
 	      if (check_for_pam_module ("pam_ccreds.so", force) != 0)
 		return 1;
-	      opt_set = mod_pam_ccreds.get_opt_set (&mod_pam_ccreds, opt_val);
+	      opt_set = mod_pam_ccreds.get_opt_set (&mod_pam_ccreds, AUTH);
 	      opt_set->enable (opt_set, "is_enabled", TRUE);
 	    }
 	  break;
 	case 2010:
 	  /* pam_pkcs11 */
 	  if (m_query)
-	    {
-	      if (config_auth.use_pkcs11)
-		printf ("auth:\n");
-	    }
+            print_module_config (common_module_list, "pam_pkcs11.so");
 	  else
 	    {
-
 	      if (check_for_pam_module ("pam_pkcs11.so", force) != 0)
 		return 1;
-	      config_auth.use_pkcs11 = opt_val;
+	      opt_set = mod_pam_ccreds.get_opt_set (&mod_pam_pkcs11, AUTH);
+	      opt_set->enable (opt_set, "is_enabled", TRUE);
 	    }
 	  break;
 	case 2020:
@@ -911,23 +864,6 @@ main (int argc, char *argv[])
 	case 2304:
 	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
 	  opt_set->set_opt (opt_set, "umask", optarg);
-	  break;
-	case 2400:
-	  /* pam_capability.so */
-	  if (m_query)
-	    print_module_capability (&config_session);
-	  else
-	    {
-	      if (check_for_pam_module ("pam_capability.so", force) != 0)
-		return 1;
-	      config_session.use_capability = opt_val;
-	    }
-	  break;
-	case 2401:
-	  config_session.capability_debug = opt_val;
-	  break;
-	case 2402:
-	  config_password.capability_conf = optarg;
 	  break;
 	case 254:
 	  debug = 1;

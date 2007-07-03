@@ -29,9 +29,9 @@ parse_config_mkhomedir (pam_module_t *this, char *args, write_type_t type)
       else if (strcmp (cp, "silent") == 0)
 	opt_set->enable( opt_set, "silent", TRUE );
       else if (strncmp (cp, "umask=", 6) == 0)
-	opt_set->set_opt (opt_set, "umask", &cp[6]);
+	opt_set->set_opt (opt_set, "umask", strdup (&cp[6]));
       else if (strncmp (cp, "skel=", 5) == 0)
-	opt_set->set_opt (opt_set, "skel", &cp[5]);
+	opt_set->set_opt (opt_set, "skel", strdup (&cp[5]));
       else
 	print_unknown_option_error ("pam_mkhomedir.so", cp);
     }
