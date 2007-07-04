@@ -3,6 +3,7 @@ extern pam_module_t mod_pam_ccreds;
 extern pam_module_t mod_pam_cracklib;
 extern pam_module_t mod_pam_env;
 extern pam_module_t mod_pam_krb5;
+extern pam_module_t mod_pam_lastlog;
 extern pam_module_t mod_pam_ldap;
 extern pam_module_t mod_pam_limits;
 extern pam_module_t mod_pam_localuser;
@@ -94,5 +95,6 @@ static pam_module_t *module_list_session[] = {
 
 pam_module_t *service_module_list[] = {
   &mod_pam_loginuid,
+  &mod_pam_lastlog,
   NULL
 };

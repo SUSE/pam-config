@@ -54,9 +54,19 @@ parse_config_lastlog (pam_module_t *this, char *args, write_type_t type)
 static void
 write_config_internal (FILE *fp, option_set_t *opt_set)
 {
+  bool_option_t **opt = opt_set->bool_opts;
+
+
   fprintf (fp, "session  required\tpam_lastlog.so\t");
-  if (opt_set->is_enabled (opt_set, "require_auditd"))
-    fprintf (fp, "require_auditd ");
+
+  while (NULL != *opt)
+    {
+
+      if (strcmp ((*opt)->key, "is_enabled") != 0 && (*opt)->value)
+	fprintf (fp, "%s ", (*opt)->key);
+      opt++;
+    }
+
   fprintf (fp, "\n");
 }
 

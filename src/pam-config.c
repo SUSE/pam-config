@@ -402,8 +402,7 @@ main (int argc, char *argv[])
 	{"pam-debug",             no_argument,       NULL,  901 },
 	{"loginuid",              no_argument,       NULL, 3000 },
         {"loginuid-require_auditd", no_argument,     NULL, 3001 },
-        {"lastlog",               required_argument, NULL, 3050 },
-
+        {"lastlog",               no_argument,       NULL, 3050 },
 	{NULL,                    0,                 NULL,    0 }
       };
       if (!gl_service)
@@ -1013,6 +1012,20 @@ main (int argc, char *argv[])
 	  opt_set = mod_pam_loginuid.get_opt_set (&mod_pam_loginuid, SESSION);
 	      opt_set->enable (opt_set, "require_auditd", opt_val);
           break;
+	case 3050:
+          /* pam_lastlog.so */
+	  if (m_query)
+	    print_module_config (service_module_list, "pam_lastlog.so");
+	  else
+	    {
+	      if (check_for_pam_module ("pam_lastlog.so", force) != 0)
+		return 1;
+	      opt_set = mod_pam_lastlog.get_opt_set (&mod_pam_lastlog,
+						     SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	      opt_set->enable (opt_set, "nowtmp", opt_val);
+	    }
+	  break;
 	case 254:
 	  debug = 1;
 	  break;
