@@ -364,6 +364,9 @@ main (int argc, char *argv[])
         {"unix2-nullok",     no_argument,       NULL, 1602 },
         {"unix2-trace",      no_argument,       NULL, 1603 },
         {"unix2-call_modules", required_argument, NULL, 1604 },
+        {"unix",            no_argument,        NULL, 1700 },
+        {"unix-debug",      no_argument,        NULL, 1701 },
+        {"unix-audit",     no_argument,        NULL, 1702 },
 	{"krb5",                  no_argument,       NULL, 1800 },
 	{"krb5-debug",            no_argument,       NULL, 1801 },
 	{"krb5-minimum_uid",      required_argument, NULL, 1802 },
@@ -709,6 +712,44 @@ main (int argc, char *argv[])
 	      opt_set->set_opt (opt_set, "call_modules", optarg);
 	    }
           break;
+	case 1700:
+	  /* use_unix */
+	  if (m_query)
+            print_module_config (common_module_list, "pam_unix.so");
+	  else
+	    {
+	      if (check_for_pam_module ("pam_unix.so", force) != 0)
+		return 1;
+              opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+              opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
+              opt_set->enable (opt_set, "is_enabled", opt_val);
+	    }
+	  break;
+	case 1701:
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
+	  break;
+	case 1702:
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
+	  opt_set->enable (opt_set, "audit", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
+	  opt_set->enable (opt_set, "audit", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
+	  opt_set->enable (opt_set, "audit", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
+	  opt_set->enable (opt_set, "audit", opt_val);
+	  break;
 	case 1800:
 	  /* use_krb5 */
 	  if (m_query)
@@ -1061,6 +1102,8 @@ main (int argc, char *argv[])
   else if (!gl_service)
     {
       /* Write account section.  */
+      if (sanitize_check_account (common_module_list) != 0)
+	return 1;
       if (write_config (ACCOUNT, CONF_ACCOUNT_PC, module_list_account) != 0)
 	return 1;
 
@@ -1077,6 +1120,8 @@ main (int argc, char *argv[])
 	return 1;
 
       /* Write session section.  */
+      if (sanitize_check_session (common_module_list) != 0)
+	return 1;
       if (write_config (SESSION, CONF_SESSION_PC, module_list_session) != 0)
 	return 1;
     }

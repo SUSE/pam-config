@@ -59,8 +59,9 @@ check_for_pam_module (const char *name, int force)
 }
 
 int
-sanitize_check_account (pam_module_t **module_list __attribute__((unused)))
+sanitize_check_account (pam_module_t **module_list)
 {
+  check_for_unix_conflict( module_list, ACCOUNT );
   return 0;
 }
 
@@ -69,6 +70,8 @@ sanitize_check_auth (pam_module_t **module_list)
 {
   int with_ccreds, with_ldap, with_krb5;
 
+  check_for_unix_conflict( module_list, AUTH );
+  
   with_ccreds = is_module_enabled (module_list,
 				   "pam_ccreds.so", AUTH);
   with_ldap = is_module_enabled (module_list,
@@ -88,6 +91,8 @@ sanitize_check_password (pam_module_t **module_list)
 {
   int with_pwcheck, with_cracklib;
   option_set_t *opt_set;
+
+  check_for_unix_conflict( module_list, PASSWORD );
 
   with_pwcheck = is_module_enabled (module_list,
 				    "pam_pwcheck.so", PASSWORD);
@@ -131,7 +136,43 @@ sanitize_check_password (pam_module_t **module_list)
 }
 
 int
-sanitize_check_session (pam_module_t **module_list __attribute__((unused)))
+check_for_unix_conflict (pam_module_t **module_list, write_type_t op)
 {
+  int with_unix, with_unix2;
+ 
+  with_unix = is_module_enabled (module_list, 
+				  "pam_unix.so", op ); 
+  with_unix2 = is_module_enabled (module_list, 
+				  "pam_unix2.so", op ); 
+
+  if (with_unix && with_unix2 )
+  {
+    //fprintf (stderr, _("WARN: pam_unix.so and pam_unix2.so enabled,\nWARN: both will be written to config file %s.\nWARN: You'll have to manually disable one of them!\n"), type2string( op ) );
+    fprintf (stderr, _("INFO: pam_unix.so and pam_unix2.so enabled in service %s,\nINFO: only pam_unix2.so will be enabled.\n"), type2string (op));
+    pam_module_t *mod_unix = lookup (module_list, "pam_unix.so");
+    if (mod_unix)
+    {
+      option_set_t *opt_set = mod_unix->get_opt_set (mod_unix, op);
+      if (opt_set)
+      {
+	opt_set->enable (opt_set, "is_enabled", FALSE);
+      }
+      else
+      {
+	fprintf(stderr, _("ERR: Failed to disable pam_unix.so.\n"));
+      }
+    }
+    else
+    {
+      fprintf(stderr, _("ERR: Failed to disable pam_unix.so.\n"));
+    }
+  }
+  return 0;
+}
+
+int
+sanitize_check_session (pam_module_t **module_list)
+{
+  check_for_unix_conflict( module_list, SESSION );
   return 0;
 }
