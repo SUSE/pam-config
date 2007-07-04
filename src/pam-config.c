@@ -366,7 +366,11 @@ main (int argc, char *argv[])
         {"unix2-call_modules", required_argument, NULL, 1604 },
         {"unix",            no_argument,        NULL, 1700 },
         {"unix-debug",      no_argument,        NULL, 1701 },
-        {"unix-audit",     no_argument,        NULL, 1702 },
+        {"unix-audit",      no_argument,        NULL, 1702 },
+        {"unix-nullok",     no_argument,        NULL, 1703 },
+        {"unix-shadow",     no_argument,        NULL, 1704 },
+        {"unix-md5",        no_argument,        NULL, 1705 },
+        {"unix-big_crypt",  no_argument,        NULL, 1706 },
 	{"krb5",                  no_argument,       NULL, 1800 },
 	{"krb5-debug",            no_argument,       NULL, 1801 },
 	{"krb5-minimum_uid",      required_argument, NULL, 1802 },
@@ -748,6 +752,46 @@ main (int argc, char *argv[])
 	  opt_set->enable (opt_set, "audit", opt_val);
 	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
 	  opt_set->enable (opt_set, "audit", opt_val);
+	  break;
+	case 1703:
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
+	  opt_set->enable (opt_set, "nullok", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
+	  opt_set->enable (opt_set, "nullok", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
+	  opt_set->enable (opt_set, "nullok", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
+	  opt_set->enable (opt_set, "nullok", opt_val);
+	  break;
+	case 1704:
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
+	  opt_set->enable (opt_set, "shadow", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
+	  opt_set->enable (opt_set, "shadow", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
+	  opt_set->enable (opt_set, "shadow", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
+	  opt_set->enable (opt_set, "shadow", opt_val);
+	  break;
+	case 1705:
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
+	  opt_set->enable (opt_set, "md5", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
+	  opt_set->enable (opt_set, "md5", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
+	  opt_set->enable (opt_set, "md5", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
+	  opt_set->enable (opt_set, "md5", opt_val);
+	  break;
+	case 1706:
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
+	  opt_set->enable (opt_set, "big_crypt", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
+	  opt_set->enable (opt_set, "big_crypt", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
+	  opt_set->enable (opt_set, "big_crypt", opt_val);
+	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
+	  opt_set->enable (opt_set, "big_crypt", opt_val);
 	  break;
 	case 1800:
 	  /* use_krb5 */

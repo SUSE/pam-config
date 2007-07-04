@@ -26,10 +26,19 @@ parse_config_unix (pam_module_t *this, char *args, write_type_t type)
 	while (isspace ((int)*args))
         ++args;
 
+      if (opt_set->enable (opt_set, cp, TRUE) == FALSE)
+	print_unknown_option_error ("pam_unix.so", cp);
+#ifdef NOT_DEFINED
       if (strcmp (cp, "debug") == 0)
 	opt_set->enable( opt_set, "debug", TRUE );
       else if (strcmp (cp, "audit") == 0)
 	opt_set->enable( opt_set, "audit", TRUE );
+      else if (strcmp (cp, "nullok") == 0)
+	opt_set->enable( opt_set, "nullok", TRUE );
+      else if (strcmp (cp, "shadow") == 0)
+	opt_set->enable( opt_set, "shadow", TRUE );
+      else if (strcmp (cp, "nullok") == 0)
+	opt_set->enable( opt_set, "nullok", TRUE );
       else if (strcmp (cp, "use_first_pass") == 0)
 	{ /* will be ignored */ }
       else if (strcmp (cp, "try_first_pass") == 0)
@@ -38,6 +47,7 @@ parse_config_unix (pam_module_t *this, char *args, write_type_t type)
 	{ /* will be ignored */ }
       else
 	print_unknown_option_error ("pam_unix.so", cp);
+#endif
     }
   return 1;
 }
@@ -109,6 +119,27 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
     fprintf (fp, "debug ");
   }
   
+  if (opt_set->is_enabled (opt_set, "nullok"))
+    fprintf (fp, "nullok ");
+
+  if (opt_set->is_enabled (opt_set, "shadow"))
+    fprintf (fp, "shadow ");
+
+  int with_md5 = opt_set->is_enabled (opt_set, "md5");
+  int with_big_crypt = opt_set->is_enabled (opt_set, "big_crypt");
+  if (with_md5)
+  {
+    fprintf (fp, "md5 ");
+    if (with_big_crypt)
+    {
+      fprintf(stderr, _("INFO: Both options 'md5' and 'big_crypt' found in service %s.\nINFO: 'md5' supersedes 'big_crypt'. If you want to enable 'big_crypt' remove 'md5' first.\n"), type2string (op));
+    }
+  }
+  else if (with_big_crypt)
+  {
+    fprintf (fp, "big_crypt ");
+  }
+
   fprintf (fp, "\n");
 
   return 0;
@@ -117,7 +148,7 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
 
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_3( is_enabled, debug, audit );
+DECLARE_BOOL_OPTS_7( is_enabled, debug, audit, nullok, shadow, md5, big_crypt );
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
