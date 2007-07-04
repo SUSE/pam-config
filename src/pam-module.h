@@ -15,12 +15,14 @@
 
 #define OPT_NAME(PREFIX, NAME) PREFIX ## _opt_ ## NAME
 
-#define INIT_OPT_1(PREFIX,TYPE,DEFAULT,a)	    static TYPE ## _option_t OPT_NAME(PREFIX,a) = { #a, DEFAULT }
-#define INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b)	    INIT_OPT_1(PREFIX,TYPE,DEFAULT,a);       INIT_OPT_1(PREFIX,TYPE,DEFAULT,b)
-#define INIT_OPT_3(PREFIX,TYPE,DEFAULT,a,b,c)	    INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);     INIT_OPT_1(PREFIX,TYPE,DEFAULT,c)
-#define INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d)     INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);     INIT_OPT_2(PREFIX,TYPE,DEFAULT,c,d)
-#define INIT_OPT_5(PREFIX,TYPE,DEFAULT,a,b,c,d,e)   INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_1(PREFIX,TYPE,DEFAULT,e)
-#define INIT_OPT_6(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f) INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_2(PREFIX,TYPE,DEFAULT,e,f)
+#define INIT_OPT_1(PREFIX,TYPE,DEFAULT,a)	        static TYPE ## _option_t OPT_NAME(PREFIX,a) = { #a, DEFAULT }
+#define INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b)	        INIT_OPT_1(PREFIX,TYPE,DEFAULT,a);       INIT_OPT_1(PREFIX,TYPE,DEFAULT,b)
+#define INIT_OPT_3(PREFIX,TYPE,DEFAULT,a,b,c)	        INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);     INIT_OPT_1(PREFIX,TYPE,DEFAULT,c)
+#define INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d)         INIT_OPT_2(PREFIX,TYPE,DEFAULT,a,b);     INIT_OPT_2(PREFIX,TYPE,DEFAULT,c,d)
+#define INIT_OPT_5(PREFIX,TYPE,DEFAULT,a,b,c,d,e)       INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_1(PREFIX,TYPE,DEFAULT,e)
+#define INIT_OPT_6(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f)     INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_2(PREFIX,TYPE,DEFAULT,e,f)
+#define INIT_OPT_7(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g)   INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_3(PREFIX,TYPE,DEFAULT,e,f,g)
+#define INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h) INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_4(PREFIX,TYPE,DEFAULT,e,f,g,h)
 
 #define OPT_SET_START(PREFIX, TYPE) static TYPE ## _option_t * PREFIX ## _ ## TYPE ## _opts[] = {
 #define OPT_SET_END NULL }
@@ -31,6 +33,8 @@
 #define OPT_SET_BODY_4(PREFIX, a,b,c,d)	    OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_2(PREFIX, c,d)
 #define OPT_SET_BODY_5(PREFIX, a,b,c,d,e)   OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_3(PREFIX, c,d,e)
 #define OPT_SET_BODY_6(PREFIX, a,b,c,d,e,f) OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_4(PREFIX, c,d,e,f)
+#define OPT_SET_BODY_7(PREFIX, a,b,c,d,e,f,g) OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_5(PREFIX, c,d,e,f,g)
+#define OPT_SET_BODY_8(PREFIX, a,b,c,d,e,f,g,h) OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_6(PREFIX, c,d,e,f,g,h)
 
 #define GENERIC_OPT_SET_1(PREFIX,TYPE,DEFAULT,a)	      INIT_OPT_1(PREFIX, TYPE, DEFAULT, a); \
 							      OPT_SET_START(PREFIX, TYPE) \
@@ -47,21 +51,26 @@
 							      OPT_SET_START(PREFIX, TYPE) \
 							      OPT_SET_BODY_3(PREFIX,a,b,c),\
 							      OPT_SET_END
-
 #define GENERIC_OPT_SET_4(PREFIX, TYPE, DEFAULT, a, b, c, d)  INIT_OPT_4(PREFIX,TYPE,DEFAULT, a, b, c, d );\
 							      OPT_SET_START(PREFIX, TYPE) \
 							      OPT_SET_BODY_4(PREFIX,a,b,c,d),\
 							      OPT_SET_END
-
 #define GENERIC_OPT_SET_5(PREFIX, TYPE, DEFAULT, a, b,c,d,e)  INIT_OPT_5(PREFIX,TYPE,DEFAULT, a, b, c, d, e ); \
 							      OPT_SET_START(PREFIX, TYPE) \
 							      OPT_SET_BODY_5(PREFIX,a,b,c,d,e), \
 							      OPT_SET_END
-
 #define GENERIC_OPT_SET_6(PREFIX, TYPE, DEFAULT,a,b,c,d,e,f)  INIT_OPT_6(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f); \
 							      OPT_SET_START(PREFIX, TYPE) \
 							      OPT_SET_BODY_6(PREFIX,a,b,c,d,e,f), \
 							      OPT_SET_END
+#define GENERIC_OPT_SET_7(PREFIX, TYPE, DEFAULT,a,b,c,d,e,f,g) INIT_OPT_7(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g); \
+                                                               OPT_SET_START(PREFIX, TYPE)		      \
+							       OPT_SET_BODY_7(PREFIX,a,b,c,d,e,f,g), \
+							       OPT_SET_END
+#define GENERIC_OPT_SET_8(PREFIX, TYPE, DEFAULT,a,b,c,d,e,f,g,h)  INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h); \
+							          OPT_SET_START(PREFIX, TYPE) \
+								  OPT_SET_BODY_8(PREFIX,a,b,c,d,e,f,g,h), \
+								  OPT_SET_END
 
 #define DECLARE_BOOL_OPTS_1(OPT_1)					\
   GENERIC_OPT_SET_1( auth,	bool, BOOL_DEFAULT, OPT_1);		\
@@ -98,6 +107,16 @@
   GENERIC_OPT_SET_6( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6); \
   GENERIC_OPT_SET_6( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6); \
   GENERIC_OPT_SET_6( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6);
+#define DECLARE_BOOL_OPTS_7(OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7)	\
+  GENERIC_OPT_SET_7( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7); \
+  GENERIC_OPT_SET_7( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7); \
+  GENERIC_OPT_SET_7( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7); \
+  GENERIC_OPT_SET_7( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7);
+#define DECLARE_BOOL_OPTS_8(OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8) \
+  GENERIC_OPT_SET_8( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8); \
+  GENERIC_OPT_SET_8( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8); \
+  GENERIC_OPT_SET_8( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8); \
+  GENERIC_OPT_SET_8( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8);
 
 #define DECLARE_STRING_OPTS_0 DECLARE_STRING_OPTS_1( empty )
 #define DECLARE_STRING_OPTS_1(OPT_1)				 \

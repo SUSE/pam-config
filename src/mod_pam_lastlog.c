@@ -27,12 +27,12 @@
 #include "pam-module.h"
 
 static int
-parse_config_loginuid (pam_module_t *this, char *args, write_type_t type)
+parse_config_lastlog (pam_module_t *this, char *args, write_type_t type)
 {
   option_set_t *opt_set = this->get_opt_set (this, type);
 
   if (debug)
-    printf ("**** parse_config_loginuid (%s): '%s'\n", type2string (type),
+    printf ("**** parse_config_lastlog (%s): '%s'\n", type2string (type),
 	    args ? args : "");
 
   opt_set->enable (opt_set, "is_enabled", TRUE);
@@ -44,16 +44,24 @@ parse_config_loginuid (pam_module_t *this, char *args, write_type_t type)
 	while (isspace ((int) *args))
 	  ++args;
 
-      if (strcmp (cp, "require_auditd") == 0)
-	opt_set->enable (opt_set, "require_auditd", TRUE);
-      else
-	print_unknown_option_error ("pam_loginuid.so", cp);
+      if (opt_set->enable (opt_set, cp, TRUE) == FALSE)
+	print_unknown_option_error ("pam_lastlog.so", cp);
     }
   return 1;
 }
 
+
+static void
+write_config_internal (FILE *fp, option_set_t *opt_set)
+{
+  fprintf (fp, "session  required\tpam_lastlog.so\t");
+  if (opt_set->is_enabled (opt_set, "require_auditd"))
+    fprintf (fp, "require_auditd ");
+  fprintf (fp, "\n");
+}
+
 static int
-write_config_loginuid (pam_module_t *this,
+write_config_lastlog (pam_module_t *this,
 		       enum write_type op __attribute__((unused)),
 		       FILE *unused)
 {
@@ -64,7 +72,7 @@ write_config_loginuid (pam_module_t *this,
   int writeit = opt_set->is_enabled (opt_set, "is_enabled");
 
   if (debug)
-    printf ("**** write_config_loginuid (%s) (%s)\n", gl_service,
+    printf ("**** write_config_lastlog (%s) (%s)\n", gl_service,
 	    writeit?"enable":"disable");
 
   assert (unused == NULL);
@@ -77,43 +85,45 @@ write_config_loginuid (pam_module_t *this,
     {
       if (writeit)
 	{
-	  if (!is_written)
-	    {
-	      if (strcasestr (ptr->line, "session") != NULL)
-		{
-		  fprintf (fp, "session  required\tpam_loginuid.so\t");
-		  if (opt_set->is_enabled (opt_set, "require_auditd"))
-		    fprintf (fp, "require_auditd ");
-		  fprintf (fp, "\n");
-		  is_written = 1;
-		}
-	    }
+          /* don't write old pam_lastlog.so line */
+          if (strcasestr (ptr->line, "pam_lastlog.so") == NULL)
+            fprintf (fp, "%s", ptr->line);
 
-	  /* don't write old pam_loginuid.so line */
-	  if (strcasestr (ptr->line, "pam_loginuid.so") == NULL)
-	    fprintf (fp, "%s", ptr->line);
-	}
+          if (!is_written)
+            {
+              if (strcasestr (ptr->line, "common-session") != NULL)
+                {
+		  write_config_internal (fp, opt_set);
+                  is_written = 1;
+                }
+            }
+        }
       else
-	{
-	  if (strcasestr (ptr->line, "pam_loginuid.so") == NULL)
-	    fprintf (fp, "%s", ptr->line);
-	  else
-	    is_written = 1;
-	}
+        {
+          if (strcasestr (ptr->line, "pam_lastlog.so") == NULL)
+            fprintf (fp, "%s", ptr->line);
+          else
+            is_written = 1;
+        }
+
       ptr = ptr->next;
     }
+
+  /* make sure we really write it if we have to add it. */
+  if (!is_written && writeit)
+    write_config_internal (fp, opt_set);
 
   return close_service_file (fp, gl_service);
 }
 
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_2 (is_enabled, require_auditd);
+DECLARE_BOOL_OPTS_8 (is_enabled, debug, silent, never, nodate, nohost, noterm, nowtmp);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
-pam_module_t mod_pam_loginuid = { "pam_loginuid.so", opt_sets,
-			       &parse_config_loginuid,
+pam_module_t mod_pam_lastlog = { "pam_lastlog.so", opt_sets,
+			       &parse_config_lastlog,
 			       &def_print_module,
-			       &write_config_loginuid,
+			       &write_config_lastlog,
 			       &get_opt_set};

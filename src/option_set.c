@@ -42,12 +42,6 @@ enable (option_set_t * this, char *key, int value)
 	}
       current_opt++;
     }
-  /* XXX for debugging */
-  if (strcmp (key, "debug") != 0 && strcmp (key, "nullok") != 0)
-    {
-       fprintf (stderr, "ERROR: enable: key '%s' not found!\n", key);
-       abort ();
-    }
   return FALSE;
 }
 
