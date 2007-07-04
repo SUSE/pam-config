@@ -81,20 +81,6 @@ type2string (write_type_t wt)
   else return "<unknown type>";
 }
 
-int
-handle_module( const char *file, char *m, char *arguments , pam_module_t **module_list, write_type_t type ){
-  pam_module_t *module = lookup( module_list, m );
-  if( NULL != module ){
-    if( ! module->parse_config( module, arguments, type ) ){
-      fprintf (stderr, _("%s (%s): Arguments will be ignored\n"),  file, m );
-    }
-  }
-  else{
-    fprintf (stderr, _("%s: Unknown module %s, ignored!\n"), file, m);
-  }
-  return 1;
-}
-
 void
 print_module_config (pam_module_t **module_list, const char *module)
 {

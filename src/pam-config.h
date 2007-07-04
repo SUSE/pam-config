@@ -20,14 +20,27 @@
 #include "pam-module.h"
 
 
+struct config_content_t {
+  char *line;
+  struct config_content_t *next;
+};
+typedef struct config_content_t config_content_t;
+
+
 extern int debug;
+extern char *gl_service;
+
 
 int load_obsolete_conf (pam_module_t **module_list);
 
 int load_config (const char *file, write_type_t wtype,
-                 pam_module_t **module_list);
+                 pam_module_t **module_list, int warn_unknown_mod);
 int write_config (write_type_t op, const char *file,
 		  pam_module_t **module_list);
+
+int load_single_config (const char *config_name, config_content_t **ptr);
+FILE *create_service_file (const char *service);
+int close_service_file (FILE *fp, const char *service);
 
 int sanitize_check_account (pam_module_t **module_list);
 int sanitize_check_auth (pam_module_t **module_list);

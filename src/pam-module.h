@@ -179,13 +179,6 @@ void print_module_config (pam_module_t **module_list, const char *module);
 int is_module_enabled (pam_module_t **module_list, const char *module,
 		       write_type_t op);
 
-/* handle_module
- *
- * gets called by load_config for each module-name string it
- * encounters.
- */
-int handle_module( const char *file, char *m, char *arguments , pam_module_t **module_list, write_type_t type );
-
 void print_unknown_option_error (const char *module, const char *option);
 
 #endif

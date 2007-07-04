@@ -80,6 +80,8 @@ print_help (const char *program)
   fputs (_("  -d, --delete      Remove options/PAM modules\n"), stdout);
   fputs (_("      --initialize  Convert old config and create new one\n"),
 	 stdout);
+  fputs (_("  --service config  Service to modify config of\n"),
+	 stdout);
   fputs (_("      --update      Read current config and write them new\n"),
          stdout);
   fputs (_("  -q, --query       Query for installed modules and options\n"),
@@ -142,6 +144,8 @@ relink (const char *file, const char *file_pc, const char *file_bak)
   return 0;
 }
 
+char *gl_service = NULL;
+
 int
 main (int argc, char *argv[])
 {
@@ -177,7 +181,28 @@ main (int argc, char *argv[])
       print_error (program);
       return 1;
     }
-  else if (strcmp (argv[1], "-a") == 0 || strcmp (argv[1], "--add") == 0)
+
+  if (strncmp (argv[1], "--service", 9) == 0)
+    {
+      if (argv[1][9] == '=')
+	gl_service = &argv[1][10];
+      else
+	{
+	  if (argv[2][0] == '-')
+	    {
+	      print_error (program);
+	      return 1;
+	    }
+
+	  gl_service = argv[2];
+	  argc--;
+	  argv++;
+	}
+      argc--;
+      argv++;
+    }
+
+  if (strcmp (argv[1], "-a") == 0 || strcmp (argv[1], "--add") == 0)
     {
       m_add = 1;
       argc--;
@@ -185,6 +210,11 @@ main (int argc, char *argv[])
     }
   else if (strcmp (argv[1], "-c") == 0 || strcmp (argv[1], "--create") == 0)
     {
+      if (gl_service)
+	{
+	  print_error (program);
+	  return 1;
+	}
       m_create = 1;
       argc--;
       argv++;
@@ -203,7 +233,7 @@ main (int argc, char *argv[])
       argc--;
       argv++;
 
-      if (argc > 1)
+      if (argc > 1 || gl_service)
 	{
 	  print_error (program);
 	  return 1;
@@ -213,17 +243,17 @@ main (int argc, char *argv[])
 	 files and delete them afterwards.  */
       load_obsolete_conf (common_module_list);
 
-      if (load_config (CONF_ACCOUNT, ACCOUNT, common_module_list) != 0)
+      if (load_config (CONF_ACCOUNT, ACCOUNT, common_module_list, 1) != 0)
 	{
 	load_old_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH, AUTH, common_module_list) != 0)
+      if (load_config (CONF_AUTH, AUTH, common_module_list, 1) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_PASSWORD, PASSWORD, common_module_list) != 0)
+      if (load_config (CONF_PASSWORD, PASSWORD, common_module_list, 1) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_SESSION, SESSION, common_module_list) != 0)
+      if (load_config (CONF_SESSION, SESSION, common_module_list, 1) != 0)
 	goto load_old_config_error;
     }
   else if (strcmp (argv[1], "--update") == 0)
@@ -247,30 +277,58 @@ main (int argc, char *argv[])
 	  return 1;
 	}
 
-      if (load_config (CONF_ACCOUNT_PC, ACCOUNT, common_module_list) != 0)
+      if (!gl_service)
 	{
-	load_config_error:
-	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
-	  return 1;
+	  if (load_config (CONF_ACCOUNT_PC, ACCOUNT, common_module_list, 1) != 0)
+	    {
+	    load_config_error:
+	      fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
+	      return 1;
+	    }
+	  if (load_config (CONF_AUTH_PC, AUTH, common_module_list, 1) != 0)
+	    goto load_config_error;
+	  if (load_config (CONF_PASSWORD_PC, PASSWORD, common_module_list, 1) != 0)
+	    goto load_config_error;
+	  if (load_config (CONF_SESSION_PC, SESSION, common_module_list, 1) != 0)
+	    goto load_config_error;
 	}
-      if (load_config (CONF_AUTH_PC, AUTH, common_module_list) != 0)
-	goto load_config_error;
-      if (load_config (CONF_PASSWORD_PC, PASSWORD, common_module_list) != 0)
-	goto load_config_error;
-      if (load_config (CONF_SESSION_PC, SESSION, common_module_list) != 0)
-	goto load_config_error;
+      else
+	{
+	  /* --service option given */
+	  char *fname;
+
+	  if (asprintf (&fname, CONFDIR"/pam.d/%s", gl_service) < 0)
+	    return 1;
+
+	  if (load_config (fname, ACCOUNT, service_module_list, 0) != 0)
+	    {
+	    load_config_error2:
+	      fprintf (stderr,
+		       _("\nCouldn't load config file '%s', aborted!\n"),
+		       fname);
+	      return 1;
+	    }
+	  if (load_config (fname, AUTH, service_module_list, 0) != 0)
+	    goto load_config_error2;
+	  if (load_config (fname, PASSWORD, service_module_list, 0) != 0)
+	    goto load_config_error2;
+	  if (load_config (fname, SESSION, service_module_list, 0) != 0)
+	    goto load_config_error2;
+	}
     }
 
   while (1)
     {
       int c;
       int option_index = 0;
-      static struct option long_options[] = {
-        {"version",   no_argument, NULL, 'v' },
-        {"usage",     no_argument, NULL, 'u' },
-        {"force",     no_argument, NULL, 'f' },
-	{"nullok",    no_argument, NULL, 900 },
-	{"pam-debug", no_argument, NULL, 901 },
+      static struct option common_long_options[] = {
+        {"version",                   no_argument,       NULL,  'v' },
+        {"usage",                     no_argument,       NULL,  'u' },
+        {"force",                     no_argument,       NULL,  'f' },
+	{"debug",                     no_argument,       NULL,  254 },
+        {"help",                      no_argument,       NULL,  255 },
+	{"nullok",                    no_argument,       NULL,  900 },
+	{"pam-debug",                 no_argument,       NULL,  901 },
 	/* pam_pwcheck */
 	{"pwcheck",                   no_argument,       NULL, 1000 },
 	{"pwcheck-debug",             no_argument,       NULL, 1001 },
@@ -329,13 +387,28 @@ main (int argc, char *argv[])
 	{"umask-silent",          no_argument,       NULL, 2302 },
 	{"umask-usergroups",      no_argument,       NULL, 2303 },
 	{"umask-umask",           required_argument, NULL, 2304 },
-	{"debug",                 no_argument,       NULL,  254 },
-        {"help",                  no_argument,       NULL,  255 },
         {NULL,                    0,                 NULL,    0 }
       };
+      static struct option service_long_options[] = {
+        {"version",               no_argument,       NULL,  'v' },
+        {"usage",                 no_argument,       NULL,  'u' },
+        {"force",                 no_argument,       NULL,  'f' },
+	{"debug",                 no_argument,       NULL,  254 },
+        {"help",                  no_argument,       NULL,  255 },
+	{"nullok",                no_argument,       NULL,  900 },
+	{"pam-debug",             no_argument,       NULL,  901 },
+	{"loginuid",              no_argument,       NULL, 3000 },
+        {"loginuid-require_auditd", no_argument,     NULL, 3001 },
+        {"lastlog",               required_argument, NULL, 3050 },
 
-      c = getopt_long (argc, argv, "fvu",
-                       long_options, &option_index);
+	{NULL,                    0,                 NULL,    0 }
+      };
+      if (!gl_service)
+	c = getopt_long (argc, argv, "fvu",
+			 common_long_options, &option_index);
+      else
+	c = getopt_long (argc, argv, "fvu",
+			 service_long_options, &option_index);
 
       if (c == (-1))
         break;
@@ -365,6 +438,22 @@ main (int argc, char *argv[])
 	case 901: /* --pam-debug */
 	  {
 	    pam_module_t **modptr = common_module_list;
+
+	    while (*modptr != NULL)
+	      {
+		opt_set = (*modptr)->get_opt_set (*modptr, AUTH);
+		opt_set->enable (opt_set, "debug", opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, ACCOUNT);
+		opt_set->enable (opt_set, "debug", opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, PASSWORD);
+		opt_set->enable (opt_set, "debug", opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, SESSION);
+		opt_set->enable (opt_set, "debug", opt_val);
+
+		++modptr;
+	      }
+
+	    modptr = service_module_list;
 
 	    while (*modptr != NULL)
 	      {
@@ -865,6 +954,24 @@ main (int argc, char *argv[])
 	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
 	  opt_set->set_opt (opt_set, "umask", optarg);
 	  break;
+	  /* From here we have single service modules */
+	case 3000:
+          /* pam_loginuid.so */
+	  if (m_query)
+	    print_module_config (service_module_list, "pam_loginuid.so");
+	  else
+	    {
+	      if (check_for_pam_module ("pam_loginuid.so", force) != 0)
+		return 1;
+	      opt_set = mod_pam_loginuid.get_opt_set (&mod_pam_loginuid,
+						      SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	    }
+	  break;
+        case 3001:
+	  opt_set = mod_pam_loginuid.get_opt_set (&mod_pam_loginuid, SESSION);
+	      opt_set->enable (opt_set, "require_auditd", opt_val);
+          break;
 	case 254:
 	  debug = 1;
 	  break;
@@ -951,7 +1058,7 @@ main (int argc, char *argv[])
       if (write_config (SESSION, CONF_SESSION_PC, module_list_session) != 0)
 	return 1;
     }
-  else
+  else if (!gl_service)
     {
       /* Write account section.  */
       if (write_config (ACCOUNT, CONF_ACCOUNT_PC, module_list_account) != 0)
@@ -972,6 +1079,20 @@ main (int argc, char *argv[])
       /* Write session section.  */
       if (write_config (SESSION, CONF_SESSION_PC, module_list_session) != 0)
 	return 1;
+    }
+  else
+    {
+      /* Write new single service files */
+      pam_module_t **modptr = service_module_list;
+
+      if (debug)
+	printf ("*** write_config ("CONFDIR"/pam.d/%s)\n", gl_service);
+
+      while (*modptr != NULL)
+	{
+	  (*modptr)->write_config (*modptr, -1, NULL);
+	  ++modptr;
+	}
     }
 
   if (m_init || (m_create && force))
@@ -1000,7 +1121,7 @@ main (int argc, char *argv[])
 	}
       return retval;
     }
-  else if (force)
+  else if (force && !gl_service)
     {
       if (unlink (CONF_ACCOUNT) != 0 ||
 	  symlink (CONF_ACCOUNT_PC, CONF_ACCOUNT) != 0)
@@ -1045,14 +1166,17 @@ main (int argc, char *argv[])
 	}
     }
 
-  if (check_symlink (CONF_ACCOUNT_PC, CONF_ACCOUNT) != 0)
-    retval = 1;
-  if (check_symlink (CONF_AUTH_PC, CONF_AUTH) != 0)
-    retval = 1;
-  if (check_symlink (CONF_PASSWORD_PC, CONF_PASSWORD) != 0)
-    retval = 1;
-  if (check_symlink (CONF_SESSION_PC, CONF_SESSION) != 0)
-    retval = 1;
+  if (!gl_service)
+    {
+      if (check_symlink (CONF_ACCOUNT_PC, CONF_ACCOUNT) != 0)
+	retval = 1;
+      if (check_symlink (CONF_AUTH_PC, CONF_AUTH) != 0)
+	retval = 1;
+      if (check_symlink (CONF_PASSWORD_PC, CONF_PASSWORD) != 0)
+	retval = 1;
+      if (check_symlink (CONF_SESSION_PC, CONF_SESSION) != 0)
+	retval = 1;
+    }
 
   return retval;
 }

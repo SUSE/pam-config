@@ -15,6 +15,10 @@ extern pam_module_t mod_pam_umask;
 extern pam_module_t mod_pam_unix2;
 extern pam_module_t mod_pam_winbind;
 
+
+/* modules for single services only.  */
+extern pam_module_t mod_pam_loginuid;
+
 pam_module_t *common_module_list[] = {
   &mod_pam_apparmor,
   &mod_pam_ccreds,
@@ -79,5 +83,10 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_nam,
   &mod_pam_umask,
   &mod_pam_env,
+  NULL
+};
+
+pam_module_t *service_module_list[] = {
+  &mod_pam_loginuid,
   NULL
 };

@@ -1,11 +1,11 @@
 .\"     Title: pam-config
 .\"    Author: 
 .\" Generator: DocBook XSL Stylesheets v1.72.0 <http://docbook.sf.net/>
-.\"      Date: 07/02/2007
+.\"      Date: 07/04/2007
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "07/02/2007" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "07/04/2007" "Reference Manual" "Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -251,11 +251,6 @@ Add
 option to pam_unix2.so in session section.
 .RE
 .PP
-\fB\-\-bioapi\fR
-.RS 4
-Add pam_bioapi.so as sufficient module before pam_unix2.so to auth section.
-.RE
-.PP
 \fB\-\-unix2\-call_modules=\fR\fImodule,...\fR
 .RS 4
 Add
@@ -404,23 +399,6 @@ to pam_cracklib.so.
 Specify
 \fIpath\fR
 where pam_cracklib.so can find the cracklib dictionaries.
-.RE
-.PP
-\fB\-\-capability\fR
-.RS 4
-Enable/Disable pam_capability.so module in session section.
-.RE
-.PP
-\fB\-\-capability\-debug\fR
-.RS 4
-Add
-\fBdebug\fR
-option to all pam_capability.so invocations.
-.RE
-.PP
-\fB\-\-capability\-conf=\fR\fI/path/config\fR
-.RS 4
-Specify a different config file for pam_capability.so.
 .RE
 .SH "SEE ALSO"
 .PP

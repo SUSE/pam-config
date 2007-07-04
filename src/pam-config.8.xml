@@ -363,15 +363,6 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term><option>--bioapi</option></term>
-        <listitem>
-          <para>
-            Add pam_bioapi.so as sufficient module before pam_unix2.so
-            to auth section.
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
         <term><option>--unix2-call_modules=</option><replaceable>module,...</replaceable></term>
         <listitem>
           <para>
@@ -573,31 +564,6 @@
           <para>
             Specify <replaceable>path</replaceable> where pam_cracklib.so
             can find the cracklib dictionaries.
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term><option>--capability</option></term>
-        <listitem>
-          <para>
-            Enable/Disable pam_capability.so module in session section.
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term><option>--capability-debug</option></term>
-        <listitem>
-          <para>
-            Add <option>debug</option> option to all pam_capability.so
-            invocations.
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term><option>--capability-conf=</option><replaceable>/path/config</replaceable></term>
-        <listitem>
-          <para>
-            Specify a different config file for pam_capability.so.
           </para>
         </listitem>
       </varlistentry>
