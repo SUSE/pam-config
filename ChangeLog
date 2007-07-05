@@ -1,3 +1,16 @@
+2007-07-05  Sven Schober <sschober@suse.de>
+	* src/mod_pam_unix.c: Changed option "big_crypt" to
+	"bigcrypt".
+	* src/mod_pam_mount.c: New.
+	* src/pam-config.c: Added options for pam_mount.so.
+	* src/mod_pam_unix.c: Added support for pam_mount.so:
+	"use_first_pass" gets appended if pam_mount.so is enabled.
+	* src/mod_pam_unix2.c: same as above.
+	* src/pam-config.8.xml: Added documentation for pam_mount.so
+	and pam_unix.so.
+	* src/supported-modules.h: Added pam_mount.so to
+	common_module_list, auth and session list. 
+	* src/Makefile.am: Added mod_pam_mount.c. 
 2007-07-04  Sven Schober <sschober@suse.de>
 
 	* src/mod_pam_unix.c: New. 

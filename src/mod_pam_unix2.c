@@ -70,7 +70,7 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
   int with_krb5, with_ldap, with_lum, with_winbind, with_pwcheck,
-    with_cracklib;
+    with_cracklib, with_mount;
 
   if (debug)
     printf ("**** write_config_unix2 (...)\n");
@@ -78,12 +78,13 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
-  with_krb5 = is_module_enabled (common_module_list, "pam_krb5.so", op);
-  with_ldap = is_module_enabled (common_module_list, "pam_ldap.so", op);
-  with_lum = is_module_enabled (common_module_list, "pam_lum.so", op);
-  with_winbind = is_module_enabled (common_module_list, "pam_winbind.so", op);
-  with_pwcheck = is_module_enabled (common_module_list, "pam_pwcheck.so", op);
+  with_krb5	= is_module_enabled (common_module_list, "pam_krb5.so"	  , op);
+  with_ldap	= is_module_enabled (common_module_list, "pam_ldap.so"	  , op);
+  with_lum	= is_module_enabled (common_module_list, "pam_lum.so"	  , op);
+  with_winbind	= is_module_enabled (common_module_list, "pam_winbind.so" , op);
+  with_pwcheck	= is_module_enabled (common_module_list, "pam_pwcheck.so" , op);
   with_cracklib = is_module_enabled (common_module_list, "pam_cracklib.so", op);
+  with_mount	= is_module_enabled (common_module_list, "pam_mount.so"	  , op);
 
   switch (op)
   {
@@ -93,6 +94,11 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 	fprintf (fp, "auth\tsufficient\tpam_unix2.so\t");
       else
 	fprintf (fp, "auth\trequired\tpam_unix2.so\t");
+      if (with_mount)
+	/* if pam_mount is enabled it asks for a pw so we use that
+	 * one. 
+	 * */
+	fprintf (fp, "use_first_pass ");
       break;
     case ACCOUNT:
       if (with_krb5 || with_ldap || with_lum || with_winbind)

@@ -16,6 +16,7 @@ extern pam_module_t mod_pam_umask;
 extern pam_module_t mod_pam_unix2;
 extern pam_module_t mod_pam_unix;
 extern pam_module_t mod_pam_winbind;
+extern pam_module_t mod_pam_mount;
 
 
 /* modules for single services only.  */
@@ -36,6 +37,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_pkcs11,
   &mod_pam_pwcheck,
   &mod_pam_umask,
+  &mod_pam_mount,
   &mod_pam_unix2,
   &mod_pam_unix,
   &mod_pam_winbind,
@@ -56,6 +58,7 @@ static pam_module_t *module_list_account[] = {
 static pam_module_t *module_list_auth[] = {
   &mod_pam_env,
   &mod_pam_pkcs11,
+  &mod_pam_mount, 
   &mod_pam_unix2,
   &mod_pam_unix,
   &mod_pam_krb5,
@@ -87,6 +90,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_krb5,
   &mod_pam_ldap,
   &mod_pam_winbind,
+  &mod_pam_mount,
   &mod_pam_nam,
   &mod_pam_umask,
   &mod_pam_env,

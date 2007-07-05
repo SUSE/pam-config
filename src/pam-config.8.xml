@@ -261,6 +261,17 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>--mount</option></term>
+        <listitem>
+          <para>
+	    Add pam_mount.so to auth and session section. It gets
+	    added before pam_unix.so or pam_unix2.so (depending on
+	    which is enabled) in the auth section, which in turn
+	    get the option <option>use_first_pass</option> appended.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>--limits</option></term>
         <listitem>
           <para>
@@ -324,6 +335,63 @@
         <listitem>
           <para>
             Add <replaceable>path</replaceable> as argument for pam_make.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix</option></term>
+        <listitem>
+          <para>
+	    Use pam_unix.so as standard UNIX PAM module. Note that
+	    pam_unix.so and pam_unix2.so are mutually exclusive. If
+	    you want to add pam_unix.so, first remove pam_unix2.so.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix-debug</option></term>
+        <listitem>
+          <para>
+            Add <option>debug</option> option to all pam_unix.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix-audit</option></term>
+        <listitem>
+          <para>
+            Add <option>audit</option> option to all pam_unix.so
+	    invocations. Note that this option overrides
+	    <option>debug</option>.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix-nullok</option></term>
+        <listitem>
+          <para>
+            Add <option>nullok</option> option to all pam_unix.so
+            invocations.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix-bigcrypt</option></term>
+        <listitem>
+          <para>
+            Add <option>bigcrypt</option> option to pam_unix.so in
+	    password section.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--unix-md5</option></term>
+        <listitem>
+          <para>
+	    Add <option>md5</option> option to pam_unix.so in
+	    password section. Note that this option overrides
+	    <option>bigcrypt</option>.
           </para>
         </listitem>
       </varlistentry>

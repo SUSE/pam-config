@@ -1,11 +1,11 @@
-.\"     Title: pam-config
+.\"     Title: pam\-config
 .\"    Author: 
-.\" Generator: DocBook XSL Stylesheets v1.72.0 <http://docbook.sf.net/>
-.\"      Date: 07/04/2007
+.\" Generator: DocBook XSL Stylesheets v1.71.1 <http://docbook.sf.net/>
+.\"      Date: 07/05/2007
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "07/04/2007" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "07/05/2007" "Reference Manual" "Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -177,6 +177,13 @@ Add
 to pam_mkhomedir.so.
 .RE
 .PP
+\fB\-\-mount\fR
+.RS 4
+Add pam_mount.so to auth and session section. It gets added before pam_unix.so or pam_unix2.so (depending on which is enabled) in the auth section, which in turn get the option
+\fBuse_first_pass\fR
+appended.
+.RE
+.PP
 \fB\-\-limits\fR
 .RS 4
 Add pam_limits.so to session section.
@@ -223,6 +230,48 @@ Add pam_make.so as last module to password section.
 Add
 \fIpath\fR
 as argument for pam_make.so.
+.RE
+.PP
+\fB\-\-unix\fR
+.RS 4
+Use pam_unix.so as standard UNIX PAM module. Note that pam_unix.so and pam_unix2.so are mutually exclusive. If you want to add pam_unix.so, first remove pam_unix2.so.
+.RE
+.PP
+\fB\-\-unix\-debug\fR
+.RS 4
+Add
+\fBdebug\fR
+option to all pam_unix.so invocations.
+.RE
+.PP
+\fB\-\-unix\-audit\fR
+.RS 4
+Add
+\fBaudit\fR
+option to all pam_unix.so invocations. Note that this option overrides
+\fBdebug\fR.
+.RE
+.PP
+\fB\-\-unix\-nullok\fR
+.RS 4
+Add
+\fBnullok\fR
+option to all pam_unix.so invocations.
+.RE
+.PP
+\fB\-\-unix\-bigcrypt\fR
+.RS 4
+Add
+\fBbigcrypt\fR
+option to pam_unix.so in password section.
+.RE
+.PP
+\fB\-\-unix\-md5\fR
+.RS 4
+Add
+\fBmd5\fR
+option to pam_unix.so in password section. Note that this option overrides
+\fBbigcrypt\fR.
 .RE
 .PP
 \fB\-\-unix2\fR

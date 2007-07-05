@@ -370,7 +370,7 @@ main (int argc, char *argv[])
         {"unix-nullok",     no_argument,        NULL, 1703 },
         {"unix-shadow",     no_argument,        NULL, 1704 },
         {"unix-md5",        no_argument,        NULL, 1705 },
-        {"unix-big_crypt",  no_argument,        NULL, 1706 },
+        {"unix-bigcrypt",  no_argument,        NULL, 1706 },
 	{"krb5",                  no_argument,       NULL, 1800 },
 	{"krb5-debug",            no_argument,       NULL, 1801 },
 	{"krb5-minimum_uid",      required_argument, NULL, 1802 },
@@ -394,6 +394,7 @@ main (int argc, char *argv[])
 	{"umask-silent",          no_argument,       NULL, 2302 },
 	{"umask-usergroups",      no_argument,       NULL, 2303 },
 	{"umask-umask",           required_argument, NULL, 2304 },
+	{"mount",		  no_argument,	     NULL, 2400 },
         {NULL,                    0,                 NULL,    0 }
       };
       static struct option service_long_options[] = {
@@ -785,13 +786,13 @@ main (int argc, char *argv[])
 	  break;
 	case 1706:
 	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
-	  opt_set->enable (opt_set, "big_crypt", opt_val);
+	  opt_set->enable (opt_set, "bigcrypt", opt_val);
 	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
-	  opt_set->enable (opt_set, "big_crypt", opt_val);
+	  opt_set->enable (opt_set, "bigcrypt", opt_val);
 	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
-	  opt_set->enable (opt_set, "big_crypt", opt_val);
+	  opt_set->enable (opt_set, "bigcrypt", opt_val);
 	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
-	  opt_set->enable (opt_set, "big_crypt", opt_val);
+	  opt_set->enable (opt_set, "bigcrypt", opt_val);
 	  break;
 	case 1800:
 	  /* use_krb5 */
@@ -1037,6 +1038,20 @@ main (int argc, char *argv[])
 	case 2304:
 	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
 	  opt_set->set_opt (opt_set, "umask", optarg);
+	  break;
+	case 2400:
+	  /* pam_mount.so */
+	  if (m_query)
+	    print_module_config (common_module_list, "pam_mount.so");
+	  else
+	    {
+	      if (check_for_pam_module ("pam_mount.so", force) != 0)
+		return 1;
+	      opt_set = mod_pam_mount.get_opt_set (&mod_pam_mount, AUTH);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	      opt_set = mod_pam_mount.get_opt_set (&mod_pam_mount, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	    }
 	  break;
 	  /* From here we have single service modules */
 	case 3000:
