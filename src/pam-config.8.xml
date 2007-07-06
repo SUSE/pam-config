@@ -315,14 +315,6 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term><option>--xauth</option></term>
-        <listitem>
-          <para>
-            Add pam_xauth.so as required module to session section.
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
         <term><option>--make</option></term>
         <listitem>
           <para>
