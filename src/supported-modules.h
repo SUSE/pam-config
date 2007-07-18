@@ -17,6 +17,7 @@ extern pam_module_t mod_pam_unix2;
 extern pam_module_t mod_pam_unix;
 extern pam_module_t mod_pam_winbind;
 extern pam_module_t mod_pam_mount;
+extern pam_module_t mod_pam_deny;
 
 
 /* modules for single services only.  */
@@ -41,6 +42,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_unix2,
   &mod_pam_unix,
   &mod_pam_winbind,
+  &mod_pam_deny,
   NULL
 };
 

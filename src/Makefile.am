@@ -24,7 +24,7 @@ pam_config_SOURCES = pam-config.c load_config.c write_config.c \
 	mod_pam_mkhomedir.c mod_pam_ccreds.c mod_pam_winbind.c \
 	mod_pam_localuser.c mod_pam_env.c mod_pam_limits.c mod_pam_krb5.c \
 	mod_pam_cracklib.c mod_pam_apparmor.c mod_pam_nam.c mod_pam_pkcs11.c \
-	mod_pam_make.c mod_pam_unix.c mod_pam_mount.c \
+	mod_pam_make.c mod_pam_unix.c mod_pam_mount.c mod_pam_deny.c \
 	single_config.c mod_pam_loginuid.c mod_pam_lastlog.c
 
 noinst_HEADERS = pam-config.h

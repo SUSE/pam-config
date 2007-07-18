@@ -125,6 +125,9 @@ write_config_krb5 (pam_module_t * this, enum write_type op, FILE * fp)
       fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
     }
 
+  if (op == AUTH && !(with_ldap || with_nam || with_winbind))
+	  fprintf (fp, "auth\trequired\tpam_deny.so\n");
+
   return 0;
 }
 

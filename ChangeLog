@@ -1,3 +1,9 @@
+2007-07-18  Michael Calmer <mc@suse.de>
+	* src/mod_pam_deny.c: New.
+	* src/supported-modules.h: Added pam_deny.so.
+	* src/mod_pam_krb5.c: If pam_krb5 is the last enabled module add
+	a required pam_deny.so to the end of the AUTH section.
+
 2007-07-05  Thorsten Kukuk  <kukuk@suse.de>
 
 	* src/pam-config.8.xml: Remove obsoete xauth entry.
