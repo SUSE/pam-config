@@ -1,3 +1,15 @@
+2007-07-23  Sven Schober <sschober@suse.de>
+	* src/pam-module.h: Added doxygen documentation.
+	* src/single_config.c: Documentation and conveniance
+	functions. 
+	* src/pam-config.c: Changed pam_mount support to single
+	service file.
+	* src/mod_pam_cryptpass.c: Added support for pam_cryptpass.
+	* src/pam-config.h: Added doxygen documentation.
+	* src/mod_pam_mount.c: Changed pam_mount support to single
+	service file.
+	* src/supported-modules.h: --- " ----
+
 2007-07-18  Michael Calmer <mc@suse.de>
 	* src/mod_pam_deny.c: New.
 	* src/supported-modules.h: Added pam_deny.so.

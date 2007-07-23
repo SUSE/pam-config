@@ -162,7 +162,6 @@ main (int argc, char *argv[])
   textdomain(PACKAGE);
 
   openlog (program, LOG_ODELAY | LOG_PID, LOG_AUTHPRIV);
-
   if (argc < 2)
     {
       print_error (program);
@@ -181,19 +180,18 @@ main (int argc, char *argv[])
       print_error (program);
       return 1;
     }
-
   if (strncmp (argv[1], "--service", 9) == 0)
     {
-      if (argv[1][9] == '=')
+      if (argv[1][9] == '='){
 	gl_service = &argv[1][10];
+      }
       else
 	{
-	  if (argv[2][0] == '-')
+	  if ( argc < 3 || argv[2][0] == '-')
 	    {
 	      print_error (program);
 	      return 1;
 	    }
-
 	  gl_service = argv[2];
 	  argc--;
 	  argv++;
@@ -201,7 +199,12 @@ main (int argc, char *argv[])
       argc--;
       argv++;
     }
-
+  if (argc < 2)
+    {
+      print_error (program);
+      return 1;
+    }
+  
   if (strcmp (argv[1], "-a") == 0 || strcmp (argv[1], "--add") == 0)
     {
       m_add = 1;
@@ -316,7 +319,6 @@ main (int argc, char *argv[])
 	    goto load_config_error2;
 	}
     }
-
   while (1)
     {
       int c;
@@ -394,7 +396,6 @@ main (int argc, char *argv[])
 	{"umask-silent",          no_argument,       NULL, 2302 },
 	{"umask-usergroups",      no_argument,       NULL, 2303 },
 	{"umask-umask",           required_argument, NULL, 2304 },
-	{"mount",		  no_argument,	     NULL, 2400 },
         {NULL,                    0,                 NULL,    0 }
       };
       static struct option service_long_options[] = {
@@ -408,6 +409,8 @@ main (int argc, char *argv[])
 	{"loginuid",              no_argument,       NULL, 3000 },
         {"loginuid-require_auditd", no_argument,     NULL, 3001 },
         {"lastlog",               no_argument,       NULL, 3050 },
+	{"mount",		  no_argument,	     NULL, 3100 },
+	{"cryptpass",		  no_argument,	     NULL, 3200 },
 	{NULL,                    0,                 NULL,    0 }
       };
       if (!gl_service)
@@ -1039,20 +1042,6 @@ main (int argc, char *argv[])
 	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
 	  opt_set->set_opt (opt_set, "umask", optarg);
 	  break;
-	case 2400:
-	  /* pam_mount.so */
-	  if (m_query)
-	    print_module_config (common_module_list, "pam_mount.so");
-	  else
-	    {
-	      if (check_for_pam_module ("pam_mount.so", force) != 0)
-		return 1;
-	      opt_set = mod_pam_mount.get_opt_set (&mod_pam_mount, AUTH);
-	      opt_set->enable (opt_set, "is_enabled", opt_val);
-	      opt_set = mod_pam_mount.get_opt_set (&mod_pam_mount, SESSION);
-	      opt_set->enable (opt_set, "is_enabled", opt_val);
-	    }
-	  break;
 	  /* From here we have single service modules */
 	case 3000:
           /* pam_loginuid.so */
@@ -1083,6 +1072,30 @@ main (int argc, char *argv[])
 						     SESSION);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	      opt_set->enable (opt_set, "nowtmp", opt_val);
+	    }
+	  break;
+	case 3100:
+	  /* pam_mount.so */
+	  if (m_query)
+	    print_module_config (service_module_list, "pam_mount.so");
+	  else
+	    {
+	      if (check_for_pam_module ("pam_mount.so", force) != 0)
+		return 1;
+	      opt_set = mod_pam_mount.get_opt_set (&mod_pam_mount, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	    }
+	  break;
+	case 3200:
+	  /* pam_cryptpass.so */
+	  if (m_query)
+	    print_module_config (service_module_list, "pam_cryptpass.so");
+	  else
+	    {
+	      if (check_for_pam_module ("pam_cryptpass.so", force) != 0)
+		return 1;
+	      opt_set = mod_pam_cryptpass.get_opt_set (&mod_pam_cryptpass, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
 	case 254:

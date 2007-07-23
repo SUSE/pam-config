@@ -95,6 +95,58 @@ load_single_config (const char *config_name, config_content_t **ptr)
   return 0;
 }
 
+int
+write_single_config (const char *service, config_content_t **cfg_content)
+{
+  FILE *fp;
+  fp = create_service_file (service);
+  if (fp == NULL) return 0;
+
+  if ( cfg_content == NULL || *cfg_content == NULL) DEBUG ("cfg_content was null!\n" );
+  while (*cfg_content != NULL)
+  {
+    fprintf (fp, "%s", (*cfg_content)->line);
+    *cfg_content = (*cfg_content)->next;
+  }
+  return close_service_file (fp,gl_service);
+}
+
+int
+insert_if ( config_content_t **cfg, const char *line, int (*predicate)(config_content_t *next))
+{
+  int is_written = 0;
+  config_content_t *last = NULL, *cptr = NULL, *start = NULL;
+  config_content_t *cfg_content = *cfg;
+  start = cfg_content;
+  while (cfg_content != NULL)
+  {
+    if (!is_written)
+    {
+      if ( predicate (cfg_content))
+      {
+	cptr = malloc (sizeof (config_content_t));
+	if (cptr)
+	{
+	  cptr->line = strdup ( line );
+	  cptr->next = cfg_content;
+	  if (last)
+	    last->next = cptr;
+	}
+	else{
+	  return FALSE;
+	}
+	is_written = 1;
+      }
+    }
+    /* skip ourselves */
+    if ( !is_written && strcmp (cfg_content->line, line) == 0) is_written=1;
+    last = cfg_content;
+    cfg_content = cfg_content->next;
+  }
+  cfg_content = start;
+  return TRUE; 
+}
+
 static char *tmp_file;
 
 FILE *

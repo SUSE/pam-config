@@ -1,3 +1,10 @@
+/** 
+ * @file mod_pam_mount.c
+ * @brief Support for PAM module pam_mount.
+ * @author Sven Schober <sschober@suse.de>
+ * @date 2007-07-23
+ */
+
 /* Copyright (C) 2007 Sven Schober
    Author: Sven Schober <sschober@suse.de>
 
@@ -14,6 +21,7 @@
    along with this program; if not, write to the Free Software Foundation,
    Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
 
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -24,6 +32,17 @@
 
 #include "pam-config.h"
 #include "pam-module.h"
+
+/** 
+ * @brief Function to parse in a line from a service file and store
+ * the options to the opt_set of the instance specified by *this.
+ * 
+ * @param this The pam-module instance to work on.
+ * @param args The line from the service file.
+ * @param type One of AUTH, SESSION, PASS or ACCOUNT
+ * 
+ * @return 1
+ */
 
 static int
 parse_config_mount (pam_module_t *this, char *args, write_type_t type)
@@ -52,35 +71,75 @@ parse_config_mount (pam_module_t *this, char *args, write_type_t type)
 	  print_unknown_option_error ("pam_mount.so", cp);
       }
     }
-  return 1;
+  return TRUE;
 }
 
+/** 
+ * @brief Writes two lines out to the service file specified by
+ * gl_servie.
+ *
+ * The line concerning the auth stack is inserted before
+ * the first line in the existing file containing the substring
+ * "auth".  
+ * The other one concerning session is simply appended to the
+ * service file.
+ *
+ * @param this A pointer to the "object" instance this function is
+ * working on.
+ * 
+ * @return 
+ */
 static int
-write_config_mount (pam_module_t *this, enum write_type op, FILE *fp)
+write_config_mount (  pam_module_t *this,
+		      enum write_type op __attribute__((unused)),
+		      FILE *unused __attribute__((unused)))
 {
-  option_set_t *opt_set = this->get_opt_set (this, op);
+  option_set_t *opt_set = this->get_opt_set (this, SESSION);
+  int is_written = 0;
+  FILE *fp;
+  config_content_t *cfg_content;
+  int writeit = opt_set->is_enabled (opt_set, "is_enabled");
 
   if (debug)
     printf ("**** write_config_mount (...)\n");
 
-  if (!opt_set->is_enabled (opt_set, "is_enabled"))
-    return 0;
+  load_single_config (gl_service, &cfg_content);
 
-  switch (op)
+  fp = create_service_file (gl_service);
+
+  while (cfg_content != NULL)
   {
-    case AUTH:
-      fprintf (fp, "auth\trequired\tpam_mount.so\t");
-      break;
-    case SESSION:
-      fprintf (fp, "session\toptional\tpam_mount.so\t");
-      break;
-    default:
-      fprintf (stderr, _("Management group %s not supported by pam_mount.so"), type2string (op));
+    if (writeit)
+    {
+      if (!is_written)
+      {
+	/* make sure pam_mount.so get's written to the service file
+	 * _before_ the include common-auth line.
+	 */
+	if (strcasestr (cfg_content->line, "auth") != NULL)
+	{
+	  fprintf (fp, "auth\toptional\tpam_mount.so\n");
+	  is_written = 1;
+	}
+      }
+      /* skip old entries */
+      if (strcasestr (cfg_content->line, "pam_mount.so") == NULL )
+	fprintf (fp, "%s", cfg_content->line);
+    }
+    else
+    {
+      /* skip old entries */
+      if (strcasestr (cfg_content->line, "pam_mount.so") == NULL)
+	fprintf (fp, "%s", cfg_content->line);
+      else
+	is_written = 1;
+    }
+    cfg_content = cfg_content->next;
   }
-  
-  fprintf (fp, "\n");
+  if (writeit)
+    fprintf (fp, "session  required       pam_mount.so\n");
 
-  return 0;
+  return close_service_file (fp,gl_service);
 }
 
 
