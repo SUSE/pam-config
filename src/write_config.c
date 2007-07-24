@@ -29,6 +29,10 @@
 
 #include "pam-config.h"
 
+#define DEF_UID 0
+#define DEF_GID 0
+#define DEF_MODE 0644
+
 int
 write_config (write_type_t op, const char *file, pam_module_t **module_list)
 {
@@ -37,6 +41,10 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
   char *tmpfname;
   FILE *fp;
   int fd;
+  /* defaults for uid, gid and mode */
+  uid_t user_id = DEF_UID;
+  gid_t group_id = DEF_GID;
+  mode_t mode = DEF_MODE;
 
   if (debug)
     printf ("*** write_config (%s, %s, ...)\n", opc, file);
@@ -44,15 +52,20 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
   if (asprintf (&tmpfname, "%s.XXXXXX", file) < 0)
     return -1;
 
-  stat (file, &f_stat);
+  if ( stat (file, &f_stat) == 0 ){
+    user_id = f_stat.st_uid;
+    group_id = f_stat.st_gid;
+    mode = f_stat.st_mode;
+  }
+
   fd = mkstemp (tmpfname);
-  if (fchmod (fd, f_stat.st_mode) < 0)
+  if (fchmod (fd, mode) < 0)
     {
       fprintf (stderr, _("Cannot set permissions for '%s': %m\n"),
                tmpfname);
       return 1;
     }
-  if (fchown (fd, f_stat.st_uid, f_stat.st_gid) < 0)
+  if (fchown (fd, user_id, group_id) < 0)
     {
       fprintf (stderr,
                _("Cannot change owner/group for `%s': %m\n"),

@@ -1,3 +1,7 @@
+2007-07-24  Sven Schober <sschober@suse.de>
+	* src/pam-module.h: Minor modification to debug macro.
+	* src/write_config.c: Fixed a bug where uid, gui and st_mode
+	where set to unsensible values when file didn't exist yet.
 2007-07-23  Sven Schober <sschober@suse.de>
 	* src/pam-module.h: Added doxygen documentation.
 	* src/single_config.c: Documentation and conveniance

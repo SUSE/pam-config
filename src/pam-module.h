@@ -47,7 +47,7 @@
 #define STRING_DEFAULT	NULL
 #define BOOL_DEFAULT	FALSE
 
-#define DEBUG(args...)  fprintf( stderr, args ) 
+#define DEBUG(args...)  fprintf( stderr, "%s [%d]: ", __FILE__, __LINE__ );fprintf( stderr, args ) 
 
 #define OPT_NAME(PREFIX, NAME) PREFIX ## _opt_ ## NAME
 
@@ -334,5 +334,6 @@ int is_module_enabled (pam_module_t **module_list, const char *module,
  * @param option the unknown option
  */
 void print_unknown_option_error (const char *module, const char *option);
+
 
 #endif
