@@ -100,10 +100,9 @@ write_single_config (const char *service, config_content_t **cfg_content)
 {
   FILE *fp;
   fp = create_service_file (service);
-  if (fp == NULL) return 0;
+  if (fp == NULL) return 1;
 
-  if ( cfg_content == NULL || *cfg_content == NULL) DEBUG ("cfg_content was null!\n" );
-  while (*cfg_content != NULL)
+  while (cfg_content != NULL && *cfg_content != NULL)
   {
     fprintf (fp, "%s", (*cfg_content)->line);
     *cfg_content = (*cfg_content)->next;
@@ -162,7 +161,14 @@ create_service_file (const char *service)
   if (asprintf (&conffile, CONFDIR"/pam.d/%s", service) < 0)
     return NULL;
 
-  stat (conffile, &f_stat);
+  if (stat (conffile, &f_stat) != 0)
+  {
+    fprintf (stderr, _("Cannot stat '%s': %m\n"), conffile);
+    free (tmp_file);
+    free (conffile);
+    return NULL;
+  }
+
   free (conffile);
   fd = mkstemp (tmp_file);
   if (fchmod (fd, f_stat.st_mode) < 0)

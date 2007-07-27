@@ -29,8 +29,6 @@
 
 #include "pam-config.h"
 
-#define DEF_UID 0
-#define DEF_GID 0
 #define DEF_MODE 0644
 
 int
@@ -42,8 +40,8 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
   FILE *fp;
   int fd;
   /* defaults for uid, gid and mode */
-  uid_t user_id = DEF_UID;
-  gid_t group_id = DEF_GID;
+  uid_t user_id = getuid();
+  gid_t group_id = getgid();
   mode_t mode = DEF_MODE;
 
   if (debug)

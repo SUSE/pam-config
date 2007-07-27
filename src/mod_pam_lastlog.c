@@ -90,6 +90,7 @@ write_config_lastlog (pam_module_t *this,
   load_single_config (gl_service, &ptr);
 
   fp = create_service_file (gl_service);
+  if( fp == NULL ) return 1; 
 
   while (ptr != NULL)
     {

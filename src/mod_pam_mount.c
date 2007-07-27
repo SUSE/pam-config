@@ -76,7 +76,7 @@ parse_config_mount (pam_module_t *this, char *args, write_type_t type)
 
 /** 
  * @brief Writes two lines out to the service file specified by
- * gl_servie.
+ * gl_service.
  *
  * The line concerning the auth stack is inserted before
  * the first line in the existing file containing the substring
@@ -101,11 +101,12 @@ write_config_mount (  pam_module_t *this,
   int writeit = opt_set->is_enabled (opt_set, "is_enabled");
 
   if (debug)
-    printf ("**** write_config_mount (...)\n");
-
+    printf ("**** write_config_mount (%s)\n", gl_service);
+  
   load_single_config (gl_service, &cfg_content);
 
   fp = create_service_file (gl_service);
+  if (!fp) return 0;
 
   while (cfg_content != NULL)
   {

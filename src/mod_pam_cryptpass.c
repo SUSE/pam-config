@@ -79,7 +79,7 @@ write_config_cryptpass (  pam_module_t *this,
   load_single_config (gl_service, &cfg_content);
 
   if (debug)
-    printf ("**** write_config_cryptpass (...)\n");
+    printf ("**** write_config_cryptpass (%s)\n", gl_service);
   /* TODO:
    *  - see, that mod_pam_mount also uses this mechanism
    *  - make the insertion point configurable (ATM: just 'before')

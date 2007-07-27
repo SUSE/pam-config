@@ -1218,6 +1218,19 @@ main (int argc, char *argv[])
       if (debug)
 	printf ("*** write_config ("CONFDIR"/pam.d/%s)\n", gl_service);
 
+      /* Check if service file exists */
+      char *conffile;
+      if (asprintf (&conffile, CONFDIR"/pam.d/%s", gl_service) < 0)
+	return 1;
+
+      if (access (conffile, R_OK) != 0)
+      {
+	fprintf (stderr, _("Cannot access '%s': %m\n"), conffile);
+	free (conffile);
+	return 1;
+      }
+      free (conffile);
+
       while (*modptr != NULL)
 	{
 	  (*modptr)->write_config (*modptr, -1, NULL);
