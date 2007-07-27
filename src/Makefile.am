@@ -30,7 +30,7 @@ pam_config_SOURCES = pam-config.c load_config.c write_config.c \
 noinst_HEADERS = pam-config.h
 
 if ENABLE_REGENERATE_MAN
-%.8: %.8.xml
+pam-config.8: pam-config.8.xml
 	$(XMLLINT) --nonet --xinclude --postvalid --noout $<
 	$(XSLTPROC) -o $(srcdir)/$@ --path $(srcdir) --xinclude --nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $<
 endif

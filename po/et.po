@@ -1,30 +1,28 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Thorsten Kukuk
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# translation of pam-config.et.po to Estonian
+# Ain Vagula <avagula@gmail.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: pam-config.et\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-27 11:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2007-07-20 09:39+0300\n"
+"Last-Translator: Ain Vagula <avagula@gmail.com>\n"
+"Language-Team: Estonian <linux-ee@lists.eenet.ee>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: src/load_config.c:131
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
-msgstr ""
+msgstr "%s (%s): argumente eiratakse\n"
 
 #: src/load_config.c:135
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
-msgstr ""
+msgstr "%s: tundmatu moodul %s, eiratakse!\n"
 
 #: src/load_obsolete_conf.c:68 src/load_obsolete_conf.c:93
 #: src/load_obsolete_conf.c:128 src/load_obsolete_conf.c:158
@@ -32,47 +30,49 @@ msgstr ""
 #: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
-msgstr ""
+msgstr "VIGA: tundmatu teenus: [%s: %s], eiratakse!\n"
 
 #: src/load_obsolete_conf.c:288
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "HOIATUS: kasuta sätte 'md5' määramiseks faili /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:290
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
+"HOIATUS: kasuta sätte 'bigcrypt' määramiseks faili /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:294
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
+"HOIATUS: kasuta sätte 'blowfish' määramiseks faili /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "VIGA: tundmatu säte (%s): [%s: %s], eiratakse!\n"
 
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "HOIATUS: tundmatu säte (%s): [%s: %s], eiratakse!\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "Palun kasuta 'md5' sätte määramiseks faili /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:356
 #, c-format
 msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr ""
+msgstr "Palun kasuta sätte 'bigcrypt' määramiseks faili /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:360
 #, c-format
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
-msgstr ""
+msgstr "Palun kasuta sätte 'blowfish' määramiseks faili /etc/default/passwd\n"
 
 #: src/mod_pam_unix.c:98
 #, c-format
@@ -93,7 +93,7 @@ msgstr ""
 #: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
-msgstr ""
+msgstr "Kasutamine: %s -a|-c|-d [...]\n"
 
 #: src/pam-config.c:56
 #, c-format
@@ -106,7 +106,7 @@ msgstr ""
 #: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
-msgstr ""
+msgstr "Rohkema teabe samiseks proovi `%s --help' või `%s --usage'.\n"
 
 #: src/pam-config.c:76
 #, c-format
@@ -114,22 +114,24 @@ msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
+"%s - PAM-i häälestusfaili loomine\n"
+"\n"
 
 #: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
-msgstr ""
+msgstr "  -a, --add         Sätete/PAM-i moodulite lisamine\n"
 
 #: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
-msgstr ""
+msgstr "  -c, --create      Uue häälestuse loomine\n"
 
 #: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
-msgstr ""
+msgstr "  -d, --delete      Sätete/PAM-i moodulite eemaldamine\n"
 
 #: src/pam-config.c:81
 msgid "      --initialize  Convert old config and create new one\n"
-msgstr ""
+msgstr "      --initialize  Vana häälestuse teisendamine ja uue loomine\n"
 
 #: src/pam-config.c:83
 msgid "  --service config  Service to modify config of\n"
@@ -138,44 +140,45 @@ msgstr ""
 #: src/pam-config.c:85
 msgid "      --update      Read current config and write them new\n"
 msgstr ""
+"      --update      Praeguse häälestuse lugemine ja uuesti kirjutamine\n"
 
 #: src/pam-config.c:87
 msgid "  -q, --query       Query for installed modules and options\n"
-msgstr ""
+msgstr "  -q, --query       Paigaldatud moodulite ja sätete päring\n"
 
 #: src/pam-config.c:89
 msgid "      --help        Give this help list\n"
-msgstr ""
+msgstr "      --help        Antud abiteabe kuvamine\n"
 
 #: src/pam-config.c:90
 msgid "  -u, --usage       Give a short usage message\n"
-msgstr ""
+msgstr "  -u, --usage       Lühiteabe kuvamine kasutamise kohta\n"
 
 #: src/pam-config.c:91
 msgid "  -v, --version     Print program version\n"
-msgstr ""
+msgstr "  -v, --version     Programmi versiooni väljastamine\n"
 
 #: src/pam-config.c:102 src/pam-config.c:139 src/pam-config.c:1260
 #: src/pam-config.c:1270 src/pam-config.c:1280 src/pam-config.c:1291
 #, c-format
 msgid "Error activating %s (%m)\n"
-msgstr ""
+msgstr "Error activating %s (%m)\n"
 
 #: src/pam-config.c:104 src/pam-config.c:141 src/pam-config.c:1262
 #: src/pam-config.c:1272 src/pam-config.c:1282 src/pam-config.c:1293
 #, c-format
 msgid "New config from %s is not in use!\n"
-msgstr ""
+msgstr "Uus häälestus asukohast %s pole kasutusel!\n"
 
 #: src/pam-config.c:119
 #, c-format
 msgid "File %s is no symlink to %s.\n"
-msgstr ""
+msgstr "Fail %s pole sümboolne viit failile %s.\n"
 
 #: src/pam-config.c:121
 #, c-format
 msgid "New config from %s is is not in use!\n"
-msgstr ""
+msgstr "Uus häälestus asukohast %s pole kasutusel!\n"
 
 #: src/pam-config.c:252 src/pam-config.c:288
 #, c-format
@@ -183,24 +186,28 @@ msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
+"\n"
+"Häälestusfaili laadimine nurjus, katkestatakse!\n"
 
 #: src/pam-config.c:310
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
+"\n"
+"Häälestusfaili laadimine nurjus, katkestatakse!\n"
 
 #: src/pam-config.c:1124
 #, c-format
 msgid "%s: Too many arguments.\n"
-msgstr ""
+msgstr "%s: Liiga palju argumente.\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:99
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
-msgstr ""
+msgstr "Tundmatu säte mooduli %s jaoks, eiratakse: '%s'\n"
 
 #: src/sanity_checks.c:46
 #, c-format
@@ -237,21 +244,21 @@ msgid "ERR: Failed to disable pam_unix.so.\n"
 msgstr ""
 
 #: src/single_config.c:170 src/write_config.c:64
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr ""
+msgstr "Pole võimalik luua %s: %m\n"
 
 #: src/single_config.c:179 src/write_config.c:71
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr ""
+msgstr "Pole võimalik luua %s: %m\n"
 
 #: src/single_config.c:189
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr ""
+msgstr "Pole võimalik luua %s: %m\n"
 
 #: src/write_config.c:79
 #, c-format
 msgid "Cannot create %s: %m\n"
-msgstr ""
+msgstr "Pole võimalik luua %s: %m\n"

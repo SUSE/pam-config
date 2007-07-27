@@ -1,30 +1,31 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of pam-config.po to Panjabi
 # Copyright (C) YEAR Thorsten Kukuk
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# A S Alam <aalam@users.sf.net>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-27 11:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2007-06-28 13:54+0530\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Panjabi <punjabi-l10n@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
 
 #: src/load_config.c:131
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
-msgstr ""
+msgstr "%s (%s): ਆਰਗੂਮਿੰਟ ਅਣਡਿੱਠਾ ਕੀਤਾ ਜਾਵੇਗਾ\n"
 
 #: src/load_config.c:135
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
-msgstr ""
+msgstr "%s: ਅਣਜਾਣ ਮੋਡੀਊਲ %s, ਅਣਡਿੱਠਾ ਕੀਤਾ!\n"
 
 #: src/load_obsolete_conf.c:68 src/load_obsolete_conf.c:93
 #: src/load_obsolete_conf.c:128 src/load_obsolete_conf.c:158
@@ -93,7 +94,7 @@ msgstr ""
 #: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
-msgstr ""
+msgstr "ਵਰਤੋਂ: %s -a|-c|-d [...]\n"
 
 #: src/pam-config.c:56
 #, c-format
@@ -102,6 +103,9 @@ msgid ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
+"Copyright (C) %s Thorsten Kukuk.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
 #: src/pam-config.c:68
 #, c-format
@@ -114,22 +118,24 @@ msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
+"%s - create PAM config files\n"
+"\n"
 
 #: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
-msgstr ""
+msgstr "  -a, --add         Add options/PAM modules\n"
 
 #: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
-msgstr ""
+msgstr "  -c, --create      Create new configuration\n"
 
 #: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
-msgstr ""
+msgstr "  -d, --delete      Remove options/PAM modules\n"
 
 #: src/pam-config.c:81
 msgid "      --initialize  Convert old config and create new one\n"
-msgstr ""
+msgstr "      --initialize  Convert old config and create new one\n"
 
 #: src/pam-config.c:83
 msgid "  --service config  Service to modify config of\n"
@@ -137,23 +143,23 @@ msgstr ""
 
 #: src/pam-config.c:85
 msgid "      --update      Read current config and write them new\n"
-msgstr ""
+msgstr "      --update      Read current config and write them new\n"
 
 #: src/pam-config.c:87
 msgid "  -q, --query       Query for installed modules and options\n"
-msgstr ""
+msgstr "  -q, --query       Query for installed modules and options\n"
 
 #: src/pam-config.c:89
 msgid "      --help        Give this help list\n"
-msgstr ""
+msgstr "      --help        Give this help list\n"
 
 #: src/pam-config.c:90
 msgid "  -u, --usage       Give a short usage message\n"
-msgstr ""
+msgstr "  -u, --usage       Give a short usage message\n"
 
 #: src/pam-config.c:91
 msgid "  -v, --version     Print program version\n"
-msgstr ""
+msgstr "  -v, --version     Print program version\n"
 
 #: src/pam-config.c:102 src/pam-config.c:139 src/pam-config.c:1260
 #: src/pam-config.c:1270 src/pam-config.c:1280 src/pam-config.c:1291
@@ -170,7 +176,7 @@ msgstr ""
 #: src/pam-config.c:119
 #, c-format
 msgid "File %s is no symlink to %s.\n"
-msgstr ""
+msgstr "ਫਾਇਲ %s %s ਨਾਲ ਸਿਮਲਿੰਕ ਨਹੀਂ ਹੈ।\n"
 
 #: src/pam-config.c:121
 #, c-format
@@ -194,7 +200,7 @@ msgstr ""
 #: src/pam-config.c:1124
 #, c-format
 msgid "%s: Too many arguments.\n"
-msgstr ""
+msgstr "%s: ਬਹੁਤ ਵੱਧ ਆਰਗੂਮਿੰਟ।\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:99

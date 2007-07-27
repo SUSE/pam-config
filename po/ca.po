@@ -1,20 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Thorsten Kukuk
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-27 11:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2002-02-08 15:47+0100\n"
+"Last-Translator: Jaume Badiella <myotis@drac.com>\n"
+"Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -91,22 +86,28 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:47
-#, c-format
+#, fuzzy, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
-msgstr ""
+msgstr "Sintaxi: %s [ --paranoid ]\n"
 
 #: src/pam-config.c:56
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"Aquest programari és lliure; consulteu al codi font les condicions de còpia. "
+"NO hi ha cap\n"
+"garantia, ni tan sols de COMERCIABILITAT o ADEQUACIÓ PER A CAP PROPÒSIT EN "
+"PARTICULAR.\n"
 
 #: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
-msgstr ""
+msgstr "Proveu `%s --help' o `%s --usage' per a obtenir més informació.\n"
 
 #: src/pam-config.c:76
 #, c-format
@@ -144,22 +145,25 @@ msgid "  -q, --query       Query for installed modules and options\n"
 msgstr ""
 
 #: src/pam-config.c:89
+#, fuzzy
 msgid "      --help        Give this help list\n"
-msgstr ""
+msgstr "  --help         Proporciona aquesta llista d'ajuda\n"
 
 #: src/pam-config.c:90
+#, fuzzy
 msgid "  -u, --usage       Give a short usage message\n"
-msgstr ""
+msgstr "  --usage        Proporciona un missatge breu sobre la sintaxi\n"
 
 #: src/pam-config.c:91
+#, fuzzy
 msgid "  -v, --version     Print program version\n"
-msgstr ""
+msgstr "  --version      Imprimeix la versió del programa\n"
 
 #: src/pam-config.c:102 src/pam-config.c:139 src/pam-config.c:1260
 #: src/pam-config.c:1270 src/pam-config.c:1280 src/pam-config.c:1291
-#, c-format
+#, fuzzy, c-format
 msgid "Error activating %s (%m)\n"
-msgstr ""
+msgstr "Error en activar l'espai d'intercanvi."
 
 #: src/pam-config.c:104 src/pam-config.c:141 src/pam-config.c:1262
 #: src/pam-config.c:1272 src/pam-config.c:1282 src/pam-config.c:1293
@@ -168,9 +172,11 @@ msgid "New config from %s is not in use!\n"
 msgstr ""
 
 #: src/pam-config.c:119
-#, c-format
+#, fuzzy, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr ""
+"El fitxer %s no està signat.\n"
+"Voleu utilitzar-lo de tota manera?"
 
 #: src/pam-config.c:121
 #, c-format
@@ -178,23 +184,23 @@ msgid "New config from %s is is not in use!\n"
 msgstr ""
 
 #: src/pam-config.c:252 src/pam-config.c:288
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
-msgstr ""
+msgstr "No s'ha pogut carregar el fitxer de so %s com a la mostra %s"
 
 #: src/pam-config.c:310
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
-msgstr ""
+msgstr "No s'ha pogut carregar el fitxer de so %s com a la mostra %s"
 
 #: src/pam-config.c:1124
-#, c-format
+#, fuzzy, c-format
 msgid "%s: Too many arguments.\n"
-msgstr ""
+msgstr "Hi ha massa arguments."
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:99
@@ -237,21 +243,21 @@ msgid "ERR: Failed to disable pam_unix.so.\n"
 msgstr ""
 
 #: src/single_config.c:170 src/write_config.c:64
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr ""
+msgstr "No es pot executar stat a %s: %m"
 
 #: src/single_config.c:179 src/write_config.c:71
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr ""
+msgstr "No es pot executar stat a %s: %m"
 
 #: src/single_config.c:189
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr ""
+msgstr "No es pot executar stat a %s: %m"
 
 #: src/write_config.c:79
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot create %s: %m\n"
-msgstr ""
+msgstr "No es pot executar stat a %s: %m"

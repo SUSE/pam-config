@@ -1,20 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Thorsten Kukuk
-# This file is distributed under the same license as the PACKAGE package.
+# @TITLE@
+# Copyright (C) 2006, SUSE Linux GmbH, Nuremberg
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# This file is distributed under the same license as @PACKAGE@ package. FIRST
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-27 11:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2005-08-14 05:40+0200\n"
+"Last-Translator: Rinse de Vries <rinsedevries@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.10.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -91,22 +93,28 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:47
-#, c-format
+#, fuzzy, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
-msgstr ""
+msgstr "Gebruik: %s [ --paranoid ]\n"
 
 #: src/pam-config.c:56
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+" Dit is gratis software; zie de broncode voor voorwaarden voor kopiëren.  Er "
+"is GEEN\n"
+" garantie; zelfs niet voor VERHANDELBAAHEID of GESCHIKTHEID VOOR EEN BEPAALD "
+"DOEL.\n"
 
 #: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
-msgstr ""
+msgstr "Probeer '%s --help' of '%s --usage' voor meer informatie.\n"
 
 #: src/pam-config.c:76
 #, c-format
@@ -144,22 +152,25 @@ msgid "  -q, --query       Query for installed modules and options\n"
 msgstr ""
 
 #: src/pam-config.c:89
+#, fuzzy
 msgid "      --help        Give this help list\n"
-msgstr ""
+msgstr "  --help      toon deze informatie\n"
 
 #: src/pam-config.c:90
+#, fuzzy
 msgid "  -u, --usage       Give a short usage message\n"
-msgstr ""
+msgstr "  --usage      geen een kort bericht over het gebruik\n"
 
 #: src/pam-config.c:91
+#, fuzzy
 msgid "  -v, --version     Print program version\n"
-msgstr ""
+msgstr "  --version     geef de programmaversie\n"
 
 #: src/pam-config.c:102 src/pam-config.c:139 src/pam-config.c:1260
 #: src/pam-config.c:1270 src/pam-config.c:1280 src/pam-config.c:1291
-#, c-format
+#, fuzzy, c-format
 msgid "Error activating %s (%m)\n"
-msgstr ""
+msgstr "Fout opgetreden tijdens het activeren van de swapruimte."
 
 #: src/pam-config.c:104 src/pam-config.c:141 src/pam-config.c:1262
 #: src/pam-config.c:1272 src/pam-config.c:1282 src/pam-config.c:1293
@@ -168,9 +179,11 @@ msgid "New config from %s is not in use!\n"
 msgstr ""
 
 #: src/pam-config.c:119
-#, c-format
+#, fuzzy, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr ""
+"Bestand %s is niet ondertekend.\n"
+"Wilt u het toch gebruiken?"
 
 #: src/pam-config.c:121
 #, c-format
@@ -178,23 +191,24 @@ msgid "New config from %s is is not in use!\n"
 msgstr ""
 
 #: src/pam-config.c:252 src/pam-config.c:288
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
-msgstr ""
+msgstr "Kan geluidsbestand %s niet laden als sample %s"
 
 #: src/pam-config.c:310
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
-msgstr ""
+msgstr "Kan geluidsbestand %s niet laden als sample %s"
 
+# /usr/lib/YaST2/clients/lan_inetd_custom.ycp:764
 #: src/pam-config.c:1124
-#, c-format
+#, fuzzy, c-format
 msgid "%s: Too many arguments.\n"
-msgstr ""
+msgstr "Teveel argumenten."
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:99
@@ -237,21 +251,21 @@ msgid "ERR: Failed to disable pam_unix.so.\n"
 msgstr ""
 
 #: src/single_config.c:170 src/write_config.c:64
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr ""
+msgstr "Kan de status van %s niet bepalen: %m"
 
 #: src/single_config.c:179 src/write_config.c:71
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr ""
+msgstr "Kan de status van %s niet bepalen: %m"
 
 #: src/single_config.c:189
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr ""
+msgstr "Kan de status van %s niet bepalen: %m"
 
 #: src/write_config.c:79
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot create %s: %m\n"
-msgstr ""
+msgstr "Kan de status van %s niet bepalen: %m"
