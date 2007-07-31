@@ -91,6 +91,15 @@ print_help (const char *program)
   fputs (_("  -v, --version     Print program version\n"), stdout);
 }
 
+static void
+list_modules (pam_module_t **module_list)
+{
+  while (*module_list != NULL) {
+    fprintf (stdout, "\t%s\n",(*module_list)->name); 
+    module_list++;
+  };
+}
+
 static int
 check_symlink (const char *old, const char *new)
 {
@@ -329,6 +338,7 @@ main (int argc, char *argv[])
         {"force",                     no_argument,       NULL,  'f' },
 	{"debug",                     no_argument,       NULL,  254 },
         {"help",                      no_argument,       NULL,  255 },
+        {"list-modules",              no_argument,       NULL,  300 },
 	{"nullok",                    no_argument,       NULL,  900 },
 	{"pam-debug",                 no_argument,       NULL,  901 },
 	/* pam_pwcheck */
@@ -1104,6 +1114,12 @@ main (int argc, char *argv[])
 	case 255:
           print_help (program);
           return 0;
+	case 300:
+	  fprintf (stdout,_("Supported common modules:\n"));
+	  list_modules (common_module_list);
+	  fprintf (stdout,_("\nSupported service modules:\n"));
+	  list_modules (service_module_list);
+	  return 0;
         case 'v':
           print_version (program, "2007");
           return 0;

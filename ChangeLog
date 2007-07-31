@@ -2,6 +2,7 @@
 	* pam-config.8.xml: Overhauled documentation. Added
 	description of single service options and gave some usage
 	examples.
+	* pam-config.c: Added "--list-modules" option.
 
 2007-07-27  Sven Schober <sschober@suse.de>
 	* pam-config.c: Added check if (single) service file exists

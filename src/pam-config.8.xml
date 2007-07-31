@@ -20,6 +20,7 @@
     <cmdsynopsis>
       <command>pam-config</command>
       <arg choice='opt'>--debug</arg>
+      <arg choice='opt'>--list-modules</arg>
       <arg choice='opt'>--service <replaceable>service-name</replaceable></arg>
       <group choice='plain'><arg choice='plain'>-a</arg><arg choice='plain'>-c</arg><arg choice='plain'>-d</arg><arg choice='plain'>-q</arg></group>
       <arg choice='opt'>-f</arg>
@@ -63,11 +64,10 @@
 	  </listitem>
 	</varlistentry>
 	<varlistentry>
-	  <term><option>--pam-debug</option></term>
+	  <term><option>--list-modules</option></term>
 	  <listitem>
 	    <para>
-	      Add <option>debug</option> to all modules which support
-	      this.
+	      Prints out a list of all supported modules to stdout.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -76,6 +76,15 @@
 	  <listitem>
 	    <para>
 	      Add <option>nullok</option> to all modules which support
+	      this.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>--pam-debug</option></term>
+	  <listitem>
+	    <para>
+	      Add <option>debug</option> to all modules which support
 	      this.
 	    </para>
 	  </listitem>

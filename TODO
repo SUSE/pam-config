@@ -6,12 +6,3 @@
   config files
 
 - Add minclass option for pam_cracklib
-
-- Add pam_mount support
-
-- Add plain pam_unix support
-
-- pam-config should print a list of all supported modules
-  currently only mentioned in the manual page
-
-- Sort modules in manual page alphabetical.
