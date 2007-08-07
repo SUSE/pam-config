@@ -129,11 +129,11 @@ write_config_cryptpass (  pam_module_t *this,
     /* remove every occurrence of pam_cryptpass.so from the service
      * file 
      */
-    status = remove_module (&cfg_content, "pam_cryptpass.so");
+    remove_module (&cfg_content, "pam_cryptpass.so");
   }
   if (!status)
   {
-    fprintf (stderr, _("ERROR: Could not add/remove pam_cryptpass.so to/from service '%s'"), gl_service);
+    fprintf (stderr, _("ERROR: Could not add pam_cryptpass.so to service '%s'"), gl_service);
     return 1;
   }
 

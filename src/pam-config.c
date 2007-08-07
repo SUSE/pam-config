@@ -421,6 +421,8 @@ main (int argc, char *argv[])
         {"lastlog",               no_argument,       NULL, 3050 },
 	{"mount",		  no_argument,	     NULL, 3100 },
 	{"cryptpass",		  no_argument,	     NULL, 3200 },
+	{"ck_connector",	  no_argument,	     NULL, 3300 },
+	{"ck_connector-debug",	  no_argument,	     NULL, 3301 },
 	{NULL,                    0,                 NULL,    0 }
       };
       if (!gl_service)
@@ -1107,6 +1109,22 @@ main (int argc, char *argv[])
 	      opt_set = mod_pam_cryptpass.get_opt_set (&mod_pam_cryptpass, SESSION);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
+	  break;
+	case 3300:
+	  /* pam_ck_connector.so */
+	  if (m_query)
+	    print_module_config (service_module_list, "pam_ck_connector.so");
+	  else
+	    {
+	      if (check_for_pam_module ("pam_ck_connector.so", force) != 0)
+		return 1;
+	      opt_set = mod_pam_ck_connector.get_opt_set (&mod_pam_ck_connector, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	    }
+	  break;
+	case 3301:
+	  opt_set = mod_pam_ck_connector.get_opt_set (&mod_pam_ck_connector, SESSION);
+	  opt_set->enable (opt_set, "debug", opt_val);
 	  break;
 	case 254:
 	  debug = 1;

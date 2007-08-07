@@ -8,6 +8,8 @@
 	and add prototype for remove_module().
 	* src/mod_pam_cryptpass.c: Module now gets added to the
 	password stack, also.
+	* src/mod_pam_ck_connector.c: Module support added (single
+	service).
 2007-07-31  Sven Schober <sschober@suse.de>
 	* src/pam-config.8.xml: Overhauled documentation. Added
 	description of single service options and gave some usage

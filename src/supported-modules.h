@@ -23,6 +23,7 @@ extern pam_module_t mod_pam_winbind;
 extern pam_module_t mod_pam_loginuid;
 extern pam_module_t mod_pam_mount;
 extern pam_module_t mod_pam_cryptpass;
+extern pam_module_t mod_pam_ck_connector;
 
 pam_module_t *common_module_list[] = {
   &mod_pam_apparmor,
@@ -102,5 +103,6 @@ pam_module_t *service_module_list[] = {
   &mod_pam_cryptpass,
   &mod_pam_loginuid,
   &mod_pam_lastlog,
+  &mod_pam_ck_connector,
   NULL
 };

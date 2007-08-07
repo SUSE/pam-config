@@ -667,6 +667,24 @@
 	</para>
 	<variablelist>
 	  <varlistentry>
+	    <term><option>--ck_connector</option></term>
+	    <listitem>
+	      <para>
+		Add pam_ck_connector.so to session section of the
+		specified service file.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><option>--ck_connector-debug</option></term>
+	    <listitem>
+	      <para>
+		Add <option>debug</option> option to any invocation of
+		pam_ck_connector.so in the specified service file.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
 	    <term><option>--cryptpass</option></term>
 	    <listitem>
 	      <para>
