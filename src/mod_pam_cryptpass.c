@@ -23,7 +23,6 @@
 #include <ctype.h>
 
 #include "pam-config.h"
-#include "pam-module.h"
 
 static int
 parse_config_cryptpass (pam_module_t *this, char *args, write_type_t type)
@@ -55,17 +54,47 @@ parse_config_cryptpass (pam_module_t *this, char *args, write_type_t type)
   return 1;
 }
 
-/* this predicate is needed by the insert_if function.
- * it evaluates to true if the argument line contains pam_mount.so.
- * this leads to pam_crypt.so to be written _before_ pam_mount.so
- */
 static int
-pred_cryptpass (config_content_t *cfg_content)
+session_pred_cryptpass (config_content_t *cfg_content)
 {
+  /* insert if current line contains pam_mount.so ... */
   return strcasestr (cfg_content->line, "pam_mount.so") != NULL
-	    && strcasestr (cfg_content->line, "auth") == NULL;
+    /* and current line contains session */
+	    && strcasestr (cfg_content->line, "session") != NULL;
 }
 
+static int
+password_pred_cryptpass (config_content_t *cfg_content)
+{
+  int do_insert = FALSE;
+  /* insert if current line does not already contain this module */
+  do_insert = strcasestr (cfg_content->line, "pam_cryptpass.so") == NULL;
+  /* and this line starts with 'password' */
+  do_insert &= strcasestr (cfg_content->line, "password") != NULL;
+  /* and there is a next line */
+  do_insert &= cfg_content->next != NULL;
+  /* and that next line does not start with 'password' */
+  do_insert &= strcasestr (cfg_content->next->line, "password") == NULL;
+  return do_insert;
+}
+
+/*
+ * This implementation follows a different approach than the other
+ * single service modules (lastlog, loginuid and mount):
+ *
+ * Rather than operating on the file directly, the config/service
+ * file is parsed in first into *cfg_content.
+ *
+ * Then depending on the cmd line switch (-a/d), it operates on the
+ * linked list instead, using insert_if() and remove_module().
+ *
+ * I chose this solution because this way there is more flexibility
+ * where to insert the module.
+ *
+ * You can specify the insertion point by writing a custom predicate
+ * (see session_pred_cryptpass, and password_pred_cryptpass for
+ * examples).
+ */
 static int
 write_config_cryptpass (  pam_module_t *this,
 		      enum write_type op __attribute__((unused)),
@@ -73,19 +102,40 @@ write_config_cryptpass (  pam_module_t *this,
 {
   option_set_t *opt_set = this->get_opt_set (this, SESSION);
   int writeit = opt_set->is_enabled (opt_set, "is_enabled");
-  int status = 0;
+  int status = TRUE;
   config_content_t *cfg_content;
 
   load_single_config (gl_service, &cfg_content);
 
   if (debug)
     printf ("**** write_config_cryptpass (%s)\n", gl_service);
-  /* TODO:
-   *  - see, that mod_pam_mount also uses this mechanism
-   *  - make the insertion point configurable (ATM: just 'before')
-   */
   if (writeit)
-    status = insert_if ( &cfg_content, "session\toptional\tpam_cryptpass.so\n", &pred_cryptpass );
+  {
+    if (!is_module_enabled (service_module_list, "pam_mount.so", AUTH))
+    {
+      fprintf (stderr, _("ERROR: pam_mount.so is not enabled, but needed by pam_cryptpass.so\n"));
+      return 1;
+    }
+    /* insert pam_cryptpass.so before pam_mount.so in the session
+     * stack
+     */
+    status &= insert_if (&cfg_content, "session\t optional\tpam_cryptpass.so\n", &session_pred_cryptpass, BEFORE);
+    /* inset pam_cryptpass.so as the last module of the password
+     * stack
+     */
+    status &= insert_if (&cfg_content, "password optional\tpam_cryptpass.so\tuse_first_pass\n", &password_pred_cryptpass, AFTER);
+  }
+  else{
+    /* remove every occurrence of pam_cryptpass.so from the service
+     * file 
+     */
+    status = remove_module (&cfg_content, "pam_cryptpass.so");
+  }
+  if (!status)
+  {
+    fprintf (stderr, _("ERROR: Could not add/remove pam_cryptpass.so to/from service '%s'"), gl_service);
+    return 1;
+  }
 
   return write_single_config (gl_service, &cfg_content);
 }

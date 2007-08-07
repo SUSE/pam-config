@@ -228,10 +228,11 @@ typedef struct pam_module {
 } pam_module_t;
 
 /**
- *  @brief Modules need access to this to check, which other modules
+ *  @brief Modules need access to these lists to check, which other modules
  *  are enabled 
  *  */
 extern pam_module_t *common_module_list[];
+extern pam_module_t *service_module_list[];
 
 /* default handlers */
 

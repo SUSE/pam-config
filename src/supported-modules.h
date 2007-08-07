@@ -17,12 +17,12 @@ extern pam_module_t mod_pam_umask;
 extern pam_module_t mod_pam_unix2;
 extern pam_module_t mod_pam_unix;
 extern pam_module_t mod_pam_winbind;
-extern pam_module_t mod_pam_mount;
-extern pam_module_t mod_pam_cryptpass;
 
 
 /* modules for single services only.  */
 extern pam_module_t mod_pam_loginuid;
+extern pam_module_t mod_pam_mount;
+extern pam_module_t mod_pam_cryptpass;
 
 pam_module_t *common_module_list[] = {
   &mod_pam_apparmor,

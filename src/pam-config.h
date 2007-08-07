@@ -59,8 +59,18 @@ int write_single_config (const char *service, config_content_t **cfg_content);
 typedef int (*predicate_fptr)(config_content_t *next);
 
 /** 
+ * @brief Specifies the insert position for insert_if()
+ */
+enum insert_pos_t { 
+  BEFORE = 1,
+  AFTER
+};
+typedef enum insert_pos_t insert_pos_t;
+
+/** 
  * @brief Iterates over every line of the given service file and inserts the given line
- * before the current line if the predicate is true.
+ * if the predicate is true. The insert postion can be specified
+ * with the last argument.
  * 
  * @see write_config_cryptpass() for example usage.
  * @see src/single_config.c for definition.
@@ -70,10 +80,23 @@ typedef int (*predicate_fptr)(config_content_t *next);
  * @param line A pointer to the line that is to be inserted.
  * @param predicate A function that decides when to insert the given
  * line.
+ * @param position either BEFORE, or AFTER.
  * 
  * @return TRUE if insertion was successfull, FALSE otherwise.
  */
-int insert_if (config_content_t **cfg, const char *line, predicate_fptr predicate);
+
+int insert_if (config_content_t **cfg, const char *line, predicate_fptr predicate, insert_pos_t position);
+/** 
+ * @brief Remove every occurrence of lines containing 'module_name' from service file
+ * 
+ * @param *cfg A pointer to the linked list representing the service
+ * file to work on.
+ * @param module_name Name of the module which shall be purged from
+ * the file. 
+ * 
+ * @return The number of lines that were removed.
+ */
+int remove_module (config_content_t **cfg, const char *module_name);
 
 /** 
  * @brief Creates a temporary service file and returns a handle to

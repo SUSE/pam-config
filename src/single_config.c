@@ -111,39 +111,104 @@ write_single_config (const char *service, config_content_t **cfg_content)
 }
 
 int
-insert_if ( config_content_t **cfg, const char *line, int (*predicate)(config_content_t *next))
+insert_if (config_content_t **cfg, const char *line, int (*predicate)(config_content_t *next), insert_pos_t position)
 {
-  int is_written = 0;
-  config_content_t *last = NULL, *cptr = NULL, *start = NULL;
+  config_content_t *prev = NULL, *new_element = NULL, **head;
   config_content_t *cfg_content = *cfg;
-  start = cfg_content;
+  /* save the list head */
+  head = cfg;
   while (cfg_content != NULL)
   {
-    if (!is_written)
+    if (predicate (cfg_content))
     {
-      if ( predicate (cfg_content))
+      new_element = malloc (sizeof (config_content_t));
+      if (new_element)
       {
-	cptr = malloc (sizeof (config_content_t));
-	if (cptr)
+	new_element->line = strdup ( line );
+	if (position==BEFORE)
 	{
-	  cptr->line = strdup ( line );
-	  cptr->next = cfg_content;
-	  if (last)
-	    last->next = cptr;
+	  if (prev)
+	  {
+	    new_element->next = cfg_content;
+	    prev->next = new_element;
+	  }
+	  else
+	  {
+	    /* new_element will be new list head */
+	    /* switch data of head and new element and insert
+	     * new_element after head -- which effectivly inserts
+	     * new_element _before_ head. 
+	     */
+	    char *tmp = (*head)->line;
+	    (*head)->line = new_element->line;
+	    new_element->line = tmp;
+	    new_element->next = (*head)->next;
+	    (*head)->next = new_element;
+	  }
+	  return TRUE;
 	}
-	else{
+	else if(position==AFTER)
+	{
+	  prev = cfg_content->next;
+	  cfg_content->next = new_element;
+	  new_element->next = prev;
+	  return TRUE;
+	}
+	else
+	{
+	  /* invalid insert position */
 	  return FALSE;
 	}
-	is_written = 1;
+      }
+      else{
+	/* out of memory */
+	return FALSE;
       }
     }
-    /* skip ourselves */
-    if ( !is_written && strcmp (cfg_content->line, line) == 0) is_written=1;
-    last = cfg_content;
+    /* skip ourselves, i.e. if a line is encountered that is equal
+     * to the one that is to be inserted, we don't need to do
+     * anything more.*/
+    if (strcmp (cfg_content->line, line) == 0)
+      return TRUE;
+    prev = cfg_content;
     cfg_content = cfg_content->next;
   }
-  cfg_content = start;
   return TRUE; 
+}
+
+int
+remove_module (config_content_t **cfg, const char *module_name)
+{
+  config_content_t *prev = NULL, **head;
+  config_content_t *cfg_content = *cfg;
+  int removed = 0;
+
+  /* save list head */
+  head = cfg;
+  while (cfg_content != NULL)
+  {
+    if (strcasestr (cfg_content->line, module_name) != NULL)
+    {
+      /* found an element cotaining module_name */
+      if (prev)
+      {
+	prev->next = cfg_content->next;
+	free (cfg_content);
+      }
+      else
+      {
+	/* no prev means we remove list head */
+	config_content_t *succ = (*head)->next;
+	(*head)->line = succ->line;
+	(*head)->next = succ->next;
+	free (succ);
+      }
+      removed += 1;
+    }
+    prev = cfg_content;
+    cfg_content = cfg_content->next;
+  }
+  return removed;
 }
 
 static char *tmp_file;

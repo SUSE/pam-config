@@ -119,7 +119,7 @@ write_config_mount (  pam_module_t *this,
 	 */
 	if (strcasestr (cfg_content->line, "auth") != NULL)
 	{
-	  fprintf (fp, "auth\toptional\tpam_mount.so\n");
+	  fprintf (fp, "auth\t optional\tpam_mount.so\n");
 	  is_written = 1;
 	}
       }

@@ -1,18 +1,28 @@
+2007-08-07  Sven Schober <sschober@suse.de>
+	* src/pam-module.h: Externalized service_module_list, so
+	single service modules are able to check for other modules.
+	* src/single_config.c: Refactored list operations on
+	config_content_t lists. Added remove_module() function,
+	insert_if() takes position hint as last parameter.
+	* src/pam-config.h: Reflect signature change of insert_if()
+	and add prototype for remove_module().
+	* src/mod_pam_cryptpass.c: Module now gets added to the
+	password stack, also.
 2007-07-31  Sven Schober <sschober@suse.de>
-	* pam-config.8.xml: Overhauled documentation. Added
+	* src/pam-config.8.xml: Overhauled documentation. Added
 	description of single service options and gave some usage
 	examples.
-	* pam-config.c: Added "--list-modules" option.
+	* src/pam-config.c: Added "--list-modules" option.
 
 2007-07-27  Sven Schober <sschober@suse.de>
-	* pam-config.c: Added check if (single) service file exists
+	* src/pam-config.c: Added check if (single) service file exists
 	before beginning to write.
-	* mod_pam_lastlog.c: Check file pointer before using it.
-	* single_config.c: Check file pointer before using it and
+	* src/mod_pam_lastlog.c: Check file pointer before using it.
+	* src/single_config.c: Check file pointer before using it and
 	print error message if service file can't be 'stat'ed.
-	* mod_pam_mount.c:  Check file pointer before using it.
-	* mod_pam_loginuid.c: Check file pointer before using it.
-	* write_config.c: Call get{g,u}id() for default {g,u}id
+	* src/mod_pam_mount.c:  Check file pointer before using it.
+	* src/mod_pam_loginuid.c: Check file pointer before using it.
+	* src/write_config.c: Call get{g,u}id() for default {g,u}id
 	values.
 
 2007-07-27  Thorsten Kukuk <kukuk@suse.de>
