@@ -63,7 +63,7 @@ session_pred_ck_connector (config_content_t *cfg_content)
   int do_insert = FALSE;
   /* insert if current line does not already contain this module */
   do_insert = strcasestr (cfg_content->line, "pam_ck_connector.so") == NULL;
-  /* and this line starts with 'password' */
+  /* and this line starts with 'session' */
   do_insert &= strcasestr (cfg_content->line, "session") != NULL;
   /* and there is no next line, or the next line is something
    * different than session */
@@ -104,25 +104,21 @@ write_config_ck_connector (  pam_module_t *this,
 
   if (debug)
     printf ("**** write_config_ck_connector (%s)\n", gl_service);
+
+  /* remove every occurrence of pam_ck_connector.so from the service
+   * file 
+   */
+  remove_module (&cfg_content, "pam_ck_connector.so");
   if (writeit)
   {
-    /* insert pam_ck_connector.so before pam_mount.so in the session
+    char *line;
+    if (asprintf (&line, "session\t optional\tpam_ck_connector.so%s\n", debug_enabled ? "\t debug" : "" ) == -1)
+      return 1;
+    /* insert pam_ck_connector.so as the last module in the session
      * stack
      */
-    char *line;
-    asprintf (&line, "session\t optional\tpam_ck_connector.so%s\n", debug_enabled ? "\t debug" : "" );
-    /* this is a bit awkward. we first have to remove the old entry
-     * to write out the new one, reflecting changes to options
-     */
-    remove_module (&cfg_content, "pam_ck_connector.so");
     status &= insert_if (&cfg_content, line , &session_pred_ck_connector, AFTER);
     free (line);
-  }
-  else{
-    /* remove every occurrence of pam_ck_connector.so from the service
-     * file 
-     */
-    remove_module (&cfg_content, "pam_ck_connector.so");
   }
   if (!status)
   {

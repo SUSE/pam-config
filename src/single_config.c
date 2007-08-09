@@ -115,9 +115,11 @@ insert_if (config_content_t **cfg, const char *line, int (*predicate)(config_con
 {
   config_content_t *prev = NULL, *new_element = NULL, **head;
   config_content_t *cfg_content = *cfg;
+  int result = FALSE, inserted = FALSE;
+
   /* save the list head */
   head = cfg;
-  while (cfg_content != NULL)
+  while (cfg_content != NULL && !inserted)
   {
     if (predicate (cfg_content))
     {
@@ -145,35 +147,29 @@ insert_if (config_content_t **cfg, const char *line, int (*predicate)(config_con
 	    new_element->next = (*head)->next;
 	    (*head)->next = new_element;
 	  }
-	  return TRUE;
+	  result = TRUE;
 	}
 	else if(position==AFTER)
 	{
 	  prev = cfg_content->next;
 	  cfg_content->next = new_element;
 	  new_element->next = prev;
-	  return TRUE;
-	}
-	else
-	{
-	  /* invalid insert position */
-	  return FALSE;
+	  result = TRUE;
 	}
       }
-      else{
-	/* out of memory */
-	return FALSE;
-      }
+      inserted = TRUE;
     }
     /* skip ourselves, i.e. if a line is encountered that is equal
      * to the one that is to be inserted, we don't need to do
      * anything more.*/
-    if (strcmp (cfg_content->line, line) == 0)
-      return TRUE;
+    if (strcmp (cfg_content->line, line) == 0){
+      result = TRUE;
+      inserted = TRUE;
+    }
     prev = cfg_content;
     cfg_content = cfg_content->next;
   }
-  return TRUE; 
+  return result; 
 }
 
 int

@@ -670,7 +670,7 @@
 	    <term><option>--ck_connector</option></term>
 	    <listitem>
 	      <para>
-		Add pam_ck_connector.so to session section of the
+		Add pam_ck_connector.so to session stack of the
 		specified service file.
 	      </para>
 	    </listitem>
@@ -688,7 +688,15 @@
 	    <term><option>--cryptpass</option></term>
 	    <listitem>
 	      <para>
-		Add pam_cryptpass.so to the specified service file.
+		Add pam_cryptpass.so to the session stack of the specified service file.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><option>--cryptpass-password</option></term>
+	    <listitem>
+	      <para>
+		Add pam_cryptpass.so to the password stack of the specified service file.
 	      </para>
 	    </listitem>
 	  </varlistentry>
@@ -721,7 +729,7 @@
 	    <term><option>--mount</option></term>
 	    <listitem>
 	      <para>
-		Add pam_mount.so to auth and session section of the
+		Add pam_mount.so to auth and session stack of the
 		specified service file.
 	      </para>
 	    </listitem>

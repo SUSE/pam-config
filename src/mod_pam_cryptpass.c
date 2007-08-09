@@ -54,6 +54,9 @@ parse_config_cryptpass (pam_module_t *this, char *args, write_type_t type)
   return 1;
 }
 
+/* These predicates define where to insert an entry in a service
+ * file
+ */
 static int
 session_pred_cryptpass (config_content_t *cfg_content)
 {
@@ -101,36 +104,43 @@ write_config_cryptpass (  pam_module_t *this,
 		      FILE *unused __attribute__((unused)))
 {
   option_set_t *opt_set = this->get_opt_set (this, SESSION);
-  int writeit = opt_set->is_enabled (opt_set, "is_enabled");
+  int write_session = opt_set->is_enabled (opt_set, "is_enabled");
+  opt_set = this->get_opt_set (this, PASSWORD);
+  int write_password = opt_set->is_enabled (opt_set, "is_enabled");
   int status = TRUE;
   config_content_t *cfg_content;
 
   load_single_config (gl_service, &cfg_content);
 
   if (debug)
-    printf ("**** write_config_cryptpass (%s)\n", gl_service);
-  if (writeit)
+    printf ("**** write_config_cryptpass (%s) (%s:%s%s) \n", gl_service, 
+	(write_session || write_session) ? "enable" : "disable",
+	write_session ? "session" : "", write_password ? ", password" : "");
+  /* remove every occurrence of pam_cryptpass.so from the service
+   * file 
+   */
+  remove_module (&cfg_content, "pam_cryptpass.so");
+
+  if (write_session)
   {
     if (!is_module_enabled (service_module_list, "pam_mount.so", AUTH))
     {
-      fprintf (stderr, _("ERROR: pam_mount.so is not enabled, but needed by pam_cryptpass.so\n"));
+      fprintf (stderr, _("ERROR: pam_mount.so is not enabled for service '%s', but needed by pam_cryptpass.so\n"), gl_service);
       return 1;
     }
     /* insert pam_cryptpass.so before pam_mount.so in the session
      * stack
      */
     status &= insert_if (&cfg_content, "session\t optional\tpam_cryptpass.so\n", &session_pred_cryptpass, BEFORE);
+  }
+  if (write_password)
+  {
     /* inset pam_cryptpass.so as the last module of the password
      * stack
      */
     status &= insert_if (&cfg_content, "password optional\tpam_cryptpass.so\tuse_first_pass\n", &password_pred_cryptpass, AFTER);
   }
-  else{
-    /* remove every occurrence of pam_cryptpass.so from the service
-     * file 
-     */
-    remove_module (&cfg_content, "pam_cryptpass.so");
-  }
+
   if (!status)
   {
     fprintf (stderr, _("ERROR: Could not add pam_cryptpass.so to service '%s'"), gl_service);

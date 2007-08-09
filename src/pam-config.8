@@ -1,11 +1,11 @@
 .\"     Title: pam\-config
 .\"    Author: 
 .\" Generator: DocBook XSL Stylesheets v1.71.1 <http://docbook.sf.net/>
-.\"      Date: 08/07/2007
+.\"      Date: 08/09/2007
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "08/07/2007" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "08/09/2007" "Reference Manual" "Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -473,19 +473,24 @@ the section called \(lqUSAGE EXAMPLES\(rq.
 .PP
 \fB\-\-ck_connector\fR
 .RS 4
-Add pam_ck_connector.so to session section of the specified service file.
+Add pam_ck_connector.so to session stack of the specified service file.
 .RE
 .PP
 \fB\-\-ck_connector\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-to any invocation of pam_ck_connector.so in the specified service file.
+option to any invocation of pam_ck_connector.so in the specified service file.
 .RE
 .PP
 \fB\-\-cryptpass\fR
 .RS 4
-Add pam_cryptpass.so to the specified service file.
+Add pam_cryptpass.so to the session stack of the specified service file.
+.RE
+.PP
+\fB\-\-cryptpass\-password\fR
+.RS 4
+Add pam_cryptpass.so to the password stack of the specified service file.
 .RE
 .PP
 \fB\-\-lastlog\fR
@@ -507,7 +512,7 @@ to invocations of pam_loginuid.so in the specified service file.
 .PP
 \fB\-\-mount\fR
 .RS 4
-Add pam_mount.so to auth and session section of the specified service file.
+Add pam_mount.so to auth and session stack of the specified service file.
 .RE
 .RE
 .SH "USAGE EXAMPLES"

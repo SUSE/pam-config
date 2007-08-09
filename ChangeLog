@@ -1,3 +1,15 @@
+2007-08-09  Sven Schober <sschober@suse.de>
+	* src/mod_pam_ck_connector.c: Check return value of
+	asprintf.
+	* src/pam-config.h: Adapted documentation to reflect changes
+	to insert_if().
+	* src/mod_pam_cryptpass.c: Fixed write_config_cryptpass to
+	retrieve both SESSION and PASSWORD option sets. This enables
+	us to treat the two stack types differently.
+	* src/pam-config.c: Added option --cryptpass-password. 
+	* src/single_config.c: sanitized insert_if() return value.
+	* src/pam-config.8.xml: Adapted manpage.
+
 2007-08-07  Sven Schober <sschober@suse.de>
 	* src/pam-module.h: Externalized service_module_list, so
 	single service modules are able to check for other modules.

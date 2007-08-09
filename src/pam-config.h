@@ -69,7 +69,7 @@ typedef enum insert_pos_t insert_pos_t;
 
 /** 
  * @brief Iterates over every line of the given service file and inserts the given line
- * if the predicate is true. The insert postion can be specified
+ * if the predicate is true. The insertion postion can be specified
  * with the last argument.
  * 
  * @see write_config_cryptpass() for example usage.
@@ -82,10 +82,12 @@ typedef enum insert_pos_t insert_pos_t;
  * line.
  * @param position either BEFORE, or AFTER.
  * 
- * @return TRUE if insertion was successfull, FALSE otherwise.
+ * @return TRUE if insertion was successfull or the entry was
+ * already present, FALSE otherwise.
  */
 
 int insert_if (config_content_t **cfg, const char *line, predicate_fptr predicate, insert_pos_t position);
+
 /** 
  * @brief Remove every occurrence of lines containing 'module_name' from service file
  * 
@@ -102,7 +104,7 @@ int remove_module (config_content_t **cfg, const char *module_name);
  * @brief Creates a temporary service file and returns a handle to
  * it.
  *
- * This function creatas a temp. service file at 
+ * This function creates a temp. service file at 
  * \code CONFDIR"/pam.d/pam-config.tmpXXXXXX" \endcode and returns a \a FILE handle
  * to it.
  * 

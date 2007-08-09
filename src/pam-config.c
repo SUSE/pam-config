@@ -421,6 +421,7 @@ main (int argc, char *argv[])
         {"lastlog",               no_argument,       NULL, 3050 },
 	{"mount",		  no_argument,	     NULL, 3100 },
 	{"cryptpass",		  no_argument,	     NULL, 3200 },
+	{"cryptpass-password",	  no_argument,	     NULL, 3201 },
 	{"ck_connector",	  no_argument,	     NULL, 3300 },
 	{"ck_connector-debug",	  no_argument,	     NULL, 3301 },
 	{NULL,                    0,                 NULL,    0 }
@@ -1107,6 +1108,18 @@ main (int argc, char *argv[])
 	      if (check_for_pam_module ("pam_cryptpass.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_cryptpass.get_opt_set (&mod_pam_cryptpass, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	    }
+	  break;
+	case 3201:
+	  /* pam_cryptpass.so */
+	  if (m_query)
+	    print_module_config (service_module_list, "pam_cryptpass.so");
+	  else
+	    {
+	      if (check_for_pam_module ("pam_cryptpass.so", force) != 0)
+		return 1;
+	      opt_set = mod_pam_cryptpass.get_opt_set (&mod_pam_cryptpass, PASSWORD);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);
 	    }
 	  break;
