@@ -54,7 +54,7 @@ parse_config_cryptpass (pam_module_t *this, char *args, write_type_t type)
   return 1;
 }
 
-/* These predicates define where to insert an entry in a service
+/* These predicates define the place where to insert an entry in a service
  * file
  */
 static int
