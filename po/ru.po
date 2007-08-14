@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-27 11:47+0200\n"
+"POT-Creation-Date: 2007-08-09 16:41+0200\n"
 "PO-Revision-Date: 2007-07-05 10:58+0100\n"
 "Last-Translator: Aleksey Osipov <aliks-os@yandex.ru>\n"
 "Language-Team: Russian <i18n@suse.de>\n"
@@ -87,7 +87,7 @@ msgstr ""
 "Пожалуйста используйте /etc/default/passwd для установки параметра "
 "'blowfish'\n"
 
-#: src/mod_pam_unix.c:98
+#: src/mod_pam_unix.c:116
 #, c-format
 msgid ""
 "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
@@ -95,7 +95,7 @@ msgid ""
 "'md5' first.\n"
 msgstr ""
 
-#: src/mod_pam_unix.c:122
+#: src/mod_pam_unix.c:140
 #, c-format
 msgid ""
 "INFO: Both options 'audit' and 'debug' found in service %s.\n"
@@ -178,29 +178,29 @@ msgstr "  -u, --usage       Вывести краткое сообщение о�
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version      Вывести версию программы\n"
 
-#: src/pam-config.c:102 src/pam-config.c:139 src/pam-config.c:1260
-#: src/pam-config.c:1270 src/pam-config.c:1280 src/pam-config.c:1291
+#: src/pam-config.c:111 src/pam-config.c:148 src/pam-config.c:1320
+#: src/pam-config.c:1330 src/pam-config.c:1340 src/pam-config.c:1351
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Ошибка активации %s (%m)\n"
 
-#: src/pam-config.c:104 src/pam-config.c:141 src/pam-config.c:1262
-#: src/pam-config.c:1272 src/pam-config.c:1282 src/pam-config.c:1293
+#: src/pam-config.c:113 src/pam-config.c:150 src/pam-config.c:1322
+#: src/pam-config.c:1332 src/pam-config.c:1342 src/pam-config.c:1353
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Новая конфигурация из %s не используется!\n"
 
-#: src/pam-config.c:119
+#: src/pam-config.c:128
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "Файл %s не является символической свяью с %s.\n"
 
-#: src/pam-config.c:121
+#: src/pam-config.c:130
 #, c-format
 msgid "New config from %s is is not in use!\n"
 msgstr "Новая конфигурация из %s не используется!\n"
 
-#: src/pam-config.c:252 src/pam-config.c:288
+#: src/pam-config.c:261 src/pam-config.c:297
 #, c-format
 msgid ""
 "\n"
@@ -209,7 +209,7 @@ msgstr ""
 "\n"
 "Не удалось загрузить конфигурационный файл, прерывание!\n"
 
-#: src/pam-config.c:310
+#: src/pam-config.c:319
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -218,10 +218,27 @@ msgstr ""
 "\n"
 "Не удалось загрузить конфигурационный файл, прерывание!\n"
 
-#: src/pam-config.c:1124
+#: src/pam-config.c:1149
+#, c-format
+msgid "Supported common modules:\n"
+msgstr ""
+
+#: src/pam-config.c:1151
+#, c-format
+msgid ""
+"\n"
+"Supported service modules:\n"
+msgstr ""
+
+#: src/pam-config.c:1171
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Слишком много параметров.\n"
+
+#: src/pam-config.c:1275
+#, fuzzy, c-format
+msgid "Cannot access '%s': %m\n"
+msgstr "Не удалось создать %s: %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:99
@@ -263,22 +280,27 @@ msgstr ""
 msgid "ERR: Failed to disable pam_unix.so.\n"
 msgstr ""
 
-#: src/single_config.c:170 src/write_config.c:64
+#: src/single_config.c:227
+#, fuzzy, c-format
+msgid "Cannot stat '%s': %m\n"
+msgstr "Не удалось создать %s: %m\n"
+
+#: src/single_config.c:237 src/write_config.c:62
 #, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Не удалось создать %s: %m\n"
 
-#: src/single_config.c:179 src/write_config.c:71
+#: src/single_config.c:246 src/write_config.c:69
 #, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Не удалось создать %s: %m\n"
 
-#: src/single_config.c:189
+#: src/single_config.c:256
 #, fuzzy, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Не удалось создать %s: %m\n"
 
-#: src/write_config.c:79
+#: src/write_config.c:77
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Не удалось создать %s: %m\n"
