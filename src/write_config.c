@@ -39,6 +39,7 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
   char *tmpfname;
   FILE *fp;
   int fd;
+  int result = 0;
   /* defaults for uid, gid and mode */
   uid_t user_id = getuid();
   gid_t group_id = getgid();
@@ -122,7 +123,7 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
 
   while (*modptr != NULL)
     {
-      (*modptr)->write_config (*modptr, op, fp);
+      result |= (*modptr)->write_config (*modptr, op, fp);
       ++modptr;
     }
 
@@ -131,5 +132,5 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
   rename (tmpfname, file);
   free (tmpfname);
 
-  return 0;
+  return result;
 }

@@ -1,11 +1,11 @@
 .\"     Title: pam\-config
 .\"    Author: 
 .\" Generator: DocBook XSL Stylesheets v1.71.1 <http://docbook.sf.net/>
-.\"      Date: 08/09/2007
+.\"      Date: 08/14/2007
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "08/09/2007" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "08/14/2007" "Reference Manual" "Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -338,6 +338,11 @@ Disable obscure checks of pam_pwcheck.so.
 \fB\-\-pwcheck\-enforce_for_root\fR
 .RS 4
 Enforce all checks of pam_pwcheck.so for root.
+.RE
+.PP
+\fB\-\-thinkfinger\fR
+.RS 4
+Enable/Disable pam_thinkfinger.so in AUTH stack.
 .RE
 .PP
 \fB\-\-unix\fR

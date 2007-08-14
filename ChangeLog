@@ -1,4 +1,18 @@
 2007-08-14  Sven Schober <sschober@suse.de>
+	* release version 0.23
+	* src/pam-config.8.xml: Added documentation for
+	pam_thinkfinger.so
+	* src/mod_pam_thinkfinger.c: New.
+	* src/pam-config.c: Added options for pam_thinkfinger.so.
+	* src/mod_pam_mount.c: Added mutex with pam_thinkfinger.so.
+	* src/supported-modules.h: Added pam_thinkfinger.so to
+	common_module_list and auth stack.
+	* src/write_config.c: Fix bug, where write_config() would
+	not gather correct result from module->write_config()
+	invocations.
+	* src/Makefile.am: Added mod_pam_thinkfinger.c.
+
+2007-08-14  Sven Schober <sschober@suse.de>
 	* release version 0.22
 
 2007-08-09  Sven Schober <sschober@suse.de>

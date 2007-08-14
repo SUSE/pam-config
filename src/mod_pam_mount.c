@@ -99,9 +99,9 @@ write_config_mount (  pam_module_t *this,
   FILE *fp;
   config_content_t *cfg_content;
   int writeit = opt_set->is_enabled (opt_set, "is_enabled");
-
   if (debug)
     printf ("**** write_config_mount (%s)\n", gl_service);
+  
   
   load_single_config (gl_service, &cfg_content);
 
@@ -138,8 +138,28 @@ write_config_mount (  pam_module_t *this,
     cfg_content = cfg_content->next;
   }
   if (writeit)
+  {
+    /* As this is a single service module, common-* files are not
+     * parsed in. We need to know if pam_thinkfinger.so is enabled,
+     * which is a common-* module, so we parse common-auth in
+     */ 
+    if (load_config (CONF_AUTH_PC, AUTH, common_module_list, 1) != 0)
+    {
+      fprintf (stderr,
+	       _("\nCouldn't load config file '%s', aborted!\n"),
+	       CONF_AUTH_PC);
+      return 1;
+    }
+    if (is_module_enabled (common_module_list, "pam_thinkfinger.so", AUTH))
+    {
+      fprintf (stderr, _("ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"));
+      return 1;
+    }
+    /* pam_thinkfinger.so is not enabled so we can safely add
+     * pam_mount.so
+     */
     fprintf (fp, "session  required       pam_mount.so\n");
-
+  }
   return close_service_file (fp,gl_service);
 }
 

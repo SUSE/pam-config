@@ -30,15 +30,6 @@
 
 #include "supported-modules.h"
 
-#define CONF_ACCOUNT CONFDIR"/pam.d/common-account"
-#define CONF_ACCOUNT_PC CONF_ACCOUNT"-pc"
-#define CONF_AUTH CONFDIR"/pam.d/common-auth"
-#define CONF_AUTH_PC CONF_AUTH"-pc"
-#define CONF_PASSWORD CONFDIR"/pam.d/common-password"
-#define CONF_PASSWORD_PC CONF_PASSWORD"-pc"
-#define CONF_SESSION CONFDIR"/pam.d/common-session"
-#define CONF_SESSION_PC CONF_SESSION"-pc"
-
 int debug = 0;
 
 static void
@@ -406,6 +397,7 @@ main (int argc, char *argv[])
 	{"umask-silent",          no_argument,       NULL, 2302 },
 	{"umask-usergroups",      no_argument,       NULL, 2303 },
 	{"umask-umask",           required_argument, NULL, 2304 },
+	{"thinkfinger",           no_argument,       NULL, 2400 },
         {NULL,                    0,                 NULL,    0 }
       };
       static struct option service_long_options[] = {
@@ -1054,6 +1046,18 @@ main (int argc, char *argv[])
 	case 2304:
 	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
 	  opt_set->set_opt (opt_set, "umask", optarg);
+	  break;
+	case 2400:
+	  /* pam_thinkfinger.so */
+	  if (m_query)
+	    print_module_config (common_module_list, "pam_thinkfinger.so");
+	  else
+	    {
+	      if (check_for_pam_module ("pam_thinkfinger.so", force) != 0)
+		return 1;
+	      opt_set = mod_pam_thinkfinger.get_opt_set (&mod_pam_thinkfinger, AUTH);
+	      opt_set->enable (opt_set, "is_enabled", opt_val);
+	    }
 	  break;
 	  /* From here we have single service modules */
 	case 3000:

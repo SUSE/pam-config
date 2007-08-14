@@ -26,6 +26,15 @@
 
 #include "pam-module.h"
 
+#define CONF_ACCOUNT CONFDIR"/pam.d/common-account"
+#define CONF_ACCOUNT_PC CONF_ACCOUNT"-pc"
+#define CONF_AUTH CONFDIR"/pam.d/common-auth"
+#define CONF_AUTH_PC CONF_AUTH"-pc"
+#define CONF_PASSWORD CONFDIR"/pam.d/common-password"
+#define CONF_PASSWORD_PC CONF_PASSWORD"-pc"
+#define CONF_SESSION CONFDIR"/pam.d/common-session"
+#define CONF_SESSION_PC CONF_SESSION"-pc"
+
 
 /** 
  * @struct config_content_t 
