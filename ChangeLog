@@ -1,3 +1,6 @@
+2007-08-14  Sven Schober <sschober@suse.de>
+	* release version 0.22
+
 2007-08-09  Sven Schober <sschober@suse.de>
 	* src/mod_pam_ck_connector.c: Check return value of
 	asprintf.
@@ -29,8 +32,8 @@
 	* src/pam-config.c: Added "--list-modules" option.
 
 2007-07-27  Sven Schober <sschober@suse.de>
-	* src/pam-config.c: Added check if (single) service file exists
-	before beginning to write.
+	* src/pam-config.c: Fix for segfault: added check if (single)
+	service file exists before beginning to write.
 	* src/mod_pam_lastlog.c: Check file pointer before using it.
 	* src/single_config.c: Check file pointer before using it and
 	print error message if service file can't be 'stat'ed.
