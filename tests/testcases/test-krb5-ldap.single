@@ -1,0 +1,15 @@
+#!/bin/sh
+# START cleanup
+rm -f etc/pam.d/*
+cp etc/* etc/pam.d/ 2>/dev/null
+# END cleanup
+if [ "x$CONFDIR" == "x" ]; then
+	echo "CONFDIR not set"
+	exit 1
+fi
+../src/pam-config --confdir $CONFDIR -a --krb5
+../src/pam-config --confdir $CONFDIR -a --ldap
+cat etc/pam.d/common-auth
+cat etc/pam.d/common-account
+cat etc/pam.d/common-password
+cat etc/pam.d/common-session

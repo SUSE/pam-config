@@ -1,0 +1,8 @@
+INFO: pam_unix.so and pam_unix2.so enabled in service account,
+INFO: only pam_unix2.so will be enabled.
+INFO: pam_unix.so and pam_unix2.so enabled in service auth,
+INFO: only pam_unix2.so will be enabled.
+INFO: pam_unix.so and pam_unix2.so enabled in service password,
+INFO: only pam_unix2.so will be enabled.
+INFO: pam_unix.so and pam_unix2.so enabled in service session,
+INFO: only pam_unix2.so will be enabled.

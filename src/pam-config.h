@@ -49,6 +49,7 @@ typedef struct config_content_t config_content_t;
 
 extern int debug;
 extern char *gl_service;
+extern char *confdir;
 
 
 int load_obsolete_conf (pam_module_t **module_list);

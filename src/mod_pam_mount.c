@@ -33,6 +33,9 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
+/* defined in pam-config.c */
+extern char *conf_auth_pc;
+
 /** 
  * @brief Function to parse in a line from a service file and store
  * the options to the opt_set of the instance specified by *this.
@@ -142,8 +145,16 @@ write_config_mount (  pam_module_t *this,
     /* As this is a single service module, common-* files are not
      * parsed in. We need to know if pam_thinkfinger.so is enabled,
      * which is a common-* module, so we parse common-auth in
-     */ 
-    if (load_config (CONF_AUTH_PC, AUTH, common_module_list, 1) != 0)
+     */
+
+    /* As the user might have supplied a custom confdir via the
+     * --confdir option we have to check if conf_auth_pc was set in
+     *  pam-config.c:main() 
+     */
+    char *conf_fname;
+    if (conf_auth_pc) conf_fname = conf_auth_pc;
+    else conf_fname = CONF_AUTH_PC;
+    if (load_config (conf_fname, AUTH, common_module_list, 1) != 0)
     {
       fprintf (stderr,
 	       _("\nCouldn't load config file '%s', aborted!\n"),

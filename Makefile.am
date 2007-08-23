@@ -3,7 +3,7 @@
 #
 AUTOMAKE_OPTIONS = 1.7 gnits dist-bzip2
 #
-SUBDIRS = po src
+SUBDIRS = po src tests
 
 CLEANFILES = *~
 

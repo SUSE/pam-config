@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Testcase:	unix_w_unix2
+# Module:	pam_unix.so
+# Description:	Tests for pam-config to fail to enable pam_unix.so
+#		if pam_unix2.so is enabled already.
+
+. support/header.sh
+
+# Add module pam_unix.so.
+$PAMCONFIG -a --unix
+echo $?
+
+. support/footer-common.sh

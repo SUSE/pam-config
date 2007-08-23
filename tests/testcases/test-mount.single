@@ -1,0 +1,6 @@
+#!/bin/sh
+. support/header.sh
+
+$PAMCONFIG --service gdm -a --mount
+
+. support/footer-service.sh gdm

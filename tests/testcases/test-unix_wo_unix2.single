@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Testcase:	unix_wo_unix2
+# Module:	pam_unix.so
+# Description:	Test for pam_unix.so. First disables pam_unix2.so
+
+. support/header.sh
+
+# Disable pam_unix2.so, which is enabled by default.
+$PAMCONFIG -d --unix2
+# Add module pam_unix.so.
+$PAMCONFIG -a --unix
+
+. support/footer-common.sh

@@ -42,7 +42,7 @@ load_single_config (const char *config_name, config_content_t **ptr)
 
   *ptr = NULL;
 
-  if (asprintf (&file, CONFDIR"/pam.d/%s", config_name) < 0)
+  if (asprintf (&file, "%s/pam.d/%s", confdir, config_name) < 0)
     return -1;
 
   if (debug)
@@ -217,9 +217,10 @@ create_service_file (const char *service)
   struct stat f_stat;
   char *conffile;
 
-  tmp_file = strdup (CONFDIR"/pam.d/pam-config.tmpXXXXXX");
+  if (asprintf (&tmp_file, "%s/pam.d/pam-config.tmpXXXXXX", confdir) < 0)
+	  return NULL;
 
-  if (asprintf (&conffile, CONFDIR"/pam.d/%s", service) < 0)
+  if (asprintf (&conffile, "%s/pam.d/%s", confdir, service) < 0)
     return NULL;
 
   if (stat (conffile, &f_stat) != 0)
@@ -267,10 +268,10 @@ close_service_file (FILE *fp, const char *service)
 {
   char *conffile, *oldfile;
 
-  if (asprintf (&conffile, CONFDIR"/pam.d/%s", service) < 0)
+  if (asprintf (&conffile, "%s/pam.d/%s", confdir, service) < 0)
     return 1;
 
-  if (asprintf (&oldfile, CONFDIR"/pam.d/%s.old", service) < 0)
+  if (asprintf (&oldfile, "%s/pam.d/%s.old", confdir, service) < 0)
     return 1;
 
   fclose (fp);

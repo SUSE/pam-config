@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Testcase:	cryptpass_wo_mount
+# Module:	pam_cryptpass.so
+# Service:	gdm
+# Description:	Test for pam-config to fail, when pam_mount.so isn't
+#		enabled also for the given module.
+
+. support/header.sh
+
+# Add module pam_cryptpass.so to service gdm
+# Should produce an error message
+$PAMCONFIG --service gdm -a --cryptpass
+echo $?
+
+. support/footer-service.sh gdm

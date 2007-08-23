@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Testcase:	ck_connector
+# Module:	pam_ck_connector.so
+# Service:	login
+# Description:	Test for module pam_ck_connector.so and service login.
+
+. support/header.sh
+
+# Add module pam_ck_connector.so to service login
+$PAMCONFIG --service login -a --ck_connector
+
+. support/footer-service.sh login

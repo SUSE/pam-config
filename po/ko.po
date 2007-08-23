@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: entries\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-14 18:04+0200\n"
+"POT-Creation-Date: 2007-08-14 11:51+0200\n"
 "PO-Revision-Date: 2006-06-12 16:56+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
@@ -69,47 +69,6 @@ msgstr ""
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
 
-#: src/mod_pam_cryptpass.c:128
-#, c-format
-msgid ""
-"ERROR: pam_mount.so is not enabled for service '%s', but needed by "
-"pam_cryptpass.so\n"
-msgstr ""
-
-#: src/mod_pam_cryptpass.c:146
-#, c-format
-msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
-msgstr ""
-
-#: src/mod_pam_mount.c:149 src/pam-config.c:310
-#, c-format
-msgid ""
-"\n"
-"Couldn't load config file '%s', aborted!\n"
-msgstr ""
-
-#: src/mod_pam_mount.c:155
-#, c-format
-msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
-msgstr ""
-
-#: src/mod_pam_thinkfinger.c:103
-#, c-format
-msgid "WARNING: Found no service files in '%s'.\n"
-msgstr ""
-
-#: src/mod_pam_thinkfinger.c:113
-#, c-format
-msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
-
-#: src/mod_pam_thinkfinger.c:138
-#, c-format
-msgid ""
-"ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
-"to disable it first!\n"
-msgstr ""
-
 #: src/mod_pam_unix.c:116
 #, c-format
 msgid ""
@@ -126,12 +85,12 @@ msgid ""
 "'audit' first.\n"
 msgstr ""
 
-#: src/pam-config.c:38
+#: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr ""
 
-#: src/pam-config.c:47
+#: src/pam-config.c:56
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -139,105 +98,112 @@ msgid ""
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
 
-#: src/pam-config.c:59
+#: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr ""
 
-#: src/pam-config.c:67
+#: src/pam-config.c:76
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
 
-#: src/pam-config.c:69
+#: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr ""
 
-#: src/pam-config.c:70
+#: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
 msgstr ""
 
-#: src/pam-config.c:71
+#: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr ""
 
-#: src/pam-config.c:72
+#: src/pam-config.c:81
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr ""
 
-#: src/pam-config.c:74
+#: src/pam-config.c:83
 msgid "  --service config  Service to modify config of\n"
 msgstr ""
 
-#: src/pam-config.c:76
+#: src/pam-config.c:85
 msgid "      --update      Read current config and write them new\n"
 msgstr ""
 
-#: src/pam-config.c:78
+#: src/pam-config.c:87
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr ""
 
-#: src/pam-config.c:80
+#: src/pam-config.c:89
 msgid "      --help        Give this help list\n"
 msgstr ""
 
-#: src/pam-config.c:81
+#: src/pam-config.c:90
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr ""
 
-#: src/pam-config.c:82
+#: src/pam-config.c:91
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:102 src/pam-config.c:139 src/pam-config.c:1324
-#: src/pam-config.c:1334 src/pam-config.c:1344 src/pam-config.c:1355
+#: src/pam-config.c:111 src/pam-config.c:148 src/pam-config.c:1320
+#: src/pam-config.c:1330 src/pam-config.c:1340 src/pam-config.c:1351
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:104 src/pam-config.c:141 src/pam-config.c:1326
-#: src/pam-config.c:1336 src/pam-config.c:1346 src/pam-config.c:1357
+#: src/pam-config.c:113 src/pam-config.c:150 src/pam-config.c:1322
+#: src/pam-config.c:1332 src/pam-config.c:1342 src/pam-config.c:1353
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:119
+#: src/pam-config.c:128
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr ""
 
-#: src/pam-config.c:121
+#: src/pam-config.c:130
 #, c-format
 msgid "New config from %s is is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:252 src/pam-config.c:288
+#: src/pam-config.c:261 src/pam-config.c:297
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:1153
+#: src/pam-config.c:319
+#, c-format
+msgid ""
+"\n"
+"Couldn't load config file '%s', aborted!\n"
+msgstr ""
+
+#: src/pam-config.c:1149
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:1155
+#: src/pam-config.c:1151
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:1175
+#: src/pam-config.c:1171
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""
 
-#: src/pam-config.c:1279
+#: src/pam-config.c:1275
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr ""
@@ -287,12 +253,12 @@ msgstr ""
 msgid "Cannot stat '%s': %m\n"
 msgstr ""
 
-#: src/single_config.c:237 src/write_config.c:63
+#: src/single_config.c:237 src/write_config.c:62
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr ""
 
-#: src/single_config.c:246 src/write_config.c:70
+#: src/single_config.c:246 src/write_config.c:69
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr ""
@@ -302,7 +268,7 @@ msgstr ""
 msgid "Cannot create file handle: %m\n"
 msgstr ""
 
-#: src/write_config.c:78
+#: src/write_config.c:77
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr ""

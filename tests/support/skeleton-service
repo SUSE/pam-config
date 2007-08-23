@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Testcase:	@@NAME@@
+# Module:	pam_@@MOD@@.so
+# Service:	@@SRV@@
+# Description:	Test for module pam_@@MOD@@.so and service @@SRV@@.
+
+. support/header.sh
+
+# Add module pam_@@MOD@@.so to service @@SRV@@
+$PAMCONFIG --service @@SRV@@ -a --@@MOD@@
+
+. support/footer-service.sh @@SRV@@

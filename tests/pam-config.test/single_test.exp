@@ -1,0 +1,20 @@
+#
+# single_test.exp
+# 'main' file for all limal tests
+#
+# Runs all tests with the extention "single" one-time
+#
+
+# get all files matching *.single
+
+if { [catch {  set filenames [glob $srcdir/testcases/*.single] } ] } {
+    puts "No .single files found"
+} else {
+    # sort the tests 
+
+    set fn [ lsort $filenames ]
+
+    # foreach file, call single-run (from testsuite/lib)
+
+    foreach file $fn { single-run $file }
+}

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Testcase:	cryptpass_w_mount
+# Module:	pam_cryptpass.so
+# Service:	gdm
+# Description:	Tests for successfully addition of pam_cryptpass.so
+#		to service gdm.
+
+. support/header.sh
+
+# Add module pam_mount.so to service gdm first, so we're able to add
+# cryptpass later.
+$PAMCONFIG --service gdm -a --mount
+# Add module pam_cryptpass.so to service gdm
+$PAMCONFIG --service gdm -a --cryptpass
+
+. support/footer-service.sh gdm

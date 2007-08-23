@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Testcase:	@@NAME@@
+# Module:	pam_@@MOD@@.so
+# Description:	Test for module pam_@@MOD@@.so.
+
+. support/header.sh
+
+# Add module pam_@@MOD@@.so.
+$PAMCONFIG -a --@@MOD@@
+
+. support/footer-common.sh

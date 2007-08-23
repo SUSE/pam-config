@@ -1,0 +1,7 @@
+#!/bin/sh
+# START cleanup
+. support/header.sh
+
+$PAMCONFIG -a --ldap
+
+. support/footer-common.sh

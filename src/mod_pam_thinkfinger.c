@@ -27,6 +27,8 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
+extern char *confdir;
+
 static int
 parse_config_thinkfinger (pam_module_t *this, char *args, write_type_t type)
 {
@@ -97,8 +99,10 @@ check_service_files_for_module (const char *module)
   if (debug){
     DEBUG ("**** check_service_files_for_module ('%s') in '%s'\n", module, CONFDIR"/pam.d"); 
   }
-
-  n = scandir (CONFDIR"/pam.d", &namelist, &service_filter, 0);
+  char *conf_dname;
+  if (confdir) asprintf( &conf_dname, "%s/pam.d", confdir);
+  else conf_dname = CONFDIR"/pam.d";
+  n = scandir (conf_dname, &namelist, &service_filter, 0);
   if (n<0)
     fprintf (stderr, _("WARNING: Found no service files in '%s'.\n"), CONFDIR"/pam.d");
   else

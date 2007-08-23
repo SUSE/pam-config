@@ -1,3 +1,14 @@
+2007-08-23  Sven Schober <sschober@suse.de>
+	* src/pam-config.c: CONFDIR customizable via cmd line
+	option.
+	* src/pam-config.c: Gather return values from write_config()
+	invocations, and return failure in case a single one fails.
+	* src/pam-config.h: -- " --
+	* src/mod_pam_thinkfinger.c: Heed --confdir option. 
+	* src/single_config.c: -- " --
+	* src/mod_pam_mount.c: -- " -- 
+	* tests/: New testsuite. See tests/README for usage.
+
 2007-08-14  Sven Schober <sschober@suse.de>
 	* release version 0.23
 	* src/pam-config.8.xml: Added documentation for

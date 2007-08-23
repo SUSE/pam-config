@@ -1,0 +1,37 @@
+pam-config Testsuite
+====================
+
+1. Execute testcases
+--------------------
+
+To run all present testcases (all files with '.single' suffix)
+simply type
+
+  make check
+
+and you'll get a summary which testcases succeeded or failed.
+
+
+2. Add a new testcase
+---------------------
+
+To add a new testcase you might type
+
+  support/new.sh -s mount-thinkfinger-mutex mount gdm
+
+which adds a new 'servive' testcase named 'mount-thinkfinger-mutex'
+concerning module 'mount' and service 'gdm'. This results in a file
+named test-<name>.single in the "testcases/" directory.
+
+Then you need to initialize its output by either:
+
+  - manually supplying single.out/test-<name>.{err,out}
+
+  - running
+
+      support/init.sh testcases/test-<name>.single
+
+    which does one test-run with your newly created testcase and
+    stores stdout and stderr into single.out/test-<name>.{err,out}
+    accordingly.
+

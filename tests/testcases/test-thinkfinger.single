@@ -1,0 +1,6 @@
+#!/bin/sh
+. support/header.sh
+
+$PAMCONFIG -a --thinkfinger
+
+. support/footer-common.sh

@@ -31,6 +31,15 @@
 #include "supported-modules.h"
 
 int debug = 0;
+char *confdir;
+char *conf_account = NULL;
+char *conf_account_pc = NULL;
+char *conf_auth = NULL;
+char *conf_auth_pc = NULL;
+char *conf_password = NULL;
+char *conf_password_pc = NULL;
+char *conf_session = NULL;
+char *conf_session_pc = NULL;
 
 static void
 print_usage (FILE *stream, const char *program)
@@ -69,9 +78,11 @@ print_help (const char *program)
   fputs (_("  -a, --add         Add options/PAM modules\n"), stdout);
   fputs (_("  -c, --create      Create new configuration\n"), stdout);
   fputs (_("  -d, --delete      Remove options/PAM modules\n"), stdout);
+  fputs (_("      --confdir     Use a custom configuration directory\n"),
+	 stdout);
   fputs (_("      --initialize  Convert old config and create new one\n"),
 	 stdout);
-  fputs (_("  --service config  Service to modify config of\n"),
+  fputs (_("      --service config  Service to modify config of\n"),
 	 stdout);
   fputs (_("      --update      Read current config and write them new\n"),
          stdout);
@@ -174,6 +185,65 @@ main (int argc, char *argv[])
       argv++;
     }
 
+  if (strcmp (argv[1], "--confdir") == 0)
+  {
+	  confdir = argv[2];
+	  if(confdir[0] != '/')
+	  {
+		  print_error(program);
+		  return 1;
+	  }
+      argc--;
+      argv++;
+      argc--;
+      argv++;
+  }
+  else
+  {
+	  confdir = strdup(CONFDIR);
+  }
+
+  if (asprintf (&conf_account, "%s/pam.d/common-account", confdir) < 0)
+  {
+	  print_error (program);
+	  return 1;
+  }
+  if (asprintf (&conf_account_pc, "%s/pam.d/common-account-pc", confdir) < 0)
+  {
+	  print_error (program);
+	  return 1;
+  }
+  if (asprintf (&conf_auth, "%s/pam.d/common-auth", confdir) < 0)
+  {
+	  print_error (program);
+	  return 1;
+  }
+  if (asprintf (&conf_auth_pc, "%s/pam.d/common-auth-pc", confdir) < 0)
+  {
+	  print_error (program);
+	  return 1;
+  }
+  if (asprintf (&conf_password, "%s/pam.d/common-password", confdir) < 0)
+  {
+	  print_error (program);
+	  return 1;
+  }
+  if (asprintf (&conf_password_pc, "%s/pam.d/common-password-pc", confdir) < 0)
+  {
+	  print_error (program);
+	  return 1;
+  }
+  if (asprintf (&conf_session, "%s/pam.d/common-session", confdir) < 0)
+  {
+	  print_error (program);
+	  return 1;
+  }
+  if (asprintf (&conf_session_pc, "%s/pam.d/common-session-pc", confdir) < 0)
+  {
+	  print_error (program);
+	  return 1;
+  }
+
 
   if (argc < 2)
     {
@@ -246,17 +316,17 @@ main (int argc, char *argv[])
 	 files and delete them afterwards.  */
       load_obsolete_conf (common_module_list);
 
-      if (load_config (CONF_ACCOUNT, ACCOUNT, common_module_list, 1) != 0)
+      if (load_config (conf_account, ACCOUNT, common_module_list, 1) != 0)
 	{
 	load_old_config_error:
 	  fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	  return 1;
 	}
-      if (load_config (CONF_AUTH, AUTH, common_module_list, 1) != 0)
+      if (load_config (conf_auth, AUTH, common_module_list, 1) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_PASSWORD, PASSWORD, common_module_list, 1) != 0)
+      if (load_config (conf_password, PASSWORD, common_module_list, 1) != 0)
 	goto load_old_config_error;
-      if (load_config (CONF_SESSION, SESSION, common_module_list, 1) != 0)
+      if (load_config (conf_session, SESSION, common_module_list, 1) != 0)
 	goto load_old_config_error;
     }
   else if (strcmp (argv[1], "--update") == 0)
@@ -282,17 +352,17 @@ main (int argc, char *argv[])
 
       if (!gl_service)
 	{
-	  if (load_config (CONF_ACCOUNT_PC, ACCOUNT, common_module_list, 1) != 0)
+	  if (load_config (conf_account_pc, ACCOUNT, common_module_list, 1) != 0)
 	    {
 	    load_config_error:
 	      fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
 	      return 1;
 	    }
-	  if (load_config (CONF_AUTH_PC, AUTH, common_module_list, 1) != 0)
+	  if (load_config (conf_auth_pc, AUTH, common_module_list, 1) != 0)
 	    goto load_config_error;
-	  if (load_config (CONF_PASSWORD_PC, PASSWORD, common_module_list, 1) != 0)
+	  if (load_config (conf_password_pc, PASSWORD, common_module_list, 1) != 0)
 	    goto load_config_error;
-	  if (load_config (CONF_SESSION_PC, SESSION, common_module_list, 1) != 0)
+	  if (load_config (conf_session_pc, SESSION, common_module_list, 1) != 0)
 	    goto load_config_error;
 	}
       else
@@ -300,7 +370,7 @@ main (int argc, char *argv[])
 	  /* --service option given */
 	  char *fname;
 
-	  if (asprintf (&fname, CONFDIR"/pam.d/%s", gl_service) < 0)
+	  if (asprintf (&fname, "%s/pam.d/%s", confdir, gl_service) < 0)
 	    return 1;
 
 	  if (load_config (fname, ACCOUNT, service_module_list, 0) != 0)
@@ -1194,7 +1264,7 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_account (common_module_list) != 0)
 	return 1;
-      if (write_config (ACCOUNT, CONF_ACCOUNT_PC, module_list_account) != 0)
+      if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
 	return 1;
 
       /* Write auth section.  */
@@ -1202,7 +1272,7 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_auth (common_module_list) != 0)
 	return 1;
-      if (write_config (AUTH, CONF_AUTH_PC, module_list_auth) != 0)
+      if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
 	return 1;
 
       /* Write password section.  */
@@ -1218,7 +1288,7 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "nullok", TRUE);
       if (sanitize_check_password (common_module_list) != 0)
 	return 1;
-      if (write_config (PASSWORD, CONF_PASSWORD_PC, module_list_password) != 0)
+      if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
 	return 1;
 
       /* Write session section.  */
@@ -1232,7 +1302,7 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", opt_val);
       if (sanitize_check_session (common_module_list) != 0)
 	return 1;
-      if (write_config (SESSION, CONF_SESSION_PC, module_list_session) != 0)
+      if (write_config (SESSION, conf_session_pc, module_list_session) != 0)
 	return 1;
     }
   else if (!gl_service)
@@ -1240,25 +1310,25 @@ main (int argc, char *argv[])
       /* Write account section.  */
       if (sanitize_check_account (common_module_list) != 0)
 	return 1;
-      if (write_config (ACCOUNT, CONF_ACCOUNT_PC, module_list_account) != 0)
+      if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
 	return 1;
 
       /* Write auth section.  */
       if (sanitize_check_auth (common_module_list) != 0)
 	return 1;
-      if (write_config (AUTH, CONF_AUTH_PC, module_list_auth) != 0)
+      if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
 	return 1;
 
       /* Write password section.  */
       if (sanitize_check_password (common_module_list) != 0)
 	return 1;
-      if (write_config (PASSWORD, CONF_PASSWORD_PC, module_list_password) != 0)
+      if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
 	return 1;
 
       /* Write session section.  */
       if (sanitize_check_session (common_module_list) != 0)
 	return 1;
-      if (write_config (SESSION, CONF_SESSION_PC, module_list_session) != 0)
+      if (write_config (SESSION, conf_session_pc, module_list_session) != 0)
 	return 1;
     }
   else
@@ -1267,7 +1337,7 @@ main (int argc, char *argv[])
       pam_module_t **modptr = service_module_list;
 
       if (debug)
-	printf ("*** write_config ("CONFDIR"/pam.d/%s)\n", gl_service);
+		  printf ("*** write_config (%s/pam.d/%s)\n", confdir, gl_service);
 
       /* Check if service file exists */
       char *conffile;
@@ -1284,91 +1354,128 @@ main (int argc, char *argv[])
 
       while (*modptr != NULL)
 	{
-	  (*modptr)->write_config (*modptr, -1, NULL);
+	  retval |= (*modptr)->write_config (*modptr, -1, NULL);
 	  ++modptr;
 	}
     }
 
   if (m_init || (m_create && force))
     {
-      if (relink (CONF_ACCOUNT, CONF_ACCOUNT_PC,
-		  CONF_ACCOUNT".pam-config-backup") != 0)
-	retval = 1;
+		char *bak = NULL;
+		if (asprintf (&bak, "%s.pam-config-backup", conf_account) >= 0)
+		{
+			if (relink (conf_account, conf_account_pc, bak) != 0)
+				retval = 1;
+			
+			free(bak);
+			bak = NULL;
+			
+		}
+		else
+			retval = 1;
+		
+		if (asprintf (&bak, "%s.pam-config-backup", conf_auth) >= 0)
+		{
+			if (relink (conf_auth, conf_auth_pc, bak) != 0)
+				retval = 1;
+			
+			free(bak);
+			bak = NULL;
+			
+		}
+		else
+			retval = 1;
+			
 
-      if (relink (CONF_AUTH, CONF_AUTH_PC, CONF_AUTH".pam-config-backup") != 0)
-	retval = 1;
+		if (asprintf (&bak, "%s.pam-config-backup", conf_password) >= 0)
+		{
+			if (relink (conf_password, conf_password_pc, bak) != 0)
+				retval = 1;
+			
+			free(bak);
+			bak = NULL;
+			
+		}
+		else
+			retval = 1;
+			
 
-      if (relink (CONF_PASSWORD, CONF_PASSWORD_PC,
-		  CONF_PASSWORD".pam-config-backup") != 0)
-	retval = 1;
-
-      if (relink (CONF_SESSION, CONF_SESSION_PC,
-		  CONF_SESSION".pam-config-backup") != 0)
-	retval = 1;
-
-      if (m_init && retval == 0)
-	{
-	  rename ("/etc/security/pam_pwcheck.conf",
-		  "/etc/security/pam_pwcheck.conf.pam-config-backup");
-	  rename ("/etc/security/pam_unix2.conf",
-		  "/etc/security/pam_unix2.conf.pam-config-backup");
-	}
-      return retval;
+		if (asprintf (&bak, "%s.pam-config-backup", conf_session) >= 0)
+		{
+			if (relink (conf_session, conf_session_pc,	bak) != 0)
+				retval = 1;
+			
+			free(bak);
+			bak = NULL;
+			
+		}
+		else
+			retval = 1;
+		
+			
+		if (m_init && retval == 0)
+		{
+			rename ("/etc/security/pam_pwcheck.conf",
+					"/etc/security/pam_pwcheck.conf.pam-config-backup");
+			rename ("/etc/security/pam_unix2.conf",
+					"/etc/security/pam_unix2.conf.pam-config-backup");
+		}
+		return retval;
     }
   else if (force && !gl_service)
     {
-      if (unlink (CONF_ACCOUNT) != 0 ||
-	  symlink (CONF_ACCOUNT_PC, CONF_ACCOUNT) != 0)
+      if (unlink (conf_account) != 0 ||
+	  symlink (conf_account_pc, conf_account) != 0)
 	{
 	  fprintf (stderr,
-		   _("Error activating %s (%m)\n"), CONF_ACCOUNT);
+		   _("Error activating %s (%m)\n"), conf_account);
 	  fprintf (stderr,
-		   _("New config from %s is not in use!\n"), CONF_ACCOUNT_PC);
+		   _("New config from %s is not in use!\n"), conf_account_pc);
 	  retval = 1;
 	}
 
-      if (unlink (CONF_AUTH) != 0 ||
-	  symlink (CONF_AUTH_PC, CONF_AUTH) != 0)
+      if (unlink (conf_auth) != 0 ||
+	  symlink (conf_auth_pc, conf_auth) != 0)
 	{
 	  fprintf (stderr,
-		   _("Error activating %s (%m)\n"), CONF_AUTH);
+		   _("Error activating %s (%m)\n"), conf_auth);
 	  fprintf (stderr,
-		   _("New config from %s is not in use!\n"), CONF_AUTH_PC);
+		   _("New config from %s is not in use!\n"), conf_auth_pc);
 	  retval = 1;
 	}
 
-      if (unlink (CONF_PASSWORD) != 0 ||
-	  symlink (CONF_PASSWORD_PC, CONF_PASSWORD) != 0)
+      if (unlink (conf_password) != 0 ||
+	  symlink (conf_password_pc, conf_password) != 0)
 	{
 	  fprintf (stderr,
-		   _("Error activating %s (%m)\n"), CONF_PASSWORD);
+		   _("Error activating %s (%m)\n"), conf_password);
 	  fprintf (stderr,
 		   _("New config from %s is not in use!\n"),
-		   CONF_PASSWORD_PC);
+		   conf_password_pc);
 	  retval = 1;
 	}
 
-      if (unlink (CONF_SESSION) != 0 ||
-	  symlink (CONF_SESSION_PC, CONF_SESSION) != 0)
+      if (unlink (conf_session) != 0 ||
+	  symlink (conf_session_pc, conf_session) != 0)
 	{
 	  fprintf (stderr,
-		   _("Error activating %s (%m)\n"), CONF_SESSION);
+		   _("Error activating %s (%m)\n"), conf_session);
 	  fprintf (stderr,
 		   _("New config from %s is not in use!\n"),
-		   CONF_SESSION_PC);
+		   conf_session_pc);
 	  retval = 1;
 	}
     }
 
   if (!gl_service)
     {
-      if (check_symlink (CONF_ACCOUNT_PC, CONF_ACCOUNT) != 0)
+      if (check_symlink (conf_account_pc, conf_account) != 0)
 	retval = 1;
-      if (check_symlink (CONF_AUTH_PC, CONF_AUTH) != 0)
+      if (check_symlink (conf_auth_pc, conf_auth) != 0)
 	retval = 1;
-      if (check_symlink (CONF_PASSWORD_PC, CONF_PASSWORD) != 0)
+      if (check_symlink (conf_password_pc, conf_password) != 0)
 	retval = 1;
-      if (check_symlink (CONF_SESSION_PC, CONF_SESSION) != 0)
+      if (check_symlink (conf_session_pc, conf_session) != 0)
 	retval = 1;
     }
 

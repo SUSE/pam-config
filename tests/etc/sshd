@@ -1,0 +1,10 @@
+#%PAM-1.0
+auth	 requisite	pam_nologin.so
+auth     include        common-auth
+account  include        common-account
+password include        common-password
+session	 required	pam_loginuid.so
+session  include        common-session
+# Enable the following line to get resmgr support for
+# ssh sessions (see /usr/share/doc/packages/resmgr/README)
+#session  optional	pam_resmgr.so fake_ttyname
