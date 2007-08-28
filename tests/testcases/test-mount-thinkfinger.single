@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Testcase:	mount-thinkfinger
+# Module:	pam_mount.so
+# Service:	gdm
+# Description:	Test for mutual exclusiveness of module pam_mount.so
+#		and pam_thinkfinger.so.
+
+. support/header.sh
+
+# Enable pam_thinkfinger.so
+$PAMCONFIG -a --thinkfinger
+# Try to add module pam_mount.so to service gdm. Should fail.
+$PAMCONFIG --service gdm -a --mount
+echo $?
+
+. support/footer-service.sh gdm

@@ -1,3 +1,11 @@
+2007-08-28  Sven Schober <sschober@suse.de>
+	* src/pam-config.c: Fix bug where common-{auth,...} links wouldn't be
+	created if files of the same name didn't exist already.
+	* tests/single.out/test-mount-thinkfinger.err: New.
+	* tests/single.out/test-mount-thinkfinger.out: New.
+	* tests/testcases/test-mount-thinkfinger.single: New
+	testcase to check for pam_{mount,thinkfinger}.so mutex.
+
 2007-08-23  Sven Schober <sschober@suse.de>
 	* src/pam-config.c: CONFDIR customizable via cmd line
 	option.

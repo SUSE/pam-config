@@ -32,6 +32,6 @@ Then you need to initialize its output by either:
       support/init.sh testcases/test-<name>.single
 
     which does one test-run with your newly created testcase and
-    stores stdout and stderr into single.out/test-<name>.{err,out}
+    stores "stdout" and "stderr" into single.out/test-<name>.{err,out}
     accordingly.
 
