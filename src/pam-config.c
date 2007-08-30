@@ -158,6 +158,7 @@ relink (const char *file, const char *file_pc, const char *file_bak)
   }
   else
   {
+    fprintf (stderr, _("WARNING: file '%s' not found. Omitting backup.\n"), file);
     if (symlink (file_pc, file) != 0)
     {
       fprintf (stderr,
@@ -329,7 +330,10 @@ main (int argc, char *argv[])
 
       /* Load old /etc/security/{pam_unix2,pam_pwcheck}.conf
 	 files and delete them afterwards.  */
-      load_obsolete_conf (common_module_list);
+      if ( load_obsolete_conf (common_module_list) != 0)
+      {
+	fprintf (stderr, _( "WARNING: Couldn't load old config files.\n"));
+      }
 
       if (load_config (conf_account, ACCOUNT, common_module_list, 1) != 0)
 	{

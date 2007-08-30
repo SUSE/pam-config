@@ -445,6 +445,7 @@ parse_file (const char *file, pam_module_t *mod,
 int
 load_obsolete_conf (pam_module_t **module_list)
 {
+  int retval = 0;
   if (debug)
     printf ("*** load_obsolete_conf (...)\n");
 
@@ -464,6 +465,12 @@ load_obsolete_conf (pam_module_t **module_list)
 		      parse_option_unix2) == -1)
 	return -1;
     }
+  else
+    {
+      fprintf (stderr, _("WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"));
+      retval = -1;
+    }
+
 
   if (access ("/etc/security/pam_pwcheck.conf", R_OK) == 0)
     {
@@ -481,6 +488,11 @@ load_obsolete_conf (pam_module_t **module_list)
 		      parse_option_pwcheck) == -1)
 	return -1;
     }
+  else
+    {
+      fprintf (stderr, _("WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"));
+      retval = -1;
+    }
 
-  return 0;
+  return retval;
 }
