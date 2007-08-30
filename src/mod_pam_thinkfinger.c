@@ -100,7 +100,17 @@ check_service_files_for_module (const char *module)
     DEBUG ("**** check_service_files_for_module ('%s') in '%s'\n", module, CONFDIR"/pam.d"); 
   }
   char *conf_dname;
-  if (confdir) asprintf( &conf_dname, "%s/pam.d", confdir);
+  if (confdir)
+  {
+    if (asprintf( &conf_dname, "%s/pam.d", confdir) < 0)
+    {
+      fprintf (stderr, _("ERROR: No memory left to construct path.\n"));
+      /* if we couldn't check assume the worst (pam_mount.so is
+       * enabled).
+       */
+      return TRUE;
+    }
+  }
   else conf_dname = CONFDIR"/pam.d";
   n = scandir (conf_dname, &namelist, &service_filter, 0);
   if (n<0)
