@@ -1360,7 +1360,7 @@ main (int argc, char *argv[])
 
       /* Check if service file exists */
       char *conffile;
-      if (asprintf (&conffile, CONFDIR"/pam.d/%s", gl_service) < 0)
+      if (asprintf (&conffile, "%s/pam.d/%s", confdir, gl_service) < 0)
 	return 1;
 
       if (access (conffile, R_OK) != 0)
