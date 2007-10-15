@@ -96,9 +96,6 @@ check_service_files_for_module (const char *module)
   struct dirent **namelist;
   int n, found = FALSE;
   
-  if (debug){
-    DEBUG ("**** check_service_files_for_module ('%s') in '%s'\n", module, CONFDIR"/pam.d"); 
-  }
   char *conf_dname;
   if (confdir)
   {
@@ -112,9 +109,14 @@ check_service_files_for_module (const char *module)
     }
   }
   else conf_dname = CONFDIR"/pam.d";
+
+  if (debug){
+    DEBUG ("**** check_service_files_for_module ('%s') in '%s'\n", module, conf_dname); 
+  }
+
   n = scandir (conf_dname, &namelist, &service_filter, 0);
   if (n<0)
-    fprintf (stderr, _("WARNING: Found no service files in '%s'.\n"), CONFDIR"/pam.d");
+    fprintf (stderr, _("WARNING: Found no service files in '%s'.\n"), conf_dname);
   else
   {
     /* Iterate over every service file and check it for module
