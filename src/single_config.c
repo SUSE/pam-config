@@ -98,6 +98,9 @@ load_single_config (const char *config_name, config_content_t **ptr)
 int
 write_single_config (const char *service, config_content_t **cfg_content)
 {
+  if (debug)
+      printf("**** write_single_config (%s)**** \n", service);
+
   FILE *fp;
   fp = create_service_file (service);
   if (fp == NULL) return 1;
@@ -116,6 +119,12 @@ insert_if (config_content_t **cfg, const char *line, int (*predicate)(config_con
   config_content_t *prev = NULL, *new_element = NULL, **head;
   config_content_t *cfg_content = *cfg;
   int result = FALSE, inserted = FALSE;
+
+  if (debug) {
+      char *l = strdup(line);
+      printf("**** insert_if (%s)**** \n", strtok(l, "\n"));
+      free(l);
+  }
 
   /* save the list head */
   head = cfg;
@@ -179,6 +188,9 @@ remove_module (config_content_t **cfg, const char *module_name)
   config_content_t *cfg_content = *cfg;
   int removed = 0;
 
+  if (debug)
+      printf("**** remove_module (%s)**** \n", module_name);
+
   /* save list head */
   head = cfg;
   while (cfg_content != NULL)
@@ -188,22 +200,31 @@ remove_module (config_content_t **cfg, const char *module_name)
       /* found an element cotaining module_name */
       if (prev)
       {
+	 if (debug)
+            printf("REMOVE: %s", cfg_content->line); 
 	prev->next = cfg_content->next;
 	free (cfg_content);
+	cfg_content = prev;
       }
       else
       {
 	/* no prev means we remove list head */
+	 if (debug)
+            printf("REMOVE from head: %s", cfg_content->line); 
 	config_content_t *succ = (*head)->next;
 	(*head)->line = succ->line;
 	(*head)->next = succ->next;
 	free (succ);
+	succ = NULL;
       }
       removed += 1;
     }
     prev = cfg_content;
     cfg_content = cfg_content->next;
   }
+  if (debug)
+    printf("Remove %d items\n", removed); 
+
   return removed;
 }
 
