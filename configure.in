@@ -69,4 +69,4 @@ AH_VERBATIM([_ZZENABLE_NLS],
 #define N_(msgid) msgid
 #endif /* ENABLE_NLS */])
 
-AC_OUTPUT([Makefile src/Makefile po/Makefile.in tests/Makefile tests/config/Makefile tests/pam-config.test/Makefile])
+AC_OUTPUT([Makefile src/Makefile po/Makefile.in tests/Makefile tests/config/Makefile tests/pam-config.test/Makefile tests/etc/Makefile])

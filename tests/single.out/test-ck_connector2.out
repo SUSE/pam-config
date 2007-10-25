@@ -1,4 +1,3 @@
-spawn ../src/pam-config --confdir /cvs/PAM/pam-config/trunk/tests/etc --service login2 -a --ck_connector
 #%PAM-1.0
 auth	 requisite	pam_nologin.so
 auth	 [user_unknown=ignore success=ok ignore=ignore auth_err=die default=bad]	pam_securetty.so

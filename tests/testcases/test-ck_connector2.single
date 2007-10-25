@@ -9,6 +9,6 @@
 
 # Add module pam_ck_connector.so to service login2
 # use a timeout because on error this maybe an endless loop
-/usr/bin/timed-run 3 $PAMCONFIG --service login2 -a --ck_connector
+/usr/bin/timed-run 3 $PAMCONFIG --service login2 -a --ck_connector > /dev/null
 
 . support/footer-service.sh login2

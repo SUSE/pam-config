@@ -1,3 +1,13 @@
+2007-10-25  Sven Schober <sschober@suse.de>
+	* release version 0.24
+
+	* configure.in: added 'tests/etc/Makefile' to AC_OUTPUT
+	* tests/etc/Makefile.am: New. Introduced to avoid packaging
+	'.svn' directory.
+	* tests/testcases/test-ck_connector2.single: Pipe cmd output
+	to /dev/null to achieve location independency (test case
+	would fail on different machines/paths).
+
 2007-10-15  Michael Calmer <mc@suse.de>
 	* src/mod_pam_thinkfinger.c: Use dynamic confdir
 	parameter.

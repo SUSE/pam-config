@@ -1,7 +1,7 @@
 #
 ## Makefile.am for limal/testsuite
 #
-# SUBDIRS = single.out support testcases 
+SUBDIRS = etc 
 PACKAGE = pam-config
 AUTOMAKE_OPTIONS = dejagnu
 
@@ -14,5 +14,5 @@ clean-local:
 	rm -f etc/*/*~
 	rm -f etc/pam.d/common-*
 
-EXTRA_DIST =  etc/* etc/pam.d/*.* support/*.* testcases/*.single single.out/*.* \
-	      config/*.* pam-config.test/*.*
+EXTRA_DIST =  support/* testcases/*.single single.out/*.* \
+	      config/* pam-config.test/*

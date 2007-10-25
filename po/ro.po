@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-30 14:55+0200\n"
+"POT-Creation-Date: 2007-10-25 14:13+0200\n"
 "PO-Revision-Date: 2003-02-25 15:04+0100\n"
 "Last-Translator: <i18n@suse.de>\n"
 "Language-Team: Romanian <i18n@suse.de>\n"
@@ -75,14 +75,14 @@ msgstr ""
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:469
+#: src/load_obsolete_conf.c:470
 #, c-format
-msgid "Couldn't find old pam_unix2.conf (%m).\n"
+msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
 
-#: src/load_obsolete_conf.c:492
+#: src/load_obsolete_conf.c:493
 #, c-format
-msgid "Couldn't find old pam_pwcheck.conf (m).\n"
+msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
 
 #: src/mod_pam_cryptpass.c:128
@@ -109,22 +109,22 @@ msgstr ""
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:107
+#: src/mod_pam_thinkfinger.c:104
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:117
+#: src/mod_pam_thinkfinger.c:119
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:127
+#: src/mod_pam_thinkfinger.c:129
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:152
+#: src/mod_pam_thinkfinger.c:154
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
@@ -216,14 +216,14 @@ msgstr ""
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:113 src/pam-config.c:153 src/pam-config.c:164
+#: src/pam-config.c:113 src/pam-config.c:153 src/pam-config.c:165
 #: src/pam-config.c:1450 src/pam-config.c:1460 src/pam-config.c:1470
 #: src/pam-config.c:1481
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:115 src/pam-config.c:155 src/pam-config.c:166
+#: src/pam-config.c:115 src/pam-config.c:155 src/pam-config.c:167
 #: src/pam-config.c:1452 src/pam-config.c:1462 src/pam-config.c:1472
 #: src/pam-config.c:1483
 #, c-format
@@ -240,9 +240,14 @@ msgstr ""
 msgid "New config from %s is is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:334
+#: src/pam-config.c:161
 #, c-format
-msgid "Couldn't load old config files, aborting.\n"
+msgid "WARNING: file '%s' not found. Omitting backup.\n"
+msgstr ""
+
+#: src/pam-config.c:335
+#, c-format
+msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 
 #: src/pam-config.c:341 src/pam-config.c:377
@@ -314,22 +319,22 @@ msgstr ""
 msgid "ERR: Failed to disable pam_unix.so.\n"
 msgstr ""
 
-#: src/single_config.c:228
+#: src/single_config.c:249
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr ""
 
-#: src/single_config.c:238 src/write_config.c:63
+#: src/single_config.c:259 src/write_config.c:63
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr ""
 
-#: src/single_config.c:247 src/write_config.c:70
+#: src/single_config.c:268 src/write_config.c:70
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr ""
 
-#: src/single_config.c:257
+#: src/single_config.c:278
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr ""
