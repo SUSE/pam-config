@@ -1,3 +1,22 @@
+2007-10-15  Michael Calmer <mc@suse.de>
+	* src/mod_pam_thinkfinger.c: Use dynamic confdir
+	parameter.
+	* src/pam-config.c: Use dynamic confdir parameter.
+	* src/single_config.c: fix endless loop if a module exists
+	twice in a config file [#328519]. Added some debug
+	statements.
+	* tests/testcases/test-ck_connector2.single: Test case for
+	bug[#328519].
+
+2007-08-30  Sven Schober <sschober@suse.de>
+	* src/mod_pam_thinkfinger.c: check return value of asprintf.
+	* tests/Makefile.am: Mention testcases/, support/, config/
+	and pam-config.test/ in EXTRA_DIST.
+	* src/pam-config.c: Issue warning in relink() if old common-*
+	file is not found.
+	* load_obsolete_conf.c: Issue warnings if 
+	/etc/security/pam_{pwcheck,unix2}.conf files not found.
+
 2007-08-28  Sven Schober <sschober@suse.de>
 	* src/pam-config.c: Fix bug where common-{auth,...} links wouldn't be
 	created if files of the same name didn't exist already.
