@@ -580,7 +580,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_pwcheck.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_pwcheck.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_pwcheck.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck,
 						     PASSWORD);
@@ -644,7 +644,7 @@ main (int argc, char *argv[])
 				 "pam_mkhomedir.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_mkhomedir.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_mkhomedir.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
 						       SESSION);
@@ -677,7 +677,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_limits.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_limits.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_limits.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -705,7 +705,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_env.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_env.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_env.so", force) != 0)
 		return 1;
 	      /* Remove in every case from auth,
 		 else we will have it twice.  */
@@ -737,7 +737,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_make.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_make.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_make.so", force) != 0)
 		return 1;
               opt_set = mod_pam_make.get_opt_set (&mod_pam_make, PASSWORD);
               opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -753,7 +753,7 @@ main (int argc, char *argv[])
             print_module_config (common_module_list, "pam_unix2.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_unix2.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_unix2.so", force) != 0)
 		return 1;
               opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
               opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -819,7 +819,7 @@ main (int argc, char *argv[])
             print_module_config (common_module_list, "pam_unix.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_unix.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_unix.so", force) != 0)
 		return 1;
               opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
               opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -897,7 +897,7 @@ main (int argc, char *argv[])
             print_module_config (common_module_list, "pam_krb5.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_krb5.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_krb5.so", force) != 0)
 		return 1;
               opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
               opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -959,7 +959,7 @@ main (int argc, char *argv[])
             print_module_config (common_module_list, "pam_ldap.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_ldap.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_ldap.so", force) != 0)
 		return 1;
               opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, ACCOUNT);
               opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -987,7 +987,7 @@ main (int argc, char *argv[])
             print_module_config (common_module_list, "pam_ccreds.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_ccreds.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_ccreds.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_ccreds.get_opt_set (&mod_pam_ccreds, AUTH);
 	      opt_set->enable (opt_set, "is_enabled", TRUE);
@@ -999,7 +999,7 @@ main (int argc, char *argv[])
             print_module_config (common_module_list, "pam_pkcs11.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_pkcs11.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_pkcs11.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_ccreds.get_opt_set (&mod_pam_pkcs11, AUTH);
 	      opt_set->enable (opt_set, "is_enabled", TRUE);
@@ -1011,7 +1011,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_apparmor.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_apparmor.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_apparmor.so", force) != 0)
 		return 1;
 
 	      opt_set = mod_pam_apparmor.get_opt_set (&mod_pam_apparmor,
@@ -1025,7 +1025,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_nam.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_nam.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_nam.so", force) != 0)
 		return 1;
 
 	      opt_set = mod_pam_nam.get_opt_set (&mod_pam_nam, ACCOUNT);
@@ -1044,7 +1044,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_cracklib.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_cracklib.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_cracklib.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib,
 						      PASSWORD);
@@ -1082,7 +1082,7 @@ main (int argc, char *argv[])
             print_module_config (common_module_list, "pam_winbind.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_winbind.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_winbind.so", force) != 0)
 		return 1;
               opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind,
 						     ACCOUNT);
@@ -1114,7 +1114,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_umask.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_umask.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_umask.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -1142,7 +1142,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_thinkfinger.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_thinkfinger.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_thinkfinger.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_thinkfinger.get_opt_set (&mod_pam_thinkfinger, AUTH);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -1155,7 +1155,7 @@ main (int argc, char *argv[])
 	    print_module_config (service_module_list, "pam_loginuid.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_loginuid.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_loginuid.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_loginuid.get_opt_set (&mod_pam_loginuid,
 						      SESSION);
@@ -1172,7 +1172,7 @@ main (int argc, char *argv[])
 	    print_module_config (service_module_list, "pam_lastlog.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_lastlog.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_lastlog.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_lastlog.get_opt_set (&mod_pam_lastlog,
 						     SESSION);
@@ -1186,7 +1186,7 @@ main (int argc, char *argv[])
 	    print_module_config (service_module_list, "pam_mount.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_mount.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_mount.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_mount.get_opt_set (&mod_pam_mount, SESSION);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -1198,7 +1198,7 @@ main (int argc, char *argv[])
 	    print_module_config (service_module_list, "pam_cryptpass.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_cryptpass.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_cryptpass.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_cryptpass.get_opt_set (&mod_pam_cryptpass, SESSION);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -1210,7 +1210,7 @@ main (int argc, char *argv[])
 	    print_module_config (service_module_list, "pam_cryptpass.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_cryptpass.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_cryptpass.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_cryptpass.get_opt_set (&mod_pam_cryptpass, PASSWORD);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);
@@ -1222,7 +1222,7 @@ main (int argc, char *argv[])
 	    print_module_config (service_module_list, "pam_ck_connector.so");
 	  else
 	    {
-	      if (check_for_pam_module ("pam_ck_connector.so", force) != 0)
+	      if (!m_delete && check_for_pam_module ("pam_ck_connector.so", force) != 0)
 		return 1;
 	      opt_set = mod_pam_ck_connector.get_opt_set (&mod_pam_ck_connector, SESSION);
 	      opt_set->enable (opt_set, "is_enabled", opt_val);

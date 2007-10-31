@@ -1,3 +1,7 @@
+2007-10-31  Sven Schober <sschober@suse.de>
+	* src/pam-config.c: Do not check for installed pam-module on
+	delete request [#337369].
+
 2007-10-25  Sven Schober <sschober@suse.de>
 	* release version 0.24
 
