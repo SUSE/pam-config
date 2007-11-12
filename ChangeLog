@@ -1,3 +1,6 @@
+2007-11-12  Michael Calmer <mc@suse.de>
+	* src/mod_pam_krb5.c: fix missconfiguration of pam_krb5 [#335521]
+
 2007-10-31  Sven Schober <sschober@suse.de>
 	* src/pam-config.c: Do not check for installed pam-module on
 	delete request [#337369].

@@ -94,10 +94,8 @@ write_config_krb5 (pam_module_t * this, enum write_type op, FILE * fp)
     case AUTH:
       if (with_ccreds)
         fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_krb5.so\tuse_first_pass ");
-      else if (with_ldap || with_nam || with_winbind)
+      else 
         fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
-      else
-        fprintf (fp, "auth\trequired\tpam_krb5.so\tuse_first_pass ");
       break;
     case PASSWORD:
       if (with_ldap || with_nam)
