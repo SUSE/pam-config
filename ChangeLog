@@ -1,4 +1,5 @@
 2007-11-12  Michael Calmer <mc@suse.de>
+	* release version 0.25
 	* src/mod_pam_krb5.c: fix missconfiguration of pam_krb5 [#335521]
 
 2007-10-31  Sven Schober <sschober@suse.de>
