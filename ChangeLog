@@ -1,5 +1,9 @@
 2007-11-14  Michael Calmer <mc@suse.de>
+	* release version 0.26
+
 	* src/pam-config.c: add --ldap-account_only option
+	* src/sanity_checks.c: add check - ldap-account_only is
+	only allowed if krb5 is configured.
 	* src/pam-config.8.xml: Adapted manpage.
 	* tests/testcases/test-ldap-account_only.single: New
 	* tests/single.out/test-ldap-account_only.err: New

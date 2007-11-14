@@ -2,28 +2,79 @@
 # START cleanup
 . support/header.sh
 
+echo "----------------------------------------------------------------------"
+echo "krb5 + ldap-account_only"
 $PAMCONFIG -a --krb5
 $PAMCONFIG -a --ldap-account_only
 
-echo "krb5 + ldap-account_only"
 . support/footer-common.sh
 
+echo "----------------------------------------------------------------------"
+echo "add ldap"
 $PAMCONFIG -a --ldap
 
-echo "add ldap"
 . support/footer-common.sh
 
+echo "----------------------------------------------------------------------"
+echo "delete ldap"
 $PAMCONFIG -d --ldap
 
-echo "delete ldap"
 . support/footer-common.sh
 
+echo "----------------------------------------------------------------------"
+echo "add ldap"
 $PAMCONFIG -a --ldap
 
-echo "add ldap"
 . support/footer-common.sh
 
+echo "----------------------------------------------------------------------"
+echo "add ldap-account_only"
 $PAMCONFIG -a --ldap-account_only
 
-echo "add ldap-account_only"
 . support/footer-common.sh
+
+echo "----------------------------------------------------------------------"
+echo "delete krb5 - expect error"
+echo "delete krb5 - expect error" >&2
+$PAMCONFIG -d --krb5
+
+. support/footer-common.sh
+
+echo "----------------------------------------------------------------------"
+echo "delete ldap-account_only and krb5"
+$PAMCONFIG -d --ldap-account_only --krb5
+
+. support/footer-common.sh
+
+echo "----------------------------------------------------------------------"
+echo "add ldap-account_only - expect error"
+echo "add ldap-account_only - expect error" >&2
+$PAMCONFIG -a --ldap-account_only
+
+. support/footer-common.sh
+
+echo "----------------------------------------------------------------------"
+echo "add ldap"
+$PAMCONFIG -a --ldap
+
+. support/footer-common.sh
+
+echo "----------------------------------------------------------------------"
+echo "add krb5"
+$PAMCONFIG -a --krb5
+
+. support/footer-common.sh
+
+echo "----------------------------------------------------------------------"
+echo "delete krb5"
+$PAMCONFIG -d --krb5
+
+. support/footer-common.sh
+
+echo "----------------------------------------------------------------------"
+echo "delete ldap"
+$PAMCONFIG -d --ldap
+
+. support/footer-common.sh
+
+

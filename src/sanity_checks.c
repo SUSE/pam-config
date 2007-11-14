@@ -61,7 +61,25 @@ check_for_pam_module (const char *name, int force)
 int
 sanitize_check_account (pam_module_t **module_list)
 {
+  int with_ldap_auth, with_ldap_account, with_krb5;
+
   check_for_unix_conflict( module_list, ACCOUNT );
+
+  with_ldap_account = is_module_enabled (module_list,
+										 "pam_ldap.so", ACCOUNT);
+  with_ldap_auth = is_module_enabled (module_list,
+									  "pam_ldap.so", AUTH);
+
+  with_krb5 = is_module_enabled (module_list,
+								 "pam_krb5.so", AUTH);
+
+  if( with_ldap_account && !with_ldap_auth && !with_krb5 )
+  {
+	  fprintf (stderr,
+			   _("ERROR: ldap-account_only is only allowed in combination with krb5.\nConfiguration not changed!\n"));
+	  return 1;
+  }
+
   return 0;
 }
 
@@ -71,7 +89,7 @@ sanitize_check_auth (pam_module_t **module_list)
   int with_ccreds, with_ldap, with_krb5;
 
   check_for_unix_conflict( module_list, AUTH );
-  
+
   with_ccreds = is_module_enabled (module_list,
 				   "pam_ccreds.so", AUTH);
   with_ldap = is_module_enabled (module_list,
@@ -139,11 +157,11 @@ int
 check_for_unix_conflict (pam_module_t **module_list, write_type_t op)
 {
   int with_unix, with_unix2;
- 
-  with_unix = is_module_enabled (module_list, 
-				  "pam_unix.so", op ); 
-  with_unix2 = is_module_enabled (module_list, 
-				  "pam_unix2.so", op ); 
+
+  with_unix = is_module_enabled (module_list,
+				  "pam_unix.so", op );
+  with_unix2 = is_module_enabled (module_list,
+				  "pam_unix2.so", op );
 
   if (with_unix && with_unix2 )
   {

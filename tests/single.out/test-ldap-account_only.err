@@ -1,0 +1,6 @@
+delete krb5 - expect error
+ERROR: ldap-account_only is only allowed in combination with krb5.
+Configuration not changed!
+add ldap-account_only - expect error
+ERROR: ldap-account_only is only allowed in combination with krb5.
+Configuration not changed!

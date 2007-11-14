@@ -311,8 +311,8 @@
 		  <term><option>--ldap-account_only</option></term>
 		  <listitem>
 			  <para>
-				  Add pam_ldap.so only in the account block. Usefull in
-				  combination with kerberos to have extra login rules.
+				  Add pam_ldap.so only in the account block. Only allowed if
+				  kerberos (<option>--krb5</option>)is configured.
 			  </para>
 		  </listitem>
 	  </varlistentry>

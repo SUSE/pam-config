@@ -14,7 +14,7 @@
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.25
+Version:        0.26
 Release:        1
 License:        GPL
 Autoreqprov:    on
