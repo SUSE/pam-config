@@ -1,17 +1,17 @@
-.\"     Title: pam\-config
+.\"     Title: pam-config
 .\"    Author: 
-.\" Generator: DocBook XSL Stylesheets v1.71.1 <http://docbook.sf.net/>
-.\"      Date: 08/14/2007
+.\" Generator: DocBook XSL Stylesheets v1.73.1 <http://docbook.sf.net/>
+.\"      Date: 11/14/2007
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "08/14/2007" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "11/14/2007" "Reference Manual" "Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
 .ad l
 .SH "NAME"
-pam\-config \- Adjust common PAM config files
+pam-config - Adjust common PAM config files
 .SH "SYNOPSIS"
 .HP 11
 \fBpam\-config\fR [\-\-debug] [\-\-list\-modules] [\-\-service\ \fIservice\-name\fR] \-a | \-c | \-d | \-q  [\-f] [\fImodule\-name\fR]
@@ -21,159 +21,159 @@ pam\-config \- Adjust common PAM config files
 .PP
 
 \fBpam\-config\fR
-adjusts predefined PAM config files.
+adjusts predefined PAM config files\.
 .SH "OPTIONS"
 .SS "COMMON OPTIONS"
 .PP
 \fB\-\-debug\fR
 .RS 4
-Print debug messages.
+Print debug messages\.
 .RE
 .PP
 \fB\-f\fR, \fB\-\-force\fR
 .RS 4
-The new configuration will be activated regardless if there are other local changes.
+The new configuration will be activated regardless if there are other local changes\.
 .RE
 .PP
 \fB\-\-list\-modules\fR
 .RS 4
-Prints out a list of all supported modules to stdout.
+Prints out a list of all supported modules to stdout\.
 .RE
 .PP
 \fB\-\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-to all modules which support this.
+to all modules which support this\.
 .RE
 .PP
 \fB\-\-pam\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-to all modules which support this.
+to all modules which support this\.
 .RE
 .SS "MODIFIER OPTIONS"
 .PP
-Use the following options to specifiy the action you want pam\-config to apply. They need to be followed by a supported module option. See
-the section called \(lqSUPPORTED PAM MODULES\(rq.
+Use the following options to specifiy the action you want pam\-config to apply\. They need to be followed by a supported module option\. See
+the section called \(lqSUPPORTED PAM MODULES\(rq\.
 .PP
 \fB\-a\fR, \fB\-\-add\fR
 .RS 4
-Add options or new PAM modules to existing PAM configuration files.
+Add options or new PAM modules to existing PAM configuration files\.
 .RE
 .PP
 \fB\-c\fR, \fB\-\-create\fR
 .RS 4
-Create new PAM configuration files for plain UNIX authentication, overwriting existing ones.
+Create new PAM configuration files for plain UNIX authentication, overwriting existing ones\.
 .RE
 .PP
 \fB\-d\fR, \fB\-\-delete\fR
 .RS 4
-Remove options or PAM modules from existing PAM configuration files.
+Remove options or PAM modules from existing PAM configuration files\.
 .RE
 .PP
 \fB\-q\fR, \fB\-\-query\fR
 .RS 4
-Print a list of types and the corresponding module options for the queried PAM module.
+Print a list of types and the corresponding module options for the queried PAM module\.
 .RE
 .SS "SUPPORTED PAM MODULES"
 .PP
-This is a list of modules supported by pam\-config. They are split into two categories: global and single service modules.
+This is a list of modules supported by pam\-config\. They are split into two categories: global and single service modules\.
 .sp
 .it 1 an-trap
 .nr an-no-space-flag 1
 .nr an-break-flag 1
 .br
-\fBGLOBAL MODULES\fR
+GLOBAL MODULES
 .RS
 .PP
-The global modules get inserted into the common\-{account,auth,password,session} files which are included by the single service files.
+The global modules get inserted into the common\-{account,auth,password,session} files which are included by the single service files\.
 .PP
 \fB\-\-apparmor\fR
 .RS 4
-Add pam_apparmore.so to session config.
+Add pam_apparmore\.so to session config\.
 .RE
 .PP
 \fB\-\-bioapi\fR
 .RS 4
-Add pam_bioapi.so to the authentication stack before pam_unix2.so.
+Add pam_bioapi\.so to the authentication stack before pam_unix2\.so\.
 .RE
 .PP
 \fB\-\-bioapi\-options=\fR\fIoption\fR
 .RS 4
 Add
 \fIoption\fR
-as argument for pam_bioapi.so.
+as argument for pam_bioapi\.so\.
 .RE
 .PP
 \fB\-\-ccreds\fR
 .RS 4
-Add pam_ccreds.so after pam_ldap.so or pam_krb5.so.
+Add pam_ccreds\.so after pam_ldap\.so or pam_krb5\.so\.
 .RE
 .PP
 \fB\-\-cracklib\fR
 .RS 4
-Enable/Disable pam_cracklib.so module in password section.
+Enable/Disable pam_cracklib\.so module in password section\.
 .RE
 .PP
 \fB\-\-cracklib\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_cracklib.so invocations.
+option to all pam_cracklib\.so invocations\.
 .RE
 .PP
 \fB\-\-cracklib\-retry=\fR\fIN\fR
 .RS 4
 Add
 \fBtries=\fR\fIN\fR
-to pam_cracklib.so.
+to pam_cracklib\.so\.
 .RE
 .PP
 \fB\-\-cracklib\-dictpath=\fR\fIpath\fR
 .RS 4
 Specify
 \fIpath\fR
-where pam_cracklib.so can find the cracklib dictionaries.
+where pam_cracklib\.so can find the cracklib dictionaries\.
 .RE
 .PP
 \fB\-\-env\fR
 .RS 4
-Add pam_env.so as optional module to session section.
+Add pam_env\.so as optional module to session section\.
 .RE
 .PP
 \fB\-\-env\-conffile=\fR\fIfile\fR
 .RS 4
 Add
 \fBconffile=\fR\fIfile\fR
-to pam_env.so.
+to pam_env\.so\.
 .RE
 .PP
 \fB\-\-env\-envfile=\fR\fIfile\fR
 .RS 4
 Add
 \fBenvfile=\fR\fIfile\fR
-to pam_env.so.
+to pam_env\.so\.
 .RE
 .PP
 \fB\-\-env\-readenv=\fR\fI0|1\fR
 .RS 4
 Add
 \fBreadenv=\fR\fI0|1\fR
-to pam_env.so.
+to pam_env\.so\.
 .RE
 .PP
 \fB\-\-krb5\fR
 .RS 4
-Use pam_krb5.so after pam_unix2.so to all stacks.
+Use pam_krb5\.so after pam_unix2\.so to all stacks\.
 .RE
 .PP
 \fB\-\-krb5\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_krb5.so invocations.
+option to all pam_krb5\.so invocations\.
 .RE
 .PP
 \fB\-\-krb5\-minimum_uid=\fR\fIuid\fR
@@ -182,287 +182,292 @@ Add
 \fBminimum_uid\fR
 option with argument
 \fIuid\fR
-to all pam_krb5.so invocations.
+to all pam_krb5\.so invocations\.
 .RE
 .PP
 \fB\-\-krb5\-ignore_unknown_principals\fR
 .RS 4
 Add
 \fBignore_unknown_principals\fR
-option to all pam_krb5.so invocations.
+option to all pam_krb5\.so invocations\.
 .RE
 .PP
 \fB\-\-ldap\fR
 .RS 4
-Add pam_ldap.so after pam_unix2.so to all stacks.
+Add pam_ldap\.so after pam_unix2\.so to all stacks\.
 .RE
 .PP
 \fB\-\-ldap\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_ldap.so invocations.
+option to all pam_ldap\.so invocations\.
+.RE
+.PP
+\fB\-\-ldap\-account_only\fR
+.RS 4
+Add pam_ldap\.so only in the account block\. Usefull in combination with kerberos to have extra login rules\.
 .RE
 .PP
 \fB\-\-limits\fR
 .RS 4
-Add pam_limits.so to session section.
+Add pam_limits\.so to session section\.
 .RE
 .PP
 \fB\-\-make\fR
 .RS 4
-Add pam_make.so as last module to password section.
+Add pam_make\.so as last module to password section\.
 .RE
 .PP
 \fB\-\-make\-dir=\fR\fIpath\fR
 .RS 4
 Add
 \fIpath\fR
-as argument for pam_make.so.
+as argument for pam_make\.so\.
 .RE
 .PP
 \fB\-\-mkhomedir\fR
 .RS 4
-Add pam_mkhomedir.so as first module to session section.
+Add pam_mkhomedir\.so as first module to session section\.
 .RE
 .PP
 \fB\-\-mkhomedir\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_mkhomedir.so invocations.
+option to all pam_mkhomedir\.so invocations\.
 .RE
 .PP
 \fB\-\-mkhomedir\-silent\fR
 .RS 4
 Add
 \fBsilent\fR
-option to all pam_mkhomedir.so invocations.
+option to all pam_mkhomedir\.so invocations\.
 .RE
 .PP
 \fB\-\-mkhomedir\-umask=\fR\fImode\fR
 .RS 4
 Add
 \fBumask=\fR\fImode\fR
-to pam_mkhomedir.so.
+to pam_mkhomedir\.so\.
 .RE
 .PP
 \fB\-\-mkhomedir\-skel=\fR\fIskeldir\fR
 .RS 4
 Add
 \fBskel=\fR\fIskeldir\fR
-to pam_mkhomedir.so.
+to pam_mkhomedir\.so\.
 .RE
 .PP
 \fB\-\-nam\fR
 .RS 4
-Add pam_nam.so to all stacks.
+Add pam_nam\.so to all stacks\.
 .RE
 .PP
 \fB\-\-pkcs11\fR
 .RS 4
-Add pam_pkcs11.so before pam_unix2.so.
+Add pam_pkcs11\.so before pam_unix2\.so\.
 .RE
 .PP
 \fB\-\-pwcheck\fR
 .RS 4
-Enable/Disable pam_pwcheck.so module in password section.
+Enable/Disable pam_pwcheck\.so module in password section\.
 .RE
 .PP
 \fB\-\-pwcheck\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_pwcheck.so invocations.
+option to all pam_pwcheck\.so invocations\.
 .RE
 .PP
 \fB\-\-pwcheck\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-option to all pam_pwcheck.so invocations.
+option to all pam_pwcheck\.so invocations\.
 .RE
 .PP
 \fB\-\-pwcheck\-cracklib\fR
 .RS 4
-Enable cracklib support of pam_pwcheck.so.
+Enable cracklib support of pam_pwcheck\.so\.
 .RE
 .PP
 \fB\-\-pwcheck\-cracklib\-path=\fR\fIpath\fR
 .RS 4
 Specify
 \fIpath\fR
-where pam_pwcheck.so can find the cracklib dictionaries.
+where pam_pwcheck\.so can find the cracklib dictionaries\.
 .RE
 .PP
 \fB\-\-pwcheck\-maxlen=\fR\fIN\fR
 .RS 4
 Add
 \fBmaxlen=\fR\fIN\fR
-to pam_pwcheck.so.
+to pam_pwcheck\.so\.
 .RE
 .PP
 \fB\-\-pwcheck\-minlen=\fR\fIN\fR
 .RS 4
 Add
 \fBminlen=\fR\fIN\fR
-to pam_pwcheck.so.
+to pam_pwcheck\.so\.
 .RE
 .PP
 \fB\-\-pwcheck\-tries=\fR\fIN\fR
 .RS 4
 Add
 \fBtries=\fR\fIN\fR
-to pam_pwcheck.so.
+to pam_pwcheck\.so\.
 .RE
 .PP
 \fB\-\-pwcheck\-remember=\fR\fIN\fR
 .RS 4
 Add
 \fBremember=\fR\fIN\fR
-to pam_pwcheck.so.
+to pam_pwcheck\.so\.
 .RE
 .PP
 \fB\-\-pwcheck\-nisdir=\fR\fIpath\fR
 .RS 4
 Add
 \fBnisdir=\fR\fIpath\fR
-to pam_pwcheck.so.
+to pam_pwcheck\.so\.
 .RE
 .PP
 \fB\-\-pwcheck\-no_obscure_checks\fR
 .RS 4
-Disable obscure checks of pam_pwcheck.so.
+Disable obscure checks of pam_pwcheck\.so\.
 .RE
 .PP
 \fB\-\-pwcheck\-enforce_for_root\fR
 .RS 4
-Enforce all checks of pam_pwcheck.so for root.
+Enforce all checks of pam_pwcheck\.so for root\.
 .RE
 .PP
 \fB\-\-thinkfinger\fR
 .RS 4
-Enable/Disable pam_thinkfinger.so in AUTH stack.
+Enable/Disable pam_thinkfinger\.so in AUTH stack\.
 .RE
 .PP
 \fB\-\-unix\fR
 .RS 4
-Use pam_unix.so as standard UNIX PAM module. Note that pam_unix.so and pam_unix2.so are mutually exclusive. If you want to enable pam_unix.so, first remove pam_unix2.so then add this one.
+Use pam_unix\.so as standard UNIX PAM module\. Note that pam_unix\.so and pam_unix2\.so are mutually exclusive\. If you want to enable pam_unix\.so, first remove pam_unix2\.so then add this one\.
 .RE
 .PP
 \fB\-\-umask\fR
 .RS 4
-Add pam_umask.so as optional session module.
+Add pam_umask\.so as optional session module\.
 .RE
 .PP
 \fB\-\-umask\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_umask.so invocations in session management.
+option to all pam_umask\.so invocations in session management\.
 .RE
 .PP
 \fB\-\-umask\-silent\fR
 .RS 4
 Add
 \fBsilent\fR
-option to all pam_umask.so invocations in session management.
+option to all pam_umask\.so invocations in session management\.
 .RE
 .PP
 \fB\-\-umask\-usergroups\fR
 .RS 4
 Add
 \fBusergroups\fR
-option to all pam_umask.so invocations in session management.
+option to all pam_umask\.so invocations in session management\.
 .RE
 .PP
 \fB\-\-umask\-umask=\fR\fImode\fR
 .RS 4
 Add
 \fBumask=\fR\fImode\fR
-to pam_umask.so.
+to pam_umask\.so\.
 .RE
 .PP
 \fB\-\-unix\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_unix.so invocations.
+option to all pam_unix\.so invocations\.
 .RE
 .PP
 \fB\-\-unix\-audit\fR
 .RS 4
 Add
 \fBaudit\fR
-option to all pam_unix.so invocations. Note that this option overrides
-\fBdebug\fR.
+option to all pam_unix\.so invocations\. Note that this option overrides
+\fBdebug\fR\.
 .RE
 .PP
 \fB\-\-unix\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-option to all pam_unix.so invocations.
+option to all pam_unix\.so invocations\.
 .RE
 .PP
 \fB\-\-unix\-bigcrypt\fR
 .RS 4
 Add
 \fBbigcrypt\fR
-option to pam_unix.so in password section.
+option to pam_unix\.so in password section\.
 .RE
 .PP
 \fB\-\-unix\-md5\fR
 .RS 4
 Add
 \fBmd5\fR
-option to pam_unix.so in password section. Note that this option overrides
-\fBbigcrypt\fR.
+option to pam_unix\.so in password section\. Note that this option overrides
+\fBbigcrypt\fR\.
 .RE
 .PP
 \fB\-\-unix2\fR
 .RS 4
-Use pam_unix2.so as standard UNIX PAM module.
+Use pam_unix2\.so as standard UNIX PAM module\.
 .RE
 .PP
 \fB\-\-unix2\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_unix2.so invocations.
+option to all pam_unix2\.so invocations\.
 .RE
 .PP
 \fB\-\-unix2\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-option to all pam_unix2.so invocations.
+option to all pam_unix2\.so invocations\.
 .RE
 .PP
 \fB\-\-unix2\-trace\fR
 .RS 4
 Add
 \fBtrace\fR
-option to pam_unix2.so in session section.
+option to pam_unix2\.so in session section\.
 .RE
 .PP
-\fB\-\-unix2\-call_modules=\fR\fImodule,...\fR
+\fB\-\-unix2\-call_modules=\fR\fImodule,\.\.\.\fR
 .RS 4
 Add
-\fBcall_modules=\fR\fImodule,...\fR
-as argument to pam_unix2.so.
+\fBcall_modules=\fR\fImodule,\.\.\.\fR
+as argument to pam_unix2\.so\.
 .RE
 .PP
 \fB\-\-winbind\fR
 .RS 4
-Use pam_winbind.so in all stacks.
+Use pam_winbind\.so in all stacks\.
 .RE
 .PP
 \fB\-\-winbind\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_winbind.so invocations.
+option to all pam_winbind\.so invocations\.
 .RE
 .RE
 .sp
@@ -470,76 +475,76 @@ option to all pam_winbind.so invocations.
 .nr an-no-space-flag 1
 .nr an-break-flag 1
 .br
-\fBSINGLE SERVICE MODULES\fR
+SINGLE SERVICE MODULES
 .RS
 .PP
-These modules can only be added to single service files. See also
-the section called \(lqUSAGE EXAMPLES\(rq.
+These modules can only be added to single service files\. See also
+the section called \(lqUSAGE EXAMPLES\(rq\.
 .PP
 \fB\-\-ck_connector\fR
 .RS 4
-Add pam_ck_connector.so to session stack of the specified service file.
+Add pam_ck_connector\.so to session stack of the specified service file\.
 .RE
 .PP
 \fB\-\-ck_connector\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to any invocation of pam_ck_connector.so in the specified service file.
+option to any invocation of pam_ck_connector\.so in the specified service file\.
 .RE
 .PP
 \fB\-\-cryptpass\fR
 .RS 4
-Add pam_cryptpass.so to the session stack of the specified service file.
+Add pam_cryptpass\.so to the session stack of the specified service file\.
 .RE
 .PP
 \fB\-\-cryptpass\-password\fR
 .RS 4
-Add pam_cryptpass.so to the password stack of the specified service file.
+Add pam_cryptpass\.so to the password stack of the specified service file\.
 .RE
 .PP
 \fB\-\-lastlog\fR
 .RS 4
-Add pam_lastlog.so to the specified service file.
+Add pam_lastlog\.so to the specified service file\.
 .RE
 .PP
 \fB\-\-loginuid\fR
 .RS 4
-Add pam_loginuid.so to the specified service file.
+Add pam_loginuid\.so to the specified service file\.
 .RE
 .PP
 \fB\-\-loginuid\-require_auditd\fR
 .RS 4
 Add
 \fBrequire_auditd\fR
-to invocations of pam_loginuid.so in the specified service file.
+to invocations of pam_loginuid\.so in the specified service file\.
 .RE
 .PP
 \fB\-\-mount\fR
 .RS 4
-Add pam_mount.so to auth and session stack of the specified service file.
+Add pam_mount\.so to auth and session stack of the specified service file\.
 .RE
 .RE
 .SH "USAGE EXAMPLES"
 .PP
 pam\-config \-q \-\-unix2
 .RS 4
-Query state of pam_unix2.so.
+Query state of pam_unix2\.so\.
 .RE
 .PP
 pam\-config \-a \-\-ldap
 .RS 4
-Enable ldap authentication.
+Enable ldap authentication\.
 .RE
 .PP
 pam\-config \-\-service gdm \-a \-\-mount
 .RS 4
-Enable pam_mount.so for service gdm.
+Enable pam_mount\.so for service gdm\.
 .RE
 .PP
 pam\-config \-\-debug \-a \-\-force \-\-umask
 .RS 4
-Enable pam_umask.so whether installed or not, and print debug information during the process.
+Enable pam_umask\.so whether installed or not, and print debug information during the process\.
 .RE
 .SH "SEE ALSO"
 .PP
@@ -556,4 +561,4 @@ Enable pam_umask.so whether installed or not, and print debug information during
 .PP
 
 \fBpam\-config\fR
-was written by Thorsten Kukuk <kukuk@thkukuk.de>.
+was written by Thorsten Kukuk <kukuk@thkukuk\.de>\.
