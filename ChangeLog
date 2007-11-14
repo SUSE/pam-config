@@ -1,3 +1,10 @@
+2007-11-14  Michael Calmer <mc@suse.de>
+	* src/pam-config.c: add --ldap-account_only option
+	* src/pam-config.8.xml: Adapted manpage.
+	* tests/testcases/test-ldap-account_only.single: New
+	* tests/single.out/test-ldap-account_only.err: New
+	* tests/single.out/test-ldap-account_only.out: New
+
 2007-11-12  Michael Calmer <mc@suse.de>
 	* release version 0.25
 	* src/mod_pam_krb5.c: fix missconfiguration of pam_krb5 [#335521]
@@ -32,7 +39,7 @@
 	and pam-config.test/ in EXTRA_DIST.
 	* src/pam-config.c: Issue warning in relink() if old common-*
 	file is not found.
-	* load_obsolete_conf.c: Issue warnings if 
+	* load_obsolete_conf.c: Issue warnings if
 	/etc/security/pam_{pwcheck,unix2}.conf files not found.
 
 2007-08-28  Sven Schober <sschober@suse.de>
@@ -49,9 +56,9 @@
 	* src/pam-config.c: Gather return values from write_config()
 	invocations, and return failure in case a single one fails.
 	* src/pam-config.h: -- " --
-	* src/mod_pam_thinkfinger.c: Heed --confdir option. 
+	* src/mod_pam_thinkfinger.c: Heed --confdir option.
 	* src/single_config.c: -- " --
-	* src/mod_pam_mount.c: -- " -- 
+	* src/mod_pam_mount.c: -- " --
 	* tests/: New testsuite. See tests/README for usage.
 
 2007-08-14  Sven Schober <sschober@suse.de>
@@ -79,7 +86,7 @@
 	* src/mod_pam_cryptpass.c: Fixed write_config_cryptpass to
 	retrieve both SESSION and PASSWORD option sets. This enables
 	us to treat the two stack types differently.
-	* src/pam-config.c: Added option --cryptpass-password. 
+	* src/pam-config.c: Added option --cryptpass-password.
 	* src/single_config.c: sanitized insert_if() return value.
 	* src/pam-config.8.xml: Adapted manpage.
 
@@ -126,7 +133,7 @@
 2007-07-23  Sven Schober <sschober@suse.de>
 	* src/pam-module.h: Added doxygen documentation.
 	* src/single_config.c: Documentation and conveniance
-	functions. 
+	functions.
 	* src/pam-config.c: Changed pam_mount support to single
 	service file.
 	* src/mod_pam_cryptpass.c: Added support for pam_cryptpass.
@@ -156,12 +163,12 @@
 	* src/pam-config.8.xml: Added documentation for pam_mount.so
 	and pam_unix.so.
 	* src/supported-modules.h: Added pam_mount.so to
-	common_module_list, auth and session list. 
-	* src/Makefile.am: Added mod_pam_mount.c. 
+	common_module_list, auth and session list.
+	* src/Makefile.am: Added mod_pam_mount.c.
 
 2007-07-04  Sven Schober  <sschober@suse.de>
 
-	* src/mod_pam_unix.c: New. 
+	* src/mod_pam_unix.c: New.
 	* src/sanity_checks.c: Added check for pam_unix/2-conflict
 	and fallback to pam_unix2.so.
 	* src/pam-config.c: Added options for pam_unix.so.

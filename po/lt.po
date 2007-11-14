@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-31 11:56+0100\n"
+"POT-Creation-Date: 2007-11-14 14:27+0100\n"
 "PO-Revision-Date: 2001-10-18 09:54+0200\n"
 "Last-Translator: Jonas Gocentas <jonasgocentas@florida.usa.com>\n"
 "Language-Team: Lithuanian <i18n@suse.de>\n"
@@ -218,15 +218,15 @@ msgid "  -v, --version     Print program version\n"
 msgstr ""
 
 #: src/pam-config.c:113 src/pam-config.c:153 src/pam-config.c:165
-#: src/pam-config.c:1450 src/pam-config.c:1460 src/pam-config.c:1470
-#: src/pam-config.c:1481
+#: src/pam-config.c:1469 src/pam-config.c:1479 src/pam-config.c:1489
+#: src/pam-config.c:1500
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
 #: src/pam-config.c:115 src/pam-config.c:155 src/pam-config.c:167
-#: src/pam-config.c:1452 src/pam-config.c:1462 src/pam-config.c:1472
-#: src/pam-config.c:1483
+#: src/pam-config.c:1471 src/pam-config.c:1481 src/pam-config.c:1491
+#: src/pam-config.c:1502
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -260,24 +260,24 @@ msgid ""
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:1242
+#: src/pam-config.c:1261
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:1244
+#: src/pam-config.c:1263
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:1264
+#: src/pam-config.c:1283
 #, fuzzy, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "Per daug argumentų."
 
-#: src/pam-config.c:1368
+#: src/pam-config.c:1387
 #, fuzzy, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Nepavyksta sukurti laikinos bylos %s: %m"

@@ -1,0 +1,29 @@
+#!/bin/sh
+# START cleanup
+. support/header.sh
+
+$PAMCONFIG -a --krb5
+$PAMCONFIG -a --ldap-account_only
+
+echo "krb5 + ldap-account_only"
+. support/footer-common.sh
+
+$PAMCONFIG -a --ldap
+
+echo "add ldap"
+. support/footer-common.sh
+
+$PAMCONFIG -d --ldap
+
+echo "delete ldap"
+. support/footer-common.sh
+
+$PAMCONFIG -a --ldap
+
+echo "add ldap"
+. support/footer-common.sh
+
+$PAMCONFIG -a --ldap-account_only
+
+echo "add ldap-account_only"
+. support/footer-common.sh
