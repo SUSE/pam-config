@@ -1,5 +1,5 @@
 #
-# spec file for package pam-config (Version 0.7)
+# spec file for package pam-config (Version 0.27)
 #
 # Copyright (c) 2006 Thorsten Kukuk
 #
@@ -14,7 +14,7 @@
 
 Name:           pam-config
 Summary:        Modify common PAM configuration files
-Version:        0.26
+Version:        0.27
 Release:        1
 License:        GPL
 Autoreqprov:    on

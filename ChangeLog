@@ -1,3 +1,8 @@
+2007-11-23  Michael Calmer <mc@suse.de>
+	* release version 0.27
+
+	* src/pam-config.c: move write_config after sanitize_check calles
+
 2007-11-14  Michael Calmer <mc@suse.de>
 	* release version 0.26
 

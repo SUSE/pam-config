@@ -1297,23 +1297,17 @@ main (int argc, char *argv[])
 
   if (m_create)
     {
-      /* Write account section.  */
+      /* Set and check sections.  */
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_account (common_module_list) != 0)
 	return 1;
-      if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
-	return 1;
 
-      /* Write auth section.  */
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_auth (common_module_list) != 0)
 	return 1;
-      if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
-	return 1;
 
-      /* Write password section.  */
       opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, AUTH);
       if (!opt_set->is_enabled (opt_set, "is_enabled"))
 	{
@@ -1326,10 +1320,7 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "nullok", TRUE);
       if (sanitize_check_password (common_module_list) != 0)
 	return 1;
-      if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
-	return 1;
 
-      /* Write session section.  */
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt_val);
       opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
@@ -1340,33 +1331,46 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", opt_val);
       if (sanitize_check_session (common_module_list) != 0)
 	return 1;
+
+	  /* Write sections */
+	  if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
+		  return 1;
+
+	  if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
+		  return 1;
+
+	  if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
+		  return 1;
+
       if (write_config (SESSION, conf_session_pc, module_list_session) != 0)
 	return 1;
     }
   else if (!gl_service)
     {
-      /* Write account section.  */
+      /* Check sections.  */
       if (sanitize_check_account (common_module_list) != 0)
 	return 1;
-      if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
-	return 1;
 
-      /* Write auth section.  */
       if (sanitize_check_auth (common_module_list) != 0)
 	return 1;
-      if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
-	return 1;
 
-      /* Write password section.  */
       if (sanitize_check_password (common_module_list) != 0)
 	return 1;
-      if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
-	return 1;
 
-      /* Write session section.  */
       if (sanitize_check_session (common_module_list) != 0)
 	return 1;
-      if (write_config (SESSION, conf_session_pc, module_list_session) != 0)
+
+	  /* Write sections.  */
+	  if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
+		  return 1;
+
+	  if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
+		  return 1;
+
+	  if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
+		  return 1;
+
+	  if (write_config (SESSION, conf_session_pc, module_list_session) != 0)
 	return 1;
     }
   else
