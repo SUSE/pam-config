@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -135,7 +135,33 @@ write_config_pwcheck (pam_module_t *this, enum write_type op, FILE *fp)
   return 0;
 }
 
+GETOPT_START_1(PASSWORD)
+  else if (strcmp ("cracklib_path", opt) == 0)
+    {
+      opt_set = this->get_opt_set (this, PASSWORD);
+      opt_set->enable (opt_set, "cracklib", g_opt->opt_val);
+      opt_set->set_opt (opt_set, "cracklib_path", optarg);
+    }
+  else if (strcmp ("maxlen", opt) == 0)
+    {
+      opt_set = this->get_opt_set (this, PASSWORD);
+      if (g_opt->m_delete)
+	opt_set->set_opt (opt_set, "maxlen", NULL);
+      else
+	opt_set->set_opt (opt_set, "maxlen", optarg);
+    }
+  else if (strcmp ("minlen", opt) == 0)
+    {
+      opt_set = this->get_opt_set (this, PASSWORD);
+      if (g_opt->m_delete)
+	opt_set->set_opt (opt_set, "minlen", NULL);
+      else
+	opt_set->set_opt (opt_set, "minlen", optarg);
+    }
+GETOPT_END_1(PASSWORD)
 
+
+PRINT_ARGS("pwcheck")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_6(is_enabled, debug, nullok, cracklib, no_obscure_checks, enforce_for_root);
@@ -146,4 +172,6 @@ pam_module_t mod_pam_pwcheck = { "pam_pwcheck.so", opt_sets,
   &parse_config_pwcheck,
   &def_print_module,
   &write_config_pwcheck,
-  &get_opt_set};
+  &get_opt_set,
+  &getopt,
+  &print_args};

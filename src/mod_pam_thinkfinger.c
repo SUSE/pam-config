@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Sven Schober
+/* Copyright (C) 2007, 2008 Sven Schober
    Author: Sven Schober <sschober@suse.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -85,7 +85,7 @@ check_file_for_module (const char *file_name, const char *module_name)
  * any occurrence of the string module.
  *
  * This could be done differently: by using load_config together
- * with the service_module_list. 
+ * with the service_module_list.
  *
  * I wanted to avoid cluttering the global list, so i chose the
  * manual way.
@@ -95,7 +95,7 @@ check_service_files_for_module (const char *module)
 {
   struct dirent **namelist;
   int n, found = FALSE;
-  
+
   char *conf_dname;
   if (confdir)
   {
@@ -111,7 +111,7 @@ check_service_files_for_module (const char *module)
   else conf_dname = CONFDIR"/pam.d";
 
   if (debug){
-    DEBUG ("**** check_service_files_for_module ('%s') in '%s'\n", module, conf_dname); 
+    DEBUG ("**** check_service_files_for_module ('%s') in '%s'\n", module, conf_dname);
   }
 
   n = scandir (conf_dname, &namelist, &service_filter, 0);
@@ -168,7 +168,7 @@ write_config_thinkfinger (pam_module_t *this, enum write_type op, FILE *fp)
   return 0;
 }
 
-
+PRINT_ARGS("thinkfinger")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_1( is_enabled );
@@ -179,4 +179,6 @@ pam_module_t mod_pam_thinkfinger = { "pam_thinkfinger.so", opt_sets,
   &parse_config_thinkfinger,
   &def_print_module,
   &write_config_thinkfinger,
-  &get_opt_set};
+  &get_opt_set,
+  NULL,
+  &print_args};

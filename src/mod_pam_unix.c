@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Sven Schober
+/* Copyright (C) 2007, 2008 Sven Schober
    Author: Sven Schober <sschober@suse.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -91,7 +91,7 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
 	fprintf (fp, "auth\trequired\tpam_unix.so\t");
       if (with_mount)
 	/* if pam_mount is enabled it asks for a pw so we use that
-	 * one. 
+	 * one.
 	 * */
 	fprintf (fp, "use_first_pass ");
       break;
@@ -157,7 +157,7 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
   return 0;
 }
 
-
+PRINT_ARGS("unix")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_7( is_enabled, debug, audit, nullok, shadow, md5, bigcrypt );
@@ -165,7 +165,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_unix = { "pam_unix.so", opt_sets,
-  &parse_config_unix,
-  &def_print_module,
-  &write_config_unix,
-  &get_opt_set};
+			      &parse_config_unix,
+			      &def_print_module,
+			      &write_config_unix,
+			      &get_opt_set,
+			      NULL,
+			      &print_args};

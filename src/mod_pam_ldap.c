@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -114,7 +114,7 @@ write_config_ldap (pam_module_t * this, enum write_type op, FILE * fp)
   return 0;
 }
 
-
+PRINT_ARGS("ldap")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
@@ -122,8 +122,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_ldap = { "pam_ldap.so", opt_sets,
-  &parse_config_ldap,
-  &def_print_module,
-  &write_config_ldap,
-  &get_opt_set
-};
+			      &parse_config_ldap,
+			      &def_print_module,
+			      &write_config_ldap,
+			      &get_opt_set,
+			      NULL,
+			      &print_args};

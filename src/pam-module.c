@@ -1,20 +1,33 @@
 
-#include "pam-module.h"
-
-#include <stdio.h>
-#include <string.h>
+/*
+ * Copyright (C) 2007, 2008 - Thorsten Kukuk, Sven Schober
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+ * 02111-1307, USA.
+ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-int
-def_parse_config( pam_module_t *this __attribute__ ((unused)), char *arguments, write_type_t type __attribute__ ((unused))){
-  if (arguments){
-    return 0;
-  }
-  return 1;
-}
+#include "pam-config.h"
+#include "pam-module.h"
+
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 static void
 def_print_module_type (pam_module_t *this, write_type_t type)
@@ -58,6 +71,22 @@ pam_module_t* lookup( pam_module_t **module_list, const char *module ){
 }
 
 int
+def_parse_config (pam_module_t *this, char *args, write_type_t type)
+{
+  option_set_t *opt_set = this->get_opt_set (this, type);
+
+  if (debug)
+    printf ("**** def_parse_config [%s] (%s): '%s'\n", this->name,
+	    type2string (type), args ? args : "");
+
+  opt_set->enable (opt_set, "is_enabled", TRUE);
+
+  PARSE_CONFIG_OPTIONS
+
+  return 1;
+}
+
+int
 is_module_enabled (pam_module_t **module_list, const char *module,
 		   write_type_t op)
 {
@@ -93,6 +122,18 @@ print_module_config (pam_module_t **module_list, const char *module)
 }
 
 void
+print_module_args (pam_module_t **module_list)
+{
+  while (*module_list != NULL)
+    {
+      if ((*module_list)->print_args != NULL)
+	(*module_list)->print_args (*module_list);
+      module_list++;
+    }
+}
+
+
+void
 print_unknown_option_error (const char *module, const char *option)
 {
   /* TRANSLATORS: first argument is name of a PAM module */
@@ -103,4 +144,60 @@ print_unknown_option_error (const char *module, const char *option)
 option_set_t*
 get_opt_set( pam_module_t *this, write_type_t op ){
   return (this->option_sets)[op];
+}
+
+/* return value: 0 for found, 1 for not found */
+int
+module_getopt (pam_module_t **module_list, const char *optarg,
+	       global_opt_t *opt)
+{
+  char *work;
+  char *name;
+  char *arg;
+  char *cp;
+
+  if (optarg[0] != '-' || optarg[1] != '-')
+    return 1;
+
+  work = strdupa (&optarg[2]);
+
+  name = work;
+
+  arg = strchr (work, '=');
+  if (arg)
+    {
+      *arg++ = '\0';
+    }
+
+  cp = strchr (&work[2], '-');
+  if (cp)
+    {
+      *cp++ = '\0';
+      work = cp;
+    }
+  else
+    work = "";
+
+  if (asprintf(&name, "pam_%s.so", name) < 0)
+    return 1;
+
+  if (debug)
+    fprintf (stderr, "module=%s, option=%s, argument=%s\n", name, work, arg);
+
+  while (*module_list != NULL)
+    {
+      if (strcmp ((*module_list)->name, name) == 0 &&
+	  (*module_list)->getopt != NULL)
+	if ((*module_list)->getopt ((*module_list), work, arg,
+				    opt) == 0)
+	  {
+	    free (name);
+	    return 0;
+	  }
+      module_list++;
+    }
+
+  free (name);
+
+  return 1;
 }

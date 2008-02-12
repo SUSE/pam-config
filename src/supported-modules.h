@@ -21,17 +21,17 @@ extern pam_module_t mod_pam_winbind;
 
 
 /* modules for single services only.  */
+extern pam_module_t mod_pam_ck_connector;
+extern pam_module_t mod_pam_cryptpass;
 extern pam_module_t mod_pam_loginuid;
 extern pam_module_t mod_pam_mount;
-extern pam_module_t mod_pam_cryptpass;
-extern pam_module_t mod_pam_ck_connector;
 
 pam_module_t *common_module_list[] = {
   &mod_pam_apparmor,
   &mod_pam_ccreds,
   &mod_pam_cracklib,
-  &mod_pam_env,
   &mod_pam_deny,
+  &mod_pam_env,
   &mod_pam_krb5,
   &mod_pam_ldap,
   &mod_pam_limits,
@@ -43,8 +43,8 @@ pam_module_t *common_module_list[] = {
   &mod_pam_pwcheck,
   &mod_pam_thinkfinger,
   &mod_pam_umask,
-  &mod_pam_unix2,
   &mod_pam_unix,
+  &mod_pam_unix2,
   &mod_pam_winbind,
   NULL
 };
@@ -102,10 +102,10 @@ static pam_module_t *module_list_session[] = {
 };
 
 pam_module_t *service_module_list[] = {
-  &mod_pam_mount,
-  &mod_pam_cryptpass,
-  &mod_pam_loginuid,
-  &mod_pam_lastlog,
   &mod_pam_ck_connector,
+  &mod_pam_cryptpass,
+  &mod_pam_lastlog,
+  &mod_pam_loginuid,
+  &mod_pam_mount,
   NULL
 };

@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Sven Schober
+/* Copyright (C) 2007, 2008 Sven Schober
    Author: Sven Schober <sschober@suse.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -26,38 +26,6 @@
 #include "pam-config.h"
 
 static int
-parse_config_ck_connector (pam_module_t *this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set( this, type );
-
-  if (debug)
-    printf("**** parse_config_ck_connector (%s): '%s'\n", type2string(type),
-           args?args:"");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-      
-      if (opt_set->enable (opt_set, cp, TRUE) == FALSE){
-	if (strcmp (cp, "debug") == 0)
-	  opt_set->enable (opt_set, "debug", TRUE);
-	else if (strcmp (cp, "use_first_pass") == 0)
-	{ /* will be ignored */ }
-	else if (strcmp (cp, "try_first_pass") == 0)
-	{ /* will be ignored */ }
-	else
-	  print_unknown_option_error ("pam_ck_connector.so", cp);
-      }
-    }
-  return 1;
-}
-
-static int
 session_pred_ck_connector (config_content_t *cfg_content)
 {
   int do_insert = FALSE;
@@ -67,7 +35,7 @@ session_pred_ck_connector (config_content_t *cfg_content)
   do_insert &= strcasestr (cfg_content->line, "session") != NULL;
   /* and there is no next line, or the next line is something
    * different than session */
-  do_insert &= (  cfg_content->next == NULL || 
+  do_insert &= (  cfg_content->next == NULL ||
 		  strcasestr (cfg_content->next->line, "session") == NULL);
   return do_insert;
 }
@@ -106,7 +74,7 @@ write_config_ck_connector (  pam_module_t *this,
     printf ("**** write_config_ck_connector (%s)\n", gl_service);
 
   /* remove every occurrence of pam_ck_connector.so from the service
-   * file 
+   * file
    */
   remove_module (&cfg_content, "pam_ck_connector.so");
   if (writeit)
@@ -129,7 +97,10 @@ write_config_ck_connector (  pam_module_t *this,
   return write_single_config (gl_service, &cfg_content);
 }
 
+GETOPT_START_1(SESSION)
+GETOPT_END_1(SESSION)
 
+PRINT_ARGS("ck_connector")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2( is_enabled, debug );
@@ -137,7 +108,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_ck_connector = { "pam_ck_connector.so", opt_sets,
-  &parse_config_ck_connector,
-  &def_print_module,
-  &write_config_ck_connector,
-  &get_opt_set};
+				      &def_parse_config,
+				      &def_print_module,
+				      &write_config_ck_connector,
+				      &get_opt_set,
+				      &getopt,
+                                      &print_args};

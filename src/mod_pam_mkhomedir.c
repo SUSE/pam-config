@@ -72,7 +72,7 @@ write_config_mkhomedir (pam_module_t *this, enum write_type op, FILE *fp)
   return 0;
 }
 
-
+PRINT_ARGS("mkhomedir")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_3( is_enabled, debug, silent );
@@ -81,7 +81,9 @@ DECLARE_OPT_SETS;
 
 /* at last construct the complete module object */
 pam_module_t mod_pam_mkhomedir = { "pam_mkhomedir.so", opt_sets,
-			       &parse_config_mkhomedir,
-			       &def_print_module,
-			       &write_config_mkhomedir,
-			       &get_opt_set};
+				   &parse_config_mkhomedir,
+				   &def_print_module,
+				   &write_config_mkhomedir,
+				   &get_opt_set,
+				   NULL,
+				   &print_args};

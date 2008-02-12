@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Sven Schober
+/* Copyright (C) 2007, 2008 Sven Schober
    Author: Sven Schober <sschober@suse.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -57,7 +57,7 @@ parse_config_unix2 (pam_module_t *this, char *args, write_type_t type)
 	/* XXX strip krb5 and ldap modules from it */
 	if( ! opt_set->set_opt( opt_set, "call_modules", strdup (&cp[13])) ){
 	  DEBUG( "call_modules option recognized but couldn't be added to option set!\n" );
-	}	 
+	}
       }
       else
 	print_unknown_option_error ("pam_unix2.so", cp);
@@ -96,7 +96,7 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 	fprintf (fp, "auth\trequired\tpam_unix2.so\t");
       if (with_mount)
 	/* if pam_mount is enabled it asks for a pw so we use that
-	 * one. 
+	 * one.
 	 * */
 	fprintf (fp, "use_first_pass ");
       break;
@@ -125,7 +125,7 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
     fprintf (fp, "nullok ");
   if (opt_set->is_enabled (opt_set, "debug"))
     fprintf (fp, "debug ");
-  
+
   char *call_modules = opt_set->get_opt( opt_set, "call_modules");
   if (call_modules)
     fprintf (fp, "call_modules=%s ", call_modules);
@@ -135,7 +135,7 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
   return 0;
 }
 
-
+PRINT_ARGS("unix2")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_4( is_enabled, debug, nullok, trace );
@@ -143,7 +143,9 @@ DECLARE_STRING_OPTS_1( call_modules );
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_unix2 = { "pam_unix2.so", opt_sets,
-  &parse_config_unix2,
-  &def_print_module,
-  &write_config_unix2,
-  &get_opt_set};
+			       &parse_config_unix2,
+			       &def_print_module,
+			       &write_config_unix2,
+			       &get_opt_set,
+			       NULL,
+			       &print_args};

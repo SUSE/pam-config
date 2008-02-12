@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -79,11 +79,10 @@ write_config_nam (pam_module_t * this, enum write_type op, FILE * fp)
       break;
     }
 
-
   return 0;
 }
 
-
+PRINT_ARGS("nam")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_1 (is_enabled);
@@ -91,8 +90,10 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_nam = { "pam_nam.so", opt_sets,
-  &parse_config_nam,
-  &def_print_module,
-  &write_config_nam,
-  &get_opt_set
+			     &parse_config_nam,
+			     &def_print_module,
+			     &write_config_nam,
+			     &get_opt_set,
+			     NULL,
+			     &print_args
 };

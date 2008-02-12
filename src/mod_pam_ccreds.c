@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -27,20 +27,6 @@
 #include "pam-module.h"
 
 static int
-parse_config_ccreds (pam_module_t *this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set( this, type );
-
-  if (debug)
-    printf("**** parse_config_ccreds (%s): '%s'\n", type2string(type),
-           args?args:"");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  return 1;
-}
-
-static int
 write_config_ccreds (pam_module_t *this __attribute__ ((unused)),
 		     enum write_type op __attribute__ ((unused)),
 		     FILE *fp __attribute__ ((unused)))
@@ -54,7 +40,10 @@ write_config_ccreds (pam_module_t *this __attribute__ ((unused)),
   return 0;
 }
 
+GETOPT_START_1(AUTH)
+GETOPT_END_1(AUTH)
 
+PRINT_ARGS("ccreds")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_1( is_enabled );
@@ -62,7 +51,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_ccreds = { "pam_ccreds.so", opt_sets,
-			       &parse_config_ccreds,
-			       &def_print_module,
-			       &write_config_ccreds,
-			       &get_opt_set};
+				&def_parse_config,
+				&def_print_module,
+				&write_config_ccreds,
+				&get_opt_set,
+				&getopt,
+				&print_args};

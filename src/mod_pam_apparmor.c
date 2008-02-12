@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -26,29 +26,6 @@
 #include "pam-module.h"
 
 static int
-parse_config_apparmor (pam_module_t * this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set (this, type);
-
-  if (debug)
-    printf ("**** parse_config_apparmor (%s): '%s'\n", type2string (type),
-	    args ? args : "");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int) *args))
-	  ++args;
-
-      print_unknown_option_error ("pam_apparmor.so", cp);
-    }
-  return 1;
-}
-
-static int
 write_config_apparmor (pam_module_t * this, enum write_type op, FILE * fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
@@ -62,20 +39,27 @@ write_config_apparmor (pam_module_t * this, enum write_type op, FILE * fp)
   if (op != SESSION)
     return 0;
 
-  fprintf (fp, "session\toptional\tpam_apparmor.so\n");
+  fprintf (fp, "session\toptional\tpam_apparmor.so\t");
+
+  WRITE_CONFIG_OPTIONS
 
   return 0;
 }
 
+GETOPT_START_1(SESSION)
+GETOPT_END_1(SESSION)
 
+PRINT_ARGS("apparmor")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_4 (is_enabled, debug, silent, usergroups);
-DECLARE_STRING_OPTS_1 (apparmor);
+DECLARE_BOOL_OPTS_2 (is_enabled, debug);
+DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_apparmor = { "pam_apparmor.so", opt_sets,
-			       &parse_config_apparmor,
-			       &def_print_module,
-			       &write_config_apparmor,
-			       &get_opt_set};
+				  &def_parse_config,
+				  &def_print_module,
+				  &write_config_apparmor,
+				  &get_opt_set,
+				  &getopt,
+				  &print_args};

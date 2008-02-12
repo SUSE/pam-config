@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -94,7 +94,7 @@ write_config_limits (pam_module_t * this, enum write_type op, FILE * fp)
   return 0;
 }
 
-
+PRINT_ARGS("limits")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_4 (is_enabled, debug, change_uid, utmp_early);
@@ -105,4 +105,6 @@ pam_module_t mod_pam_limits = {"pam_limits.so", opt_sets,
 			       &parse_config_limits,
 			       &def_print_module,
 			       &write_config_limits,
-			       &get_opt_set};
+			       &get_opt_set,
+			       NULL,
+			       &print_args};

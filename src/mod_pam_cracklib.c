@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -27,47 +27,9 @@
 
 
 static int
-parse_config_cracklib (pam_module_t *this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set( this, type );
-
-  if (debug)
-    printf("**** parse_config_cracklib (%s): '%s'\n", type2string(type),
-           args?args:"");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-	  ++args;
-
-      if (strcmp (cp, "debug") == 0)
-        opt_set->enable (opt_set, "debug", TRUE);
-      else if (strncmp (cp, "minlen=", 7) == 0)
-	opt_set->set_opt (opt_set, "minlen", strdup(&cp[7]));
-      else if (strncmp (cp, "retry=", 6) == 0)
-	opt_set->set_opt (opt_set, "retry", strdup(&cp[6]));
-      else if (strncmp (cp, "dictpath=", 9) == 0)
-	opt_set->set_opt (opt_set, "dictpath", strdup(&cp[9]));
-      else if (strcmp (cp, "use_first_pass") == 0)
-        { /* will be ignored */ }
-      else if (strcmp (cp, "use_authtok") == 0)
-        { /* will be ignored */ }
-      else
-        print_unknown_option_error ("pam_cracklib.so", cp);
-
-    }
-  return 1;
-}
-
-static int
 write_config_cracklib (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  const char *cp;
 
   if (debug)
     printf ("**** write_config_cracklib (...)\n");
@@ -81,32 +43,27 @@ write_config_cracklib (pam_module_t *this, enum write_type op, FILE *fp)
     return 0;
 
   fprintf (fp, "password\trequisite\tpam_cracklib.so\t");
-  if (opt_set->is_enabled (opt_set, "debug"))
-    fprintf (fp, "debug ");
-  cp = opt_set->get_opt (opt_set, "dictpath");
-  if (cp)
-    fprintf (fp, "dictpath=%s ", cp);
-  cp = opt_set->get_opt (opt_set, "minlen");
-  if (cp)
-    fprintf (fp, "minlen=%s ", cp);
-  cp = opt_set->get_opt (opt_set, "retry");
-  if (cp)
-    fprintf (fp, "retry=%s ", cp);
+
+  WRITE_CONFIG_OPTIONS
 
   fprintf (fp, "\n");
 
   return 0;
 }
 
-
+GETOPT_START_1(PASSWORD)
+GETOPT_END_1(PASSWORD)
+PRINT_ARGS("cracklib")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2(is_enabled, debug);
-DECLARE_STRING_OPTS_3(dictpath, retry, minlen);
+DECLARE_STRING_OPTS_11(type, retry, difok, difignore, minlen, dcredit, ucredit, lcredit, ocredit, minclass, dictpath);
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_cracklib = { "pam_cracklib.so", opt_sets,
-  &parse_config_cracklib,
-  &def_print_module,
-  &write_config_cracklib,
-  &get_opt_set};
+				  &def_parse_config,
+				  &def_print_module,
+				  &write_config_cracklib,
+				  &get_opt_set,
+				  &getopt,
+				  &print_args};

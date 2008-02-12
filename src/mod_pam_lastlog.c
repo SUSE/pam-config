@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -90,7 +90,7 @@ write_config_lastlog (pam_module_t *this,
   load_single_config (gl_service, &ptr);
 
   fp = create_service_file (gl_service);
-  if( fp == NULL ) return 1; 
+  if( fp == NULL ) return 1;
 
   while (ptr != NULL)
     {
@@ -127,6 +127,7 @@ write_config_lastlog (pam_module_t *this,
   return close_service_file (fp, gl_service);
 }
 
+PRINT_ARGS("lastlog")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_8 (is_enabled, debug, silent, never, nodate, nohost, noterm, nowtmp);
@@ -134,7 +135,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_lastlog = { "pam_lastlog.so", opt_sets,
-			       &parse_config_lastlog,
-			       &def_print_module,
-			       &write_config_lastlog,
-			       &get_opt_set};
+				 &parse_config_lastlog,
+				 &def_print_module,
+				 &write_config_lastlog,
+				 &get_opt_set,
+				 NULL,
+				 &print_args};

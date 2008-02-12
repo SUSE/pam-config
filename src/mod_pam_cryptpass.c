@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Sven Schober
+/* Copyright (C) 2007, 2008 Sven Schober
    Author: Sven Schober <sschober@suse.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -41,7 +41,7 @@ parse_config_cryptpass (pam_module_t *this, char *args, write_type_t type)
       if (args)
 	while (isspace ((int)*args))
         ++args;
-      
+
       if (opt_set->enable (opt_set, cp, TRUE) == FALSE){
 	if (strcmp (cp, "use_first_pass") == 0)
 	{ /* will be ignored */ }
@@ -113,11 +113,11 @@ write_config_cryptpass (  pam_module_t *this,
   load_single_config (gl_service, &cfg_content);
 
   if (debug)
-    printf ("**** write_config_cryptpass (%s) (%s:%s%s) \n", gl_service, 
+    printf ("**** write_config_cryptpass (%s) (%s:%s%s) \n", gl_service,
 	(write_session || write_session) ? "enable" : "disable",
 	write_session ? "session" : "", write_password ? ", password" : "");
   /* remove every occurrence of pam_cryptpass.so from the service
-   * file 
+   * file
    */
   remove_module (&cfg_content, "pam_cryptpass.so");
 
@@ -150,7 +150,7 @@ write_config_cryptpass (  pam_module_t *this,
   return write_single_config (gl_service, &cfg_content);
 }
 
-
+PRINT_ARGS("cryptpass")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_1( is_enabled );
@@ -158,7 +158,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_cryptpass = { "pam_cryptpass.so", opt_sets,
-  &parse_config_cryptpass,
-  &def_print_module,
-  &write_config_cryptpass,
-  &get_opt_set};
+				   &parse_config_cryptpass,
+				   &def_print_module,
+				   &write_config_cryptpass,
+				   &get_opt_set,
+				   NULL,
+				   &print_args};

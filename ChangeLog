@@ -1,9 +1,26 @@
+2008-02-12  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/mod_pam_apparmor.c: Use generic parser, getopt and write
+	function.
+	* src/mod_pam_ccreds.c: Likewise.
+	* src/mod_pam_ck_connector.c: Likewise.
+	* src/mod_pam_cracklib.c: Likewise, add all missing options.
+	* src/mod_pam_env.c: Likewise.
+	* src/mod_pam_make.c: Likewise.
+
+	* src/pam-module.c: Add lot of new functions for config parsing
+	and getopt handling.
+
+	* src/pam-module.h: Add lot of new macros.
+
 2007-11-23  Michael Calmer <mc@suse.de>
+
 	* release version 0.27
 
 	* src/pam-config.c: move write_config after sanitize_check calles
 
 2007-11-14  Michael Calmer <mc@suse.de>
+
 	* release version 0.26
 
 	* src/pam-config.c: add --ldap-account_only option
@@ -15,14 +32,17 @@
 	* tests/single.out/test-ldap-account_only.out: New
 
 2007-11-12  Michael Calmer <mc@suse.de>
+
 	* release version 0.25
 	* src/mod_pam_krb5.c: fix missconfiguration of pam_krb5 [#335521]
 
 2007-10-31  Sven Schober <sschober@suse.de>
+
 	* src/pam-config.c: Do not check for installed pam-module on
 	delete request [#337369].
 
 2007-10-25  Sven Schober <sschober@suse.de>
+
 	* release version 0.24
 
 	* configure.in: added 'tests/etc/Makefile' to AC_OUTPUT
@@ -33,6 +53,7 @@
 	would fail on different machines/paths).
 
 2007-10-15  Michael Calmer <mc@suse.de>
+
 	* src/mod_pam_thinkfinger.c: Use dynamic confdir
 	parameter.
 	* src/pam-config.c: Use dynamic confdir parameter.
@@ -43,6 +64,7 @@
 	bug[#328519].
 
 2007-08-30  Sven Schober <sschober@suse.de>
+
 	* src/mod_pam_thinkfinger.c: check return value of asprintf.
 	* tests/Makefile.am: Mention testcases/, support/, config/
 	and pam-config.test/ in EXTRA_DIST.
@@ -52,6 +74,7 @@
 	/etc/security/pam_{pwcheck,unix2}.conf files not found.
 
 2007-08-28  Sven Schober <sschober@suse.de>
+
 	* src/pam-config.c: Fix bug where common-{auth,...} links wouldn't be
 	created if files of the same name didn't exist already.
 	* tests/single.out/test-mount-thinkfinger.err: New.
@@ -60,6 +83,7 @@
 	testcase to check for pam_{mount,thinkfinger}.so mutex.
 
 2007-08-23  Sven Schober <sschober@suse.de>
+
 	* src/pam-config.c: CONFDIR customizable via cmd line
 	option.
 	* src/pam-config.c: Gather return values from write_config()
@@ -71,6 +95,7 @@
 	* tests/: New testsuite. See tests/README for usage.
 
 2007-08-14  Sven Schober <sschober@suse.de>
+
 	* release version 0.23
 	* src/pam-config.8.xml: Added documentation for
 	pam_thinkfinger.so
@@ -85,9 +110,11 @@
 	* src/Makefile.am: Added mod_pam_thinkfinger.c.
 
 2007-08-14  Sven Schober <sschober@suse.de>
+
 	* release version 0.22
 
 2007-08-09  Sven Schober <sschober@suse.de>
+
 	* src/mod_pam_ck_connector.c: Check return value of
 	asprintf.
 	* src/pam-config.h: Adapted documentation to reflect changes
@@ -100,6 +127,7 @@
 	* src/pam-config.8.xml: Adapted manpage.
 
 2007-08-07  Sven Schober <sschober@suse.de>
+
 	* src/pam-module.h: Externalized service_module_list, so
 	single service modules are able to check for other modules.
 	* src/single_config.c: Refactored list operations on
@@ -111,13 +139,16 @@
 	password stack, also.
 	* src/mod_pam_ck_connector.c: Module support added (single
 	service).
+
 2007-07-31  Sven Schober <sschober@suse.de>
+
 	* src/pam-config.8.xml: Overhauled documentation. Added
 	description of single service options and gave some usage
 	examples.
 	* src/pam-config.c: Added "--list-modules" option.
 
 2007-07-27  Sven Schober <sschober@suse.de>
+
 	* src/pam-config.c: Fix for segfault: added check if (single)
 	service file exists before beginning to write.
 	* src/mod_pam_lastlog.c: Check file pointer before using it.
@@ -135,11 +166,13 @@
 	* po/*.po: Add translations
 
 2007-07-24  Sven Schober <sschober@suse.de>
+
 	* src/pam-module.h: Minor modification to debug macro.
 	* src/write_config.c: Fixed a bug where uid, gui and st_mode
 	where set to unsensible values when file didn't exist yet.
 
 2007-07-23  Sven Schober <sschober@suse.de>
+
 	* src/pam-module.h: Added doxygen documentation.
 	* src/single_config.c: Documentation and conveniance
 	functions.
@@ -152,6 +185,7 @@
 	* src/supported-modules.h: --- " ----
 
 2007-07-18  Michael Calmer <mc@suse.de>
+
 	* src/mod_pam_deny.c: New.
 	* src/supported-modules.h: Added pam_deny.so.
 	* src/mod_pam_krb5.c: If pam_krb5 is the last enabled module add
@@ -162,6 +196,7 @@
 	* src/pam-config.8.xml: Remove obsoete xauth entry.
 
 2007-07-05  Sven Schober  <sschober@suse.de>
+
 	* src/mod_pam_unix.c: Changed option "big_crypt" to
 	"bigcrypt".
 	* src/mod_pam_mount.c: New.

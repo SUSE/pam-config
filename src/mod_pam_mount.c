@@ -1,11 +1,11 @@
-/** 
+/**
  * @file mod_pam_mount.c
  * @brief Support for PAM module pam_mount.
  * @author Sven Schober <sschober@suse.de>
  * @date 2007-07-23
  */
 
-/* Copyright (C) 2007 Sven Schober
+/* Copyright (C) 2007, 2008 Sven Schober
    Author: Sven Schober <sschober@suse.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -36,14 +36,14 @@
 /* defined in pam-config.c */
 extern char *conf_auth_pc;
 
-/** 
+/**
  * @brief Function to parse in a line from a service file and store
  * the options to the opt_set of the instance specified by *this.
- * 
+ *
  * @param this The pam-module instance to work on.
  * @param args The line from the service file.
  * @param type One of AUTH, SESSION, PASS or ACCOUNT
- * 
+ *
  * @return 1
  */
 
@@ -64,7 +64,7 @@ parse_config_mount (pam_module_t *this, char *args, write_type_t type)
       if (args)
 	while (isspace ((int)*args))
         ++args;
-      
+
       if (opt_set->enable (opt_set, cp, TRUE) == FALSE){
 	if (strcmp (cp, "use_first_pass") == 0)
 	{ /* will be ignored */ }
@@ -77,20 +77,20 @@ parse_config_mount (pam_module_t *this, char *args, write_type_t type)
   return TRUE;
 }
 
-/** 
+/**
  * @brief Writes two lines out to the service file specified by
  * gl_service.
  *
  * The line concerning the auth stack is inserted before
  * the first line in the existing file containing the substring
- * "auth".  
+ * "auth".
  * The other one concerning session is simply appended to the
  * service file.
  *
  * @param this A pointer to the "object" instance this function is
  * working on.
- * 
- * @return 
+ *
+ * @return
  */
 static int
 write_config_mount (  pam_module_t *this,
@@ -104,8 +104,8 @@ write_config_mount (  pam_module_t *this,
   int writeit = opt_set->is_enabled (opt_set, "is_enabled");
   if (debug)
     printf ("**** write_config_mount (%s)\n", gl_service);
-  
-  
+
+
   load_single_config (gl_service, &cfg_content);
 
   fp = create_service_file (gl_service);
@@ -149,7 +149,7 @@ write_config_mount (  pam_module_t *this,
 
     /* As the user might have supplied a custom confdir via the
      * --confdir option we have to check if conf_auth_pc was set in
-     *  pam-config.c:main() 
+     *  pam-config.c:main()
      */
     char *conf_fname;
     if (conf_auth_pc) conf_fname = conf_auth_pc;
@@ -174,7 +174,7 @@ write_config_mount (  pam_module_t *this,
   return close_service_file (fp,gl_service);
 }
 
-
+PRINT_ARGS("mount")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_1( is_enabled );
@@ -182,7 +182,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_mount = { "pam_mount.so", opt_sets,
-  &parse_config_mount,
-  &def_print_module,
-  &write_config_mount,
-  &get_opt_set};
+			       &parse_config_mount,
+			       &def_print_module,
+			       &write_config_mount,
+			       &get_opt_set,
+			       NULL,
+			       &print_args};

@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -94,7 +94,7 @@ write_config_krb5 (pam_module_t * this, enum write_type op, FILE * fp)
     case AUTH:
       if (with_ccreds)
         fprintf (fp, "auth\t[authinfo_unavail=ignore success=1 default=2]\tpam_krb5.so\tuse_first_pass ");
-      else 
+      else
         fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
       break;
     case PASSWORD:
@@ -129,7 +129,7 @@ write_config_krb5 (pam_module_t * this, enum write_type op, FILE * fp)
   return 0;
 }
 
-
+PRINT_ARGS("krb5")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_3 (is_enabled, debug, ignore_unknown_principals);
@@ -137,8 +137,9 @@ DECLARE_STRING_OPTS_1 (minimum_uid);
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_krb5 = { "pam_krb5.so", opt_sets,
-  &parse_config_krb5,
-  &def_print_module,
-  &write_config_krb5,
-  &get_opt_set
-};
+			      &parse_config_krb5,
+			      &def_print_module,
+			      &write_config_krb5,
+			      &get_opt_set,
+			      NULL,
+			      &print_args};

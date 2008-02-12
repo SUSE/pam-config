@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Thorsten Kukuk
+/* Copyright (C) 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -26,42 +26,9 @@
 #include "pam-module.h"
 
 static int
-parse_config_env (pam_module_t * this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set (this, type);
-
-  if (debug)
-    printf ("**** parse_config_env (%s): '%s'\n", type2string (type),
-	    args ? args : "");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int) *args))
-	  ++args;
-
-      if (strcmp (cp, "debug") == 0)
-	opt_set->enable (opt_set, "debug", TRUE);
-      else if (strncmp (cp, "conffile=", 9) == 0)
-	opt_set->set_opt (opt_set, "conffile", strdup (&cp[9]));
-      else if (strncmp (cp, "envfile=", 8) == 0)
-	opt_set->set_opt (opt_set, "envfile", strdup (&cp[8]));
-      else if (strncmp (cp, "readenv=", 8) == 0)
-	opt_set->set_opt (opt_set, "readenv", strdup (&cp[8]));
-      else
-	print_unknown_option_error ("pam_env.so", cp);
-    }
-  return 1;
-}
-
-static int
 write_config_env (pam_module_t * this, enum write_type op, FILE * fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  const char *cp;
 
   if (debug)
     printf ("**** write_config_env (...)\n");
@@ -81,25 +48,39 @@ write_config_env (pam_module_t * this, enum write_type op, FILE * fp)
       return 0;
     }
 
-  if (opt_set->is_enabled (opt_set, "debug"))
-    fprintf (fp, "debug ");
-
-  cp = opt_set->get_opt (opt_set, "conffile");
-  if (cp)
-    fprintf (fp, "conffile=%s ", cp);
-  cp = opt_set->get_opt (opt_set, "envfile");
-  if (cp)
-    fprintf (fp, "envfile=%s ", cp);
-  cp = opt_set->get_opt (opt_set, "readenv");
-  if (cp)
-    fprintf (fp, "readenv=%s ", cp);
-
-  fprintf (fp, "\n");
+  WRITE_CONFIG_OPTIONS
 
   return 0;
 }
 
+static int
+getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt)
+{
+  option_set_t *opt_set;
 
+  if (debug)
+    printf ("**** %s->getopt: '%s'='%s'\n", this->name, opt, optarg);
+
+  if (strcmp ("", opt) == 0)
+    {
+      if (g_opt->m_query)
+	this->print_module (this);
+      else
+	{
+	  if (!g_opt->m_delete &&
+	      check_for_pam_module (this->name, g_opt->force) != 0)
+	    return 1;
+	  /* Remove in every case from auth,
+	     else we will have it twice.  */
+	  opt_set = this->get_opt_set (this, AUTH);
+	  opt_set->enable (opt_set, "is_enabled", FALSE);
+	  opt_set = this->get_opt_set (this, SESSION);
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val);
+	}
+    }
+GETOPT_END_1(SESSION)
+
+PRINT_ARGS("env")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
@@ -107,7 +88,9 @@ DECLARE_STRING_OPTS_3 (conffile, envfile, readenv);
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_env = {"pam_env.so", opt_sets,
-			    &parse_config_env,
+			    &def_parse_config,
 			    &def_print_module,
 			    &write_config_env,
-			    &get_opt_set};
+			    &get_opt_set,
+                            getopt,
+			    &print_args};
