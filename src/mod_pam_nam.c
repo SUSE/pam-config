@@ -26,34 +26,6 @@
 #include "pam-module.h"
 
 static int
-parse_config_nam (pam_module_t * this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set (this, type);
-
-  if (debug)
-    printf ("**** parse_config_nam (%s): '%s'\n", type2string (type),
-	    args ? args : "");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int) *args))
-	  ++args;
-
-      if (strcmp (cp, "use_first_pass") == 0 ||
-	       strcmp (cp, "try_first_pass") == 0 ||
-	       strcmp (cp, "use_authtok") == 0)
-	/* Do nothing, this are handled by pam-config if necessary. */ ;
-      else
-	print_unknown_option_error ("pam_nam.so", cp);
-    }
-  return 1;
-}
-
-static int
 write_config_nam (pam_module_t * this, enum write_type op, FILE * fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
@@ -90,7 +62,7 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_nam = { "pam_nam.so", opt_sets,
-			     &parse_config_nam,
+			     &def_parse_config,
 			     &def_print_module,
 			     &write_config_nam,
 			     &get_opt_set,

@@ -1,3 +1,26 @@
+2008-02-13  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/mod_pam_time.c: New.
+
+	* src/mod_pam_group.c: New.
+
+	* src/mod_pam_krb5.c: Use generic parser, getopt and write
+	functions.
+	* src/mod_pam_lastlog.c: Likewise.
+	* src/mod_pam_ldap.c: Likewise.
+	* src/mod_pam_limits.c: Likewise.
+	* src/mod_pam_localuser.c: Likewise.
+	* src/mod_pam_loginuid.c: Likewise.
+	* src/mod_pam_mkhomedir.c: Likewise.
+	* src/mod_pam_mount.c: Likewise.
+	* src/mod_pam_nam.c: Likewise.
+	* src/mod_pam_pkcs11.c: Likewise.
+	* src/mod_pam_thinkfinger.c: Likewise.
+	* src/mod_pam_winbind.c: Likewise.
+	* src/mod_pam_umask.c: Likewise.
+	* src/mod_pam_unix.c: Likewise.
+	* src/mod_pam_unix2.c: Likewise.
+
 2008-02-12  Thorsten Kukuk  <kukuk@suse.de>
 
 	* src/mod_pam_apparmor.c: Use generic parser, getopt and write

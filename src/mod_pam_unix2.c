@@ -26,46 +26,6 @@
 #include "pam-module.h"
 
 static int
-parse_config_unix2 (pam_module_t *this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set( this, type );
-
-  if (debug)
-    printf("**** parse_config_unix2 (%s): '%s'\n", type2string(type),
-           args?args:"");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-
-      if (strcmp (cp, "debug") == 0)
-	opt_set->enable( opt_set, "debug", TRUE );
-      else if (strcmp (cp, "nullok") == 0)
-	opt_set->enable( opt_set, "nullok", TRUE );
-      else if (strcmp (cp, "trace") == 0)
-	opt_set->enable( opt_set, "trace", TRUE );
-      else if (strcmp (cp, "use_first_pass") == 0)
-	{ /* will be ignored */ }
-      else if (strcmp (cp, "use_authtok") == 0)
-	{ /* will be ignored */ }
-      else if (strncmp (cp, "call_modules=", 13) == 0){
-	/* XXX strip krb5 and ldap modules from it */
-	if( ! opt_set->set_opt( opt_set, "call_modules", strdup (&cp[13])) ){
-	  DEBUG( "call_modules option recognized but couldn't be added to option set!\n" );
-	}
-      }
-      else
-	print_unknown_option_error ("pam_unix2.so", cp);
-    }
-  return 1;
-}
-
-static int
 write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
@@ -116,36 +76,28 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
       break;
     case SESSION:
       fprintf (fp, "session\trequired\tpam_unix2.so\t");
-      if (opt_set->is_enabled (opt_set, "trace"))
-	fprintf (fp, "trace ");
       break;
   }
 
-  if (opt_set->is_enabled (opt_set, "nullok"))
-    fprintf (fp, "nullok ");
-  if (opt_set->is_enabled (opt_set, "debug"))
-    fprintf (fp, "debug ");
-
-  char *call_modules = opt_set->get_opt( opt_set, "call_modules");
-  if (call_modules)
-    fprintf (fp, "call_modules=%s ", call_modules);
-
-  fprintf (fp, "\n");
+  WRITE_CONFIG_OPTIONS
 
   return 0;
 }
 
+GETOPT_START_ALL
+GETOPT_END_ALL
+
 PRINT_ARGS("unix2")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_4( is_enabled, debug, nullok, trace );
-DECLARE_STRING_OPTS_1( call_modules );
+DECLARE_BOOL_OPTS_5( is_enabled, nullok, debug, trace, none );
+DECLARE_STRING_OPTS_2( call_modules, nisdir);
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_unix2 = { "pam_unix2.so", opt_sets,
-			       &parse_config_unix2,
+			       &def_parse_config,
 			       &def_print_module,
 			       &write_config_unix2,
 			       &get_opt_set,
-			       NULL,
+			       &getopt,
 			       &print_args};

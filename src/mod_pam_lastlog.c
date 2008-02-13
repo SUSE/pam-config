@@ -26,48 +26,12 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
-static int
-parse_config_lastlog (pam_module_t *this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set (this, type);
-
-  if (debug)
-    printf ("**** parse_config_lastlog (%s): '%s'\n", type2string (type),
-	    args ? args : "");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int) *args))
-	  ++args;
-
-      if (opt_set->enable (opt_set, cp, TRUE) == FALSE)
-	print_unknown_option_error ("pam_lastlog.so", cp);
-    }
-  return 1;
-}
-
-
 static void
 write_config_internal (FILE *fp, option_set_t *opt_set)
 {
-  bool_option_t **opt = opt_set->bool_opts;
-
-
   fprintf (fp, "session  required\tpam_lastlog.so\t");
 
-  while (NULL != *opt)
-    {
-
-      if (strcmp ((*opt)->key, "is_enabled") != 0 && (*opt)->value)
-	fprintf (fp, "%s ", (*opt)->key);
-      opt++;
-    }
-
-  fprintf (fp, "\n");
+  WRITE_CONFIG_OPTIONS
 }
 
 static int
@@ -127,6 +91,9 @@ write_config_lastlog (pam_module_t *this,
   return close_service_file (fp, gl_service);
 }
 
+GETOPT_START_1(SESSION)
+GETOPT_END_1(SESSION)
+
 PRINT_ARGS("lastlog")
 
 /* ---- contruct module object ---- */
@@ -135,9 +102,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_lastlog = { "pam_lastlog.so", opt_sets,
-				 &parse_config_lastlog,
+				 &def_parse_config,
 				 &def_print_module,
 				 &write_config_lastlog,
 				 &get_opt_set,
-				 NULL,
+				 &getopt,
 				 &print_args};

@@ -3,14 +3,14 @@ From Linux-PAM:
 pam_access	-> single services, TODO
 pam_cracklib	-> common-*
 pam_debug	-> not supported
-pam_deny	-> single services, common-*, TODO
+pam_deny	-> single services, common-*
 pam_echo	-> single services, common-*, TODO
 pam_env		-> common-*
 pam_exec	-> single services, common-*, TODO
 pam_faildelay	-> single services, TODO
 pam_filter	-> not supported
 pam_ftp		-> not supported
-pam_group	-> common-*, TODO
+pam_group	-> common-*
 pam_issue	-> single services, TODO
 pam_keyinit	-> single services, TODO
 pam_lastlog	-> single services, [session,after include,required]
@@ -32,9 +32,9 @@ pam_shells	-> single services, common-*, TODO
 pam_stress	-> not supported
 pam_succeed_if	-> if, then only internal
 pam_tally	-> single services, TODO
-pam_time	-> common-*, TODO
+pam_time	-> common-*
 pam_umask	-> common-*
-pam_unix	-> common-*, TODO
+pam_unix	-> common-*
 pam_userdb	-> not supported
 pam_warn	-> single services, common-*, TODO
 pam_wheel	-> single services, TODO

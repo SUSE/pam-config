@@ -29,19 +29,6 @@
 
 extern char *confdir;
 
-static int
-parse_config_thinkfinger (pam_module_t *this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set( this, type );
-
-  if (debug)
-    printf("**** parse_config_thinkfinger (%s): '%s'\n", type2string(type),
-           args?args:"");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-  return 1;
-}
-
 /**
  * @brief A filter for use with scandir. Filters out dot,
  * common* and files containing a dot.
@@ -163,22 +150,25 @@ write_config_thinkfinger (pam_module_t *this, enum write_type op, FILE *fp)
       break;
   }
 
-  fprintf (fp, "\n");
+  WRITE_CONFIG_OPTIONS
 
   return 0;
 }
 
+GETOPT_START_1(AUTH)
+GETOPT_END_1(AUTH)
+
 PRINT_ARGS("thinkfinger")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_1( is_enabled );
+DECLARE_BOOL_OPTS_2( is_enabled, debug );
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_thinkfinger = { "pam_thinkfinger.so", opt_sets,
-  &parse_config_thinkfinger,
-  &def_print_module,
-  &write_config_thinkfinger,
-  &get_opt_set,
-  NULL,
-  &print_args};
+				     &def_parse_config,
+				     &def_print_module,
+				     &write_config_thinkfinger,
+				     &get_opt_set,
+				     &getopt,
+				     &print_args};

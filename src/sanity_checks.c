@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2008 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -63,22 +63,18 @@ sanitize_check_account (pam_module_t **module_list)
 {
   int with_ldap_auth, with_ldap_account, with_krb5;
 
-  check_for_unix_conflict( module_list, ACCOUNT );
+  check_for_unix_conflict (module_list, ACCOUNT);
 
-  with_ldap_account = is_module_enabled (module_list,
-										 "pam_ldap.so", ACCOUNT);
-  with_ldap_auth = is_module_enabled (module_list,
-									  "pam_ldap.so", AUTH);
+  with_ldap_account = is_module_enabled (module_list, "pam_ldap.so", ACCOUNT);
+  with_ldap_auth = is_module_enabled (module_list, "pam_ldap.so", AUTH);
+  with_krb5 = is_module_enabled (module_list, "pam_krb5.so", AUTH);
 
-  with_krb5 = is_module_enabled (module_list,
-								 "pam_krb5.so", AUTH);
-
-  if( with_ldap_account && !with_ldap_auth && !with_krb5 )
-  {
-	  fprintf (stderr,
-			   _("ERROR: ldap-account_only is only allowed in combination with krb5.\nConfiguration not changed!\n"));
-	  return 1;
-  }
+  if (with_ldap_account && !with_ldap_auth && !with_krb5)
+    {
+      fprintf (stderr,
+	       _("ERROR: ldap-account_only is only allowed in combination with krb5.\nConfiguration not changed!\n"));
+      return 1;
+    }
 
   return 0;
 }
@@ -177,12 +173,12 @@ check_for_unix_conflict (pam_module_t **module_list, write_type_t op)
       }
       else
       {
-	fprintf(stderr, _("ERR: Failed to disable pam_unix.so.\n"));
+	fprintf(stderr, _("ERROR: Failed to disable pam_unix.so.\n"));
       }
     }
     else
     {
-      fprintf(stderr, _("ERR: Failed to disable pam_unix.so.\n"));
+      fprintf(stderr, _("ERROR: Failed to disable pam_unix.so.\n"));
     }
   }
   return 0;

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-14 17:35+0100\n"
+"POT-Creation-Date: 2008-02-13 13:47+0100\n"
 "PO-Revision-Date: 2004-08-09 10:24+0200\n"
 "Last-Translator: xxx <yyy@example.org>\n"
 "Language-Team: Hebrew <i18n@suse.de>\n"
@@ -79,66 +79,50 @@ msgstr ""
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
 
-#: src/mod_pam_cryptpass.c:128
+#: src/mod_pam_cryptpass.c:98
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is not enabled for service '%s', but needed by "
 "pam_cryptpass.so\n"
 msgstr ""
 
-#: src/mod_pam_cryptpass.c:146
+#: src/mod_pam_cryptpass.c:116
 #, c-format
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr ""
 
-#: src/mod_pam_mount.c:160 src/pam-config.c:399
+#: src/mod_pam_mount.c:119 src/pam-config.c:408
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
 
-#: src/mod_pam_mount.c:166
+#: src/mod_pam_mount.c:125
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:104
+#: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:119
+#: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:129
+#: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:154
+#: src/mod_pam_thinkfinger.c:141
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
-msgstr ""
-
-#: src/mod_pam_unix.c:116
-#, c-format
-msgid ""
-"INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-"INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' remove "
-"'md5' first.\n"
-msgstr ""
-
-#: src/mod_pam_unix.c:140
-#, c-format
-msgid ""
-"INFO: Both options 'audit' and 'debug' found in service %s.\n"
-"INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-"'audit' first.\n"
 msgstr ""
 
 #: src/pam-config.c:47
@@ -210,71 +194,90 @@ msgstr ""
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:113 src/pam-config.c:153 src/pam-config.c:165
-#: src/pam-config.c:1469 src/pam-config.c:1479 src/pam-config.c:1489
-#: src/pam-config.c:1500
+#: src/pam-config.c:96
+msgid "Global Module Options:\n"
+msgstr ""
+
+#: src/pam-config.c:97
+msgid ""
+"      The global modules get inserted into the \n"
+"      common-{account,auth,password,session} files which are included by\n"
+"      the single service files.\n"
+msgstr ""
+
+#: src/pam-config.c:102
+msgid "Single Service Module Options:\n"
+msgstr ""
+
+#: src/pam-config.c:103
+msgid "      These modules can only be added to single service files.\n"
+msgstr ""
+
+#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
+#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
+#: src/pam-config.c:884
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:115 src/pam-config.c:155 src/pam-config.c:167
-#: src/pam-config.c:1471 src/pam-config.c:1481 src/pam-config.c:1491
-#: src/pam-config.c:1502
+#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
+#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
+#: src/pam-config.c:886
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:130
+#: src/pam-config.c:142
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr ""
 
-#: src/pam-config.c:132
+#: src/pam-config.c:144
 #, c-format
 msgid "New config from %s is is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:161
+#: src/pam-config.c:173
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr ""
 
-#: src/pam-config.c:335
+#: src/pam-config.c:344
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 
-#: src/pam-config.c:341 src/pam-config.c:377
+#: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:1261
+#: src/pam-config.c:625
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:1263
+#: src/pam-config.c:627
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:1283
+#: src/pam-config.c:663
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""
 
-#: src/pam-config.c:1387
+#: src/pam-config.c:771
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr ""
 
 #. TRANSLATORS: first argument is name of a PAM module
-#: src/pam-module.c:99
+#: src/pam-module.c:140
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr ""
@@ -289,35 +292,35 @@ msgstr ""
 msgid "ERROR: module %s is not installed.\n"
 msgstr ""
 
-#: src/sanity_checks.c:79
+#: src/sanity_checks.c:75
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/sanity_checks.c:102
+#: src/sanity_checks.c:98
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr ""
 
-#: src/sanity_checks.c:122
+#: src/sanity_checks.c:118
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 msgstr ""
 
-#: src/sanity_checks.c:169
+#: src/sanity_checks.c:165
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
 
-#: src/sanity_checks.c:180 src/sanity_checks.c:185
+#: src/sanity_checks.c:176 src/sanity_checks.c:181
 #, c-format
-msgid "ERR: Failed to disable pam_unix.so.\n"
+msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr ""
 
 #: src/single_config.c:249

@@ -26,52 +26,40 @@
 #include "pam-module.h"
 
 static int
-write_config_winbind (pam_module_t * this, enum write_type op, FILE * fp)
+write_config_group (pam_module_t * this, enum write_type op, FILE * fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
 
   if (debug)
-    printf ("**** write_config_winbind (...)\n");
+    printf ("**** write_config_group (...)\n");
 
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
-  switch (op)
-    {
-    case ACCOUNT:
-      fprintf (fp, "account\trequired\tpam_winbind.so\tuse_first_pass\t");
-      break;
-    case AUTH:
-      fprintf (fp, "auth\trequired\tpam_winbind.so\tuse_first_pass\t");
-      break;
-    case PASSWORD:
-      fprintf (fp, "password\tsufficient\tpam_winbind.so\t");
-      break;
-    case SESSION:
-      fprintf (fp, "session\trequired\tpam_winbind.so\t");
-      break;
-    }
+  if (op != AUTH)
+    return 0;
+
+  fprintf (fp, "auth\trequired\tpam_group.so\t");
 
   WRITE_CONFIG_OPTIONS
 
   return 0;
 }
 
-GETOPT_START_ALL
-GETOPT_END_ALL
+GETOPT_START_1(AUTH)
+GETOPT_END_1(AUTH)
 
-PRINT_ARGS("winbind")
+PRINT_ARGS("group")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_2 (is_enabled, debug);
+DECLARE_BOOL_OPTS_1 (is_enabled);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
-pam_module_t mod_pam_winbind = { "pam_winbind.so", opt_sets,
-				 &def_parse_config,
-				 &def_print_module,
-				 &write_config_winbind,
-				 &get_opt_set,
-				 &getopt,
-				 &print_args
-};
+pam_module_t mod_pam_group = { "pam_group.so", opt_sets,
+				  &def_parse_config,
+				  &def_print_module,
+				  &write_config_group,
+				  &get_opt_set,
+				  &getopt,
+				  &print_args};

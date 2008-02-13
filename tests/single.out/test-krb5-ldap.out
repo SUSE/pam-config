@@ -29,7 +29,7 @@ auth	required	pam_ldap.so	use_first_pass
 #
 account	requisite	pam_unix2.so	debug 
 account	[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]	pam_krb5.so	use_first_pass 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #

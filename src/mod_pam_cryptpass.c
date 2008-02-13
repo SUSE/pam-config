@@ -24,36 +24,6 @@
 
 #include "pam-config.h"
 
-static int
-parse_config_cryptpass (pam_module_t *this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set( this, type );
-
-  if (debug)
-    printf("**** parse_config_cryptpass (%s): '%s'\n", type2string(type),
-           args?args:"");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-
-      if (opt_set->enable (opt_set, cp, TRUE) == FALSE){
-	if (strcmp (cp, "use_first_pass") == 0)
-	{ /* will be ignored */ }
-	else if (strcmp (cp, "try_first_pass") == 0)
-	{ /* will be ignored */ }
-	else
-	  print_unknown_option_error ("pam_cryptpass.so", cp);
-      }
-    }
-  return 1;
-}
-
 /* These predicates define the place where to insert an entry in a service
  * file
  */
@@ -131,7 +101,7 @@ write_config_cryptpass (  pam_module_t *this,
     /* insert pam_cryptpass.so before pam_mount.so in the session
      * stack
      */
-    status &= insert_if (&cfg_content, "session\t optional\tpam_cryptpass.so\n", &session_pred_cryptpass, BEFORE);
+    status &= insert_if (&cfg_content, "session  optional\tpam_cryptpass.so\n", &session_pred_cryptpass, BEFORE);
   }
   if (write_password)
   {
@@ -158,7 +128,7 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_cryptpass = { "pam_cryptpass.so", opt_sets,
-				   &parse_config_cryptpass,
+				   &def_parse_config,
 				   &def_print_module,
 				   &write_config_cryptpass,
 				   &get_opt_set,

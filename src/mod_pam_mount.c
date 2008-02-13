@@ -37,47 +37,6 @@
 extern char *conf_auth_pc;
 
 /**
- * @brief Function to parse in a line from a service file and store
- * the options to the opt_set of the instance specified by *this.
- *
- * @param this The pam-module instance to work on.
- * @param args The line from the service file.
- * @param type One of AUTH, SESSION, PASS or ACCOUNT
- *
- * @return 1
- */
-
-static int
-parse_config_mount (pam_module_t *this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set( this, type );
-
-  if (debug)
-    printf("**** parse_config_mount (%s): '%s'\n", type2string(type),
-           args?args:"");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int)*args))
-        ++args;
-
-      if (opt_set->enable (opt_set, cp, TRUE) == FALSE){
-	if (strcmp (cp, "use_first_pass") == 0)
-	{ /* will be ignored */ }
-	else if (strcmp (cp, "try_first_pass") == 0)
-	{ /* will be ignored */ }
-	else
-	  print_unknown_option_error ("pam_mount.so", cp);
-      }
-    }
-  return TRUE;
-}
-
-/**
  * @brief Writes two lines out to the service file specified by
  * gl_service.
  *
@@ -122,7 +81,7 @@ write_config_mount (  pam_module_t *this,
 	 */
 	if (strcasestr (cfg_content->line, "auth") != NULL)
 	{
-	  fprintf (fp, "auth\t optional\tpam_mount.so\n");
+	  fprintf (fp, "auth     optional\tpam_mount.so\n");
 	  is_written = 1;
 	}
       }
@@ -169,10 +128,13 @@ write_config_mount (  pam_module_t *this,
     /* pam_thinkfinger.so is not enabled so we can safely add
      * pam_mount.so
      */
-    fprintf (fp, "session  required       pam_mount.so\n");
+    fprintf (fp, "session  required\tpam_mount.so\n");
   }
   return close_service_file (fp,gl_service);
 }
+
+GETOPT_START_1(SESSION)
+GETOPT_END_1(SESSION)
 
 PRINT_ARGS("mount")
 
@@ -182,9 +144,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_mount = { "pam_mount.so", opt_sets,
-			       &parse_config_mount,
+			       &def_parse_config,
 			       &def_print_module,
 			       &write_config_mount,
 			       &get_opt_set,
-			       NULL,
+			       &getopt,
 			       &print_args};

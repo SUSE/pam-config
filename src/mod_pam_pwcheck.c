@@ -169,9 +169,9 @@ DECLARE_STRING_OPTS_6(cracklib_path, maxlen, minlen, tries, remember, nisdir);
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_pwcheck = { "pam_pwcheck.so", opt_sets,
-  &parse_config_pwcheck,
-  &def_print_module,
-  &write_config_pwcheck,
-  &get_opt_set,
-  &getopt,
-  &print_args};
+				 &parse_config_pwcheck,
+				 &def_print_module,
+				 &write_config_pwcheck,
+				 &get_opt_set,
+				 &getopt,
+				 &print_args};

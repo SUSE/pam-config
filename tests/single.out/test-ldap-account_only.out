@@ -31,7 +31,7 @@ auth	required	pam_deny.so
 #
 account	requisite	pam_unix2.so	debug 
 account	[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]	pam_krb5.so	use_first_pass 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #
@@ -96,7 +96,7 @@ auth	required	pam_ldap.so	use_first_pass
 #
 account	requisite	pam_unix2.so	debug 
 account	[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]	pam_krb5.so	use_first_pass 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #
@@ -226,7 +226,7 @@ auth	required	pam_ldap.so	use_first_pass
 #
 account	requisite	pam_unix2.so	debug 
 account	[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]	pam_krb5.so	use_first_pass 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #
@@ -293,7 +293,7 @@ auth	required	pam_deny.so
 #
 account	requisite	pam_unix2.so	debug 
 account	[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]	pam_krb5.so	use_first_pass 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #
@@ -358,7 +358,7 @@ auth	required	pam_deny.so
 #
 account	requisite	pam_unix2.so	debug 
 account	[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]	pam_krb5.so	use_first_pass 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #
@@ -537,7 +537,7 @@ auth	required	pam_ldap.so	use_first_pass
 # only deny service to users whose accounts are expired.
 #
 account	requisite	pam_unix2.so	debug 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #
@@ -602,7 +602,7 @@ auth	required	pam_ldap.so	use_first_pass
 #
 account	requisite	pam_unix2.so	debug 
 account	[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]	pam_krb5.so	use_first_pass 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #
@@ -667,7 +667,7 @@ auth	required	pam_ldap.so	use_first_pass
 # only deny service to users whose accounts are expired.
 #
 account	requisite	pam_unix2.so	debug 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #

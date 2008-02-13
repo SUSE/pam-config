@@ -26,35 +26,7 @@
 #include "pam-config.h"
 #include "pam-module.h"
 
-static int
-parse_config_ldap (pam_module_t * this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set (this, type);
-
-  if (debug)
-    printf ("**** parse_config_ldap (%s): '%s'\n", type2string (type),
-	    args ? args : "");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int) *args))
-	  ++args;
-
-      if (strcmp (cp, "debug") == 0)
-	opt_set->enable (opt_set, "debug", TRUE);
-      else if (strcmp (cp, "use_first_pass") == 0 ||
-	       strcmp (cp, "try_first_pass") == 0 ||
-	       strcmp (cp, "use_authtok") == 0)
-	/* Do nothing, this are handled by pam-config if necessary. */ ;
-      else
-	print_unknown_option_error ("pam_ldap.so", cp);
-    }
-  return 1;
-}
+extern pam_module_t mod_pam_localuser;
 
 static int
 write_config_ldap (pam_module_t * this, enum write_type op, FILE * fp)
@@ -114,6 +86,38 @@ write_config_ldap (pam_module_t * this, enum write_type op, FILE * fp)
   return 0;
 }
 
+static int
+getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt)
+{
+  option_set_t *opt_set;
+
+  if (debug)
+    printf ("**** %s->getopt: '%s'='%s'\n", this->name, opt, optarg);
+
+  if (strcmp ("", opt) == 0)
+    {
+      if (g_opt->m_query)
+	this->print_module (this);
+      else
+	{
+	  if (!g_opt->m_delete &&
+	      check_for_pam_module (this->name, g_opt->force) != 0)
+	    return 1;
+	  opt_set = this->get_opt_set (this, ACCOUNT);
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val);
+	  opt_set = this->get_opt_set (this, AUTH);
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val);
+	  opt_set = this->get_opt_set (this, PASSWORD);
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val);
+	  opt_set = this->get_opt_set (this, SESSION);
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val);
+	  opt_set =
+	    mod_pam_localuser.get_opt_set (&mod_pam_localuser, ACCOUNT);
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val);
+	}
+    }
+GETOPT_END_ALL
+
 PRINT_ARGS("ldap")
 
 /* ---- contruct module object ---- */
@@ -122,9 +126,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_ldap = { "pam_ldap.so", opt_sets,
-			      &parse_config_ldap,
+			      &def_parse_config,
 			      &def_print_module,
 			      &write_config_ldap,
 			      &get_opt_set,
-			      NULL,
+			      &getopt,
 			      &print_args};

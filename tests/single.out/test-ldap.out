@@ -27,7 +27,7 @@ auth	required	pam_ldap.so	use_first_pass
 # only deny service to users whose accounts are expired.
 #
 account	requisite	pam_unix2.so	debug 
-account	sufficient	pam_localuser.so
+account	sufficient	pam_localuser.so 
 account	required	pam_ldap.so	use_first_pass
 #%PAM-1.0
 #

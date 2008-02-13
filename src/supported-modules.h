@@ -3,6 +3,7 @@ extern pam_module_t mod_pam_ccreds;
 extern pam_module_t mod_pam_cracklib;
 extern pam_module_t mod_pam_deny;
 extern pam_module_t mod_pam_env;
+extern pam_module_t mod_pam_group;
 extern pam_module_t mod_pam_krb5;
 extern pam_module_t mod_pam_lastlog;
 extern pam_module_t mod_pam_ldap;
@@ -14,6 +15,7 @@ extern pam_module_t mod_pam_nam;
 extern pam_module_t mod_pam_pkcs11;
 extern pam_module_t mod_pam_pwcheck;
 extern pam_module_t mod_pam_thinkfinger;
+extern pam_module_t mod_pam_time;
 extern pam_module_t mod_pam_umask;
 extern pam_module_t mod_pam_unix2;
 extern pam_module_t mod_pam_unix;
@@ -32,6 +34,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_cracklib,
   &mod_pam_deny,
   &mod_pam_env,
+  &mod_pam_group,
   &mod_pam_krb5,
   &mod_pam_ldap,
   &mod_pam_limits,
@@ -57,6 +60,7 @@ static pam_module_t *module_list_account[] = {
   &mod_pam_ldap,
   &mod_pam_nam,
   &mod_pam_winbind,
+  &mod_pam_time,
   NULL
 };
 
@@ -70,6 +74,7 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_ldap,
   &mod_pam_nam,
   &mod_pam_winbind,
+  &mod_pam_group,
   NULL
 };
 

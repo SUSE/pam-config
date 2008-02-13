@@ -430,60 +430,21 @@ main (int argc, char *argv[])
         {"list-modules",              no_argument,       NULL,  300 },
 	{"nullok",                    no_argument,       NULL,  900 },
 	{"pam-debug",                 no_argument,       NULL,  901 },
-	{"mkhomedir",                 no_argument,       NULL, 1100 },
-	{"mkhomedir-debug",           no_argument,       NULL, 1101 },
-	{"mkhomedir-silent",          no_argument,       NULL, 1102 },
-	{"mkhomedir-umask",           required_argument, NULL, 1103 },
-	{"mkhomedir-skel",            required_argument, NULL, 1104 },
-	{"limits",                    no_argument,       NULL, 1200 },
-	{"limits-debug",              no_argument,       NULL, 1201 },
-	{"limits-change_uid",         no_argument,       NULL, 1202 },
-	{"limits-utmp_early",         no_argument,       NULL, 1203 },
-	{"limits-conf",               required_argument, NULL, 1204 },
-        {"unix2",            no_argument,       NULL, 1600 },
-        {"unix2-debug",      no_argument,       NULL, 1601 },
-        {"unix2-nullok",     no_argument,       NULL, 1602 },
-        {"unix2-trace",      no_argument,       NULL, 1603 },
-        {"unix2-call_modules", required_argument, NULL, 1604 },
-        {"unix",            no_argument,        NULL, 1700 },
-        {"unix-debug",      no_argument,        NULL, 1701 },
-        {"unix-audit",      no_argument,        NULL, 1702 },
-        {"unix-nullok",     no_argument,        NULL, 1703 },
-        {"unix-shadow",     no_argument,        NULL, 1704 },
-        {"unix-md5",        no_argument,        NULL, 1705 },
-        {"unix-bigcrypt",  no_argument,        NULL, 1706 },
-	{"krb5",                  no_argument,       NULL, 1800 },
-	{"krb5-debug",            no_argument,       NULL, 1801 },
-	{"krb5-minimum_uid",      required_argument, NULL, 1802 },
-	{"krb5-ignore_unknown_principals",
-	                          no_argument,       NULL, 1803 },
-	{"ldap",                  no_argument,       NULL, 1900 },
-	{"ldap-debug",            no_argument,       NULL, 1901 },
+	{"ldap",                      no_argument,       NULL, 1900 },
  	{"ldap-account_only",     no_argument,       NULL, 1902 },
-	{"pkcs11",                no_argument,       NULL, 2010 },
 	{"nam",                   no_argument,       NULL, 2030 },
-	{"winbind",               no_argument,       NULL, 2200 },
-	{"winbind-debug",         no_argument,       NULL, 2201 },
-	{"umask",                 no_argument,       NULL, 2300 },
-	{"umask-debug",           no_argument,       NULL, 2301 },
-	{"umask-silent",          no_argument,       NULL, 2302 },
-	{"umask-usergroups",      no_argument,       NULL, 2303 },
-	{"umask-umask",           required_argument, NULL, 2304 },
-	{"thinkfinger",           no_argument,       NULL, 2400 },
+        {"winbind",               no_argument,       NULL, 2200 },
+        {"winbind-debug",         no_argument,       NULL, 2201 },
         {NULL,                    0,                 NULL,    0 }
       };
       static struct option service_long_options[] = {
         {"version",               no_argument,       NULL,  'v' },
         {"usage",                 no_argument,       NULL,  'u' },
-        {"opt.force",                 no_argument,       NULL,  'f' },
+        {"force",                 no_argument,       NULL,  'f' },
 	{"debug",                 no_argument,       NULL,  254 },
         {"help",                  no_argument,       NULL,  255 },
 	{"nullok",                no_argument,       NULL,  900 },
 	{"pam-debug",             no_argument,       NULL,  901 },
-	{"loginuid",              no_argument,       NULL, 3000 },
-        {"loginuid-require_auditd", no_argument,     NULL, 3001 },
-        {"lastlog",               no_argument,       NULL, 3050 },
-	{"mount",		  no_argument,	     NULL, 3100 },
 	{"cryptpass",		  no_argument,	     NULL, 3200 },
 	{"cryptpass-password",	  no_argument,	     NULL, 3201 },
 	{NULL,                    0,                 NULL,    0 }
@@ -560,329 +521,26 @@ main (int argc, char *argv[])
 	      }
 	  }
 	  break;
-	case 1100:
+	case 1902:
+	  /* pam_ldap account_only*/
+
 	  if (opt.m_query)
-	    print_module_config (common_module_list,
-				 "pam_mkhomedir.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_mkhomedir.so", opt.force) != 0)
-		return 1;
-	      opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
-						       SESSION);
-	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-	case 1101:
-	  opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
-						   SESSION);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  break;
-	case 1102:
-	  opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
-						   SESSION);
-	  opt_set->enable (opt_set, "silent", opt.opt_val);
-	  break;
-	case 1103:
-	  opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
-						   SESSION);
-	  opt_set->set_opt (opt_set, "umask", optarg);
-	  break;
-	case 1104:
-	  opt_set = mod_pam_mkhomedir.get_opt_set (&mod_pam_mkhomedir,
-						   SESSION);
-	  opt_set->set_opt (opt_set, "skel", optarg);
-	  break;
-	case 1200:
-	  /* pam_limits.so */
-	  if (opt.m_query)
-	    print_module_config (common_module_list, "pam_limits.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_limits.so", opt.force) != 0)
-		return 1;
-	      opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
-	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-	case 1201:
-	  opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  break;
-	case 1202:
-	  opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
-	  opt_set->enable (opt_set, "change_uid", opt.opt_val);
-	  break;
-	case 1203:
-	  opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
-	  opt_set->enable (opt_set, "utmp_early", opt.opt_val);
-	  break;
-	case 1204:
-	  opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
-	  opt_set->set_opt (opt_set, "conv", optarg);
-	  break;
-	case 1600:
-	  /* use_unix2 */
-	  if (opt.m_query)
-            print_module_config (common_module_list, "pam_unix2.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_unix2.so", opt.force) != 0)
-		return 1;
-              opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-	case 1601:
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  break;
-	case 1602:
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
-	  opt_set->enable (opt_set, "nullok", opt.opt_val);
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
-	  opt_set->enable (opt_set, "nullok", opt.opt_val);
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
-	  opt_set->enable (opt_set, "nullok", opt.opt_val);
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
-	  opt_set->enable (opt_set, "nullok", opt.opt_val);
-	  break;
-        case 1603:
-	  opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
-	  opt_set->enable (opt_set, "trace", opt.opt_val);
-          break;
-        case 1604:
-	  if (opt.m_delete)
-	    {
-	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
-	      opt_set->set_opt (opt_set, "call_modules", NULL);
-	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
-	      opt_set->set_opt (opt_set, "call_modules", NULL);
-	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
-	      opt_set->set_opt (opt_set, "call_modules", NULL);
-	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
-	      opt_set->set_opt (opt_set, "call_modules", NULL);
-	    }
-	  else
-	    {
-	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
-	      opt_set->set_opt (opt_set, "call_modules", optarg);
-	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
-	      opt_set->set_opt (opt_set, "call_modules", optarg);
-	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
-	      opt_set->set_opt (opt_set, "call_modules", optarg);
-	      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
-	      opt_set->set_opt (opt_set, "call_modules", optarg);
-	    }
-          break;
-	case 1700:
-	  /* use_unix */
-	  if (opt.m_query)
-            print_module_config (common_module_list, "pam_unix.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_unix.so", opt.force) != 0)
-		return 1;
-              opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-	case 1701:
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  break;
-	case 1702:
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
-	  opt_set->enable (opt_set, "audit", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
-	  opt_set->enable (opt_set, "audit", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
-	  opt_set->enable (opt_set, "audit", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
-	  opt_set->enable (opt_set, "audit", opt.opt_val);
-	  break;
-	case 1703:
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
-	  opt_set->enable (opt_set, "nullok", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
-	  opt_set->enable (opt_set, "nullok", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
-	  opt_set->enable (opt_set, "nullok", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
-	  opt_set->enable (opt_set, "nullok", opt.opt_val);
-	  break;
-	case 1704:
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
-	  opt_set->enable (opt_set, "shadow", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
-	  opt_set->enable (opt_set, "shadow", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
-	  opt_set->enable (opt_set, "shadow", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
-	  opt_set->enable (opt_set, "shadow", opt.opt_val);
-	  break;
-	case 1705:
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
-	  opt_set->enable (opt_set, "md5", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
-	  opt_set->enable (opt_set, "md5", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
-	  opt_set->enable (opt_set, "md5", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
-	  opt_set->enable (opt_set, "md5", opt.opt_val);
-	  break;
-	case 1706:
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
-	  opt_set->enable (opt_set, "bigcrypt", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
-	  opt_set->enable (opt_set, "bigcrypt", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
-	  opt_set->enable (opt_set, "bigcrypt", opt.opt_val);
-	  opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
-	  opt_set->enable (opt_set, "bigcrypt", opt.opt_val);
-	  break;
-	case 1800:
-	  /* use_krb5 */
-	  if (opt.m_query)
-            print_module_config (common_module_list, "pam_krb5.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_krb5.so", opt.force) != 0)
-		return 1;
-              opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-	case 1801:
-	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  break;
-        case 1802:
-	  if (opt.m_delete)
-	    {
-	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
-	      opt_set->set_opt (opt_set, "minimum_uid", NULL);
-	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
-	      opt_set->set_opt (opt_set, "minimum_uid", NULL);
-	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
-	      opt_set->set_opt (opt_set, "minimum_uid", NULL);
-	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
-	      opt_set->set_opt (opt_set, "minimum_uid", NULL);
-	    }
-	  else
-	    {
-	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
-	      opt_set->set_opt (opt_set, "minimum_uid", optarg);
-	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
-	      opt_set->set_opt (opt_set, "minimum_uid", optarg);
-	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
-	      opt_set->set_opt (opt_set, "minimum_uid", optarg);
-	      opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
-	      opt_set->set_opt (opt_set, "minimum_uid", optarg);
-	    }
-          break;
-	case 1803:
-	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, ACCOUNT);
-	  opt_set->enable (opt_set, "ignore_unknown_principals", opt.opt_val);
-	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, AUTH);
-	  opt_set->enable (opt_set, "ignore_unknown_principals", opt.opt_val);
-	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, PASSWORD);
-	  opt_set->enable (opt_set, "ignore_unknown_principals", opt.opt_val);
-	  opt_set = mod_pam_krb5.get_opt_set (&mod_pam_krb5, SESSION);
-	  opt_set->enable (opt_set, "ignore_unknown_principals", opt.opt_val);
-	  break;
-	case 1900:
-	  /* pam_ldap */
-	  if (opt.m_query)
-            print_module_config (common_module_list, "pam_ldap.so");
+	    print_module_config (common_module_list, "pam_ldap.so");
 	  else
 	    {
 	      if (!opt.m_delete && check_for_pam_module ("pam_ldap.so", opt.force) != 0)
 		return 1;
-              opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, ACCOUNT);
-              opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, AUTH);
-			  opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, PASSWORD);
-			  opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-              opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, SESSION);
-			  opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-	case 1901:
-	  opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, ACCOUNT);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, AUTH);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, PASSWORD);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, SESSION);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  break;
-	case 1902:
-		/* pam_ldap account_only*/
-		if (opt.m_query)
-			print_module_config (common_module_list, "pam_ldap.so");
-		else
-		{
-			if (!opt.m_delete && check_for_pam_module ("pam_ldap.so", opt.force) != 0)
-				return 1;
-			opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, ACCOUNT);
-			opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-			opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, AUTH);
-			opt_set->enable (opt_set, "is_enabled", 0);
-			opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, PASSWORD);
-			opt_set->enable (opt_set, "is_enabled", 0);
-			opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, SESSION);
-			opt_set->enable (opt_set, "is_enabled", 0);
-		}
-		break;
-	case 2010:
-	  /* pam_pkcs11 */
-	  if (opt.m_query)
-            print_module_config (common_module_list, "pam_pkcs11.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_pkcs11.so", opt.force) != 0)
-		return 1;
-	      opt_set = mod_pam_ccreds.get_opt_set (&mod_pam_pkcs11, AUTH);
-	      opt_set->enable (opt_set, "is_enabled", TRUE);
+	      opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, ACCOUNT);
+	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
+	      opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, AUTH);
+	      opt_set->enable (opt_set, "is_enabled", FALSE);
+	      opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, PASSWORD);
+	      opt_set->enable (opt_set, "is_enabled", FALSE);
+	      opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", FALSE);
+	      opt_set =
+		mod_pam_localuser.get_opt_set (&mod_pam_localuser, ACCOUNT);
+	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
 	    }
 	  break;
 	case 2030:
@@ -901,6 +559,9 @@ main (int argc, char *argv[])
 	      opt_set = mod_pam_nam.get_opt_set (&mod_pam_nam, PASSWORD);
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
 	      opt_set = mod_pam_nam.get_opt_set (&mod_pam_nam, SESSION);
+	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
+	      opt_set =
+		mod_pam_localuser.get_opt_set (&mod_pam_localuser, ACCOUNT);
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
 	    }
 	  break;
@@ -924,102 +585,12 @@ main (int argc, char *argv[])
               opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind,
 						     SESSION);
               opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-	case 2201:
-	  opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind, ACCOUNT);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind, AUTH);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind, PASSWORD);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind, SESSION);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  break;
-	case 2300:
-	  /* pam_umask.so */
-	  if (opt.m_query)
-	    print_module_config (common_module_list, "pam_umask.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_umask.so", opt.force) != 0)
-		return 1;
-	      opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
-	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-	case 2301:
-	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
-	  opt_set->enable (opt_set, "debug", opt.opt_val);
-	  break;
-	case 2302:
-	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
-	  opt_set->enable (opt_set, "silent", opt.opt_val);
-	  break;
-	case 2303:
-	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
-	  opt_set->enable (opt_set, "usergroups", opt.opt_val);
-	  break;
-	case 2304:
-	  opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
-	  opt_set->set_opt (opt_set, "umask", optarg);
-	  break;
-	case 2400:
-	  /* pam_thinkfinger.so */
-	  if (opt.m_query)
-	    print_module_config (common_module_list, "pam_thinkfinger.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_thinkfinger.so", opt.force) != 0)
-		return 1;
-	      opt_set = mod_pam_thinkfinger.get_opt_set (&mod_pam_thinkfinger, AUTH);
+	      opt_set =
+		mod_pam_localuser.get_opt_set (&mod_pam_localuser, ACCOUNT);
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
 	    }
 	  break;
 	  /* From here we have single service modules */
-	case 3000:
-          /* pam_loginuid.so */
-	  if (opt.m_query)
-	    print_module_config (service_module_list, "pam_loginuid.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_loginuid.so", opt.force) != 0)
-		return 1;
-	      opt_set = mod_pam_loginuid.get_opt_set (&mod_pam_loginuid,
-						      SESSION);
-	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-        case 3001:
-	  opt_set = mod_pam_loginuid.get_opt_set (&mod_pam_loginuid, SESSION);
-	      opt_set->enable (opt_set, "require_auditd", opt.opt_val);
-          break;
-	case 3050:
-          /* pam_lastlog.so */
-	  if (opt.m_query)
-	    print_module_config (service_module_list, "pam_lastlog.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_lastlog.so", opt.force) != 0)
-		return 1;
-	      opt_set = mod_pam_lastlog.get_opt_set (&mod_pam_lastlog,
-						     SESSION);
-	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	      opt_set->enable (opt_set, "nowtmp", opt.opt_val);
-	    }
-	  break;
-	case 3100:
-	  /* pam_mount.so */
-	  if (opt.m_query)
-	    print_module_config (service_module_list, "pam_mount.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_mount.so", opt.force) != 0)
-		return 1;
-	      opt_set = mod_pam_mount.get_opt_set (&mod_pam_mount, SESSION);
-	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
 	case 3200:
 	  /* pam_cryptpass.so */
 	  if (opt.m_query)

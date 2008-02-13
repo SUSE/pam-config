@@ -26,30 +26,20 @@
 #include "pam-module.h"
 
 static int
-parse_config_localuser (pam_module_t * this, char *args, write_type_t type)
+write_config_localuser (pam_module_t *this, enum write_type op,
+			FILE *fp)
 {
-  option_set_t *opt_set = this->get_opt_set (this, type);
-
-  if (debug)
-    printf ("**** parse_config_localuser (%s): '%s'\n", type2string (type),
-	    args ? args : "");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  return 1;
-}
-
-static int
-write_config_localuser (pam_module_t *this __attribute__((unused)),
-			enum write_type op __attribute__((unused)),
-			FILE *fp __attribute__((unused)))
-{
+  option_set_t *opt_set = this->get_opt_set (this, op);
   int with_ldap, with_nam, with_winbind;
 
   if (debug)
     printf ("**** write_config_localuser (...)\n");
 
   if (op != ACCOUNT)
+    return 0;
+
+  /* pam_localuser is not enabled.  */
+  if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
   with_ldap = is_module_enabled (common_module_list,
@@ -60,22 +50,29 @@ write_config_localuser (pam_module_t *this __attribute__((unused)),
                                     "pam_winbind.so", op);
 
   if (with_ldap || with_nam || with_winbind)
-    fprintf (fp, "account\tsufficient\tpam_localuser.so\n");
+    fprintf (fp, "account\tsufficient\tpam_localuser.so ");
+  else
+    fprintf (fp, "account\trequired\tpam_localuser.so ");
+
+  WRITE_CONFIG_OPTIONS
 
   return 0;
 }
 
+GETOPT_START_1(ACCOUNT)
+GETOPT_END_1(ACCOUNT)
+
 PRINT_ARGS("localuser")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_1 (is_enabled);
-DECLARE_STRING_OPTS_0;
+DECLARE_BOOL_OPTS_2 (is_enabled, debug);
+DECLARE_STRING_OPTS_1 (file);
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_localuser = { "pam_localuser.so", opt_sets,
-				   &parse_config_localuser,
+				   &def_parse_config,
 				   &def_print_module,
 				   &write_config_localuser,
 				   &get_opt_set,
-				   NULL,
+				   &getopt,
 				   &print_args};

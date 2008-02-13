@@ -27,32 +27,6 @@
 #include "pam-module.h"
 
 static int
-parse_config_loginuid (pam_module_t *this, char *args, write_type_t type)
-{
-  option_set_t *opt_set = this->get_opt_set (this, type);
-
-  if (debug)
-    printf ("**** parse_config_loginuid (%s): '%s'\n", type2string (type),
-	    args ? args : "");
-
-  opt_set->enable (opt_set, "is_enabled", TRUE);
-
-  while (args && strlen (args) > 0)
-    {
-      char *cp = strsep (&args, " \t");
-      if (args)
-	while (isspace ((int) *args))
-	  ++args;
-
-      if (strcmp (cp, "require_auditd") == 0)
-	opt_set->enable (opt_set, "require_auditd", TRUE);
-      else
-	print_unknown_option_error ("pam_loginuid.so", cp);
-    }
-  return 1;
-}
-
-static int
 write_config_loginuid (pam_module_t *this,
 		       enum write_type op __attribute__((unused)),
 		       FILE *unused)
@@ -107,6 +81,9 @@ write_config_loginuid (pam_module_t *this,
   return close_service_file (fp, gl_service);
 }
 
+GETOPT_START_1(SESSION)
+GETOPT_END_1(SESSION)
+
 PRINT_ARGS("loginuid")
 
 /* ---- contruct module object ---- */
@@ -115,9 +92,9 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_loginuid = { "pam_loginuid.so", opt_sets,
-				  &parse_config_loginuid,
+				  &def_parse_config,
 				  &def_print_module,
 				  &write_config_loginuid,
 				  &get_opt_set,
-				  NULL,
+				  &getopt,
 				  &print_args};

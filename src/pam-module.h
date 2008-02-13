@@ -171,6 +171,11 @@ typedef struct gobal_opt {
   GENERIC_OPT_SET_8( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8); \
   GENERIC_OPT_SET_8( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8); \
   GENERIC_OPT_SET_8( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8);
+#define DECLARE_BOOL_OPTS_11(OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11) \
+  GENERIC_OPT_SET_11( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11); \
+  GENERIC_OPT_SET_11( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11); \
+  GENERIC_OPT_SET_11( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11); \
+  GENERIC_OPT_SET_11( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11);
 
 #define DECLARE_STRING_OPTS_0 DECLARE_STRING_OPTS_1( empty )
 #define DECLARE_STRING_OPTS_1(OPT_1)				 \
@@ -327,7 +332,68 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt) \
 		return 1;						\
 	    }								\
 	  else								\
-	    return 1;							\
+	    {								\
+	      if (opt_set->set_opt (opt_set, opt, NULL) == FALSE)	\
+		return 1;						\
+	    }								\
+	}								\
+    }									\
+									\
+  return 0;								\
+}
+
+
+#define GETOPT_START_ALL \
+static int \
+getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt) \
+{ \
+  option_set_t *opt_set; \
+\
+  if (debug) \
+    printf ("**** %s->getopt: '%s'='%s'\n", this->name, opt, optarg); \
+\
+  if (strcmp ("", opt) == 0) \
+    { \
+      if (g_opt->m_query) \
+	this->print_module (this); \
+      else \
+	{ \
+	  if (!g_opt->m_delete && \
+	      check_for_pam_module (this->name, g_opt->force) != 0) \
+	    return 1; \
+	  opt_set = this->get_opt_set (this, ACCOUNT); \
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val); \
+	  opt_set = this->get_opt_set (this, AUTH); \
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val); \
+	  opt_set = this->get_opt_set (this, PASSWORD); \
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val); \
+	  opt_set = this->get_opt_set (this, SESSION); \
+	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val); \
+	} \
+    }
+
+
+#define GETOPT_END_ALL						\
+  else									\
+    {									\
+      write_type_t type;						\
+									\
+      for (type = AUTH; type < SESSION; type++)				\
+	{								\
+	  opt_set = this->get_opt_set (this, type);			\
+	  if (opt_set->enable (opt_set, opt, g_opt->opt_val) == FALSE)	\
+	    {								\
+	      if (optarg)						\
+		{							\
+		  if (opt_set->set_opt (opt_set, opt, strdup(optarg)) == FALSE) \
+		    return 1;						\
+		}							\
+	      else							\
+		{							\
+		  if (opt_set->set_opt (opt_set, opt, NULL) == FALSE)	\
+		    return 1;						\
+		}							\
+	    }								\
 	}								\
     }									\
 									\
