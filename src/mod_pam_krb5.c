@@ -50,7 +50,7 @@ write_config_krb5 (pam_module_t * this, enum write_type op, FILE * fp)
   switch (op)
     {
     case ACCOUNT:
-      /* No special handlin in case of with_ldap... 
+      /* No special handling in case of with_ldap... 
        * new_authtok_reqd=ok is wrong, if a new authtok is required go into password change
        * user_unknown=ignore will be done with the ignore_unknown_principals parameter */
       fprintf (fp, "account\trequired\tpam_krb5.so\tuse_first_pass ");
