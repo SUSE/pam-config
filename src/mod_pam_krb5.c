@@ -50,10 +50,10 @@ write_config_krb5 (pam_module_t * this, enum write_type op, FILE * fp)
   switch (op)
     {
     case ACCOUNT:
-      if (with_ldap || with_nam || with_winbind)
-        fprintf (fp, "account\t[success=ok new_authtok_reqd=ok ignore=ignore default=bad user_unknown=ignore]\tpam_krb5.so\tuse_first_pass "); /* required with additional user_unknown mapping to ignore */
-      else
-        fprintf (fp, "account\trequired\tpam_krb5.so\tuse_first_pass ");
+      /* No special handlin in case of with_ldap... 
+       * new_authtok_reqd=ok is wrong, if a new authtok is required go into password change
+       * user_unknown=ignore will be done with the ignore_unknown_principals parameter */
+      fprintf (fp, "account\trequired\tpam_krb5.so\tuse_first_pass ");
       if (opt_set->is_enabled (opt_set, "ignore_unknown_principals"))
         fprintf (fp, "ignore_unknown_principals ");
       break;
@@ -64,10 +64,14 @@ write_config_krb5 (pam_module_t * this, enum write_type op, FILE * fp)
         fprintf (fp, "auth\tsufficient\tpam_krb5.so\tuse_first_pass ");
       break;
     case PASSWORD:
+      /* no use_authtok parameter. pam_krb5 tries always if the authtok is available
+       * use_authtok would result in an error if this is not the case and we cannot
+       * be sure that an other module has asked for the new password before we call
+       * pam_krb5. */
       if (with_ldap || with_nam)
-        fprintf (fp, "password\tsufficient\tpam_krb5.so\tuse_authtok ");
+        fprintf (fp, "password\tsufficient\tpam_krb5.so ");
       else
-        fprintf (fp, "password\trequired\tpam_krb5.so\tuse_authtok ");
+        fprintf (fp, "password\trequired\tpam_krb5.so ");
       break;
     case SESSION:
       fprintf (fp, "session\toptional\tpam_krb5.so\t");
