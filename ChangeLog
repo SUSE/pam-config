@@ -1,3 +1,9 @@
+2008-03-03  Michael Calmer  <mc@suse.de>
+	* src/mod_pam_krb5.c: easier configuration for pam_krb5 
+	                      ACCOUNT section
+	* src/mod_pam_krb5.c: do not use use_authtok in PASSWORD
+	                      section
+
 2008-02-13  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.50
