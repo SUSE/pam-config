@@ -1,3 +1,11 @@
+2008-04-01  Michael Calmer  <mc@suse.de>
+	* release version 0.52
+
+	* src/sanity_checks.c: enable pam_localuser is ldap, winbind
+	                       or nam is enabled
+
+	* add testcases for winbind
+
 2008-03-03  Michael Calmer  <mc@suse.de>
 	* release version 0.51
 

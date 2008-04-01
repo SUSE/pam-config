@@ -4,6 +4,10 @@ Copyright (C) 2006, 2007, 2008 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.52
+* fix missing pam_localuser
+* update localization files
+
 Version 0.51
 * adapt krb5 support to new pam_krb5 version
 
