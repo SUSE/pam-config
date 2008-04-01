@@ -1,0 +1,10 @@
+#!/bin/sh
+# START cleanup
+. support/header.sh
+
+$PAMCONFIG -a --ldap
+
+$PAMCONFIG -a --winbind
+$PAMCONFIG -d --ldap
+
+. support/footer-common.sh

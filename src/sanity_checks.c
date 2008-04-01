@@ -62,7 +62,9 @@ int
 sanitize_check_account (pam_module_t **module_list)
 {
   int with_ldap_auth, with_ldap_account, with_krb5;
-
+  int with_nam, with_winbind, with_localuser;
+  option_set_t *opt_set;
+  
   check_for_unix_conflict (module_list, ACCOUNT);
 
   with_ldap_account = is_module_enabled (module_list, "pam_ldap.so", ACCOUNT);
@@ -76,6 +78,21 @@ sanitize_check_account (pam_module_t **module_list)
       return 1;
     }
 
+  with_nam = is_module_enabled (module_list, "pam_nam.so", ACCOUNT);
+  with_winbind = is_module_enabled (module_list, "pam_winbind.so", ACCOUNT);
+  with_localuser = is_module_enabled (module_list, "pam_localuser.so", ACCOUNT);
+
+  /*
+   * These modules require pam_localuser. Enable it automaticaly if it is disabled.
+   * See also bnc#371558 .
+   */
+  if( (with_ldap_account || with_nam || with_winbind) && !with_localuser)
+  {
+      pam_module_t *localuser_mod = lookup (module_list, "pam_localuser.so");
+      opt_set = localuser_mod->get_opt_set (localuser_mod, ACCOUNT);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
+  }
+  
   return 0;
 }
 
