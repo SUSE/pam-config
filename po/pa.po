@@ -1,21 +1,21 @@
-# translation of pam-config.po to Panjabi
+# translation of pam-config.pa.po to Panjabi
 # Copyright (C) YEAR Thorsten Kukuk
 # This file is distributed under the same license as the PACKAGE package.
 #
 # A S Alam <aalam@users.sf.net>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: pam-config\n"
+"Project-Id-Version: pam-config.pa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-13 13:47+0100\n"
-"PO-Revision-Date: 2007-06-28 13:54+0530\n"
+"POT-Creation-Date: 2008-04-01 14:51+0200\n"
+"PO-Revision-Date: 2007-08-21 23:07+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Panjabi <punjabi-l10n@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=n != 1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -33,47 +33,47 @@ msgstr "%s: ਅਣਜਾਣ ਮੋਡੀਊਲ %s, ਅਣਡਿੱਠਾ ਕੀ�
 #: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
-msgstr ""
+msgstr "ਗਲਤੀ: ਅਣਜਾਣੀ ਸਰਵਿਸ: [%s: %s], ਅਣਡਿੱਠੀ ਕੀਤੀ!\n"
 
 #: src/load_obsolete_conf.c:288
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "ਚੇਤਾਵਨੀ: 'md5' ਚੋਣ ਸੈੱਟ ਕਰਨ ਲਈ /etc/default/passwd ਵਰਤੋਂ\n"
 
 #: src/load_obsolete_conf.c:290
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr ""
+msgstr "ਚੇਤਾਵਨੀ: 'bigcrypt' ਚੋਣ ਸੈੱਟ ਕਰਨ ਲਈ /etc/default/passwd ਵਰਤੋਂ\n"
 
 #: src/load_obsolete_conf.c:294
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
-msgstr ""
+msgstr "ਚੇਤਾਵਨੀ: 'blowfish' ਚੋਣ ਸੈੱਟ ਕਰਨ ਲਈ /etc/default/passwd ਵਰਤੋਂ\n"
 
 #: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "ਗਲਤੀ: ਅਣਜਾਣੀ ਚੋਣ (%s): [%s: %s], ਅਣਡਿੱਠੀ ਕੀਤਾ!\n"
 
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "ਚੇਤਾਵਨੀ: ਅਣਜਾਣੀ ਚੋਣ (%s): [%s: %s], ਅਣਡਿੱਠੀ ਕੀਤਾ!\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "'md5' ਚੋਣ ਸੈੱਟ ਕਰਨ ਲਈ /etc/default/passwd ਵਰਤੋਂ ਜੀ\n"
 
 #: src/load_obsolete_conf.c:356
 #, c-format
 msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr ""
+msgstr "'bigcrypt' ਚੋਣ ਸੈੱਟ ਕਰਨ ਲਈ /etc/default/passwd ਵਰਤੋਂ ਜੀ\n"
 
 #: src/load_obsolete_conf.c:360
 #, c-format
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
-msgstr ""
+msgstr "'blowfish' ਚੋਣ ਸੈੱਟ ਕਰਨ ਲਈ /etc/default/passwd ਵਰਤੋਂ ਜੀ\n"
 
 #: src/load_obsolete_conf.c:470
 #, c-format
@@ -91,11 +91,13 @@ msgid ""
 "ERROR: pam_mount.so is not enabled for service '%s', but needed by "
 "pam_cryptpass.so\n"
 msgstr ""
+"ਗਲਤੀ: pam_mount.so '%s' ਸਰਵਿਸ ਵਿੱਚ ਯੋਗ ਨਹੀਂ ਕੀਤਾ, ਪਰ pam_cryptpass.so ਰਾਹੀਂ "
+"ਲੋੜੀਦਾ ਹੈ\n"
 
 #: src/mod_pam_cryptpass.c:116
 #, c-format
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
-msgstr ""
+msgstr "ਗਲਤੀ: pam_cryptpass.so ਨੂੰ ਸਰਵਿਸ '%s' ਵਿੱਚ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"
 
 #: src/mod_pam_mount.c:119 src/pam-config.c:408
 #, c-format
@@ -103,11 +105,13 @@ msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
+"\n"
+"ਸੰਰਚਨਾ ਫਾਇਲ '%s' ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ, ਛੱਡਿਆ!\n"
 
 #: src/mod_pam_mount.c:125
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
-msgstr ""
+msgstr "ਗਲਤੀ: ਮੋਡੀਊਲ pam_thinkfinger.so ਯੋਗ ਹੈ। ਪਹਿਲਾਂ ਇਹ ਆਯੋਗ ਕਰੋ।\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -117,12 +121,12 @@ msgstr ""
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
-msgstr ""
+msgstr "ਚੇਤਾਵਨੀ: '%s' ਵਿੱਚ ਕੋਈ ਸਰਵਿਸ ਫਾਇਲਾਂ ਨਹੀਂ ਲੱਭੀਆਂ।\n"
 
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "ਚੇਤਾਵਨੀ: ਮੋਡੀਊਲ '%s' ਫਾਇਲ '%s' ਵਿੱਚ ਨਹੀਂ ਲੱਭਿਆ।\n"
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -130,6 +134,8 @@ msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
+"ਗਲਤੀ: pam_mount.so ਯੋਗ ਹੈ। pam_thinkfinger.so ਵਰਤਣ ਲਈ ਤੁਹਾਨੂੰ ਪਹਿਲਾਂ ਇਹ ਆਯੋਗ ਕਰਨਾ "
+"ਪਵੇਗਾ।\n"
 
 #: src/pam-config.c:47
 #, c-format
@@ -150,7 +156,7 @@ msgstr ""
 #: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
-msgstr ""
+msgstr "ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ `%s --help' ਜਾਂ `%s --usage' ਨੂੰ ਵੇਖੋ।\n"
 
 #: src/pam-config.c:76
 #, c-format
@@ -158,7 +164,7 @@ msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
-"%s - create PAM config files\n"
+"%s - PAM ਸੰਰਚਨਾ ਫਾਇਲਾਂ ਬਣਾਓ।\n"
 "\n"
 
 #: src/pam-config.c:78
@@ -182,8 +188,9 @@ msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  Convert old config and create new one\n"
 
 #: src/pam-config.c:85
+#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr ""
+msgstr "  --service config  Service to modify config of\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
@@ -217,8 +224,11 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:102
+#, fuzzy
 msgid "Single Service Module Options:\n"
 msgstr ""
+"\n"
+"ਸਹਿਯੋਗੀ ਸਰਵਿਸ ਮੋਡੀਊਲ:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
@@ -229,14 +239,14 @@ msgstr ""
 #: src/pam-config.c:884
 #, c-format
 msgid "Error activating %s (%m)\n"
-msgstr ""
+msgstr "%s ਐਕਟਿਵੇਟਿੰਗ ਗਲਤੀ (%m)\n"
 
 #: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
 #: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
 #: src/pam-config.c:886
 #, c-format
 msgid "New config from %s is not in use!\n"
-msgstr ""
+msgstr "%s ਤੋਂ ਨਵੀਂ ਸੰਰਚਨਾ ਵਰਤੋਂ ਵਿੱਚ ਨਹੀਂ ਹੈ!\n"
 
 #: src/pam-config.c:142
 #, c-format
@@ -246,7 +256,7 @@ msgstr "ਫਾਇਲ %s %s ਨਾਲ ਸਿਮਲਿੰਕ ਨਹੀਂ ਹੈ�
 #: src/pam-config.c:144
 #, c-format
 msgid "New config from %s is is not in use!\n"
-msgstr ""
+msgstr "%s ਲਈ ਨਵੀਂ ਸੰਰਚਨਾ ਵਰਤੋਂ ਵਿੱਚ ਨਹੀਂ ਹੈ!\n"
 
 #: src/pam-config.c:173
 #, c-format
@@ -254,9 +264,11 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr ""
 
 #: src/pam-config.c:344
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
+"\n"
+"ਸੰਰਚਨਾ ਫਾਇਲ ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ, ਵਿੱਚੇ ਛੱਡਿਆ!\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -264,11 +276,13 @@ msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
+"\n"
+"ਸੰਰਚਨਾ ਫਾਇਲ ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ, ਵਿੱਚੇ ਛੱਡਿਆ!\n"
 
 #: src/pam-config.c:625
 #, c-format
 msgid "Supported common modules:\n"
-msgstr ""
+msgstr "ਸਹਿਯੋਗੀ ਆਮ ਮੋਡੀਊਲ:\n"
 
 #: src/pam-config.c:627
 #, c-format
@@ -276,6 +290,8 @@ msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
+"\n"
+"ਸਹਿਯੋਗੀ ਸਰਵਿਸ ਮੋਡੀਊਲ:\n"
 
 #: src/pam-config.c:663
 #, c-format
@@ -285,76 +301,98 @@ msgstr "%s: ਬਹੁਤ ਵੱਧ ਆਰਗੂਮਿੰਟ।\n"
 #: src/pam-config.c:771
 #, c-format
 msgid "Cannot access '%s': %m\n"
-msgstr ""
+msgstr "'%s' ਅਸੈੱਸ  ਨਹੀਂ: %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:140
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
-msgstr ""
+msgstr "%s ਲਈ ਅਣਜਾਣੀ ਚੋਣ, ਅਣਡਿੱਠੀ ਕੀਤੀ: '%s'\n"
 
 #: src/sanity_checks.c:46
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "ਚੇਤਾਵਨੀ: ਮੋਡੀਊਲ %s ਇੰਸਟਾਲ ਨਹੀਂ ਹੈ।\n"
 
 #: src/sanity_checks.c:51
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr ""
+msgstr "ਗਲਤੀ: ਮੋਡੀਊਲ %s ਇੰਸਟਾਲ ਨਹੀਂ ਹੈ।\n"
 
-#: src/sanity_checks.c:75
+#: src/sanity_checks.c:77
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/sanity_checks.c:98
+#: src/sanity_checks.c:115
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
-msgstr ""
+msgstr "ਚੇਤਾਵਨੀ: pam_ccreds.so LDAP ਜਾਂ Kerberos5 ਵਲੋਂ ਲੋੜੀਦਾ, ਅਣਡਿੱਠਾ ਕੀਤਾ\n"
 
-#: src/sanity_checks.c:118
+#: src/sanity_checks.c:135
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 msgstr ""
+"INFO: pam_pwcheck.so ਅਤੇ pam_cracklib.so ਯੋਗ ਹਨ,\n"
+"INFO: ਕੇਵਲ pam_pwcheck.so ਨੂੰ ਹੀ cracklib ਸਹਿਯੋਗ ਨਾਲ ਯੋਗ ਕੀਤਾ ਜਾਵੇਗਾ।\n"
 
-#: src/sanity_checks.c:165
+#: src/sanity_checks.c:182
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
+"INFO: %s ਸਰਵਿਸ ਵਿੱਚ pam_unix.so ਅਤੇ pam_unix2.so ਯੋਗ ਹਨ।\n"
+"INFO: ਸਿਰਫ਼ pam_unix2.so ਨੂੰ ਹੀ ਯੋਗ ਕੀਤਾ ਜਾਵੇਗਾ।\n"
 
-#: src/sanity_checks.c:176 src/sanity_checks.c:181
-#, c-format
+#: src/sanity_checks.c:193 src/sanity_checks.c:198
+#, fuzzy, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr ""
+msgstr "ERR: pam_unix.so ਆਯੋਗ ਕਰਨ ਲਈ ਫੇਲ੍ਹ\n"
 
 #: src/single_config.c:249
 #, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr ""
+msgstr "'%s' stat ਨਹੀਂ: %m\n"
 
 #: src/single_config.c:259 src/write_config.c:63
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr ""
+msgstr "'%s' ਲਈ ਅਧਿਕਾਰ ਸੈੱਟ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕਦੇ: %m\n"
 
 #: src/single_config.c:268 src/write_config.c:70
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr ""
+msgstr "`%s' ਲਈ ਓਨਰ/ਗਰੁੱਪ ਨਹੀਂ ਬਦਲਿਆ ਜਾ ਸਕਦਾ: %m\n"
 
 #: src/single_config.c:278
 #, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr ""
+msgstr "ਫਾਇਲ ਹੈਂਡਲ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਦਾ: %m\n"
 
 #: src/write_config.c:78
 #, c-format
 msgid "Cannot create %s: %m\n"
-msgstr ""
+msgstr "%s ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕਦੀ: %m\n"
+
+#~ msgid ""
+#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
+#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
+#~ "remove 'md5' first.\n"
+#~ msgstr ""
+#~ "INFO: ਦੋਵੇਂ ਚੋਣਾਂ 'md5' ਅਤੇ 'bigcrypt' ਸਰਵਿਸ %s ਵਿੱਚ ਲੱਭੀਆਂ ਹਨ।\n"
+#~ "INFO: 'md5' 'bigcrypt' ਲਈ ਸੁਪਰਸੀਡ ਹੈ।ਜੇ ਤੁਸੀਂ 'bigcrypt' ਵਰਤਣਾ ਚਾਹੁੰਦੇ ਹੋ ਤਾਂ ਪਹਿਲਾਂ "
+#~ "'md5' ਨੂੰ ਹਟਾਓ।\n"
+
+#~ msgid ""
+#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
+#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
+#~ "'audit' first.\n"
+#~ msgstr ""
+#~ "INFO: ਦੋਵੇਂ ਚੋਣਾਂ 'audit' ਅਤੇ 'debug' ਸਰਵਿਸ %s ਵਿੱਚ ਲੱਭੀਆਂ ਹਨ।\n"
+#~ "INFO: 'audit' 'debug' ਲਈ ਸੁਪਰਸੀਡ ਹੈ।ਜੇ ਤੁਸੀਂ 'debug' ਵਰਤਣਾ ਚਾਹੁੰਦੇ ਹੋ ਤਾਂ ਪਹਿਲਾਂ "
+#~ "'audit' ਨੂੰ ਹਟਾਓ।\n"

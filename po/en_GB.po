@@ -1,25 +1,28 @@
+# translation of pam-config.po to
+# Benjamin Weber <b.weber@warwick.ac.uk>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: @PACKAGE@\n"
+"Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-13 13:47+0100\n"
-"PO-Revision-Date: 2001-07-17 16:27+0200\n"
-"Last-Translator: James Ogley <ogley@suse.co.uk>\n"
-"Language-Team: English <i18n@suse.de>\n"
+"POT-Creation-Date: 2008-04-01 14:51+0200\n"
+"PO-Revision-Date: 2007-08-19 15:10+0100\n"
+"Last-Translator: Benjamin Weber <b.weber@warwick.ac.uk>\n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: src/load_config.c:131
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
-msgstr ""
+msgstr "%s (%s): Arguments will be ignored\n"
 
 #: src/load_config.c:135
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
-msgstr ""
+msgstr "%s: Unknown module %s, ignored!\n"
 
 #: src/load_obsolete_conf.c:68 src/load_obsolete_conf.c:93
 #: src/load_obsolete_conf.c:128 src/load_obsolete_conf.c:158
@@ -27,47 +30,47 @@ msgstr ""
 #: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
-msgstr ""
+msgstr "ERROR: Unknown service: [%s: %s], ignored!\n"
 
 #: src/load_obsolete_conf.c:288
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "WARNING: Use /etc/default/passwd to set 'md5' option\n"
 
 #: src/load_obsolete_conf.c:290
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr ""
+msgstr "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
 
 #: src/load_obsolete_conf.c:294
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
-msgstr ""
+msgstr "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
 
 #: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
 
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "Please use /etc/default/passwd to set 'md5' option\n"
 
 #: src/load_obsolete_conf.c:356
 #, c-format
 msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr ""
+msgstr "Please use /etc/default/passwd to set 'bigcrypt' option\n"
 
 #: src/load_obsolete_conf.c:360
 #, c-format
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
-msgstr ""
+msgstr "Please use /etc/default/passwd to set 'blowfish' option\n"
 
 #: src/load_obsolete_conf.c:470
 #, c-format
@@ -97,6 +100,8 @@ msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
+"\n"
+"Couldn't load config file '%s', aborted!\n"
 
 #: src/mod_pam_mount.c:125
 #, c-format
@@ -114,9 +119,9 @@ msgid "WARNING: Found no service files in '%s'.\n"
 msgstr ""
 
 #: src/mod_pam_thinkfinger.c:116
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "WARNING: module %s is not installed.\n"
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -128,7 +133,7 @@ msgstr ""
 #: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
-msgstr ""
+msgstr "Usage: %s -a|-c|-d [...]\n"
 
 #: src/pam-config.c:56
 #, c-format
@@ -137,11 +142,14 @@ msgid ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
+"Copyright (C) %s Thorsten Kukuk.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
 #: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
-msgstr ""
+msgstr "Try `%s --help' or `%s --usage' for more information.\n"
 
 #: src/pam-config.c:76
 #, c-format
@@ -149,18 +157,20 @@ msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
+"%s - create PAM config files\n"
+"\n"
 
 #: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
-msgstr ""
+msgstr "  -a, --add         Add options/PAM modules\n"
 
 #: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
-msgstr ""
+msgstr "  -c, --create      Create new configuration\n"
 
 #: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
-msgstr ""
+msgstr "  -d, --delete      Remove options/PAM modules\n"
 
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
@@ -168,31 +178,32 @@ msgstr ""
 
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
-msgstr ""
+msgstr "      --initialize  Convert old config and create new one\n"
 
 #: src/pam-config.c:85
+#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr ""
+msgstr "  --service config  Service to modify config of\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
-msgstr ""
+msgstr "      --update      Read current config and write them new\n"
 
 #: src/pam-config.c:89
 msgid "  -q, --query       Query for installed modules and options\n"
-msgstr ""
+msgstr "  -q, --query       Query for installed modules and options\n"
 
 #: src/pam-config.c:91
 msgid "      --help        Give this help list\n"
-msgstr ""
+msgstr "      --help        Give this help list\n"
 
 #: src/pam-config.c:92
 msgid "  -u, --usage       Give a short usage message\n"
-msgstr ""
+msgstr "  -u, --usage       Give a short usage message\n"
 
 #: src/pam-config.c:93
 msgid "  -v, --version     Print program version\n"
-msgstr ""
+msgstr "  -v, --version     Print program version\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
@@ -206,8 +217,11 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:102
+#, fuzzy
 msgid "Single Service Module Options:\n"
 msgstr ""
+"\n"
+"Supported service modules:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
@@ -218,24 +232,24 @@ msgstr ""
 #: src/pam-config.c:884
 #, c-format
 msgid "Error activating %s (%m)\n"
-msgstr ""
+msgstr "Error activating %s (%m)\n"
 
 #: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
 #: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
 #: src/pam-config.c:886
 #, c-format
 msgid "New config from %s is not in use!\n"
-msgstr ""
+msgstr "New config from %s is not in use!\n"
 
 #: src/pam-config.c:142
 #, c-format
 msgid "File %s is no symlink to %s.\n"
-msgstr ""
+msgstr "File %s is no symlink to %s.\n"
 
 #: src/pam-config.c:144
 #, c-format
 msgid "New config from %s is is not in use!\n"
-msgstr ""
+msgstr "New config from %s is is not in use!\n"
 
 #: src/pam-config.c:173
 #, c-format
@@ -243,9 +257,11 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr ""
 
 #: src/pam-config.c:344
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
+"\n"
+"Couldn't load config file, aborted!\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -253,11 +269,13 @@ msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
+"\n"
+"Couldn't load config file, aborted!\n"
 
 #: src/pam-config.c:625
 #, c-format
 msgid "Supported common modules:\n"
-msgstr ""
+msgstr "Supported common modules:\n"
 
 #: src/pam-config.c:627
 #, c-format
@@ -265,85 +283,109 @@ msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
+"\n"
+"Supported service modules:\n"
 
 #: src/pam-config.c:663
 #, c-format
 msgid "%s: Too many arguments.\n"
-msgstr ""
+msgstr "%s: Too many arguments.\n"
 
 #: src/pam-config.c:771
 #, c-format
 msgid "Cannot access '%s': %m\n"
-msgstr ""
+msgstr "Cannot access '%s': %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:140
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
-msgstr ""
+msgstr "Unknown option for %s, ignored: '%s'\n"
 
 #: src/sanity_checks.c:46
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "WARNING: module %s is not installed.\n"
 
 #: src/sanity_checks.c:51
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr ""
+msgstr "ERROR: module %s is not installed.\n"
 
-#: src/sanity_checks.c:75
+#: src/sanity_checks.c:77
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/sanity_checks.c:98
+#: src/sanity_checks.c:115
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
-msgstr ""
+msgstr "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 
-#: src/sanity_checks.c:118
+#: src/sanity_checks.c:135
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 msgstr ""
+"INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
+"INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 
-#: src/sanity_checks.c:165
+#: src/sanity_checks.c:182
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
+"INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
+"INFO: only pam_unix2.so will be enabled.\n"
 
-#: src/sanity_checks.c:176 src/sanity_checks.c:181
-#, c-format
+#: src/sanity_checks.c:193 src/sanity_checks.c:198
+#, fuzzy, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr ""
+msgstr "ERR: Failed to disable pam_unix.so.\n"
 
 #: src/single_config.c:249
 #, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr ""
+msgstr "Cannot stat '%s': %m\n"
 
 #: src/single_config.c:259 src/write_config.c:63
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr ""
+msgstr "Cannot set permissions for '%s': %m\n"
 
 #: src/single_config.c:268 src/write_config.c:70
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr ""
+msgstr "Cannot change owner/group for `%s': %m\n"
 
 #: src/single_config.c:278
 #, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr ""
+msgstr "Cannot create file handle: %m\n"
 
 #: src/write_config.c:78
 #, c-format
 msgid "Cannot create %s: %m\n"
-msgstr ""
+msgstr "Cannot create %s: %m\n"
+
+#~ msgid ""
+#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
+#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
+#~ "remove 'md5' first.\n"
+#~ msgstr ""
+#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
+#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
+#~ "remove 'md5' first.\n"
+
+#~ msgid ""
+#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
+#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
+#~ "'audit' first.\n"
+#~ msgstr ""
+#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
+#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
+#~ "'audit' first.\n"

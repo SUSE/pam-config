@@ -1,26 +1,29 @@
+# translation of pam-config.po to czech
+# Klára Cihlářová <koty@seznam.cz>, 2007.
+# Marek Stopka <marekstopka@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: @PACKAGE@\n"
+"Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-13 13:47+0100\n"
-"PO-Revision-Date: 2005-07-31 14:37+0200\n"
-"Last-Translator: Klara Cihlarova <koty@seznam.cz>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"POT-Creation-Date: 2008-04-01 14:51+0200\n"
+"PO-Revision-Date: 2008-02-17 20:05+0100\n"
+"Last-Translator: Marek Stopka <marekstopka@gmail.com>\n"
+"Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.1\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: src/load_config.c:131
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
-msgstr ""
+msgstr "%s (%s): argumenty budou ignorovány\n"
 
 #: src/load_config.c:135
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
-msgstr ""
+msgstr "%s: neznámý modul %s, ignorováno!\n"
 
 #: src/load_obsolete_conf.c:68 src/load_obsolete_conf.c:93
 #: src/load_obsolete_conf.c:128 src/load_obsolete_conf.c:158
@@ -28,57 +31,60 @@ msgstr ""
 #: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
-msgstr ""
+msgstr "CHYBA: neznámá služba [%s: %s], ignorováno!\n"
 
 #: src/load_obsolete_conf.c:288
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "VAROVÁNÍ: pro nastavení volby 'md5' použijte /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:290
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
+"VAROVÁNÍ: pro nastavení volby 'bigcrypt' použijte /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:294
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
+"VAROVÁNÍ: pro nastavení volby 'blowfish' použijte /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "CHYBA: neznámá volba (%s): [%s: %s], ignorováno!\n"
 
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "VAROVÁNÍ: neznámá volba (%s): [%s: %s], ignorováno!\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "Pro nastavení volby 'md5' použijte /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:356
 #, c-format
 msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr ""
+msgstr "Pro nastavení volby 'bigcrypt' použijte /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:360
 #, c-format
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
-msgstr ""
+msgstr "Pro nastavení volby 'blowfish' použijte /etc/default/passwd\n"
 
 #: src/load_obsolete_conf.c:470
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
-msgstr ""
+msgstr "VAROVÁNÍ: Nemohu nalézt etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
+"VAROVÁNÍ: Nemohu nalézt /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -86,23 +92,27 @@ msgid ""
 "ERROR: pam_mount.so is not enabled for service '%s', but needed by "
 "pam_cryptpass.so\n"
 msgstr ""
+"CHYBA: pro službu '%s' není povolen pam_mount.so, který vyžaduje "
+"pam_cryptpass.so\n"
 
 #: src/mod_pam_cryptpass.c:116
 #, c-format
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
-msgstr ""
+msgstr "CHYBA: nelze přidat pam_cryptpass.so do služby '%s'"
 
 #: src/mod_pam_mount.c:119 src/pam-config.c:408
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
-msgstr "Nelze načíst zvukový soubor %s jako ukázku %s."
+msgstr ""
+"\n"
+"Nelze načíst konfigurační soubor '%s', přerušuji!\n"
 
 #: src/mod_pam_mount.c:125
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
-msgstr ""
+msgstr "CHYBA: modul pam_thinkfinger.so je povolen. Nejdřív jej zakažte.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -117,7 +127,7 @@ msgstr ""
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "VAROVÁNÍ: Nalezen modul '%s' v souboru '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -127,22 +137,20 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:47
-#, fuzzy, c-format
+#, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
-msgstr "Použití: %s [ --paranoid ]\n"
+msgstr "Použití: %s -a|-c|-d [...]\n"
 
 #: src/pam-config.c:56
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
-"\n"
-"Copyright (C) 1999 Free Software Foundation, Inc.\n"
-" Jedná se o volný software; podmínky kopírování naleznete ve zdroji. "
-"NEEXISTUJE\n"
-" záruka ani pro ÚČELY OBCHODOVATELNOSTI a VHODNOSTI PRO PRO DANÝ ÚČEL.\n"
+"Copyright (C) %s Thorsten Kukuk.\n"
+"Toto je volný software; podmínky kopírování naleznete ve zdroji. NEEXISTUJE\n"
+"záruka ani pro ÚČELY OBCHODOVATELNOSTI a VHODNOSTI PRO PRO DANÝ ÚČEL.\n"
 
 #: src/pam-config.c:68
 #, c-format
@@ -156,53 +164,53 @@ msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
+"%s - vytvořit konfigurační soubory PAM\n"
+"\n"
 
 #: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
-msgstr ""
+msgstr "  -a, --add         přidat volby nebo PAM moduly\n"
 
 #: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
-msgstr ""
+msgstr "  -c, --create      Vytvořit novou konfiguraci\n"
 
 #: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
-msgstr ""
+msgstr "  -d, --delete      Odstranit volby nebo PAM moduly\n"
 
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr ""
+msgstr "      --confdir     Použít vlastní adresář s konfigurací\n"
 
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
-msgstr ""
+msgstr "      --initialize  Konvertovat starou konfiguraci a zapsat ji\n"
 
 #: src/pam-config.c:85
+#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr ""
+msgstr "  --service config  Změnit konfiguraci\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
-msgstr ""
+msgstr "      --update      Načíst aktuální konfiguraci a zapsat ji\n"
 
 #: src/pam-config.c:89
 msgid "  -q, --query       Query for installed modules and options\n"
-msgstr ""
+msgstr "  -q, --query       Dotázat se na nainstalované moduly a volby\n"
 
 #: src/pam-config.c:91
-#, fuzzy
 msgid "      --help        Give this help list\n"
-msgstr "  --help         Vypíše tuto nápovědu\n"
+msgstr "      --help         Vypíše tuto nápovědu\n"
 
 #: src/pam-config.c:92
-#, fuzzy
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  --usage        Vypíše krátký návod\n"
 
 #: src/pam-config.c:93
-#, fuzzy
 msgid "  -v, --version     Print program version\n"
-msgstr "  --version      Vypíšeš verzi programu\n"
+msgstr "  --version      Vypíše verzi programu\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
@@ -216,8 +224,11 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:102
+#, fuzzy
 msgid "Single Service Module Options:\n"
 msgstr ""
+"\n"
+"Podporované moduly služeb:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
@@ -226,50 +237,50 @@ msgstr ""
 #: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
 #: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
 #: src/pam-config.c:884
-#, fuzzy, c-format
+#, c-format
 msgid "Error activating %s (%m)\n"
-msgstr "Chyba při aktivaci odkladového oddílu."
+msgstr "Chyba při aktivaci %s (%m)\n"
 
 #: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
 #: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
 #: src/pam-config.c:886
 #, c-format
 msgid "New config from %s is not in use!\n"
-msgstr ""
+msgstr "Nová konfigurace z %s není používána!\n"
 
 #: src/pam-config.c:142
-#, fuzzy, c-format
+#, c-format
 msgid "File %s is no symlink to %s.\n"
-msgstr ""
-"Soubor %s není podepsán.\n"
-"Chcete jej přesto použít?"
+msgstr "Soubor %s není symbolický odkaz na %s.\n"
 
 #: src/pam-config.c:144
 #, c-format
 msgid "New config from %s is is not in use!\n"
-msgstr ""
+msgstr "Nová konfigurace z %s není používána!\n"
 
 #: src/pam-config.c:173
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr ""
+msgstr "VAROVÁNÍ: soubor '%s' nebyl nalezen. Vynechávám zálohu.\n"
 
 #: src/pam-config.c:344
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr "Nelze načíst zvukový soubor %s jako ukázku %s."
+msgstr "VAROVÁNÍ: Nelze načíst staré konfigurační soubory.\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
-msgstr "Nelze načíst zvukový soubor %s jako ukázku %s."
+msgstr ""
+"\n"
+"Nelze načíst soubor, přerušeno!\n"
 
 #: src/pam-config.c:625
 #, c-format
 msgid "Supported common modules:\n"
-msgstr ""
+msgstr "Podporované obvyklé moduly:\n"
 
 #: src/pam-config.c:627
 #, c-format
@@ -277,85 +288,93 @@ msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
+"\n"
+"Podporované moduly služeb:\n"
 
 #: src/pam-config.c:663
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Too many arguments.\n"
-msgstr "Příliš mnoho argumentů"
+msgstr "%s: příliš mnoho argumentů.\n"
 
 #: src/pam-config.c:771
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot access '%s': %m\n"
-msgstr "Nelze zaznamenat %s: %m"
+msgstr "Nelze přistupovat k '%s': %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:140
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
-msgstr ""
+msgstr "Neznámá volba %s, ignorováno: '%s'\n"
 
 #: src/sanity_checks.c:46
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "VAROVÁNÍ: modul %s není nainstalován.\n"
 
 #: src/sanity_checks.c:51
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr ""
+msgstr "CHYBA: modul %s není nainstalován.\n"
 
-#: src/sanity_checks.c:75
+#: src/sanity_checks.c:77
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/sanity_checks.c:98
+#: src/sanity_checks.c:115
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
-msgstr ""
+msgstr "VAROVÁNÍ: pam_ccreds.so vyžaduje LDAP nebo Kerberos5, ignorováno\n"
 
-#: src/sanity_checks.c:118
+#: src/sanity_checks.c:135
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 msgstr ""
+"INFORMACE: pam_pwcheck.so a pam_cracklib.so povoleny,\n"
+"\n"
+"INFORMACE: bude použit pouze pam_pwcheck.so s podporou cracklib.\n"
 
-#: src/sanity_checks.c:165
+#: src/sanity_checks.c:182
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
+"INFORMACE: pam_unix.so a pam_unix2.so jsou povoleny ve službě %s,\n"
+"\n"
+"INFORMACE: bude povolen pouze pam_unix2.so.\n"
 
-#: src/sanity_checks.c:176 src/sanity_checks.c:181
-#, c-format
+#: src/sanity_checks.c:193 src/sanity_checks.c:198
+#, fuzzy, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr ""
+msgstr "Nepodařilo se zakázat pam_unix.so.\n"
 
 #: src/single_config.c:249
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr "Nelze zaznamenat %s: %m"
+msgstr ""
 
 #: src/single_config.c:259 src/write_config.c:63
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "Nelze zaznamenat %s: %m"
+msgstr "Nelze nastavit práva pro '%s': %m\n"
 
 #: src/single_config.c:268 src/write_config.c:70
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr "Nelze zaznamenat %s: %m"
+msgstr "Nelze nastavit vlastníka/skupinu pro '%s': %m\n"
 
 #: src/single_config.c:278
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr "Nelze zaznamenat %s: %m"
+msgstr ""
 
 #: src/write_config.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot create %s: %m\n"
-msgstr "Nelze zaznamenat %s: %m"
+msgstr "Nelze vytvořit %s: %m\n"

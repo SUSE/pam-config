@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-13 13:47+0100\n"
+"POT-Creation-Date: 2008-04-01 14:51+0200\n"
 "PO-Revision-Date: 2005-03-09 13:54+0100\n"
 "Last-Translator: Novell Language <language@novell.com>\n"
 "Language-Team: Novell Language <language@novell.com>\n"
@@ -21,12 +21,12 @@ msgstr ""
 #: src/load_config.c:131
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
-msgstr ""
+msgstr "%s (%s)：引數將被忽略\n"
 
 #: src/load_config.c:135
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
-msgstr ""
+msgstr "%s：未知模組 %s，忽略！\n"
 
 #: src/load_obsolete_conf.c:68 src/load_obsolete_conf.c:93
 #: src/load_obsolete_conf.c:128 src/load_obsolete_conf.c:158
@@ -34,47 +34,47 @@ msgstr ""
 #: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
-msgstr ""
+msgstr "錯誤：未知的服務：[%s: %s]，忽略！\n"
 
 #: src/load_obsolete_conf.c:288
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "警告：使用 /etc/default/passwd 設定 'md5' 選項\n"
 
 #: src/load_obsolete_conf.c:290
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr ""
+msgstr "警告：使用 /etc/default/passwd 設定 'bigcrypt' 選項\n"
 
 #: src/load_obsolete_conf.c:294
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
-msgstr ""
+msgstr "警告：使用 /etc/default/passwd 設定 'blowfish' 選項\n"
 
 #: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "警告：未知選項 (%s)：[%s: %s]，忽略！\n"
 
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr ""
+msgstr "警告：未知選項 (%s)：[%s: %s]，忽略！\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "請使用 /etc/default/passwd 設定 'md5' 選項\n"
 
 #: src/load_obsolete_conf.c:356
 #, c-format
 msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr ""
+msgstr "請使用 /etc/default/passwd 設定 'bigcrypt' 選項\n"
 
 #: src/load_obsolete_conf.c:360
 #, c-format
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
-msgstr ""
+msgstr "請使用 /etc/default/passwd 設定 'blowfish' 選項\n"
 
 #: src/load_obsolete_conf.c:470
 #, c-format
@@ -92,23 +92,26 @@ msgid ""
 "ERROR: pam_mount.so is not enabled for service '%s', but needed by "
 "pam_cryptpass.so\n"
 msgstr ""
+"錯誤：pam_mount.so 尚未為服務 '%s' 啟用，但它被 pam_cryptpass.so 所需要\n"
 
 #: src/mod_pam_cryptpass.c:116
 #, c-format
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
-msgstr ""
+msgstr "錯誤：無法將 pam_cryptpass.so 加到服務 '%s'"
 
 #: src/mod_pam_mount.c:119 src/pam-config.c:408
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
-msgstr "無法將音效檔 %s 載入為範例 %s"
+msgstr ""
+"\n"
+"無法載入設定檔 '%s'，中止！\n"
 
 #: src/mod_pam_mount.c:125
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
-msgstr ""
+msgstr "錯誤:模組 pam_thinkfinger.so 已啟用。請先將它停用。\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -118,12 +121,12 @@ msgstr ""
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
-msgstr ""
+msgstr "警告：在 '%s' 找不到服務檔案。\n"
 
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "警告：發現模組 %s 在檔案 '%s'。\n"
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -131,22 +134,22 @@ msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
+"錯誤：pam_mount.so 已啟用。為了要使用 pam_thinkfinger.so 您必須先將它停用！\n"
 
 #: src/pam-config.c:47
-#, fuzzy, c-format
+#, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
-msgstr "使用率：%s [ --paranoid ]\n"
+msgstr "使用：%s -a|-c|-d [...]\n"
 
 #: src/pam-config.c:56
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
-"\n"
-"Copyright (C) 1999 Free Software Foundation, Inc. \n"
-" 這是免費軟體。有關複製條件，請參閱原始檔。  本軟體不做\n"
+"Copyright (C) %s Thorsten Kukuk。\n"
+"這是免費軟體。有關複製條件，請參閱原始檔。  本軟體不做\n"
 "商業性、適用性等任何方面的保證。\n"
 
 #: src/pam-config.c:68
@@ -160,18 +163,20 @@ msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
+"%s - create PAM config files\n"
+"\n"
 
 #: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
-msgstr ""
+msgstr "  -a, --add         新增選項/PAM 模組\n"
 
 #: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
-msgstr ""
+msgstr "  -c, --create      建立新的設定\n"
 
 #: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
-msgstr ""
+msgstr "  -d, --delete      移除選項/PAM 模組\n"
 
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
@@ -179,34 +184,32 @@ msgstr ""
 
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
-msgstr ""
+msgstr "      --initialize  轉變舊設定解建立新的設定\n"
 
 #: src/pam-config.c:85
+#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr ""
+msgstr "  --service config  Service to modify config of\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
-msgstr ""
+msgstr "      --update      Read current config and write them new\n"
 
 #: src/pam-config.c:89
 msgid "  -q, --query       Query for installed modules and options\n"
-msgstr ""
+msgstr "  -q, --query       查詢已安裝的模組和選項\n"
 
 #: src/pam-config.c:91
-#, fuzzy
 msgid "      --help        Give this help list\n"
-msgstr "--help         提供這個說明清單\n"
+msgstr "      --help         提供這個說明清單\n"
 
 #: src/pam-config.c:92
-#, fuzzy
 msgid "  -u, --usage       Give a short usage message\n"
-msgstr "--usage        提供簡單的用法訊息\n"
+msgstr "  -u, --usage        提供簡單的用法訊息\n"
 
 #: src/pam-config.c:93
-#, fuzzy
 msgid "  -v, --version     Print program version\n"
-msgstr "--version      列印程式版本\n"
+msgstr "  -v, --version      列印程式版本\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
@@ -220,8 +223,11 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:102
+#, fuzzy
 msgid "Single Service Module Options:\n"
 msgstr ""
+"\n"
+"支援的服務模組：\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
@@ -230,28 +236,26 @@ msgstr ""
 #: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
 #: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
 #: src/pam-config.c:884
-#, fuzzy, c-format
+#, c-format
 msgid "Error activating %s (%m)\n"
-msgstr "啟用交換空間發生錯誤。"
+msgstr "啟用 %s (%m) 發生錯誤\n"
 
 #: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
 #: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
 #: src/pam-config.c:886
 #, c-format
 msgid "New config from %s is not in use!\n"
-msgstr ""
+msgstr "並未使用 %s 的新設定！\n"
 
 #: src/pam-config.c:142
-#, fuzzy, c-format
+#, c-format
 msgid "File %s is no symlink to %s.\n"
-msgstr ""
-"檔案 %s 未簽名。 \n"
-"無論如何都要使用它嗎？"
+msgstr "檔案 %s 不是連到 %s 的符號連結。\n"
 
 #: src/pam-config.c:144
 #, c-format
 msgid "New config from %s is is not in use!\n"
-msgstr ""
+msgstr "並未使用 %s 的新設定！\n"
 
 #: src/pam-config.c:173
 #, c-format
@@ -261,19 +265,23 @@ msgstr ""
 #: src/pam-config.c:344
 #, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr "無法將音效檔 %s 載入為範例 %s"
+msgstr ""
+"\n"
+"無法載入設定檔，中止！\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
-msgstr "無法將音效檔 %s 載入為範例 %s"
+msgstr ""
+"\n"
+"無法載入設定檔，中止！\n"
 
 #: src/pam-config.c:625
 #, c-format
 msgid "Supported common modules:\n"
-msgstr ""
+msgstr "支援的指令模組：\n"
 
 #: src/pam-config.c:627
 #, c-format
@@ -281,85 +289,107 @@ msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
+"\n"
+"支援的服務模組：\n"
 
 #: src/pam-config.c:663
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Too many arguments.\n"
-msgstr "引數太多。"
+msgstr "%s：參數太多。\n"
 
 #: src/pam-config.c:771
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot access '%s': %m\n"
-msgstr "無法宣告 %s：%m"
+msgstr "無法存取 '%s'： %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:140
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
-msgstr ""
+msgstr "對 %s 而言的未知選項，忽略： '%s'\n"
 
 #: src/sanity_checks.c:46
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "警告：未安裝 %s 模組。\n"
 
 #: src/sanity_checks.c:51
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr ""
+msgstr "警告：未安裝 %s 模組。\n"
 
-#: src/sanity_checks.c:75
+#: src/sanity_checks.c:77
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/sanity_checks.c:98
+#: src/sanity_checks.c:115
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
-msgstr ""
+msgstr "警告： pam_ccreds.so 需要 LDAP 或 Kerberos5，忽略\n"
 
-#: src/sanity_checks.c:118
+#: src/sanity_checks.c:135
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 msgstr ""
+"訊息：pam_pwcheck.so 和 pam_cracklib.so 已啟用，\n"
+"訊息：只有啟用 cracklib 支援的 pam_pwcheck.so 會被使用。\n"
 
-#: src/sanity_checks.c:165
+#: src/sanity_checks.c:182
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
+"訊息： pam_unix.so 和 pam_unix2.so 已在服務 %s 啟用，\n"
+"訊息：只有 pam_unix2.so 會被啟用。\n"
 
-#: src/sanity_checks.c:176 src/sanity_checks.c:181
-#, c-format
+#: src/sanity_checks.c:193 src/sanity_checks.c:198
+#, fuzzy, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr ""
+msgstr "錯誤：無法停用 pam_unix.so。\n"
 
 #: src/single_config.c:249
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr "無法宣告 %s：%m"
+msgstr "無法宣告 '%s'： %m\n"
 
 #: src/single_config.c:259 src/write_config.c:63
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "無法宣告 %s：%m"
+msgstr "無法為 '%s' 設定權限： %m\n"
 
 #: src/single_config.c:268 src/write_config.c:70
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr "無法宣告 %s：%m"
+msgstr "無法變更 '%s' 的擁有人/群組： %m\n"
 
 #: src/single_config.c:278
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr "無法宣告 %s：%m"
+msgstr "無法建立檔案處理： %m\n"
 
 #: src/write_config.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot create %s: %m\n"
-msgstr "無法宣告 %s：%m"
+msgstr "無法建立 %s： %m\n"
+
+#~ msgid ""
+#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
+#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
+#~ "remove 'md5' first.\n"
+#~ msgstr ""
+#~ "資訊：在 %s 服務中同時找到 'md5' 和 'bigcrypt'的選項。\n"
+#~ "資訊：'md5' 會蓋過 'bigcrypt'。如果您想啟用 'bigcrypt' 請先移除 'md5'。\n"
+
+#~ msgid ""
+#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
+#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
+#~ "'audit' first.\n"
+#~ msgstr ""
+#~ "資訊：在 %s 服務中同時找到 'audit' 和 'debug'的選項。\n"
+#~ "資訊：'audit' 會蓋過 'debug'。如果您想啟用 'debug' 請先移除 'audit'。\n"

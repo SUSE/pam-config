@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-13 13:47+0100\n"
-"PO-Revision-Date: 2007-07-26 16:55+0200\n"
+"POT-Creation-Date: 2008-04-01 14:51+0200\n"
+"PO-Revision-Date: 2007-08-25 11:12+0200\n"
 "Last-Translator: Mattias Newzella <newzella@linux.se>\n"
 "Language-Team:  <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -99,16 +99,16 @@ msgstr ""
 #: src/mod_pam_cryptpass.c:116
 #, c-format
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
-msgstr ""
+msgstr "FEL: Kunde inte lägga till add pam_cryptpass.so till tjänst \"%s\""
 
 #: src/mod_pam_mount.c:119 src/pam-config.c:408
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
 "\n"
-"Kunde inte ladda inställningsfil, avbryter.\n"
+"Kunde inte ladda inställningsfil \"%s\", avbryter.\n"
 
 #: src/mod_pam_mount.c:125
 #, c-format
@@ -128,7 +128,7 @@ msgstr ""
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "Varning: Hittade modul \"%s\" i fil \"%s\".\n"
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -200,6 +200,7 @@ msgstr "      --update      Läs aktuell inställning och skriv en ny\n"
 #: src/pam-config.c:89
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr ""
+"  -q, --query       Förfrågan för installerade moduler och alternativ\n"
 
 #: src/pam-config.c:91
 msgid "      --help        Give this help list\n"
@@ -225,8 +226,11 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:102
+#, fuzzy
 msgid "Single Service Module Options:\n"
 msgstr ""
+"\n"
+"Tjänstemoduler som stöds:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
@@ -280,7 +284,7 @@ msgstr ""
 #: src/pam-config.c:625
 #, c-format
 msgid "Supported common modules:\n"
-msgstr ""
+msgstr "Vanliga moduler som stöds:\n"
 
 #: src/pam-config.c:627
 #, c-format
@@ -288,6 +292,8 @@ msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
+"\n"
+"Tjänstemoduler som stöds:\n"
 
 #: src/pam-config.c:663
 #, c-format
@@ -295,9 +301,9 @@ msgid "%s: Too many arguments.\n"
 msgstr "%s: För många argument.\n"
 
 #: src/pam-config.c:771
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot access '%s': %m\n"
-msgstr "Kan inte skapa %s: %m\n"
+msgstr "Kan inte komma åt \"%s\": %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:140
@@ -308,63 +314,63 @@ msgstr "Okänt alternativ för %s, ignorerat: \"%s\"\n"
 #: src/sanity_checks.c:46
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "Varning: Modulen %s är inte installerad.\n"
 
 #: src/sanity_checks.c:51
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr ""
+msgstr "Fel: Modulen %s är inte installerad.\n"
 
-#: src/sanity_checks.c:75
+#: src/sanity_checks.c:77
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/sanity_checks.c:98
+#: src/sanity_checks.c:115
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
-msgstr ""
+msgstr "VARNING: pam_ccreds.so behöver LDAP eller Kerberos5, ignorerad\n"
 
-#: src/sanity_checks.c:118
+#: src/sanity_checks.c:135
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 msgstr ""
 
-#: src/sanity_checks.c:165
+#: src/sanity_checks.c:182
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
 
-#: src/sanity_checks.c:176 src/sanity_checks.c:181
-#, c-format
+#: src/sanity_checks.c:193 src/sanity_checks.c:198
+#, fuzzy, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr ""
+msgstr "Fel: Misslyckades med att inaktivera pam_unix.so.\n"
 
 #: src/single_config.c:249
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr "Kan inte skapa %s: %m\n"
+msgstr "Kan inte ta status på \"%s\": %m\n"
 
 #: src/single_config.c:259 src/write_config.c:63
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "Kan inte skapa %s: %m\n"
+msgstr "Kan inte ställa in behörigheter för \"%s\": %m\n"
 
 #: src/single_config.c:268 src/write_config.c:70
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr "Kan inte skapa %s: %m\n"
+msgstr "Kan inte ändra ägare/grupp för \"%s\": %m\n"
 
 #: src/single_config.c:278
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr "Kan inte skapa %s: %m\n"
+msgstr "Kan inte skapa filhandtag: %m\n"
 
 #: src/write_config.c:78
 #, c-format
