@@ -1,17 +1,17 @@
-# translation of pam-config.po to Portuguese
+# translation of pam-config.pt.po to Portuguese
 # Copyright (C) YEAR Thorsten Kukuk
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Antonio Cardoso Martins <digiplan.pt@gmail.com>, 2007.
-# Carlos Gonçalves <carlos@pinguix.com>, 2007.
+# Antonio Cardoso Martins <digiplan.pt@gmail.com>, 2007, 2008.
+# Carlos Gonçalves <cgoncalves@opensuse.org>, 2007.
 # Carlos Gonçalves <cgoncalves@opensuse.org>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: pam-config\n"
+"Project-Id-Version: pam-config.pt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2008-03-18 12:06+0000\n"
-"Last-Translator: Carlos Gonçalves <cgoncalves@opensuse.org>\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-06 22:24+0100\n"
+"Last-Translator: Antonio Cardoso Martins <digiplan.pt@gmail.com>\n"
 "Language-Team: Portuguese <opensuse-pt@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -224,7 +224,7 @@ msgstr "  -v, --version     Imprime versão do programa\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Opções do Módulo Global:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -232,28 +232,28 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      Os módulos globais são inseridos nos ficheiros\n"
+"      common-{account,auth,password,session} os quais são incluídos pelos\n"
+"      ficheiros do serviço simples.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Módulos de serviços suportados:\n"
+msgstr "Opções do Módulo de Serviço Simples:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
+"      Estes módulos podem apenas ser adicionados aos ficheiros de serviço "
+"simples.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Erro ao activar %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nova configuração a partir de %s não está em uso!\n"
@@ -268,10 +268,25 @@ msgstr "O ficheiro %s não é um symlink para %s.\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "Nova configuração de %s não está em uso!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "AVISO: ficheiro '%s' não encontrado. A omitir cópia de segurança.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "AVISO: ficheiro '%s' não encontrado. A omitir cópia de segurança.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Não é possível criar ficheiro de processamento: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Não é possível criar %s: %m\n"
 
 #: src/pam-config.c:344
 #, c-format
@@ -334,6 +349,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"ERRO: ldap-account_only is apenas permitido em combinação com krb5.\n"
+"Configuração não alterada!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -359,9 +376,9 @@ msgstr ""
 "INFO: apenas o pam_unix2.so será activado.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "ERRO: Falha ao desactivar o pam_unix.so.\n"
+msgstr "ERRO: Falha ao desactivar pam_unix.so.\n"
 
 #: src/single_config.c:249
 #, c-format
@@ -387,22 +404,3 @@ msgstr "Não é possível criar ficheiro de processamento: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Não é possível criar %s: %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "INFO: Ambas as opções 'md5' e 'bigcrypt'  foram encontradas no serviço %"
-#~ "s.\n"
-#~ "INFO: o 'md5' substitui o 'bigcrypt'. Se quiser activar o 'bigcrypt' "
-#~ "remova primeiro o 'md5'.\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "INFO: Ambas as opções 'audit' e 'debug' foram encontradas no serviço %s.\n"
-#~ "INFO: o 'audit' substitui o 'debug'. Se quiser activar o 'debug' remova "
-#~ "primeiro o 'audit'.\n"

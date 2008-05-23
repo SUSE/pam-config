@@ -4,15 +4,15 @@
 #
 # This file is distributed under the same license as @PACKAGE@ package. FIRST
 #
-# Aleksey Osipov <aliks-os@yandex.ru>, 2005, 2006, 2007.
+# Aleksey Osipov <aliks-os@yandex.ru>, 2005, 2006, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2007-08-21 15:20+0400\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-05-02 09:15+0300\n"
 "Last-Translator: Aleksey Osipov <aliks-os@yandex.ru>\n"
-"Language-Team: Russian <opensuse-ru@opensuse.org>\n"
+"Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -92,11 +92,13 @@ msgstr ""
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
+"ВНИМАНИЕ: Не удалось найти /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
+"ВНИМАНИЕ: Не удалось найти /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -129,7 +131,7 @@ msgstr "ОШИБКА: Модуль pam_thinkfinger.so включен. Отклю
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr ""
+msgstr "ОШИБКА: Не хватает памяти для создания пути.\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
@@ -199,7 +201,7 @@ msgstr "  -d, --delete      Удаляет параметры/PAM модули\n
 
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr ""
+msgstr "      --confdir     Использует каталог пользовательских настроек\n"
 
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
@@ -207,9 +209,8 @@ msgstr ""
 "      --initialize  Преобразовывает старую конфигурацию и создает новую\n"
 
 #: src/pam-config.c:85
-#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr "  --service config  Изменение конфигурации службы\n"
+msgstr "  --service config  Изменение настройки службы\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
@@ -233,7 +234,7 @@ msgstr "  -v, --version      Вывести версию программы\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Общие параметры модуля:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -241,28 +242,26 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      Общие модули вставлены в файлы \n"
+"      common-{account,auth,password,session}, которые подключаются к файлам\n"
+"      общих служб.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Служебные поддерживаемые модули:\n"
+msgstr "Параметры одного модуля службы:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
-msgstr ""
+msgstr "      Эти модули могут быть добавлены к файлам одной службы.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Ошибка активации %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Новая конфигурация из %s не используется!\n"
@@ -277,17 +276,30 @@ msgstr "Файл %s не является символической свяью 
 msgid "New config from %s is is not in use!\n"
 msgstr "Новая конфигурация из %s не используется!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr ""
+msgstr "ВНИМАНИЕ: файл '%s' не найден. Резервное копирование пропускается.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "ВНИМАНИЕ: файл '%s' не найден. Резервное копирование пропускается.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Невозможно создать дескриптор файла: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Не удалось создать %s: %m\n"
 
 #: src/pam-config.c:344
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
-"\n"
-"Не удалось загрузить конфигурационный файл, прерывание!\n"
+msgstr "ВНИМАНИЕ: Не удалось загрузить старые файлы настроек.\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -346,6 +358,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"ОШИБКА: учетная запись ldap_разрешено только в комбинации с krb5.\n"
+"Настройка не изменена!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -372,7 +386,7 @@ msgstr ""
 "ИНФОРМАЦИЯ: будет использоваться только pam_unix2.so.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ОШИБКА: Не удалось отключить pam_unix.so.\n"
 
@@ -400,21 +414,3 @@ msgstr "Невозможно создать дескриптор файла: %m\
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Не удалось создать %s: %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "ИНФОРМАЦИЯ: Оба параметра 'md5' и 'bigcrypt' обнаружены в службе %s.\n"
-#~ "ИНФОРМАЦИЯ: 'md5' подавляет 'bigcrypt'. Если вы хотите использовать "
-#~ "'bigcrypt', удалите сначала 'md5'.\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "ИНФОРМАЦИЯ: Оба параметра 'audit' и 'debug' обнаружены в службе %s.\n"
-#~ "ИНФОРМАЦИЯ: 'audit' подавляет 'debug'. Если вы хотите использовать "
-#~ "'debug', удалите сначала 'audit'.\n"

@@ -1,15 +1,18 @@
+# translation of pam-config.de.po to German
+# Michael Skiba <trans@michael-skiba.de>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: @PACKAGE@\n"
+"Project-Id-Version: pam-config.de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2007-09-22 13:35+0100\n"
-"Last-Translator: Marko Schugardt <mesmero@gmx.de>\n"
-"Language-Team: Novell Language <language@novell.com>\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-13 23:38+0200\n"
+"Last-Translator: Michael Skiba <trans@michael-skiba.de>\n"
+"Language-Team: German <opensuse-translation-de@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -78,11 +81,13 @@ msgstr ""
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
+"WARNUNG: Konnte /etc/security/pam_unix2.conf{.rpmsave} (%m) nicht finden.\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
+"WARNUNG: Konnte /etc/security/pam_pwcheck.conf{.rpmsave} (%m) nicht finden.\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -117,7 +122,7 @@ msgstr ""
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr ""
+msgstr "FEHLER: Kein Speicher mehr übrig um Pfad zu konstruieren.\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
@@ -185,6 +190,8 @@ msgstr "  -d, --delete      Entferne Optionen/PAM-Module.\n"
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr ""
+"      --confdir     Benutze ein benutzerdefiniertes Konfigurations-"
+"Verzeichnis\n"
 
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
@@ -192,9 +199,9 @@ msgstr ""
 "      --initialize  Konvertiere alte Konfiguration and erstelle neue.\n"
 
 #: src/pam-config.c:85
-#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr "  --service config  Dienst zur Modifikation der Konfiguration von\n"
+msgstr ""
+"      --service config  Dienst zum modifizieren der Konfiguration von\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
@@ -219,7 +226,7 @@ msgstr "  -v, --version     Ausgabe Programmversion\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Globale Modul-Optionen:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -227,28 +234,29 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      Das global Modul wird eingesetzt in die \n"
+"      common-{account,auth,password,session} Dateien, welche in den "
+"einzelnen\n"
+"      Dateien der Dienste beinhaltet sind.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Unterstützte Dienstmodule:\n"
+msgstr "Dienst spezifische Modul Optionen:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
+"      Diese Module können nur zu einzelnen Dienst-Dateien hinzugefügt "
+"werden.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Fehler beim Aktivieren von %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Neue Konfiguration von %s ist nicht im Gebrauch!\n"
@@ -264,17 +272,30 @@ msgstr "Datei %s ist kein Symlink zu %s.\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "Neue Konfiguration von %s ist nicht im Gebrauch!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr ""
+msgstr "WARNUNG: Datei '%s' nicht gefunden. Lasse Backup aus.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "WARNUNG: Datei '%s' nicht gefunden. Lasse Backup aus.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Kann Datei-Handle nicht ersellen: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Kann %s nicht erstellen: %m\n"
 
 #: src/pam-config.c:344
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
-"\n"
-"Konnte Konfigurationsdatei nicht laden, abgebrochen!\n"
+msgstr "WARNUNG: Konnte alte Konfigurationsdatei nicht laden.\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -331,6 +352,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"ERROR: ldap-account_only ist nur erlaubt in Kombination mit krb5.\n"
+"Konfiguration nicht geändert!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -357,7 +380,7 @@ msgstr ""
 "INFO: Nur pam_unix2.so wird aktiviert werden.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "FEHLER: Deaktivieren von pam_unix.so fehlgeschlagen.\n"
 
@@ -385,21 +408,3 @@ msgstr "Kann Datei-Handle nicht ersellen: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Kann %s nicht erstellen: %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "INFO: Beide Optionen, 'md5' und 'bigcrypt', in Dienst %s gefunden.\n"
-#~ "INFO: 'md5' verdrängt 'bigcrypt'. Wenn Sie 'bigcrypt' aktivieren wollen, "
-#~ "dann entfernen Sie zuerst 'md5'.\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "INFO: Beide Optionen, 'audit' und 'debug', in Dienst %s gefunden.\n"
-#~ "INFO: 'audit' verdrängt 'debug'. Wenn Sie 'debug' aktivieren wollen, dann "
-#~ "entfernen Sie zuerst 'audit'.\n"

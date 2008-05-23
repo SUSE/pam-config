@@ -1,23 +1,24 @@
-# translation of pam-config.po to Nederlands
+# translation of pam-config.po to Dutch
 # @TITLE@
 # Copyright (C) 2006, SUSE Linux GmbH, Nuremberg
 #
 # This file is distributed under the same license as @PACKAGE@ package. FIRST
 #
 # Rinse de Vries <rinsedevries@kde.nl>, 2007.
+# Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2007-08-21 20:30+0200\n"
-"Last-Translator: Rinse de Vries <rinsedevries@kde.nl>\n"
-"Language-Team: Nederlands <kde-i18n-nl@kde.org>\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-05-18 12:18+0200\n"
+"Last-Translator: Freek de Kruijf <f.de.kruijf@hetnet.nl>\n"
+"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -84,11 +85,14 @@ msgstr "Gebruik /etc/default/passwd om optie 'blowfish' in te stellen\n"
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
+"WAARSCHUWING: Kan /etc/security/pam_unix2.conf{.rpmsave} (%m) niet vinden.\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
+"WAARSCHUWING: Kan /etc/security/pam_pwcheck.conf{.rpmsave} (%m) niet "
+"vinden.\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -111,7 +115,7 @@ msgid ""
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
 "\n"
-"Kon configuratiebestand %s niet laden. Gestopt.\n"
+"Kan configuratiebestand %s niet laden. Gestopt.\n"
 
 #: src/mod_pam_mount.c:125
 #, c-format
@@ -122,7 +126,7 @@ msgstr ""
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr ""
+msgstr "FOUT: Er is geen geheugen meer om het pad te maken.\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
@@ -189,16 +193,16 @@ msgstr "  -d, --delete      verwijder opties/PAM-modules\n"
 
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr ""
+msgstr "      --confdir     gebruik een eigen configuratie-directory\n"
 
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  converteer oude configuraties en maak nieuwe aan\n"
 
 #: src/pam-config.c:85
-#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr " --service config   Service waarvan u de configuratie wilt wijzigen\n"
+msgstr ""
+"      --service config  service waarvan u de configuratie wilt wijzigen\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
@@ -223,7 +227,7 @@ msgstr " -v,   --version     geef de programmaversie\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Globale module-opties:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -231,28 +235,28 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      De globale modules worden ingevoegd in de \n"
+"      common-{account,auth,password,session} bestanden die ingesloten\n"
+"      worden in de aparte service-bestanden.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Ondersteunde servicemodules:\n"
+msgstr "Aparte servicemodule-opties:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
+"      Deze modulen kunnen alleen toegevoegd worden aan aparte service-"
+"bestanden.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Fout bij activeren van %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nieuwe configuratie van %s wordt niet gebruikt!\n"
@@ -267,17 +271,30 @@ msgstr "Bestand %s is geen symbolische koppeling naar %s.\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "Nieuwe configuratie van %s wordt niet gebruikt!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr ""
+msgstr "WAARSCHUWING: bestand '%s' is niet gevonden. Backup overgeslagen.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "WAARSCHUWING: bestand '%s' is niet gevonden. Backup overgeslagen.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Kan bestandshendel niet aanmaken: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Kan %s niet aanmaken: %m\n"
 
 #: src/pam-config.c:344
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
-"\n"
-"Kon configuratiebestand niet laden. Gestopt.\n"
+msgstr "WAARSCHUWING: Kan oude configuratiebestanden niet laden.\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -335,6 +352,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"FOUT: ldap-account_only is alleen toegestaan in combinatie met krb5.\n"
+"Configuratie niet gewijzigd!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -361,9 +380,9 @@ msgstr ""
 "INFO: alleen pam_unix2.so zal worden geactiveerd.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "FOUT: kon pam_unix.so niet deactiveren.\n"
+msgstr "FOUT: Kan pam_unix.so niet deactiveren.\n"
 
 #: src/single_config.c:249
 #, c-format
@@ -389,21 +408,3 @@ msgstr "Kan bestandshendel niet aanmaken: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Kan %s niet aanmaken: %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "INFO: zowel optie 'md5' als 'bigcrypt' is gevonden in service %s.\n"
-#~ "INFO: 'md5' vervangt 'bigcrypt'. Als u 'bigcrypt' wilt gebruiken, "
-#~ "verwijder dan eerst 'md5'.\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "INFO: zowel optie 'audit' als 'debug' is gevonden in service %s.\n"
-#~ "INFO: 'audit' vervangt 'debug'. Als u 'debug' wilt activeren, verwijder "
-#~ "dan eerst 'audit'.\n"

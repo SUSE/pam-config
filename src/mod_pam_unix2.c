@@ -33,7 +33,7 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
     with_cracklib, with_mount;
 
   if (debug)
-    printf ("**** write_config_unix2 (...)\n");
+    debug_write_call (this, op);
 
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;

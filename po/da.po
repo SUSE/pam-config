@@ -1,14 +1,15 @@
 # translation of pam-config.po to
 # Martin Schlander <suse@linuxin.dk>, 2007.
 # Ib Larsen <i.la@tele2adsl.dk>, 2007.
+# Martin Schlander <mschlander@opensuse.org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2007-08-24 12:17+0200\n"
-"Last-Translator: Martin Schlander <suse@linuxin.dk>\n"
-"Language-Team:  <opensuse-translation@opensuse.org>\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-05 13:18+0200\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team:  <opensuse-da@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -83,11 +84,13 @@ msgstr ""
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
+"ADVARSEL: Kunne ikke finde /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
+"ADVARSEL: Kunne ikke finde /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -120,7 +123,7 @@ msgstr "FEJL: Modulet pam_thinkfinger.so er aktiveret. Deaktivér det først.\n"
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr ""
+msgstr "FEJL: Ingen hukommelse tilbage til at konstruere sti.\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
@@ -185,14 +188,13 @@ msgstr "  -d, --delete      Fjern valgmuligheder/PAM-moduler\n"
 
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr ""
+msgstr "      --confdir     Brug en brugerdefineret konfigurationsmappe\n"
 
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  Konvertér gammel konfiguration og opret en ny\n"
 
 #: src/pam-config.c:85
-#, fuzzy
 msgid "      --service config  Service to modify config of\n"
 msgstr "  --service config  Tjeneste for hvilken konfiguration skal ændres\n"
 
@@ -219,7 +221,7 @@ msgstr "  -v, --version     Vis programversion\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Globale modulindstillinger:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -227,28 +229,26 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      De globale moduler bliver indsat i \n"
+"      common-{account,auth,password,session}-filerne som er inkluderet af\n"
+"      single service-filerne.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Understøttede tjenestemoduler:\n"
+msgstr "Modulindstillinger for single service:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
-msgstr ""
+msgstr "      Disse moduler kan kun tilføjes til single service-filer.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Fejl under aktivering af %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Ny konfiguration fra %s er ikke i brug!\n"
@@ -263,17 +263,30 @@ msgstr "Filen %s er ikke et symlink til %s.\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "Ny konfiguration fra %s er ikke i brug!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr ""
+msgstr "ADVARSEL: Filen '%s' ikke fundet. Undlader backup.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "ADVARSEL: Filen '%s' ikke fundet. Undlader backup.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Kan ikke oprette fil-handle: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Kan ikke oprette %s: %m\n"
 
 #: src/pam-config.c:344
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
-"\n"
-"Kunne ikke indlæse konfigurationsfilen, afbrudt!\n"
+msgstr "ADVARSEL: Kunne ikke indlæse gamle konfigurationsfiler.\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -330,6 +343,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"FEJL: ldap-account_only er kun tilladt in kombination med krb5.\n"
+"Konfiguration ikke ændret!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -356,9 +371,9 @@ msgstr ""
 "INFO: kun pam_unix2.so vil blive aktiveret.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "ERR: Fejl under deaktivering af pam_unix.so.\n"
+msgstr "FEJL: Fejl under deaktivering af pam_unix.so.\n"
 
 #: src/single_config.c:249
 #, c-format
@@ -384,21 +399,3 @@ msgstr "Kan ikke oprette fil-handle: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Kan ikke oprette %s: %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "INFO: Både valgmuligheden 'md5' og 'bigcrypt' fundet i tjeneste %s.\n"
-#~ "INFO: 'md5' overgår 'bigcrypt'. Hvis du ønsker at aktivere 'bigcrypt' "
-#~ "fjern da 'md5' først.\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "INFO: Både valgmuligheden 'audit' og 'debug' fundet i tjeneste %s.\n"
-#~ "INFO: 'audit' overgår 'debug'. Hvis du ønsker at aktivere 'debug' fjern "
-#~ "da 'audit' først.\n"

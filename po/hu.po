@@ -1,20 +1,21 @@
 # translation of pam-config.po to
-# Kalman Kemenczy <kkemenczy@novell.com>, 2007.
+# Kalman Kemenczy <kkemenczy@novell.com>, 2007, 2008.
 # Gabor Kelemen <kelemeng@gnome.hu>, 2007.
+# Ervin Novak <enovak@novell.com>, 2008.
 # translation of pam-config.hu.po to
 # translation of login.hu.po to
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2007-11-07 14:37+0100\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-13 18:03+0200\n"
 "Last-Translator: Kalman Kemenczy <kkemenczy@novell.com>\n"
 "Language-Team:  <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: src/load_config.c:131
@@ -226,7 +227,7 @@ msgstr "  -v, --version     Programverzió kiírása\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Globális modulbeállítások:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -234,28 +235,27 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      A globális modulok a következő fájlokba kerülnek:\n"
+"      common-{account,auth,password,session}, amelyek beépülnek az\n"
+"      egyszeres szolgáltatások fájljaiba.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Támogatott szervizmodulok:\n"
+msgstr "Egyszeri Szolgáltatás Modul beállításai:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
+"      ezek a modulok csak egyszeri szolgáltatás fájlokhoz adhatóak hozzá.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "A(z) %s (%m) aktiválása sikertelen\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"
@@ -270,10 +270,25 @@ msgstr "A(z) %s fájl nem szimbolikus linkje a(z) %s fájlnak.\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "Figyelem: a(z) '%s' fájl nem található. A mentés kimarad.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "Figyelem: a(z) '%s' fájl nem található. A mentés kimarad.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Nem hozható létre fájlleíró: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "A(z) %s: %m létrehozása sikertelen\n"
 
 #: src/pam-config.c:344
 #, c-format
@@ -336,6 +351,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"HIBA: az ldap-account_only csak a krb5 használatával engedélyezett.\n"
+"A beállítások nem változtak!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -363,9 +380,9 @@ msgstr ""
 "INFO: csak a pam_unix2.so kerül engedélyezésre.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "HIBA: A pam_unix.so letiltása meghiúsult.\n"
+msgstr "HIBA: A pam_unix.so letiltása sikertelen.\n"
 
 #: src/single_config.c:249
 #, c-format
@@ -391,23 +408,3 @@ msgstr "Nem hozható létre fájlleíró: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "A(z) %s: %m létrehozása sikertelen\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "INFO: Mind az 'md5', mind a 'bigcrypt' beállítás megtalálható a(z) %s "
-#~ "szolgáltatásban.\n"
-#~ "INFO: Az 'md5' feleslegessé teszi a 'bigcrypt' beállítást. A 'bigcrypt' "
-#~ "engedélyezéséhez előbb távolítsa el az 'md5' beállítást.\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "INFO: Mind az 'audit', mind a 'debug' beállítás megtalálható a(z) %s "
-#~ "szolgáltatásban.\n"
-#~ "INFO: Az 'audit' feleslegessé teszi a 'debug' beállítást. A 'debug' "
-#~ "engedélyezéséhez előbb távolítsa el az 'audit' beállítást.\n"

@@ -130,7 +130,7 @@ write_config_thinkfinger (pam_module_t *this, enum write_type op, FILE *fp)
   int with_mount;
 
   if (debug)
-    printf ("**** write_config_thinkfinger (...)\n");
+    debug_write_call (this, op);
 
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;

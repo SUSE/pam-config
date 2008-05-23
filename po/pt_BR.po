@@ -1,22 +1,26 @@
+# translation of pam-config.po to Brazilian Portuguese
 # @TITLE@
 # Copyright (C) 2006, SUSE Linux GmbH, Nuremberg
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # This file is distributed under the same license as @PACKAGE@ package. FIRST
 #
+# Luiz Fernando Ranghetti <elchevive68@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: @PACKAGE@\n"
+"Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2008-03-26 17:20-0300\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-05-18 13:52-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive68@gmail.com>\n"
-"Language-Team: Novell Language <language@novell.com>\n"
+"Language-Team: Brazilian Portuguese <opensuse-pt@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -39,17 +43,17 @@ msgstr "ERRO: Serviço desconhecido: [%s: %s], ignorado!\n"
 #: src/load_obsolete_conf.c:288
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
-msgstr "ALERTA: Use /etc/default/passwd para definir a opção 'md5'\n"
+msgstr "AVISO: Use /etc/default/passwd para definir a opção 'md5'\n"
 
 #: src/load_obsolete_conf.c:290
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr "ALERTA: Use /etc/default/passwd para definir a opção 'bigcrypt'\n"
+msgstr "AVISO: Use /etc/default/passwd para definir a opção 'bigcrypt'\n"
 
 #: src/load_obsolete_conf.c:294
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
-msgstr "ALERTA: Use /etc/default/passwd para definir a opção 'blowfish'\n"
+msgstr "AVISO: Use /etc/default/passwd para definir a opção 'blowfish'\n"
 
 #: src/load_obsolete_conf.c:296
 #, c-format
@@ -59,7 +63,7 @@ msgstr "ERRO: Opção desconhecida (%s): [%s: %s], ignorado!\n"
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr "ALERTA: Opção desconhecida (%s): [%s: %s], ignorado!\n"
+msgstr "AVISO: Opção desconhecida (%s): [%s: %s], ignorado!\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
@@ -80,15 +84,15 @@ msgstr "Por favor use /etc/default/passwd para definir a opção 'blowfish'\n"
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
-"ALERTA: Não foi possível encontrar /etc/security/pam_unix2.conf{.rpmsave} (%"
+"AVISO: Não foi possível encontrar /etc/security/pam_unix2.conf{.rpmsave} (%"
 "m).\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
-"ALERTA: Não foi possível encontrar /etc/security/pam_pwcheck.conf{.rpmsave} "
-"(%m).\n"
+"AVISO: Não foi possível encontrar /etc/security/pam_pwcheck.conf{.rpmsave} (%"
+"m).\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -111,7 +115,7 @@ msgid ""
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
 "\n"
-"Não foi possível carregar o arquivo de configuração '%s', abortado!\n"
+"Não foi possível carregar o arquivo de configuração '%s', cancelado!\n"
 
 #: src/mod_pam_mount.c:125
 #, c-format
@@ -126,12 +130,12 @@ msgstr "ERRO: Sem memória para construir o caminho.\n"
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
-msgstr "ALERTA: Arquivos de serviço não encontrado em '%s'.\n"
+msgstr "AVISO: Arquivos de serviço não encontrado em '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr "ALERTA: Módulo encontrado '%s' no arquivo '%s'.\n"
+msgstr "AVISO: Módulo encontrado '%s' no arquivo '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -195,11 +199,11 @@ msgstr "      --initialize  Converte a configuração velha e cria uma nova\n"
 
 #: src/pam-config.c:85
 msgid "      --service config  Service to modify config of\n"
-msgstr "      --service config  Serviço para mudar a configuração de\n"
+msgstr "      --service config  Serviço para alterar a configuração de\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
-msgstr "      --update      Lê a configuração atual e grava as novas\n"
+msgstr "      --update      Lê a configuração atual e salva as novas\n"
 
 #: src/pam-config.c:89
 msgid "  -q, --query       Query for installed modules and options\n"
@@ -219,7 +223,7 @@ msgstr "  -v, --version     Exibir a versão do programa\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Opções Globais do Módulo:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -227,28 +231,28 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      Os módulos globais são inseridos no arquivo \n"
+"      common-{account,auth,password,session} que são incluídos pelo\n"
+"      arquivos do serviço único.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Módulos de serviço suportados:\n"
+msgstr "Opções do Módulo de Serviço Único:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
+"      Estes módulos somente podem ser adicionados pelos arquivos do serviço "
+"único.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Erro ao ativar %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nova configuração de %s não está em uso!\n"
@@ -263,15 +267,30 @@ msgstr "O arquivo %s não é um link simbólico para %s.\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "Nova configuração de %s não está em uso!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr "ALERTA: arquivo '%s' não encontrado. Omitindo a cópia (backup).\n"
+msgstr "AVISO: arquivo '%s' não encontrado. Omitindo a cópia (backup).\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "AVISO: arquivo '%s' não encontrado. Omitindo a cópia (backup).\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Não foi possível criar o handle de arquivo: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Não foi possível criar %s: %m\n"
 
 #: src/pam-config.c:344
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr "ALERTA: Não foi possível carregar arquivos de configuração antigos.\n"
+msgstr "AVISO: Não foi possível carregar arquivos de configuração antigos.\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -280,7 +299,7 @@ msgid ""
 "Couldn't load config file, aborted!\n"
 msgstr ""
 "\n"
-"Não foi possível carregar o arquivo de configuração, abortado!\n"
+"Não foi possível carregar o arquivo de configuração, cancelado!\n"
 
 #: src/pam-config.c:625
 #, c-format
@@ -328,11 +347,13 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"ERRO: ldap-account_only somente é permitido em combinação com krb5.\n"
+"Configuração não alterada!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
-msgstr "ALERTA: pam_ccreds.so necessita de LDAP ou Kerberos5, ignorado\n"
+msgstr "AVISO: pam_ccreds.so necessita de LDAP ou Kerberos5, ignorado\n"
 
 #: src/sanity_checks.c:135
 #, c-format
@@ -353,9 +374,9 @@ msgstr ""
 "INFO: somente pam_unix2.so será habilitado.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "ERR: Falha ao desabilitar pam_unix.so.\n"
+msgstr "ERRO: Falha ao desabilitar pam_unix.so.\n"
 
 #: src/single_config.c:249
 #, c-format
@@ -365,37 +386,19 @@ msgstr "Não foi possível analisar '%s': %m\n"
 #: src/single_config.c:259 src/write_config.c:63
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "Não é possível mudar permissões de '%s': %m\n"
+msgstr "Não foi possível alterar as permissões de '%s': %m\n"
 
 #: src/single_config.c:268 src/write_config.c:70
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr "Não é possível mudar proprietário/grupo de '%s': %m\n"
+msgstr "Não foi possível alterar o proprietário/grupo de '%s': %m\n"
 
 #: src/single_config.c:278
 #, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr "Não é possível criar o handle de arquivo: %m\n"
+msgstr "Não foi possível criar o handle de arquivo: %m\n"
 
 #: src/write_config.c:78
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Não foi possível criar %s: %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "INFO: Ambas as opções 'md5' e 'bigcrypt' encontrados no serviço %s.\n"
-#~ "INFO: 'md5' substitui 'bigcrypt'. Se você quer habilitar 'bigcrypt' "
-#~ "remova 'md5' antes.\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "INFO: Ambas as opções 'audit' e 'debug' encontradas no serviço %s.\n"
-#~ "INFO: 'audit' substitui 'debug'. Se você quer habilitar o 'debug' remova "
-#~ "'audit' antes.\n"

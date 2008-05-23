@@ -1,18 +1,22 @@
-# translation of pam-config.fi.po to
+# translation of pam-config.po to
 # Jyri Palokangas <jmp@opensuse.fi>, 2007, 2008.
+# Mikko Piippo <piippo@opensuse.fi>, 2008.
+# Jyri Palokangas <jyri.palokangas@opensuse.org>, 2008.
+# Mikko Piippo <mikko.piippo@opensuse.fi>, 2008.
+# translation of pam-config.fi.po to
 msgid ""
 msgstr ""
-"Project-Id-Version: pam-config.fi\n"
+"Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2008-03-10 12:16+0200\n"
-"Last-Translator: Jyri Palokangas <jmp@opensuse.fi>\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-28 09:31+0300\n"
+"Last-Translator: Mikko Piippo <mikko.piippo@opensuse.fi>\n"
 "Language-Team:  <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms:  nplurals=2; plural=n != 1;\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -118,7 +122,7 @@ msgstr ""
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr ""
+msgstr "VIRHE: Muistia ei jäljellä polun rakentamiseksi.\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
@@ -215,7 +219,7 @@ msgstr "  -v, --version     Tulostaa ohjelman version\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Yleiset moduulivalinnat:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -223,28 +227,29 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      Yleiset moduulit liitetään \n"
+"      common-{account,auth,password,session} -tiedostoihin, jotka "
+"sisällytetään\n"
+"       yksittäisten palveluiden tiedostoihin.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Tuetut palvelumoduulit:\n"
+msgstr "Yleiset liittämisvalinnat\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
+"       Näitä moduuleita voidaan lisätä vain yksittäisiin "
+"palvelutiedostoihin.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Virhe otettaessa käyttöön %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Uusi määritys %s ei ole käytössä!\n"
@@ -259,10 +264,27 @@ msgstr "Tiedosto %s ei ole symbolinen linkki %s.\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "Uusi määritys %s ei ole käytössä!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr ""
+"VAROITUS: tiedostoa '%s' ei löytynyt. Jätetään varmuuskopio huomiotta.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr ""
+"VAROITUS: tiedostoa '%s' ei löytynyt. Jätetään varmuuskopio huomiotta.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Ei voitu luoda tiedostokahvaa: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Ei voi luoda %s: %m\n"
 
 #: src/pam-config.c:344
 #, c-format
@@ -324,6 +346,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"VIRHE: ldap-account_only on sallittu vain krb5 kanssa.\n"
+"Määritystä ei muutettu!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -349,7 +373,7 @@ msgstr ""
 "INFO: vain pam_unix2.so:a käytetään.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "VIRHE: pam_unix.so käytöstä poisto ei onnistu.\n"
 
@@ -377,21 +401,3 @@ msgstr "Ei voitu luoda tiedostokahvaa: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Ei voi luoda %s: %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "INFO: Molemmat valinnat 'md5' ja 'bigcrypt' löytyvät palvelusta %s.\n"
-#~ "INFO: 'md5' ohittaa 'bigcrypt'in. Jos haluat ottaa 'bigcrypt' käyttöön, "
-#~ "poista ensiksi 'md5'.\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "INFO: Molemmat valinnat 'audit' ja 'debug' löytyvät palvelusta %s.\n"
-#~ "INFO: 'audit' ohittaa 'debug'. Jos haluat ottaa 'debug' käyttöön, poista "
-#~ "ensiksi 'audit'.\n"

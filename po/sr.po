@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
 "PO-Revision-Date: 2005-08-03 21:03+0200\n"
 "Last-Translator: Данило Шеган <danilo@gnome.org>\n"
 "Language-Team: Serbian <novell@prevod.org>\n"
@@ -220,16 +220,14 @@ msgstr ""
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -244,9 +242,24 @@ msgstr ""
 msgid "New config from %s is is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
+msgstr ""
+
+#: src/pam-config.c:166
+#, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr ""
+
+#: src/pam-config.c:169
+#, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr ""
+
+#: src/pam-config.c:173
+#, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr ""
 
 #: src/pam-config.c:344

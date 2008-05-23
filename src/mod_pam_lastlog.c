@@ -37,7 +37,7 @@ write_config_internal (FILE *fp, option_set_t *opt_set)
 static int
 write_config_lastlog (pam_module_t *this,
 		       enum write_type op __attribute__((unused)),
-		       FILE *unused)
+		      FILE *unused __attribute__((unused)))
 {
   option_set_t *opt_set = this->get_opt_set (this, SESSION);
   int is_written = 0;
@@ -46,10 +46,7 @@ write_config_lastlog (pam_module_t *this,
   int writeit = opt_set->is_enabled (opt_set, "is_enabled");
 
   if (debug)
-    printf ("**** write_config_lastlog (%s) (%s)\n", gl_service,
-	    writeit?"enable":"disable");
-
-  assert (unused == NULL);
+    debug_write_call (this, SESSION);
 
   load_single_config (gl_service, &ptr);
 

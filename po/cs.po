@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
 "PO-Revision-Date: 2008-02-17 20:05+0100\n"
 "Last-Translator: Marek Stopka <marekstopka@gmail.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -213,8 +213,9 @@ msgid "  -v, --version     Print program version\n"
 msgstr "  --version      Vypíše verzi programu\n"
 
 #: src/pam-config.c:96
+#, fuzzy
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Volby modemu"
 
 #: src/pam-config.c:97
 msgid ""
@@ -226,24 +227,20 @@ msgstr ""
 #: src/pam-config.c:102
 #, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Podporované moduly služeb:\n"
+msgstr "Generické volby připojení"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Chyba při aktivaci %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nová konfigurace z %s není používána!\n"
@@ -258,10 +255,25 @@ msgstr "Soubor %s není symbolický odkaz na %s.\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "Nová konfigurace z %s není používána!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "VAROVÁNÍ: soubor '%s' nebyl nalezen. Vynechávám zálohu.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "VAROVÁNÍ: soubor '%s' nebyl nalezen. Vynechávám zálohu.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Nelze vytvořit %s: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Nelze vytvořit %s: %m\n"
 
 #: src/pam-config.c:344
 #, c-format

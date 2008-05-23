@@ -1,13 +1,13 @@
 # translation of pam-config.km.po to Khmer
-# Khoem Sokhem <khoemsokhem@khmeros.info>, 2007.
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.km\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2007-08-24 02:23+0700\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-22 09:17+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
-"Language-Team: Khmer <support@khmeros.info>\n"
+"Language-Team: Khmer <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,12 +75,12 @@ msgstr "សូម​ប្រើ /etc/default/passwd ដើម្បី​កំ
 #: src/load_obsolete_conf.c:470
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
-msgstr ""
+msgstr "ព្រមាន ៖ មិន​អាច​រក /etc/security/pam_unix2.conf{.rpmsave} (%m) ។\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
-msgstr ""
+msgstr "ព្រមាន ៖ មិនអាច​រក /etc/security/pam_pwcheck.conf{.rpmsave} (%m) ។\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -112,7 +112,7 @@ msgstr "កំហុស ៖ បាន​បើក​ម៉ូឌុល pam_thin
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr ""
+msgstr "កំហុស ៖ គ្មាន​សតិ​នៅ​សល់​ដើម្បី​ស្ថាបនា​ផ្លូវ ។\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
@@ -176,16 +176,15 @@ msgstr "  -d, --delete      យក​ជម្រើស/ម៉ូឌុល PAM �
 
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr ""
+msgstr "      --confdir     ប្រើ​ថត​កំណត់​រចនាសម្ព័ន្ធ​ផ្ទាល់ខ្លួន\n"
 
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  បម្លែង​ config ចាស់ ហើយ​បង្កើត​ថ្មី​មួយ\n"
 
 #: src/pam-config.c:85
-#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr "  --service config  សេវា​ត្រូវ​កែប្រែ​ការ​កំណត់​រចនាសម្ព័ន្ធ​របស់\n"
+msgstr "      --service config  ជា​សេវា​ត្រូវ​កែប្រែ config របស់\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
@@ -209,7 +208,7 @@ msgstr "  -v, --version     បង្ហាញ​កំណែ​កម្មវ�
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "ជម្រើស​ម៉ូឌុល​សកល ៖\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -217,28 +216,26 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      ម៉ូឌុល​សកល​ត្រូវ​បាន​បញ្ចូល​ទៅ​ក្នុង​ឯកសារ \n"
+"      common-{account,auth,password,session} ដែល​ត្រូវ​បាន​រួម​បញ្ចូល​ដោយ\n"
+"      ឯកសារ​សេវា​តែ​មួយ ។\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
+msgstr "ជម្រើស​ម៉ូឌុល​សេវា​តែ​មួយ ៖\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
-msgstr ""
+msgstr "      ម៉ូឌុល​ទាំងនេះ​​អាច​ត្រូវ​បាន​បន្ថែម​តែ​ទៅ​កាន់​ឯកសារ​សេវា​ប៉ុណ្ណោះ ។\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "កំហុស​ក្នុង​ការ​ធ្វើ​ឲ្យ %s សកម្ម (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "config ថ្មី​ពី %s មិន​កំពុង​ប្រើ !\n"
@@ -253,17 +250,30 @@ msgstr "ឯកសារ %s គ្មាន​តំណ​និមិត្ត�
 msgid "New config from %s is is not in use!\n"
 msgstr "config ថ្មី​ពី %s មិន​កំពុង​ប្រើ !\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr ""
+msgstr "ព្រមាន ៖ រក​មិន​ឃើញ​ឯកសារ '%s' ។ លុប​កា​របម្រុង​ទុក ។\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "ព្រមាន ៖ រក​មិន​ឃើញ​ឯកសារ '%s' ។ លុប​កា​របម្រុង​ទុក ។\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "មិន​អាច​បង្កើត​ឯកសារ ៖ %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "មិន​អាច​បង្កើត %s ៖ %m\n"
 
 #: src/pam-config.c:344
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
-"\n"
-"មិន​ផ្ទុក​ឯកសារ config បានបោះបង់ !\n"
+msgstr "ព្រមាន ៖ មិន​អាច​ផ្ទុក​ឯកសារ config ចាស់ៗ ។\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -320,6 +330,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"កំហុស ៖ ldap-account_only ត្រូវ​បាន​អនុញ្ញាត​តែ​នៅ​ក្នុង​បន្សំ​ជា​មួយ krb5 ប៉ុណ្ណោះ ។\n"
+"កា​រកំណត់​រចនាសម្ព័ន្ធ​មិន​បាន​ផ្លាស់ប្ដូរ​ទេ !\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -345,9 +357,9 @@ msgstr ""
 "INFO ៖ only pam_unix2.so នឹង​ត្រូវ​បាន​បើក ។\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "ERR ៖ បាន​បរាជ័យ​ក្នុង​ការ​បិទ pam_unix.so ។\n"
+msgstr "កំហុស ៖ បាន​បរាជ័យ​ក្នុង​កា​របិទ pam_unix.so.\n"
 
 #: src/single_config.c:249
 #, c-format
@@ -373,19 +385,3 @@ msgstr "មិន​អាច​បង្កើត​ឯកសារ ៖ %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "មិន​អាច​បង្កើត %s ៖ %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "INFO ៖ បាន​រកឃើញ​ជម្រើស​ទាំង​ពីរ 'md5' និង 'bigcrypt' នៅ​ក្នុង​សេវា %s ។\n"
-#~ "INFO ៖ 'md5' ជំនួស 'bigcrypt' ។ ប្រសិន​បើអ្នក​ចង់​បើក 'bigcrypt' យក 'md5' ចេញ​សិន ។\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "INFO ៖ បាន​រកឃើញ​ជម្រើស​ទាំង​ពីរ 'audit' និង 'debug' នៅ​ក្នុង​សេវា %s ។\n"
-#~ "INFO ៖ 'audit' ជំនួស 'debug' ។ ប្រសិន​បើ​អ្នក​ចង់​បើក 'debug' យក 'audit' ចេញ​សិន ។\n"

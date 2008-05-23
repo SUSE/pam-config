@@ -201,3 +201,15 @@ module_getopt (pam_module_t **module_list, const char *optarg,
 
   return 1;
 }
+
+void
+debug_write_call (pam_module_t *this, enum write_type type)
+{
+  option_set_t *opt_set = this->get_opt_set (this, type);
+  int is_used = opt_set->is_enabled (opt_set, "is_enabled");
+
+  printf ("**** write config for %s (%s, %s)\n",
+	  this->name,
+	  type2string (type),
+	  is_used?"enabled":"disabled");
+}

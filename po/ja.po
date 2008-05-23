@@ -1,13 +1,13 @@
 # translation of pam-config.po to Japanese
-# Yasuhiko Kamata <belphegor@belbel.or.jp>, 2007.
+# Yasuhiko Kamata <belphegor@belbel.or.jp>, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2007-11-08 19:39+0900\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-03 20:14+0900\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
-"Language-Team: Japanese\n"
+"Language-Team: Japanese <opensuse-ja@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -226,7 +226,7 @@ msgstr "  -v, --version     プログラムのバージョン情報を表示\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "グローバルモジュールのオプション:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -234,28 +234,26 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      グローバルモジュールは単一のサービスファイルから呼び出される\n"
+"      common-{account,auth,password,session} ファイル内に\n"
+"      追加されます。\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"サポートされているサービスモジュール:\n"
+msgstr "単一サービスモジュールのオプション:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
-msgstr ""
+msgstr "      これらのモジュールは単一のサービスファイル内に追加されます。\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "%s を有効にする処理でエラーが発生しました (%m)。\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s からもたらされた新しい設定は使われていません。\n"
@@ -270,10 +268,25 @@ msgstr "ファイル %s は %s へのシンボリックリンクではありま�
 msgid "New config from %s is is not in use!\n"
 msgstr "%s からもたらされた新しい設定は使われていません。\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "警告: ファイル '%s' が見つかりません。バックアップ処理を省略します。\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "警告: ファイル '%s' が見つかりません。バックアップ処理を省略します。\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "ファイルハンドルを作成できませんでした: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "%s を作成できませんでした: %m\n"
 
 #: src/pam-config.c:344
 #, c-format
@@ -335,6 +348,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"エラー: ldap-account_only は krb5 と一緒に使う必要があります。\n"
+"設定を変更できませんでした。\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -362,9 +377,9 @@ msgstr ""
 "情報: pam_unix2.so だけが使われます。\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "エラー: pam_unix.so を無効化するのに失敗しました。\n"
+msgstr "エラー: pam_unix.so を無効化する際に失敗しました。\n"
 
 #: src/single_config.c:249
 #, c-format
@@ -390,23 +405,3 @@ msgstr "ファイルハンドルを作成できませんでした: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "%s を作成できませんでした: %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "情報: サービス %s 内で 'md5' と 'bigcrypt' の両方のオプションを発見しまし"
-#~ "た。\n"
-#~ "情報: 'md5' は 'bigcrypt' に取って代わっています。'bigcrypt' を有効にする"
-#~ "場合は、先に 'md5' を取り除いてください。\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "情報: サービス %s 内で 'audit' と 'debug' の両方のオプションを発見しまし"
-#~ "た。\n"
-#~ "情報: 'audit' は 'debug' に取って代わっています。'debug' を有効にする場合"
-#~ "は、先に 'audit' を取り除いてください。\n"

@@ -1,4 +1,41 @@
+2008-05-23  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.53
+
+	* po/*.po: Update translations.
+
+	* src/pam-config.c (relink): Fix handling if called with already
+	existing backup file.
+
+	* src/pam-module.c (debug_write_call): New function for better
+	debugging.
+
+	* src/mod_pam_unix.c (write_config_unix): Use new debug function.
+	* src/mod_pam_apparmor.c (write_config_apparmor): Likewise.
+	* src/mod_pam_ccreds.c (write_config_ccreds): Likewise.
+	* src/mod_pam_deny.c (write_config_deny): Likewise.
+	* src/mod_pam_env.c (write_config_env): Likewise.
+	* src/mod_pam_group.c (write_config_group): Likewise.
+	* src/mod_pam_krb5.c (write_config_krb5): Likewise.
+	* src/mod_pam_lastlog.c (write_config_lastlog): Likewise.
+	* src/mod_pam_ldap.c (write_config_ldap): Likewise.
+	* src/mod_pam_limits.c (write_config_limits): Likewise.
+	* src/mod_pam_localuser.c (write_config_localuser): Likewise.
+	* src/mod_pam_loginuid.c (write_config_loginuid): Likewise.
+	* src/mod_pam_make.c (write_config_make): Likewise.
+	* src/mod_pam_mkhomedir.c (write_config_mkhomedir): Likewise.
+	* src/mod_pam_mount.c (write_config_mount): Likewise.
+	* src/mod_pam_nam.c (write_config_nam): Likewise.
+	* src/mod_pam_pkcs11.c (write_config_pkcs11): Likewise.
+	* src/mod_pam_pwcheck.c (write_config_pwcheck): Likewise.
+	* src/mod_pam_thinkfinger (write_config_thinkfinger): Likewise.
+	* src/mod_pam_time.c (write_config_time): Likewise.
+	* src/mod_pam_umask.c (write_config_umask): Likewise.
+	* src/mod_pam_unix2.c (write_config_unix2): Likewise.
+	* src/mod_pam_winbind.c (write_config_winbind): Likewise.
+
 2008-04-01  Michael Calmer  <mc@suse.de>
+
 	* release version 0.52
 
 	* src/sanity_checks.c: enable pam_localuser is ldap, winbind
@@ -7,9 +44,10 @@
 	* add testcases for winbind
 
 2008-03-03  Michael Calmer  <mc@suse.de>
+
 	* release version 0.51
 
-	* src/mod_pam_krb5.c: easier configuration for pam_krb5 
+	* src/mod_pam_krb5.c: easier configuration for pam_krb5
 	                      ACCOUNT section
 	* src/mod_pam_krb5.c: do not use use_authtok in PASSWORD
 	                      section

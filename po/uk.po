@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2008-02-12 21:05+0200\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-02 16:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -232,7 +232,7 @@ msgstr "  -v, --version     Показати версію програми\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Загальні параметри модуля:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -240,28 +240,26 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      Загальні модулі додаються до файлів \n"
+"      common-{account,auth,password,session}, які включаються\n"
+"      файлами окремих служб.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Модулі служб, що підтримуються:\n"
+msgstr "Параметри модуля окремої служби:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
-msgstr ""
+msgstr "      Ці модулі можна додати лише до окремих файлів служб.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Помилка активації %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Нове налаштування з %s не вживається!\n"
@@ -276,10 +274,25 @@ msgstr "Файл %s не є символічним посиланням на %s.
 msgid "New config from %s is is not in use!\n"
 msgstr "Нове налаштування з %s не вживається!\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "ПОПЕРЕДЖЕННЯ: файл '%s' не знайдено. Резервне копіювання відкладено.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "ПОПЕРЕДЖЕННЯ: файл '%s' не знайдено. Резервне копіювання відкладено.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Неможливо створити держак файла: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Неможливо створити %s: %m\n"
 
 #: src/pam-config.c:344
 #, c-format
@@ -341,6 +354,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"ПОМИЛКА: ldap-account_only дозволено використовувати лише з krb5.\n"
+"Налаштування не змінено!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -367,9 +382,9 @@ msgstr ""
 "INFO: буде увімкнено тільки pam_unix2.so.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "ПОМИЛКА: НЕ вдалося вимкнути pam_unix.so.\n"
+msgstr "ПОМИЛКА: Не вдалося вимкнути pam_unix.so.\n"
 
 #: src/single_config.c:249
 #, c-format
@@ -395,21 +410,3 @@ msgstr "Неможливо створити держак файла: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Неможливо створити %s: %m\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"
-#~ "INFO: 'md5' supersedes 'bigcrypt'. If you want to enable 'bigcrypt' "
-#~ "remove 'md5' first.\n"
-#~ msgstr ""
-#~ "INFO: Знайдено обидва параметри \"md5\" і \"bigcrypt\" в службі %s.\n"
-#~ "INFO: \"md5\" має перевагу над \"bigcrypt\". Якщо ви хочете увімкнути "
-#~ "\"bigcrypt\", то спочатку вилучіть \"md5\".\n"
-
-#~ msgid ""
-#~ "INFO: Both options 'audit' and 'debug' found in service %s.\n"
-#~ "INFO: 'audit' supersedes 'debug'. If you want to enable 'debug' remove "
-#~ "'audit' first.\n"
-#~ msgstr ""
-#~ "INFO: Знайдено обидва параметри \"audit\" і \"debug\" в службі %s.\n"
-#~ "INFO: \"audit\" має перевагу над \"debug\". Якщо хочете увімкнути \"debug"
-#~ "\", то спочатку вилучіть \"audit\".\n"

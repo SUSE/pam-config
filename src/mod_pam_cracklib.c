@@ -32,7 +32,7 @@ write_config_cracklib (pam_module_t *this, enum write_type op, FILE *fp)
   option_set_t *opt_set = this->get_opt_set (this, op);
 
   if (debug)
-    printf ("**** write_config_cracklib (...)\n");
+    debug_write_call (this, op);
 
   /* pam_cracklib is only used in password part.  */
   if (op != PASSWORD)

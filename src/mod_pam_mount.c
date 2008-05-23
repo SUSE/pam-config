@@ -53,7 +53,7 @@ extern char *conf_auth_pc;
  */
 static int
 write_config_mount (  pam_module_t *this,
-		      enum write_type op __attribute__((unused)),
+		      enum write_type op __attribute__ ((unused)),
 		      FILE *unused __attribute__((unused)))
 {
   option_set_t *opt_set = this->get_opt_set (this, SESSION);
@@ -61,9 +61,9 @@ write_config_mount (  pam_module_t *this,
   FILE *fp;
   config_content_t *cfg_content;
   int writeit = opt_set->is_enabled (opt_set, "is_enabled");
-  if (debug)
-    printf ("**** write_config_mount (%s)\n", gl_service);
 
+  if (debug)
+    debug_write_call (this, SESSION);
 
   load_single_config (gl_service, &cfg_content);
 

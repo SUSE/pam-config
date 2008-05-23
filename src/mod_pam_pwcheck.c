@@ -87,7 +87,7 @@ write_config_pwcheck (pam_module_t *this, enum write_type op, FILE *fp)
   const char *cp;
 
   if (debug)
-    printf ("**** write_config_pwcheck (...)\n");
+    debug_write_call (this, op);
 
   /* pam_pwcheck is only used in password part.  */
   if (op != PASSWORD)

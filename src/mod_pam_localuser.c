@@ -33,7 +33,7 @@ write_config_localuser (pam_module_t *this, enum write_type op,
   int with_ldap, with_nam, with_winbind;
 
   if (debug)
-    printf ("**** write_config_localuser (...)\n");
+    debug_write_call (this, op);
 
   if (op != ACCOUNT)
     return 0;

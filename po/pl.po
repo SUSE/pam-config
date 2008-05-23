@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2007-08-18 18:20+0100\n"
-"Last-Translator: wadim dziedzic <nikdo@aviary.pl>\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-14 17:24+0100\n"
+"Last-Translator: Jakub Derda <kontakt@thenewone.pl>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,11 +81,13 @@ msgstr "Aby ustawić opcję \"blowfish\" proszę użyć etc/default/passwd\n"
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
+"OSTRZEŻENIE: Nie znaleziono /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
+"OSTRZEŻENIE: Nie znaleziono /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -119,7 +121,7 @@ msgstr ""
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr ""
+msgstr "OSTRZEŻENIE: Brak pamięci do stworzenia ścieżki.\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
@@ -186,17 +188,15 @@ msgstr "  -d, --delete      Usuwa opcje/moduły PAM\n"
 
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr ""
+msgstr "      --confdir     Użyj własnego katalogu konfiguracji\n"
 
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  Konweruje starą konfigurację na nową\n"
 
 #: src/pam-config.c:85
-#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr ""
-"  --service konfiguracja  Usługa, której konfiguracja ma być modyfikowana\n"
+msgstr "  --service config  Usługa modyfikująca konfiguracje\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
@@ -221,7 +221,7 @@ msgstr "  --version      Wyświetla wersję programu\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Globalne opcje modułu:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -229,28 +229,26 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      Globalne moduły są dołączane do \n"
+"      ogólnych plików-{konta,autoryzacji,hasła,sesji} które są\n"
+"      włączane do pojedynczych plików usług.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Obsługiwane moduły usług:\n"
+msgstr "Opcje modułu dla pojedynczej usługi:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
-msgstr ""
+msgstr "      Te moduły mogą by dodane tylko do pojedynczych plików usług.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Błąd aktywacji %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nowa konfiguracja z %s nie jest używana.\n"
@@ -265,17 +263,34 @@ msgstr "Plik %s nie jest dowiązaniem do %s.\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "Nowa konfiguracja z %s nie jest używana.\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr ""
+"OSTRZEŻENIE: plik '%s' nie został znaleziony. Kopia zapasowa zostanie "
+"pominięta.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr ""
+"OSTRZEŻENIE: plik '%s' nie został znaleziony. Kopia zapasowa zostanie "
+"pominięta.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Nie można utworzyć uchwytu pliku: %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Nie można utworzyć  %s: %m\n"
 
 #: src/pam-config.c:344
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
-"\n"
-"Nie można wczytać pliku konfiguracyjnego. Przerwano.\n"
+msgstr "OSTRZEŻENIE: Nie można wczytać starych plików konfiguracji.\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -332,6 +347,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"BŁĄD: ldap-account_only jest dozwolony tylko w kombinacji z krb5.\n"
+"Konfiguracja nie została zmieniona!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -357,9 +374,9 @@ msgstr ""
 "INFO: włączona jednak będzie tylko pam_unix2.so.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "BŁĄD: Nie można wyłączyć disable pam_unix.so.\n"
+msgstr "BŁĄD: Nie można wyłączyć pam_unix.so.\n"
 
 #: src/single_config.c:249
 #, c-format

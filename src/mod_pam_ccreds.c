@@ -27,12 +27,11 @@
 #include "pam-module.h"
 
 static int
-write_config_ccreds (pam_module_t *this __attribute__ ((unused)),
-		     enum write_type op __attribute__ ((unused)),
+write_config_ccreds (pam_module_t *this, enum write_type op,
 		     FILE *fp __attribute__ ((unused)))
 {
   if (debug)
-    printf ("**** write_config_ccreds (...)\n");
+    debug_write_call (this, op);
 
   /* Don't do anything here, pam_krb5 and pam_ldap have to write
      this entries. */

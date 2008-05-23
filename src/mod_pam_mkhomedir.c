@@ -15,7 +15,7 @@ write_config_mkhomedir (pam_module_t *this, enum write_type op, FILE *fp)
   option_set_t *opt_set = this->get_opt_set (this, op);
 
   if (debug)
-    printf ("**** write_config_mkhomedir (...)\n");
+    debug_write_call (this, op);
 
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;

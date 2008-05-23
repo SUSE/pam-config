@@ -4,6 +4,11 @@ Copyright (C) 2006, 2007, 2008 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.53
+* Better debug messages on writing config files
+* Fix handling of backup files
+* Update translations
+
 Version 0.52
 * fix missing pam_localuser
 * update localization files

@@ -68,10 +68,10 @@ write_config_ck_connector (  pam_module_t *this,
   int status = TRUE;
   config_content_t *cfg_content;
 
-  load_single_config (gl_service, &cfg_content);
-
   if (debug)
-    printf ("**** write_config_ck_connector (%s)\n", gl_service);
+    debug_write_call (this, SESSION);
+
+  load_single_config (gl_service, &cfg_content);
 
   /* remove every occurrence of pam_ck_connector.so from the service
    * file

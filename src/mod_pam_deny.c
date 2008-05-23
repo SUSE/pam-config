@@ -37,13 +37,12 @@ parse_config_deny (pam_module_t *this __attribute__((unused)),
 }
 
 static int
-write_config_deny (pam_module_t * this __attribute__ ((unused)),
-				   enum write_type op __attribute__ ((unused)),
-				   FILE * fp __attribute__ ((unused)))
+write_config_deny (pam_module_t *this, enum write_type op,
+		   FILE *fp __attribute__ ((unused)))
 {
 
   if (debug)
-    printf ("**** write_config_deny (...)\n");
+    debug_write_call (this, op);
 
   return 0;
 }

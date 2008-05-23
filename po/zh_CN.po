@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2008-03-09 13:51+0800\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-13 21:14+0800\n"
 "Last-Translator: Eric Shan <ericalways@gmail.com>\n"
 "Language-Team: Simplified Chinese\n"
 "MIME-Version: 1.0\n"
@@ -87,11 +87,11 @@ msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr "警告：未能找到 /etc/security/pam_pwcheck.conf{.rpmsave} (%m)。\n"
 
 #: src/mod_pam_cryptpass.c:98
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_mount.so is not enabled for service '%s', but needed by "
 "pam_cryptpass.so\n"
-msgstr "错误：pam_mount.so 没有为服务“%s”启用，但 pam_cryptpass.so 需要。\n"
+msgstr "错误：pam_mount.so 没有为服务“%s”启用，但 pam_cryptpass.so 需要它。\n"
 
 #: src/mod_pam_cryptpass.c:116
 #, c-format
@@ -113,9 +113,9 @@ msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr "错误：模块 pam_thinkfinger.so 已经被启用。请先将它禁用。\n"
 
 #: src/mod_pam_thinkfinger.c:91
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr "错误：没有创建路径的记忆。"
+msgstr "错误：没有用来创建路径的记忆。\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
@@ -186,9 +186,8 @@ msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  转换旧配置创建新配置\n"
 
 #: src/pam-config.c:85
-#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr "  --service config  修改配置服务\n"
+msgstr "      --service config  修改配置的服务\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
@@ -212,7 +211,7 @@ msgstr "  -v, --version      打印程序版本\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "全区模块选项：\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -220,28 +219,26 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      被单个服务文件包含的插入到\n"
+"      common-{account,auth,password,session} 文件里面的\n"
+"      全局模块。\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"不支持的共同模块：\n"
+msgstr "单个服务模块选项：\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
-msgstr ""
+msgstr "      这些模块只能被添加到单个服务文件中。\n"
 
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "激活 %s (%m) 出错\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "来自 %s 的新配置未被使用！\n"
@@ -256,10 +253,25 @@ msgstr "文件 %s 不是 %s 符号链接。\n"
 msgid "New config from %s is is not in use!\n"
 msgstr "来自 %s 的新配置未被使用！\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "警告：没有找到文件“%s”，忽略备份。\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "警告：没有找到文件“%s”，忽略备份。\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "无法创建文件柄：%m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "无法创建 %s: %m\n"
 
 #: src/pam-config.c:344
 #, c-format
@@ -321,6 +333,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"错误：ldap-account_only 只有在和 krb5 相结合时才可以。\n"
+"配置没有改变！\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -346,7 +360,7 @@ msgstr ""
 "信息：仅 pam_unix2.so 将会被真正启用。\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "错误：未能禁用 pam_unix.so。\n"
 

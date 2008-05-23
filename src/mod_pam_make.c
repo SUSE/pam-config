@@ -65,12 +65,12 @@ parse_config_make (pam_module_t *this, char *args, write_type_t type)
 }
 
 static int
-write_config_make (pam_module_t * this, enum write_type op, FILE * fp)
+write_config_make (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
 
   if (debug)
-    printf ("**** write_config_make (...)\n");
+    debug_write_call (this, op);
 
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;

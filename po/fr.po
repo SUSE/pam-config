@@ -1,12 +1,14 @@
 # translation of pam-config.po to French
 # Benoit Verduyn <benoit.verduyn@videotron.ca>, 2007.
+# Guillaume GARDET <guillaume.gardet@free.fr>, 2008.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-01 14:51+0200\n"
-"PO-Revision-Date: 2007-12-21 23:23-0500\n"
-"Last-Translator: Benoit Verduyn <benoit.verduyn@videotron.ca>\n"
+"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"PO-Revision-Date: 2008-04-23 19:34+0100\n"
+"Last-Translator: Guillaume GARDET <guillaume.gardet@free.fr>\n"
 "Language-Team: French <opensuse-fr+subscribe@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -230,8 +232,9 @@ msgid "  -v, --version     Print program version\n"
 msgstr "-v, --version      Afficher la version du programme\n"
 
 #: src/pam-config.c:96
+#, fuzzy
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Options de module globales : \n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -243,25 +246,21 @@ msgstr ""
 #: src/pam-config.c:102
 #, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
-"\n"
-"Modules de services supportés :\n"
+msgstr "Options du module de service unique :\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
 # TLABEL linuxrc_2002_03_29_0036__175
-#: src/pam-config.c:125 src/pam-config.c:165 src/pam-config.c:177
-#: src/pam-config.c:853 src/pam-config.c:863 src/pam-config.c:873
-#: src/pam-config.c:884
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
+#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Erreur lors de l'activation %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:167 src/pam-config.c:179
-#: src/pam-config.c:855 src/pam-config.c:865 src/pam-config.c:875
-#: src/pam-config.c:886
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
+#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -278,10 +277,25 @@ msgid "New config from %s is is not in use!\n"
 msgstr ""
 "La nouvelle configuration originaire de %s n'est pas en utilisation !\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "ATTENTION : fichier '%s' non trouvé. Sauvegarde abandonnée.\n"
+
+#: src/pam-config.c:166
+#, fuzzy, c-format
+msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
+msgstr "ATTENTION : fichier '%s' non trouvé. Sauvegarde abandonnée.\n"
+
+#: src/pam-config.c:169
+#, fuzzy, c-format
+msgid "ERROR: Cannot create backup file '%s' (%m)\n"
+msgstr "Impossible de créer le descripteur de fichier : %m\n"
+
+#: src/pam-config.c:173
+#, fuzzy, c-format
+msgid "ERROR: Cannot remove '%s' (%m)\n"
+msgstr "Création de %s impossible : %m\n"
 
 # TLABEL backup_2002_03_14_2340__125
 #: src/pam-config.c:344
@@ -346,6 +360,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"ERREUR: ldap-account_only est uniquement autorisé en combinaison avec krb5.\n"
+"Configuration non modifiée !\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -372,9 +388,9 @@ msgstr ""
 "INFO : seul pam_unix2.so sera disponible.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "Erreur : Echec de désactivation de pam_unix.so.\n"
+msgstr "ERREUR : Echec de la désactivation de pam_unix.so.\n"
 
 #: src/single_config.c:249
 #, c-format

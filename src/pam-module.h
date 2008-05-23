@@ -593,4 +593,15 @@ void print_module_args (pam_module_t **module_list);
  */
 int def_parse_config (pam_module_t *this, char *args, write_type_t type);
 
+/**
+ * @brief print debug message for write functions
+ *
+ * Generic function to print information about writing module data.
+ *
+ * @param this the module instance
+ * @param type service type
+ */
+void debug_write_call (pam_module_t *this, enum write_type type);
+
+
 #endif

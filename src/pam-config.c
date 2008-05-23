@@ -155,31 +155,31 @@ check_symlink (const char *old, const char *new)
 static int
 relink (const char *file, const char *file_pc, const char *file_bak)
 {
-  if (0 == access (file, F_OK))
-  {
-    if (link (file, file_bak) != 0 ||
-	unlink (file) != 0 ||
-	symlink (file_pc, file) != 0)
+  fflush (stdout); /* make sure every message is printed to get consistent
+		      log files.  */
+
+  if (access (file, F_OK) != 0)
+    fprintf (stderr, _("WARNING: file '%s' not found. Omitting backup.\n"),
+	     file);
+  else if (access (file_bak, F_OK) == 0)
+    fprintf (stderr,
+	     _("WARNING: Backup file '%s' already exist. Omitting backup.\n"),
+	     file_bak);
+  else if (link (file, file_bak) != 0)
+    fprintf (stderr, _("ERROR: Cannot create backup file '%s' (%m)\n"),
+	       file_bak);
+
+  if (unlink (file) != 0)
+    fprintf (stderr, _("ERROR: Cannot remove '%s' (%m)\n"), file);
+
+  if (symlink (file_pc, file) != 0)
     {
       fprintf (stderr,
-	  _("Error activating %s (%m)\n"), file);
+	       _("Error activating %s (%m)\n"), file);
       fprintf (stderr,
-	  _("New config from %s is not in use!\n"), file_pc);
+	       _("New config from %s is not in use!\n"), file_pc);
       return 1;
     }
-  }
-  else
-  {
-    fprintf (stderr, _("WARNING: file '%s' not found. Omitting backup.\n"), file);
-    if (symlink (file_pc, file) != 0)
-    {
-      fprintf (stderr,
-	  _("Error activating %s (%m)\n"), file);
-      fprintf (stderr,
-	  _("New config from %s is not in use!\n"), file_pc);
-      return 1;
-    }
-  }
   return 0;
 }
 
@@ -783,69 +783,66 @@ main (int argc, char *argv[])
 
   if (opt.m_init || (opt.m_create && opt.force))
     {
-		char *bak = NULL;
-		if (asprintf (&bak, "%s.pam-config-backup", conf_account) >= 0)
-		{
-			if (relink (conf_account, conf_account_pc, bak) != 0)
-				retval = 1;
+      char *bak = NULL;
 
-			free(bak);
-			bak = NULL;
+      if (asprintf (&bak, "%s.pam-config-backup", conf_account) >= 0)
+	{
+	  if (relink (conf_account, conf_account_pc, bak) != 0)
+	    retval = 1;
 
-		}
-		else
-			retval = 1;
+	  free(bak);
+	  bak = NULL;
+	}
+      else
+	retval = 1;
 
-		if (asprintf (&bak, "%s.pam-config-backup", conf_auth) >= 0)
-		{
-			if (relink (conf_auth, conf_auth_pc, bak) != 0)
-				retval = 1;
+      if (asprintf (&bak, "%s.pam-config-backup", conf_auth) >= 0)
+	{
+	  if (relink (conf_auth, conf_auth_pc, bak) != 0)
+	    retval = 1;
 
-			free(bak);
-			bak = NULL;
+	  free(bak);
+	  bak = NULL;
+	}
+      else
+	retval = 1;
 
-		}
-		else
-			retval = 1;
+      if (asprintf (&bak, "%s.pam-config-backup", conf_password) >= 0)
+	{
+	  if (relink (conf_password, conf_password_pc, bak) != 0)
+	    retval = 1;
 
+	  free(bak);
+	  bak = NULL;
+	}
+      else
+	retval = 1;
 
-		if (asprintf (&bak, "%s.pam-config-backup", conf_password) >= 0)
-		{
-			if (relink (conf_password, conf_password_pc, bak) != 0)
-				retval = 1;
+      if (asprintf (&bak, "%s.pam-config-backup", conf_session) >= 0)
+	{
+	  if (relink (conf_session, conf_session_pc, bak) != 0)
+	    retval = 1;
 
-			free(bak);
-			bak = NULL;
+	  free(bak);
+	  bak = NULL;
 
-		}
-		else
-			retval = 1;
+	}
+      else
+	retval = 1;
 
-
-		if (asprintf (&bak, "%s.pam-config-backup", conf_session) >= 0)
-		{
-			if (relink (conf_session, conf_session_pc,	bak) != 0)
-				retval = 1;
-
-			free(bak);
-			bak = NULL;
-
-		}
-		else
-			retval = 1;
-
-
-		if (opt.m_init && retval == 0)
-		{
-			rename ("/etc/security/pam_pwcheck.conf",
-					"/etc/security/pam_pwcheck.conf.pam-config-backup");
-			rename ("/etc/security/pam_unix2.conf",
-					"/etc/security/pam_unix2.conf.pam-config-backup");
-		}
-		return retval;
+      if (opt.m_init && retval == 0)
+	{
+	  rename ("/etc/security/pam_pwcheck.conf",
+		  "/etc/security/pam_pwcheck.conf.pam-config-backup");
+	  rename ("/etc/security/pam_unix2.conf",
+		  "/etc/security/pam_unix2.conf.pam-config-backup");
+	}
+      return retval;
     }
   else if (opt.force && !gl_service)
     {
+      fflush (stdout); /* Make sure output in logs is consistent */
+
       if (unlink (conf_account) != 0 ||
 	  symlink (conf_account_pc, conf_account) != 0)
 	{
