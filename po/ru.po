@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"POT-Creation-Date: 2008-07-10 18:05+0200\n"
 "PO-Revision-Date: 2008-05-02 09:15+0300\n"
 "Last-Translator: Aleksey Osipov <aliks-os@yandex.ru>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
@@ -99,6 +99,11 @@ msgstr ""
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
 "ВНИМАНИЕ: Не удалось найти /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
+
+#: src/mod_pam_ck_connector.c:93
+#, fuzzy, c-format
+msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
+msgstr "ОШИБКА: Невозможно добавить pam_cryptpass.so к службе '%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format

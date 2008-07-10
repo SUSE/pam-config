@@ -718,6 +718,14 @@
 	    </listitem>
 	  </varlistentry>
 	  <varlistentry>
+	    <term><option>--csync</option></term>
+	    <listitem>
+	      <para>
+		Add pam_csync.so to the specified service file.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
 	    <term><option>--lastlog</option></term>
 	    <listitem>
 	      <para>

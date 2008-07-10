@@ -26,6 +26,7 @@ extern pam_module_t mod_pam_winbind;
 /* modules for single services only.  */
 extern pam_module_t mod_pam_ck_connector;
 extern pam_module_t mod_pam_cryptpass;
+extern pam_module_t mod_pam_csync;
 extern pam_module_t mod_pam_loginuid;
 extern pam_module_t mod_pam_mount;
 
@@ -113,6 +114,7 @@ static pam_module_t *module_list_session[] = {
 pam_module_t *service_module_list[] = {
   &mod_pam_ck_connector,
   &mod_pam_cryptpass,
+  &mod_pam_csync,
   &mod_pam_lastlog,
   &mod_pam_loginuid,
   &mod_pam_mount,

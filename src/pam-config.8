@@ -1,11 +1,11 @@
 .\"     Title: pam-config
 .\"    Author: 
-.\" Generator: DocBook XSL Stylesheets v1.73.1 <http://docbook.sf.net/>
-.\"      Date: 11/14/2007
+.\" Generator: DocBook XSL Stylesheets v1.73.2 <http://docbook.sf.net/>
+.\"      Date: 07/10/2008
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "11/14/2007" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "07/10/2008" "Reference Manual" "Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -501,6 +501,11 @@ Add pam_cryptpass\.so to the session stack of the specified service file\.
 \fB\-\-cryptpass\-password\fR
 .RS 4
 Add pam_cryptpass\.so to the password stack of the specified service file\.
+.RE
+.PP
+\fB\-\-csync\fR
+.RS 4
+Add pam_csync\.so to the specified service file\.
 .RE
 .PP
 \fB\-\-lastlog\fR

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"POT-Creation-Date: 2008-07-10 18:05+0200\n"
 "PO-Revision-Date: 2002-02-08 15:47+0100\n"
 "Last-Translator: Jaume Badiella <myotis@drac.com>\n"
 "Language-Team: Catalan\n"
@@ -77,6 +77,11 @@ msgstr ""
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
+msgstr ""
+
+#: src/mod_pam_ck_connector.c:93
+#, c-format
+msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
 msgstr ""
 
 #: src/mod_pam_cryptpass.c:98

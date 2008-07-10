@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"POT-Creation-Date: 2008-07-10 18:05+0200\n"
 "PO-Revision-Date: 2008-05-04 01:58+0900\n"
 "Last-Translator: YunSeok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -81,6 +81,11 @@ msgstr "경고: /etc/security/pam_unix2.conf{.rpmsave} 가 없습니다(%m).\n"
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr "경고: /etc/security/pam_pwcheck.conf{.rpmsave} 가 없습니다(%m).\n"
+
+#: src/mod_pam_ck_connector.c:93
+#, fuzzy, c-format
+msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
+msgstr "오류: '%s' 서비스에 pam_cryptpass.so를 추가 할 수 없음"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format

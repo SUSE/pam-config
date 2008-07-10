@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"POT-Creation-Date: 2008-07-10 18:05+0200\n"
 "PO-Revision-Date: 2008-04-13 23:38+0200\n"
 "Last-Translator: Michael Skiba <trans@michael-skiba.de>\n"
 "Language-Team: German <opensuse-translation-de@opensuse.org>\n"
@@ -88,6 +88,11 @@ msgstr ""
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
 "WARNUNG: Konnte /etc/security/pam_pwcheck.conf{.rpmsave} (%m) nicht finden.\n"
+
+#: src/mod_pam_ck_connector.c:93
+#, fuzzy, c-format
+msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
+msgstr "FEHLER: Konnte pam_cryptpass.so nicht zum Dienst '%s' hinzufügen."
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format

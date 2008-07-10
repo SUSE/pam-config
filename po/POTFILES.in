@@ -2,10 +2,13 @@ src/load_config.c
 src/load_obsolete_conf.c
 src/mod_pam_apparmor.c
 src/mod_pam_ccreds.c
+src/mod_pam_ck_connector.c
 src/mod_pam_cracklib.c
 src/mod_pam_cryptpass.c
+src/mod_pam_csync.c
 src/mod_pam_deny.c
 src/mod_pam_env.c
+src/mod_pam_group.c
 src/mod_pam_krb5.c
 src/mod_pam_lastlog.c
 src/mod_pam_ldap.c
@@ -18,7 +21,9 @@ src/mod_pam_mount.c
 src/mod_pam_nam.c
 src/mod_pam_pkcs11.c
 src/mod_pam_pwcheck.c
+src/mod_pam_ssh.c
 src/mod_pam_thinkfinger.c
+src/mod_pam_time.c
 src/mod_pam_umask.c
 src/mod_pam_unix2.c
 src/mod_pam_unix.c

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-23 15:27+0200\n"
+"POT-Creation-Date: 2008-07-10 18:05+0200\n"
 "PO-Revision-Date: 2008-04-13 21:14+0800\n"
 "Last-Translator: Eric Shan <ericalways@gmail.com>\n"
 "Language-Team: Simplified Chinese\n"
@@ -85,6 +85,11 @@ msgstr "警告：未能找到 /etc/security/pam_unix2.conf{.rpmsave} (%m)。\n"
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr "警告：未能找到 /etc/security/pam_pwcheck.conf{.rpmsave} (%m)。\n"
+
+#: src/mod_pam_ck_connector.c:93
+#, fuzzy, c-format
+msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
+msgstr "错误：未能将 pam_cryptpass.so 添加到服务“%s”"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
