@@ -1,3 +1,9 @@
+2008-07-14  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.56
+
+	* src/mod_pam_csync.c: Add is_enabled as bool option.
+
 2008-07-10  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.55

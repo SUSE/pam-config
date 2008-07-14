@@ -4,6 +4,9 @@ Copyright (C) 2006, 2007, 2008 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.56
+* Modifications for autobuild
+
 Version 0.55
 * Add pam_csync support
 

@@ -111,7 +111,7 @@ GETOPT_END_ALL
 PRINT_ARGS("csync")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_6 (use_first_pass, try_first_pass, soft_try_pass,
+DECLARE_BOOL_OPTS_7 (is_enabled, use_first_pass, try_first_pass, soft_try_pass,
 		     nullok, debug, silent);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
