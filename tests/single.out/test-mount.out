@@ -6,4 +6,4 @@ password include        common-password
 session  required	pam_loginuid.so	
 session  include        common-session
 session  required       pam_resmgr.so
-session  required	pam_mount.so
+session  optional	pam_mount.so
