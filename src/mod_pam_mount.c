@@ -128,7 +128,7 @@ write_config_mount (  pam_module_t *this,
     /* pam_thinkfinger.so is not enabled so we can safely add
      * pam_mount.so
      */
-    fprintf (fp, "session  required\tpam_mount.so\n");
+    fprintf (fp, "session  optional\tpam_mount.so\n");
   }
   return close_service_file (fp,gl_service);
 }
