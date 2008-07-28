@@ -1,3 +1,13 @@
+2008-07-28  Sven Schober    <sschober@suse.de>
+
+	* release version 0.57
+
+	* src/mod_pam_mount: Use "optional" instead of "required" in
+	session stack [bnc#409541].
+	* tests/single.out/test-cryptpass_w_mount.out: Adapted to
+	reflect changed behaviour.
+	* tests/single.out/test-mount.out: Likewise.
+
 2008-07-14  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.56
