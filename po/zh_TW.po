@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-10 18:05+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2008-04-08 22:19+0800\n"
 "Last-Translator: swyear <swyear@gmail.com>\n"
 "Language-Team: Chinese Traditional <zh@li.org>\n"
@@ -235,14 +235,14 @@ msgstr "單一服務模組選項：\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
-#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
+#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "啟用 %s (%m) 發生錯誤\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
-#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
+#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "並未使用 %s 的新設定！\n"
@@ -270,7 +270,7 @@ msgstr "警告：找不到檔案 '%s' 。忽略備份。\n"
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "無法建立檔案處理： %m\n"
+msgstr "無法建立 %s 備份檔： %m"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
@@ -291,12 +291,12 @@ msgstr ""
 "\n"
 "無法載入設定檔，中止！\n"
 
-#: src/pam-config.c:625
+#: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "支援的指令模組：\n"
 
-#: src/pam-config.c:627
+#: src/pam-config.c:639
 #, c-format
 msgid ""
 "\n"
@@ -305,12 +305,12 @@ msgstr ""
 "\n"
 "支援的服務模組：\n"
 
-#: src/pam-config.c:663
+#: src/pam-config.c:675
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s：參數太多。\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:783
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "無法存取 '%s'： %m\n"

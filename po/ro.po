@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-10 18:05+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2007-12-23 21:58+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
@@ -41,57 +41,57 @@ msgstr "EROARE: Serviciu necunoscut: [%s: %s], ignorat!\n"
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
 msgstr ""
-"AVERTIARE: Utilizaţi /etc/default/passwd pentru a seta opţiunea 'md5'\n"
+"AVERTIARE: Utilizați /etc/default/passwd pentru a seta opțiunea 'md5'\n"
 
 #: src/load_obsolete_conf.c:290
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
-"AVERTIZARE: Utilizaţi /etc/default/passwd pentru a seta opţiunea 'bigcrypt'\n"
+"AVERTIZARE: Utilizați /etc/default/passwd pentru a seta opțiunea 'bigcrypt'\n"
 
 #: src/load_obsolete_conf.c:294
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
-"AVERTIZARE: Utilizaţi /etc/default/passwd pentru a seta opţiunea 'blowfish'\n"
+"AVERTIZARE: Utilizați /etc/default/passwd pentru a seta opțiunea 'blowfish'\n"
 
 #: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr "EROARE: Opţiune necunoscută (%s): [%s: %s], ignorat!\n"
+msgstr "EROARE: Opțiune necunoscută (%s): [%s: %s], ignorat!\n"
 
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr "AVERTIZARE: Opţiune necunoscută (%s): [%s: %s], ignorat!\n"
+msgstr "AVERTIZARE: Opțiune necunoscută (%s): [%s: %s], ignorat!\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
-msgstr "Utilizaţi /etc/default/passwd pentru a seta opţiunea 'md5'\n"
+msgstr "Utilizați /etc/default/passwd pentru a seta opțiunea 'md5'\n"
 
 #: src/load_obsolete_conf.c:356
 #, c-format
 msgid "Please use /etc/default/passwd to set 'bigcrypt' option\n"
-msgstr "Utilizaţi /etc/default/passwd pentru a seta opţiunea 'bigcrypt'\n"
+msgstr "Utilizați /etc/default/passwd pentru a seta opțiunea 'bigcrypt'\n"
 
 #: src/load_obsolete_conf.c:360
 #, c-format
 msgid "Please use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
-"Utilizaţi /etc/default/passwd pentru a seta opţiunea 'blowfish' option\n"
+"Utilizați /etc/default/passwd pentru a seta opțiunea 'blowfish' option\n"
 
 #: src/load_obsolete_conf.c:470
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
-"AVERTIZARE: Nu am putut găsi /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
+"AVERTIZARE: N_u am putut găsi /etc/security/pamunix2.conf{.rpmsave} (%m).\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
-"AVERTIZARE: Nu am putut găsi /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
+"AVERTIZARE: Nu am _putut găsi /etc/security/pampwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_ck_connector.c:93
 #, fuzzy, c-format
@@ -104,7 +104,7 @@ msgid ""
 "ERROR: pam_mount.so is not enabled for service '%s', but needed by "
 "pam_cryptpass.so\n"
 msgstr ""
-"EROARE: pam_mount.so nu este activat pentru serviciul '%s', dar este necesar "
+"EROARE: pa_mmount.so nu este activat pentru serviciul '%s', dar este necesar "
 "pentru pam_cryptpass.so\n"
 
 #: src/mod_pam_cryptpass.c:116
@@ -119,12 +119,12 @@ msgid ""
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
 "\n"
-"Nu am putut încărca fişierul de configurare '%s', anulez!\n"
+"Nu am putut încărca fișierul de configurare '%s', anulez!\n"
 
 #: src/mod_pam_mount.c:125
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
-msgstr "EROARE: Modulul pam_thinkfinger.so este activat. Deactivaţi-l întâi.\n"
+msgstr "EROARE: Modulul pam_thinkfinger.so este activat. Deactivați-l întâi.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -134,12 +134,12 @@ msgstr "EROARE: Insuficientă memorie pentru construirea căii.\n"
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
-msgstr "AVERTIZARE: Nu am găsit fişiere serviciu în '%s'.\n"
+msgstr "AVERTIZARE: Nu am găsit fișiere serviciu în '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr "AVERTIZARE: Am găsit modulul '%s' în fişierul '%s'.\n"
+msgstr "AVERTIZARE: Am găsit modulul '%s' în fișierul '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -147,8 +147,8 @@ msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
-"EROARE: pam_mount.so este activat. Pentru a utiliza pam_thinkfinger.so "
-"trebuie să-l deactivaţi întâi!\n"
+"EROARE: pa_mmount.so este activat. Pentru a utiliza pam_thinkfinger.so "
+"trebuie să-l deactivați întâi!\n"
 
 #: src/pam-config.c:47
 #, c-format
@@ -163,16 +163,16 @@ msgid ""
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
 "Copyright (C) %s Thorsten Kukuk.\n"
-"Acesta este un software liber; consultaţi sursa pentru condiţiile de "
+"Acesta este un software liber; consultați sursa pentru condițiile de "
 "copiere.  NU se oferă\n"
-"nici un fel de garanţie; nici de VANDABILITATE sau UTILITATE PENTRU UN "
+"nici un fel de garanție; nici de VANDABILITATE sau UTILITATE PENTRU UN "
 "ANUMIT SCOP.\n"
 
 #: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr ""
-"Încercaţi `%s --help' sau `%s --usage' pentru informaţii suplimentare.\n"
+"Încercați `%s --help' sau `%s --usage' pentru informații suplimentare.\n"
 
 #: src/pam-config.c:76
 #, c-format
@@ -180,20 +180,20 @@ msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
-"%s - creează fişiere config PAM\n"
+"%s - creează fișiere config PAM\n"
 "\n"
 
 #: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
-msgstr "  -a, --add         Adaugă opţiuni/module PAM\n"
+msgstr "  -a, --add         Adaugă opțiuni/module PAM\n"
 
 #: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
-msgstr "  -c, --create      Creează configuraţii noi\n"
+msgstr "  -c, --create      Creează configurații noi\n"
 
 #: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
-msgstr "  -d, --delete      Îndepărtează opţiuni/module PAM\n"
+msgstr "  -d, --delete      Îndepărtează opțiuni/module PAM\n"
 
 #: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
@@ -203,36 +203,35 @@ msgstr ""
 #: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr ""
-"      --initialize  Converteşte configuraţia veche şi creează una nouă\n"
+"      --initialize  Convertește configurația veche și creează una nouă\n"
 
 #: src/pam-config.c:85
 msgid "      --service config  Service to modify config of\n"
-msgstr "      --service config  Serviciu pentru modificarea configuraţiei\n"
+msgstr "      --service config  Serviciu pentru modificarea configurației\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
-msgstr "      --update      Citeşte configuraţia curentă şi rescrie-o\n"
+msgstr "      --update      Citește configurația curentă și rescrie-o\n"
 
 #: src/pam-config.c:89
 msgid "  -q, --query       Query for installed modules and options\n"
-msgstr "  -q, --query       Interoghează după module şi opţiuni instalate\n"
+msgstr "  -q, --query       Interoghează după module și opțiuni instalate\n"
 
 #: src/pam-config.c:91
 msgid "      --help        Give this help list\n"
-msgstr "      --help        Afişează această listă de ajutor\n"
+msgstr "      --help        Afișează această listă de ajutor\n"
 
 #: src/pam-config.c:92
 msgid "  -u, --usage       Give a short usage message\n"
-msgstr "  -u, --usage       Afişează pe scurt modul de utilizare\n"
+msgstr "  -u, --usage       Afișează pe scurt modul de utilizare\n"
 
 #: src/pam-config.c:93
 msgid "  -v, --version     Print program version\n"
-msgstr "  -v, --version     Afişează versiunea programului\n"
+msgstr "  -v, --version     Afișează versiunea programului\n"
 
 #: src/pam-config.c:96
-#, fuzzy
 msgid "Global Module Options:\n"
-msgstr "Opţiuni modem"
+msgstr ""
 
 #: src/pam-config.c:97
 msgid ""
@@ -242,52 +241,49 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
 msgstr ""
-"\n"
-"Module serviciu suportate:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
-#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
+#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Eroare la activarea %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
-#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
+#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
 #, c-format
 msgid "New config from %s is not in use!\n"
-msgstr "Configuraţia nouă a %s nu este utilizată!\n"
+msgstr "Configurația nouă a %s nu este utilizată!\n"
 
 #: src/pam-config.c:142
 #, c-format
 msgid "File %s is no symlink to %s.\n"
-msgstr "Fişierul %s nu este link simbolic către %s.\n"
+msgstr "Fișierul %s nu este link simbolic către %s.\n"
 
 #: src/pam-config.c:144
 #, c-format
 msgid "New config from %s is is not in use!\n"
-msgstr "Configuraţia nouă a %s nu este utilizată!\n"
+msgstr "Configurația nouă a %s nu este utilizată!\n"
 
 #: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr "AVERTIZARE: Nu am găsit fişierul '%s'. Omit backup-ul.\n"
+msgstr "AVERTIZARE: Nu am găsit fișierul '%s'. Omit backup-ul.\n"
 
 #: src/pam-config.c:166
 #, fuzzy, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "AVERTIZARE: Nu am găsit fişierul '%s'. Omit backup-ul.\n"
+msgstr "AVERTIZARE: Nu am găsit fișierul '%s'. Omit backup-ul.\n"
 
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Nu pot crea handle-ul fişierului: %m\n"
+msgstr "Nu pot crea fişierul de backup pentru %s: %m"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
@@ -297,7 +293,7 @@ msgstr "Nu pot crea %s: %m\n"
 #: src/pam-config.c:344
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr "AVERTIARE: Nu am putut încărca fişierele de configurare vechi.\n"
+msgstr "AVERTIARE: Nu am putut încărca fișierele de configurare vechi.\n"
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -306,14 +302,14 @@ msgid ""
 "Couldn't load config file, aborted!\n"
 msgstr ""
 "\n"
-"Nu am putut încărca fişierul de configurare, anulez!\n"
+"Nu am putut încărca fișierul de configurare, anulez!\n"
 
-#: src/pam-config.c:625
+#: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Module comune suportate:\n"
 
-#: src/pam-config.c:627
+#: src/pam-config.c:639
 #, c-format
 msgid ""
 "\n"
@@ -322,12 +318,12 @@ msgstr ""
 "\n"
 "Module serviciu suportate:\n"
 
-#: src/pam-config.c:663
+#: src/pam-config.c:675
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Prea multe argumente.\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:783
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Nu pot accesa '%s': %m\n"
@@ -336,7 +332,7 @@ msgstr "Nu pot accesa '%s': %m\n"
 #: src/pam-module.c:140
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
-msgstr "Opţiune necunoscută pentru %s, ignor: '%s'\n"
+msgstr "Opțiune necunoscută pentru %s, ignor: '%s'\n"
 
 #: src/sanity_checks.c:46
 #, c-format
@@ -354,6 +350,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"EROARE: ldap-acc_ountonly este permis numai în combinație cu krb5.\n"
+"Configurația nu a fost schimbată!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -366,8 +364,8 @@ msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 msgstr ""
-"INFO: pam_pwcheck.so şi pam_cracklib.so activate,\n"
-"INFO: va fi utilizat doar pam_pwcheck.so cu suport cracklib activat.\n"
+"INFO: _pampwcheck.so și pam_cracklib.so activate,\n"
+"INFO: va fi utilizat doar pampwcheck.so cu suport cracklib activat.\n"
 
 #: src/sanity_checks.c:182
 #, c-format
@@ -375,13 +373,13 @@ msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
-"INFO: pam_unix.so şi pam_unix2.so activat în serviciul %s,\n"
-"INFO: va fi activat doar pam_unix2.so.\n"
+"INFO: pam_unix.so și pamunix2.so activat în serviciul %s,\n"
+"INFO: va fi activat doar pamunix2.so.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "ERR: Deactivarea disable pam_unix.so a eşuat.\n"
+msgstr "EROARE: N_u am putut dezactiva pamunix.so.\n"
 
 #: src/single_config.c:249
 #, c-format
@@ -401,7 +399,7 @@ msgstr "Nu am putut modifica proprietarul/grupul pentru `%s': %m\n"
 #: src/single_config.c:278
 #, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr "Nu pot crea handle-ul fişierului: %m\n"
+msgstr "Nu pot crea handle-ul fișierului: %m\n"
 
 #: src/write_config.c:78
 #, c-format

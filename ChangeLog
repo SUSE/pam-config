@@ -1,3 +1,15 @@
+2008-08-22  Michael Calmer  <mc@suse.de>
+	* release version 0.58
+
+	* src/pam-config.c: query options in ldap-account_only
+	not in case of ldap is complete enabled
+	* src/mod_pam_ldap.c: query options in ldap only if
+	not only ldap-account_only is enabled
+	* tests/testcases/test-ldap-account_only.single: test
+	query options
+	* tests/single.out/test-ldap-account_only.out: Adapted to
+	reflect changed testcase
+
 2008-07-28  Sven Schober    <sschober@suse.de>
 
 	* release version 0.57

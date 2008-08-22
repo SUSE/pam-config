@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-10 18:05+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2008-04-02 16:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
@@ -257,14 +257,14 @@ msgstr "Параметри модуля окремої служби:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Ці модулі можна додати лише до окремих файлів служб.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
-#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
+#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Помилка активації %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
-#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
+#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Нове налаштування з %s не вживається!\n"
@@ -292,7 +292,7 @@ msgstr "ПОПЕРЕДЖЕННЯ: файл '%s' не знайдено. Резе�
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Неможливо створити держак файла: %m\n"
+msgstr "Не вдається створити резервний файл для %s: %m"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
@@ -313,12 +313,12 @@ msgstr ""
 "\n"
 "Не вдалося завантажити файл конфігурації!\n"
 
-#: src/pam-config.c:625
+#: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Загальні модулі, що підтримуються:\n"
 
-#: src/pam-config.c:627
+#: src/pam-config.c:639
 #, c-format
 msgid ""
 "\n"
@@ -327,12 +327,12 @@ msgstr ""
 "\n"
 "Модулі служб, що підтримуються:\n"
 
-#: src/pam-config.c:663
+#: src/pam-config.c:675
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Забагато аргументів.\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:783
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Неможливий доступ до \"%s\": %m\n"

@@ -525,7 +525,19 @@ main (int argc, char *argv[])
 	  /* pam_ldap account_only*/
 
 	  if (opt.m_query)
-	    print_module_config (common_module_list, "pam_ldap.so");
+	  {
+		  /* if AUTH, PASSWD or SESSION is enabled it cannot be account_only */
+		  opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, AUTH);
+		  if (opt_set->is_enabled (opt_set, "is_enabled"))
+			  break;
+	      opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, PASSWORD);
+	      if (opt_set->is_enabled (opt_set, "is_enabled"))
+			  break;
+	      opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, SESSION);
+	      if (opt_set->is_enabled (opt_set, "is_enabled"))
+			  break; 
+	      print_module_config (common_module_list, "pam_ldap.so");
+	  }
 	  else
 	    {
 	      if (!opt.m_delete && check_for_pam_module ("pam_ldap.so", opt.force) != 0)

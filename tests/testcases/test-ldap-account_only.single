@@ -9,11 +9,25 @@ $PAMCONFIG -a --ldap-account_only
 
 . support/footer-common.sh
 
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
+
 echo "----------------------------------------------------------------------"
 echo "add ldap"
 $PAMCONFIG -a --ldap
 
 . support/footer-common.sh
+
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
 
 echo "----------------------------------------------------------------------"
 echo "delete ldap"
@@ -21,17 +35,38 @@ $PAMCONFIG -d --ldap
 
 . support/footer-common.sh
 
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
+
 echo "----------------------------------------------------------------------"
 echo "add ldap"
 $PAMCONFIG -a --ldap
 
 . support/footer-common.sh
 
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
+
 echo "----------------------------------------------------------------------"
 echo "add ldap-account_only"
 $PAMCONFIG -a --ldap-account_only
 
 . support/footer-common.sh
+
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
 
 echo "----------------------------------------------------------------------"
 echo "delete krb5 - expect error"
@@ -40,11 +75,25 @@ $PAMCONFIG -d --krb5
 
 . support/footer-common.sh
 
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
+
 echo "----------------------------------------------------------------------"
 echo "delete ldap-account_only and krb5"
 $PAMCONFIG -d --ldap-account_only --krb5
 
 . support/footer-common.sh
+
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
 
 echo "----------------------------------------------------------------------"
 echo "add ldap-account_only - expect error"
@@ -53,11 +102,25 @@ $PAMCONFIG -a --ldap-account_only
 
 . support/footer-common.sh
 
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
+
 echo "----------------------------------------------------------------------"
 echo "add ldap"
 $PAMCONFIG -a --ldap
 
 . support/footer-common.sh
+
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
 
 echo "----------------------------------------------------------------------"
 echo "add krb5"
@@ -65,11 +128,25 @@ $PAMCONFIG -a --krb5
 
 . support/footer-common.sh
 
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
+
 echo "----------------------------------------------------------------------"
 echo "delete krb5"
 $PAMCONFIG -d --krb5
 
 . support/footer-common.sh
+
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
 
 echo "----------------------------------------------------------------------"
 echo "delete ldap"
@@ -77,4 +154,10 @@ $PAMCONFIG -d --ldap
 
 . support/footer-common.sh
 
+echo "query krb5"
+$PAMCONFIG -q --krb5
+echo "query ldap-account_only"
+$PAMCONFIG -q --ldap-account_only
+echo "query ldap"
+$PAMCONFIG -q --ldap
 

@@ -1,5 +1,6 @@
 # @TITLE@
 # Copyright (C) 2006, SUSE Linux GmbH, Nuremberg
+# Thruth Wang <lihaow@opera.com>, 2007, 2008. 
 # Eric Shan <ericalways@gmail.com>, 2008. 
 #
 # This file is distributed under the same license as @PACKAGE@ package. FIRST
@@ -8,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-10 18:05+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2008-04-13 21:14+0800\n"
 "Last-Translator: Eric Shan <ericalways@gmail.com>\n"
 "Language-Team: Simplified Chinese\n"
@@ -89,19 +90,19 @@ msgstr "警告：未能找到 /etc/security/pam_pwcheck.conf{.rpmsave} (%m)。\n
 #: src/mod_pam_ck_connector.c:93
 #, fuzzy, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "错误：未能将 pam_cryptpass.so 添加到服务“%s”"
+msgstr "错误：未能将 pam_cryptpass.so 添加到服务'%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is not enabled for service '%s', but needed by "
 "pam_cryptpass.so\n"
-msgstr "错误：pam_mount.so 没有为服务“%s”启用，但 pam_cryptpass.so 需要它。\n"
+msgstr "错误：pam_mount.so 没有为服务'%s'启用，但 pam_cryptpass.so 需要它。\n"
 
 #: src/mod_pam_cryptpass.c:116
 #, c-format
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
-msgstr "错误：未能将 pam_cryptpass.so 添加到服务“%s”"
+msgstr "错误：未能将 pam_cryptpass.so 添加到服务'%s'"
 
 #: src/mod_pam_mount.c:119 src/pam-config.c:408
 #, c-format
@@ -110,7 +111,7 @@ msgid ""
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
 "\n"
-"无法加载配置文件“%s”，已中止!\n"
+"无法加载配置文件'%s'，已中止!\n"
 
 #: src/mod_pam_mount.c:125
 #, c-format
@@ -236,14 +237,14 @@ msgstr "单个服务模块选项：\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      这些模块只能被添加到单个服务文件中。\n"
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
-#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
+#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "激活 %s (%m) 出错\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
-#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
+#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "来自 %s 的新配置未被使用！\n"
@@ -261,17 +262,17 @@ msgstr "来自 %s 的新配置未被使用！\n"
 #: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr "警告：没有找到文件“%s”，忽略备份。\n"
+msgstr "警告：没有找到文件'%s'，忽略备份。\n"
 
 #: src/pam-config.c:166
 #, fuzzy, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "警告：没有找到文件“%s”，忽略备份。\n"
+msgstr "警告：没有找到文件'%s'，忽略备份。\n"
 
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "无法创建文件柄：%m\n"
+msgstr "无法创建 %s 的备份文件：%m"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
@@ -292,12 +293,12 @@ msgstr ""
 "\n"
 "无法加载配置文件，已中止!\n"
 
-#: src/pam-config.c:625
+#: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "支持的共同模块：\n"
 
-#: src/pam-config.c:627
+#: src/pam-config.c:639
 #, c-format
 msgid ""
 "\n"
@@ -306,12 +307,12 @@ msgstr ""
 "\n"
 "不支持的共同模块：\n"
 
-#: src/pam-config.c:663
+#: src/pam-config.c:675
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 太多自变量。\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:783
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "无法访问  '%s': %m\n"
@@ -372,17 +373,17 @@ msgstr "错误：未能禁用 pam_unix.so。\n"
 #: src/single_config.c:249
 #, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr "无法启动“%s”：%m\n"
+msgstr "无法启动'%s'：%m\n"
 
 #: src/single_config.c:259 src/write_config.c:63
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "无法设置“%s”的权限：%m\n"
+msgstr "无法设置'%s'的权限：%m\n"
 
 #: src/single_config.c:268 src/write_config.c:70
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr "无法更改“%s”的所有者/组：%m\n"
+msgstr "无法更改'%s'的所有者/组：%m\n"
 
 #: src/single_config.c:278
 #, c-format

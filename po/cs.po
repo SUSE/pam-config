@@ -1,13 +1,15 @@
 # translation of pam-config.po to czech
-# Klára Cihlářová <koty@seznam.cz>, 2007.
+# Klára Cihlářová <koty@seznam.cz>, 2007, 2008.
 # Marek Stopka <marekstopka@gmail.com>, 2008.
+# Vojtěch Zeisek <vojta.sc@seznam.cz>, 2008.
+# Marek Stopka <mstopka@opensuse.org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-10 18:05+0200\n"
-"PO-Revision-Date: 2008-02-17 20:05+0100\n"
-"Last-Translator: Marek Stopka <marekstopka@gmail.com>\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
+"PO-Revision-Date: 2008-08-11 00:15+0200\n"
+"Last-Translator: Marek Stopka <mstopka@opensuse.org>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,9 +89,9 @@ msgstr ""
 "VAROVÁNÍ: Nemohu nalézt /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "CHYBA: nelze přidat pam_cryptpass.so do služby '%s'"
+msgstr "CHYBA: nelze přidat pam_ck_connector.so do služby '%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -122,12 +124,12 @@ msgstr "CHYBA: modul pam_thinkfinger.so je povolen. Nejdřív jej zakažte.\n"
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr ""
+msgstr "CHYBA: Nebyla ponechána žádná paměť pro konstrukci cesty.\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
-msgstr ""
+msgstr "VAROVÁNÍ: V '%s' nebyly nalezeny žádné soubory služeb.\n"
 
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
@@ -140,6 +142,8 @@ msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
+"CHYBA: pam_mount.so je povolen. Pro použití pam_thinkfinger.so jej nejdříve "
+"musíte vypnout!\n"
 
 #: src/pam-config.c:47
 #, c-format
@@ -193,9 +197,8 @@ msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  Konvertovat starou konfiguraci a zapsat ji\n"
 
 #: src/pam-config.c:85
-#, fuzzy
 msgid "      --service config  Service to modify config of\n"
-msgstr "  --service config  Změnit konfiguraci\n"
+msgstr "      --service config  Změnit konfiguraci\n"
 
 #: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
@@ -218,9 +221,8 @@ msgid "  -v, --version     Print program version\n"
 msgstr "  --version      Vypíše verzi programu\n"
 
 #: src/pam-config.c:96
-#, fuzzy
 msgid "Global Module Options:\n"
-msgstr "Volby modemu"
+msgstr "Obecné volby modulu:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -228,24 +230,26 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      Globální moduly byly vloženy do\n"
+"      souborů common-{account,auth,password,session, které jsou vloženy\n"
+"      v jednotlivých souborech služeb.\n"
 
 #: src/pam-config.c:102
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr "Generické volby připojení"
+msgstr "Volby modulu služby:\n"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
-msgstr ""
+msgstr "      Tyto moduly lze vložit pouze do jednotlivých souborů služby.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
-#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
+#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Chyba při aktivaci %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
-#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
+#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nová konfigurace z %s není používána!\n"
@@ -266,19 +270,19 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "VAROVÁNÍ: soubor '%s' nebyl nalezen. Vynechávám zálohu.\n"
 
 #: src/pam-config.c:166
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "VAROVÁNÍ: soubor '%s' nebyl nalezen. Vynechávám zálohu.\n"
+msgstr "VAROVÁNÍ: soubor '%s' již existuje. Vynechávám zálohu.\n"
 
 #: src/pam-config.c:169
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Nelze vytvořit %s: %m\n"
+msgstr "CHYBA: Nelze vytvořit záložní soubor '%s' (%m)\n"
 
 #: src/pam-config.c:173
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Nelze vytvořit %s: %m\n"
+msgstr "CHYBA: Nelze odstranit '%s' (%m)\n"
 
 #: src/pam-config.c:344
 #, c-format
@@ -294,12 +298,12 @@ msgstr ""
 "\n"
 "Nelze načíst soubor, přerušeno!\n"
 
-#: src/pam-config.c:625
+#: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Podporované obvyklé moduly:\n"
 
-#: src/pam-config.c:627
+#: src/pam-config.c:639
 #, c-format
 msgid ""
 "\n"
@@ -308,12 +312,12 @@ msgstr ""
 "\n"
 "Podporované moduly služeb:\n"
 
-#: src/pam-config.c:663
+#: src/pam-config.c:675
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: příliš mnoho argumentů.\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:783
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Nelze přistupovat k '%s': %m\n"
@@ -340,6 +344,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"CHYBA: ldap-account_only je povolen pouze v kobinaci s krb5.\n"
+"Konfigurace nezměněna!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -367,14 +373,14 @@ msgstr ""
 "INFORMACE: bude povolen pouze pam_unix2.so.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "Nepodařilo se zakázat pam_unix.so.\n"
+msgstr "CHYBA: nepodařilo se zakázat pam_unix.so.\n"
 
 #: src/single_config.c:249
 #, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr ""
+msgstr "Nelze stat '%s': %m\n"
 
 #: src/single_config.c:259 src/write_config.c:63
 #, c-format
@@ -389,7 +395,7 @@ msgstr "Nelze nastavit vlastníka/skupinu pro '%s': %m\n"
 #: src/single_config.c:278
 #, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr ""
+msgstr "Nelze vytvořit soubor manipulace: %m\n"
 
 #: src/write_config.c:78
 #, c-format

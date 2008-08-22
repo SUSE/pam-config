@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-10 18:05+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2008-04-05 15:36+0200\n"
 "Last-Translator: Andrea Florio <andrea@opensuse.it>\n"
 "Language-Team: Italiano <opensuse-translation@opensuse.org>\n"
@@ -263,14 +263,14 @@ msgstr ""
 "      Questi moduli possono essere aggiunti solo ai file del singolo "
 "servizio.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
-#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
+#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Errore attivando %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
-#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
+#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "La nuova configurazione da %s non è in uso!\n"
@@ -298,7 +298,7 @@ msgstr "ATTENZION: file '%s' non trovato. Omettere nel backup.\n"
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Impossibile creare il manipolatore del file: %m\n"
+msgstr "Impossibile creare il file di backup di %s: %m"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
@@ -322,12 +322,12 @@ msgstr ""
 "\n"
 "Non è possibile caricare il file di configurazione, operazione interrotta!\n"
 
-#: src/pam-config.c:625
+#: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Moduli comuni supportati:\n"
 
-#: src/pam-config.c:627
+#: src/pam-config.c:639
 #, c-format
 msgid ""
 "\n"
@@ -336,12 +336,12 @@ msgstr ""
 "\n"
 "Moduli di servizio supportati:\n"
 
-#: src/pam-config.c:663
+#: src/pam-config.c:675
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Troppi argomenti.\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:783
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Impossibile accedere a '%s': %m\n"

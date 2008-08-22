@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-10 18:05+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2007-08-19 15:10+0100\n"
 "Last-Translator: Benjamin Weber <b.weber@warwick.ac.uk>\n"
 "Language-Team:  <en@li.org>\n"
@@ -83,9 +83,9 @@ msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
 
 #: src/mod_pam_ck_connector.c:93
-#, c-format
+#, fuzzy, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr ""
+msgstr "Error: Could not add directory %s to search path.\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -231,14 +231,14 @@ msgstr "Generic Mount Options"
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
-#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
+#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Error activating %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
-#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
+#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "New config from %s is not in use!\n"
@@ -266,7 +266,7 @@ msgstr ""
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Cannot create file handle: %m\n"
+msgstr "Cannot create backup file of %s: %m"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
@@ -289,12 +289,12 @@ msgstr ""
 "\n"
 "Couldn't load config file, aborted!\n"
 
-#: src/pam-config.c:625
+#: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Supported common modules:\n"
 
-#: src/pam-config.c:627
+#: src/pam-config.c:639
 #, c-format
 msgid ""
 "\n"
@@ -303,12 +303,12 @@ msgstr ""
 "\n"
 "Supported service modules:\n"
 
-#: src/pam-config.c:663
+#: src/pam-config.c:675
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Too many arguments.\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:783
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Cannot access '%s': %m\n"

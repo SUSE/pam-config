@@ -97,7 +97,22 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt)
   if (strcmp ("", opt) == 0)
     {
       if (g_opt->m_query)
-	this->print_module (this);
+	  {
+		  /* if one of AUTH, ACCOUNT, PASSWD or SESSION is disabled it cannot be account */
+		  opt_set = this->get_opt_set (this, AUTH);
+		  if (!opt_set->is_enabled (opt_set, "is_enabled"))
+			  return 0;
+		  opt_set = this->get_opt_set (this, ACCOUNT);
+		  if (!opt_set->is_enabled (opt_set, "is_enabled"))
+			  return 0;
+	      opt_set = this->get_opt_set (this, PASSWORD);
+	      if (!opt_set->is_enabled (opt_set, "is_enabled"))
+			  return 0;
+	      opt_set = this->get_opt_set (this, SESSION);
+	      if (!opt_set->is_enabled (opt_set, "is_enabled"))
+			  return 0; 
+		  this->print_module (this);
+	  }
       else
 	{
 	  if (!g_opt->m_delete &&

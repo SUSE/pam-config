@@ -63,6 +63,14 @@ session	required	pam_limits.so
 session	required	pam_unix2.so	debug 
 session	optional	pam_krb5.so	
 session	optional	pam_umask.so	
+query krb5
+auth:
+account:
+password:
+session:
+query ldap-account_only
+account:
+query ldap
 ----------------------------------------------------------------------
 add ldap
 #%PAM-1.0
@@ -130,6 +138,17 @@ session	required	pam_unix2.so	debug
 session	optional	pam_krb5.so	
 session	optional	pam_ldap.so	
 session	optional	pam_umask.so	
+query krb5
+auth:
+account:
+password:
+session:
+query ldap-account_only
+query ldap
+auth:
+account:
+password:
+session:
 ----------------------------------------------------------------------
 delete ldap
 #%PAM-1.0
@@ -193,6 +212,13 @@ session	required	pam_limits.so
 session	required	pam_unix2.so	debug 
 session	optional	pam_krb5.so	
 session	optional	pam_umask.so	
+query krb5
+auth:
+account:
+password:
+session:
+query ldap-account_only
+query ldap
 ----------------------------------------------------------------------
 add ldap
 #%PAM-1.0
@@ -260,6 +286,17 @@ session	required	pam_unix2.so	debug
 session	optional	pam_krb5.so	
 session	optional	pam_ldap.so	
 session	optional	pam_umask.so	
+query krb5
+auth:
+account:
+password:
+session:
+query ldap-account_only
+query ldap
+auth:
+account:
+password:
+session:
 ----------------------------------------------------------------------
 add ldap-account_only
 #%PAM-1.0
@@ -325,6 +362,14 @@ session	required	pam_limits.so
 session	required	pam_unix2.so	debug 
 session	optional	pam_krb5.so	
 session	optional	pam_umask.so	
+query krb5
+auth:
+account:
+password:
+session:
+query ldap-account_only
+account:
+query ldap
 ----------------------------------------------------------------------
 delete krb5 - expect error
 #%PAM-1.0
@@ -390,6 +435,14 @@ session	required	pam_limits.so
 session	required	pam_unix2.so	debug 
 session	optional	pam_krb5.so	
 session	optional	pam_umask.so	
+query krb5
+auth:
+account:
+password:
+session:
+query ldap-account_only
+account:
+query ldap
 ----------------------------------------------------------------------
 delete ldap-account_only and krb5
 #%PAM-1.0
@@ -448,6 +501,9 @@ password	required	pam_unix2.so	use_authtok nullok debug
 session	required	pam_limits.so	
 session	required	pam_unix2.so	debug 
 session	optional	pam_umask.so	
+query krb5
+query ldap-account_only
+query ldap
 ----------------------------------------------------------------------
 add ldap-account_only - expect error
 #%PAM-1.0
@@ -506,6 +562,9 @@ password	required	pam_unix2.so	use_authtok nullok debug
 session	required	pam_limits.so	
 session	required	pam_unix2.so	debug 
 session	optional	pam_umask.so	
+query krb5
+query ldap-account_only
+query ldap
 ----------------------------------------------------------------------
 add ldap
 #%PAM-1.0
@@ -569,6 +628,13 @@ session	required	pam_limits.so
 session	required	pam_unix2.so	debug 
 session	optional	pam_ldap.so	
 session	optional	pam_umask.so	
+query krb5
+query ldap-account_only
+query ldap
+auth:
+account:
+password:
+session:
 ----------------------------------------------------------------------
 add krb5
 #%PAM-1.0
@@ -636,6 +702,17 @@ session	required	pam_unix2.so	debug
 session	optional	pam_krb5.so	
 session	optional	pam_ldap.so	
 session	optional	pam_umask.so	
+query krb5
+auth:
+account:
+password:
+session:
+query ldap-account_only
+query ldap
+auth:
+account:
+password:
+session:
 ----------------------------------------------------------------------
 delete krb5
 #%PAM-1.0
@@ -699,6 +776,13 @@ session	required	pam_limits.so
 session	required	pam_unix2.so	debug 
 session	optional	pam_ldap.so	
 session	optional	pam_umask.so	
+query krb5
+query ldap-account_only
+query ldap
+auth:
+account:
+password:
+session:
 ----------------------------------------------------------------------
 delete ldap
 #%PAM-1.0
@@ -757,3 +841,6 @@ password	required	pam_unix2.so	use_authtok nullok debug
 session	required	pam_limits.so	
 session	required	pam_unix2.so	debug 
 session	optional	pam_umask.so	
+query krb5
+query ldap-account_only
+query ldap

@@ -1,17 +1,19 @@
-# translation of pam-config.po to
+# translation of pam-config.fi.po to suomi
 # Jyri Palokangas <jmp@opensuse.fi>, 2007, 2008.
 # Mikko Piippo <piippo@opensuse.fi>, 2008.
 # Jyri Palokangas <jyri.palokangas@opensuse.org>, 2008.
 # Mikko Piippo <mikko.piippo@opensuse.fi>, 2008.
+# Jyri Palokangas <jmp@opensuse.org>, 2008.
+# translation of pam-config.po to
 # translation of pam-config.fi.po to
 msgid ""
 msgstr ""
-"Project-Id-Version: pam-config\n"
+"Project-Id-Version: pam-config.fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-10 18:05+0200\n"
-"PO-Revision-Date: 2008-04-28 09:31+0300\n"
-"Last-Translator: Mikko Piippo <mikko.piippo@opensuse.fi>\n"
-"Language-Team:  <fi@li.org>\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
+"PO-Revision-Date: 2008-08-16 09:12+0300\n"
+"Last-Translator: Jyri Palokangas <jmp@opensuse.org>\n"
+"Language-Team: suomi <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -91,9 +93,9 @@ msgstr ""
 "löytynyt.\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "VIRHE: pam_cryptpass.so moduulia ei voitu lisätä palveluun '%s'"
+msgstr "VIRHE: pam_ck_connector.so moduulia ei voitu lisätä palveluun '%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -247,14 +249,14 @@ msgstr ""
 "       Näitä moduuleita voidaan lisätä vain yksittäisiin "
 "palvelutiedostoihin.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
-#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
+#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Virhe otettaessa käyttöön %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
-#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
+#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Uusi määritys %s ei ole käytössä!\n"
@@ -279,17 +281,18 @@ msgstr ""
 #, fuzzy, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
-"VAROITUS: tiedostoa '%s' ei löytynyt. Jätetään varmuuskopio huomiotta.\n"
+"VAROITUS: Varmuuskopiotiedosto '%s' on jo olemassa. Jätetään varmuuskopio "
+"huomiotta.\n"
 
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Ei voitu luoda tiedostokahvaa: %m\n"
+msgstr "VIRHE: Varmuuskopion luonti '%s' tiedostosta ei onnistunut (%m)\n"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Ei voi luoda %s: %m\n"
+msgstr "VIRHE: '%s' poistaminen ei onnistunut (%m)\n"
 
 #: src/pam-config.c:344
 #, c-format
@@ -305,12 +308,12 @@ msgstr ""
 "\n"
 "Määritystiedoston lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:625
+#: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Tuetut yleiset moduulit:\n"
 
-#: src/pam-config.c:627
+#: src/pam-config.c:639
 #, c-format
 msgid ""
 "\n"
@@ -319,12 +322,12 @@ msgstr ""
 "\n"
 "Tuetut palvelumoduulit:\n"
 
-#: src/pam-config.c:663
+#: src/pam-config.c:675
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Liian monta argumenttia.\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:783
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Ei voi yhdistää %s: %m\n"

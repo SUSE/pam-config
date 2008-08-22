@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-10 18:05+0200\n"
-"PO-Revision-Date: 2008-05-04 01:58+0900\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
+"PO-Revision-Date: 2008-08-14 15:17+0900\n"
 "Last-Translator: YunSeok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
 "MIME-Version: 1.0\n"
@@ -83,9 +83,9 @@ msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr "경고: /etc/security/pam_pwcheck.conf{.rpmsave} 가 없습니다(%m).\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "오류: '%s' 서비스에 pam_cryptpass.so를 추가 할 수 없음"
+msgstr "오류: pam_ck_connector.so 를 서비스 '%s' 에 추가 할 수 없음"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -237,14 +237,14 @@ msgstr "단일 서비스 모듈 옵션:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      이러한 모듈은 단일 서비스 파일에 추가됩니다.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:850
-#: src/pam-config.c:860 src/pam-config.c:870 src/pam-config.c:881
+#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
+#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "%s 를 유효하게 하는 처리로 오류 발생 (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:852
-#: src/pam-config.c:862 src/pam-config.c:872 src/pam-config.c:883
+#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
+#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
@@ -265,19 +265,19 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "경고: '%s' 파일을 찾을 수 없습니다. 백업처리를 생략합니다.\n"
 
 #: src/pam-config.c:166
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "경고: '%s' 파일을 찾을 수 없습니다. 백업처리를 생략합니다.\n"
+msgstr "경고: 백업 파일 '%s' 가 이미 있습니다. 백업처리를 생략합니다.\n"
 
 #: src/pam-config.c:169
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "파일 핸들을 생성 할 수 없음: %m\n"
+msgstr "오류: 백업 파일 '%s' (%m) 를 생성할 수 없음\n"
 
 #: src/pam-config.c:173
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "%s 를 생성 할 수 없음: %m\n"
+msgstr "오류: '%s' (%m) 를 제거할 수 없음\n"
 
 #: src/pam-config.c:344
 #, c-format
@@ -293,12 +293,12 @@ msgstr ""
 "\n"
 "설정 파일을 불러올 수 없음, 중단되었음!\n"
 
-#: src/pam-config.c:625
+#: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "지원하는 일반적인 모듈:\n"
 
-#: src/pam-config.c:627
+#: src/pam-config.c:639
 #, c-format
 msgid ""
 "\n"
@@ -307,12 +307,12 @@ msgstr ""
 "\n"
 "지원하는 서비스 모듈:\n"
 
-#: src/pam-config.c:663
+#: src/pam-config.c:675
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 너무 많은 인수입니다.\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:783
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "'%s' 에 접근 할 수 없습니다: %m\n"
