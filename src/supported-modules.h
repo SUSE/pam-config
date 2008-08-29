@@ -80,7 +80,8 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_nam,
   &mod_pam_winbind,
   &mod_pam_group,
-  &mod_pam_ssh,
+  &mod_pam_ssh,    /* Attention: if you add another module behind krb5
+					  you MUST change mod_pam_krb5.c */
   NULL
 };
 
@@ -93,7 +94,8 @@ static pam_module_t *module_list_password[] = {
   &mod_pam_make,
   &mod_pam_krb5,
   &mod_pam_ldap,
-  &mod_pam_nam,
+  &mod_pam_nam,    /* Attention: if you add another module behind krb5
+					  you MUST change mod_pam_krb5.c */
   NULL
 };
 

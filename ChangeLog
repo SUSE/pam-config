@@ -1,4 +1,11 @@
 2008-08-29  Michael Calmer  <mc@suse.de>
+	* src/mod_pam_krb5.c: add pam_deny after pam_krb5 in password
+	stack. Fix auth stack for modules pam_group and pam_ssh
+
+	* tests/single.out/test-krb5.out: Adapt testcase
+	* tests/single.out/test-ldap-account_only.out: Likewise.
+	
+2008-08-29  Michael Calmer  <mc@suse.de>
 	* release version 0.59
 
 	* src/mod_pam_unix2.c: skip password change for uid > 999
