@@ -15,6 +15,7 @@ extern pam_module_t mod_pam_nam;
 extern pam_module_t mod_pam_pkcs11;
 extern pam_module_t mod_pam_pwcheck;
 extern pam_module_t mod_pam_ssh;
+extern pam_module_t mod_pam_succeed_if;
 extern pam_module_t mod_pam_thinkfinger;
 extern pam_module_t mod_pam_time;
 extern pam_module_t mod_pam_umask;
@@ -47,6 +48,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_pkcs11,
   &mod_pam_pwcheck,
   &mod_pam_ssh,
+  &mod_pam_succeed_if,
   &mod_pam_thinkfinger,
   &mod_pam_umask,
   &mod_pam_unix,

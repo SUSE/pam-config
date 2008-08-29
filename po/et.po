@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.et\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-21 17:56+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2007-07-20 09:39+0300\n"
 "Last-Translator: Ain Vagula <avagula@gmail.com>\n"
 "Language-Team: Estonian <linux-ee@lists.eenet.ee>\n"
@@ -85,9 +85,9 @@ msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
 
 #: src/mod_pam_ck_connector.c:93
-#, c-format
+#, fuzzy, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr ""
+msgstr "Viga: kataloogi %s pole võimalik otsinguteele lisada.\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -210,8 +210,9 @@ msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version     Programmi versiooni väljastamine\n"
 
 #: src/pam-config.c:96
+#, fuzzy
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Modemi sätted"
 
 #: src/pam-config.c:97
 msgid ""
@@ -221,8 +222,9 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:102
+#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
+msgstr "Üldised ühendamise sätted"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"

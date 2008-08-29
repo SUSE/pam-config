@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-21 17:56+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2001-10-18 10:13+0200\n"
 "Last-Translator: Görkem Çetin <gorkem@gelecek.com.tr>\n"
 "Language-Team: turkish <i18n@suse.de>\n"
@@ -86,9 +86,9 @@ msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
 
 #: src/mod_pam_ck_connector.c:93
-#, c-format
+#, fuzzy, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr ""
+msgstr "Hata:  %s dizini arama yollarına eklenemedi.\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -206,8 +206,9 @@ msgid "  -v, --version     Print program version\n"
 msgstr ""
 
 #: src/pam-config.c:96
+#, fuzzy
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Modem Seçenekleri"
 
 #: src/pam-config.c:97
 msgid ""

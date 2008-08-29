@@ -1,3 +1,23 @@
+2008-08-29  Michael Calmer  <mc@suse.de>
+	* release version 0.59
+
+	* src/mod_pam_unix2.c: skip password change for uid > 999
+	in case of krb5 is used.
+	* src/mod_pam_unix.c: Likewise.
+
+	* src/mod_pam_succeed_if.c: dummy used for feature above.
+
+	* src/supported-modules.h: add mod_pam_succeed_if
+	* src/Makefile.am: Likewise.
+
+	* tests/single.out/test-krb5.out: Adapt testcase
+	* tests/single.out/test-krb5-ldap.out: Likewise
+	* tests/single.out/test-ldap-account_only.out: Likewise.
+
+	* tests/support/header.sh: set LANG=C when running checks
+
+	* po/: Update translations.
+	
 2008-08-22  Michael Calmer  <mc@suse.de>
 	* release version 0.58
 

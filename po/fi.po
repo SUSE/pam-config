@@ -1,23 +1,23 @@
 # translation of pam-config.fi.po to suomi
+# translation of pam-config.po to
+# translation of pam-config.fi.po to
 # Jyri Palokangas <jmp@opensuse.fi>, 2007, 2008.
 # Mikko Piippo <piippo@opensuse.fi>, 2008.
 # Jyri Palokangas <jyri.palokangas@opensuse.org>, 2008.
 # Mikko Piippo <mikko.piippo@opensuse.fi>, 2008.
 # Jyri Palokangas <jmp@opensuse.org>, 2008.
-# translation of pam-config.po to
-# translation of pam-config.fi.po to
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.fi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-08-22 11:22+0200\n"
-"PO-Revision-Date: 2008-08-16 09:12+0300\n"
-"Last-Translator: Jyri Palokangas <jmp@opensuse.org>\n"
-"Language-Team: suomi <fi@li.org>\n"
+"PO-Revision-Date: 2008-08-23 11:50+0300\n"
+"Last-Translator: Mikko Piippo <mikko.piippo@opensuse.fi>\n"
+"Language-Team: Finnish <kde-i18n-doc@lists.kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: LoKalize 0.2\n"
 "Plural-Forms:  nplurals=2; plural=n != 1;\n"
 
 #: src/load_config.c:131
@@ -278,21 +278,21 @@ msgstr ""
 "VAROITUS: tiedostoa '%s' ei löytynyt. Jätetään varmuuskopio huomiotta.\n"
 
 #: src/pam-config.c:166
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 "VAROITUS: Varmuuskopiotiedosto '%s' on jo olemassa. Jätetään varmuuskopio "
 "huomiotta.\n"
 
 #: src/pam-config.c:169
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "VIRHE: Varmuuskopion luonti '%s' tiedostosta ei onnistunut (%m)\n"
+msgstr "VIRHE: Varmuuskopion '%s' (%m) luominen ei onnistunut.\n"
 
 #: src/pam-config.c:173
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "VIRHE: '%s' poistaminen ei onnistunut (%m)\n"
+msgstr "VIRHE: '%s' (%m) poistaminen ei onnistunut (%m)\n"
 
 #: src/pam-config.c:344
 #, c-format

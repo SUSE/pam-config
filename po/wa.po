@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yast memory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-21 17:56+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2004-04-05 17:37+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <i18n@suse.de>\n"
@@ -124,9 +124,9 @@ msgid "WARNING: Found no service files in '%s'.\n"
 msgstr ""
 
 #: src/mod_pam_thinkfinger.c:116
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "'{0}' n' est nén astalé."
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -151,7 +151,7 @@ msgstr ""
 #: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
-msgstr ""
+msgstr "Sayîz `%s --help' oudonbén `%s --usage' po pus d' informåcions.\n"
 
 #: src/pam-config.c:76
 #, c-format
@@ -216,8 +216,9 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:102
+#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
+msgstr "Tchuzes djenerikes di montaedje"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
@@ -266,9 +267,9 @@ msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."
 
 #: src/pam-config.c:344
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
+msgstr "'{0}' n' est nén astalé."
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -306,14 +307,14 @@ msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "Tchuze nén cnoxhowe pol comande '%1': %2"
 
 #: src/sanity_checks.c:46
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "'{0}' n' est nén astalé."
 
 #: src/sanity_checks.c:51
-#, c-format
+#, fuzzy, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr ""
+msgstr "'{0}' n' est nén astalé."
 
 #: src/sanity_checks.c:77
 #, c-format

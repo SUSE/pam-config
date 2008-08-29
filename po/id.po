@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-21 17:56+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2002-10-08 13:38+0200\n"
 "Last-Translator: I Made Wiryana <made@nakula.rvs.uni-bielefeld.de>\n"
 "Language-Team: Indonesian <i18n@suse.de>\n"
@@ -200,8 +200,9 @@ msgid "  -v, --version     Print program version\n"
 msgstr ""
 
 #: src/pam-config.c:96
+#, fuzzy
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Pilihan Modem"
 
 #: src/pam-config.c:97
 msgid ""
@@ -253,7 +254,7 @@ msgstr ""
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Tidak dapat men-stat %s: %m"
+msgstr "Tidak dapat membuat file backup %s: %m"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
@@ -349,12 +350,12 @@ msgstr "Tidak dapat men-stat %s: %m"
 #: src/single_config.c:259 src/write_config.c:63
 #, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "Tidak dapat men-stat %s: %m"
+msgstr "Tidak dapat merubah permisi %s: %m"
 
 #: src/single_config.c:268 src/write_config.c:70
 #, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr "Tidak dapat men-stat %s: %m"
+msgstr "Tidak dapat merubah owner/group %s: %m"
 
 #: src/single_config.c:278
 #, fuzzy, c-format

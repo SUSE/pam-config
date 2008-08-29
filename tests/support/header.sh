@@ -13,4 +13,5 @@ function check_for_confdir {
 }
 init_pamdir
 check_for_confdir
+export LANG=C
 PAMCONFIG="../src/pam-config --confdir $CONFDIR"

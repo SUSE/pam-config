@@ -1,7 +1,8 @@
-# translation of pam-config.po to
+# translation of pam-config.hu.po to Hungarian
 # Kalman Kemenczy <kkemenczy@novell.com>, 2007, 2008.
 # Gabor Kelemen <kelemeng@gnome.hu>, 2007.
 # Ervin Novak <enovak@novell.com>, 2008.
+# translation of pam-config.po to
 # translation of pam-config.hu.po to
 # translation of login.hu.po to
 msgid ""
@@ -9,13 +10,13 @@ msgstr ""
 "Project-Id-Version: pam-config.hu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-08-22 11:22+0200\n"
-"PO-Revision-Date: 2008-04-13 18:03+0200\n"
+"PO-Revision-Date: 2008-08-13 16:24+0200\n"
 "Last-Translator: Kalman Kemenczy <kkemenczy@novell.com>\n"
-"Language-Team:  <hu@li.org>\n"
+"Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: src/load_config.c:131
@@ -91,10 +92,10 @@ msgstr ""
 "Figyelem: Az /etc/security/pam_pwcheck.conf{.rpmsave} (%m) nem található.\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
 msgstr ""
-"HIBA: a pam_cryptpass.so modult nem sikerült hozzáadni a(z) '%s' "
+"HIBA: a pam_ck_connector.so modult nem sikerült hozzáadni a(z) '%s' "
 "szolgáltatáshoz"
 
 #: src/mod_pam_cryptpass.c:98
@@ -283,19 +284,19 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "Figyelem: a(z) '%s' fájl nem található. A mentés kimarad.\n"
 
 #: src/pam-config.c:166
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "Figyelem: a(z) '%s' fájl nem található. A mentés kimarad.\n"
+msgstr "Figyelem: a(z) '%s' mentési fájl már létezik. A mentés kimarad.\n"
 
 #: src/pam-config.c:169
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "%s fájl mentése nem hozható létre: %m"
+msgstr "HIBA: A(z) %s mentési fájl nem hozható létre: %m\n"
 
 #: src/pam-config.c:173
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "A(z) %s: %m létrehozása sikertelen\n"
+msgstr "HIBA: A(z) %s nem távolítható el (%m)\n"
 
 #: src/pam-config.c:344
 #, c-format

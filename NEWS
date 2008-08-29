@@ -4,6 +4,11 @@ Copyright (C) 2006, 2007, 2008 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.59
+* skip unix password change for uid > 999 in case of krb5 is used.
+* set LANG=C when running checks
+* Update translations.
+
 Version 0.58
 * return correct query result in case of --ldap vs. --ldap-account_only
 

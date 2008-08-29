@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-21 17:56+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2002-07-23 18:27+0200\n"
 "Last-Translator: Damir Bjelobradic <Nagual@lugbih.org>\n"
 "Language-Team: Bosnian <i18n@suse.de>\n"
@@ -201,8 +201,9 @@ msgid "  -v, --version     Print program version\n"
 msgstr ""
 
 #: src/pam-config.c:96
+#, fuzzy
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Opcije modema"
 
 #: src/pam-config.c:97
 msgid ""
@@ -257,9 +258,9 @@ msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr ""
 
 #: src/pam-config.c:173
-#, c-format
+#, fuzzy, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr ""
+msgstr "Ne mogu pokrenuti naredbu \"%s\""
 
 #: src/pam-config.c:344
 #, c-format
@@ -291,9 +292,9 @@ msgid "%s: Too many arguments.\n"
 msgstr ""
 
 #: src/pam-config.c:783
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot access '%s': %m\n"
-msgstr ""
+msgstr "Ne mogu pokrenuti naredbu \"%s\""
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:140

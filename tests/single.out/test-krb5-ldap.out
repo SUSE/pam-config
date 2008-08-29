@@ -43,6 +43,7 @@ account	required	pam_ldap.so	use_first_pass
 # used to change user passwords.
 #
 password	requisite	pam_pwcheck.so	debug nullok cracklib 
+password	[default=ignore success=1]	pam_succeed_if.so	uid > 999 debug 
 password	sufficient	pam_unix2.so	use_authtok nullok debug 
 password	sufficient	pam_krb5.so 
 password	required	pam_ldap.so	try_first_pass use_authtok 

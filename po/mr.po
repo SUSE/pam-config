@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YaST (@memory@)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-21 17:56+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2005-07-29 15:37+0530\n"
 "Last-Translator: \"( अमेय पाळंदे ) Ameya Palande\" <2ameya@gmail.com>\n"
 "Language-Team: Marathi <i18n@suse.de>\n"
@@ -123,9 +123,9 @@ msgid "WARNING: Found no service files in '%s'.\n"
 msgstr ""
 
 #: src/mod_pam_thinkfinger.c:116
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "सावधगिरीचा इषाराः %s परस्परक्रियाशील आहे, सोडले."
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -150,7 +150,7 @@ msgstr ""
 #: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
-msgstr ""
+msgstr "अधिक माहितीसाठी `%s --हेल्प' किंवा `%s --यूसेजचा' प्रयत्न करा.\n"
 
 #: src/pam-config.c:76
 #, c-format
@@ -204,8 +204,9 @@ msgid "  -v, --version     Print program version\n"
 msgstr ""
 
 #: src/pam-config.c:96
+#, fuzzy
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr " मोडेमचे पर्याय"
 
 #: src/pam-config.c:97
 msgid ""
@@ -215,8 +216,9 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:102
+#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr ""
+msgstr "जेनेरिक माउंट पर्याय"
 
 #: src/pam-config.c:103
 msgid "      These modules can only be added to single service files.\n"
@@ -265,9 +267,9 @@ msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "निर्देशिका तयार करू शकत नाही '%1'."
 
 #: src/pam-config.c:344
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
+msgstr "सावधगिरीचा इषाराः %s परस्परक्रियाशील आहे, सोडले."
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -305,9 +307,9 @@ msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "आज्ञेसाठी अनोळखी पर्याय '%1': %2"
 
 #: src/sanity_checks.c:46
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "सावधगिरीचा इषाराः %s परस्परक्रियाशील आहे, सोडले."
 
 #: src/sanity_checks.c:51
 #, c-format
@@ -348,17 +350,17 @@ msgstr ""
 #: src/single_config.c:249
 #, fuzzy, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr "निर्देशिका तयार करू शकत नाही '%1'."
+msgstr "%s उघडू शकत नाही: %m"
 
 #: src/single_config.c:259 src/write_config.c:63
 #, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "निर्देशिका तयार करू शकत नाही '%1'."
+msgstr "%s  टेंप फाइलः एएमच्या अनुमति सेट करू शकलो नाही"
 
 #: src/single_config.c:268 src/write_config.c:70
 #, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr "निर्देशिका तयार करू शकत नाही '%1'."
+msgstr "%s  टेंप फाइलः एएमचा ओनर दट सेट करू शकलो नाही "
 
 #: src/single_config.c:278
 #, fuzzy, c-format

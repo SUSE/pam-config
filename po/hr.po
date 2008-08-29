@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-21 17:56+0200\n"
-"PO-Revision-Date: 2001-07-17 16:22+0200\n"
-"Last-Translator: Vlatko Kosturjak <kost@iname.com>\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
+"PO-Revision-Date: 2008-06-03 21:52+0100\n"
+"Last-Translator: Krešimir Jozić <kjozic@gmail.com>\n"
 "Language-Team: Croatian <i18n@suse.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,12 +15,12 @@ msgstr ""
 #: src/load_config.c:131
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
-msgstr ""
+msgstr "%s (%s): Argumenti će biti ignorirani\n"
 
 #: src/load_config.c:135
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
-msgstr ""
+msgstr "%s: Nepoznat modul %s, ignoriran!\n"
 
 #: src/load_obsolete_conf.c:68 src/load_obsolete_conf.c:93
 #: src/load_obsolete_conf.c:128 src/load_obsolete_conf.c:158
@@ -28,7 +28,7 @@ msgstr ""
 #: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
-msgstr ""
+msgstr "GREŠKA: Nepoznat servis: [%s: %s], ignoriran!\n"
 
 #: src/load_obsolete_conf.c:288
 #, c-format
@@ -58,7 +58,7 @@ msgstr ""
 #: src/load_obsolete_conf.c:354
 #, c-format
 msgid "Please use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
+msgstr "Molimo koristite /etc/default/passwd da biste postavili 'md5' izbor\n"
 
 #: src/load_obsolete_conf.c:356
 #, c-format
@@ -81,9 +81,9 @@ msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
 
 #: src/mod_pam_ck_connector.c:93
-#, c-format
+#, fuzzy, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr ""
+msgstr "Greška: Ne mogu dodati direktorij %s u putanju za pretragu.\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -117,12 +117,12 @@ msgstr ""
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
-msgstr ""
+msgstr "UPOZORENJE: Nisu pronađene servisne datoteke u '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "UPOZORENJE: Pronađen je modul '%s' u datoteci '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -132,9 +132,9 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:47
-#, fuzzy, c-format
+#, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
-msgstr "Korištenje: %s [ --paranoid ]\n"
+msgstr "Korištenje: %s -a|-c|-d [...]\n"
 
 #: src/pam-config.c:56
 #, c-format
@@ -190,7 +190,7 @@ msgstr ""
 
 #: src/pam-config.c:91
 msgid "      --help        Give this help list\n"
-msgstr ""
+msgstr "      --help        Daj ovu listu pomoći\n"
 
 #: src/pam-config.c:92
 msgid "  -u, --usage       Give a short usage message\n"
@@ -198,11 +198,11 @@ msgstr ""
 
 #: src/pam-config.c:93
 msgid "  -v, --version     Print program version\n"
-msgstr ""
+msgstr "  -v, --version     Ispiši verziju programa\n"
 
 #: src/pam-config.c:96
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Opći izbori modula:\n"
 
 #: src/pam-config.c:97
 msgid ""
@@ -223,7 +223,7 @@ msgstr ""
 #: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
-msgstr ""
+msgstr "Greška aktivacije %s (%m)\n"
 
 #: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
 #: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
@@ -254,17 +254,17 @@ msgstr ""
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Ne mogu napraviti operaciju stat %s: %m"
+msgstr "Ne mogu stvoriti rezervnu datoteku od %s: %m"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Ne mogu napraviti operaciju stat %s: %m"
+msgstr "Ne mogu napraviti %s: %m\n"
 
 #: src/pam-config.c:344
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
+msgstr "'{0}' nije instaliran."
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -276,7 +276,7 @@ msgstr ""
 #: src/pam-config.c:637
 #, c-format
 msgid "Supported common modules:\n"
-msgstr ""
+msgstr "Podržani zajednički moduli:\n"
 
 #: src/pam-config.c:639
 #, c-format
@@ -286,14 +286,14 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:675
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Too many arguments.\n"
-msgstr "Previše argumenata."
+msgstr "%s: Previše argumenata.\n"
 
 #: src/pam-config.c:783
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot access '%s': %m\n"
-msgstr "Ne mogu napraviti operaciju stat %s: %m"
+msgstr "Ne mogu pristupiti '%s': %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:140
@@ -304,12 +304,12 @@ msgstr ""
 #: src/sanity_checks.c:46
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "UPOZORENJE: modul %s nije instaliran.\n"
 
 #: src/sanity_checks.c:51
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr ""
+msgstr "GREŠKA: modul %s nije instaliran.\n"
 
 #: src/sanity_checks.c:77
 #, c-format
@@ -340,22 +340,22 @@ msgstr ""
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr ""
+msgstr "GREŠKA: Ne mogu onemogućiti pam_unix.so.\n"
 
 #: src/single_config.c:249
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr "Ne mogu napraviti operaciju stat %s: %m"
+msgstr "Ne mogu napraviti operaciju stat '%s': %m\n"
 
 #: src/single_config.c:259 src/write_config.c:63
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "Ne mogu napraviti operaciju stat %s: %m"
+msgstr "Ne mogu postaviti dozvole za '%s': %m\n"
 
 #: src/single_config.c:268 src/write_config.c:70
 #, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr "Ne mogu napraviti operaciju stat %s: %m"
+msgstr "Ne mogu promijeniti vlasnika/grupu od %s: %m"
 
 #: src/single_config.c:278
 #, fuzzy, c-format
@@ -363,6 +363,6 @@ msgid "Cannot create file handle: %m\n"
 msgstr "Ne mogu napraviti operaciju stat %s: %m"
 
 #: src/write_config.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot create %s: %m\n"
-msgstr "Ne mogu napraviti operaciju stat %s: %m"
+msgstr "Ne mogu napraviti %s: %m\n"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-21 17:56+0200\n"
-"PO-Revision-Date: 2001-10-18 09:54+0200\n"
-"Last-Translator: Jonas Gocentas <jonasgocentas@florida.usa.com>\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
+"PO-Revision-Date: 2007-11-17 16:03+0300\n"
+"Last-Translator: Andrius Štikonas <stikonas@gmail.com>\n"
 "Language-Team: Lithuanian <i18n@suse.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,9 +87,9 @@ msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
 
 #: src/mod_pam_ck_connector.c:93
-#, c-format
+#, fuzzy, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr ""
+msgstr "Klaida: nepavyksta pridėti aplanko %s į paieškos kelią.\n"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -126,9 +126,9 @@ msgid "WARNING: Found no service files in '%s'.\n"
 msgstr ""
 
 #: src/mod_pam_thinkfinger.c:116
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "„{0}“ neįdigtas."
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -140,7 +140,7 @@ msgstr ""
 #: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
-msgstr ""
+msgstr "Naudojimas: %s -a|-c|-d [...]\n"
 
 #: src/pam-config.c:56
 #, c-format
@@ -168,7 +168,7 @@ msgstr ""
 
 #: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
-msgstr ""
+msgstr "  -c, --create      Sukuria naują konfigūraciją\n"
 
 #: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
@@ -207,8 +207,9 @@ msgid "  -v, --version     Print program version\n"
 msgstr ""
 
 #: src/pam-config.c:96
+#, fuzzy
 msgid "Global Module Options:\n"
-msgstr ""
+msgstr "Modemo nustatymai"
 
 #: src/pam-config.c:97
 msgid ""
@@ -229,7 +230,7 @@ msgstr ""
 #: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
 #, c-format
 msgid "Error activating %s (%m)\n"
-msgstr ""
+msgstr "Klaida aktyvuojant %s (%m)\n"
 
 #: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
 #: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
@@ -241,7 +242,7 @@ msgstr ""
 #, fuzzy, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr ""
-"Byla %s nepasirašyta.\n"
+"Failas %s nepasirašyta.\n"
 "Vis tiek ją naudoti?"
 
 #: src/pam-config.c:144
@@ -262,17 +263,17 @@ msgstr ""
 #: src/pam-config.c:169
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Nepavyksta sukurti laikinos bylos %s: %m"
+msgstr "Nepavyksta padaryti failo %s atsarginės kopijos: %m"
 
 #: src/pam-config.c:173
 #, fuzzy, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Nepavyksta sukurti laikinos bylos %s: %m"
+msgstr "Nepavyksta sukurti %s: %m\n"
 
 #: src/pam-config.c:344
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
+msgstr "„{0}“ neįdigtas."
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -294,14 +295,14 @@ msgid ""
 msgstr ""
 
 #: src/pam-config.c:675
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Too many arguments.\n"
-msgstr "Per daug argumentų."
+msgstr "%s: Per daug argumentų.\n"
 
 #: src/pam-config.c:783
 #, fuzzy, c-format
 msgid "Cannot access '%s': %m\n"
-msgstr "Nepavyksta sukurti laikinos bylos %s: %m"
+msgstr "Nepavyksta sukurti laikinos failo %s: %m"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:140
@@ -310,14 +311,14 @@ msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr ""
 
 #: src/sanity_checks.c:46
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "„{0}“ neįdigtas."
 
 #: src/sanity_checks.c:51
-#, c-format
+#, fuzzy, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr ""
+msgstr "„{0}“ neįdigtas."
 
 #: src/sanity_checks.c:77
 #, c-format
@@ -353,24 +354,24 @@ msgstr ""
 #: src/single_config.c:249
 #, fuzzy, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr "Nepavyksta sukurti laikinos bylos %s: %m"
+msgstr "Nepavyksta sukurti laikinos failo %s: %m"
 
 #: src/single_config.c:259 src/write_config.c:63
 #, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "Nepavyksta sukurti laikinos bylos %s: %m"
+msgstr "Nepavyksta pakeisti %s leidimų: %m"
 
 #: src/single_config.c:268 src/write_config.c:70
 #, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
-msgstr "Nepavyksta sukurti laikinos bylos %s: %m"
+msgstr "Negaliu pakeisti %s savininko/grupės: %m"
 
 #: src/single_config.c:278
 #, fuzzy, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr "Nepavyksta sukurti laikinos bylos %s: %m"
+msgstr "Nepavyksta sukurti failo"
 
 #: src/write_config.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot create %s: %m\n"
-msgstr "Nepavyksta sukurti laikinos bylos %s: %m"
+msgstr "Nepavyksta sukurti %s: %m\n"

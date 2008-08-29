@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-21 17:56+0200\n"
+"POT-Creation-Date: 2008-08-22 11:22+0200\n"
 "PO-Revision-Date: 2005-11-08 12:26+8\n"
 "Last-Translator: Steve Beattie <steve@immunix.com>\n"
 "Language-Team: English\n"
@@ -119,9 +119,9 @@ msgid "WARNING: Found no service files in '%s'.\n"
 msgstr ""
 
 #: src/mod_pam_thinkfinger.c:116
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr ""
+msgstr "'{0}' is not installed."
 
 #: src/mod_pam_thinkfinger.c:141
 #, c-format
@@ -261,9 +261,9 @@ msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr ""
 
 #: src/pam-config.c:344
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
+msgstr "'{0}' is not installed."
 
 #: src/pam-config.c:350 src/pam-config.c:386
 #, c-format
@@ -301,14 +301,14 @@ msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr ""
 
 #: src/sanity_checks.c:46
-#, c-format
+#, fuzzy, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr ""
+msgstr "'{0}' is not installed."
 
 #: src/sanity_checks.c:51
-#, c-format
+#, fuzzy, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr ""
+msgstr "'{0}' is not installed."
 
 #: src/sanity_checks.c:77
 #, c-format

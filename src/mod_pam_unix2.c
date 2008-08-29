@@ -67,16 +67,24 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 	fprintf (fp, "account\trequired\tpam_unix2.so\t");
       break;
     case PASSWORD:
-      if (with_krb5 || with_ldap || with_lum)
-	fprintf (fp, "password\tsufficient\tpam_unix2.so\t");
-      else
-	fprintf (fp, "password\trequired\tpam_unix2.so\t");
-      if (with_pwcheck || with_cracklib)
-	fprintf (fp, "use_authtok ");
-      break;
-    case SESSION:
-      fprintf (fp, "session\trequired\tpam_unix2.so\t");
-      break;
+		if (with_krb5)
+		{
+			fprintf (fp, "password\t[default=ignore success=1]\tpam_succeed_if.so\tuid > 999 ");
+			if (opt_set->is_enabled (opt_set, "debug"))
+				fprintf (fp, "debug \n");
+			else
+				fprintf (fp, "quiet \n");
+		}
+		if (with_krb5 || with_ldap || with_lum)
+			fprintf (fp, "password\tsufficient\tpam_unix2.so\t");
+		else
+			fprintf (fp, "password\trequired\tpam_unix2.so\t");
+		if (with_pwcheck || with_cracklib)
+			fprintf (fp, "use_authtok ");
+		break;
+	  case SESSION:
+		  fprintf (fp, "session\trequired\tpam_unix2.so\t");
+		  break;
   }
 
   WRITE_CONFIG_OPTIONS

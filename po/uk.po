@@ -7,13 +7,14 @@
 #
 # Ivan Petrouchtchak <ivanpetrouchtchak@yahoo.com>, 2007.
 # Yuri Chornoivan <yurchor@ukr.net>, 2008.
+# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: pam-config\n"
+"Project-Id-Version: pam-config.uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-08-22 11:22+0200\n"
-"PO-Revision-Date: 2008-04-02 16:48+0300\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2008-08-26 20:43-0700\n"
+"Last-Translator: Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,9 +102,9 @@ msgstr ""
 "m).\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "ПОМИЛКА: Неможливо додати pam_cryptpass.so до служби '%s'"
+msgstr "ПОМИЛКА: Неможливо додати pam_ck_connector.so до служби '%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -282,22 +283,24 @@ msgstr "Нове налаштування з %s не вживається!\n"
 #: src/pam-config.c:162
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr "ПОПЕРЕДЖЕННЯ: файл '%s' не знайдено. Резервне копіювання відкладено.\n"
+msgstr ""
+"ПОПЕРЕДЖЕННЯ: файл \"%s\" не знайдено. Резервне копіювання пропущено.\n"
 
 #: src/pam-config.c:166
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "ПОПЕРЕДЖЕННЯ: файл '%s' не знайдено. Резервне копіювання відкладено.\n"
+msgstr ""
+"ПОПЕРЕДЖЕННЯ: файл \"%s\" не знайдено. Резервне копіювання пропущено.\n"
 
 #: src/pam-config.c:169
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Не вдається створити резервний файл для %s: %m"
+msgstr "ПОМИЛКА: Неможливо створити резервний файл \"%s\" (%m)\n"
 
 #: src/pam-config.c:173
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Неможливо створити %s: %m\n"
+msgstr "ПОМИЛКА: Неможливо вилучити \"%s\" (%m)\n"
 
 #: src/pam-config.c:344
 #, c-format
