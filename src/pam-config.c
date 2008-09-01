@@ -14,7 +14,6 @@
    along with this program; if not, write to the Free Software Foundation,
    Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
 
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -88,6 +87,8 @@ print_help (const char *program)
          stdout);
   fputs (_("  -q, --query       Query for installed modules and options\n"),
 	 stdout);
+  fputs (_("      --list-modules  List all supported modules\n"),
+         stdout);
   fputs (_("      --help        Give this help list\n"), stdout);
   fputs (_("  -u, --usage       Give a short usage message\n"), stdout);
   fputs (_("  -v, --version     Print program version\n"), stdout);
@@ -103,6 +104,38 @@ print_help (const char *program)
   fputs (_("      These modules can only be added to single service files.\n"),
 	 stdout);
   print_module_args (service_module_list);
+}
+
+static void
+print_xmlhelp (void)
+{
+  printf ("        <refsect3>\n");
+  printf ("        <title>GLOBAL MODULES</title>\n");
+  printf ("        <para>\n");
+  printf ("          The global modules get inserted into the\n");
+  printf ("          common-{account,auth,password,session} files\n");
+  printf ("          which are included by the single service files.\n");
+  printf ("        </para>\n");
+  printf ("        <variablelist>\n");
+
+  print_module_xmlhelp (common_module_list);
+
+  printf ("        </variablelist>\n");
+  printf ("      </refsect3>\n");
+  printf ("      <refsect3>\n");
+  printf ("        <title>SINGLE SERVICE MODULES</title>\n");
+  printf ("        <para>\n");
+  printf ("          These modules can only be added to single service files.\n");
+  printf ("          See also <xref linkend=\"examples\"/>.\n");
+  printf ("        </para>\n");
+  printf ("        <variablelist>\n");
+
+  print_module_xmlhelp (service_module_list);
+
+  printf ("        </variablelist>\n");
+  printf ("      </refsect3>\n");
+
+
 }
 
 static void
@@ -428,6 +461,7 @@ main (int argc, char *argv[])
 	{"debug",                     no_argument,       NULL,  254 },
         {"help",                      no_argument,       NULL,  255 },
         {"list-modules",              no_argument,       NULL,  300 },
+	{"xmloutput",                 no_argument,       NULL,  301 },
 	{"nullok",                    no_argument,       NULL,  900 },
 	{"pam-debug",                 no_argument,       NULL,  901 },
 	{"ldap",                      no_argument,       NULL, 1900 },
@@ -535,7 +569,7 @@ main (int argc, char *argv[])
 			  break;
 	      opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, SESSION);
 	      if (opt_set->is_enabled (opt_set, "is_enabled"))
-			  break; 
+			  break;
 	      print_module_config (common_module_list, "pam_ldap.so");
 	  }
 	  else
@@ -639,6 +673,9 @@ main (int argc, char *argv[])
 	  fprintf (stdout,_("\nSupported service modules:\n"));
 	  list_modules (service_module_list);
 	  return 0;
+	case 301:
+          print_xmlhelp ();
+          return 0;
         case 'v':
           print_version (program, "2008");
           return 0;

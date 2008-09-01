@@ -53,17 +53,23 @@ write_config_cracklib (pam_module_t *this, enum write_type op, FILE *fp)
 
 GETOPT_START_1(PASSWORD)
 GETOPT_END_1(PASSWORD)
+
 PRINT_ARGS("cracklib")
+PRINT_XMLHELP("cracklib")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2(is_enabled, debug);
 DECLARE_STRING_OPTS_11(type, retry, difok, difignore, minlen, dcredit, ucredit, lcredit, ocredit, minclass, dictpath);
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_cracklib = { "pam_cracklib.so", opt_sets,
+pam_module_t mod_pam_cracklib = { "pam_cracklib.so", opt_sets, helptext,
 				  &def_parse_config,
 				  &def_print_module,
 				  &write_config_cracklib,
 				  &get_opt_set,
 				  &getopt,
-				  &print_args};
+				  &print_args,
+				  &print_xmlhelp};

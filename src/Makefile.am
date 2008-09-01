@@ -10,7 +10,7 @@ AM_CFLAGS = @EXTRA_CFLAGS@
 
 CLEANFILES = *~
 
-EXTRA_DIST = ${MANS} ${XMLS}
+EXTRA_DIST = ${MANS} ${XMLS} pam-config.8.xml-header pam-config.8.xml-footer
 
 man_MANS = pam-config.8
 XMLS = pam-config.8.xml
@@ -33,7 +33,13 @@ pam_config_SOURCES = pam-config.c load_config.c write_config.c \
 noinst_HEADERS = pam-config.h pam-module.h
 
 if ENABLE_REGENERATE_MAN
+pam-config.8.xml: pam-config pam-config.8.xml-header pam-config.8.xml-footer
+	cp $(srcdir)/pam-config.8.xml-header pam-config.8.xml
+	chmod 644 pam-config.8.xml
+	$(builddir)/pam-config --xmloutput >> pam-config.8.xml
+	cat $(srcdir)/pam-config.8.xml-footer >> pam-config.8.xml
+
 pam-config.8: pam-config.8.xml
 	$(XMLLINT) --nonet --xinclude --postvalid --noout $<
-	$(XSLTPROC) -o $(srcdir)/$@ --path $(srcdir) --xinclude --nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $<
+	$(XSLTPROC) -o $(builddir)/$@ --path $(builddir) --xinclude --nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $<
 endif

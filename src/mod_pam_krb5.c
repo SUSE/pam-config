@@ -133,16 +133,21 @@ GETOPT_START_ALL
 GETOPT_END_ALL
 
 PRINT_ARGS("krb5")
+PRINT_XMLHELP("krb5")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_3 (is_enabled, debug, ignore_unknown_principals);
 DECLARE_STRING_OPTS_1 (minimum_uid);
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_krb5 = { "pam_krb5.so", opt_sets,
+pam_module_t mod_pam_krb5 = { "pam_krb5.so", opt_sets, helptext,
 			      &def_parse_config,
 			      &def_print_module,
 			      &write_config_krb5,
 			      &get_opt_set,
 			      &getopt,
-			      &print_args};
+			      &print_args,
+			      &print_xmlhelp};

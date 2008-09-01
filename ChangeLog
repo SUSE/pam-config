@@ -1,11 +1,51 @@
+2008-09-01  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* src/pam-module.h: Add struct and defines for xml output.
+	* src/pam-config.c: Add option to print xml output.
+	* src/pam-module.c (print_module_xmlhelp): New helper function.
+	* src/mod_pam_apparmor.c: Add xml output data/functions.
+	* src/mod_pam_ccreds.c: Likewise.
+	* src/mod_pam_ck_connector.c: Likewise.
+	* src/mod_pam_cracklib.c: Likewise.
+	* src/mod_pam_cryptpass.c: Likewise.
+	* src/mod_pam_csync.c: Likewise.
+	* src/mod_pam_deny.c: Likewise.
+	* src/mod_pam_env.c: Likewise.
+	* src/mod_pam_group.c: Likewise.
+	* src/mod_pam_krb5.c: Likewise.
+	* src/mod_pam_lastlog.c: Likewise.
+	* src/mod_pam_ldap.c: Likewise.
+	* src/mod_pam_limits.c: Likewise.
+	* src/mod_pam_localuser.c: Likewise.
+	* src/mod_pam_loginuid.c: Likewise.
+	* src/mod_pam_make.c: Likewise.
+	* src/mod_pam_mkhomedir.c: Likewise.
+	* src/mod_pam_mount.c: Likewise.
+	* src/mod_pam_nam.c: Likewise.
+	* src/mod_pam_pkcs11.c: Likewise.
+	* src/mod_pam_pwcheck.c: Likewise.
+	* src/mod_pam_ssh.c: Likewise.
+	* src/mod_pam_succeed_if.c: Likewise.
+	* src/mod_pam_thinkfinger.c: Likewise.
+	* src/mod_pam_time.c: Likewise.
+	* src/mod_pam_umask.c: Likewise.
+	* src/mod_pam_unix2.c: Likewise.
+	* src/mod_pam_unix.c: Likewise.
+	* src/mod_pam_winbind.c: Likewise.
+	* src/Makefile.am: Generate pam-config.8.xml
+	* src/pam-config.8.xml-footer: New.
+	* src/pam-config.8.xml-header: New.
+
 2008-08-29  Michael Calmer  <mc@suse.de>
+
 	* src/mod_pam_krb5.c: add pam_deny after pam_krb5 in password
 	stack. Fix auth stack for modules pam_group and pam_ssh
 
 	* tests/single.out/test-krb5.out: Adapt testcase
 	* tests/single.out/test-ldap-account_only.out: Likewise.
-	
+
 2008-08-29  Michael Calmer  <mc@suse.de>
+
 	* release version 0.59
 
 	* src/mod_pam_unix2.c: skip password change for uid > 999
@@ -24,8 +64,9 @@
 	* tests/support/header.sh: set LANG=C when running checks
 
 	* po/: Update translations.
-	
+
 2008-08-22  Michael Calmer  <mc@suse.de>
+
 	* release version 0.58
 
 	* src/pam-config.c: query options in ldap-account_only

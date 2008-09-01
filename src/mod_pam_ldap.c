@@ -110,7 +110,7 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt)
 			  return 0;
 	      opt_set = this->get_opt_set (this, SESSION);
 	      if (!opt_set->is_enabled (opt_set, "is_enabled"))
-			  return 0; 
+			  return 0;
 		  this->print_module (this);
 	  }
       else
@@ -133,17 +133,22 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt)
     }
 GETOPT_END_ALL
 
-PRINT_ARGS("ldap")
+PRINT_ARGS("ldap");
+PRINT_XMLHELP("ldap");
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_ldap = { "pam_ldap.so", opt_sets,
+pam_module_t mod_pam_ldap = { "pam_ldap.so", opt_sets, helptext,
 			      &def_parse_config,
 			      &def_print_module,
 			      &write_config_ldap,
 			      &get_opt_set,
 			      &getopt,
-			      &print_args};
+			      &print_args,
+			      &print_xmlhelp};

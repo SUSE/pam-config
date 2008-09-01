@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-22 11:22+0200\n"
+"POT-Creation-Date: 2008-09-01 10:40+0200\n"
 "PO-Revision-Date: 2008-08-14 15:17+0900\n"
 "Last-Translator: YunSeok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "오류: '%s' 서비스에 pam_cryptpass.so를 추가 할 수 없음"
 
-#: src/mod_pam_mount.c:119 src/pam-config.c:408
+#: src/mod_pam_mount.c:119 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -141,12 +141,12 @@ msgstr ""
 "오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
 "저 이것을 비활성화 시켜주세요!\n"
 
-#: src/pam-config.c:47
+#: src/pam-config.c:46
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr "사용법: %s -a|-c|-d [...]\n"
 
-#: src/pam-config.c:56
+#: src/pam-config.c:55
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -157,12 +157,12 @@ msgstr ""
 "이것은 자유 소프트웨어 입니다. 소스 복제에 관한 조건을 살펴보세요.\n"
 "소프트웨어에 대한 특정 목적으로의 지원과 보증은 없습니다.\n"
 
-#: src/pam-config.c:68
+#: src/pam-config.c:67
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr "기타 정보는 `%s --help' 또는  `%s --usage' 를 사용해주세요.\n"
 
-#: src/pam-config.c:76
+#: src/pam-config.c:75
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
@@ -171,55 +171,59 @@ msgstr ""
 "%s - PAM 설정 파일을 작성\n"
 "\n"
 
-#: src/pam-config.c:78
+#: src/pam-config.c:77
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr "  -a, --add         옵션 및 PAM 모듈 추가\n"
 
-#: src/pam-config.c:79
+#: src/pam-config.c:78
 msgid "  -c, --create      Create new configuration\n"
 msgstr "  -c, --create      새 구성 만들기\n"
 
-#: src/pam-config.c:80
+#: src/pam-config.c:79
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr "  -d, --delete      옵션 및 PAM 모듈 제거\n"
 
-#: src/pam-config.c:81
+#: src/pam-config.c:80
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr "      --confdir     사용자 정의 구성 디렉토리를 사용\n"
 
-#: src/pam-config.c:83
+#: src/pam-config.c:82
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  이전 설정을 변환해서 새 설정 만들기\n"
 
-#: src/pam-config.c:85
+#: src/pam-config.c:84
 msgid "      --service config  Service to modify config of\n"
 msgstr "      --service config  설정 변경할 서비스를 지정\n"
 
-#: src/pam-config.c:87
+#: src/pam-config.c:86
 msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      현재 설정을 읽고 새 설정을 기록\n"
 
-#: src/pam-config.c:89
+#: src/pam-config.c:88
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       설치 끝난 모듈과 옵션을 표시\n"
 
-#: src/pam-config.c:91
+#: src/pam-config.c:90
+msgid "      --list-modules  List all supported modules\n"
+msgstr ""
+
+#: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
 msgstr "      --help        이 도움말 목록 표시\n"
 
-#: src/pam-config.c:92
+#: src/pam-config.c:93
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  -u, --usage       사용방법을 간단히 표시\n"
 
-#: src/pam-config.c:93
+#: src/pam-config.c:94
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version     프로그램 버전을 표시\n"
 
-#: src/pam-config.c:96
+#: src/pam-config.c:97
 msgid "Global Module Options:\n"
 msgstr "글로벌 모듈 옵션:\n"
 
-#: src/pam-config.c:97
+#: src/pam-config.c:98
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
@@ -229,62 +233,62 @@ msgstr ""
 "      common-{account,auth,password,session} 파일 안에\n"
 "      추가됩니다.\n"
 
-#: src/pam-config.c:102
+#: src/pam-config.c:103
 msgid "Single Service Module Options:\n"
 msgstr "단일 서비스 모듈 옵션:\n"
 
-#: src/pam-config.c:103
+#: src/pam-config.c:104
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      이러한 모듈은 단일 서비스 파일에 추가됩니다.\n"
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
-#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
+#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "%s 를 유효하게 하는 처리로 오류 발생 (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
-#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
+#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
 
-#: src/pam-config.c:142
+#: src/pam-config.c:175
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "파일 %s 는 %s 로의 심볼릭 링크가 아닙니다.\n"
 
-#: src/pam-config.c:144
+#: src/pam-config.c:177
 #, c-format
 msgid "New config from %s is is not in use!\n"
 msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
 
-#: src/pam-config.c:162
+#: src/pam-config.c:195
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "경고: '%s' 파일을 찾을 수 없습니다. 백업처리를 생략합니다.\n"
 
-#: src/pam-config.c:166
+#: src/pam-config.c:199
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr "경고: 백업 파일 '%s' 가 이미 있습니다. 백업처리를 생략합니다.\n"
 
-#: src/pam-config.c:169
+#: src/pam-config.c:202
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "오류: 백업 파일 '%s' (%m) 를 생성할 수 없음\n"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:206
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "오류: '%s' (%m) 를 제거할 수 없음\n"
 
-#: src/pam-config.c:344
+#: src/pam-config.c:377
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "경고: 예전 설정 파일을 불러올 수 없습니다.\n"
 
-#: src/pam-config.c:350 src/pam-config.c:386
+#: src/pam-config.c:383 src/pam-config.c:419
 #, c-format
 msgid ""
 "\n"
@@ -293,12 +297,12 @@ msgstr ""
 "\n"
 "설정 파일을 불러올 수 없음, 중단되었음!\n"
 
-#: src/pam-config.c:637
+#: src/pam-config.c:671
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "지원하는 일반적인 모듈:\n"
 
-#: src/pam-config.c:639
+#: src/pam-config.c:673
 #, c-format
 msgid ""
 "\n"
@@ -307,18 +311,18 @@ msgstr ""
 "\n"
 "지원하는 서비스 모듈:\n"
 
-#: src/pam-config.c:675
+#: src/pam-config.c:712
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 너무 많은 인수입니다.\n"
 
-#: src/pam-config.c:783
+#: src/pam-config.c:820
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "'%s' 에 접근 할 수 없습니다: %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
-#: src/pam-module.c:140
+#: src/pam-module.c:150
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "%s 에 대한 알 수 없는 옵션, 무시되었음: '%s'\n"

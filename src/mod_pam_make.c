@@ -113,16 +113,21 @@ GETOPT_START_1(PASSWORD)
 GETOPT_END_1(PASSWORD)
 
 PRINT_ARGS("make")
+PRINT_XMLHELP("make")
 
 /* ---- contruct module object ---- */
      DECLARE_BOOL_OPTS_3 (is_enabled, debug, nosetuid);
 DECLARE_STRING_OPTS_3 (make, log, option);
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_make = { "pam_make.so", opt_sets,
-			       &parse_config_make,
-			       &def_print_module,
-			       &write_config_make,
-			       &get_opt_set,
-			       &getopt,
-			       &print_args};
+pam_module_t mod_pam_make = { "pam_make.so", opt_sets, helptext,
+			      &parse_config_make,
+			      &def_print_module,
+			      &write_config_make,
+			      &get_opt_set,
+			      &getopt,
+			      &print_args,
+			      &print_xmlhelp};

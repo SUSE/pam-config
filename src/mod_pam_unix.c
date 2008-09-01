@@ -96,16 +96,21 @@ GETOPT_START_ALL
 GETOPT_END_ALL
 
 PRINT_ARGS("unix")
+PRINT_XMLHELP("unix")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_11(is_enabled, debug, audit, nodelay, nullok, shadow, md5, bigcrypt, not_set_pass, nis, broken_shadow);
 DECLARE_STRING_OPTS_1(remember);
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_unix = { "pam_unix.so", opt_sets,
+pam_module_t mod_pam_unix = { "pam_unix.so", opt_sets, helptext,
 			      &def_parse_config,
 			      &def_print_module,
 			      &write_config_unix,
 			      &get_opt_set,
 			      &getopt,
-			      &print_args};
+			      &print_args,
+			      &print_xmlhelp};

@@ -81,16 +81,21 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt)
 GETOPT_END_1(SESSION)
 
 PRINT_ARGS("env")
+PRINT_XMLHELP("env")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_3 (conffile, envfile, readenv);
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_env = {"pam_env.so", opt_sets,
+pam_module_t mod_pam_env = {"pam_env.so", opt_sets, helptext,
 			    &def_parse_config,
 			    &def_print_module,
 			    &write_config_env,
 			    &get_opt_set,
                             getopt,
-			    &print_args};
+			    &print_args,
+			    &print_xmlhelp};

@@ -95,17 +95,30 @@ write_config_unix2 (pam_module_t *this, enum write_type op, FILE *fp)
 GETOPT_START_ALL
 GETOPT_END_ALL
 
-PRINT_ARGS("unix2")
+PRINT_ARGS("unix2");
+PRINT_XMLHELP("unix2");
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_5( is_enabled, nullok, debug, trace, none );
 DECLARE_STRING_OPTS_2( call_modules, nisdir);
 DECLARE_OPT_SETS;
+
+module_helptext_t unix2_help[] = {{"", NULL, "Use pam_unix2.so as standard UNIX PAM module."},
+				  {"nullok", NULL, "Add <option>nullok</option> option to all pam_unix2.so invocations."},
+				  {"debug", NULL, "Add <option>debug</option> option to all pam_unix2.so invocations."},
+				  {"trace", NULL, "Add <option>trace</option> option to pam_unix2.so."},
+				  {"none", NULL, "Add option <option>none</option> to pam_unix2.so."},
+				  {"call_modules", "modules,...",  "Add <option>call_modules=</option><replaceable>list of modules</replaceable> to pam_unix2.so."},
+				  {"nisdir", "path", "Add <option>nisdir=</option><replaceable>path</replaceable> to pam_unix2.so."},
+				  {NULL, NULL, NULL}};
+
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_unix2 = { "pam_unix2.so", opt_sets,
+pam_module_t mod_pam_unix2 = { "pam_unix2.so", opt_sets, unix2_help,
 			       &def_parse_config,
 			       &def_print_module,
 			       &write_config_unix2,
 			       &get_opt_set,
 			       &getopt,
-			       &print_args};
+			       &print_args,
+			       &print_xmlhelp};

@@ -75,16 +75,21 @@ GETOPT_START_ALL
 GETOPT_END_ALL
 
 PRINT_ARGS("ssh")
+PRINT_XMLHELP("ssh")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_4 (is_enabled, debug, nullok, try_first_pass);
 DECLARE_STRING_OPTS_1 (keyfiles);
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_ssh = { "pam_ssh.so", opt_sets,
-			       &def_parse_config,
-			       &def_print_module,
-			       &write_config_ssh,
-			       &get_opt_set,
-			       &getopt,
-			       &print_args};
+pam_module_t mod_pam_ssh = { "pam_ssh.so", opt_sets, helptext,
+			     &def_parse_config,
+			     &def_print_module,
+			     &write_config_ssh,
+			     &get_opt_set,
+			     &getopt,
+			     &print_args,
+			     &print_xmlhelp};

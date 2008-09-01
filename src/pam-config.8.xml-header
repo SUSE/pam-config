@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+<refentry id='pam-config'>
+
+  <refmeta>
+    <refentrytitle>pam-config</refentrytitle>
+    <manvolnum>8</manvolnum>
+    <refmiscinfo class='setdesc'>Reference Manual</refmiscinfo>
+  </refmeta>
+
+  <refnamediv id='name'>
+    <refname>pam-config</refname>
+    <refpurpose>Adjust common PAM config files</refpurpose>
+  </refnamediv>
+
+  <!-- body begins here -->
+  <refsynopsisdiv id='synopsis'>
+    <cmdsynopsis>
+      <command>pam-config</command>
+      <arg choice='opt'>--debug</arg>
+      <arg choice='opt'>--list-modules</arg>
+      <arg choice='opt'>--service <replaceable>service-name</replaceable></arg>
+      <group choice='plain'><arg choice='plain'>-a</arg><arg choice='plain'>-c</arg><arg choice='plain'>-d</arg><arg choice='plain'>-q</arg></group>
+      <arg choice='opt'>-f</arg>
+      <arg choice='opt'><replaceable>module-name</replaceable></arg>
+    </cmdsynopsis>
+    <cmdsynopsis>
+      <command>pam-config</command>
+      <arg choice='plain'>--version </arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+
+  <refsect1 id='description'>
+    <title>DESCRIPTION</title>
+    <para>
+      <emphasis remap='B'>pam-config</emphasis> adjusts predefined
+      PAM config files.
+    </para>
+  </refsect1>
+
+  <refsect1 id='options'>
+    <title>OPTIONS</title>
+    <refsect2 id='common_options'>
+      <title>COMMON OPTIONS</title>
+      <variablelist remap='TP'>
+	<varlistentry>
+	  <term><option>--debug</option></term>
+	  <listitem>
+	    <para>
+	      Print debug messages.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>-f</option>, <option>--force</option></term>
+	  <listitem>
+	    <para>
+	      The new configuration will be activated regardless if there
+	      are other local changes.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>--list-modules</option></term>
+	  <listitem>
+	    <para>
+	      Prints out a list of all supported modules to stdout.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>--nullok</option></term>
+	  <listitem>
+	    <para>
+	      Add <option>nullok</option> to all modules which support
+	      this.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>--pam-debug</option></term>
+	  <listitem>
+	    <para>
+	      Add <option>debug</option> to all modules which support
+	      this.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </refsect2>
+    <refsect2>
+      <title>MODIFIER OPTIONS</title>
+      <para>
+	Use the following options to specifiy the action you
+	want pam-config to apply. They need to be followed by a
+	supported module option. See <xref
+	  linkend="supported_modules"/>.
+      </para>
+      <variablelist>
+	<varlistentry>
+	  <term><option>-a</option>, <option>--add</option></term>
+	  <listitem>
+	    <para>
+	      Add options or new PAM modules to existing PAM configuration files.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>-c</option>, <option>--create</option></term>
+	  <listitem>
+	    <para>
+	      Create new PAM configuration files for plain UNIX authentication,
+	      overwriting existing ones.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>-d</option>, <option>--delete</option></term>
+	  <listitem>
+	    <para>
+	      Remove options or PAM modules from existing PAM configuration
+	      files.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>-q</option>, <option>--query</option></term>
+	  <listitem>
+	    <para>
+	      Print a list of types and the corresponding module options
+	      for the queried PAM module.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </refsect2>
+    <refsect2 id="supported_modules">
+      <title>SUPPORTED PAM MODULES</title>
+      <para>
+	This is a list of modules supported by pam-config. They are
+	split into two categories: global and single service
+	modules.
+      </para>

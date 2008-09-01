@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-22 11:22+0200\n"
+"POT-Creation-Date: 2008-09-01 10:40+0200\n"
 "PO-Revision-Date: 2005-05-18 10:33+0200\n"
 "Last-Translator: Aiet Kolkhi <aiet@qartuli.net>\n"
 "Language-Team: Georgian <i18n@suse.de>\n"
@@ -96,7 +96,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr ""
 
-#: src/mod_pam_mount.c:119 src/pam-config.c:408
+#: src/mod_pam_mount.c:119 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -130,12 +130,12 @@ msgid ""
 "to disable it first!\n"
 msgstr ""
 
-#: src/pam-config.c:47
+#: src/pam-config.c:46
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr ""
 
-#: src/pam-config.c:56
+#: src/pam-config.c:55
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -143,159 +143,163 @@ msgid ""
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
 
-#: src/pam-config.c:68
+#: src/pam-config.c:67
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr ""
 
-#: src/pam-config.c:76
+#: src/pam-config.c:75
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
 
-#: src/pam-config.c:78
+#: src/pam-config.c:77
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr ""
 
-#: src/pam-config.c:79
+#: src/pam-config.c:78
 msgid "  -c, --create      Create new configuration\n"
 msgstr ""
 
-#: src/pam-config.c:80
+#: src/pam-config.c:79
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr ""
 
-#: src/pam-config.c:81
+#: src/pam-config.c:80
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr ""
 
-#: src/pam-config.c:83
+#: src/pam-config.c:82
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr ""
 
-#: src/pam-config.c:85
+#: src/pam-config.c:84
 msgid "      --service config  Service to modify config of\n"
 msgstr ""
 
-#: src/pam-config.c:87
+#: src/pam-config.c:86
 msgid "      --update      Read current config and write them new\n"
 msgstr ""
 
-#: src/pam-config.c:89
+#: src/pam-config.c:88
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr ""
 
-#: src/pam-config.c:91
-msgid "      --help        Give this help list\n"
+#: src/pam-config.c:90
+msgid "      --list-modules  List all supported modules\n"
 msgstr ""
 
 #: src/pam-config.c:92
-msgid "  -u, --usage       Give a short usage message\n"
+msgid "      --help        Give this help list\n"
 msgstr ""
 
 #: src/pam-config.c:93
+msgid "  -u, --usage       Give a short usage message\n"
+msgstr ""
+
+#: src/pam-config.c:94
 msgid "  -v, --version     Print program version\n"
 msgstr ""
 
-#: src/pam-config.c:96
+#: src/pam-config.c:97
 msgid "Global Module Options:\n"
 msgstr ""
 
-#: src/pam-config.c:97
+#: src/pam-config.c:98
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:102
+#: src/pam-config.c:103
 msgid "Single Service Module Options:\n"
 msgstr ""
 
-#: src/pam-config.c:103
+#: src/pam-config.c:104
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
-#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
+#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
-#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
+#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:142
+#: src/pam-config.c:175
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr ""
 
-#: src/pam-config.c:144
+#: src/pam-config.c:177
 #, c-format
 msgid "New config from %s is is not in use!\n"
 msgstr ""
 
-#: src/pam-config.c:162
+#: src/pam-config.c:195
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr ""
 
-#: src/pam-config.c:166
+#: src/pam-config.c:199
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 
-#: src/pam-config.c:169
+#: src/pam-config.c:202
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:173
+#: src/pam-config.c:206
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:344
+#: src/pam-config.c:377
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 
-#: src/pam-config.c:350 src/pam-config.c:386
+#: src/pam-config.c:383 src/pam-config.c:419
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:637
+#: src/pam-config.c:671
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:639
+#: src/pam-config.c:673
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:675
+#: src/pam-config.c:712
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""
 
-#: src/pam-config.c:783
+#: src/pam-config.c:820
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr ""
 
 #. TRANSLATORS: first argument is name of a PAM module
-#: src/pam-module.c:140
+#: src/pam-module.c:150
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr ""

@@ -132,6 +132,16 @@ print_module_args (pam_module_t **module_list)
     }
 }
 
+void
+print_module_xmlhelp (pam_module_t **module_list)
+{
+  while (*module_list != NULL)
+    {
+      if ((*module_list)->print_xmlhelp != NULL)
+	(*module_list)->print_xmlhelp (*module_list);
+      module_list++;
+    }
+}
 
 void
 print_unknown_option_error (const char *module, const char *option)

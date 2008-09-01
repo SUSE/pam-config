@@ -51,12 +51,14 @@ write_config_deny (pam_module_t *this, enum write_type op,
 DECLARE_BOOL_OPTS_1 (is_enabled);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
+
 /* at last construct the complete module object */
 pam_module_t mod_pam_deny = {"pam_deny.so",
-			     opt_sets,
+			     opt_sets, NULL,
 			     &parse_config_deny,
 			     &def_print_module,
 			     &write_config_deny,
 			     &get_opt_set,
+			     NULL /* Only used internal */,
 			     NULL /* Only used internal */,
 			     NULL /* Only used internal */};

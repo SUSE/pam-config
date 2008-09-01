@@ -50,16 +50,27 @@ GETOPT_START_1(SESSION)
 GETOPT_END_1(SESSION)
 
 PRINT_ARGS("umask")
+PRINT_XMLHELP("umask")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_4 (is_enabled, debug, silent, usergroups);
 DECLARE_STRING_OPTS_1 (umask);
 DECLARE_OPT_SETS;
+
+module_helptext_t umask_help[] = {{"", NULL, "Add pam_umask.so as optional session module."},
+				  {"debug", NULL, "Add <option>debug</option> option to all pam_umask.so invocations in session management."},
+				  {"silent", NULL, "Add <option>silent</option> option to all pam_umask.so invocations in session management."},
+				  {"usergroups", NULL, "Add <option>usergroups</option> option to all pam_umask.so invocations in session management."},
+				  {"umask", "mode", "Add <option>umask=</option><replaceable>mode</replaceable> to pam_umask.so."},
+				  {NULL, NULL, NULL}};
+
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_umask = { "pam_umask.so", opt_sets,
+pam_module_t mod_pam_umask = { "pam_umask.so", opt_sets, umask_help,
 			       &def_parse_config,
 			       &def_print_module,
 			       &write_config_umask,
 			       &get_opt_set,
                                &getopt,
-			       &print_args};
+			       &print_args,
+			       &print_xmlhelp};

@@ -144,622 +144,1064 @@
 	split into two categories: global and single service
 	modules.
       </para>
-      <refsect3>
-	<title>GLOBAL MODULES</title>
-	<para>
-	  The global modules get inserted into the
-	  common-{account,auth,password,session} files which are
-	  included by the single service files.
-	</para>
-	<variablelist>
-	  <varlistentry>
-	    <term><option>--apparmor</option></term>
-	    <listitem>
-	      <para>
-		Add pam_apparmore.so to session config.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--bioapi</option></term>
-	    <listitem>
-	      <para>
-		Add pam_bioapi.so to the authentication stack before pam_unix2.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--bioapi-options=</option><replaceable>option</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <replaceable>option</replaceable> as argument for
-		pam_bioapi.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--ccreds</option></term>
-	    <listitem>
-	      <para>
-		Add pam_ccreds.so after pam_ldap.so or pam_krb5.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--cracklib</option></term>
-	    <listitem>
-	      <para>
-		Enable/Disable pam_cracklib.so module in password section.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--cracklib-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to all pam_cracklib.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--cracklib-retry=</option><replaceable>N</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>tries=</option><replaceable>N</replaceable>
-		to pam_cracklib.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--cracklib-dictpath=</option><replaceable>path</replaceable></term>
-	    <listitem>
-	      <para>
-		Specify <replaceable>path</replaceable> where pam_cracklib.so
-		can find the cracklib dictionaries.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--env</option></term>
-	    <listitem>
-	      <para>
-		Add pam_env.so as optional module to session section.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--env-conffile=</option><replaceable>file</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>conffile=</option><replaceable>file</replaceable>
-		to pam_env.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--env-envfile=</option><replaceable>file</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>envfile=</option><replaceable>file</replaceable>
-		to pam_env.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--env-readenv=</option><replaceable>0|1</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>readenv=</option><replaceable>0|1</replaceable>
-		to pam_env.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--krb5</option></term>
-	    <listitem>
-	      <para>
-		Use pam_krb5.so after pam_unix2.so to all stacks.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--krb5-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to all pam_krb5.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--krb5-minimum_uid=</option><replaceable>uid</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>minimum_uid</option> option with argument
-		<replaceable>uid</replaceable> to all pam_krb5.so invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--krb5-ignore_unknown_principals</option></term>
-	    <listitem>
-	      <para>
-		Add <option>ignore_unknown_principals</option> option to all
-		pam_krb5.so invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--ldap</option></term>
-	    <listitem>
-	      <para>
-		Add pam_ldap.so after pam_unix2.so to all stacks.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--ldap-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to all pam_ldap.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-		  <term><option>--ldap-account_only</option></term>
-		  <listitem>
-			  <para>
-				  Add pam_ldap.so only in the account block. Only allowed if
-				  kerberos (<option>--krb5</option>)is configured.
-			  </para>
-		  </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--limits</option></term>
-	    <listitem>
-	      <para>
-		Add pam_limits.so to session section.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--make</option></term>
-	    <listitem>
-	      <para>
-		Add pam_make.so as last module to password section.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--make-dir=</option><replaceable>path</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <replaceable>path</replaceable> as argument for pam_make.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--mkhomedir</option></term>
-	    <listitem>
-	      <para>
-		Add pam_mkhomedir.so as first module to session section.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--mkhomedir-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to all pam_mkhomedir.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--mkhomedir-silent</option></term>
-	    <listitem>
-	      <para>
-		Add <option>silent</option> option to all pam_mkhomedir.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--mkhomedir-umask=</option><replaceable>mode</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>umask=</option><replaceable>mode</replaceable>
-		to pam_mkhomedir.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--mkhomedir-skel=</option><replaceable>skeldir</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>skel=</option><replaceable>skeldir</replaceable>
-		to pam_mkhomedir.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--nam</option></term>
-	    <listitem>
-	      <para>
-		Add pam_nam.so to all stacks.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pkcs11</option></term>
-	    <listitem>
-	      <para>
-		Add pam_pkcs11.so before pam_unix2.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck</option></term>
-	    <listitem>
-	      <para>
-		Enable/Disable pam_pwcheck.so module in password section.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to all pam_pwcheck.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-nullok</option></term>
-	    <listitem>
-	      <para>
-		Add <option>nullok</option> option to all pam_pwcheck.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-cracklib</option></term>
-	    <listitem>
-	      <para>
-		Enable cracklib support of pam_pwcheck.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-cracklib-path=</option><replaceable>path</replaceable></term>
-	    <listitem>
-	      <para>
-		Specify <replaceable>path</replaceable> where pam_pwcheck.so can
-		find the cracklib dictionaries.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-maxlen=</option><replaceable>N</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>maxlen=</option><replaceable>N</replaceable>
-		to pam_pwcheck.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-minlen=</option><replaceable>N</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>minlen=</option><replaceable>N</replaceable>
-		to pam_pwcheck.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-tries=</option><replaceable>N</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>tries=</option><replaceable>N</replaceable>
-		to pam_pwcheck.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-remember=</option><replaceable>N</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>remember=</option><replaceable>N</replaceable>
-		to pam_pwcheck.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-nisdir=</option><replaceable>path</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>nisdir=</option><replaceable>path</replaceable>
-		to pam_pwcheck.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-no_obscure_checks</option></term>
-	    <listitem>
-	      <para>
-		Disable obscure checks of pam_pwcheck.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--pwcheck-enforce_for_root</option></term>
-	    <listitem>
-	      <para>
-		Enforce all checks of pam_pwcheck.so for root.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--thinkfinger</option></term>
-	    <listitem>
-	      <para>
-		Enable/Disable pam_thinkfinger.so in AUTH stack.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix</option></term>
-	    <listitem>
-	      <para>
-		Use pam_unix.so as standard UNIX PAM module. Note that
-		pam_unix.so and pam_unix2.so are mutually exclusive. If
-		you want to enable pam_unix.so, first remove
-		pam_unix2.so then add this one.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--umask</option></term>
-	    <listitem>
-	      <para>
-		Add pam_umask.so as optional session module.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--umask-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to all pam_umask.so
-		invocations in session management.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--umask-silent</option></term>
-	    <listitem>
-	      <para>
-		Add <option>silent</option> option to all pam_umask.so
-		invocations in session management.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--umask-usergroups</option></term>
-	    <listitem>
-	      <para>
-		Add <option>usergroups</option> option to all pam_umask.so
-		invocations in session management.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--umask-umask=</option><replaceable>mode</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>umask=</option><replaceable>mode</replaceable>
-		to pam_umask.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to all pam_unix.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix-audit</option></term>
-	    <listitem>
-	      <para>
-		Add <option>audit</option> option to all pam_unix.so
-		invocations. Note that this option overrides
-		<option>debug</option>.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix-nullok</option></term>
-	    <listitem>
-	      <para>
-		Add <option>nullok</option> option to all pam_unix.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix-bigcrypt</option></term>
-	    <listitem>
-	      <para>
-		Add <option>bigcrypt</option> option to pam_unix.so in
-		password section.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix-md5</option></term>
-	    <listitem>
-	      <para>
-		Add <option>md5</option> option to pam_unix.so in
-		password section. Note that this option overrides
-		<option>bigcrypt</option>.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix2</option></term>
-	    <listitem>
-	      <para>
-		Use pam_unix2.so as standard UNIX PAM module.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix2-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to all pam_unix2.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix2-nullok</option></term>
-	    <listitem>
-	      <para>
-		Add <option>nullok</option> option to all pam_unix2.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix2-trace</option></term>
-	    <listitem>
-	      <para>
-		Add <option>trace</option> option to pam_unix2.so
-		in session section.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--unix2-call_modules=</option><replaceable>module,...</replaceable></term>
-	    <listitem>
-	      <para>
-		Add <option>call_modules=</option><replaceable>module,...</replaceable> as argument to pam_unix2.so.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--winbind</option></term>
-	    <listitem>
-	      <para>
-		Use pam_winbind.so in all stacks.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--winbind-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to all pam_winbind.so
-		invocations.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	</variablelist>
+        <refsect3>
+        <title>GLOBAL MODULES</title>
+        <para>
+          The global modules get inserted into the
+          common-{account,auth,password,session} files
+          which are included by the single service files.
+        </para>
+        <variablelist>
+          <varlistentry>
+            <term><option>--apparmor</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_apparmor.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--apparmor-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_apparmor.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--apparmor-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_apparmor.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ccreds</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_ccreds.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ccreds-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_ccreds.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_cracklib.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_cracklib.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-type=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>type=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-retry=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>retry=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-difok=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>difok=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-difignore=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>difignore=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-minlen=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>minlen=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-dcredit=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>dcredit=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-ucredit=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>ucredit=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-lcredit=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>lcredit=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-ocredit=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>ocredit=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-minclass=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>minclass=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-dictpath=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>dictpath=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--env</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_env.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--env-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_env.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--env-conffile=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>conffile=</option><replaceable>value</replaceable> option to pam_env.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--env-envfile=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>envfile=</option><replaceable>value</replaceable> option to pam_env.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--env-readenv=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>readenv=</option><replaceable>value</replaceable> option to pam_env.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--group</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_group.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--group-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_group.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--krb5</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_krb5.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--krb5-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_krb5.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--krb5-ignore_unknown_principals</option></term>
+            <listitem>
+              <para>
+                Add <option>ignore_unknown_principals</option> option to all pam_krb5.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--krb5-minimum_uid=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>minimum_uid=</option><replaceable>value</replaceable> option to pam_krb5.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ldap</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_ldap.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ldap-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_ldap.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ldap-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_ldap.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--limits</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_limits.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--limits-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_limits.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--limits-change_uid</option></term>
+            <listitem>
+              <para>
+                Add <option>change_uid</option> option to all pam_limits.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--limits-utmp_early</option></term>
+            <listitem>
+              <para>
+                Add <option>utmp_early</option> option to all pam_limits.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--limits-conf=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>conf=</option><replaceable>value</replaceable> option to pam_limits.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--localuser</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_localuser.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--localuser-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_localuser.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--localuser-file=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>file=</option><replaceable>value</replaceable> option to pam_localuser.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--make</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_make.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--make-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_make.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--make-nosetuid</option></term>
+            <listitem>
+              <para>
+                Add <option>nosetuid</option> option to all pam_make.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--make-make=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>make=</option><replaceable>value</replaceable> option to pam_make.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--make-log=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>log=</option><replaceable>value</replaceable> option to pam_make.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--make-option=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>option=</option><replaceable>value</replaceable> option to pam_make.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--mkhomedir</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_mkhomedir.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--mkhomedir-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_mkhomedir.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--mkhomedir-silent</option></term>
+            <listitem>
+              <para>
+                Add <option>silent</option> option to all pam_mkhomedir.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--mkhomedir-umask=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>umask=</option><replaceable>value</replaceable> option to pam_mkhomedir.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--mkhomedir-skel=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>skel=</option><replaceable>value</replaceable> option to pam_mkhomedir.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--nam</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_nam.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--nam-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_nam.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pkcs11</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_pkcs11.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pkcs11-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_pkcs11.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pkcs11-configfile=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>configfile=</option><replaceable>value</replaceable> option to pam_pkcs11.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_pwcheck.so module in password section.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_pwcheck.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-nullok</option></term>
+            <listitem>
+              <para>
+                Add <option>nullok</option> option to all pam_pwcheck.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-cracklib</option></term>
+            <listitem>
+              <para>
+                Add <option>cracklib</option> option to pam_pwcheck.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-no_obscure_checks</option></term>
+            <listitem>
+              <para>
+                Add <option>no_obscure_checks</option> option to pam_pwcheck.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-enforce_for_root</option></term>
+            <listitem>
+              <para>
+                Add <option>enforce_for_root</option> option to pam_pwcheck.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-cracklib_path=</option><replaceable>path</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>cracklib_path=</option><replaceable>path</replaceable> to pam_pwcheck.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-maxlen=</option><replaceable>N</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>maxlen=</option><replaceable>N</replaceable> to pam_pwcheck.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-minlen=</option><replaceable>N</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>minlen=</option><replaceable>N</replaceable> to pam_pwcheck.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-tries=</option><replaceable>N</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>tries=</option><replaceable>N</replaceable> to pam_pwcheck.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-remember=</option><replaceable>N</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>remember=</option><replaceable>N</replaceable> to pam_pwcheck.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwcheck-nisdir=</option><replaceable>path</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>nisdir=</option><replaceable>path</replaceable> to pam_pwcheck.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ssh</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_ssh.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ssh-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_ssh.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ssh-nullok</option></term>
+            <listitem>
+              <para>
+                Add <option>nullok</option> option to all pam_ssh.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ssh-try_first_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>try_first_pass</option> option to all pam_ssh.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ssh-keyfiles=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>keyfiles=</option><replaceable>value</replaceable> option to pam_ssh.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--thinkfinger</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_thinkfinger.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--thinkfinger-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_thinkfinger.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--thinkfinger-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_thinkfinger.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--umask</option></term>
+            <listitem>
+              <para>
+                Add pam_umask.so as optional session module.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--umask-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_umask.so invocations in session management.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--umask-silent</option></term>
+            <listitem>
+              <para>
+                Add <option>silent</option> option to all pam_umask.so invocations in session management.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--umask-usergroups</option></term>
+            <listitem>
+              <para>
+                Add <option>usergroups</option> option to all pam_umask.so invocations in session management.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--umask-umask=</option><replaceable>mode</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>umask=</option><replaceable>mode</replaceable> to pam_umask.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_unix.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-audit</option></term>
+            <listitem>
+              <para>
+                Add <option>audit</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-nodelay</option></term>
+            <listitem>
+              <para>
+                Add <option>nodelay</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-nullok</option></term>
+            <listitem>
+              <para>
+                Add <option>nullok</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-shadow</option></term>
+            <listitem>
+              <para>
+                Add <option>shadow</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-md5</option></term>
+            <listitem>
+              <para>
+                Add <option>md5</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-bigcrypt</option></term>
+            <listitem>
+              <para>
+                Add <option>bigcrypt</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-not_set_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>not_set_pass</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-nis</option></term>
+            <listitem>
+              <para>
+                Add <option>nis</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-broken_shadow</option></term>
+            <listitem>
+              <para>
+                Add <option>broken_shadow</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-remember=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>remember=</option><replaceable>value</replaceable> option to pam_unix.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix2</option></term>
+            <listitem>
+              <para>
+                Use pam_unix2.so as standard UNIX PAM module.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix2-nullok</option></term>
+            <listitem>
+              <para>
+                Add <option>nullok</option> option to all pam_unix2.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix2-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_unix2.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix2-trace</option></term>
+            <listitem>
+              <para>
+                Add <option>trace</option> option to pam_unix2.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix2-none</option></term>
+            <listitem>
+              <para>
+                Add option <option>none</option> to pam_unix2.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix2-call_modules=</option><replaceable>modules,...</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>call_modules=</option><replaceable>list of modules</replaceable> to pam_unix2.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix2-nisdir=</option><replaceable>path</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>nisdir=</option><replaceable>path</replaceable> to pam_unix2.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--winbind</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_winbind.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--winbind-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_winbind.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--winbind-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_winbind.so.
+              </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </refsect3>
       <refsect3>
-	<title>SINGLE SERVICE MODULES</title>
-	<para>
-	  These modules can only be added to single service files.
-	  See also <xref linkend="examples"/>.
-	</para>
-	<variablelist>
-	  <varlistentry>
-	    <term><option>--ck_connector</option></term>
-	    <listitem>
-	      <para>
-		Add pam_ck_connector.so to session stack of the
-		specified service file.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--ck_connector-debug</option></term>
-	    <listitem>
-	      <para>
-		Add <option>debug</option> option to any invocation of
-		pam_ck_connector.so in the specified service file.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--cryptpass</option></term>
-	    <listitem>
-	      <para>
-		Add pam_cryptpass.so to the session stack of the specified service file.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--cryptpass-password</option></term>
-	    <listitem>
-	      <para>
-		Add pam_cryptpass.so to the password stack of the specified service file.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--csync</option></term>
-	    <listitem>
-	      <para>
-		Add pam_csync.so to the specified service file.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--lastlog</option></term>
-	    <listitem>
-	      <para>
-		Add pam_lastlog.so to the specified service file.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--loginuid</option></term>
-	    <listitem>
-	      <para>
-		Add pam_loginuid.so to the specified service file.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--loginuid-require_auditd</option></term>
-	    <listitem>
-	      <para>
-		Add <option>require_auditd</option> to invocations
-		of pam_loginuid.so in the specified service file.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term><option>--mount</option></term>
-	    <listitem>
-	      <para>
-		Add pam_mount.so to auth and session stack of the
-		specified service file.
-	      </para>
-	    </listitem>
-	  </varlistentry>
-	</variablelist>
+        <title>SINGLE SERVICE MODULES</title>
+        <para>
+          These modules can only be added to single service files.
+          See also <xref linkend="examples"/>.
+        </para>
+        <variablelist>
+          <varlistentry>
+            <term><option>--ck_connector</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_ck_connector.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ck_connector-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_ck_connector.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ck_connector-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_ck_connector.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cryptpass</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_cryptpass.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cryptpass-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_cryptpass.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--csync</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_csync.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--csync-use_first_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>use_first_pass</option> option to all pam_csync.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--csync-try_first_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>try_first_pass</option> option to all pam_csync.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--csync-soft_try_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>soft_try_pass</option> option to all pam_csync.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--csync-nullok</option></term>
+            <listitem>
+              <para>
+                Add <option>nullok</option> option to all pam_csync.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--csync-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_csync.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--csync-silent</option></term>
+            <listitem>
+              <para>
+                Add <option>silent</option> option to all pam_csync.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--csync-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_csync.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_lastlog.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_lastlog.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-silent</option></term>
+            <listitem>
+              <para>
+                Add <option>silent</option> option to all pam_lastlog.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-never</option></term>
+            <listitem>
+              <para>
+                Add <option>never</option> option to all pam_lastlog.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-nodate</option></term>
+            <listitem>
+              <para>
+                Add <option>nodate</option> option to all pam_lastlog.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-nohost</option></term>
+            <listitem>
+              <para>
+                Add <option>nohost</option> option to all pam_lastlog.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-noterm</option></term>
+            <listitem>
+              <para>
+                Add <option>noterm</option> option to all pam_lastlog.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-nowtmp</option></term>
+            <listitem>
+              <para>
+                Add <option>nowtmp</option> option to all pam_lastlog.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_lastlog.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--loginuid</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_loginuid.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--loginuid-require_auditd</option></term>
+            <listitem>
+              <para>
+                Add <option>require_auditd</option> option to all pam_loginuid.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--loginuid-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_loginuid.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--mount</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_mount.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--mount-empty=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>empty=</option><replaceable>value</replaceable> option to pam_mount.so.
+              </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </refsect3>
     </refsect2>
   </refsect1>

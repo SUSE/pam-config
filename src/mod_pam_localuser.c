@@ -63,16 +63,21 @@ GETOPT_START_1(ACCOUNT)
 GETOPT_END_1(ACCOUNT)
 
 PRINT_ARGS("localuser")
+PRINT_XMLHELP("localuser")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_1 (file);
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_localuser = { "pam_localuser.so", opt_sets,
+pam_module_t mod_pam_localuser = { "pam_localuser.so", opt_sets, helptext,
 				   &def_parse_config,
 				   &def_print_module,
 				   &write_config_localuser,
 				   &get_opt_set,
 				   &getopt,
-				   &print_args};
+				   &print_args,
+				   &print_xmlhelp};

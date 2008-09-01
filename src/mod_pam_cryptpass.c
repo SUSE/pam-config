@@ -121,16 +121,21 @@ write_config_cryptpass (  pam_module_t *this,
 }
 
 PRINT_ARGS("cryptpass")
+PRINT_XMLHELP("cryptpass")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_1( is_enabled );
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_cryptpass = { "pam_cryptpass.so", opt_sets,
+pam_module_t mod_pam_cryptpass = { "pam_cryptpass.so", opt_sets, helptext,
 				   &def_parse_config,
 				   &def_print_module,
 				   &write_config_cryptpass,
 				   &get_opt_set,
 				   NULL,
-				   &print_args};
+				   &print_args,
+				   &print_xmlhelp};

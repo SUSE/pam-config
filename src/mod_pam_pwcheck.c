@@ -161,17 +161,35 @@ GETOPT_START_1(PASSWORD)
 GETOPT_END_1(PASSWORD)
 
 
-PRINT_ARGS("pwcheck")
+PRINT_ARGS("pwcheck");
+PRINT_XMLHELP("pwcheck");
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_6(is_enabled, debug, nullok, cracklib, no_obscure_checks, enforce_for_root);
 DECLARE_STRING_OPTS_6(cracklib_path, maxlen, minlen, tries, remember, nisdir);
 DECLARE_OPT_SETS;
+
+module_helptext_t pwcheck_help[] = {{"", NULL, "Enable/Disable pam_pwcheck.so module in password section."},
+				    {"debug", NULL, "Add <option>debug</option> option to all pam_pwcheck.so invocations."},
+				    {"nullok", NULL, "Add <option>nullok</option> option to all pam_pwcheck.so invocations."},
+				    {"cracklib", NULL, "Add <option>cracklib</option> option to pam_pwcheck.so."},
+				    {"no_obscure_checks", NULL, "Add <option>no_obscure_checks</option> option to pam_pwcheck.so."},
+				    {"enforce_for_root", NULL,  "Add <option>enforce_for_root</option> option to pam_pwcheck.so."},
+				    {"cracklib_path", "path", "Add <option>cracklib_path=</option><replaceable>path</replaceable> to pam_pwcheck.so."},
+				    {"maxlen", "N", "Add <option>maxlen=</option><replaceable>N</replaceable> to pam_pwcheck.so."},
+				    {"minlen", "N", "Add <option>minlen=</option><replaceable>N</replaceable> to pam_pwcheck.so."},
+				    {"tries", "N", "Add <option>tries=</option><replaceable>N</replaceable> to pam_pwcheck.so."},
+				    {"remember", "N", "Add <option>remember=</option><replaceable>N</replaceable> to pam_pwcheck.so."},
+				    {"nisdir", "path", "Add <option>nisdir=</option><replaceable>path</replaceable> to pam_pwcheck.so."},
+				    {NULL, NULL, NULL}};
+
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_pwcheck = { "pam_pwcheck.so", opt_sets,
+pam_module_t mod_pam_pwcheck = { "pam_pwcheck.so", opt_sets, pwcheck_help,
 				 &parse_config_pwcheck,
 				 &def_print_module,
 				 &write_config_pwcheck,
 				 &get_opt_set,
 				 &getopt,
-				 &print_args};
+				 &print_args,
+				 &print_xmlhelp};

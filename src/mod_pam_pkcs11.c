@@ -50,16 +50,21 @@ GETOPT_START_1(AUTH)
 GETOPT_END_1(AUTH)
 
 PRINT_ARGS("pkcs11")
+PRINT_XMLHELP("pkcs11")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_1 (configfile);
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_pkcs11 = { "pam_pkcs11.so", opt_sets,
+pam_module_t mod_pam_pkcs11 = { "pam_pkcs11.so", opt_sets, helptext,
 				&def_parse_config,
 				&def_print_module,
 				&write_config_pkcs11,
 				&get_opt_set,
 				&getopt,
-				&print_args};
+				&print_args,
+				&print_xmlhelp};

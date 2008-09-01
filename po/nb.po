@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-22 11:22+0200\n"
+"POT-Creation-Date: 2008-09-01 10:40+0200\n"
 "PO-Revision-Date: 2007-08-15 22:29+0200\n"
 "Last-Translator: Rune Nordbøe Skillingstad <rune@skillingstad.no>\n"
 "Language-Team: Norwegian\n"
@@ -113,7 +113,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "FEIL: Kunne ikke legge til pam_cryptpass.so til tjenesten '%s'"
 
-#: src/mod_pam_mount.c:119 src/pam-config.c:408
+#: src/mod_pam_mount.c:119 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -151,12 +151,12 @@ msgstr ""
 "FEIL: pam_mount.so er aktiver. For å kunne benytte pam_thinkfinger.so må du "
 "deaktivere den først!\n"
 
-#: src/pam-config.c:47
+#: src/pam-config.c:46
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr "Anvendelse: %s -a|-c|-d [...]\n"
 
-#: src/pam-config.c:56
+#: src/pam-config.c:55
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -168,12 +168,12 @@ msgstr ""
 "Det gis INGEN\n"
 "garanti; heller ikke for SALGBARHET eller EGNETHET FOR ET BERSTEMT FORMÅL.\n"
 
-#: src/pam-config.c:68
+#: src/pam-config.c:67
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr "Prøv `%s --help' eller `%s --usage' for mer informasjon.\n"
 
-#: src/pam-config.c:76
+#: src/pam-config.c:75
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
@@ -182,122 +182,126 @@ msgstr ""
 "%s - opprett oppsettsfiler for PAM\n"
 "\n"
 
-#: src/pam-config.c:78
+#: src/pam-config.c:77
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr "  -a, --add         Legg til valg/PAM-moduler\n"
 
-#: src/pam-config.c:79
+#: src/pam-config.c:78
 msgid "  -c, --create      Create new configuration\n"
 msgstr "  -c, --create      Opprett nytt oppsett\n"
 
-#: src/pam-config.c:80
+#: src/pam-config.c:79
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr "  -d, --delete      Fjern valg/PAM-moduler\n"
 
-#: src/pam-config.c:81
+#: src/pam-config.c:80
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr ""
 
-#: src/pam-config.c:83
+#: src/pam-config.c:82
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialiser  Konverter gammel oppsettsfil og opprett ny\n"
 
-#: src/pam-config.c:85
+#: src/pam-config.c:84
 #, fuzzy
 msgid "      --service config  Service to modify config of\n"
 msgstr "  --tjenesteoppsett  Tjeneste som oppsettet skal endres for\n"
 
-#: src/pam-config.c:87
+#: src/pam-config.c:86
 msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Les inn gjeldende oppsett og skriv på nytt\n"
 
-#: src/pam-config.c:89
+#: src/pam-config.c:88
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       Se etter installerte moduler og alternativer\n"
 
-#: src/pam-config.c:91
+#: src/pam-config.c:90
+msgid "      --list-modules  List all supported modules\n"
+msgstr ""
+
+#: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
 msgstr "      --help        Vis denne hjelpeteksten\n"
 
-#: src/pam-config.c:92
+#: src/pam-config.c:93
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  -u, --usage       Vis kort anvendelsesmelding\n"
 
-#: src/pam-config.c:93
+#: src/pam-config.c:94
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version     Skriv ut programversjon\n"
 
-#: src/pam-config.c:96
+#: src/pam-config.c:97
 #, fuzzy
 msgid "Global Module Options:\n"
 msgstr "Alternativer for modem"
 
-#: src/pam-config.c:97
+#: src/pam-config.c:98
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:102
+#: src/pam-config.c:103
 #, fuzzy
 msgid "Single Service Module Options:\n"
 msgstr "Generelle monteringsvalg"
 
-#: src/pam-config.c:103
+#: src/pam-config.c:104
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:125 src/pam-config.c:178 src/pam-config.c:862
-#: src/pam-config.c:872 src/pam-config.c:882 src/pam-config.c:893
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
+#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Feil ved aktivering av %s (%m)\n"
 
-#: src/pam-config.c:127 src/pam-config.c:180 src/pam-config.c:864
-#: src/pam-config.c:874 src/pam-config.c:884 src/pam-config.c:895
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
+#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nytt oppsett fra %s er ikke i bruk!\n"
 
-#: src/pam-config.c:142
+#: src/pam-config.c:175
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "Filen %s er ikke en symlenke til %s.\n"
 
-#: src/pam-config.c:144
+#: src/pam-config.c:177
 #, c-format
 msgid "New config from %s is is not in use!\n"
 msgstr "Nytt oppsett fra %s er ikke i bruk!\n"
 
-#: src/pam-config.c:162
+#: src/pam-config.c:195
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr ""
 
-#: src/pam-config.c:166
+#: src/pam-config.c:199
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 
-#: src/pam-config.c:169
+#: src/pam-config.c:202
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "Kan ikke opprette sikkerhetskopifil for %s: %m"
 
-#: src/pam-config.c:173
+#: src/pam-config.c:206
 #, fuzzy, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "Kan ikke opprette %s: %m\n"
 
-#: src/pam-config.c:344
+#: src/pam-config.c:377
 #, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 "\n"
 "Kunne ikke laste oppsettsfil. Avbrutt!\n"
 
-#: src/pam-config.c:350 src/pam-config.c:386
+#: src/pam-config.c:383 src/pam-config.c:419
 #, c-format
 msgid ""
 "\n"
@@ -306,12 +310,12 @@ msgstr ""
 "\n"
 "Kunne ikke laste oppsettsfil. Avbrutt!\n"
 
-#: src/pam-config.c:637
+#: src/pam-config.c:671
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Støttede vanlige moduler:\n"
 
-#: src/pam-config.c:639
+#: src/pam-config.c:673
 #, c-format
 msgid ""
 "\n"
@@ -320,18 +324,18 @@ msgstr ""
 "\n"
 "Støttede tjenestemoduler:\n"
 
-#: src/pam-config.c:675
+#: src/pam-config.c:712
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: For mange argumenter.\n"
 
-#: src/pam-config.c:783
+#: src/pam-config.c:820
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Har ikke tilgang til '%s': %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
-#: src/pam-module.c:140
+#: src/pam-module.c:150
 #, c-format
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "Ukjent alternativ for %s, oversett: '%s'\n"

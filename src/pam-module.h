@@ -46,6 +46,17 @@ typedef struct gobal_opt {
 
 
 /**
+ * @ struct module_helptext_t
+ * @brief Contains the help text for a module option
+ */
+typedef struct {
+  char *option;
+  char *arg;
+  char *helptxt;
+} module_helptext_t;
+
+
+/**
  * @def TRUE
  * @brief Conveniance definition of boolean value TRUE.
  */
@@ -296,6 +307,95 @@ print_args (pam_module_t *this)		\
     } \
 }
 
+
+#define PRINT_XMLHELP(modname) \
+static module_helptext_t *search_key (pam_module_t *this, const char *key) \
+{									\
+  module_helptext_t *ptr = this->helptxt;				\
+									\
+  while (ptr->option != NULL)						\
+    {									\
+      if (strcmp (key, ptr->option) == 0)				\
+	return ptr;							\
+      else								\
+	++ptr;								\
+    }									\
+  return NULL;								\
+}									\
+									\
+static void								\
+print_xmlhelp (pam_module_t *this)					\
+{									\
+  option_set_t *opt_set = this->get_opt_set (this, AUTH);		\
+  bool_option_t **cur_bool_opt = opt_set->bool_opts;			\
+  string_option_t **cur_str_opt = opt_set->string_opts;			\
+  module_helptext_t *helptxt;						\
+									\
+  helptxt = search_key (this, "");					\
+									\
+  printf ("          <varlistentry>\n");				\
+  printf ("            <term><option>--%s</option></term>\n", modname);	\
+  printf ("            <listitem>\n");					\
+  printf ("              <para>\n");					\
+  if (helptxt && helptxt->helptxt)							\
+    printf ("                %s\n", helptxt->helptxt);			\
+  else									\
+    printf ("                Enable/Disable %s\n", this->name);	\
+  printf ("              </para>\n");					\
+  printf ("            </listitem>\n");					\
+  printf ("          </varlistentry>\n");				\
+									\
+  while (*cur_bool_opt != NULL)						\
+    {									\
+      if (strcmp ((*cur_bool_opt)->key, "is_enabled") != 0)		\
+	{								\
+	  helptxt = search_key (this, (*cur_bool_opt)->key);		\
+									\
+	  printf ("          <varlistentry>\n");			\
+	  printf ("            <term><option>--%s-%s</option></term>\n", \
+		  modname, (*cur_bool_opt)->key);			\
+	  printf ("            <listitem>\n");				\
+	  printf ("              <para>\n");				\
+	  if (helptxt && helptxt->helptxt)				\
+	    printf ("                %s\n", helptxt->helptxt);		\
+	  else								\
+	    printf ("                Add <option>%s</option> option to all %s invocations.\n", (*cur_bool_opt)->key, this->name); \
+	  printf ("              </para>\n");				\
+	  printf ("            </listitem>\n");				\
+	  printf ("          </varlistentry>\n");			\
+	}								\
+									\
+      cur_bool_opt++;							\
+    }									\
+  while (*cur_str_opt != NULL)						\
+    {									\
+      if (strcmp ((*cur_str_opt)->key, "is_enabled") != 0)		\
+	{								\
+	  helptxt = search_key (this, (*cur_str_opt)->key);		\
+									\
+	  printf ("          <varlistentry>\n");			\
+	  if (helptxt && helptxt->arg)					\
+	    printf ("            <term><option>--%s-%s=</option><replaceable>%s</replaceable></term>\n", \
+		    modname, (*cur_str_opt)->key, helptxt->arg);	\
+	  else								\
+	    printf ("            <term><option>--%s-%s=</option><replaceable>value</replaceable></term>\n", \
+		    modname, (*cur_str_opt)->key);			\
+          printf ("            <listitem>\n");				\
+          printf ("              <para>\n");			       	\
+	  if (helptxt && helptxt->helptxt)				\
+	    printf ("                %s\n", helptxt->helptxt);		\
+	  else						\
+	    printf ("                Add <option>%s=</option><replaceable>value</replaceable> option to %s.\n", (*cur_str_opt)->key, this->name); \
+	  printf ("              </para>\n");				\
+	  printf ("            </listitem>\n");				\
+	  printf ("          </varlistentry>\n");			\
+	}								\
+									\
+      cur_str_opt++;							\
+    }									\
+}
+
+
 #define GETOPT_START_1(type) \
 static int \
 getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt) \
@@ -400,8 +500,6 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt) \
   return 0;								\
 }
 
-
-
 /**
  * @enum write_type
  * @brief Defines the service type.
@@ -431,6 +529,7 @@ typedef enum write_type {
 typedef struct pam_module {
 	char *name;		      /**< The name of the module. */
 	option_set_t **option_sets;   /**< Pointer to a NULL terminated list of options_set_t's. */
+        module_helptext_t *helptxt;  /**< Pointer to struct with help text. */
 	/** Pointer to parse function. */
 	int (*parse_config)(struct pam_module *this, char *arguments, write_type_t type);
 	/** Pointer to print function, used for debuging output. */
@@ -444,8 +543,10 @@ typedef struct pam_module {
 	/** Pointer to getopt function */
         int (*getopt)(struct pam_module *this, char *opt, char *arg,
 		      global_opt_t *g_opt);
-	/** Pointer to print function, used for commandline argumnet output. */
+	/** Pointer to print function, used for commandline argument output. */
 	void (*print_args)(struct pam_module *this);
+	/** Pointer to print function, used for XML output. */
+	void (*print_xmlhelp)(struct pam_module *this);
 } pam_module_t;
 
 /**
@@ -579,6 +680,16 @@ int module_getopt (pam_module_t **module_list, const char *optarg,
  * @param module_list the list of modules
  */
 void print_module_args (pam_module_t **module_list);
+
+/**
+ * @brief command line argument in XML printing function.
+ *
+ * Prints all commandline options a module in the list understands
+ * in XML format to generate the manual page.
+ *
+ * @param module_list the list of modules
+ */
+void print_module_xmlhelp (pam_module_t **module_list);
 
 /**
  * @brief default config file parser

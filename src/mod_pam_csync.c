@@ -109,17 +109,22 @@ GETOPT_START_ALL
 GETOPT_END_ALL
 
 PRINT_ARGS("csync")
+PRINT_XMLHELP("csync")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_7 (is_enabled, use_first_pass, try_first_pass, soft_try_pass,
 		     nullok, debug, silent);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_csync = { "pam_csync.so", opt_sets,
-				 &def_parse_config,
-				 &def_print_module,
-				 &write_config_csync,
-				 &get_opt_set,
-				 &getopt,
-				 &print_args};
+pam_module_t mod_pam_csync = { "pam_csync.so", opt_sets, helptext,
+			       &def_parse_config,
+			       &def_print_module,
+			       &write_config_csync,
+			       &get_opt_set,
+			       &getopt,
+			       &print_args,
+			       &print_xmlhelp};

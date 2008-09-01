@@ -53,10 +53,11 @@ DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 /* at last construct the complete module object */
 pam_module_t mod_pam_succeed_if = {"pam_succeed_if.so",
-			     opt_sets,
-			     &parse_config_succeed_if,
-			     &def_print_module,
-			     &write_config_succeed_if,
-			     &get_opt_set,
-			     NULL /* Only used internal */,
-			     NULL /* Only used internal */};
+				   opt_sets, NULL,
+				   &parse_config_succeed_if,
+				   &def_print_module,
+				   &write_config_succeed_if,
+				   &get_opt_set,
+				   NULL /* Only used internal */,
+				   NULL /* Only used internal */,
+				   NULL /* Only used internal */};

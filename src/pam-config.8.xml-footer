@@ -1,0 +1,80 @@
+    </refsect2>
+  </refsect1>
+
+  <refsect1 id='examples'>
+    <title>USAGE EXAMPLES</title>
+    <variablelist>
+      <varlistentry>
+	<term>pam-config -q --unix2</term>
+	<listitem>
+	  <para>
+	    Query state of pam_unix2.so.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term>pam-config -a --ldap</term>
+	<listitem>
+	  <para>
+	    Enable ldap authentication.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term>pam-config --service gdm -a --mount</term>
+	<listitem>
+	  <para>
+	    Enable pam_mount.so for service gdm.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term>pam-config --debug -a --force --umask</term>
+	<listitem>
+	  <para>
+	    Enable pam_umask.so whether installed or not, and print
+	    debug information during the process.
+	  </para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id='see_also'>
+    <title>SEE ALSO</title>
+    <para>
+      <citerefentry>
+	<refentrytitle>PAM</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	<refentrytitle>pam_unix2</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	<refentrytitle>pam_pwcheck</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	<refentrytitle>pam_mkhomedir</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	<refentrytitle>pam_limits</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	<refentrytitle>pam_env</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	<refentrytitle>pam_xauth</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	<refentrytitle>pam_make</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>
+    </para>
+  </refsect1>
+
+  <refsect1 id='author'>
+    <title>AUTHOR</title>
+    <para>
+      <command>pam-config</command> was written by
+      Thorsten Kukuk &lt;kukuk@thkukuk.de&gt;.
+    </para>
+  </refsect1>
+</refentry>

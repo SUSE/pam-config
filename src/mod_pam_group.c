@@ -50,16 +50,21 @@ GETOPT_START_1(AUTH)
 GETOPT_END_1(AUTH)
 
 PRINT_ARGS("group")
+PRINT_XMLHELP("group")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_1 (is_enabled);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
 /* at last construct the complete module object */
-pam_module_t mod_pam_group = { "pam_group.so", opt_sets,
-				  &def_parse_config,
-				  &def_print_module,
-				  &write_config_group,
-				  &get_opt_set,
-				  &getopt,
-				  &print_args};
+pam_module_t mod_pam_group = { "pam_group.so", opt_sets, helptext,
+			       &def_parse_config,
+			       &def_print_module,
+			       &write_config_group,
+			       &get_opt_set,
+			       &getopt,
+			       &print_args,
+			       &print_xmlhelp};
