@@ -369,7 +369,8 @@ print_xmlhelp (pam_module_t *this)					\
     }									\
   while (*cur_str_opt != NULL)						\
     {									\
-      if (strcmp ((*cur_str_opt)->key, "is_enabled") != 0)		\
+      if ((strcmp ((*cur_str_opt)->key, "is_enabled") != 0) &&		\
+	(strcmp ((*cur_str_opt)->key, "empty") != 0))			\
 	{								\
 	  helptxt = search_key (this, (*cur_str_opt)->key);		\
 									\

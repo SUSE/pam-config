@@ -1,4 +1,9 @@
+2008-09-03  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* trunk/src/pam-module.h: Ignore "empty"  key.
+
 2008-09-03  Michael Calmer  <mc@suse.de>
+
 	* supported-modules.h: move pam_group to the beginning of auth.
 	Move pam_ssh before the first sufficient module which requires a
 	password.
