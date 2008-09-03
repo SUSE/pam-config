@@ -1,3 +1,9 @@
+2008-09-03  Michael Calmer  <mc@suse.de>
+	* supported-modules.h: move pam_group to the beginning of auth.
+	Move pam_ssh before the first sufficient module which requires a
+	password.
+	* src/mod_pam_krb5.c: remove special check for pam_group.
+
 2008-09-01  Thorsten Kukuk  <kukuk@thkukuk.de>
 
 	* src/pam-module.h: Add struct and defines for xml output.
