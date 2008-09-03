@@ -102,7 +102,7 @@ write_config_krb5 (pam_module_t *this, enum write_type op, FILE *fp)
 }
 
 GETOPT_START_ALL
-  else if (strcmp ("mainimum_uid", opt) == 0)
+  else if (strcmp ("minimum_uid", opt) == 0)
     {
       if (g_opt->m_delete)
 	{
