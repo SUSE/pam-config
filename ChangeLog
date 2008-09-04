@@ -1,6 +1,10 @@
+2008-09-04  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/mod_pam_pwcheck.c: Remove nisdir.
+
 2008-09-03  Thorsten Kukuk  <kukuk@thkukuk.de>
 
-	* trunk/src/pam-module.h: Ignore "empty"  key.
+	* src/pam-module.h: Ignore "empty"  key.
 
 2008-09-03  Michael Calmer  <mc@suse.de>
 

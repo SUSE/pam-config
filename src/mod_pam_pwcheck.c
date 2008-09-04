@@ -63,8 +63,6 @@ parse_config_pwcheck (pam_module_t *this, char *args, write_type_t type)
 	opt_set->set_opt (opt_set, "tries", strdup(&cp[6]));
       else if (strncmp (cp, "remember=", 9) == 0)
 	opt_set->set_opt (opt_set, "remember", strdup(&cp[9]));
-      else if (strncmp (cp, "nisdir=", 7) == 0)
-	opt_set->set_opt (opt_set, "nisdir", strdup(&cp[7]));
       else if (strcmp (cp, "use_first_pass") == 0)
         { /* will be ignored */ }
       else if (strcmp (cp, "use_authtok") == 0)
@@ -124,9 +122,6 @@ write_config_pwcheck (pam_module_t *this, enum write_type op, FILE *fp)
     fprintf (fp, "remember=%s ", cp);
   if (opt_set->is_enabled (opt_set, "no_obscure_checks"))
     fprintf (fp, "no_obscure_checks ");
-  cp = opt_set->get_opt (opt_set, "nisdir");
-  if (cp)
-    fprintf (fp, "nisdir=%s ", cp);
   if (opt_set->is_enabled (opt_set, "enforce_for_root"))
     fprintf (fp, "enforce_for_root ");
 
@@ -166,7 +161,7 @@ PRINT_XMLHELP("pwcheck");
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_6(is_enabled, debug, nullok, cracklib, no_obscure_checks, enforce_for_root);
-DECLARE_STRING_OPTS_6(cracklib_path, maxlen, minlen, tries, remember, nisdir);
+DECLARE_STRING_OPTS_6(cracklib_path, maxlen, minlen, tries, remember);
 DECLARE_OPT_SETS;
 
 module_helptext_t pwcheck_help[] = {{"", NULL, "Enable/Disable pam_pwcheck.so module in password section."},
@@ -180,7 +175,6 @@ module_helptext_t pwcheck_help[] = {{"", NULL, "Enable/Disable pam_pwcheck.so mo
 				    {"minlen", "N", "Add <option>minlen=</option><replaceable>N</replaceable> to pam_pwcheck.so."},
 				    {"tries", "N", "Add <option>tries=</option><replaceable>N</replaceable> to pam_pwcheck.so."},
 				    {"remember", "N", "Add <option>remember=</option><replaceable>N</replaceable> to pam_pwcheck.so."},
-				    {"nisdir", "path", "Add <option>nisdir=</option><replaceable>path</replaceable> to pam_pwcheck.so."},
 				    {NULL, NULL, NULL}};
 
 
