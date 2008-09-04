@@ -169,26 +169,10 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--apparmor-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_apparmor.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--ccreds</option></term>
             <listitem>
               <para>
                 Enable/Disable pam_ccreds.so
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--ccreds-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_ccreds.so.
               </para>
             </listitem>
           </varlistentry>
@@ -345,14 +329,6 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--group-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_group.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--krb5</option></term>
             <listitem>
               <para>
@@ -397,14 +373,6 @@
             <listitem>
               <para>
                 Add <option>debug</option> option to all pam_ldap.so invocations.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--ldap-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_ldap.so.
               </para>
             </listitem>
           </varlistentry>
@@ -569,14 +537,6 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--nam-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_nam.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--pkcs11</option></term>
             <listitem>
               <para>
@@ -689,14 +649,6 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--pwcheck-nisdir=</option><replaceable>path</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>nisdir=</option><replaceable>path</replaceable> to pam_pwcheck.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--ssh</option></term>
             <listitem>
               <para>
@@ -749,14 +701,6 @@
             <listitem>
               <para>
                 Add <option>debug</option> option to all pam_thinkfinger.so invocations.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--thinkfinger-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_thinkfinger.so.
               </para>
             </listitem>
           </varlistentry>
@@ -968,14 +912,6 @@
               </para>
             </listitem>
           </varlistentry>
-          <varlistentry>
-            <term><option>--winbind-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_winbind.so.
-              </para>
-            </listitem>
-          </varlistentry>
         </variablelist>
       </refsect3>
       <refsect3>
@@ -1002,26 +938,10 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--ck_connector-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_ck_connector.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--cryptpass</option></term>
             <listitem>
               <para>
                 Enable/Disable pam_cryptpass.so
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--cryptpass-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_cryptpass.so.
               </para>
             </listitem>
           </varlistentry>
@@ -1078,14 +998,6 @@
             <listitem>
               <para>
                 Add <option>silent</option> option to all pam_csync.so invocations.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--csync-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_csync.so.
               </para>
             </listitem>
           </varlistentry>
@@ -1154,14 +1066,6 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--lastlog-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_lastlog.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--loginuid</option></term>
             <listitem>
               <para>
@@ -1178,26 +1082,10 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--loginuid-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_loginuid.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--mount</option></term>
             <listitem>
               <para>
                 Enable/Disable pam_mount.so
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--mount-empty=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>empty=</option><replaceable>value</replaceable> option to pam_mount.so.
               </para>
             </listitem>
           </varlistentry>

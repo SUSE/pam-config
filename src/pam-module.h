@@ -1,3 +1,4 @@
+
 /**
  * @file pam-module.h
  * @brief The pam-config module API.
@@ -206,6 +207,12 @@ typedef struct {
   GENERIC_OPT_SET_3( account,	string, STRING_DEFAULT,OPT_1,OPT_2,OPT_3); \
   GENERIC_OPT_SET_3( password,	string, STRING_DEFAULT,OPT_1,OPT_2,OPT_3); \
   GENERIC_OPT_SET_3( session,	string, STRING_DEFAULT,OPT_1,OPT_2,OPT_3);
+
+#define DECLARE_STRING_OPTS_5(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5)	\
+  GENERIC_OPT_SET_5( auth,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5 );	\
+  GENERIC_OPT_SET_5( account,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5 );	\
+  GENERIC_OPT_SET_5( password,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5 );	\
+  GENERIC_OPT_SET_5( session,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5 );
 
 #define DECLARE_STRING_OPTS_6(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5,OPT_6)	\
   GENERIC_OPT_SET_6( auth,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6 );	\

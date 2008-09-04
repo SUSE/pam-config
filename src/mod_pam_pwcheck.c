@@ -161,7 +161,7 @@ PRINT_XMLHELP("pwcheck");
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_6(is_enabled, debug, nullok, cracklib, no_obscure_checks, enforce_for_root);
-DECLARE_STRING_OPTS_6(cracklib_path, maxlen, minlen, tries, remember);
+DECLARE_STRING_OPTS_5(cracklib_path, maxlen, minlen, tries, remember);
 DECLARE_OPT_SETS;
 
 module_helptext_t pwcheck_help[] = {{"", NULL, "Enable/Disable pam_pwcheck.so module in password section."},
