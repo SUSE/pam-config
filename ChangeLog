@@ -1,3 +1,10 @@
+2008-10-03  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/pam-config.c: If module->getopt returns 2, don't print
+	message about wrong option.
+	* src/pam-module.h: Return 2 if sanity check fails.
+	* src/pam-module.c: Use error code of module->getopt.
+
 2008-09-04  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.60

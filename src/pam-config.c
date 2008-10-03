@@ -695,9 +695,12 @@ main (int argc, char *argv[])
 
 	    if (notfound)
 	      {
-		fprintf (stderr, "%s: invalid option -- %s\n",
-			 program, argv[optind -1]);
-		print_error (program);
+		if (notfound == 1) 
+                  {
+		     fprintf (stderr, "%s: invalid option -- %s\n",
+			      program, argv[optind -1]);
+		     print_error (program);
+		  }
 		return 1;
 	      }
 	  }

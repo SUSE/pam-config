@@ -196,14 +196,23 @@ module_getopt (pam_module_t **module_list, const char *optarg,
 
   while (*module_list != NULL)
     {
+      int retval;
+
       if (strcmp ((*module_list)->name, name) == 0 &&
 	  (*module_list)->getopt != NULL)
-	if ((*module_list)->getopt ((*module_list), work, arg,
-				    opt) == 0)
-	  {
-	    free (name);
-	    return 0;
-	  }
+        {
+	   retval = (*module_list)->getopt ((*module_list), work, arg, opt);
+           if (retval == 0)
+	     {
+	       free (name);
+	       return 0;
+	     }
+           else if (retval == 2) /* module not installed */
+             {
+               free (name);
+               return 2;
+             }
+        }
       module_list++;
     }
 

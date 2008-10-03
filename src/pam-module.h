@@ -403,6 +403,13 @@ print_xmlhelp (pam_module_t *this)					\
     }									\
 }
 
+/*
+ * Return values:
+ * 0: Ok
+ * 1: Option does not exist
+ * 2: Ohter error, error message already printed
+ */
+
 
 #define GETOPT_START_1(type) \
 static int \
@@ -421,7 +428,7 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt) \
 	{ \
 	  if (!g_opt->m_delete && \
 	      check_for_pam_module (this->name, g_opt->force) != 0) \
-	    return 1; \
+	    return 2; \
 	  opt_set = this->get_opt_set (this, type); \
 	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val); \
 	} \
@@ -468,7 +475,7 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt) \
 	{ \
 	  if (!g_opt->m_delete && \
 	      check_for_pam_module (this->name, g_opt->force) != 0) \
-	    return 1; \
+	    return 2; \
 	  opt_set = this->get_opt_set (this, ACCOUNT); \
 	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val); \
 	  opt_set = this->get_opt_set (this, AUTH); \
