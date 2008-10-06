@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.pt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-01 10:40+0200\n"
-"PO-Revision-Date: 2008-04-06 22:24+0100\n"
+"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"PO-Revision-Date: 2008-09-25 23:05+0100\n"
 "Last-Translator: Antonio Cardoso Martins <digiplan.pt@gmail.com>\n"
 "Language-Team: Portuguese <opensuse-pt@opensuse.org>\n"
 "MIME-Version: 1.0\n"
@@ -94,9 +94,9 @@ msgstr ""
 "m).\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "ERRO: Não foi possível adicionar o pam_cryptpass.so ao serviço '%s'"
+msgstr "ERRO: Não foi possível adicionar pam_ck_connector.so ao serviço '%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -255,14 +255,14 @@ msgstr ""
 "      Estes módulos podem apenas ser adicionados aos ficheiros de serviço "
 "simples.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
-#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:902
+#: src/pam-config.c:912 src/pam-config.c:922 src/pam-config.c:933
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Erro ao activar %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
-#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:904
+#: src/pam-config.c:914 src/pam-config.c:924 src/pam-config.c:935
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nova configuração a partir de %s não está em uso!\n"
@@ -283,19 +283,21 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "AVISO: ficheiro '%s' não encontrado. A omitir cópia de segurança.\n"
 
 #: src/pam-config.c:199
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "AVISO: ficheiro '%s' não encontrado. A omitir cópia de segurança.\n"
+msgstr ""
+"AVISO: O ficheiro de cópia de segurança '%s' já existe. A omitir cópia de "
+"segurança.\n"
 
 #: src/pam-config.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Impossível criar ficheiro de segurança de %s: %m"
+msgstr "ERRO: Não é possível criar ficheiro de cópia de segurança '%s' (%m)\n"
 
 #: src/pam-config.c:206
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Não é possível criar %s: %m\n"
+msgstr "ERRO: Não é possível remover '%s' (%m)\n"
 
 #: src/pam-config.c:377
 #, c-format
@@ -326,12 +328,12 @@ msgstr ""
 "\n"
 "Módulos de serviços suportados:\n"
 
-#: src/pam-config.c:712
+#: src/pam-config.c:715
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Demasiados argumentos.\n"
 
-#: src/pam-config.c:820
+#: src/pam-config.c:823
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Não é possível aceder '%s': %m\n"

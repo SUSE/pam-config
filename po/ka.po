@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-01 10:40+0200\n"
+"POT-Creation-Date: 2008-10-06 13:57+0200\n"
 "PO-Revision-Date: 2005-05-18 10:33+0200\n"
 "Last-Translator: Aiet Kolkhi <aiet@qartuli.net>\n"
 "Language-Team: Georgian <i18n@suse.de>\n"
@@ -222,14 +222,14 @@ msgstr ""
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
-#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:902
+#: src/pam-config.c:912 src/pam-config.c:922 src/pam-config.c:933
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
-#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:904
+#: src/pam-config.c:914 src/pam-config.c:924 src/pam-config.c:935
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -288,12 +288,12 @@ msgid ""
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:712
+#: src/pam-config.c:715
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""
 
-#: src/pam-config.c:820
+#: src/pam-config.c:823
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr ""

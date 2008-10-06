@@ -69,7 +69,7 @@ GETOPT_START_ALL
       else
 	{
 	  opt_set = this->get_opt_set (this, AUTH);
-	  opt_set->set_opt (opt_set, "keyfiles", optarg);
+	  opt_set->set_opt (opt_set, "keyfiles", strdup (optarg));
 	}
     }
 GETOPT_END_ALL

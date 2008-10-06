@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.et\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-01 10:40+0200\n"
+"POT-Creation-Date: 2008-10-06 13:57+0200\n"
 "PO-Revision-Date: 2007-07-20 09:39+0300\n"
 "Last-Translator: Ain Vagula <avagula@gmail.com>\n"
 "Language-Team: Estonian <linux-ee@lists.eenet.ee>\n"
@@ -234,14 +234,14 @@ msgstr "Üldised ühendamise sätted"
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
-#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:902
+#: src/pam-config.c:912 src/pam-config.c:922 src/pam-config.c:933
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Error activating %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
-#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:904
+#: src/pam-config.c:914 src/pam-config.c:924 src/pam-config.c:935
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Uus häälestus asukohast %s pole kasutusel!\n"
@@ -304,12 +304,12 @@ msgid ""
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:712
+#: src/pam-config.c:715
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Liiga palju argumente.\n"
 
-#: src/pam-config.c:820
+#: src/pam-config.c:823
 #, fuzzy, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Pole võimalik luua %s: %m\n"

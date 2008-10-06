@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.km\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-01 10:40+0200\n"
-"PO-Revision-Date: 2008-04-22 09:17+0700\n"
+"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"PO-Revision-Date: 2008-09-23 15:50+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
-"Language-Team: Khmer <en@li.org>\n"
+"Language-Team: Khmer <support@khmeros.info>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: 0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: src/load_config.c:131
@@ -83,9 +83,9 @@ msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr "ព្រមាន ៖ មិនអាច​រក /etc/security/pam_pwcheck.conf{.rpmsave} (%m) ។\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "កំហុស ៖ មិន​អាច​បន្ថែម pam_cryptpass.so ទៅ​សេវា '%s'"
+msgstr "កំហុស ៖ មិនអាច​បន្ថែម pam_ck_connector.so ទៅ​កាន់​សេវា '%s' បាន​ទេ"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -237,14 +237,14 @@ msgstr "ជម្រើស​ម៉ូឌុល​សេវា​តែ​មួ
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      ម៉ូឌុល​ទាំងនេះ​​អាច​ត្រូវ​បាន​បន្ថែម​តែ​ទៅ​កាន់​ឯកសារ​សេវា​ប៉ុណ្ណោះ ។\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
-#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:902
+#: src/pam-config.c:912 src/pam-config.c:922 src/pam-config.c:933
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "កំហុស​ក្នុង​ការ​ធ្វើ​ឲ្យ %s សកម្ម (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
-#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:904
+#: src/pam-config.c:914 src/pam-config.c:924 src/pam-config.c:935
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "config ថ្មី​ពី %s មិន​កំពុង​ប្រើ !\n"
@@ -265,19 +265,19 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "ព្រមាន ៖ រក​មិន​ឃើញ​ឯកសារ '%s' ។ លុប​កា​របម្រុង​ទុក ។\n"
 
 #: src/pam-config.c:199
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "ព្រមាន ៖ រក​មិន​ឃើញ​ឯកសារ '%s' ។ លុប​កា​របម្រុង​ទុក ។\n"
+msgstr "ព្រមាន ៖ មាន​ឯកសារ​បម្រុង​ទុក '%s' រួច​ហើយ ។ លុប​ការ​បម្រុង​ទុក ។\n"
 
 #: src/pam-config.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "មិនអាច​បង្កើត​ឯកសារ​បម្រុង​ទុក​របស់ %s បានទេ ៖ %m"
+msgstr "កំហុស ៖ មិនអាច​បង្កើត​ឯកសារ​បម្រុងទុក '%s' (%m) បាន​ទេ\n"
 
 #: src/pam-config.c:206
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "មិន​អាច​បង្កើត %s ៖ %m\n"
+msgstr "កំហុស ៖ មិនអាច​យក '%s' (%m)​ ចេញ​បាន​ទេ\n"
 
 #: src/pam-config.c:377
 #, c-format
@@ -307,12 +307,12 @@ msgstr ""
 "\n"
 "ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
 
-#: src/pam-config.c:712
+#: src/pam-config.c:715
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s ៖ មាន​អាគុយម៉ង់​ច្រើន​ពេក ។\n"
 
-#: src/pam-config.c:820
+#: src/pam-config.c:823
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "មិន​អាច​ចូល​ដំណើរការ '%s' ៖ %m\n"

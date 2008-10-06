@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-01 10:40+0200\n"
-"PO-Revision-Date: 2008-04-06 17:16+0200\n"
+"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"PO-Revision-Date: 2008-09-26 16:28+0200\n"
 "Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Language-Team: Spanish <opensuse-translation-es@opensuse.org>\n"
 "MIME-Version: 1.0\n"
@@ -98,9 +98,9 @@ msgstr ""
 "(%m).\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "ERROR: No se puede añadir pam_cryptopass.so al servicio '%s'"
+msgstr "ERROR: No se puede añadir pam_ck_connector.so al servicio '%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -266,14 +266,14 @@ msgstr ""
 "      Estos módulos sólo se pueden añadir a archivos de servicio "
 "individuales.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
-#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:902
+#: src/pam-config.c:912 src/pam-config.c:922 src/pam-config.c:933
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Error al activar %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
-#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:904
+#: src/pam-config.c:914 src/pam-config.c:924 src/pam-config.c:935
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "¡La nueva configuración de %s no está en uso!\n"
@@ -292,25 +292,26 @@ msgstr "¡La nueva configuración de %s no está en uso!\n"
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr ""
-"ADVERTENCIA: no se ha encontrado el archivo '%s'. Omitiendo la copia de "
+"ADVERTENCIA: No se ha encontrado el archivo '%s'. Omitiendo la copia de "
 "seguridad.\n"
 
 #: src/pam-config.c:199
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
-"ADVERTENCIA: no se ha encontrado el archivo '%s'. Omitiendo la copia de "
-"seguridad.\n"
+"ADVERTENCIA: El archivo de copia de seguridad '%s' ya existe. Omitiendo la "
+"copia de seguridad.\n"
 
 #: src/pam-config.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "No es posible crear una copia de seguridad de %s: %m"
+msgstr ""
+"ERROR: No es posible crear el archivo de copia de seguridad '%s' (%m)\n"
 
 #: src/pam-config.c:206
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "No se puede crear %s: %m\n"
+msgstr "ERROR: No se puede eliminar '%s' (%m)\n"
 
 # include/backup/ui.ycp:1661
 #: src/pam-config.c:377
@@ -344,12 +345,12 @@ msgstr ""
 "\n"
 "Módulos de servicio soportados:\n"
 
-#: src/pam-config.c:712
+#: src/pam-config.c:715
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Demasiados argumentos.\n"
 
-#: src/pam-config.c:820
+#: src/pam-config.c:823
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "No se puede acceder a '%s': %m\n"
@@ -363,12 +364,12 @@ msgstr "Opción desconocida para %s, ignorado: '%s'\n"
 #: src/sanity_checks.c:46
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
-msgstr "ADVERTENCIA: el módulo %s no está instalado.\n"
+msgstr "ADVERTENCIA: El módulo %s no está instalado.\n"
 
 #: src/sanity_checks.c:51
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
-msgstr "ERROR: el módulo %s no está instalado.\n"
+msgstr "ERROR: El módulo %s no está instalado.\n"
 
 #: src/sanity_checks.c:77
 #, c-format
@@ -376,7 +377,7 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
-"ERROR: sólo se permite ldap-account_only junto con krb5.\n"
+"ERROR: Sólo se permite ldap-account_only junto con krb5.\n"
 "¡La configuración no se ha cambiado!\n"
 
 #: src/sanity_checks.c:115
@@ -401,7 +402,7 @@ msgid ""
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
 "INFORMACIÓN: pam_unix.so y pam_unix2.so habilitados en el servicio %s,\n"
-"INFORMACIÓN: se habilitará sólo pam_unix2.so.\n"
+"INFORMACIÓN: Se habilitará sólo pam_unix2.so.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
 #, c-format

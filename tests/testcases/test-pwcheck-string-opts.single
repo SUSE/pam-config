@@ -1,0 +1,6 @@
+#!/bin/sh
+. support/header.sh
+
+$PAMCONFIG -a --pwcheck-minlen=3 --pwcheck-cracklib_path=/usr/share/cracklib/this_is_a_test_path
+
+. support/footer-common.sh

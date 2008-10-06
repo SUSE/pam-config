@@ -1,29 +1,28 @@
-# translation of pam-config.ru.po to Russian
-# @TITLE@
+# Translation of pam-config.po to russian
+# Russian message file for YaST2 (pam-config.ru.po).
 # Copyright (C) 2006, SUSE Linux GmbH, Nuremberg
 #
-# This file is distributed under the same license as @PACKAGE@ package. FIRST
-#
-# Aleksey Osipov <aliks-os@yandex.ru>, 2005, 2006, 2007, 2008.
+# Aleksey Osipov <aliks-os@yandex.ru>, 2008.
+# Alexander Melentiev <alex239@gmail.com>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-01 10:40+0200\n"
-"PO-Revision-Date: 2008-05-02 09:15+0300\n"
-"Last-Translator: Aleksey Osipov <aliks-os@yandex.ru>\n"
+"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"PO-Revision-Date: 2008-09-04 02:08+0400\n"
+"Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 0.2\n"
 
 #: src/load_config.c:131
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
-msgstr "%s (%s): Параметр будет проигнорирован\n"
+msgstr "%s (%s): Параметры будут проигнорированы\n"
 
 #: src/load_config.c:135
 #, c-format
@@ -101,9 +100,9 @@ msgstr ""
 "ВНИМАНИЕ: Не удалось найти /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "ОШИБКА: Невозможно добавить pam_cryptpass.so к службе '%s'"
+msgstr "ОШИБКА: Невозможно добавить pam_ck_connector.so к службе '%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -111,7 +110,7 @@ msgid ""
 "ERROR: pam_mount.so is not enabled for service '%s', but needed by "
 "pam_cryptpass.so\n"
 msgstr ""
-"ОШИБКА: pam_mount.so не включен для службы '%s', но он необходим для "
+"ОШИБКА: pam_mount.so не включён для службы '%s', но он необходим для "
 "pam_cryptpass.so\n"
 
 #: src/mod_pam_cryptpass.c:116
@@ -131,7 +130,7 @@ msgstr ""
 #: src/mod_pam_mount.c:125
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
-msgstr "ОШИБКА: Модуль pam_thinkfinger.so включен. Отключите его сначало.\n"
+msgstr "ОШИБКА: Модуль pam_thinkfinger.so включён. Сначала отключите его.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -141,7 +140,7 @@ msgstr "ОШИБКА: Не хватает памяти для создания �
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
-msgstr "ВНИМАНИЕ: Найдены не служебные файлы в '%s'.\n"
+msgstr "ВНИМАНИЕ: Найдены неслужебные файлы в '%s'.\n"
 
 #  summary text heading
 #: src/mod_pam_thinkfinger.c:116
@@ -155,8 +154,8 @@ msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
-"ОШИБКА: pam_mount.so включен. Чтобы использовать pam_thinkfinger.so, вам "
-"необходимо снечало отключить его!\n"
+"ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
+"необходимо сначала отключить его!\n"
 
 #: src/pam-config.c:46
 #, c-format
@@ -189,37 +188,37 @@ msgid ""
 "%s - create PAM config files\n"
 "\n"
 msgstr ""
-"%s - создает конфигурационные файлы PAM\n"
+"%s - создать конфигурационные файлы PAM\n"
 "\n"
 
 #: src/pam-config.c:77
 msgid "  -a, --add         Add options/PAM modules\n"
-msgstr "  -a, --add         Добавляет параметры/PAM модули\n"
+msgstr "  -a, --add         Добавить параметры/PAM-модули\n"
 
 #: src/pam-config.c:78
 msgid "  -c, --create      Create new configuration\n"
-msgstr "  -c, --create      Создает новую конфигурацию\n"
+msgstr "  -c, --create      Создать новую конфигурацию\n"
 
 #: src/pam-config.c:79
 msgid "  -d, --delete      Remove options/PAM modules\n"
-msgstr "  -d, --delete      Удаляет параметры/PAM модули\n"
+msgstr "  -d, --delete      Удалить параметры/PAM-модули\n"
 
 #: src/pam-config.c:80
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr "      --confdir     Использует каталог пользовательских настроек\n"
+msgstr "      --confdir     Использовать каталог пользовательских настроек\n"
 
 #: src/pam-config.c:82
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr ""
-"      --initialize  Преобразовывает старую конфигурацию и создает новую\n"
+"      --initialize  Преобразовать старую конфигурацию и создать новую\n"
 
 #: src/pam-config.c:84
 msgid "      --service config  Service to modify config of\n"
-msgstr "  --service config  Изменение настройки службы\n"
+msgstr "  --service config  Изменение настроек службы\n"
 
 #: src/pam-config.c:86
 msgid "      --update      Read current config and write them new\n"
-msgstr "      --update      Читает текущую конфигурацию и записывает новую\n"
+msgstr "      --update      Читать текущую конфигурацию и записать новую\n"
 
 #: src/pam-config.c:88
 msgid "  -q, --query       Query for installed modules and options\n"
@@ -231,7 +230,7 @@ msgstr ""
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
-msgstr "      --help         Вывести справку\n"
+msgstr "      --help         Вывести эту справку\n"
 
 #: src/pam-config.c:93
 msgid "  -u, --usage       Give a short usage message\n"
@@ -263,14 +262,14 @@ msgstr "Параметры одного модуля службы:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Эти модули могут быть добавлены к файлам одной службы.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
-#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:902
+#: src/pam-config.c:912 src/pam-config.c:922 src/pam-config.c:933
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Ошибка активации %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
-#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:904
+#: src/pam-config.c:914 src/pam-config.c:924 src/pam-config.c:935
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Новая конфигурация из %s не используется!\n"
@@ -278,7 +277,7 @@ msgstr "Новая конфигурация из %s не используетс�
 #: src/pam-config.c:175
 #, c-format
 msgid "File %s is no symlink to %s.\n"
-msgstr "Файл %s не является символической свяью с %s.\n"
+msgstr "Файл %s не является символической связью с %s.\n"
 
 #: src/pam-config.c:177
 #, c-format
@@ -291,19 +290,21 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "ВНИМАНИЕ: файл '%s' не найден. Резервное копирование пропускается.\n"
 
 #: src/pam-config.c:199
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "ВНИМАНИЕ: файл '%s' не найден. Резервное копирование пропускается.\n"
+msgstr ""
+"ВНИМАНИЕ: Файл резервной копии '%s' уже существует. Резервное копирование "
+"пропускается.\n"
 
 #: src/pam-config.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Невозможно создать резервный фай %s: %m"
+msgstr "ОШИБКА: Невозможно создать резервный файл \"%s\" (%m)\n"
 
 #: src/pam-config.c:206
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Не удалось создать %s: %m\n"
+msgstr "ОШИБКА: Не удалось удалить \"%s\" (%m)\n"
 
 #: src/pam-config.c:377
 #, c-format
@@ -322,7 +323,7 @@ msgstr ""
 #: src/pam-config.c:671
 #, c-format
 msgid "Supported common modules:\n"
-msgstr "Общие поддерживаемые модули:\n"
+msgstr "Поддерживаемые общие модули:\n"
 
 #: src/pam-config.c:673
 #, c-format
@@ -331,14 +332,14 @@ msgid ""
 "Supported service modules:\n"
 msgstr ""
 "\n"
-"Служебные поддерживаемые модули:\n"
+"Поддерживаемые служебные модули:\n"
 
-#: src/pam-config.c:712
+#: src/pam-config.c:715
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Слишком много параметров.\n"
 
-#: src/pam-config.c:820
+#: src/pam-config.c:823
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Нет доступа к '%s': %m\n"
@@ -367,7 +368,7 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
-"ОШИБКА: учетная запись ldap_разрешено только в комбинации с krb5.\n"
+"ОШИБКА: ldap-account_only разрешено только в комбинации с krb5.\n"
 "Настройка не изменена!\n"
 
 #: src/sanity_checks.c:115
@@ -381,9 +382,8 @@ msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 msgstr ""
-"ИНФОРМАЦИЯ: pam_pwcheck.so и pam_cracklib.so доступны,\n"
-"ИНФОРМАЦИЯ: будет использована поддержка только pam_pwcheck.so вместе с "
-"cracklib.\n"
+"ИНФОРМАЦИЯ: pam_pwcheck.so и pam_cracklib.so включены,\n"
+"ИНФОРМАЦИЯ: будет использована только pam_pwcheck.so с поддержкой cracklib.\n"
 
 #: src/sanity_checks.c:182
 #, c-format
@@ -391,8 +391,8 @@ msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
-"ИНФОРМАЦИЯ: pam_unix.so и pam_unix2.so доступны в службе %s,\n"
-"ИНФОРМАЦИЯ: будет использоваться только pam_unix2.so.\n"
+"ИНФОРМАЦИЯ: pam_unix.so и pam_unix2.so включены в службе %s,\n"
+"ИНФОРМАЦИЯ: будет включена только pam_unix2.so.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
 #, c-format
@@ -407,7 +407,7 @@ msgstr "Невозможно вывести статистику '%s': %m\n"
 #: src/single_config.c:259 src/write_config.c:63
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
-msgstr "Невозможно установить права '%s': %m\n"
+msgstr "Невозможно установить права для '%s': %m\n"
 
 #: src/single_config.c:268 src/write_config.c:70
 #, c-format
@@ -417,7 +417,7 @@ msgstr "Невозможно изменить владельца/группу `%
 #: src/single_config.c:278
 #, c-format
 msgid "Cannot create file handle: %m\n"
-msgstr "Невозможно создать дескриптор файла: %m\n"
+msgstr "Невозможно создать обработчик файла: %m\n"
 
 #: src/write_config.c:78
 #, c-format

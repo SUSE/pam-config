@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-01 10:40+0200\n"
-"PO-Revision-Date: 2008-04-14 17:24+0100\n"
-"Last-Translator: Jakub Derda <kontakt@thenewone.pl>\n"
+"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"PO-Revision-Date: 2008-09-29 17:31+0100\n"
+"Last-Translator: Piotr Leszczyński <piotr@kontury.pl>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr "%s (%s): Parametry zostaną zignorowane\n"
 #: src/load_config.c:135
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
-msgstr "%s: Nieznany moduł %s, zigonorowano.\n"
+msgstr "%s: Nieznany moduł %s, zignorowano.\n"
 
 #: src/load_obsolete_conf.c:68 src/load_obsolete_conf.c:93
 #: src/load_obsolete_conf.c:128 src/load_obsolete_conf.c:158
@@ -35,7 +35,7 @@ msgstr "%s: Nieznany moduł %s, zigonorowano.\n"
 #: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
-msgstr "BŁĄD: Nieznana usługa: [%s: %s], zigonorowano.\n"
+msgstr "BŁĄD: Nieznana usługa: [%s: %s], zignorowano.\n"
 
 #: src/load_obsolete_conf.c:288
 #, c-format
@@ -55,12 +55,12 @@ msgstr "UWAGA: Aby ustawić opcję \"blowfish\" proszę użyć etc/default/passw
 #: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr "BŁĄD: Nieznana opcja (%s): [%s: %s], zigonorowano.\n"
+msgstr "BŁĄD: Nieznana opcja (%s): [%s: %s], zignorowano.\n"
 
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr "UWAGA: Nieznana opcja (%s): [%s: %s], zigonorowano.\n"
+msgstr "UWAGA: Nieznana opcja (%s): [%s: %s], zignorowano.\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
@@ -90,9 +90,9 @@ msgstr ""
 "OSTRZEŻENIE: Nie znaleziono /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "BŁĄD: Nie można dodać pam_cryptpass.so do usługi \"%s\""
+msgstr "BŁĄD: Nie można dodać pam_ck_connector.so do usługi '%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -144,7 +144,7 @@ msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
-"BŁĄÐ: pam_mount.so jest włączony. Aby używać pam_thinkfinger.so, należy go "
+"BŁĄD: pam_mount.so jest włączony. Aby używać pam_thinkfinger.so, należy go "
 "najpierw wyłączyć.\n"
 
 #: src/pam-config.c:46
@@ -250,14 +250,14 @@ msgstr "Opcje modułu dla pojedynczej usługi:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Te moduły mogą by dodane tylko do pojedynczych plików usług.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:899
-#: src/pam-config.c:909 src/pam-config.c:919 src/pam-config.c:930
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:902
+#: src/pam-config.c:912 src/pam-config.c:922 src/pam-config.c:933
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Błąd aktywacji %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:901
-#: src/pam-config.c:911 src/pam-config.c:921 src/pam-config.c:932
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:904
+#: src/pam-config.c:914 src/pam-config.c:924 src/pam-config.c:935
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nowa konfiguracja z %s nie jest używana.\n"
@@ -280,21 +280,20 @@ msgstr ""
 "pominięta.\n"
 
 #: src/pam-config.c:199
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
-"OSTRZEŻENIE: plik '%s' nie został znaleziony. Kopia zapasowa zostanie "
-"pominięta.\n"
+"OSTRZEŻENIE: Kopia zapasowa '%s' już istnieje. Pominięto tworzenie kopii.\n"
 
 #: src/pam-config.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Nie można utworzyć uchwytu pliku: %m\n"
+msgstr "BŁĄD: Nie można utworzyć kopii zapasowej '%s' (%m)\n"
 
 #: src/pam-config.c:206
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Nie można utworzyć  %s: %m\n"
+msgstr "Nie można usunąć '%s' (%m)\n"
 
 #: src/pam-config.c:377
 #, c-format
@@ -313,7 +312,7 @@ msgstr ""
 #: src/pam-config.c:671
 #, c-format
 msgid "Supported common modules:\n"
-msgstr "Obsługowane wspólne moduły:\n"
+msgstr "Obsługiwane wspólne moduły:\n"
 
 #: src/pam-config.c:673
 #, c-format
@@ -324,12 +323,12 @@ msgstr ""
 "\n"
 "Obsługiwane moduły usług:\n"
 
-#: src/pam-config.c:712
+#: src/pam-config.c:715
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Zbyt wiele parametrów.\n"
 
-#: src/pam-config.c:820
+#: src/pam-config.c:823
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Brak dostępu do \"%s\": %m\n"
@@ -390,7 +389,7 @@ msgstr "BŁĄD: Nie można wyłączyć pam_unix.so.\n"
 #: src/single_config.c:249
 #, c-format
 msgid "Cannot stat '%s': %m\n"
-msgstr "Nie odczytać \"%s\": %m\n"
+msgstr "Nie można odczytać \"%s\": %m\n"
 
 #: src/single_config.c:259 src/write_config.c:63
 #, c-format
