@@ -4,6 +4,9 @@ Copyright (C) 2006, 2007, 2008 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.62
+* add support for pam_fp .
+
 Version 0.61
 * print correct error message if sanity check fails
 * fix the lost of values in case of some string options.

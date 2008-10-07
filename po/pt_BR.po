@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"POT-Creation-Date: 2008-10-07 16:40+0200\n"
 "PO-Revision-Date: 2008-09-22 23:47-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive68@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <opensuse-pt@opensuse.org>\n"
@@ -113,7 +113,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "ERRO: não foi possível adicionar pam_cryptpass.so ao serviço '%s'"
 
-#: src/mod_pam_mount.c:119 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -122,9 +122,15 @@ msgstr ""
 "\n"
 "Não foi possível carregar o arquivo de configuração '%s', cancelado!\n"
 
-#: src/mod_pam_mount.c:125
+#: src/mod_pam_mount.c:126
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
+msgstr ""
+"ERRO: o módulo pam_thinkfinger.so está habilitado. Desabilite-o antes.\n"
+
+#: src/mod_pam_mount.c:131
+#, fuzzy, c-format
+msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr ""
 "ERRO: o módulo pam_thinkfinger.so está habilitado. Desabilite-o antes.\n"
 
@@ -143,11 +149,20 @@ msgstr "AVISO: arquivos de serviço não encontrado em '%s'.\n"
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "AVISO: módulo encontrado '%s' no arquivo '%s'.\n"
 
-#: src/mod_pam_thinkfinger.c:141
+#: src/mod_pam_thinkfinger.c:142
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+"ERRO: o pam_mount.so está habilitado. A fim de usar pam_thinkfinger.so você "
+"precisa desabilitá-lo antes!\n"
+
+#: src/mod_pam_thinkfinger.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
+"disable it first!\n"
 msgstr ""
 "ERRO: o pam_mount.so está habilitado. A fim de usar pam_thinkfinger.so você "
 "precisa desabilitá-lo antes!\n"

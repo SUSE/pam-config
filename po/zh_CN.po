@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"POT-Creation-Date: 2008-10-07 16:40+0200\n"
 "PO-Revision-Date: 2008-04-13 21:14+0800\n"
 "Last-Translator: Eric Shan <ericalways@gmail.com>\n"
 "Language-Team: Simplified Chinese\n"
@@ -104,7 +104,7 @@ msgstr "错误：pam_mount.so 没有为服务'%s'启用，但 pam_cryptpass.so �
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "错误：未能将 pam_cryptpass.so 添加到服务'%s'"
 
-#: src/mod_pam_mount.c:119 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -113,9 +113,14 @@ msgstr ""
 "\n"
 "无法加载配置文件'%s'，已中止!\n"
 
-#: src/mod_pam_mount.c:125
+#: src/mod_pam_mount.c:126
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
+msgstr "错误：模块 pam_thinkfinger.so 已经被启用。请先将它禁用。\n"
+
+#: src/mod_pam_mount.c:131
+#, fuzzy, c-format
+msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "错误：模块 pam_thinkfinger.so 已经被启用。请先将它禁用。\n"
 
 #: src/mod_pam_thinkfinger.c:91
@@ -133,11 +138,19 @@ msgstr "警告：在 '%s' 中找不到服务文件。\n"
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "警告：在文件“%2$s”中找到模块“%1$s”。\n"
 
-#: src/mod_pam_thinkfinger.c:141
+#: src/mod_pam_thinkfinger.c:142
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+"错误：pam_mount.so 被启用了。为了使用 pam_thinkfinger.so 你需要先把它禁用！\n"
+
+#: src/mod_pam_thinkfinger.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
+"disable it first!\n"
 msgstr ""
 "错误：pam_mount.so 被启用了。为了使用 pam_thinkfinger.so 你需要先把它禁用！\n"
 

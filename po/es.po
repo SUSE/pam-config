@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"POT-Creation-Date: 2008-10-07 16:40+0200\n"
 "PO-Revision-Date: 2008-09-26 16:28+0200\n"
 "Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Language-Team: Spanish <opensuse-translation-es@opensuse.org>\n"
@@ -117,7 +117,7 @@ msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "ERROR: No se puede añadir pam_cryptopass.so al servicio '%s'"
 
 # include/backup/ui.ycp:1661
-#: src/mod_pam_mount.c:119 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -126,9 +126,15 @@ msgstr ""
 "\n"
 "¡No se puede cargar el archivo de configuración '%s', cancelado!\n"
 
-#: src/mod_pam_mount.c:125
+#: src/mod_pam_mount.c:126
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
+msgstr ""
+"ERROR: El módulo pam_thinkfinger.so está habilitado. Inhabilítelo primero.\n"
+
+#: src/mod_pam_mount.c:131
+#, fuzzy, c-format
+msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr ""
 "ERROR: El módulo pam_thinkfinger.so está habilitado. Inhabilítelo primero.\n"
 
@@ -147,11 +153,20 @@ msgstr "ADVERTENCIA: No se han encontrado archivos de servicio en '%s'.\n"
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "ADVERTENCIA: Se ha encontrado el módulo '%s' en el archivo '%s'.\n"
 
-#: src/mod_pam_thinkfinger.c:141
+#: src/mod_pam_thinkfinger.c:142
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+"¡ERROR: pam_mount.so está habilitado. Para utilizar pam_thinkfinger.so "
+"necesita inhabilitarlo primero!\n"
+
+#: src/mod_pam_thinkfinger.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
+"disable it first!\n"
 msgstr ""
 "¡ERROR: pam_mount.so está habilitado. Para utilizar pam_thinkfinger.so "
 "necesita inhabilitarlo primero!\n"

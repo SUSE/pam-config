@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"POT-Creation-Date: 2008-10-07 16:40+0200\n"
 "PO-Revision-Date: 2007-08-25 11:12+0200\n"
 "Last-Translator: Mattias Newzella <newzella@linux.se>\n"
 "Language-Team:  <sv@li.org>\n"
@@ -106,7 +106,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "FEL: Kunde inte lägga till add pam_cryptpass.so till tjänst \"%s\""
 
-#: src/mod_pam_mount.c:119 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -115,10 +115,15 @@ msgstr ""
 "\n"
 "Kunde inte ladda inställningsfil \"%s\", avbryter.\n"
 
-#: src/mod_pam_mount.c:125
+#: src/mod_pam_mount.c:126
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr ""
+
+#: src/mod_pam_mount.c:131
+#, fuzzy, c-format
+msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
+msgstr "Fel: Modulen %s är inte installerad.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -135,11 +140,18 @@ msgstr ""
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "Varning: Hittade modul \"%s\" i fil \"%s\".\n"
 
-#: src/mod_pam_thinkfinger.c:141
+#: src/mod_pam_thinkfinger.c:142
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+
+#: src/mod_pam_thinkfinger.c:146
+#, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
+"disable it first!\n"
 msgstr ""
 
 #: src/pam-config.c:46

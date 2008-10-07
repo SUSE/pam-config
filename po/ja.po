@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"POT-Creation-Date: 2008-10-07 16:40+0200\n"
 "PO-Revision-Date: 2008-08-13 16:26+0900\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: opensuse-ja <opensuse-ja@opensuse.org>\n"
@@ -114,7 +114,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "エラー: サービス '%s' に pam_cryptpass.so を追加できませんでした。"
 
-#: src/mod_pam_mount.c:119 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -123,9 +123,16 @@ msgstr ""
 "\n"
 "設定ファイル '%s' を読み込めなかったため中止しました。\n"
 
-#: src/mod_pam_mount.c:125
+#: src/mod_pam_mount.c:126
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
+msgstr ""
+"エラー: モジュール pam_thinkfinger.so が有効になっています。先に無効にしてく"
+"ださい。\n"
+
+#: src/mod_pam_mount.c:131
+#, fuzzy, c-format
+msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr ""
 "エラー: モジュール pam_thinkfinger.so が有効になっています。先に無効にしてく"
 "ださい。\n"
@@ -145,11 +152,20 @@ msgstr "警告: '%s' 内にサービスファイルが見つかりません。\n
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "警告: モジュール '%s' を発見しました (ファイル '%s' 内)。\n"
 
-#: src/mod_pam_thinkfinger.c:141
+#: src/mod_pam_thinkfinger.c:142
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+"エラー: pam_mount.so が有効になっています。pam_thinkfinger.so を使うには、ま"
+"ずこれを無効にしてください。\n"
+
+#: src/mod_pam_thinkfinger.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
+"disable it first!\n"
 msgstr ""
 "エラー: pam_mount.so が有効になっています。pam_thinkfinger.so を使うには、ま"
 "ずこれを無効にしてください。\n"

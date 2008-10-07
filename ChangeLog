@@ -1,3 +1,10 @@
+2008-10-07  Michael Calmer  <mc@suse.de>
+	* release version 0.62
+
+	* src/mod_pam_fp.c: New file (FATE#300416).
+	* src/mod_pam_thinkfinger.c: check for pam_fp.
+	* src/mod_pam_mount.c: Likewise.
+	
 2008-10-06  Michael Calmer  <mc@suse.de>
 	* release version 0.61
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"POT-Creation-Date: 2008-10-07 16:40+0200\n"
 "PO-Revision-Date: 2008-08-11 00:15+0200\n"
 "Last-Translator: Marek Stopka <mstopka@opensuse.org>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -107,7 +107,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "CHYBA: nelze přidat pam_cryptpass.so do služby '%s'"
 
-#: src/mod_pam_mount.c:119 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -116,9 +116,14 @@ msgstr ""
 "\n"
 "Nelze načíst konfigurační soubor '%s', přerušuji!\n"
 
-#: src/mod_pam_mount.c:125
+#: src/mod_pam_mount.c:126
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
+msgstr "CHYBA: modul pam_thinkfinger.so je povolen. Nejdřív jej zakažte.\n"
+
+#: src/mod_pam_mount.c:131
+#, fuzzy, c-format
+msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "CHYBA: modul pam_thinkfinger.so je povolen. Nejdřív jej zakažte.\n"
 
 #: src/mod_pam_thinkfinger.c:91
@@ -136,11 +141,20 @@ msgstr "VAROVÁNÍ: V '%s' nebyly nalezeny žádné soubory služeb.\n"
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "VAROVÁNÍ: Nalezen modul '%s' v souboru '%s'.\n"
 
-#: src/mod_pam_thinkfinger.c:141
+#: src/mod_pam_thinkfinger.c:142
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+"CHYBA: pam_mount.so je povolen. Pro použití pam_thinkfinger.so jej nejdříve "
+"musíte vypnout!\n"
+
+#: src/mod_pam_thinkfinger.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
+"disable it first!\n"
 msgstr ""
 "CHYBA: pam_mount.so je povolen. Pro použití pam_thinkfinger.so jej nejdříve "
 "musíte vypnout!\n"

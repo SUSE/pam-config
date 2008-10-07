@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-06 13:57+0200\n"
+"POT-Creation-Date: 2008-10-07 16:40+0200\n"
 "PO-Revision-Date: 2002-02-08 15:47+0100\n"
 "Last-Translator: Jaume Badiella <myotis@drac.com>\n"
 "Language-Team: Catalan\n"
@@ -96,17 +96,22 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr ""
 
-#: src/mod_pam_mount.c:119 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:441
 #, fuzzy, c-format
 msgid ""
 "\n"
 "Couldn't load config file '%s', aborted!\n"
 msgstr "No s'ha pogut carregar el fitxer de so %s com a la mostra %s"
 
-#: src/mod_pam_mount.c:125
+#: src/mod_pam_mount.c:126
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr ""
+
+#: src/mod_pam_mount.c:131
+#, fuzzy, c-format
+msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
+msgstr "No s'ha instal·lat el paquet del nucli %s"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -123,11 +128,18 @@ msgstr ""
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "No s'ha instal·lat el paquet del nucli %s"
 
-#: src/mod_pam_thinkfinger.c:141
+#: src/mod_pam_thinkfinger.c:142
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+
+#: src/mod_pam_thinkfinger.c:146
+#, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
+"disable it first!\n"
 msgstr ""
 
 #: src/pam-config.c:46
