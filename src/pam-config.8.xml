@@ -665,6 +665,54 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--pwhistory</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_pwhistory.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwhistory-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_pwhistory.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwhistory-use_authtok</option></term>
+            <listitem>
+              <para>
+                Add <option>use_authtok</option> option to all pam_pwhistory.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwhistory-enforce_for_root</option></term>
+            <listitem>
+              <para>
+                Add <option>enforce_for_root</option> option to all pam_pwhistory.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwhistory-remember=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>remember=</option><replaceable>value</replaceable> option to pam_pwhistory.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwhistory-retry=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>retry=</option><replaceable>value</replaceable> option to pam_pwhistory.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--ssh</option></term>
             <listitem>
               <para>
@@ -1078,6 +1126,22 @@
             <listitem>
               <para>
                 Add <option>nowtmp</option> option to all pam_lastlog.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-noupdate</option></term>
+            <listitem>
+              <para>
+                Add <option>noupdate</option> option to all pam_lastlog.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog-showfailed</option></term>
+            <listitem>
+              <para>
+                Add <option>showfailed</option> option to all pam_lastlog.so invocations.
               </para>
             </listitem>
           </varlistentry>

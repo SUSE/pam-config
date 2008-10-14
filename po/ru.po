@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-07 16:40+0200\n"
+"POT-Creation-Date: 2008-10-14 19:21+0200\n"
 "PO-Revision-Date: 2008-09-04 02:08+0400\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
@@ -276,14 +276,14 @@ msgstr "Параметры одного модуля службы:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Эти модули могут быть добавлены к файлам одной службы.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:902
-#: src/pam-config.c:912 src/pam-config.c:922 src/pam-config.c:933
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:908
+#: src/pam-config.c:918 src/pam-config.c:928 src/pam-config.c:939
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Ошибка активации %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:904
-#: src/pam-config.c:914 src/pam-config.c:924 src/pam-config.c:935
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:910
+#: src/pam-config.c:920 src/pam-config.c:930 src/pam-config.c:941
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Новая конфигурация из %s не используется!\n"
@@ -353,7 +353,7 @@ msgstr ""
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Слишком много параметров.\n"
 
-#: src/pam-config.c:823
+#: src/pam-config.c:829
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Нет доступа к '%s': %m\n"

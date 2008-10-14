@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-07 16:40+0200\n"
+"POT-Creation-Date: 2008-10-14 19:21+0200\n"
 "PO-Revision-Date: 2008-09-26 16:28+0200\n"
 "Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Language-Team: Spanish <opensuse-translation-es@opensuse.org>\n"
@@ -281,14 +281,14 @@ msgstr ""
 "      Estos módulos sólo se pueden añadir a archivos de servicio "
 "individuales.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:902
-#: src/pam-config.c:912 src/pam-config.c:922 src/pam-config.c:933
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:908
+#: src/pam-config.c:918 src/pam-config.c:928 src/pam-config.c:939
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Error al activar %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:904
-#: src/pam-config.c:914 src/pam-config.c:924 src/pam-config.c:935
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:910
+#: src/pam-config.c:920 src/pam-config.c:930 src/pam-config.c:941
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "¡La nueva configuración de %s no está en uso!\n"
@@ -365,7 +365,7 @@ msgstr ""
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Demasiados argumentos.\n"
 
-#: src/pam-config.c:823
+#: src/pam-config.c:829
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "No se puede acceder a '%s': %m\n"

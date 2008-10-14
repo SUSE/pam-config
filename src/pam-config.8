@@ -1,11 +1,11 @@
 .\"     Title: pam-config
 .\"    Author: 
 .\" Generator: DocBook XSL Stylesheets v1.73.2 <http://docbook.sf.net/>
-.\"      Date: 10/07/2008
+.\"      Date: 10/14/2008
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"
-.TH "PAM\-CONFIG" "8" "10/07/2008" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "10/14/2008" "Reference Manual" "Reference Manual"
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
@@ -508,6 +508,46 @@ Add
 to pam_pwcheck\.so\.
 .RE
 .PP
+\fB\-\-pwhistory\fR
+.RS 4
+Enable/Disable pam_pwhistory\.so
+.RE
+.PP
+\fB\-\-pwhistory\-debug\fR
+.RS 4
+Add
+\fBdebug\fR
+option to all pam_pwhistory\.so invocations\.
+.RE
+.PP
+\fB\-\-pwhistory\-use_authtok\fR
+.RS 4
+Add
+\fBuse_authtok\fR
+option to all pam_pwhistory\.so invocations\.
+.RE
+.PP
+\fB\-\-pwhistory\-enforce_for_root\fR
+.RS 4
+Add
+\fBenforce_for_root\fR
+option to all pam_pwhistory\.so invocations\.
+.RE
+.PP
+\fB\-\-pwhistory\-remember=\fR\fIvalue\fR
+.RS 4
+Add
+\fBremember=\fR\fIvalue\fR
+option to pam_pwhistory\.so\.
+.RE
+.PP
+\fB\-\-pwhistory\-retry=\fR\fIvalue\fR
+.RS 4
+Add
+\fBretry=\fR\fIvalue\fR
+option to pam_pwhistory\.so\.
+.RE
+.PP
 \fB\-\-ssh\fR
 .RS 4
 Enable/Disable pam_ssh\.so
@@ -853,6 +893,20 @@ option to all pam_lastlog\.so invocations\.
 .RS 4
 Add
 \fBnowtmp\fR
+option to all pam_lastlog\.so invocations\.
+.RE
+.PP
+\fB\-\-lastlog\-noupdate\fR
+.RS 4
+Add
+\fBnoupdate\fR
+option to all pam_lastlog\.so invocations\.
+.RE
+.PP
+\fB\-\-lastlog\-showfailed\fR
+.RS 4
+Add
+\fBshowfailed\fR
 option to all pam_lastlog\.so invocations\.
 .RE
 .PP

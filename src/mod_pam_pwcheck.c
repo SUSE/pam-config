@@ -143,7 +143,7 @@ GETOPT_START_1(PASSWORD)
       if (g_opt->m_delete)
 	opt_set->set_opt (opt_set, "maxlen", NULL);
       else
-		  opt_set->set_opt (opt_set, "maxlen", strdup (optarg));
+	opt_set->set_opt (opt_set, "maxlen", strdup (optarg));
     }
   else if (strcmp ("minlen", opt) == 0)
     {
@@ -151,7 +151,7 @@ GETOPT_START_1(PASSWORD)
       if (g_opt->m_delete)
 	opt_set->set_opt (opt_set, "minlen", NULL);
       else
-		  opt_set->set_opt (opt_set, "minlen", strdup (optarg));
+	opt_set->set_opt (opt_set, "minlen", strdup (optarg));
     }
 GETOPT_END_1(PASSWORD)
 

@@ -695,7 +695,7 @@ main (int argc, char *argv[])
 
 	    if (notfound)
 	      {
-		if (notfound == 1) 
+		if (notfound == 1)
                   {
 		     fprintf (stderr, "%s: invalid option -- %s\n",
 			      program, argv[optind -1]);
@@ -741,7 +741,13 @@ main (int argc, char *argv[])
 	return 1;
 
       opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
-      if (!opt_set->is_enabled (opt_set, "is_enabled"))
+      if (opt_set->is_enabled (opt_set, "is_enabled"))
+	{
+	  opt_set = mod_pam_pwhistory.get_opt_set (&mod_pam_pwhistory, PASSWORD);
+	  opt_set->enable (opt_set, "is_enabled", TRUE);
+	  opt_set->enable (opt_set, "use_authtok", TRUE);
+	}
+      else
 	{
 	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
 	  opt_set->enable (opt_set, "is_enabled", TRUE);

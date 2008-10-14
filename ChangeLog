@@ -1,18 +1,34 @@
+2008-10-14  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.63
+
+	* src/mod_pam_pwhistory.c: New.
+	* src/supported-modules.h: Add pam_pwhistory.
+	* src/pam-config.c (main): Enable pam_pwhistory if pam_cracklib
+	is enabled for initial config.
+
+	* src/Makefile.am (pam_config_SOURCES): Add mod_pam_pwhistory.c.
+
+	* src/pam-module.h (DECLARE_BOOL_OPTS_10): Add.
+	* src/mod_pam_lastlog.c: Add new options.
+
 2008-10-07  Michael Calmer  <mc@suse.de>
+
 	* release version 0.62
 
 	* src/mod_pam_fp.c: New file (FATE#300416).
 	* src/mod_pam_thinkfinger.c: check for pam_fp.
 	* src/mod_pam_mount.c: Likewise.
-	
+
 2008-10-06  Michael Calmer  <mc@suse.de>
+
 	* release version 0.61
 
 	* src/mod_pam_pwcheck.c: call set_opt with strdup to prevent
 	the lost of the value.
 	* src/mod_pam_krb5.c: Likewise.
 	* src/mod_pam_ssh.c: Likewise.
-	* tests/testcases/test-pwcheck-string-opts.single: add testcase 
+	* tests/testcases/test-pwcheck-string-opts.single: add testcase
 
 2008-10-03  Thorsten Kukuk  <kukuk@suse.de>
 
