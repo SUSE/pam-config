@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
 "PO-Revision-Date: 2008-08-11 00:15+0200\n"
 "Last-Translator: Marek Stopka <mstopka@opensuse.org>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -394,6 +394,15 @@ msgstr ""
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "CHYBA: nepodařilo se zakázat pam_unix.so.\n"
+
+#: src/sanity_checks.c:217
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
+msgstr ""
+"CHYBA: ldap-account_only je povolen pouze v kobinaci s krb5.\n"
+"Konfigurace nezměněna!\n"
 
 #: src/single_config.c:249
 #, c-format

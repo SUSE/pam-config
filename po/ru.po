@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
 "PO-Revision-Date: 2008-09-04 02:08+0400\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
@@ -412,6 +412,15 @@ msgstr ""
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ОШИБКА: Не удалось отключить pam_unix.so.\n"
+
+#: src/sanity_checks.c:217
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
+msgstr ""
+"ОШИБКА: ldap-account_only разрешено только в комбинации с krb5.\n"
+"Настройка не изменена!\n"
 
 #: src/single_config.c:249
 #, c-format

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
-"PO-Revision-Date: 2008-08-07 11:35+0100\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
+"PO-Revision-Date: 2008-10-10 12:33+0100\n"
 "Last-Translator: Guillaume GARDET <guillaume.gardet@free.fr>\n"
 "Language-Team: French <opensuse-fr+subscribe@opensuse.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,37 +32,34 @@ msgstr "%s : module inconnu %s, ignoré !\n"
 #: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
-msgstr "Erreur : service inconnu : [%s : %s], ignoré !\n"
+msgstr "ERREUR : service inconnu : [%s : %s], ignoré !\n"
 
 #: src/load_obsolete_conf.c:288
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'md5' option\n"
-msgstr ""
-"Avertissement : Utiliser /etc/default/passwd pour activer l'option 'md5'\n"
+msgstr "ATTENTION : Utiliser /etc/default/passwd pour activer l'option 'md5'\n"
 
 #: src/load_obsolete_conf.c:290
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'bigcrypt' option\n"
 msgstr ""
-"Avertissement : Utiliser /etc/default/passwd pour activer l'option "
-"'bigcrypt'\n"
+"ATTENTION : Utiliser /etc/default/passwd pour activer l'option 'bigcrypt'\n"
 
 #: src/load_obsolete_conf.c:294
 #, c-format
 msgid "WARNING: Use /etc/default/passwd to set 'blowfish' option\n"
 msgstr ""
-"Avertissement : Utiliser /etc/default/passwd pour activer l'option "
-"'blowfish'\n"
+"ATTENTION : Utiliser /etc/default/passwd pour activer l'option 'blowfish'\n"
 
 #: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr "Erreur : option inconnus (%s) : [%s : %s], ignoré !\n"
+msgstr "ERREUR : option inconnue (%s) : [%s : %s], ignoré !\n"
 
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr "Avertissement : option inconnus (%s) : [%s : %s], ignoré !\n"
+msgstr "ATTENTION : option inconnue (%s) : [%s : %s], ignoré !\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
@@ -85,14 +82,14 @@ msgstr ""
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
-"ATTENTION: Impossible de trouver /etc/security/pam_unix2.conf{.rpmsave} (%"
+"ATTENTION : Impossible de trouver /etc/security/pam_unix2.conf{.rpmsave} (%"
 "m).\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
-"ATTENTION: Impossible de trouver /etc/security/pam_pwcheck.conf{.rpmsave} (%"
+"ATTENTION : Impossible de trouver /etc/security/pam_pwcheck.conf{.rpmsave} (%"
 "m).\n"
 
 #: src/mod_pam_ck_connector.c:93
@@ -132,11 +129,10 @@ msgstr ""
 "désactiver.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr ""
-"ERREUR : Le module pam_thinkfinger.so est activé. Commencer par le "
-"désactiver.\n"
+"ERREUR : Le module pam_fp.so est activé. Commencer par le désactiver.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -163,13 +159,13 @@ msgstr ""
 "devez commencer par le desactiver !\n"
 
 #: src/mod_pam_thinkfinger.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"ERREUR : pam_mount.so est activé. Pour utiliser pam_thinkfinger.so vous "
-"devez commencer par le desactiver !\n"
+"ERREUR : pam_fp.so est activé. Pour utiliser pam_thinkfinger.so vous devez "
+"commencer par le desactiver !\n"
 
 #: src/pam-config.c:46
 #, c-format
@@ -227,13 +223,13 @@ msgstr ""
 
 #: src/pam-config.c:84
 msgid "      --service config  Service to modify config of\n"
-msgstr "  --service config  Service pour modifier la configuration de\n"
+msgstr "      --service config  Service pour modifier la configuration de\n"
 
 #: src/pam-config.c:86
 #, fuzzy
 msgid "      --update      Read current config and write them new\n"
 msgstr ""
-"      --update      Lit la configuration actuelle et l'écrit à nouveau \n"
+"      --update      Lit la configuration actuelle et l'écrit à nouveau\n"
 
 #: src/pam-config.c:88
 msgid "  -q, --query       Query for installed modules and options\n"
@@ -242,7 +238,7 @@ msgstr ""
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Liste tous les modules supportés\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -262,11 +258,15 @@ msgid "Global Module Options:\n"
 msgstr "Options de module globales : \n"
 
 #: src/pam-config.c:98
+#, fuzzy
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      Les modules globaux sont insérés dans les\n"
+"      fichiers common-{account,auth,password,session} qui sont inclus par\n"
+"      les fichiers de service unique.\n"
 
 #: src/pam-config.c:103
 #, fuzzy
@@ -274,8 +274,11 @@ msgid "Single Service Module Options:\n"
 msgstr "Options du module de service unique :\n"
 
 #: src/pam-config.c:104
+#, fuzzy
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
+"      Ces modules ne peuvent être ajoutés qu'aux fichiers de service "
+"unique.\n"
 
 # TLABEL linuxrc_2002_03_29_0036__175
 #: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:908
@@ -308,7 +311,7 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "ATTENTION : fichier '%s' non trouvé. Sauvegarde abandonnée.\n"
 
 #: src/pam-config.c:199
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 "ATTENTION : fichier de sauvegarde '%s' déjà existant. Sauvegarde "
@@ -418,6 +421,15 @@ msgstr ""
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ERREUR : Echec de la désactivation de pam_unix.so.\n"
+
+#: src/sanity_checks.c:217
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
+msgstr ""
+"ERREUR: ldap-account_only est uniquement autorisé en combinaison avec krb5.\n"
+"Configuration non modifiée !\n"
 
 #: src/single_config.c:249
 #, c-format

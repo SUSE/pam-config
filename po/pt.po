@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.pt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
-"PO-Revision-Date: 2008-09-25 23:05+0100\n"
-"Last-Translator: Antonio Cardoso Martins <digiplan.pt@gmail.com>\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
+"PO-Revision-Date: 2008-10-18 22:01+0100\n"
+"Last-Translator: Carlos Gonçalves <cgoncalves@opensuse.org>\n"
 "Language-Team: Portuguese <opensuse-pt@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 0.2\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: src/load_config.c:131
@@ -128,10 +128,9 @@ msgstr ""
 "ERRO: O módulo pam_thinkfinger.so está activado. Desactive-o primeiro.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
-msgstr ""
-"ERRO: O módulo pam_thinkfinger.so está activado. Desactive-o primeiro.\n"
+msgstr "ERRO: O módulo pam_fp.so está activado. Desactive-o primeiro.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -158,13 +157,13 @@ msgstr ""
 "so, necessita de o desactivar primeiro!\n"
 
 #: src/mod_pam_thinkfinger.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"ERRO: o pam_mount.so está activado. De forma a utilizar o pam_thinkfinger."
-"so, necessita de o desactivar primeiro!\n"
+"ERRO: o pam_fp.so está activado. De forma a utilizar o pam_thinkfinger.so, "
+"necessita de o desactivar primeiro!\n"
 
 #: src/pam-config.c:46
 #, c-format
@@ -232,7 +231,7 @@ msgstr "  -q, --query       Interroga módulos e opções instaladas\n"
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Lista todos os módulos suportados\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -405,6 +404,15 @@ msgstr ""
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ERRO: Falha ao desactivar pam_unix.so.\n"
+
+#: src/sanity_checks.c:217
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
+msgstr ""
+"ERRO: ldap-account_only is apenas permitido em combinação com krb5.\n"
+"Configuração não alterada!\n"
 
 #: src/single_config.c:249
 #, c-format

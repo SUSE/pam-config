@@ -1,23 +1,23 @@
 # translation of pam-config.fi.po to suomi
-# translation of pam-config.po to
-# translation of pam-config.fi.po to
 # Jyri Palokangas <jmp@opensuse.fi>, 2007, 2008.
 # Mikko Piippo <piippo@opensuse.fi>, 2008.
 # Jyri Palokangas <jyri.palokangas@opensuse.org>, 2008.
 # Mikko Piippo <mikko.piippo@opensuse.fi>, 2008.
 # Jyri Palokangas <jmp@opensuse.org>, 2008.
+# translation of pam-config.po to
+# translation of pam-config.fi.po to
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
-"PO-Revision-Date: 2008-08-23 11:50+0300\n"
-"Last-Translator: Mikko Piippo <mikko.piippo@opensuse.fi>\n"
-"Language-Team: Finnish <kde-i18n-doc@lists.kde.org>\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
+"PO-Revision-Date: 2008-10-08 17:14+0300\n"
+"Last-Translator: Jyri Palokangas <jyri.palokangas@opensuse.org>\n"
+"Language-Team: suomi <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: LoKalize 0.2\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=n != 1;\n"
 
 #: src/load_config.c:131
@@ -127,10 +127,9 @@ msgstr ""
 "VIRHE: pam_thinkfinger.so moduuli on käytössä. Poista se ensin käytöstä.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
-msgstr ""
-"VIRHE: pam_thinkfinger.so moduuli on käytössä. Poista se ensin käytöstä.\n"
+msgstr "VIRHE: pam_fp.so moduuli on käytössä. Poista se ensin käytöstä.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -157,12 +156,12 @@ msgstr ""
 "moduulia se pitää poistaa ensin käytöstä!\n"
 
 #: src/mod_pam_thinkfinger.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"VIRHE: pam_mount.so moduuli on käytössä. Käyttääksesi pam_thinkfinger.so "
+"VIRHE: pam_fp.so moduuli on käytössä. Käyttääksesi pam_thinkfinger.so "
 "moduulia se pitää poistaa ensin käytöstä!\n"
 
 #: src/pam-config.c:46
@@ -229,7 +228,7 @@ msgstr "  -q, --query       Kysele asennettuja moduuleita ja valintoja\n"
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Listaa kaikki tuetut moduulit\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -403,6 +402,15 @@ msgstr ""
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "VIRHE: pam_unix.so käytöstä poisto ei onnistu.\n"
+
+#: src/sanity_checks.c:217
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
+msgstr ""
+"VIRHE: ldap-account_only on sallittu vain krb5 kanssa.\n"
+"Määritystä ei muutettu!\n"
 
 #: src/single_config.c:249
 #, c-format

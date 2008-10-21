@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
-"PO-Revision-Date: 2008-09-26 16:28+0200\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
+"PO-Revision-Date: 2008-10-08 15:53+0200\n"
 "Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Language-Team: Spanish <opensuse-translation-es@opensuse.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "%s (%s): Los argumentos serán ignorados\n"
 #: src/load_config.c:135
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
-msgstr "¡%s: Módulo desconocido %s, ignorado!\n"
+msgstr "%s: Módulo desconocido %s, ¡ignorado!\n"
 
 #: src/load_obsolete_conf.c:68 src/load_obsolete_conf.c:93
 #: src/load_obsolete_conf.c:128 src/load_obsolete_conf.c:158
@@ -33,7 +33,7 @@ msgstr "¡%s: Módulo desconocido %s, ignorado!\n"
 #: src/load_obsolete_conf.c:250 src/load_obsolete_conf.c:280
 #, c-format
 msgid "ERROR: Unknown service: [%s: %s], ignored!\n"
-msgstr "¡ERROR: Servicio desconocido: [%s: %s], ignorado!\n"
+msgstr "ERROR: Servicio desconocido: [%s: %s], ¡ignorado!\n"
 
 #: src/load_obsolete_conf.c:288
 #, c-format
@@ -58,12 +58,12 @@ msgstr ""
 #: src/load_obsolete_conf.c:296
 #, c-format
 msgid "ERROR: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr "¡ERROR: Opción desconocida (%s): [%s: %s], ignorada!\n"
+msgstr "ERROR: Opción desconocida (%s): [%s: %s], ¡ignorada!\n"
 
 #: src/load_obsolete_conf.c:316 src/load_obsolete_conf.c:362
 #, c-format
 msgid "WARNING: Unknown option (%s): [%s: %s], ignored!\n"
-msgstr "¡ADVERTENCIA: Opción desconocida (%s): [%s: %s], ignorada!\n"
+msgstr "ADVERTENCIA: Opción desconocida (%s): [%s: %s], ¡ignorada!\n"
 
 #: src/load_obsolete_conf.c:354
 #, c-format
@@ -124,7 +124,7 @@ msgid ""
 "Couldn't load config file '%s', aborted!\n"
 msgstr ""
 "\n"
-"¡No se puede cargar el archivo de configuración '%s', cancelado!\n"
+"No se puede cargar el archivo de configuración '%s', ¡cancelado!\n"
 
 #: src/mod_pam_mount.c:126
 #, c-format
@@ -133,10 +133,9 @@ msgstr ""
 "ERROR: El módulo pam_thinkfinger.so está habilitado. Inhabilítelo primero.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
-msgstr ""
-"ERROR: El módulo pam_thinkfinger.so está habilitado. Inhabilítelo primero.\n"
+msgstr "ERROR: El módulo pam_fp.so está habilitado. Inhabilítelo primero.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -159,17 +158,17 @@ msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
-"¡ERROR: pam_mount.so está habilitado. Para utilizar pam_thinkfinger.so "
+"ERROR: pam_mount.so está habilitado. ¡Para utilizar pam_thinkfinger.so "
 "necesita inhabilitarlo primero!\n"
 
 #: src/mod_pam_thinkfinger.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"¡ERROR: pam_mount.so está habilitado. Para utilizar pam_thinkfinger.so "
-"necesita inhabilitarlo primero!\n"
+"ERROR: pam_fp.so está habilitado. ¡Para utilizar pam_thinkfinger.so necesita "
+"inhabilitarlo primero!\n"
 
 #: src/pam-config.c:46
 #, c-format
@@ -241,7 +240,7 @@ msgstr "  -q, --query       Consultar los módulos y opciones instalados\n"
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Enumerar todos los módulos admitidos\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -257,7 +256,7 @@ msgstr "  -v, --version     Mostrar la versión del programa\n"
 
 #: src/pam-config.c:97
 msgid "Global Module Options:\n"
-msgstr "Opciones para el módulo global:\n"
+msgstr "Opciones globales del módulo:\n"
 
 # Cam: no traduzco el nombre de los módulos
 #: src/pam-config.c:98
@@ -269,7 +268,7 @@ msgstr ""
 "      Los módulos globales se introducen en los \n"
 "      archivos common-{account,auth,password,session} que se incluyen por "
 "medio de\n"
-"      los archivos de servicio individuales.\n"
+"      los archivos individuales del servicio.\n"
 
 #: src/pam-config.c:103
 msgid "Single Service Module Options:\n"
@@ -343,7 +342,7 @@ msgid ""
 "Couldn't load config file, aborted!\n"
 msgstr ""
 "\n"
-"¡No se puede cargar el archivo de configuración, cancelado!\n"
+"No se puede cargar el archivo de configuración, ¡cancelado!\n"
 
 # Cam: mantengo el término en inglés porque los archivos se llaman "common-módulo"
 #: src/pam-config.c:671
@@ -423,6 +422,15 @@ msgstr ""
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ERROR: No se puede inhabilitar pam_unix.so.\n"
+
+#: src/sanity_checks.c:217
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
+msgstr ""
+"ERROR: Sólo se permite ldap-account_only junto con krb5.\n"
+"¡La configuración no se ha cambiado!\n"
 
 #: src/single_config.c:249
 #, c-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YaST (@memory@)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
 "PO-Revision-Date: 2005-07-29 15:37+0530\n"
 "Last-Translator: \"( अमेय पाळंदे ) Ameya Palande\" <2ameya@gmail.com>\n"
 "Language-Team: Marathi <i18n@suse.de>\n"
@@ -361,6 +361,13 @@ msgstr ""
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
+msgstr ""
+
+#: src/sanity_checks.c:217
+#, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
 msgstr ""
 
 #: src/single_config.c:249

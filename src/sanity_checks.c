@@ -204,6 +204,19 @@ check_for_unix_conflict (pam_module_t **module_list, write_type_t op)
 int
 sanitize_check_session (pam_module_t **module_list)
 {
+  int with_selinux, with_apparmor;
+
   check_for_unix_conflict( module_list, SESSION );
+
+  with_selinux = is_module_enabled (module_list, "pam_selinux.so", SESSION);
+  with_apparmor = is_module_enabled (module_list, "pam_apparmor.so", SESSION);
+
+  if (with_selinux && with_apparmor)
+    {
+      fprintf (stderr,
+	       _("ERROR: pam_apparmor and pam_selinux together is not allowed.\nConfiguration not changed!\n"));
+      return 1;
+    }
+
   return 0;
 }

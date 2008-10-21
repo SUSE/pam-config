@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
 "PO-Revision-Date: 2008-08-14 15:17+0900\n"
 "Last-Translator: YunSeok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -389,6 +389,15 @@ msgstr ""
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "오류: pam_unix.so 비활성화에 실패했습니다.\n"
+
+#: src/sanity_checks.c:217
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
+msgstr ""
+"오류: ldap-account_only 는 krb5와 함께 사용되어야 합니다.\n"
+"구성이 변경되지 않았습니다!\n"
 
 #: src/single_config.c:249
 #, c-format

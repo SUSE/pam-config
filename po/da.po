@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
-"PO-Revision-Date: 2008-04-05 13:18+0200\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
+"PO-Revision-Date: 2008-10-09 21:52+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
-"Language-Team:  <opensuse-da@opensuse.org>\n"
+"Language-Team: Danish <opensuse-translation@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 0.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/load_config.c:131
@@ -93,9 +93,9 @@ msgstr ""
 "ADVARSEL: Kunne ikke finde /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "FEJL: Kunne ikke tilføje pam_cryptpass.so til tjenesten '%s'"
+msgstr "FEJL: Kunne ikke tilføje pam_ck_connector.so til tjenesten '%s'"
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -126,9 +126,9 @@ msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr "FEJL: Modulet pam_thinkfinger.so er aktiveret. Deaktivér det først.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
-msgstr "FEJL: Modulet pam_thinkfinger.so er aktiveret. Deaktivér det først.\n"
+msgstr "FEJL: Modulet pam_fp er aktiveret. Deaktivér det først.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -155,13 +155,13 @@ msgstr ""
 "du deaktivere den først!\n"
 
 #: src/mod_pam_thinkfinger.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"FEJL: pam_mount.so er aktiveret. For at kunne bruge pam_thinkfinger.so skal "
-"du deaktivere den først!\n"
+"FEJL: pam_fp er aktiveret. For at kunne bruge pam_thinkfinger.so skal du "
+"deaktivere det først!\n"
 
 #: src/pam-config.c:46
 #, c-format
@@ -228,7 +228,7 @@ msgstr ""
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Vis liste over alle understøttede moduler\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -292,19 +292,19 @@ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 msgstr "ADVARSEL: Filen '%s' ikke fundet. Undlader backup.\n"
 
 #: src/pam-config.c:199
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
-msgstr "ADVARSEL: Filen '%s' ikke fundet. Undlader backup.\n"
+msgstr "ADVARSEL: Backupfilen '%s' findes allerede. Undlader backup.\n"
 
 #: src/pam-config.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Der kan ikke oprettes en backup-fil for  %s: %m"
+msgstr "FEJL: Kan ikke oprette backupfilen '%s' (%m)\n"
 
 #: src/pam-config.c:206
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Kan ikke oprette %s: %m\n"
+msgstr "FEJL: Kan ikke fjerne '%s' (%m)\n"
 
 #: src/pam-config.c:377
 #, c-format
@@ -397,6 +397,15 @@ msgstr ""
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "FEJL: Fejl under deaktivering af pam_unix.so.\n"
+
+#: src/sanity_checks.c:217
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
+msgstr ""
+"FEJL: ldap-account_only er kun tilladt in kombination med krb5.\n"
+"Konfiguration ikke ændret!\n"
 
 #: src/single_config.c:249
 #, c-format

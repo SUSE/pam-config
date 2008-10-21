@@ -1,22 +1,21 @@
-# translation of pam-config.hu.po to Hungarian
+# translation of pam-config.po to
 # Kalman Kemenczy <kkemenczy@novell.com>, 2007, 2008.
 # Gabor Kelemen <kelemeng@gnome.hu>, 2007.
 # Ervin Novak <enovak@novell.com>, 2008.
-# translation of pam-config.po to
 # translation of pam-config.hu.po to
 # translation of login.hu.po to
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 19:21+0200\n"
-"PO-Revision-Date: 2008-08-13 16:24+0200\n"
+"POT-Creation-Date: 2008-10-21 14:17+0200\n"
+"PO-Revision-Date: 2008-10-09 06:16+0200\n"
 "Last-Translator: Kalman Kemenczy <kkemenczy@novell.com>\n"
-"Language-Team: Hungarian <hu@li.org>\n"
+"Language-Team:  <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: src/load_config.c:131
@@ -127,13 +126,14 @@ msgstr ""
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr ""
-"HIBA: A pam_thinkfinger.so modul engedélyezve van. Először ezt tiltsa le.\n"
+"HIBA: A pam_thinkfinger.so modul engedélyezve van. Először ezt le kell "
+"tiltani.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr ""
-"HIBA: A pam_thinkfinger.so modul engedélyezve van. Először ezt tiltsa le.\n"
+"HIBA: A pam_fp.so modul engedélyezve van. Először ezt le kell tiltani.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -162,13 +162,13 @@ msgstr ""
 "használatához le kell tiltani.\n"
 
 #: src/mod_pam_thinkfinger.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"HIBA: A pam_mount.so engedélyezve van, amit a pam_thinkfinger.so "
-"használatához le kell tiltani.\n"
+"HIBA: A pam_fp.so engedélyezve van, amit a pam_thinkfinger.so használatához "
+"le kell tiltani.\n"
 
 #: src/pam-config.c:46
 #, c-format
@@ -238,7 +238,7 @@ msgstr "  -q, --query       Telepített modulok és kapcsolók lekérdezése\n"
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Támogatott modulok listázása\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -410,6 +410,15 @@ msgstr ""
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "HIBA: A pam_unix.so letiltása sikertelen.\n"
+
+#: src/sanity_checks.c:217
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
+"Configuration not changed!\n"
+msgstr ""
+"HIBA: az ldap-account_only csak a krb5 használatával engedélyezett.\n"
+"A beállítások nem változtak!\n"
 
 #: src/single_config.c:249
 #, c-format

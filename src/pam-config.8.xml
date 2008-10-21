@@ -713,6 +713,22 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--selinux</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_selinux.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--selinux-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_selinux.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--ssh</option></term>
             <listitem>
               <para>
