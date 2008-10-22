@@ -1,3 +1,7 @@
+2008-10-22  Michael Calmer  <mc@suse.de>
+	* src/mod_pam_selinux.c: configure with open and close option.
+	* src/supported-modules.h: add pam_selinux
+
 2008-10-21  Michael Calmer  <mc@suse.de>
 	* release version 0.64
 

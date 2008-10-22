@@ -109,11 +109,11 @@ static pam_module_t *module_list_password[] = {
 };
 
 static pam_module_t *module_list_session[] = {
+  &mod_pam_selinux,
   &mod_pam_mkhomedir,
   &mod_pam_limits,
   &mod_pam_unix2,
   &mod_pam_unix,
-  &mod_pam_selinux,
   &mod_pam_apparmor,
   &mod_pam_krb5,
   &mod_pam_ldap,
@@ -122,6 +122,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_umask,
   &mod_pam_env,
   &mod_pam_ssh,
+  &mod_pam_selinux,
   NULL
 };
 
