@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-21 14:17+0200\n"
-"PO-Revision-Date: 2008-10-09 21:52+0200\n"
+"POT-Creation-Date: 2008-11-05 14:23+0100\n"
+"PO-Revision-Date: 2008-10-22 14:57+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <opensuse-translation@opensuse.org>\n"
 "MIME-Version: 1.0\n"
@@ -111,7 +111,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "FEJL: Kunne ikke tilføje pam_cryptpass.so til tjenesten '%s'"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:447
 #, c-format
 msgid ""
 "\n"
@@ -264,14 +264,14 @@ msgstr "Modulindstillinger for single service:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Disse moduler kan kun tilføjes til single service-filer.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:908
-#: src/pam-config.c:918 src/pam-config.c:928 src/pam-config.c:939
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:914
+#: src/pam-config.c:924 src/pam-config.c:934 src/pam-config.c:945
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Fejl under aktivering af %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:910
-#: src/pam-config.c:920 src/pam-config.c:930 src/pam-config.c:941
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:916
+#: src/pam-config.c:926 src/pam-config.c:936 src/pam-config.c:947
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Ny konfiguration fra %s er ikke i brug!\n"
@@ -306,12 +306,12 @@ msgstr "FEJL: Kan ikke oprette backupfilen '%s' (%m)\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "FEJL: Kan ikke fjerne '%s' (%m)\n"
 
-#: src/pam-config.c:377
+#: src/pam-config.c:383
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "ADVARSEL: Kunne ikke indlæse gamle konfigurationsfiler.\n"
 
-#: src/pam-config.c:383 src/pam-config.c:419
+#: src/pam-config.c:389 src/pam-config.c:425
 #, c-format
 msgid ""
 "\n"
@@ -320,12 +320,12 @@ msgstr ""
 "\n"
 "Kunne ikke indlæse konfigurationsfilen, afbrudt!\n"
 
-#: src/pam-config.c:671
+#: src/pam-config.c:677
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Understøttede fælles moduler:\n"
 
-#: src/pam-config.c:673
+#: src/pam-config.c:679
 #, c-format
 msgid ""
 "\n"
@@ -334,12 +334,12 @@ msgstr ""
 "\n"
 "Understøttede tjenestemoduler:\n"
 
-#: src/pam-config.c:715
+#: src/pam-config.c:721
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: For mange argumenter.\n"
 
-#: src/pam-config.c:829
+#: src/pam-config.c:835
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Kan ikke tilgå '%s': %m\n"
@@ -399,12 +399,12 @@ msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "FEJL: Fejl under deaktivering af pam_unix.so.\n"
 
 #: src/sanity_checks.c:217
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
-"FEJL: ldap-account_only er kun tilladt in kombination med krb5.\n"
+"FEJL: pam_apparmor og pam_selinux er ikke tilladt sammen.\n"
 "Konfiguration ikke ændret!\n"
 
 #: src/single_config.c:249

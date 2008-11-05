@@ -1,23 +1,23 @@
 # translation of pam-config.fi.po to suomi
+# translation of pam-config.po to
+# translation of pam-config.fi.po to
 # Jyri Palokangas <jmp@opensuse.fi>, 2007, 2008.
 # Mikko Piippo <piippo@opensuse.fi>, 2008.
 # Jyri Palokangas <jyri.palokangas@opensuse.org>, 2008.
 # Mikko Piippo <mikko.piippo@opensuse.fi>, 2008.
 # Jyri Palokangas <jmp@opensuse.org>, 2008.
-# translation of pam-config.po to
-# translation of pam-config.fi.po to
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-21 14:17+0200\n"
-"PO-Revision-Date: 2008-10-08 17:14+0300\n"
-"Last-Translator: Jyri Palokangas <jyri.palokangas@opensuse.org>\n"
-"Language-Team: suomi <fi@li.org>\n"
+"POT-Creation-Date: 2008-11-05 14:23+0100\n"
+"PO-Revision-Date: 2008-10-25 23:57+0300\n"
+"Last-Translator: Mikko Piippo <mikko.piippo@opensuse.fi>\n"
+"Language-Team: Finnish <kde-i18n-doc@lists.kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: LoKalize 0.2\n"
 "Plural-Forms:  nplurals=2; plural=n != 1;\n"
 
 #: src/load_config.c:131
@@ -111,7 +111,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "VIRHE: pam_cryptpass.so moduulia ei voitu lisätä palveluun '%s'"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:447
 #, c-format
 msgid ""
 "\n"
@@ -267,14 +267,14 @@ msgstr ""
 "       Näitä moduuleita voidaan lisätä vain yksittäisiin "
 "palvelutiedostoihin.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:908
-#: src/pam-config.c:918 src/pam-config.c:928 src/pam-config.c:939
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:914
+#: src/pam-config.c:924 src/pam-config.c:934 src/pam-config.c:945
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Virhe otettaessa käyttöön %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:910
-#: src/pam-config.c:920 src/pam-config.c:930 src/pam-config.c:941
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:916
+#: src/pam-config.c:926 src/pam-config.c:936 src/pam-config.c:947
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Uusi määritys %s ei ole käytössä!\n"
@@ -312,12 +312,12 @@ msgstr "VIRHE: Varmuuskopion '%s' (%m) luominen ei onnistunut.\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "VIRHE: '%s' (%m) poistaminen ei onnistunut (%m)\n"
 
-#: src/pam-config.c:377
+#: src/pam-config.c:383
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "VAROITUS: Vanhojen määritystiedostojen lataaminen ei onnistunut.\n"
 
-#: src/pam-config.c:383 src/pam-config.c:419
+#: src/pam-config.c:389 src/pam-config.c:425
 #, c-format
 msgid ""
 "\n"
@@ -326,12 +326,12 @@ msgstr ""
 "\n"
 "Määritystiedoston lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:671
+#: src/pam-config.c:677
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Tuetut yleiset moduulit:\n"
 
-#: src/pam-config.c:673
+#: src/pam-config.c:679
 #, c-format
 msgid ""
 "\n"
@@ -340,12 +340,12 @@ msgstr ""
 "\n"
 "Tuetut palvelumoduulit:\n"
 
-#: src/pam-config.c:715
+#: src/pam-config.c:721
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Liian monta argumenttia.\n"
 
-#: src/pam-config.c:829
+#: src/pam-config.c:835
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Ei voi yhdistää %s: %m\n"
@@ -404,12 +404,12 @@ msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "VIRHE: pam_unix.so käytöstä poisto ei onnistu.\n"
 
 #: src/sanity_checks.c:217
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
-"VIRHE: ldap-account_only on sallittu vain krb5 kanssa.\n"
+"VIRHE: pam_apparmor ja pam_selinux ei voida käyttää yhdessä.\n"
 "Määritystä ei muutettu!\n"
 
 #: src/single_config.c:249

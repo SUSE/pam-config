@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-21 14:17+0200\n"
+"POT-Creation-Date: 2008-11-05 14:23+0100\n"
 "PO-Revision-Date: 2008-06-06 01:04+0100\n"
 "Last-Translator: Vasileios Giannakopoulos <billg@billg.gr>\n"
 "Language-Team: Ελληνικά <billg@billg.gr>\n"
@@ -111,7 +111,7 @@ msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "ΣΦΑΛΜΑ"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:447
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -262,14 +262,14 @@ msgstr "Προκαθορισμένες Επιλογές Προσάρτησης"
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:908
-#: src/pam-config.c:918 src/pam-config.c:928 src/pam-config.c:939
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:914
+#: src/pam-config.c:924 src/pam-config.c:934 src/pam-config.c:945
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Σφάλμα κατα την ενεργοποίηση %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:910
-#: src/pam-config.c:920 src/pam-config.c:930 src/pam-config.c:941
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:916
+#: src/pam-config.c:926 src/pam-config.c:936 src/pam-config.c:947
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Νέα ρύθμιση από %s δεν είναι σε χρήση!\n"
@@ -304,14 +304,14 @@ msgstr "Αδυναμία δημιουργίας αντιγράφου ασφαλ�
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "Αδυναμία δημιουργίας %s: %m\n"
 
-#: src/pam-config.c:377
+#: src/pam-config.c:383
 #, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 "\n"
 "Αδυναμία φόρτωσης αρχείου ρυθμίσεων, ματαίωση!\n"
 
-#: src/pam-config.c:383 src/pam-config.c:419
+#: src/pam-config.c:389 src/pam-config.c:425
 #, c-format
 msgid ""
 "\n"
@@ -320,24 +320,24 @@ msgstr ""
 "\n"
 "Αδυναμία φόρτωσης αρχείου ρυθμίσεων, ματαίωση!\n"
 
-#: src/pam-config.c:671
+#: src/pam-config.c:677
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:673
+#: src/pam-config.c:679
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:715
+#: src/pam-config.c:721
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Υπερβολικά πολλοί παράμετροι.\n"
 
-#: src/pam-config.c:829
+#: src/pam-config.c:835
 #, fuzzy, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Αδυναμία δημιουργίας %s: %m\n"

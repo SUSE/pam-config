@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-21 14:17+0200\n"
-"PO-Revision-Date: 2008-09-29 17:31+0100\n"
-"Last-Translator: Piotr Leszczyński <piotr@kontury.pl>\n"
+"POT-Creation-Date: 2008-11-05 14:23+0100\n"
+"PO-Revision-Date: 2008-11-01 17:43+0100\n"
+"Last-Translator: Jakub Derda <kontakt@thenewone.pl>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,7 +108,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "BŁĄD: Nie można dodać pam_cryptpass.so do usługi \"%s\""
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:447
 #, c-format
 msgid ""
 "\n"
@@ -124,10 +124,9 @@ msgstr ""
 "BŁĄÐ: Moduł pam_thinkfinger.so jest włączony. Najpierw należy go wyłączyć.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
-msgstr ""
-"BŁĄÐ: Moduł pam_thinkfinger.so jest włączony. Najpierw należy go wyłączyć.\n"
+msgstr "BŁĄD: Moduł pam_fp.so jest włączony. Najpierw należy go wyłączyć.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -154,13 +153,13 @@ msgstr ""
 "najpierw wyłączyć.\n"
 
 #: src/mod_pam_thinkfinger.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"BŁĄD: pam_mount.so jest włączony. Aby używać pam_thinkfinger.so, należy go "
-"najpierw wyłączyć.\n"
+"BŁĄD: pam_fp.so jest włączony. Aby używać pam_thinkfinger.so, należy go "
+"najpierw wyłączyć!\n"
 
 #: src/pam-config.c:46
 #, c-format
@@ -229,7 +228,7 @@ msgstr "  -q, --query       Wyszukuje zainstalowane moduły i opcje\n"
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Wypisuje wszystkie obsługiwane moduły\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -265,14 +264,14 @@ msgstr "Opcje modułu dla pojedynczej usługi:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Te moduły mogą by dodane tylko do pojedynczych plików usług.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:908
-#: src/pam-config.c:918 src/pam-config.c:928 src/pam-config.c:939
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:914
+#: src/pam-config.c:924 src/pam-config.c:934 src/pam-config.c:945
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Błąd aktywacji %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:910
-#: src/pam-config.c:920 src/pam-config.c:930 src/pam-config.c:941
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:916
+#: src/pam-config.c:926 src/pam-config.c:936 src/pam-config.c:947
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nowa konfiguracja z %s nie jest używana.\n"
@@ -310,12 +309,12 @@ msgstr "BŁĄD: Nie można utworzyć kopii zapasowej '%s' (%m)\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "Nie można usunąć '%s' (%m)\n"
 
-#: src/pam-config.c:377
+#: src/pam-config.c:383
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "OSTRZEŻENIE: Nie można wczytać starych plików konfiguracji.\n"
 
-#: src/pam-config.c:383 src/pam-config.c:419
+#: src/pam-config.c:389 src/pam-config.c:425
 #, c-format
 msgid ""
 "\n"
@@ -324,12 +323,12 @@ msgstr ""
 "\n"
 "Nie można wczytać pliku konfiguracyjnego. Przerwano.\n"
 
-#: src/pam-config.c:671
+#: src/pam-config.c:677
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Obsługiwane wspólne moduły:\n"
 
-#: src/pam-config.c:673
+#: src/pam-config.c:679
 #, c-format
 msgid ""
 "\n"
@@ -338,12 +337,12 @@ msgstr ""
 "\n"
 "Obsługiwane moduły usług:\n"
 
-#: src/pam-config.c:715
+#: src/pam-config.c:721
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Zbyt wiele parametrów.\n"
 
-#: src/pam-config.c:829
+#: src/pam-config.c:835
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Brak dostępu do \"%s\": %m\n"
@@ -402,12 +401,12 @@ msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "BŁĄD: Nie można wyłączyć pam_unix.so.\n"
 
 #: src/sanity_checks.c:217
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
-"BŁĄD: ldap-account_only jest dozwolony tylko w kombinacji z krb5.\n"
+"BŁĄD: kombinacja pam_apparmor oraz pam_selinux nie jest dozwolona.\n"
 "Konfiguracja nie została zmieniona!\n"
 
 #: src/single_config.c:249

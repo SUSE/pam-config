@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-21 14:17+0200\n"
-"PO-Revision-Date: 2008-10-09 21:20+0900\n"
+"POT-Creation-Date: 2008-11-05 14:23+0100\n"
+"PO-Revision-Date: 2008-10-22 20:53+0900\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <opensuse-ja@opensuse.org>\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "エラー: サービス '%s' に pam_cryptpass.so を追加できませんでした。"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:447
 #, c-format
 msgid ""
 "\n"
@@ -270,14 +270,14 @@ msgstr "単一サービスモジュールのオプション:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      これらのモジュールは単一のサービスファイル内に追加されます。\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:908
-#: src/pam-config.c:918 src/pam-config.c:928 src/pam-config.c:939
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:914
+#: src/pam-config.c:924 src/pam-config.c:934 src/pam-config.c:945
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "%s を有効にする処理でエラーが発生しました (%m)。\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:910
-#: src/pam-config.c:920 src/pam-config.c:930 src/pam-config.c:941
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:916
+#: src/pam-config.c:926 src/pam-config.c:936 src/pam-config.c:947
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s からもたらされた新しい設定は使われていません。\n"
@@ -314,12 +314,12 @@ msgstr "エラー: バックアップファイル '%s' (%m) を作成できま�
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "エラー: '%s' (%m) を削除できません。\n"
 
-#: src/pam-config.c:377
+#: src/pam-config.c:383
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "警告: 古い設定ファイルを読み込むことができませんでした。\n"
 
-#: src/pam-config.c:383 src/pam-config.c:419
+#: src/pam-config.c:389 src/pam-config.c:425
 #, c-format
 msgid ""
 "\n"
@@ -328,12 +328,12 @@ msgstr ""
 "\n"
 "設定ファイルを読み込めませんでした。中止します。\n"
 
-#: src/pam-config.c:671
+#: src/pam-config.c:677
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "サポートされている汎用モジュール:\n"
 
-#: src/pam-config.c:673
+#: src/pam-config.c:679
 #, c-format
 msgid ""
 "\n"
@@ -342,12 +342,12 @@ msgstr ""
 "\n"
 "サポートされているサービスモジュール:\n"
 
-#: src/pam-config.c:715
+#: src/pam-config.c:721
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 引数が多すぎます。\n"
 
-#: src/pam-config.c:829
+#: src/pam-config.c:835
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "'%s' にアクセスできません: %m\n"
@@ -408,13 +408,13 @@ msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "エラー: pam_unix.so を無効化する際に失敗しました。\n"
 
 #: src/sanity_checks.c:217
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
-"エラー: ldap-account_only は krb5 と一緒に使う必要があります。\n"
-"設定を変更できませんでした。\n"
+"エラー: pam_apparmor と pam_selinux を同時に使用することはできません。\n"
+"設定は変更されませんでした。\n"
 
 #: src/single_config.c:249
 #, c-format

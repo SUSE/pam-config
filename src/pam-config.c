@@ -243,8 +243,14 @@ main (int argc, char *argv[])
       argv++;
     }
 
-  if (strcmp (argv[1], "--confdir") == 0)
+  if (argc > 1 && strcmp (argv[1], "--confdir") == 0)
   {
+	  if (argc < 3)
+	  {
+		  print_error (program);
+		  return 1;
+	  }
+	  
 	  confdir = argv[2];
 	  if(confdir[0] != '/')
 	  {

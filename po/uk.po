@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-21 14:17+0200\n"
-"PO-Revision-Date: 2008-10-08 19:02-0700\n"
+"POT-Creation-Date: 2008-11-05 14:23+0100\n"
+"PO-Revision-Date: 2008-10-22 22:51-0700\n"
 "Last-Translator: Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "ПОМИЛКА: Неможливо додати pam_cryptpass.so до служби '%s'"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:441
+#: src/mod_pam_mount.c:120 src/pam-config.c:447
 #, c-format
 msgid ""
 "\n"
@@ -276,14 +276,14 @@ msgstr "Параметри модуля окремої служби:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Ці модулі можна додати лише до окремих файлів служб.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:908
-#: src/pam-config.c:918 src/pam-config.c:928 src/pam-config.c:939
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:914
+#: src/pam-config.c:924 src/pam-config.c:934 src/pam-config.c:945
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Помилка активації %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:910
-#: src/pam-config.c:920 src/pam-config.c:930 src/pam-config.c:941
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:916
+#: src/pam-config.c:926 src/pam-config.c:936 src/pam-config.c:947
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Нове налаштування з %s не вживається!\n"
@@ -320,12 +320,12 @@ msgstr "ПОМИЛКА: Неможливо створити резервний �
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "ПОМИЛКА: Неможливо вилучити \"%s\" (%m)\n"
 
-#: src/pam-config.c:377
+#: src/pam-config.c:383
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "ПОПЕРЕДЖЕННЯ: Неможливо завантажити старі файли налаштування.\n"
 
-#: src/pam-config.c:383 src/pam-config.c:419
+#: src/pam-config.c:389 src/pam-config.c:425
 #, c-format
 msgid ""
 "\n"
@@ -334,12 +334,12 @@ msgstr ""
 "\n"
 "Не вдалося завантажити файл конфігурації!\n"
 
-#: src/pam-config.c:671
+#: src/pam-config.c:677
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Загальні модулі, що підтримуються:\n"
 
-#: src/pam-config.c:673
+#: src/pam-config.c:679
 #, c-format
 msgid ""
 "\n"
@@ -348,12 +348,12 @@ msgstr ""
 "\n"
 "Модулі служб, що підтримуються:\n"
 
-#: src/pam-config.c:715
+#: src/pam-config.c:721
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Забагато аргументів.\n"
 
-#: src/pam-config.c:829
+#: src/pam-config.c:835
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Неможливий доступ до \"%s\": %m\n"
@@ -413,12 +413,12 @@ msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ПОМИЛКА: Не вдалося вимкнути pam_unix.so.\n"
 
 #: src/sanity_checks.c:217
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
-"ПОМИЛКА: ldap-account_only дозволено використовувати лише з krb5.\n"
+"ПОМИЛКА: не дозволено вживати pam_apparmor з pam_selinux.\n"
 "Налаштування не змінено!\n"
 
 #: src/single_config.c:249
