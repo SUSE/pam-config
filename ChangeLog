@@ -1,14 +1,27 @@
+2008-11-07  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/mod_pam_gnome_keyring.c (write_config_gnome_keyring): New
+	[bnc#440448].
+
+	* src/Makefile.am (pam_config_SOURCES): Add mod_pam_gnome_keyring.c
+
+	* src/pam-config.c (main): Implement nullok for single services,
+	too [bnc#440437].
+
 2008-11-05  Michael Calmer  <mc@suse.de>
+
 	* release version 0.65
 
 	* src/pam-config.c: fix error at option parsing
 	* po/: update translation files
 
 2008-10-22  Michael Calmer  <mc@suse.de>
+
 	* src/mod_pam_selinux.c: configure with open and close option.
 	* src/supported-modules.h: add pam_selinux
 
 2008-10-21  Michael Calmer  <mc@suse.de>
+
 	* release version 0.64
 
 	* src/mod_pam_selinux.c: New
@@ -17,7 +30,7 @@
 	* src/sanity_checks.c: Check that pam_selinux and pam_apparmor are
 	not enabled at the same time.
 	* po/ : update translations
-	
+
 2008-10-14  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.63

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-05 14:23+0100\n"
+"POT-Creation-Date: 2008-11-07 12:06+0100\n"
 "PO-Revision-Date: 2008-10-22 14:27-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive68@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <opensuse-pt@opensuse.org>\n"
@@ -269,14 +269,14 @@ msgstr ""
 "      Estes módulos somente podem ser adicionados pelos arquivos do serviço "
 "único.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:914
-#: src/pam-config.c:924 src/pam-config.c:934 src/pam-config.c:945
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:930
+#: src/pam-config.c:940 src/pam-config.c:950 src/pam-config.c:961
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Erro ao ativar %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:916
-#: src/pam-config.c:926 src/pam-config.c:936 src/pam-config.c:947
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:932
+#: src/pam-config.c:942 src/pam-config.c:952 src/pam-config.c:963
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nova configuração de %s não está em uso!\n"
@@ -325,12 +325,12 @@ msgstr ""
 "\n"
 "Não foi possível carregar o arquivo de configuração, cancelado!\n"
 
-#: src/pam-config.c:677
+#: src/pam-config.c:693
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Módulos comuns suportados:\n"
 
-#: src/pam-config.c:679
+#: src/pam-config.c:695
 #, c-format
 msgid ""
 "\n"
@@ -339,12 +339,12 @@ msgstr ""
 "\n"
 "Módulos de serviço suportados:\n"
 
-#: src/pam-config.c:721
+#: src/pam-config.c:737
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: excesso de argumentos.\n"
 
-#: src/pam-config.c:835
+#: src/pam-config.c:851
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Não foi possível acessar '%s': %m\n"

@@ -4,6 +4,9 @@ Copyright (C) 2006, 2007, 2008 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.66
+* Add support for pam_gnome_keyring.
+
 Version 0.65
 * fix error at option parsing.
 * update translations.

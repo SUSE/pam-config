@@ -337,6 +337,30 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--gnome_keyring</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_gnome_keyring.so module in the service.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--gnome_keyring-auto_start</option></term>
+            <listitem>
+              <para>
+                Add <option>auto_start</option> option to all pam_gnome_keyring.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--gnome_keyring-auto_start_if=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>auto_start_if=</option><replaceable>value</replaceable> option to pam_gnome_keyring.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--group</option></term>
             <listitem>
               <para>

@@ -524,6 +524,22 @@ main (int argc, char *argv[])
 		opt_set->enable (opt_set, "nullok", opt.opt_val);
 		++modptr;
 	      }
+
+	    modptr = service_module_list;
+
+	    while (*modptr != NULL)
+	      {
+		opt_set = (*modptr)->get_opt_set (*modptr, AUTH);
+		opt_set->enable (opt_set, "nullok", opt.opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, ACCOUNT);
+		opt_set->enable (opt_set, "nullok", opt.opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, PASSWORD);
+		opt_set->enable (opt_set, "nullok", opt.opt_val);
+		opt_set = (*modptr)->get_opt_set (*modptr, SESSION);
+		opt_set->enable (opt_set, "nullok", opt.opt_val);
+
+		++modptr;
+	      }
 	  }
 	  break;
 	case 901: /* --pam-debug */
