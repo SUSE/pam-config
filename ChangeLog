@@ -1,3 +1,7 @@
+2008-11-07  Michael Calmer  <mc@suse.de>
+	* src/pam-modules.h: delete option if argument is 0 (bnc#442552)
+	* src/mod_pam_pwcheck.c: remove obsolete parsing code
+
 2008-11-07  Thorsten Kukuk  <kukuk@suse.de>
 
 	* src/mod_pam_gnome_keyring.c (write_config_gnome_keyring): New

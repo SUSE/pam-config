@@ -137,22 +137,6 @@ GETOPT_START_1(PASSWORD)
       opt_set->enable (opt_set, "cracklib", g_opt->opt_val);
       opt_set->set_opt (opt_set, "cracklib_path", strdup (optarg));
     }
-  else if (strcmp ("maxlen", opt) == 0)
-    {
-      opt_set = this->get_opt_set (this, PASSWORD);
-      if (g_opt->m_delete)
-	opt_set->set_opt (opt_set, "maxlen", NULL);
-      else
-	opt_set->set_opt (opt_set, "maxlen", strdup (optarg));
-    }
-  else if (strcmp ("minlen", opt) == 0)
-    {
-      opt_set = this->get_opt_set (this, PASSWORD);
-      if (g_opt->m_delete)
-	opt_set->set_opt (opt_set, "minlen", NULL);
-      else
-	opt_set->set_opt (opt_set, "minlen", strdup (optarg));
-    }
 GETOPT_END_1(PASSWORD)
 
 

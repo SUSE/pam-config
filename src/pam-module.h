@@ -452,7 +452,7 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt) \
       opt_set = this->get_opt_set (this, type);				\
       if (opt_set->enable (opt_set, opt, g_opt->opt_val) == FALSE)	\
 	{								\
-	  if (optarg)							\
+	if (optarg && strlen(optarg) > 0 )	\
 	    {								\
 	      if (opt_set->set_opt (opt_set, opt, strdup(optarg)) == FALSE) \
 		return 1;						\
@@ -504,12 +504,12 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt) \
     {									\
       write_type_t type;						\
 									\
-      for (type = AUTH; type < SESSION; type++)				\
+    for (type = AUTH; type <= SESSION; type++)				\
 	{								\
 	  opt_set = this->get_opt_set (this, type);			\
 	  if (opt_set->enable (opt_set, opt, g_opt->opt_val) == FALSE)	\
 	    {								\
-	      if (optarg)						\
+	if (optarg && strlen(optarg) > 0 )		\
 		{							\
 		  if (opt_set->set_opt (opt_set, opt, strdup(optarg)) == FALSE) \
 		    return 1;						\
