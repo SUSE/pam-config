@@ -1,4 +1,6 @@
 2008-11-07  Michael Calmer  <mc@suse.de>
+	* release version 0.66
+
 	* src/pam-modules.h: delete option if argument is 0 (bnc#442552)
 	* src/mod_pam_pwcheck.c: remove obsolete parsing code
 
