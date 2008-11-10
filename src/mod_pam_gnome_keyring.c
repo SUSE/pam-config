@@ -40,7 +40,9 @@ write_config_gnome_keyring (pam_module_t *this, enum write_type op, FILE *fp)
   switch (op)
     {
     case AUTH:
-      fprintf (fp, "auth\toptional\tpam_gnome_keyring.so\t");
+      /* No options: we put the auto_start options in SESSION only */
+      fprintf (fp, "auth\toptional\tpam_gnome_keyring.so\n");
+      return 0;
       break;
     case ACCOUNT:
       return 0;
@@ -71,7 +73,7 @@ DECLARE_BOOL_OPTS_2(is_enabled, auto_start);
 DECLARE_STRING_OPTS_1(auto_start_if);
 DECLARE_OPT_SETS;
 
-static module_helptext_t gnome_keyring_helptext[] = {{"", NULL, "Enable/Disable pam_gnome_keyring.so module in the service."},
+static module_helptext_t gnome_keyring_helptext[] = {{"", NULL, "Enable/Disable pam_gnome_keyring.so"},
                                                      {NULL, NULL, NULL}};
 
 
