@@ -1,3 +1,7 @@
+2008-11-19  Thorsten Kukuk <kukuk@suse.de>
+
+	* src/mod_pam_pwhistory.c: Add type as string option.
+
 2008-11-10  Michael Calmer  <mc@suse.de>
 	* src/mod_pam_gnome_keyring.c: no options in AUTH section.
 	(bnc#443189)

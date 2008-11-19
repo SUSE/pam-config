@@ -1,801 +1,969 @@
 .\"     Title: pam-config
-.\"    Author: 
-.\" Generator: DocBook XSL Stylesheets v1.73.2 <http://docbook.sf.net/>
-.\"      Date: 11/10/2008
+.\"    Author: [see the "AUTHOR" section]
+.\" Generator: DocBook XSL Stylesheets v1.74.0 <http://docbook.sf.net/>
+.\"      Date: 11/19/2008
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
+.\"  Language: English
 .\"
-.TH "PAM\-CONFIG" "8" "11/10/2008" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "11/19/2008" "Reference Manual" "Reference Manual"
+.\" -----------------------------------------------------------------
+.\" * (re)Define some macros
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" toupper - uppercase a string (locale-aware)
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.de toupper
+.tr aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ
+\\$*
+.tr aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz
+..
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" SH-xref - format a cross-reference to an SH section
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.de SH-xref
+.ie n \{\
+.\}
+.toupper \\$*
+.el \{\
+\\$*
+.\}
+..
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" SH - level-one heading that works better for non-TTY output
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.de1 SH
+.\" put an extra blank line of space above the head in non-TTY output
+.if t \{\
+.sp 1
+.\}
+.sp \\n[PD]u
+.nr an-level 1
+.set-an-margin
+.nr an-prevailing-indent \\n[IN]
+.fi
+.in \\n[an-margin]u
+.ti 0
+.HTML-TAG ".NH \\n[an-level]"
+.it 1 an-trap
+.nr an-no-space-flag 1
+.nr an-break-flag 1
+\." make the size of the head bigger
+.ps +3
+.ft B
+.ne (2v + 1u)
+.ie n \{\
+.\" if n (TTY output), use uppercase
+.toupper \\$*
+.\}
+.el \{\
+.nr an-break-flag 0
+.\" if not n (not TTY), use normal case (not uppercase)
+\\$1
+.in \\n[an-margin]u
+.ti 0
+.\" if not n (not TTY), put a border/line under subheading
+.sp -.6
+\l'\n(.lu'
+.\}
+..
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" SS - level-two heading that works better for non-TTY output
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.de1 SS
+.sp \\n[PD]u
+.nr an-level 1
+.set-an-margin
+.nr an-prevailing-indent \\n[IN]
+.fi
+.in \\n[IN]u
+.ti \\n[SN]u
+.it 1 an-trap
+.nr an-no-space-flag 1
+.nr an-break-flag 1
+.ps \\n[PS-SS]u
+\." make the size of the head bigger
+.ps +2
+.ft B
+.ne (2v + 1u)
+.if \\n[.$] \&\\$*
+..
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" BB/BE - put background/screen (filled box) around block of text
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.de BB
+.if t \{\
+.sp -.5
+.br
+.in +2n
+.ll -2n
+.gcolor red
+.di BX
+.\}
+..
+.de EB
+.if t \{\
+.if "\\$2"adjust-for-leading-newline" \{\
+.sp -1
+.\}
+.br
+.di
+.in
+.ll
+.gcolor
+.nr BW \\n(.lu-\\n(.i
+.nr BH \\n(dn+.5v
+.ne \\n(BHu+.5v
+.ie "\\$2"adjust-for-leading-newline" \{\
+\M[\\$1]\h'1n'\v'+.5v'\D'P \\n(BWu 0 0 \\n(BHu -\\n(BWu 0 0 -\\n(BHu'\M[]
+.\}
+.el \{\
+\M[\\$1]\h'1n'\v'-.5v'\D'P \\n(BWu 0 0 \\n(BHu -\\n(BWu 0 0 -\\n(BHu'\M[]
+.\}
+.in 0
+.sp -.5v
+.nf
+.BX
+.in
+.sp .5v
+.fi
+.\}
+..
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" BM/EM - put colored marker in margin next to block of text
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.de BM
+.if t \{\
+.br
+.ll -2n
+.gcolor red
+.di BX
+.\}
+..
+.de EM
+.if t \{\
+.br
+.di
+.ll
+.gcolor
+.nr BH \\n(dn
+.ne \\n(BHu
+\M[\\$1]\D'P -.75n 0 0 \\n(BHu -(\\n[.i]u - \\n(INu - .75n) 0 0 -\\n(BHu'\M[]
+.in 0
+.nf
+.BX
+.in
+.fi
+.\}
+..
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
 .\" disable hyphenation
 .nh
 .\" disable justification (adjust text to left margin only)
 .ad l
-.SH "NAME"
-pam-config - Adjust common PAM config files
-.SH "SYNOPSIS"
-.HP 11
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "Name"
+pam-config \- Adjust common PAM config files
+.SH "Synopsis"
+.fam C
+.HP \w'\fBpam\-config\fR\ 'u
 \fBpam\-config\fR [\-\-debug] [\-\-list\-modules] [\-\-service\ \fIservice\-name\fR] \-a | \-c | \-d | \-q  [\-f] [\fImodule\-name\fR]
-.HP 11
+.fam
+.fam C
+.HP \w'\fBpam\-config\fR\ 'u
 \fBpam\-config\fR \-\-version
+.fam
 .SH "DESCRIPTION"
 .PP
 
 \fBpam\-config\fR
-adjusts predefined PAM config files\.
+adjusts predefined PAM config files\&.
 .SH "OPTIONS"
 .SS "COMMON OPTIONS"
 .PP
 \fB\-\-debug\fR
 .RS 4
-Print debug messages\.
+Print debug messages\&.
 .RE
 .PP
 \fB\-f\fR, \fB\-\-force\fR
 .RS 4
-The new configuration will be activated regardless if there are other local changes\.
+The new configuration will be activated regardless if there are other local changes\&.
 .RE
 .PP
 \fB\-\-list\-modules\fR
 .RS 4
-Prints out a list of all supported modules to stdout\.
+Prints out a list of all supported modules to stdout\&.
 .RE
 .PP
 \fB\-\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-to all modules which support this\.
+to all modules which support this\&.
 .RE
 .PP
 \fB\-\-pam\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-to all modules which support this\.
+to all modules which support this\&.
 .RE
 .SS "MODIFIER OPTIONS"
 .PP
-Use the following options to specifiy the action you want pam\-config to apply\. They need to be followed by a supported module option\. See
-the section called \(lqSUPPORTED PAM MODULES\(rq\.
+Use the following options to specifiy the action you want pam\-config to apply\&. They need to be followed by a supported module option\&. See
+the section called \(lqSUPPORTED PAM MODULES\(rq\&.
 .PP
 \fB\-a\fR, \fB\-\-add\fR
 .RS 4
-Add options or new PAM modules to existing PAM configuration files\.
+Add options or new PAM modules to existing PAM configuration files\&.
 .RE
 .PP
 \fB\-c\fR, \fB\-\-create\fR
 .RS 4
-Create new PAM configuration files for plain UNIX authentication, overwriting existing ones\.
+Create new PAM configuration files for plain UNIX authentication, overwriting existing ones\&.
 .RE
 .PP
 \fB\-d\fR, \fB\-\-delete\fR
 .RS 4
-Remove options or PAM modules from existing PAM configuration files\.
+Remove options or PAM modules from existing PAM configuration files\&.
 .RE
 .PP
 \fB\-q\fR, \fB\-\-query\fR
 .RS 4
-Print a list of types and the corresponding module options for the queried PAM module\.
+Print a list of types and the corresponding module options for the queried PAM module\&.
 .RE
 .SS "SUPPORTED PAM MODULES"
 .PP
-This is a list of modules supported by pam\-config\. They are split into two categories: global and single service modules\.
+This is a list of modules supported by pam\-config\&. They are split into two categories: global and single service modules\&.
 .sp
 .it 1 an-trap
 .nr an-no-space-flag 1
 .nr an-break-flag 1
 .br
-GLOBAL MODULES
-.RS
+.ps +1
+\fBGLOBAL MODULES\fR
+.RS 4
 .PP
-The global modules get inserted into the common\-{account,auth,password,session} files which are included by the single service files\.
+The global modules get inserted into the common\-{account,auth,password,session} files which are included by the single service files\&.
 .PP
 \fB\-\-apparmor\fR
 .RS 4
-Enable/Disable pam_apparmor\.so
+Enable/Disable pam_apparmor\&.so
 .RE
 .PP
 \fB\-\-apparmor\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_apparmor\.so invocations\.
+option to all pam_apparmor\&.so invocations\&.
 .RE
 .PP
 \fB\-\-ccreds\fR
 .RS 4
-Enable/Disable pam_ccreds\.so
+Enable/Disable pam_ccreds\&.so
 .RE
 .PP
 \fB\-\-cracklib\fR
 .RS 4
-Enable/Disable pam_cracklib\.so
+Enable/Disable pam_cracklib\&.so
 .RE
 .PP
 \fB\-\-cracklib\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_cracklib\.so invocations\.
+option to all pam_cracklib\&.so invocations\&.
 .RE
 .PP
 \fB\-\-cracklib\-type=\fR\fIvalue\fR
 .RS 4
 Add
 \fBtype=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-retry=\fR\fIvalue\fR
 .RS 4
 Add
 \fBretry=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-difok=\fR\fIvalue\fR
 .RS 4
 Add
 \fBdifok=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-difignore=\fR\fIvalue\fR
 .RS 4
 Add
 \fBdifignore=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-minlen=\fR\fIvalue\fR
 .RS 4
 Add
 \fBminlen=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-dcredit=\fR\fIvalue\fR
 .RS 4
 Add
 \fBdcredit=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-ucredit=\fR\fIvalue\fR
 .RS 4
 Add
 \fBucredit=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-lcredit=\fR\fIvalue\fR
 .RS 4
 Add
 \fBlcredit=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-ocredit=\fR\fIvalue\fR
 .RS 4
 Add
 \fBocredit=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-minclass=\fR\fIvalue\fR
 .RS 4
 Add
 \fBminclass=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-cracklib\-dictpath=\fR\fIvalue\fR
 .RS 4
 Add
 \fBdictpath=\fR\fIvalue\fR
-option to pam_cracklib\.so\.
+option to pam_cracklib\&.so\&.
 .RE
 .PP
 \fB\-\-env\fR
 .RS 4
-Enable/Disable pam_env\.so
+Enable/Disable pam_env\&.so
 .RE
 .PP
 \fB\-\-env\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_env\.so invocations\.
+option to all pam_env\&.so invocations\&.
 .RE
 .PP
 \fB\-\-env\-conffile=\fR\fIvalue\fR
 .RS 4
 Add
 \fBconffile=\fR\fIvalue\fR
-option to pam_env\.so\.
+option to pam_env\&.so\&.
 .RE
 .PP
 \fB\-\-env\-envfile=\fR\fIvalue\fR
 .RS 4
 Add
 \fBenvfile=\fR\fIvalue\fR
-option to pam_env\.so\.
+option to pam_env\&.so\&.
 .RE
 .PP
 \fB\-\-env\-readenv=\fR\fIvalue\fR
 .RS 4
 Add
 \fBreadenv=\fR\fIvalue\fR
-option to pam_env\.so\.
+option to pam_env\&.so\&.
 .RE
 .PP
 \fB\-\-fp\fR
 .RS 4
-Enable/Disable pam_fp\.so
+Enable/Disable pam_fp\&.so
 .RE
 .PP
 \fB\-\-fp\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_fp\.so invocations\.
+option to all pam_fp\&.so invocations\&.
 .RE
 .PP
 \fB\-\-gnome_keyring\fR
 .RS 4
-Enable/Disable pam_gnome_keyring\.so
+Enable/Disable pam_gnome_keyring\&.so
 .RE
 .PP
 \fB\-\-gnome_keyring\-auto_start\fR
 .RS 4
 Add
 \fBauto_start\fR
-option to all pam_gnome_keyring\.so invocations\.
+option to all pam_gnome_keyring\&.so invocations\&.
 .RE
 .PP
 \fB\-\-gnome_keyring\-auto_start_if=\fR\fIvalue\fR
 .RS 4
 Add
 \fBauto_start_if=\fR\fIvalue\fR
-option to pam_gnome_keyring\.so\.
+option to pam_gnome_keyring\&.so\&.
 .RE
 .PP
 \fB\-\-group\fR
 .RS 4
-Enable/Disable pam_group\.so
+Enable/Disable pam_group\&.so
 .RE
 .PP
 \fB\-\-krb5\fR
 .RS 4
-Enable/Disable pam_krb5\.so
+Enable/Disable pam_krb5\&.so
 .RE
 .PP
 \fB\-\-krb5\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_krb5\.so invocations\.
+option to all pam_krb5\&.so invocations\&.
 .RE
 .PP
 \fB\-\-krb5\-ignore_unknown_principals\fR
 .RS 4
 Add
 \fBignore_unknown_principals\fR
-option to all pam_krb5\.so invocations\.
+option to all pam_krb5\&.so invocations\&.
 .RE
 .PP
 \fB\-\-krb5\-minimum_uid=\fR\fIvalue\fR
 .RS 4
 Add
 \fBminimum_uid=\fR\fIvalue\fR
-option to pam_krb5\.so\.
+option to pam_krb5\&.so\&.
 .RE
 .PP
 \fB\-\-ldap\fR
 .RS 4
-Enable/Disable pam_ldap\.so
+Enable/Disable pam_ldap\&.so
 .RE
 .PP
 \fB\-\-ldap\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_ldap\.so invocations\.
+option to all pam_ldap\&.so invocations\&.
 .RE
 .PP
 \fB\-\-limits\fR
 .RS 4
-Enable/Disable pam_limits\.so
+Enable/Disable pam_limits\&.so
 .RE
 .PP
 \fB\-\-limits\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_limits\.so invocations\.
+option to all pam_limits\&.so invocations\&.
 .RE
 .PP
 \fB\-\-limits\-change_uid\fR
 .RS 4
 Add
 \fBchange_uid\fR
-option to all pam_limits\.so invocations\.
+option to all pam_limits\&.so invocations\&.
 .RE
 .PP
 \fB\-\-limits\-utmp_early\fR
 .RS 4
 Add
 \fButmp_early\fR
-option to all pam_limits\.so invocations\.
+option to all pam_limits\&.so invocations\&.
 .RE
 .PP
 \fB\-\-limits\-conf=\fR\fIvalue\fR
 .RS 4
 Add
 \fBconf=\fR\fIvalue\fR
-option to pam_limits\.so\.
+option to pam_limits\&.so\&.
 .RE
 .PP
 \fB\-\-localuser\fR
 .RS 4
-Enable/Disable pam_localuser\.so
+Enable/Disable pam_localuser\&.so
 .RE
 .PP
 \fB\-\-localuser\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_localuser\.so invocations\.
+option to all pam_localuser\&.so invocations\&.
 .RE
 .PP
 \fB\-\-localuser\-file=\fR\fIvalue\fR
 .RS 4
 Add
 \fBfile=\fR\fIvalue\fR
-option to pam_localuser\.so\.
+option to pam_localuser\&.so\&.
 .RE
 .PP
 \fB\-\-make\fR
 .RS 4
-Enable/Disable pam_make\.so
+Enable/Disable pam_make\&.so
 .RE
 .PP
 \fB\-\-make\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_make\.so invocations\.
+option to all pam_make\&.so invocations\&.
 .RE
 .PP
 \fB\-\-make\-nosetuid\fR
 .RS 4
 Add
 \fBnosetuid\fR
-option to all pam_make\.so invocations\.
+option to all pam_make\&.so invocations\&.
 .RE
 .PP
 \fB\-\-make\-make=\fR\fIvalue\fR
 .RS 4
 Add
 \fBmake=\fR\fIvalue\fR
-option to pam_make\.so\.
+option to pam_make\&.so\&.
 .RE
 .PP
 \fB\-\-make\-log=\fR\fIvalue\fR
 .RS 4
 Add
 \fBlog=\fR\fIvalue\fR
-option to pam_make\.so\.
+option to pam_make\&.so\&.
 .RE
 .PP
 \fB\-\-make\-option=\fR\fIvalue\fR
 .RS 4
 Add
 \fBoption=\fR\fIvalue\fR
-option to pam_make\.so\.
+option to pam_make\&.so\&.
 .RE
 .PP
 \fB\-\-mkhomedir\fR
 .RS 4
-Enable/Disable pam_mkhomedir\.so
+Enable/Disable pam_mkhomedir\&.so
 .RE
 .PP
 \fB\-\-mkhomedir\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_mkhomedir\.so invocations\.
+option to all pam_mkhomedir\&.so invocations\&.
 .RE
 .PP
 \fB\-\-mkhomedir\-silent\fR
 .RS 4
 Add
 \fBsilent\fR
-option to all pam_mkhomedir\.so invocations\.
+option to all pam_mkhomedir\&.so invocations\&.
 .RE
 .PP
 \fB\-\-mkhomedir\-umask=\fR\fIvalue\fR
 .RS 4
 Add
 \fBumask=\fR\fIvalue\fR
-option to pam_mkhomedir\.so\.
+option to pam_mkhomedir\&.so\&.
 .RE
 .PP
 \fB\-\-mkhomedir\-skel=\fR\fIvalue\fR
 .RS 4
 Add
 \fBskel=\fR\fIvalue\fR
-option to pam_mkhomedir\.so\.
+option to pam_mkhomedir\&.so\&.
 .RE
 .PP
 \fB\-\-nam\fR
 .RS 4
-Enable/Disable pam_nam\.so
+Enable/Disable pam_nam\&.so
 .RE
 .PP
 \fB\-\-pkcs11\fR
 .RS 4
-Enable/Disable pam_pkcs11\.so
+Enable/Disable pam_pkcs11\&.so
 .RE
 .PP
 \fB\-\-pkcs11\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_pkcs11\.so invocations\.
+option to all pam_pkcs11\&.so invocations\&.
 .RE
 .PP
 \fB\-\-pkcs11\-configfile=\fR\fIvalue\fR
 .RS 4
 Add
 \fBconfigfile=\fR\fIvalue\fR
-option to pam_pkcs11\.so\.
+option to pam_pkcs11\&.so\&.
 .RE
 .PP
 \fB\-\-pwcheck\fR
 .RS 4
-Enable/Disable pam_pwcheck\.so module in password section\.
+Enable/Disable pam_pwcheck\&.so module in password section\&.
 .RE
 .PP
 \fB\-\-pwcheck\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_pwcheck\.so invocations\.
+option to all pam_pwcheck\&.so invocations\&.
 .RE
 .PP
 \fB\-\-pwcheck\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-option to all pam_pwcheck\.so invocations\.
+option to all pam_pwcheck\&.so invocations\&.
 .RE
 .PP
 \fB\-\-pwcheck\-cracklib\fR
 .RS 4
 Add
 \fBcracklib\fR
-option to pam_pwcheck\.so\.
+option to pam_pwcheck\&.so\&.
 .RE
 .PP
 \fB\-\-pwcheck\-no_obscure_checks\fR
 .RS 4
 Add
 \fBno_obscure_checks\fR
-option to pam_pwcheck\.so\.
+option to pam_pwcheck\&.so\&.
 .RE
 .PP
 \fB\-\-pwcheck\-enforce_for_root\fR
 .RS 4
 Add
 \fBenforce_for_root\fR
-option to pam_pwcheck\.so\.
+option to pam_pwcheck\&.so\&.
 .RE
 .PP
 \fB\-\-pwcheck\-cracklib_path=\fR\fIpath\fR
 .RS 4
 Add
 \fBcracklib_path=\fR\fIpath\fR
-to pam_pwcheck\.so\.
+to pam_pwcheck\&.so\&.
 .RE
 .PP
 \fB\-\-pwcheck\-maxlen=\fR\fIN\fR
 .RS 4
 Add
 \fBmaxlen=\fR\fIN\fR
-to pam_pwcheck\.so\.
+to pam_pwcheck\&.so\&.
 .RE
 .PP
 \fB\-\-pwcheck\-minlen=\fR\fIN\fR
 .RS 4
 Add
 \fBminlen=\fR\fIN\fR
-to pam_pwcheck\.so\.
+to pam_pwcheck\&.so\&.
 .RE
 .PP
 \fB\-\-pwcheck\-tries=\fR\fIN\fR
 .RS 4
 Add
 \fBtries=\fR\fIN\fR
-to pam_pwcheck\.so\.
+to pam_pwcheck\&.so\&.
 .RE
 .PP
 \fB\-\-pwcheck\-remember=\fR\fIN\fR
 .RS 4
 Add
 \fBremember=\fR\fIN\fR
-to pam_pwcheck\.so\.
+to pam_pwcheck\&.so\&.
 .RE
 .PP
 \fB\-\-pwhistory\fR
 .RS 4
-Enable/Disable pam_pwhistory\.so
+Enable/Disable pam_pwhistory\&.so
 .RE
 .PP
 \fB\-\-pwhistory\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_pwhistory\.so invocations\.
+option to all pam_pwhistory\&.so invocations\&.
 .RE
 .PP
 \fB\-\-pwhistory\-use_authtok\fR
 .RS 4
 Add
 \fBuse_authtok\fR
-option to all pam_pwhistory\.so invocations\.
+option to all pam_pwhistory\&.so invocations\&.
 .RE
 .PP
 \fB\-\-pwhistory\-enforce_for_root\fR
 .RS 4
 Add
 \fBenforce_for_root\fR
-option to all pam_pwhistory\.so invocations\.
+option to all pam_pwhistory\&.so invocations\&.
 .RE
 .PP
 \fB\-\-pwhistory\-remember=\fR\fIvalue\fR
 .RS 4
 Add
 \fBremember=\fR\fIvalue\fR
-option to pam_pwhistory\.so\.
+option to pam_pwhistory\&.so\&.
 .RE
 .PP
 \fB\-\-pwhistory\-retry=\fR\fIvalue\fR
 .RS 4
 Add
 \fBretry=\fR\fIvalue\fR
-option to pam_pwhistory\.so\.
+option to pam_pwhistory\&.so\&.
+.RE
+.PP
+\fB\-\-pwhistory\-type=\fR\fIvalue\fR
+.RS 4
+Add
+\fBtype=\fR\fIvalue\fR
+option to pam_pwhistory\&.so\&.
 .RE
 .PP
 \fB\-\-selinux\fR
 .RS 4
-Enable/Disable pam_selinux\.so
+Enable/Disable pam_selinux\&.so
 .RE
 .PP
 \fB\-\-selinux\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_selinux\.so invocations\.
+option to all pam_selinux\&.so invocations\&.
 .RE
 .PP
 \fB\-\-ssh\fR
 .RS 4
-Enable/Disable pam_ssh\.so
+Enable/Disable pam_ssh\&.so
 .RE
 .PP
 \fB\-\-ssh\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_ssh\.so invocations\.
+option to all pam_ssh\&.so invocations\&.
 .RE
 .PP
 \fB\-\-ssh\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-option to all pam_ssh\.so invocations\.
+option to all pam_ssh\&.so invocations\&.
 .RE
 .PP
 \fB\-\-ssh\-try_first_pass\fR
 .RS 4
 Add
 \fBtry_first_pass\fR
-option to all pam_ssh\.so invocations\.
+option to all pam_ssh\&.so invocations\&.
 .RE
 .PP
 \fB\-\-ssh\-keyfiles=\fR\fIvalue\fR
 .RS 4
 Add
 \fBkeyfiles=\fR\fIvalue\fR
-option to pam_ssh\.so\.
+option to pam_ssh\&.so\&.
 .RE
 .PP
 \fB\-\-thinkfinger\fR
 .RS 4
-Enable/Disable pam_thinkfinger\.so
+Enable/Disable pam_thinkfinger\&.so
 .RE
 .PP
 \fB\-\-thinkfinger\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_thinkfinger\.so invocations\.
+option to all pam_thinkfinger\&.so invocations\&.
 .RE
 .PP
 \fB\-\-umask\fR
 .RS 4
-Add pam_umask\.so as optional session module\.
+Add pam_umask\&.so as optional session module\&.
 .RE
 .PP
 \fB\-\-umask\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_umask\.so invocations in session management\.
+option to all pam_umask\&.so invocations in session management\&.
 .RE
 .PP
 \fB\-\-umask\-silent\fR
 .RS 4
 Add
 \fBsilent\fR
-option to all pam_umask\.so invocations in session management\.
+option to all pam_umask\&.so invocations in session management\&.
 .RE
 .PP
 \fB\-\-umask\-usergroups\fR
 .RS 4
 Add
 \fBusergroups\fR
-option to all pam_umask\.so invocations in session management\.
+option to all pam_umask\&.so invocations in session management\&.
 .RE
 .PP
 \fB\-\-umask\-umask=\fR\fImode\fR
 .RS 4
 Add
 \fBumask=\fR\fImode\fR
-to pam_umask\.so\.
+to pam_umask\&.so\&.
 .RE
 .PP
 \fB\-\-unix\fR
 .RS 4
-Enable/Disable pam_unix\.so
+Enable/Disable pam_unix\&.so
 .RE
 .PP
 \fB\-\-unix\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-audit\fR
 .RS 4
 Add
 \fBaudit\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-nodelay\fR
 .RS 4
 Add
 \fBnodelay\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-shadow\fR
 .RS 4
 Add
 \fBshadow\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-md5\fR
 .RS 4
 Add
 \fBmd5\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-bigcrypt\fR
 .RS 4
 Add
 \fBbigcrypt\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-not_set_pass\fR
 .RS 4
 Add
 \fBnot_set_pass\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-nis\fR
 .RS 4
 Add
 \fBnis\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-broken_shadow\fR
 .RS 4
 Add
 \fBbroken_shadow\fR
-option to all pam_unix\.so invocations\.
+option to all pam_unix\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix\-remember=\fR\fIvalue\fR
 .RS 4
 Add
 \fBremember=\fR\fIvalue\fR
-option to pam_unix\.so\.
+option to pam_unix\&.so\&.
 .RE
 .PP
 \fB\-\-unix2\fR
 .RS 4
-Use pam_unix2\.so as standard UNIX PAM module\.
+Use pam_unix2\&.so as standard UNIX PAM module\&.
 .RE
 .PP
 \fB\-\-unix2\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-option to all pam_unix2\.so invocations\.
+option to all pam_unix2\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix2\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_unix2\.so invocations\.
+option to all pam_unix2\&.so invocations\&.
 .RE
 .PP
 \fB\-\-unix2\-trace\fR
 .RS 4
 Add
 \fBtrace\fR
-option to pam_unix2\.so\.
+option to pam_unix2\&.so\&.
 .RE
 .PP
 \fB\-\-unix2\-none\fR
 .RS 4
 Add option
 \fBnone\fR
-to pam_unix2\.so\.
+to pam_unix2\&.so\&.
 .RE
 .PP
-\fB\-\-unix2\-call_modules=\fR\fImodules,\.\.\.\fR
+\fB\-\-unix2\-call_modules=\fR\fImodules,\&.\&.\&.\fR
 .RS 4
 Add
 \fBcall_modules=\fR\fIlist of modules\fR
-to pam_unix2\.so\.
+to pam_unix2\&.so\&.
 .RE
 .PP
 \fB\-\-unix2\-nisdir=\fR\fIpath\fR
 .RS 4
 Add
 \fBnisdir=\fR\fIpath\fR
-to pam_unix2\.so\.
+to pam_unix2\&.so\&.
 .RE
 .PP
 \fB\-\-winbind\fR
 .RS 4
-Enable/Disable pam_winbind\.so
+Enable/Disable pam_winbind\&.so
 .RE
 .PP
 \fB\-\-winbind\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_winbind\.so invocations\.
+option to all pam_winbind\&.so invocations\&.
 .RE
 .RE
 .sp
@@ -803,181 +971,184 @@ option to all pam_winbind\.so invocations\.
 .nr an-no-space-flag 1
 .nr an-break-flag 1
 .br
-SINGLE SERVICE MODULES
-.RS
+.ps +1
+\fBSINGLE SERVICE MODULES\fR
+.RS 4
 .PP
-These modules can only be added to single service files\. See also
-the section called \(lqUSAGE EXAMPLES\(rq\.
+These modules can only be added to single service files\&. See also
+the section called \(lq\c
+.SH-xref "USAGE EXAMPLES\c"
+\&\(rq\&.
 .PP
 \fB\-\-ck_connector\fR
 .RS 4
-Enable/Disable pam_ck_connector\.so
+Enable/Disable pam_ck_connector\&.so
 .RE
 .PP
 \fB\-\-ck_connector\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_ck_connector\.so invocations\.
+option to all pam_ck_connector\&.so invocations\&.
 .RE
 .PP
 \fB\-\-cryptpass\fR
 .RS 4
-Enable/Disable pam_cryptpass\.so
+Enable/Disable pam_cryptpass\&.so
 .RE
 .PP
 \fB\-\-csync\fR
 .RS 4
-Enable/Disable pam_csync\.so
+Enable/Disable pam_csync\&.so
 .RE
 .PP
 \fB\-\-csync\-use_first_pass\fR
 .RS 4
 Add
 \fBuse_first_pass\fR
-option to all pam_csync\.so invocations\.
+option to all pam_csync\&.so invocations\&.
 .RE
 .PP
 \fB\-\-csync\-try_first_pass\fR
 .RS 4
 Add
 \fBtry_first_pass\fR
-option to all pam_csync\.so invocations\.
+option to all pam_csync\&.so invocations\&.
 .RE
 .PP
 \fB\-\-csync\-soft_try_pass\fR
 .RS 4
 Add
 \fBsoft_try_pass\fR
-option to all pam_csync\.so invocations\.
+option to all pam_csync\&.so invocations\&.
 .RE
 .PP
 \fB\-\-csync\-nullok\fR
 .RS 4
 Add
 \fBnullok\fR
-option to all pam_csync\.so invocations\.
+option to all pam_csync\&.so invocations\&.
 .RE
 .PP
 \fB\-\-csync\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_csync\.so invocations\.
+option to all pam_csync\&.so invocations\&.
 .RE
 .PP
 \fB\-\-csync\-silent\fR
 .RS 4
 Add
 \fBsilent\fR
-option to all pam_csync\.so invocations\.
+option to all pam_csync\&.so invocations\&.
 .RE
 .PP
 \fB\-\-lastlog\fR
 .RS 4
-Enable/Disable pam_lastlog\.so
+Enable/Disable pam_lastlog\&.so
 .RE
 .PP
 \fB\-\-lastlog\-debug\fR
 .RS 4
 Add
 \fBdebug\fR
-option to all pam_lastlog\.so invocations\.
+option to all pam_lastlog\&.so invocations\&.
 .RE
 .PP
 \fB\-\-lastlog\-silent\fR
 .RS 4
 Add
 \fBsilent\fR
-option to all pam_lastlog\.so invocations\.
+option to all pam_lastlog\&.so invocations\&.
 .RE
 .PP
 \fB\-\-lastlog\-never\fR
 .RS 4
 Add
 \fBnever\fR
-option to all pam_lastlog\.so invocations\.
+option to all pam_lastlog\&.so invocations\&.
 .RE
 .PP
 \fB\-\-lastlog\-nodate\fR
 .RS 4
 Add
 \fBnodate\fR
-option to all pam_lastlog\.so invocations\.
+option to all pam_lastlog\&.so invocations\&.
 .RE
 .PP
 \fB\-\-lastlog\-nohost\fR
 .RS 4
 Add
 \fBnohost\fR
-option to all pam_lastlog\.so invocations\.
+option to all pam_lastlog\&.so invocations\&.
 .RE
 .PP
 \fB\-\-lastlog\-noterm\fR
 .RS 4
 Add
 \fBnoterm\fR
-option to all pam_lastlog\.so invocations\.
+option to all pam_lastlog\&.so invocations\&.
 .RE
 .PP
 \fB\-\-lastlog\-nowtmp\fR
 .RS 4
 Add
 \fBnowtmp\fR
-option to all pam_lastlog\.so invocations\.
+option to all pam_lastlog\&.so invocations\&.
 .RE
 .PP
 \fB\-\-lastlog\-noupdate\fR
 .RS 4
 Add
 \fBnoupdate\fR
-option to all pam_lastlog\.so invocations\.
+option to all pam_lastlog\&.so invocations\&.
 .RE
 .PP
 \fB\-\-lastlog\-showfailed\fR
 .RS 4
 Add
 \fBshowfailed\fR
-option to all pam_lastlog\.so invocations\.
+option to all pam_lastlog\&.so invocations\&.
 .RE
 .PP
 \fB\-\-loginuid\fR
 .RS 4
-Enable/Disable pam_loginuid\.so
+Enable/Disable pam_loginuid\&.so
 .RE
 .PP
 \fB\-\-loginuid\-require_auditd\fR
 .RS 4
 Add
 \fBrequire_auditd\fR
-option to all pam_loginuid\.so invocations\.
+option to all pam_loginuid\&.so invocations\&.
 .RE
 .PP
 \fB\-\-mount\fR
 .RS 4
-Enable/Disable pam_mount\.so
+Enable/Disable pam_mount\&.so
 .RE
 .RE
 .SH "USAGE EXAMPLES"
 .PP
 pam\-config \-q \-\-unix2
 .RS 4
-Query state of pam_unix2\.so\.
+Query state of pam_unix2\&.so\&.
 .RE
 .PP
 pam\-config \-a \-\-ldap
 .RS 4
-Enable ldap authentication\.
+Enable ldap authentication\&.
 .RE
 .PP
 pam\-config \-\-service gdm \-a \-\-mount
 .RS 4
-Enable pam_mount\.so for service gdm\.
+Enable pam_mount\&.so for service gdm\&.
 .RE
 .PP
 pam\-config \-\-debug \-a \-\-force \-\-umask
 .RS 4
-Enable pam_umask\.so whether installed or not, and print debug information during the process\.
+Enable pam_umask\&.so whether installed or not, and print debug information during the process\&.
 .RE
 .SH "SEE ALSO"
 .PP
@@ -994,4 +1165,4 @@ Enable pam_umask\.so whether installed or not, and print debug information durin
 .PP
 
 \fBpam\-config\fR
-was written by Thorsten Kukuk <kukuk@thkukuk\.de>\.
+was written by Thorsten Kukuk <kukuk@thkukuk\&.de>\&.

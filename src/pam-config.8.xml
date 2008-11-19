@@ -737,6 +737,14 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--pwhistory-type=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>type=</option><replaceable>value</replaceable> option to pam_pwhistory.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--selinux</option></term>
             <listitem>
               <para>
