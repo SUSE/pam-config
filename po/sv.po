@@ -1,3 +1,4 @@
+# translation of pam-config.po to svenska
 # translation of pam-config.po to
 # @TITLE@
 # Copyright (C) 2006, SUSE Linux GmbH, Nuremberg
@@ -5,14 +6,15 @@
 # This file is distributed under the same license as @PACKAGE@ package. FIRST
 #
 # Mattias Newzella <newzella@linux.se>, 2007.
+# Jonas Björk <jonas@jonasbjork.net>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-07 12:06+0100\n"
-"PO-Revision-Date: 2007-08-25 11:12+0200\n"
-"Last-Translator: Mattias Newzella <newzella@linux.se>\n"
-"Language-Team:  <sv@li.org>\n"
+"PO-Revision-Date: 2008-11-08 17:17+0100\n"
+"Last-Translator: Jonas Björk <jonas@jonasbjork.net>\n"
+"Language-Team: svenska <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +24,7 @@ msgstr ""
 #: src/load_config.c:131
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
-msgstr "%s (%s): Argument kommer att ignoreras\n"
+msgstr "%s (%s): Argumenten kommer att ignoreras\n"
 
 #: src/load_config.c:135
 #, c-format
@@ -83,16 +85,18 @@ msgstr "Använd /etc/default/passwd för att ange \"blowfish\"-alternativ\n"
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 msgstr ""
+"VARNING: Kunde inte hitta /etc/security/pam_unix2.conf{.rpmsave} (%m).\n"
 
 #: src/load_obsolete_conf.c:493
 #, c-format
 msgid "WARNING: Couldn't find /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 msgstr ""
+"VARNING: Kunde inte hitta /etc/security/pam_pwcheck.conf{.rpmsave} (%m).\n"
 
 #: src/mod_pam_ck_connector.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Could not add pam_ck_connector.so to service '%s'"
-msgstr "FEL: Kunde inte lägga till add pam_cryptpass.so till tjänst \"%s\""
+msgstr "FEL: Kunde inte lägga till pam_ck_connector.so till tjänst \"%s\""
 
 #: src/mod_pam_cryptpass.c:98
 #, c-format
@@ -100,6 +104,8 @@ msgid ""
 "ERROR: pam_mount.so is not enabled for service '%s', but needed by "
 "pam_cryptpass.so\n"
 msgstr ""
+"FEL: pam_mount.so är inte aktiverad för tjänsten '%s', men behövs av "
+"pam_cryptpass.so\n"
 
 #: src/mod_pam_cryptpass.c:116
 #, c-format
@@ -118,22 +124,22 @@ msgstr ""
 #: src/mod_pam_mount.c:126
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
-msgstr ""
+msgstr "FEL: Modulen pam_thinkfinger.so är aktiverad. Inaktivera den först.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
-msgstr "Fel: Modulen %s är inte installerad.\n"
+msgstr "FEL: Modulen pam_fp.so är aktiverad, stäng av den först.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
-msgstr ""
+msgstr "FEL: Inget minne kvar för att konstruera väg.\n"
 
 #: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
-msgstr ""
+msgstr "VARNING: Hittade inga tjänstefiler i '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
@@ -146,6 +152,8 @@ msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
+"FEL: pam_mount.so är aktiverad. För att använda pam_thinkfinger.so måste du "
+"avaktivera den först!\n"
 
 #: src/mod_pam_thinkfinger.c:146
 #, c-format
@@ -153,6 +161,8 @@ msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
+"FEL: pam_fp.so är aktiverad. För att använda pam_thinkfinger.so måste du "
+"avaktivera den först!\n"
 
 #: src/pam-config.c:46
 #, c-format
@@ -200,7 +210,7 @@ msgstr "  -d, --delete      Ta bort alternativ/PAM-moduler\n"
 
 #: src/pam-config.c:80
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr ""
+msgstr "      --confdir     Använd en anpassad konfigurationskatalog\n"
 
 #: src/pam-config.c:82
 msgid "      --initialize  Convert old config and create new one\n"
@@ -208,7 +218,7 @@ msgstr "      --initialize  Konvertera gammal inställning och skapa en ny\n"
 
 #: src/pam-config.c:84
 msgid "      --service config  Service to modify config of\n"
-msgstr ""
+msgstr "      --service config  Tjänst att förändra konfiguration för\n"
 
 #: src/pam-config.c:86
 msgid "      --update      Read current config and write them new\n"
@@ -221,7 +231,7 @@ msgstr ""
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Visa alla moduler som stödjs\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -236,9 +246,8 @@ msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version     Visa programversion\n"
 
 #: src/pam-config.c:97
-#, fuzzy
 msgid "Global Module Options:\n"
-msgstr "Modemalternativ"
+msgstr "Globala modulinställningar:\n"
 
 #: src/pam-config.c:98
 msgid ""
@@ -246,15 +255,17 @@ msgid ""
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
+"      De globala modulerna läggs till i de gemensamma\n"
+"      {account,auth,password,session} filerna som inkluderas av\n"
+"      de enskilda tjänstefilerna.\n"
 
 #: src/pam-config.c:103
-#, fuzzy
 msgid "Single Service Module Options:\n"
-msgstr "Allmänna monteringsalternativ"
+msgstr "Val för enskilda tjänstemoduler:\n"
 
 #: src/pam-config.c:104
 msgid "      These modules can only be added to single service files.\n"
-msgstr ""
+msgstr "      De här modulerna kan bara läggas till i ensamma tjänstefiler.\n"
 
 #: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:930
 #: src/pam-config.c:940 src/pam-config.c:950 src/pam-config.c:961
@@ -281,29 +292,28 @@ msgstr "Ny inställning från %s används inte.\n"
 #: src/pam-config.c:195
 #, c-format
 msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr ""
+msgstr "VARNING: filen '%s' hittades inte.Hoppar över säkerhetskopiering.\n"
 
 #: src/pam-config.c:199
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
+"VARNING: Säkerhetskopian '%s' finns redan. Hoppar över säkerhetskopiering.\n"
 
 #: src/pam-config.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
-msgstr "Det gick inte att skapa en säkerhetskopia av %s: %m"
+msgstr "FEL: Det gick inte att skapa säkerhetskopian '%s' (%m)\n"
 
 #: src/pam-config.c:206
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
-msgstr "Kan inte skapa %s: %m\n"
+msgstr "FEL: Kan inte ta bort '%s' (%m)\n"
 
 #: src/pam-config.c:383
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: Couldn't load old config files.\n"
-msgstr ""
-"\n"
-"Kunde inte ladda inställningsfil, avbryter.\n"
+msgstr "VARNING: Kan inte ladda gammal konfigurationsfil.\n"
 
 #: src/pam-config.c:389 src/pam-config.c:425
 #, c-format
@@ -360,6 +370,8 @@ msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
+"FEL: ldap-account_only får bara användas tillsammans med krb5.\n"
+"Konfigurationen ändrades inte!\n"
 
 #: src/sanity_checks.c:115
 #, c-format
@@ -372,6 +384,8 @@ msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
 msgstr ""
+"INFO: både pam_pwcheck.so och pam_cracklib.so är aktiverade,\n"
+"INFO: enbart pam_pwcheck.so med cracklib stöd aktiverat kommer användas.\n"
 
 #: src/sanity_checks.c:182
 #, c-format
@@ -379,9 +393,11 @@ msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
+"INFO: pam_unix.so och pam_unix2.so är aktiverade i tjänsten %s,\n"
+"INFO: enbart pam_unix2.so kommer vara aktiverad.\n"
 
 #: src/sanity_checks.c:193 src/sanity_checks.c:198
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "Fel: Misslyckades med att inaktivera pam_unix.so.\n"
 
@@ -391,6 +407,8 @@ msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
+"FEL: Kan inte använda pam_apparmor och pam_selinux tillsammans.\n"
+"Konfigurationen ändrades inte!\n"
 
 #: src/single_config.c:249
 #, c-format

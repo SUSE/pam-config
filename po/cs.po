@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-07 12:06+0100\n"
-"PO-Revision-Date: 2008-08-11 00:15+0200\n"
-"Last-Translator: Marek Stopka <mstopka@opensuse.org>\n"
+"PO-Revision-Date: 2008-11-17 14:58+0100\n"
+"Last-Translator: Vojtěch Zeisek <vojta.sc@seznam.cz>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,9 +122,9 @@ msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr "CHYBA: modul pam_thinkfinger.so je povolen. Nejdřív jej zakažte.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
-msgstr "CHYBA: modul pam_thinkfinger.so je povolen. Nejdřív jej zakažte.\n"
+msgstr "CHYBA: modul pam_fp.so je povolen. Nejdříve jej zakažte.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -151,13 +151,13 @@ msgstr ""
 "musíte vypnout!\n"
 
 #: src/mod_pam_thinkfinger.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"CHYBA: pam_mount.so je povolen. Pro použití pam_thinkfinger.so jej nejdříve "
-"musíte vypnout!\n"
+"CHYBA: pam_fp.so je povolen. Abyste mohli používat pam_thinkfinger.so jej "
+"nejdříve musíte zakázat!\n"
 
 #: src/pam-config.c:46
 #, c-format
@@ -224,7 +224,7 @@ msgstr "  -q, --query       Dotázat se na nainstalované moduly a volby\n"
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Seznam všech podporovaných modulů\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -396,12 +396,12 @@ msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "CHYBA: nepodařilo se zakázat pam_unix.so.\n"
 
 #: src/sanity_checks.c:217
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
-"CHYBA: ldap-account_only je povolen pouze v kobinaci s krb5.\n"
+"CHYBA:  pam_apparmor a pam_selinux nejsou dohromady povoleny.\n"
 "Konfigurace nezměněna!\n"
 
 #: src/single_config.c:249

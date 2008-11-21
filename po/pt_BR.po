@@ -5,14 +5,15 @@
 # This file is distributed under the same license as @PACKAGE@ package. FIRST
 #
 # Luiz Fernando Ranghetti <elchevive68@gmail.com>, 2008.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-07 12:06+0100\n"
-"PO-Revision-Date: 2008-10-22 14:27-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive68@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <opensuse-pt@opensuse.org>\n"
+"PO-Revision-Date: 2008-11-17 21:47-0200\n"
+"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -211,7 +212,7 @@ msgstr "  -d, --delete      Remover opções/módulos PAM\n"
 
 #: src/pam-config.c:80
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr "      --confdir     Usar um diretório de configuração diferente\n"
+msgstr "      --confdir     Usar um diretório de configuração personalizado\n"
 
 #: src/pam-config.c:82
 msgid "      --initialize  Convert old config and create new one\n"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-07 12:06+0100\n"
-"PO-Revision-Date: 2008-09-04 02:08+0400\n"
+"PO-Revision-Date: 2008-11-12 00:24+0300\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 0.2\n"
+"X-Generator: Lokalize 0.3\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -133,9 +133,9 @@ msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr "ОШИБКА: Модуль pam_thinkfinger.so включён. Сначала отключите его.\n"
 
 #: src/mod_pam_mount.c:131
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
-msgstr "ОШИБКА: Модуль pam_thinkfinger.so включён. Сначала отключите его.\n"
+msgstr "ОШИБКА: Модуль pam_fp.so включён. Сначала отключите его.\n"
 
 #: src/mod_pam_thinkfinger.c:91
 #, c-format
@@ -163,12 +163,12 @@ msgstr ""
 "необходимо сначала отключить его!\n"
 
 #: src/mod_pam_thinkfinger.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
+"ОШИБКА: pam_fp.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
 #: src/pam-config.c:46
@@ -240,7 +240,7 @@ msgstr "  -q, --query       Опрос установленных модулей
 
 #: src/pam-config.c:90
 msgid "      --list-modules  List all supported modules\n"
-msgstr ""
+msgstr "      --list-modules  Список всех поддерживаемых модулей\n"
 
 #: src/pam-config.c:92
 msgid "      --help        Give this help list\n"
@@ -414,12 +414,12 @@ msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ОШИБКА: Не удалось отключить pam_unix.so.\n"
 
 #: src/sanity_checks.c:217
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
-"ОШИБКА: ldap-account_only разрешено только в комбинации с krb5.\n"
+"ОШИБКА: не разрешено иметь pam_apparmor вместе с pam_selinux.\n"
 "Настройка не изменена!\n"
 
 #: src/single_config.c:249
