@@ -12,7 +12,7 @@
 # traditional Unix authentication mechanisms.
 #
 auth	required	pam_env.so	
-auth	sufficient	pam_thinkfinger.so	
+auth	sufficient	pam_fp.so	
 auth	required	pam_unix2.so	debug 
 #%PAM-1.0
 #

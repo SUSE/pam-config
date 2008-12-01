@@ -4,6 +4,10 @@ Copyright (C) 2006, 2007, 2008 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
 
+Version 0.68
+* Update translations.
+* use relative links
+
 Version 0.67
 * Update translations.
 * Add type option for pam_pwhistory.

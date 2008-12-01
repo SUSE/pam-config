@@ -1,6 +1,6 @@
 #!/bin/sh
 . support/header.sh
 
-$PAMCONFIG -a --thinkfinger
+$PAMCONFIG -a --fp
 
 . support/footer-common.sh

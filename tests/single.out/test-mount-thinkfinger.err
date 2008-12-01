@@ -1,1 +1,1 @@
-ERROR: Module pam_thinkfinger.so is enabled. Disable it first.
+ERROR: Module pam_fp.so is enabled. Disable it first.

@@ -1,2 +1,2 @@
 WARNING: Found module 'pam_mount.so' in file 'gdm'.
-ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need to disable it first!
+ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to disable it first!

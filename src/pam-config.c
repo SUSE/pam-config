@@ -148,17 +148,17 @@ list_modules (pam_module_t **module_list)
 }
 
 static int
-check_symlink (const char *old, const char *new)
+check_symlink (const char *file_pc, const char *file)
 {
-  if (access (new, F_OK) == -1)
+  if (access (file, F_OK) == -1)
     {
-      if (symlink (old, new) != 0)
+	if (symlink (basename(file_pc), file) != 0)
 	{
 	  fprintf (stderr,
-		   _("Error activating %s (%m)\n"), new);
+		   _("Error activating %s (%m)\n"), file);
 	      fprintf (stderr,
 		       _("New config from %s is not in use!\n"),
-		       old);
+		       file_pc);
 	      return 1;
 	}
       return 0;
@@ -168,14 +168,14 @@ check_symlink (const char *old, const char *new)
       char buf[1024];
 
       memset (&buf, 0, sizeof (buf));
-      if (readlink (new, buf, sizeof (buf)) <= 0 ||
-          strcmp (old, buf) != 0)
+      if (readlink (file, buf, sizeof (buf)) <= 0 ||
+          strcmp (basename(file_pc), basename(buf)) != 0)
 	{
 	  fprintf (stderr,
-		   _("File %s is no symlink to %s.\n"), new, old);
+		   _("File %s is no symlink to %s.\n"), file, file_pc);
 	  fprintf (stderr,
 		   _("New config from %s is is not in use!\n"),
-		   old);
+		   file_pc);
 	  return 1;
 	}
       return 0;
@@ -205,7 +205,7 @@ relink (const char *file, const char *file_pc, const char *file_bak)
   if (unlink (file) != 0)
     fprintf (stderr, _("ERROR: Cannot remove '%s' (%m)\n"), file);
 
-  if (symlink (file_pc, file) != 0)
+  if (symlink (basename(file_pc), file) != 0)
     {
       fprintf (stderr,
 	       _("Error activating %s (%m)\n"), file);
@@ -924,7 +924,7 @@ main (int argc, char *argv[])
       fflush (stdout); /* Make sure output in logs is consistent */
 
       if (unlink (conf_account) != 0 ||
-	  symlink (conf_account_pc, conf_account) != 0)
+		  symlink (basename(conf_account_pc), conf_account) != 0)
 	{
 	  fprintf (stderr,
 		   _("Error activating %s (%m)\n"), conf_account);
@@ -934,7 +934,7 @@ main (int argc, char *argv[])
 	}
 
       if (unlink (conf_auth) != 0 ||
-	  symlink (conf_auth_pc, conf_auth) != 0)
+		  symlink (basename(conf_auth_pc), conf_auth) != 0)
 	{
 	  fprintf (stderr,
 		   _("Error activating %s (%m)\n"), conf_auth);
@@ -944,7 +944,7 @@ main (int argc, char *argv[])
 	}
 
       if (unlink (conf_password) != 0 ||
-	  symlink (conf_password_pc, conf_password) != 0)
+		  symlink (basename(conf_password_pc), conf_password) != 0)
 	{
 	  fprintf (stderr,
 		   _("Error activating %s (%m)\n"), conf_password);
@@ -955,7 +955,7 @@ main (int argc, char *argv[])
 	}
 
       if (unlink (conf_session) != 0 ||
-	  symlink (conf_session_pc, conf_session) != 0)
+		  symlink (basename(conf_session_pc), conf_session) != 0)
 	{
 	  fprintf (stderr,
 		   _("Error activating %s (%m)\n"), conf_session);

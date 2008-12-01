@@ -3,7 +3,7 @@
 
 $PAMCONFIG --service gdm -a --mount
 # this should produce an error msg
-$PAMCONFIG -a --thinkfinger
+$PAMCONFIG -a --fp
 echo $?
 # no need for footers here as we're not interessted in changes to
 # pam.d files here

@@ -9,7 +9,7 @@
 . support/header.sh
 
 # Enable pam_thinkfinger.so
-$PAMCONFIG -a --thinkfinger
+$PAMCONFIG -a --fp
 # Try to add module pam_mount.so to service gdm. Should fail.
 $PAMCONFIG --service gdm -a --mount
 echo $?
