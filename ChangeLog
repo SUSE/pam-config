@@ -4,7 +4,7 @@
 	* src/mod_pam_cracklib.c: Likewise.
 
 	* src/pam-config.c (main): Make pam_cracklib default for new config
-	[FATE#300538].
+	[FATE#305468].
 
 2008-12-01  Michael Calmer  <mc@suse.de>
 
