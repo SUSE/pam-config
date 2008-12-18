@@ -193,10 +193,10 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--cracklib-type=</option><replaceable>value</replaceable></term>
+            <term><option>--cracklib-authtok_type=</option><replaceable>value</replaceable></term>
             <listitem>
               <para>
-                Add <option>type=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+                Add <option>authtok_type=</option><replaceable>value</replaceable> option to pam_cracklib.so.
               </para>
             </listitem>
           </varlistentry>
@@ -737,10 +737,10 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--pwhistory-type=</option><replaceable>value</replaceable></term>
+            <term><option>--pwhistory-authtok_type=</option><replaceable>value</replaceable></term>
             <listitem>
               <para>
-                Add <option>type=</option><replaceable>value</replaceable> option to pam_pwhistory.so.
+                Add <option>authtok_type=</option><replaceable>value</replaceable> option to pam_pwhistory.so.
               </para>
             </listitem>
           </varlistentry>

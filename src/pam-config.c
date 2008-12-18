@@ -250,7 +250,7 @@ main (int argc, char *argv[])
 		  print_error (program);
 		  return 1;
 	  }
-	  
+
 	  confdir = argv[2];
 	  if(confdir[0] != '/')
 	  {
@@ -762,16 +762,10 @@ main (int argc, char *argv[])
       if (sanitize_check_auth (common_module_list) != 0)
 	return 1;
 
-      opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
-      if (opt_set->is_enabled (opt_set, "is_enabled"))
+      opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+      if (!opt_set->is_enabled (opt_set, "is_enabled"))
 	{
-	  opt_set = mod_pam_pwhistory.get_opt_set (&mod_pam_pwhistory, PASSWORD);
-	  opt_set->enable (opt_set, "is_enabled", TRUE);
-	  opt_set->enable (opt_set, "use_authtok", TRUE);
-	}
-      else
-	{
-	  opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
+	  opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
 	  opt_set->enable (opt_set, "is_enabled", TRUE);
 	  opt_set->enable (opt_set, "nullok", TRUE);
 	}
@@ -792,15 +786,15 @@ main (int argc, char *argv[])
       if (sanitize_check_session (common_module_list) != 0)
 	return 1;
 
-	  /* Write sections */
-	  if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
-		  return 1;
+      /* Write sections */
+      if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
+	return 1;
 
-	  if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
-		  return 1;
+      if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
+	return 1;
 
-	  if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
-		  return 1;
+      if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
+	return 1;
 
       if (write_config (SESSION, conf_session_pc, module_list_session) != 0)
 	return 1;
