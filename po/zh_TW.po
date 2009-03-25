@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-07 12:06+0100\n"
+"POT-Creation-Date: 2009-03-25 15:39+0100\n"
 "PO-Revision-Date: 2008-04-08 22:19+0800\n"
 "Last-Translator: swyear <swyear@gmail.com>\n"
 "Language-Team: Chinese Traditional <zh@li.org>\n"
@@ -105,7 +105,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "錯誤：無法將 pam_cryptpass.so 加到服務 '%s'"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:447
+#: src/mod_pam_mount.c:120 src/pam-config.c:454
 #, c-format
 msgid ""
 "\n"
@@ -214,52 +214,57 @@ msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Read current config and write them new\n"
 
 #: src/pam-config.c:88
+#, fuzzy
+msgid "      --verify      Read and verify current configuration\n"
+msgstr "      --update      Read current config and write them new\n"
+
+#: src/pam-config.c:90
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       查詢已安裝的模組和選項\n"
 
-#: src/pam-config.c:90
+#: src/pam-config.c:92
 msgid "      --list-modules  List all supported modules\n"
 msgstr ""
 
-#: src/pam-config.c:92
+#: src/pam-config.c:94
 msgid "      --help        Give this help list\n"
 msgstr "      --help         提供這個說明清單\n"
 
-#: src/pam-config.c:93
+#: src/pam-config.c:95
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  -u, --usage        提供簡單的用法訊息\n"
 
-#: src/pam-config.c:94
+#: src/pam-config.c:96
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version      列印程式版本\n"
 
-#: src/pam-config.c:97
+#: src/pam-config.c:99
 msgid "Global Module Options:\n"
 msgstr "全域模組選項：\n"
 
-#: src/pam-config.c:98
+#: src/pam-config.c:100
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:103
+#: src/pam-config.c:105
 msgid "Single Service Module Options:\n"
 msgstr "單一服務模組選項：\n"
 
-#: src/pam-config.c:104
+#: src/pam-config.c:106
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:930
-#: src/pam-config.c:940 src/pam-config.c:950 src/pam-config.c:961
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:976
+#: src/pam-config.c:986 src/pam-config.c:996 src/pam-config.c:1007
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "啟用 %s (%m) 發生錯誤\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:932
-#: src/pam-config.c:942 src/pam-config.c:952 src/pam-config.c:963
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:978
+#: src/pam-config.c:988 src/pam-config.c:998 src/pam-config.c:1009
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "並未使用 %s 的新設定！\n"
@@ -299,7 +304,7 @@ msgstr "無法建立 %s： %m\n"
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "警告：無法載入舊的設定檔。\n"
 
-#: src/pam-config.c:389 src/pam-config.c:425
+#: src/pam-config.c:389 src/pam-config.c:432
 #, c-format
 msgid ""
 "\n"
@@ -308,12 +313,12 @@ msgstr ""
 "\n"
 "無法載入設定檔，中止！\n"
 
-#: src/pam-config.c:693
+#: src/pam-config.c:700
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "支援的指令模組：\n"
 
-#: src/pam-config.c:695
+#: src/pam-config.c:702
 #, c-format
 msgid ""
 "\n"
@@ -322,12 +327,12 @@ msgstr ""
 "\n"
 "支援的服務模組：\n"
 
-#: src/pam-config.c:737
+#: src/pam-config.c:744
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s：參數太多。\n"
 
-#: src/pam-config.c:851
+#: src/pam-config.c:897
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "無法存取 '%s'： %m\n"
@@ -348,28 +353,12 @@ msgstr "警告：未安裝 %s 模組。\n"
 msgid "ERROR: module %s is not installed.\n"
 msgstr "警告：未安裝 %s 模組。\n"
 
-#: src/sanity_checks.c:77
+#: src/sanity_checks.c:78
 #, c-format
-msgid ""
-"ERROR: ldap-account_only is only allowed in combination with krb5.\n"
-"Configuration not changed!\n"
+msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:115
-#, c-format
-msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
-msgstr "警告： pam_ccreds.so 需要 LDAP 或 Kerberos5，忽略\n"
-
-#: src/sanity_checks.c:135
-#, c-format
-msgid ""
-"INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
-"INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
-msgstr ""
-"訊息：pam_pwcheck.so 和 pam_cracklib.so 已啟用，\n"
-"訊息：只有啟用 cracklib 支援的 pam_pwcheck.so 會被使用。\n"
-
-#: src/sanity_checks.c:182
+#: src/sanity_checks.c:83
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -378,12 +367,43 @@ msgstr ""
 "訊息： pam_unix.so 和 pam_unix2.so 已在服務 %s 啟用，\n"
 "訊息：只有 pam_unix2.so 會被啟用。\n"
 
-#: src/sanity_checks.c:193 src/sanity_checks.c:198
+#: src/sanity_checks.c:94 src/sanity_checks.c:100
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "錯誤：無法停用 pam_unix.so。\n"
 
-#: src/sanity_checks.c:217
+#: src/sanity_checks.c:127
+#, c-format
+msgid ""
+"ERROR: ldap-account_only is only allowed in combination with krb5.\n"
+"Configuration not changed!\n"
+msgstr ""
+
+#: src/sanity_checks.c:147
+#, fuzzy, c-format
+msgid "WARNING: pam_localuser is not enabled!\n"
+msgstr "警告：未安裝 %s 模組。\n"
+
+#: src/sanity_checks.c:181
+#, c-format
+msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
+msgstr "警告： pam_ccreds.so 需要 LDAP 或 Kerberos5，忽略\n"
+
+#: src/sanity_checks.c:210
+#, c-format
+msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
+msgstr ""
+
+#: src/sanity_checks.c:215
+#, fuzzy, c-format
+msgid ""
+"INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
+"INFO: only pam_cracklib.so will be used.\n"
+msgstr ""
+"訊息：pam_pwcheck.so 和 pam_cracklib.so 已啟用，\n"
+"訊息：只有啟用 cracklib 支援的 pam_pwcheck.so 會被使用。\n"
+
+#: src/sanity_checks.c:266
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"

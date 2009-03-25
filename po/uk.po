@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-07 12:06+0100\n"
+"POT-Creation-Date: 2009-03-25 15:39+0100\n"
 "PO-Revision-Date: 2008-10-22 22:51-0700\n"
 "Last-Translator: Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
@@ -120,7 +120,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "ПОМИЛКА: Неможливо додати pam_cryptpass.so до служби '%s'"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:447
+#: src/mod_pam_mount.c:120 src/pam-config.c:454
 #, c-format
 msgid ""
 "\n"
@@ -235,30 +235,36 @@ msgstr ""
 "      --update      Прочитати поточне налаштування і записати як нове\n"
 
 #: src/pam-config.c:88
+#, fuzzy
+msgid "      --verify      Read and verify current configuration\n"
+msgstr ""
+"      --update      Прочитати поточне налаштування і записати як нове\n"
+
+#: src/pam-config.c:90
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       Запит встановлених модулів і параметрів\n"
 
-#: src/pam-config.c:90
+#: src/pam-config.c:92
 msgid "      --list-modules  List all supported modules\n"
 msgstr "      --list-modules  Перелік всіх модулів, що підтримуються\n"
 
-#: src/pam-config.c:92
+#: src/pam-config.c:94
 msgid "      --help        Give this help list\n"
 msgstr "      --help        Показати цей список довідки\n"
 
-#: src/pam-config.c:93
+#: src/pam-config.c:95
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  -u, --usage       Коротке повідомлення про вжиток\n"
 
-#: src/pam-config.c:94
+#: src/pam-config.c:96
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version     Показати версію програми\n"
 
-#: src/pam-config.c:97
+#: src/pam-config.c:99
 msgid "Global Module Options:\n"
 msgstr "Загальні параметри модуля:\n"
 
-#: src/pam-config.c:98
+#: src/pam-config.c:100
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
@@ -268,22 +274,22 @@ msgstr ""
 "      common-{account,auth,password,session}, які включаються\n"
 "      файлами окремих служб.\n"
 
-#: src/pam-config.c:103
+#: src/pam-config.c:105
 msgid "Single Service Module Options:\n"
 msgstr "Параметри модуля окремої служби:\n"
 
-#: src/pam-config.c:104
+#: src/pam-config.c:106
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Ці модулі можна додати лише до окремих файлів служб.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:930
-#: src/pam-config.c:940 src/pam-config.c:950 src/pam-config.c:961
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:976
+#: src/pam-config.c:986 src/pam-config.c:996 src/pam-config.c:1007
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Помилка активації %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:932
-#: src/pam-config.c:942 src/pam-config.c:952 src/pam-config.c:963
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:978
+#: src/pam-config.c:988 src/pam-config.c:998 src/pam-config.c:1009
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Нове налаштування з %s не вживається!\n"
@@ -325,7 +331,7 @@ msgstr "ПОМИЛКА: Неможливо вилучити \"%s\" (%m)\n"
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "ПОПЕРЕДЖЕННЯ: Неможливо завантажити старі файли налаштування.\n"
 
-#: src/pam-config.c:389 src/pam-config.c:425
+#: src/pam-config.c:389 src/pam-config.c:432
 #, c-format
 msgid ""
 "\n"
@@ -334,12 +340,12 @@ msgstr ""
 "\n"
 "Не вдалося завантажити файл конфігурації!\n"
 
-#: src/pam-config.c:693
+#: src/pam-config.c:700
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Загальні модулі, що підтримуються:\n"
 
-#: src/pam-config.c:695
+#: src/pam-config.c:702
 #, c-format
 msgid ""
 "\n"
@@ -348,12 +354,12 @@ msgstr ""
 "\n"
 "Модулі служб, що підтримуються:\n"
 
-#: src/pam-config.c:737
+#: src/pam-config.c:744
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Забагато аргументів.\n"
 
-#: src/pam-config.c:851
+#: src/pam-config.c:897
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Неможливий доступ до \"%s\": %m\n"
@@ -374,31 +380,12 @@ msgstr "УВАГА: не встановлено модуль %s.\n"
 msgid "ERROR: module %s is not installed.\n"
 msgstr "ПОМИЛКА: модуль %s не встановлено.\n"
 
-#: src/sanity_checks.c:77
+#: src/sanity_checks.c:78
 #, c-format
-msgid ""
-"ERROR: ldap-account_only is only allowed in combination with krb5.\n"
-"Configuration not changed!\n"
+msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr ""
-"ПОМИЛКА: ldap-account_only дозволено використовувати лише з krb5.\n"
-"Налаштування не змінено!\n"
 
-#: src/sanity_checks.c:115
-#, c-format
-msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
-msgstr "УВАГА: pam_ccreds.so потребує LDAP або Kerberos5; ігнорується\n"
-
-#: src/sanity_checks.c:135
-#, c-format
-msgid ""
-"INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
-"INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
-msgstr ""
-"INFO: Увімкнено pam_pwcheck.so і pam_cracklib.so,\n"
-"INFO: буде вживатись тільки pam_pwcheck.so з увімкненою підтримкою "
-"cracklib.\n"
-
-#: src/sanity_checks.c:182
+#: src/sanity_checks.c:83
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -407,12 +394,46 @@ msgstr ""
 "INFO: pam_unix.so і pam_unix2.so увімкнено в службі %s,\n"
 "INFO: буде увімкнено тільки pam_unix2.so.\n"
 
-#: src/sanity_checks.c:193 src/sanity_checks.c:198
+#: src/sanity_checks.c:94 src/sanity_checks.c:100
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ПОМИЛКА: Не вдалося вимкнути pam_unix.so.\n"
 
-#: src/sanity_checks.c:217
+#: src/sanity_checks.c:127
+#, c-format
+msgid ""
+"ERROR: ldap-account_only is only allowed in combination with krb5.\n"
+"Configuration not changed!\n"
+msgstr ""
+"ПОМИЛКА: ldap-account_only дозволено використовувати лише з krb5.\n"
+"Налаштування не змінено!\n"
+
+#: src/sanity_checks.c:147
+#, fuzzy, c-format
+msgid "WARNING: pam_localuser is not enabled!\n"
+msgstr "УВАГА: не встановлено модуль %s.\n"
+
+#: src/sanity_checks.c:181
+#, c-format
+msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
+msgstr "УВАГА: pam_ccreds.so потребує LDAP або Kerberos5; ігнорується\n"
+
+#: src/sanity_checks.c:210
+#, c-format
+msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
+msgstr ""
+
+#: src/sanity_checks.c:215
+#, fuzzy, c-format
+msgid ""
+"INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
+"INFO: only pam_cracklib.so will be used.\n"
+msgstr ""
+"INFO: Увімкнено pam_pwcheck.so і pam_cracklib.so,\n"
+"INFO: буде вживатись тільки pam_pwcheck.so з увімкненою підтримкою "
+"cracklib.\n"
+
+#: src/sanity_checks.c:266
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"

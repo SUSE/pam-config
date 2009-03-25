@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007, 2008 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2008, 2009 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -85,6 +85,8 @@ print_help (const char *program)
 	 stdout);
   fputs (_("      --update      Read current config and write them new\n"),
          stdout);
+  fputs (_("      --verify      Read and verify current configuration\n"),
+	 stdout);
   fputs (_("  -q, --query       Query for installed modules and options\n"),
 	 stdout);
   fputs (_("      --list-modules  List all supported modules\n"),
@@ -134,8 +136,6 @@ print_xmlhelp (void)
 
   printf ("        </variablelist>\n");
   printf ("      </refsect3>\n");
-
-
 }
 
 static void
@@ -222,7 +222,7 @@ int
 main (int argc, char *argv[])
 {
   const char *program = "pam-config";
-  global_opt_t opt = {0, 0, 0, 0, 0, 0, 0, 1};
+  global_opt_t opt = {0, 0, 0, 0, 0, 0, 0, 0, 1};
   int retval = 0;
   option_set_t *opt_set;
 
@@ -402,16 +402,23 @@ main (int argc, char *argv[])
       argc--;
       argv++;
     }
-  else if (strcmp (argv[1], "-q") == 0 || strcmp (argv[1], "--query") == 0)
+  else if (strcmp (argv[1], "--verify") == 0)
     {
-      opt.m_query = 1;
+      opt.m_verify = 1;
       argc--;
       argv++;
+
+      if (argc > 1 || gl_service)
+	{
+	  print_error (program);
+	  return 1;
+	}
     }
 
-  if (opt.m_add || opt.m_delete || opt.m_update || opt.m_query)
+
+  if (opt.m_add || opt.m_delete || opt.m_update || opt.m_query || opt.m_verify)
     {
-      if (argc == 1 && !opt.m_update && !opt.m_query)
+      if (argc == 1 && !opt.m_update && !opt.m_query && !opt.m_verify)
 	{
 	  print_error (program);
 	  return 1;
@@ -739,7 +746,8 @@ main (int argc, char *argv[])
       return 1;
     }
 
-  if (opt.m_add + opt.m_create + opt.m_delete + opt.m_init + opt.m_update + opt.m_query != 1)
+  if (opt.m_add + opt.m_create + opt.m_delete + opt.m_init + opt.m_update +
+      opt.m_query + opt.m_verify != 1)
     {
       print_error (program);
       return 1;
@@ -749,17 +757,61 @@ main (int argc, char *argv[])
   if (opt.m_query)
     return 0;
 
+  if (opt.m_verify)
+    {
+      pam_module_t **modptr = common_module_list;
+      retval = 0;
+
+      /* Check sections.  */
+      if (sanitize_check_account (common_module_list, 1) != 0)
+	retval = 1;
+
+      if (sanitize_check_auth (common_module_list, 1) != 0)
+	retval = 1;
+
+      if (sanitize_check_password (common_module_list, 1) != 0)
+	retval = 1;
+
+      if (sanitize_check_session (common_module_list, 1) != 0)
+	retval = 1;
+
+
+      while (*modptr != NULL)
+	{
+	  option_set_t *opt_set_auth =
+	    (*modptr)->get_opt_set (*modptr, AUTH);
+	  option_set_t *opt_set_account =
+	    (*modptr)->get_opt_set (*modptr, ACCOUNT);
+	  option_set_t *opt_set_password =
+	    (*modptr)->get_opt_set (*modptr, PASSWORD);
+	  option_set_t *opt_set_session =
+	    (*modptr)->get_opt_set (*modptr, SESSION);
+
+	  if (opt_set_auth->is_enabled (opt_set_auth, "is_enabled") ||
+	      opt_set_account->is_enabled (opt_set_account, "is_enabled") ||
+	      opt_set_password->is_enabled (opt_set_password, "is_enabled") ||
+	      opt_set_session->is_enabled (opt_set_session, "is_enabled"))
+	    {
+	      if (check_for_pam_module ((*modptr)->name, 0))
+		retval = 1;
+	    }
+	  ++modptr;
+	}
+
+      return retval;
+    }
+
   if (opt.m_create)
     {
       /* Set and check sections.  */
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
       opt_set->enable (opt_set, "is_enabled", TRUE);
-      if (sanitize_check_account (common_module_list) != 0)
+      if (sanitize_check_account (common_module_list, 0) != 0)
 	return 1;
 
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
       opt_set->enable (opt_set, "is_enabled", TRUE);
-      if (sanitize_check_auth (common_module_list) != 0)
+      if (sanitize_check_auth (common_module_list, 0) != 0)
 	return 1;
 
       opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
@@ -772,7 +824,7 @@ main (int argc, char *argv[])
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       opt_set->enable (opt_set, "nullok", TRUE);
-      if (sanitize_check_password (common_module_list) != 0)
+      if (sanitize_check_password (common_module_list, 0) != 0)
 	return 1;
 
       opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
@@ -783,7 +835,7 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", opt.opt_val);
       opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-      if (sanitize_check_session (common_module_list) != 0)
+      if (sanitize_check_session (common_module_list, 0) != 0)
 	return 1;
 
       /* Write sections */
@@ -802,29 +854,29 @@ main (int argc, char *argv[])
   else if (!gl_service)
     {
       /* Check sections.  */
-      if (sanitize_check_account (common_module_list) != 0)
+      if (sanitize_check_account (common_module_list, 0) != 0)
 	return 1;
 
-      if (sanitize_check_auth (common_module_list) != 0)
+      if (sanitize_check_auth (common_module_list, 0) != 0)
 	return 1;
 
-      if (sanitize_check_password (common_module_list) != 0)
+      if (sanitize_check_password (common_module_list, 0) != 0)
 	return 1;
 
-      if (sanitize_check_session (common_module_list) != 0)
+      if (sanitize_check_session (common_module_list, 0) != 0)
 	return 1;
 
-	  /* Write sections.  */
-	  if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
-		  return 1;
+      /* Write sections.  */
+      if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
+	return 1;
 
-	  if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
-		  return 1;
+      if (write_config (AUTH, conf_auth_pc, module_list_auth) != 0)
+	return 1;
 
-	  if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
-		  return 1;
+      if (write_config (PASSWORD, conf_password_pc, module_list_password) != 0)
+	return 1;
 
-	  if (write_config (SESSION, conf_session_pc, module_list_session) != 0)
+      if (write_config (SESSION, conf_session_pc, module_list_session) != 0)
 	return 1;
     }
   else

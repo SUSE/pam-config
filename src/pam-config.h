@@ -1,11 +1,11 @@
-/** 
+/**
  * @file pam-config.h
  * @brief Definitions of functions used by pam-config main().
  *
  * @author Thorsten Kukuk
  * @date 2007-07-23
  */
-/* Copyright (C) 2006, 2007 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2009 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -36,8 +36,8 @@
 #define CONF_SESSION_PC CONF_SESSION"-pc"
 
 
-/** 
- * @struct config_content_t 
+/**
+ * @struct config_content_t
  * @brief Represents a service file as a singly linked list.
  */
 struct config_content_t {
@@ -62,26 +62,26 @@ int write_config (write_type_t op, const char *file,
 int load_single_config (const char *config_name, config_content_t **ptr);
 int write_single_config (const char *service, config_content_t **cfg_content);
 
-/** 
+/**
  * @typedef predicate_fptr
- * @brief Hide function pointer syntax. 
+ * @brief Hide function pointer syntax.
  */
 typedef int (*predicate_fptr)(config_content_t *next);
 
-/** 
+/**
  * @brief Specifies the insert position for insert_if()
  */
-enum insert_pos_t { 
+enum insert_pos_t {
   BEFORE = 1,
   AFTER
 };
 typedef enum insert_pos_t insert_pos_t;
 
-/** 
+/**
  * @brief Iterates over every line of the given service file and inserts the given line
  * if the predicate is true. The insertion postion can be specified
  * with the last argument.
- * 
+ *
  * @see write_config_cryptpass() for example usage.
  * @see src/single_config.c for definition.
  *
@@ -91,59 +91,58 @@ typedef enum insert_pos_t insert_pos_t;
  * @param predicate A function that decides when to insert the given
  * line.
  * @param position either BEFORE, or AFTER.
- * 
+ *
  * @return TRUE if insertion was successfull or the entry was
  * already present, FALSE otherwise.
  */
 
 int insert_if (config_content_t **cfg, const char *line, predicate_fptr predicate, insert_pos_t position);
 
-/** 
+/**
  * @brief Remove every occurrence of lines containing 'module_name' from service file
- * 
+ *
  * @param *cfg A pointer to the linked list representing the service
  * file to work on.
  * @param module_name Name of the module which shall be purged from
- * the file. 
- * 
+ * the file.
+ *
  * @return The number of lines that were removed.
  */
 int remove_module (config_content_t **cfg, const char *module_name);
 
-/** 
+/**
  * @brief Creates a temporary service file and returns a handle to
  * it.
  *
- * This function creates a temp. service file at 
+ * This function creates a temp. service file at
  * \code CONFDIR"/pam.d/pam-config.tmpXXXXXX" \endcode and returns a \a FILE handle
  * to it.
- * 
+ *
  * @param service Name of the service file to create
- * 
+ *
  * @return FILE handle to the newly created file
  */
 FILE *create_service_file (const char *service);
 
 
-/** 
+/**
  * @brief Closes the file creates with create_service_file().
  *
  * Use this function to close a service file created with
  * create_service_file(). If a service file for \a service already
  * existed it gets back-upped as \c <service-name>.old.
- * 
+ *
  * @param fp FILE handle from create_service_file()
- * @param service the name of the service 
- * 
- * @return FALSE in case of failure, TRUE otherwise. 
+ * @param service the name of the service
+ *
+ * @return FALSE in case of failure, TRUE otherwise.
  */
 int close_service_file (FILE *fp, const char *service);
 
-int sanitize_check_account (pam_module_t **module_list);
-int sanitize_check_auth (pam_module_t **module_list);
-int sanitize_check_password (pam_module_t **module_list);
-int sanitize_check_session (pam_module_t **module_list);
+int sanitize_check_account (pam_module_t **module_list, int verify);
+int sanitize_check_auth (pam_module_t **module_list, int verify);
+int sanitize_check_password (pam_module_t **module_list, int verify);
+int sanitize_check_session (pam_module_t **module_list, int verify);
 int check_for_pam_module (const char *name, int force);
-int check_for_unix_conflict (pam_module_t **module_list, write_type_t op);
 
 #endif

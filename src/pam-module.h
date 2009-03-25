@@ -11,7 +11,7 @@
  * @date 2007-07-23
  */
 /*
- * Copyright (C) 2007, 2008 - Thorsten Kukuk, Sven Schober
+ * Copyright (C) 2007, 2008, 2009 - Thorsten Kukuk, Sven Schober
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -40,7 +40,7 @@
  */
 typedef struct gobal_opt {
   int m_add, m_create, m_delete, m_init, m_update;
-  int m_query;
+  int m_query, m_verify;
   int force;
   int opt_val;
 } global_opt_t;

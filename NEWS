@@ -1,12 +1,16 @@
 pam-config NEWS -- history of user-visible changes.
 
-Copyright (C) 2006, 2007, 2008 Thorsten Kukuk <kukuk@thkukuk.de>.
+Copyright (C) 2006, 2007, 2008, 2009 Thorsten Kukuk <kukuk@thkukuk.de>.
 
-Please send bug reports, questions and suggestions to <kukuk@thkukuk.de>.
+Please enter bug reports into bugzilla.novell.com.
+
+Version 0.69
+* Add --verify option.
+* pam_cracklib is now default instead of pam_pwcheck.
 
 Version 0.68
 * Update translations.
-* use relative links
+* use relative links.
 
 Version 0.67
 * Update translations.

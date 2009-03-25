@@ -135,6 +135,15 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
+	<varlistentry>
+	  <term><option>--verify</option></term>
+	  <listitem>
+	    <para>
+	      Do some sanity checks on the current common PAM configuration
+	      files.
+	    </para>
+	  </listitem>
+	</varlistentry>
       </variablelist>
     </refsect2>
     <refsect2 id="supported_modules">
