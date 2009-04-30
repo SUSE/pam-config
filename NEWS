@@ -4,6 +4,9 @@ Copyright (C) 2006, 2007, 2008, 2009 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please enter bug reports into bugzilla.novell.com.
 
+Version 0.70
+* Fix try_first_pass option for pam_ssh.
+
 Version 0.69
 * Add --verify option.
 * pam_cracklib is now default instead of pam_pwcheck.

@@ -1,4 +1,4 @@
-/* Copyright (C) 2008 Marius Tomaschewski
+/* Copyright (C) 2008, 2009 Marius Tomaschewski
    Author: Marius Tomaschewski <mat@mt-home.net>
 
    This program is free software; you can redistribute it and/or modify
@@ -49,7 +49,8 @@ write_config_ssh (pam_module_t *this, enum write_type op, FILE *fp)
 
     case SESSION:
       fprintf (fp, "session\toptional\tpam_ssh.so\t");
-      fprintf (fp, "\n");
+      /* try_first_pass should not be used for session */
+      opt_set->enable (opt_set, "try_first_pass", FALSE);
       break;
   }
 

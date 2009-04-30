@@ -1,3 +1,10 @@
+2009-04-30  Thorsten Kukuk  <kukuk@suse.de>
+
+	* releaes version 0.70
+
+	* src/mod_pam_ssh.c (write_config_ssh): fix writing of
+	options in SESSION mode [bnc#499711].
+
 2009-03-25  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.69
