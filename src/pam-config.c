@@ -414,7 +414,12 @@ main (int argc, char *argv[])
 	  return 1;
 	}
     }
-
+  else if (strcmp (argv[1], "-q") == 0 || strcmp (argv[1], "--query") == 0)
+    {
+      opt.m_query = 1;
+      argc--;
+      argv++;
+    }
 
   if (opt.m_add || opt.m_delete || opt.m_update || opt.m_query || opt.m_verify)
     {

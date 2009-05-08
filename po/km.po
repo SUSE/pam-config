@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.km\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 15:39+0100\n"
+"POT-Creation-Date: 2009-05-08 13:19+0200\n"
 "PO-Revision-Date: 2008-10-23 10:59+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -100,7 +100,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "កំហុស ៖ មិន​អាច​បន្ថែម pam_cryptpass.so ទៅ​សេវា '%s'"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:454
+#: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
 msgid ""
 "\n"
@@ -255,14 +255,14 @@ msgstr "ជម្រើស​ម៉ូឌុល​សេវា​តែ​មួ
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      ម៉ូឌុល​ទាំងនេះ​​អាច​ត្រូវ​បាន​បន្ថែម​តែ​ទៅ​កាន់​ឯកសារ​សេវា​ប៉ុណ្ណោះ ។\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:976
-#: src/pam-config.c:986 src/pam-config.c:996 src/pam-config.c:1007
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:981
+#: src/pam-config.c:991 src/pam-config.c:1001 src/pam-config.c:1012
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "កំហុស​ក្នុង​ការ​ធ្វើ​ឲ្យ %s សកម្ម (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:978
-#: src/pam-config.c:988 src/pam-config.c:998 src/pam-config.c:1009
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
+#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "config ថ្មី​ពី %s មិន​កំពុង​ប្រើ !\n"
@@ -302,7 +302,7 @@ msgstr "កំហុស ៖ មិនអាច​យក '%s' (%m)​ ចេញ�
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "ព្រមាន ៖ មិន​អាច​ផ្ទុក​ឯកសារ config ចាស់ៗ ។\n"
 
-#: src/pam-config.c:389 src/pam-config.c:432
+#: src/pam-config.c:389 src/pam-config.c:437
 #, c-format
 msgid ""
 "\n"
@@ -311,12 +311,12 @@ msgstr ""
 "\n"
 "មិន​ផ្ទុក​ឯកសារ config បានបោះបង់ !\n"
 
-#: src/pam-config.c:700
+#: src/pam-config.c:705
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
 
-#: src/pam-config.c:702
+#: src/pam-config.c:707
 #, c-format
 msgid ""
 "\n"
@@ -325,12 +325,12 @@ msgstr ""
 "\n"
 "ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
 
-#: src/pam-config.c:744
+#: src/pam-config.c:749
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s ៖ មាន​អាគុយម៉ង់​ច្រើន​ពេក ។\n"
 
-#: src/pam-config.c:897
+#: src/pam-config.c:902
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "មិន​អាច​ចូល​ដំណើរការ '%s' ៖ %m\n"

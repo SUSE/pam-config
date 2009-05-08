@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.it\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 15:39+0100\n"
+"POT-Creation-Date: 2009-05-08 13:19+0200\n"
 "PO-Revision-Date: 2008-10-23 17:59+0200\n"
 "Last-Translator: Roberta <robynica@hotmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -119,7 +119,7 @@ msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "ERRORE: Impossibile aggiungere pam_cryptpass.so al servizio '%s'"
 
 # TLABEL modules/sound/sound.ycp:620
-#: src/mod_pam_mount.c:120 src/pam-config.c:454
+#: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
 msgid ""
 "\n"
@@ -291,14 +291,14 @@ msgstr ""
 "      Questi moduli possono essere aggiunti solo ai file del singolo "
 "servizio.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:976
-#: src/pam-config.c:986 src/pam-config.c:996 src/pam-config.c:1007
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:981
+#: src/pam-config.c:991 src/pam-config.c:1001 src/pam-config.c:1012
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Errore attivando %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:978
-#: src/pam-config.c:988 src/pam-config.c:998 src/pam-config.c:1009
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
+#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "La nuova configurazione da %s non è in uso!\n"
@@ -341,7 +341,7 @@ msgstr ""
 "ATTENZIONE: Non è possibile caricare il vecchio file di configurazione\n"
 
 # TLABEL modules/sound/sound.ycp:620
-#: src/pam-config.c:389 src/pam-config.c:432
+#: src/pam-config.c:389 src/pam-config.c:437
 #, c-format
 msgid ""
 "\n"
@@ -350,12 +350,12 @@ msgstr ""
 "\n"
 "Non è possibile caricare il file di configurazione, operazione interrotta!\n"
 
-#: src/pam-config.c:700
+#: src/pam-config.c:705
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Moduli comuni supportati:\n"
 
-#: src/pam-config.c:702
+#: src/pam-config.c:707
 #, c-format
 msgid ""
 "\n"
@@ -364,12 +364,12 @@ msgstr ""
 "\n"
 "Moduli di servizio supportati:\n"
 
-#: src/pam-config.c:744
+#: src/pam-config.c:749
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Troppi argomenti.\n"
 
-#: src/pam-config.c:897
+#: src/pam-config.c:902
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Impossibile accedere a '%s': %m\n"

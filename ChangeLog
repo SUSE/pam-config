@@ -1,3 +1,9 @@
+2009-05-08  Michael Calmer <mc@suse.de>
+
+	* release version 0.71
+
+	* src/pam-config.c: re-add lost query option [bnc#501341].
+
 2009-04-30  Thorsten Kukuk  <kukuk@suse.de>
 
 	* releaes version 0.70

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 15:39+0100\n"
+"POT-Creation-Date: 2009-05-08 13:19+0200\n"
 "PO-Revision-Date: 2008-10-22 14:57+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <opensuse-translation@opensuse.org>\n"
@@ -111,7 +111,7 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "FEJL: Kunne ikke tilføje pam_cryptpass.so til tjenesten '%s'"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:454
+#: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
 msgid ""
 "\n"
@@ -269,14 +269,14 @@ msgstr "Modulindstillinger for single service:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Disse moduler kan kun tilføjes til single service-filer.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:976
-#: src/pam-config.c:986 src/pam-config.c:996 src/pam-config.c:1007
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:981
+#: src/pam-config.c:991 src/pam-config.c:1001 src/pam-config.c:1012
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Fejl under aktivering af %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:978
-#: src/pam-config.c:988 src/pam-config.c:998 src/pam-config.c:1009
+#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
+#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Ny konfiguration fra %s er ikke i brug!\n"
@@ -316,7 +316,7 @@ msgstr "FEJL: Kan ikke fjerne '%s' (%m)\n"
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "ADVARSEL: Kunne ikke indlæse gamle konfigurationsfiler.\n"
 
-#: src/pam-config.c:389 src/pam-config.c:432
+#: src/pam-config.c:389 src/pam-config.c:437
 #, c-format
 msgid ""
 "\n"
@@ -325,12 +325,12 @@ msgstr ""
 "\n"
 "Kunne ikke indlæse konfigurationsfilen, afbrudt!\n"
 
-#: src/pam-config.c:700
+#: src/pam-config.c:705
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Understøttede fælles moduler:\n"
 
-#: src/pam-config.c:702
+#: src/pam-config.c:707
 #, c-format
 msgid ""
 "\n"
@@ -339,12 +339,12 @@ msgstr ""
 "\n"
 "Understøttede tjenestemoduler:\n"
 
-#: src/pam-config.c:744
+#: src/pam-config.c:749
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: For mange argumenter.\n"
 
-#: src/pam-config.c:897
+#: src/pam-config.c:902
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Kan ikke tilgå '%s': %m\n"
