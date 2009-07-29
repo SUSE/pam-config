@@ -1,3 +1,10 @@
+2009-07-28  Michael Calmer <mc@suse.de>
+
+	* release version 0.72
+
+	* src/mod_pam_gnome_keyring.c: enable use_authtok and support new
+	option only_if.
+
 2009-05-08  Michael Calmer <mc@suse.de>
 
 	* release version 0.71

@@ -4,6 +4,10 @@ Copyright (C) 2006, 2007, 2008, 2009 Thorsten Kukuk <kukuk@thkukuk.de>.
 
 Please enter bug reports into bugzilla.novell.com.
 
+Version 0.72
+* enable use_authtok and support new option only_if in
+  pam_gnome_keyring.
+
 Version 0.71
 * re-add lost query option
 

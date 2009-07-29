@@ -48,8 +48,10 @@ write_config_gnome_keyring (pam_module_t *this, enum write_type op, FILE *fp)
       return 0;
       break;
     case PASSWORD:
-      /* No options, if daemon is not running, we will start and kill it */
-      fprintf (fp, "password\toptional\tpam_gnome_keyring.so\n");
+      /* We use use_authtok since we want to use something that is supposed to
+       * be secure.
+       * No auto_start option: if daemon is not running, we will start and kill it */
+      fprintf (fp, "password\toptional\tpam_gnome_keyring.so\tuse_authtok\n");
       return 0;
       break;
     case SESSION:
@@ -70,7 +72,7 @@ PRINT_XMLHELP("gnome_keyring");
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2(is_enabled, auto_start);
-DECLARE_STRING_OPTS_1(auto_start_if);
+DECLARE_STRING_OPTS_1(only_if);
 DECLARE_OPT_SETS;
 
 static module_helptext_t gnome_keyring_helptext[] = {{"", NULL, "Enable/Disable pam_gnome_keyring.so"},

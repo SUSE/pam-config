@@ -362,10 +362,10 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--gnome_keyring-auto_start_if=</option><replaceable>value</replaceable></term>
+            <term><option>--gnome_keyring-only_if=</option><replaceable>value</replaceable></term>
             <listitem>
               <para>
-                Add <option>auto_start_if=</option><replaceable>value</replaceable> option to pam_gnome_keyring.so.
+                Add <option>only_if=</option><replaceable>value</replaceable> option to pam_gnome_keyring.so.
               </para>
             </listitem>
           </varlistentry>
