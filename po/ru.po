@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-08 13:19+0200\n"
+"POT-Creation-Date: 2009-12-01 14:57+0100\n"
 "PO-Revision-Date: 2008-11-12 00:24+0300\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
@@ -370,23 +370,23 @@ msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "Неизвестный параметр %s, игнорируется: '%s'\n"
 
 #  summary text heading
-#: src/sanity_checks.c:46
+#: src/sanity_checks.c:47
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "ВНИМАНИЕ: модуль %s не установлен.\n"
 
 #  summary text heading
-#: src/sanity_checks.c:51
+#: src/sanity_checks.c:52
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "ОШИБКА: модуль %s не установлен.\n"
 
-#: src/sanity_checks.c:78
+#: src/sanity_checks.c:79
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:83
+#: src/sanity_checks.c:84
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -395,12 +395,12 @@ msgstr ""
 "ИНФОРМАЦИЯ: pam_unix.so и pam_unix2.so включены в службе %s,\n"
 "ИНФОРМАЦИЯ: будет включена только pam_unix2.so.\n"
 
-#: src/sanity_checks.c:94 src/sanity_checks.c:100
+#: src/sanity_checks.c:95 src/sanity_checks.c:101
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ОШИБКА: Не удалось отключить pam_unix.so.\n"
 
-#: src/sanity_checks.c:127
+#: src/sanity_checks.c:128
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
@@ -410,22 +410,22 @@ msgstr ""
 "Настройка не изменена!\n"
 
 #  summary text heading
-#: src/sanity_checks.c:147
+#: src/sanity_checks.c:148
 #, fuzzy, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "ВНИМАНИЕ: модуль %s не установлен.\n"
 
-#: src/sanity_checks.c:181
+#: src/sanity_checks.c:182
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr "ВНИМАНИЕ: pam_ccreds.so требует LDAP или Kerberos5, игнорируется\n"
 
-#: src/sanity_checks.c:210
+#: src/sanity_checks.c:211
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:215
+#: src/sanity_checks.c:216
 #, fuzzy, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -434,7 +434,12 @@ msgstr ""
 "ИНФОРМАЦИЯ: pam_pwcheck.so и pam_cracklib.so включены,\n"
 "ИНФОРМАЦИЯ: будет использована только pam_pwcheck.so с поддержкой cracklib.\n"
 
-#: src/sanity_checks.c:266
+#: src/sanity_checks.c:256
+#, c-format
+msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
+msgstr ""
+
+#: src/sanity_checks.c:278
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
