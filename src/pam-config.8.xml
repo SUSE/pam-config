@@ -586,6 +586,110 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--passwdqc</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_passwdqc.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-ask_oldauthtok</option></term>
+            <listitem>
+              <para>
+                Add <option>ask_oldauthtok</option> option to all pam_passwdqc.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-check_oldauthtok</option></term>
+            <listitem>
+              <para>
+                Add <option>check_oldauthtok</option> option to all pam_passwdqc.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-use_first_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>use_first_pass</option> option to all pam_passwdqc.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-use_authtok</option></term>
+            <listitem>
+              <para>
+                Add <option>use_authtok</option> option to all pam_passwdqc.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-min=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>min=</option><replaceable>value</replaceable> option to pam_passwdqc.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-max=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>max=</option><replaceable>value</replaceable> option to pam_passwdqc.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-passphrase=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>passphrase=</option><replaceable>value</replaceable> option to pam_passwdqc.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-match=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>match=</option><replaceable>value</replaceable> option to pam_passwdqc.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-similar=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>similar=</option><replaceable>value</replaceable> option to pam_passwdqc.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-random=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>random=</option><replaceable>value</replaceable> option to pam_passwdqc.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-enforce=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>enforce=</option><replaceable>value</replaceable> option to pam_passwdqc.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--passwdqc-retry=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>retry=</option><replaceable>value</replaceable> option to pam_passwdqc.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--pkcs11</option></term>
             <listitem>
               <para>

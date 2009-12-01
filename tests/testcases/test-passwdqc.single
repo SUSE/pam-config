@@ -1,0 +1,20 @@
+#!/bin/sh
+. support/header.sh
+
+echo "----------------------------------------------------------------------"
+$PAMCONFIG -d --pwcheck
+$PAMCONFIG -a --cracklib
+$PAMCONFIG -a --passwdqc
+$PAMCONFIG -a --pwhistory
+
+. support/footer-common.sh
+
+echo "----------------------------------------------------------------------"
+$PAMCONFIG -a --passwdqc-min=24,18,disabled,12,10 --passwdqc-retry=2 --passwdqc-passphrase=0 --passwdqc-enforce=users --passwdqc-ask_oldauthtok
+
+. support/footer-common.sh
+
+echo "----------------------------------------------------------------------"
+$PAMCONFIG -d --passwdqc
+
+. support/footer-common.sh

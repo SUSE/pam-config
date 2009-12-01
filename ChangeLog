@@ -1,10 +1,21 @@
 2009-12-01  Michael Calmer <mc@suse.de>
 
+	* release version 0.73
+
 	* tests/config/unix.exp: show stderr diff before stdout
 	* src/sanity_checks.c: check for cracklib-minlen >= 6 [bnc#539053]
+	* src/pam-module.h: add DECLARE_STRING_OPTS_8
+	* src/supported-modules.h: add support for pam_passwdqc
+	* src/mod_pam_passwdqc.c: Likewise.
+	* src/Makefile.am: Likewise.
 	* tests/testcases/test-cracklib-string-opts.single: Add testcase
 	* tests/single.out/test-cracklib-string-opts.out: Likewise.
 	* tests/single.out/test-cracklib-string-opts.err: Likewise.
+	* tests/testcases/test-passwdqc.single: Likewise.
+	* tests/single.out/test-passwdqc.out: Likewise.
+	* tests/single.out/test-passwdqc.err: Likewise.
+	* src/pam-config.8.xml: Update manpage
+	* src/pam-config.8: Likewise.
 
 2009-07-28  Michael Calmer <mc@suse.de>
 
