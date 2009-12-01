@@ -1,3 +1,11 @@
+2009-12-01  Michael Calmer <mc@suse.de>
+
+	* tests/config/unix.exp: show stderr diff before stdout
+	* src/sanity_checks.c: check for cracklib-minlen >= 6 [bnc#539053]
+	* tests/testcases/test-cracklib-string-opts.single: Add testcase
+	* tests/single.out/test-cracklib-string-opts.out: Likewise.
+	* tests/single.out/test-cracklib-string-opts.err: Likewise.
+
 2009-07-28  Michael Calmer <mc@suse.de>
 
 	* release version 0.72

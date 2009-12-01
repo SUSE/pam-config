@@ -56,6 +56,17 @@ proc single-run { src } {
     return -1
   }
 
+  if { [ file exists $referrfile ] == 0 } {
+      perror "Missing file $referrfile" 0
+  } else {
+      if { [ diff $referrfile $errfile ] != 1 } {
+          puts "Output doesn't match expected data:"
+          puts [ exec sh -c "diff -u $referrfile $errfile || true" ]
+          fail $base_name
+          return -1
+      }
+  }
+
   if { [ file exists $refoutfile ] == 0 } {
       perror "Missing file $refoutfile" 0
   } else {
@@ -67,16 +78,6 @@ proc single-run { src } {
       }
   }
 
-  if { [ file exists $referrfile ] == 0 } {
-      perror "Missing file $referrfile" 0
-  } else {
-      if { [ diff $referrfile $errfile ] != 1 } {
-          puts "Output doesn't match expected data:"
-          puts [ exec sh -c "diff -u $referrfile $errfile || true" ]
-          fail $base_name
-          return -1
-      }
-  }
 
   # ok, all is fine
 

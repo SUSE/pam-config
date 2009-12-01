@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #include "pam-config.h"
 #include "pam-module.h"
@@ -244,6 +245,17 @@ sanitize_check_password (pam_module_t **module_list, int verify)
 	}
     }
 
+  if (with_cracklib)
+  {
+    pam_module_t *cracklib_mod = lookup (module_list, "pam_cracklib.so");
+    option_set_t *cracklib_opt_set = cracklib_mod->get_opt_set (cracklib_mod, PASSWORD);
+    char *minlen = cracklib_opt_set->get_opt (cracklib_opt_set, "minlen");
+    if ( minlen && atoi(minlen) <= 5 )
+    {
+      fprintf (stderr,
+               _("WARNING: cracklib itself has a length limit of 6 characters!\n"));
+    }
+  }
   return retval;
 }
 
