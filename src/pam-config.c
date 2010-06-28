@@ -174,7 +174,7 @@ check_symlink (const char *file_pc, const char *file)
 	  fprintf (stderr,
 		   _("File %s is no symlink to %s.\n"), file, file_pc);
 	  fprintf (stderr,
-		   _("New config from %s is is not in use!\n"),
+		   _("New config from %s is not in use!\n"),
 		   file_pc);
 	  return 1;
 	}
