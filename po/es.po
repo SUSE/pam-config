@@ -1,20 +1,21 @@
 # translation of pam-config.po to Spanish
+# translation of pam-config.po to
 # César Sánchez Alonso <csalinux@gmail.com>, 2007.
 # Carlos E. Robinson <robin.listas@telefonica.net>, 2008.
 # Camaleón <noelamac@gmail.com>, 2008.
-# translation of pam-config.po to
+# Ricardo Varas Santana <ricardoivaras@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
-"PO-Revision-Date: 2008-10-22 17:16+0200\n"
-"Last-Translator: Camaleón <noelamac@gmail.com>\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"PO-Revision-Date: 2009-12-28 00:19-0300\n"
+"Last-Translator: Ricardo Varas Santana <ricardoivaras@gmail.com>\n"
 "Language-Team: Spanish <opensuse-translation-es@opensuse.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.0\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: src/load_config.c:131
@@ -235,10 +236,8 @@ msgstr ""
 "      --update      Leer la configuración actual y escribir una nueva\n"
 
 #: src/pam-config.c:88
-#, fuzzy
 msgid "      --verify      Read and verify current configuration\n"
-msgstr ""
-"      --update      Leer la configuración actual y escribir una nueva\n"
+msgstr "      --verificar      Leer y verificar configuración actual\n"
 
 #: src/pam-config.c:90
 msgid "  -q, --query       Query for installed modules and options\n"
@@ -292,8 +291,9 @@ msgstr ""
 msgid "Error activating %s (%m)\n"
 msgstr "Error al activar %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "¡La nueva configuración de %s no está en uso!\n"
@@ -302,11 +302,6 @@ msgstr "¡La nueva configuración de %s no está en uso!\n"
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "El archivo %s no es un enlace simbólico a %s.\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "¡La nueva configuración de %s no está en uso!\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -394,7 +389,7 @@ msgstr "ERROR: El módulo %s no está instalado.\n"
 #: src/sanity_checks.c:79
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
-msgstr ""
+msgstr "ADVERTENCIA: ¡pam_unix.so y pam_unix2.so activados!\n"
 
 #: src/sanity_checks.c:84
 #, c-format
@@ -420,9 +415,9 @@ msgstr ""
 "¡La configuración no se ha cambiado!\n"
 
 #: src/sanity_checks.c:148
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
-msgstr "ADVERTENCIA: El módulo %s no está instalado.\n"
+msgstr "ADVERTENCIA: ¡pam_localuser no está activado!\n"
 
 #: src/sanity_checks.c:182
 #, c-format
@@ -432,22 +427,21 @@ msgstr "ADVERTENCIA: pam_ccreds.so necesita LDAP o Kerberos5, ignorado\n"
 #: src/sanity_checks.c:211
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
-msgstr ""
+msgstr "ADVERTENCIA: ¡pam_pwcheck y pam_cracklib están activados!\n"
 
 #: src/sanity_checks.c:216
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_cracklib.so will be used.\n"
 msgstr ""
-"INFORMACIÓN: pam_pwcheck.so y pam_cracklib.so habilitados,\n"
-"INFORMACIÓN: se utilizará sólo pam_pwcheck.so con soporte cracklib "
-"habilitado.\n"
+"INFO: pam_pwcheck.so y pam_cracklib.so activados,\n"
+"INFO: sólo pam_cracklib.so es usado.\n"
 
 #: src/sanity_checks.c:256
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
-msgstr ""
+msgstr "ADVERTENCIA: ¡cracklib en si tiene un largo límite de 6 caracteres!\n"
 
 #: src/sanity_checks.c:278
 #, c-format
@@ -482,3 +476,14 @@ msgstr "No se puede crear la referencia de archivo:  %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "No se puede crear %s: %m\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "¡La nueva configuración de %s no está en uso!\n"
+
+#~ msgid ""
+#~ "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
+#~ "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
+#~ msgstr ""
+#~ "INFORMACIÓN: pam_pwcheck.so y pam_cracklib.so habilitados,\n"
+#~ "INFORMACIÓN: se utilizará sólo pam_pwcheck.so con soporte cracklib "
+#~ "habilitado.\n"

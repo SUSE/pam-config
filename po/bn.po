@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
 "PO-Revision-Date: 2004-08-09 10:24+0200\n"
 "Last-Translator: xxx <yyy@example.org>\n"
 "Language-Team: Bengali <i18n@suse.de>\n"
@@ -246,8 +246,9 @@ msgstr ""
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -258,11 +259,6 @@ msgid "File %s is no symlink to %s.\n"
 msgstr ""
 "%s স্বাক্ষরিত নয়।\n"
 "তবুও ব্যবহার করতে চান?"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr ""
 
 #: src/pam-config.c:195
 #, c-format

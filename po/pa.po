@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.pa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
 "PO-Revision-Date: 2007-08-21 23:07+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Panjabi <punjabi-l10n@lists.sf.net>\n"
@@ -268,8 +268,9 @@ msgstr ""
 msgid "Error activating %s (%m)\n"
 msgstr "%s ਐਕਟਿਵੇਟਿੰਗ ਗਲਤੀ (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s ਤੋਂ ਨਵੀਂ ਸੰਰਚਨਾ ਵਰਤੋਂ ਵਿੱਚ ਨਹੀਂ ਹੈ!\n"
@@ -278,11 +279,6 @@ msgstr "%s ਤੋਂ ਨਵੀਂ ਸੰਰਚਨਾ ਵਰਤੋਂ ਵਿੱ�
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "ਫਾਇਲ %s %s ਨਾਲ ਸਿਮਲਿੰਕ ਨਹੀਂ ਹੈ।\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "%s ਲਈ ਨਵੀਂ ਸੰਰਚਨਾ ਵਰਤੋਂ ਵਿੱਚ ਨਹੀਂ ਹੈ!\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -446,6 +442,9 @@ msgstr "ਫਾਇਲ ਹੈਂਡਲ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕ�
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "%s ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕਦੀ: %m\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "%s ਲਈ ਨਵੀਂ ਸੰਰਚਨਾ ਵਰਤੋਂ ਵਿੱਚ ਨਹੀਂ ਹੈ!\n"
 
 #~ msgid ""
 #~ "INFO: Both options 'md5' and 'bigcrypt' found in service %s.\n"

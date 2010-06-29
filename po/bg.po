@@ -1,11 +1,11 @@
-# translation of pam-config.bg.po to Bulgarian
-# Borislav Mitev <morbid_viper@tkzs.org>, 2008.
+# translation of pam-config.po to Bulgarian
+# Borislav Mitev <morbid_viper@tkzs.org>, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: pam-config.bg\n"
+"Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
-"PO-Revision-Date: 2008-10-14 21:21+0300\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"PO-Revision-Date: 2009-10-15 15:55+0300\n"
 "Last-Translator: Borislav Mitev <morbid_viper@tkzs.org>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -281,8 +281,9 @@ msgstr ""
 msgid "Error activating %s (%m)\n"
 msgstr "Грешка при активирането на .%s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Не се използва нова настройка от %s!\n"
@@ -291,11 +292,6 @@ msgstr "Не се използва нова настройка от %s!\n"
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "Файлът %s не е символна връзка към %s.\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "Не се използва нова настройка от %s!\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -431,12 +427,12 @@ msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr ""
 
 #: src/sanity_checks.c:278
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
-"ГРЕШКА: ldap-account_only е допустимо само в комбинация с krb5.\n"
+"ГРЕШКА: pam_apparmor не е допустимо в комбинация с pam_selinux.\n"
 "Настройката не е променена!\n"
 
 #: src/single_config.c:249
@@ -463,3 +459,6 @@ msgstr "Не може да се създаде файлов манипулато
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Не може да се създаде %s: %m\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "Не се използва нова настройка от %s!\n"

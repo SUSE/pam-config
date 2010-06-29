@@ -1,11 +1,11 @@
 # translation of pam-config.po to Japanese
-# Yasuhiko Kamata <belphegor@belbel.or.jp>, 2007, 2008.
+# Yasuhiko Kamata <belphegor@belbel.or.jp>, 2007, 2008, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
-"PO-Revision-Date: 2008-10-22 20:53+0900\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"PO-Revision-Date: 2010-03-10 16:13+0900\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <opensuse-ja@opensuse.org>\n"
 "MIME-Version: 1.0\n"
@@ -229,9 +229,8 @@ msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      現在の設定を読み込んで新しい設定を書き込む\n"
 
 #: src/pam-config.c:88
-#, fuzzy
 msgid "      --verify      Read and verify current configuration\n"
-msgstr "      --update      現在の設定を読み込んで新しい設定を書き込む\n"
+msgstr "      --verify      現在の設定を読み込んで検証する\n"
 
 #: src/pam-config.c:90
 msgid "  -q, --query       Query for installed modules and options\n"
@@ -281,8 +280,9 @@ msgstr "      これらのモジュールは単一のサービスファイル内
 msgid "Error activating %s (%m)\n"
 msgstr "%s を有効にする処理でエラーが発生しました (%m)。\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s からもたらされた新しい設定は使われていません。\n"
@@ -291,11 +291,6 @@ msgstr "%s からもたらされた新しい設定は使われていません。
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "ファイル %s は %s へのシンボリックリンクではありません。\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "%s からもたらされた新しい設定は使われていません。\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -376,7 +371,7 @@ msgstr "エラー: モジュール %s はインストールされていません
 #: src/sanity_checks.c:79
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
-msgstr ""
+msgstr "警告: pam_unix.so と pam_unix2.so の両方が有効になっています！\n"
 
 #: src/sanity_checks.c:84
 #, c-format
@@ -403,9 +398,9 @@ msgstr ""
 "設定を変更できませんでした。\n"
 
 #: src/sanity_checks.c:148
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
-msgstr "警告: モジュール %s はインストールされていません。\n"
+msgstr "警告: pam_localuser は有効化されていません！\n"
 
 #: src/sanity_checks.c:182
 #, c-format
@@ -416,21 +411,21 @@ msgstr ""
 #: src/sanity_checks.c:211
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
-msgstr ""
+msgstr "警告: pam_pwcheck.so と pam_cracklib.so の両方が有効になっています！\n"
 
 #: src/sanity_checks.c:216
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_cracklib.so will be used.\n"
 msgstr ""
 "情報: pam_pwcheck.so と pam_cracklib.so の両方が有効になっています。\n"
-"情報: cracklib 対応の pam_pwcheck.so だけが使われます。\n"
+"情報: pam_cracklib.so だけが使われます。\n"
 
 #: src/sanity_checks.c:256
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
-msgstr ""
+msgstr "警告: cracklib 自身には 6 文字の長さ制限が存在します！\n"
 
 #: src/sanity_checks.c:278
 #, c-format
@@ -465,3 +460,6 @@ msgstr "ファイルハンドルを作成できませんでした: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "%s を作成できませんでした: %m\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "%s からもたらされた新しい設定は使われていません。\n"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
-"PO-Revision-Date: 2008-11-17 21:47-0200\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"PO-Revision-Date: 2009-12-01 16:03-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -147,7 +147,7 @@ msgstr "AVISO: arquivos de serviço não encontrado em '%s'.\n"
 #: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr "AVISO: módulo encontrado '%s' no arquivo '%s'.\n"
+msgstr "AVISO: módulo '%s' encontrado no arquivo '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:142
 #, c-format
@@ -155,7 +155,7 @@ msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
-"ERRO: o pam_mount.so está habilitado. A fim de usar pam_thinkfinger.so você "
+"ERRO: o pam_mount.so está habilitado. Para usar o pam_thinkfinger.so você "
 "precisa desabilitá-lo antes!\n"
 
 #: src/mod_pam_thinkfinger.c:146
@@ -164,7 +164,7 @@ msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
-"ERRO: o pam_fp.so está habilitado. A fim de usar pam_thinkfinger.so você "
+"ERRO: o pam_fp.so está habilitado. Para usar o pam_thinkfinger.so você "
 "precisa desabilitá-lo antes!\n"
 
 #: src/pam-config.c:46
@@ -227,9 +227,8 @@ msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Ler a configuração atual e salvar a nova\n"
 
 #: src/pam-config.c:88
-#, fuzzy
 msgid "      --verify      Read and verify current configuration\n"
-msgstr "      --update      Ler a configuração atual e salvar a nova\n"
+msgstr "      --verify      Ler e verificar a configuração atual\n"
 
 #: src/pam-config.c:90
 msgid "  -q, --query       Query for installed modules and options\n"
@@ -281,8 +280,9 @@ msgstr ""
 msgid "Error activating %s (%m)\n"
 msgstr "Erro ao ativar %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nova configuração de %s não está em uso!\n"
@@ -291,11 +291,6 @@ msgstr "Nova configuração de %s não está em uso!\n"
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "O arquivo %s não é um link simbólico para %s.\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "Nova configuração de %s não está em uso!\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -374,7 +369,7 @@ msgstr "ERRO: o módulo %s não está instalado.\n"
 #: src/sanity_checks.c:79
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
-msgstr ""
+msgstr "AVISO: o pam_unix.so e o pam_unix2.so estão habilitados!\n"
 
 #: src/sanity_checks.c:84
 #, c-format
@@ -382,8 +377,8 @@ msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
-"INFO: o pam_unix.so e pam_unix2.so habilitados no serviço %s,\n"
-"INFO: somente o pam_unix2.so será habilitado.\n"
+"INFORMAÇÃO: o pam_unix.so e pam_unix2.so habilitados no serviço %s,\n"
+"INFORMAÇÃO: somente o pam_unix2.so será habilitado.\n"
 
 #: src/sanity_checks.c:95 src/sanity_checks.c:101
 #, c-format
@@ -400,9 +395,9 @@ msgstr ""
 "Configuração não alterada!\n"
 
 #: src/sanity_checks.c:148
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
-msgstr "AVISO: o módulo %s não está instalado.\n"
+msgstr "AVISO: o pam_localuser não está habilitado!\n"
 
 #: src/sanity_checks.c:182
 #, c-format
@@ -412,21 +407,21 @@ msgstr "AVISO: o pam_ccreds.so necessita de LDAP ou Kerberos5, ignorado\n"
 #: src/sanity_checks.c:211
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
-msgstr ""
+msgstr "AVISO: o pam_pwcheck e o pam_cracklib estão habilitados!\n"
 
 #: src/sanity_checks.c:216
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_cracklib.so will be used.\n"
 msgstr ""
-"INFO: o pam_pwcheck.so e pam_cracklib.so habilitados,\n"
-"INFO: somente o pam_pwcheck.so com suporte a cracklib será utilizado.\n"
+"INFORMAÇÃO: o pam_pwcheck.so e pam_cracklib.so estão habilitados,\n"
+"INFORMAÇÃO: somente o pam_cracklib.so será utilizado.\n"
 
 #: src/sanity_checks.c:256
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
-msgstr ""
+msgstr "AVISO: o cracklib tem um limite de 6 caracteres!\n"
 
 #: src/sanity_checks.c:278
 #, c-format
@@ -461,3 +456,13 @@ msgstr "Não foi possível criar o handle de arquivo: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Não foi possível criar %s: %m\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "Nova configuração de %s não está em uso!\n"
+
+#~ msgid ""
+#~ "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
+#~ "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
+#~ msgstr ""
+#~ "INFO: o pam_pwcheck.so e pam_cracklib.so habilitados,\n"
+#~ "INFO: somente o pam_pwcheck.so com suporte a cracklib será utilizado.\n"

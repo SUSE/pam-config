@@ -3,13 +3,13 @@
 # Copyright (C) 2006, SUSE Linux GmbH, Nuremberg
 #
 # Aleksey Osipov <aliks-os@yandex.ru>, 2008.
-# Alexander Melentiev <alex239@gmail.com>, 2008.
+# Alexander Melentiev <alex239@gmail.com>, 2008, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
-"PO-Revision-Date: 2008-11-12 00:24+0300\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"PO-Revision-Date: 2010-04-10 20:32+0300\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -235,9 +235,8 @@ msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Читать текущую конфигурацию и записать новую\n"
 
 #: src/pam-config.c:88
-#, fuzzy
 msgid "      --verify      Read and verify current configuration\n"
-msgstr "      --update      Читать текущую конфигурацию и записать новую\n"
+msgstr "      --verify      Прочесть и проверить текущую конфигурацию\n"
 
 #: src/pam-config.c:90
 msgid "  -q, --query       Query for installed modules and options\n"
@@ -287,8 +286,9 @@ msgstr "      Эти модули могут быть добавлены к фа
 msgid "Error activating %s (%m)\n"
 msgstr "Ошибка активации %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Новая конфигурация из %s не используется!\n"
@@ -297,11 +297,6 @@ msgstr "Новая конфигурация из %s не используетс�
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "Файл %s не является символической связью с %s.\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "Новая конфигурация из %s не используется!\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -384,7 +379,7 @@ msgstr "ОШИБКА: модуль %s не установлен.\n"
 #: src/sanity_checks.c:79
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
-msgstr ""
+msgstr "ВНИМАНИЕ: pam_unix.so и pam_unix2.so включены!\n"
 
 #: src/sanity_checks.c:84
 #, c-format
@@ -411,9 +406,9 @@ msgstr ""
 
 #  summary text heading
 #: src/sanity_checks.c:148
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
-msgstr "ВНИМАНИЕ: модуль %s не установлен.\n"
+msgstr "ВНИМАНИЕ: pam_localuser не включён.\n"
 
 #: src/sanity_checks.c:182
 #, c-format
@@ -423,21 +418,21 @@ msgstr "ВНИМАНИЕ: pam_ccreds.so требует LDAP или Kerberos5, и
 #: src/sanity_checks.c:211
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
-msgstr ""
+msgstr "ВНИМАНИЕ: pam_pwcheck и pam_cracklib включены!\n"
 
 #: src/sanity_checks.c:216
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_cracklib.so will be used.\n"
 msgstr ""
 "ИНФОРМАЦИЯ: pam_pwcheck.so и pam_cracklib.so включены,\n"
-"ИНФОРМАЦИЯ: будет использована только pam_pwcheck.so с поддержкой cracklib.\n"
+"ИНФОРМАЦИЯ: будет использована только pam_cracklib.so.\n"
 
 #: src/sanity_checks.c:256
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
-msgstr ""
+msgstr "ВНИМАНИЕ: сам cracklib имеет ограничение длины в 6 символов!\n"
 
 #: src/sanity_checks.c:278
 #, c-format
@@ -472,3 +467,6 @@ msgstr "Невозможно создать обработчик файла: %m\
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Не удалось создать %s: %m\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "Новая конфигурация из %s не используется!\n"

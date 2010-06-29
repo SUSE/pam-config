@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
 "PO-Revision-Date: 2008-12-01 01:33+0800\n"
 "Last-Translator: Thruth Wang <wanglihao@gmail.com>\n"
 "Language-Team: Simplified Chinese\n"
@@ -265,8 +265,9 @@ msgstr "      这些模块只能被添加到单个服务文件中。\n"
 msgid "Error activating %s (%m)\n"
 msgstr "激活 %s (%m) 出错\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "来自 %s 的新配置未被使用！\n"
@@ -275,11 +276,6 @@ msgstr "来自 %s 的新配置未被使用！\n"
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "文件 %s 不是 %s 符号链接。\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "来自 %s 的新配置未被使用！\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -445,3 +441,6 @@ msgstr "无法创建文件柄：%m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "无法创建 %s: %m\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "来自 %s 的新配置未被使用！\n"

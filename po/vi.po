@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
 "PO-Revision-Date: 2006-07-12 07:32+0200\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi82@gmail.com>\n"
 "Language-Team: Vietnamese <i18n@suse.de>\n"
@@ -251,8 +251,9 @@ msgstr ""
 msgid "Error activating %s (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr ""
@@ -260,11 +261,6 @@ msgstr ""
 #: src/pam-config.c:175
 #, c-format
 msgid "File %s is no symlink to %s.\n"
-msgstr ""
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
 msgstr ""
 
 #: src/pam-config.c:195

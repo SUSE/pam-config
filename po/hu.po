@@ -1,22 +1,22 @@
 # translation of pam-config.po to
-# Kalman Kemenczy <kkemenczy@novell.com>, 2007, 2008.
-# Gabor Kelemen <kelemeng@gnome.hu>, 2007.
-# Ervin Novak <enovak@novell.com>, 2008.
 # translation of pam-config.hu.po to
 # translation of login.hu.po to
+# Kalman Kemenczy <kkemenczy@novell.com>, 2007, 2008, 2010.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2007.
+# Ervin Novak <enovak@novell.com>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
-"PO-Revision-Date: 2008-10-23 21:00+0200\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"PO-Revision-Date: 2010-03-18 11:40+0100\n"
 "Last-Translator: Kalman Kemenczy <kkemenczy@novell.com>\n"
-"Language-Team:  <hu@li.org>\n"
+"Language-Team: collection <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: src/load_config.c:131
 #, c-format
@@ -233,9 +233,8 @@ msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Jelenlegi beállítás beolvasása és kiírása\n"
 
 #: src/pam-config.c:88
-#, fuzzy
 msgid "      --verify      Read and verify current configuration\n"
-msgstr "      --update      Jelenlegi beállítás beolvasása és kiírása\n"
+msgstr "      --verify      Jelenlegi beállítás beolvasása és ellenőrzése\n"
 
 #: src/pam-config.c:90
 msgid "  -q, --query       Query for installed modules and options\n"
@@ -286,8 +285,9 @@ msgstr ""
 msgid "Error activating %s (%m)\n"
 msgstr "A(z) %s (%m) aktiválása sikertelen\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"
@@ -296,11 +296,6 @@ msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "A(z) %s fájl nem szimbolikus linkje a(z) %s fájlnak.\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -380,7 +375,7 @@ msgstr "HIBA: A(z) %s modul nincs telepítve.\n"
 #: src/sanity_checks.c:79
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
-msgstr ""
+msgstr "FIGYELEMEZTETÉS: a pam_unix.so és a pam_unix2.so engedélyezve van!\n"
 
 #: src/sanity_checks.c:84
 #, c-format
@@ -406,9 +401,9 @@ msgstr ""
 "A beállítások nem változtak!\n"
 
 #: src/sanity_checks.c:148
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
-msgstr "FIGYELMEZTETÉS: A(z) %s modul nincs telepítve.\n"
+msgstr "FIGYELMEZTETÉS: a pam_localuser nincs engedélyezve!\n"
 
 #: src/sanity_checks.c:182
 #, c-format
@@ -420,21 +415,22 @@ msgstr ""
 #: src/sanity_checks.c:211
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
-msgstr ""
+msgstr "FIGYELMEZTETÉS: a pam_pwcheck és a pam_cracklib engedélyezve van!\n"
 
 #: src/sanity_checks.c:216
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_cracklib.so will be used.\n"
 msgstr ""
-"INFO: a pam_pwcheck.so és pam_cracklib.so engedélyezett, csak a\n"
-"INFO: cracklib támogatással rendelkező pam_pwcheck.so kerül felhasználásra.\n"
+"INFO: a pam_pwcheck.so és pam_cracklib.so engedélyezett\n"
+"INFO: csak a cracklib támogatással rendelkező pam_pwcheck.so kerül "
+"felhasználásra.\n"
 
 #: src/sanity_checks.c:256
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
-msgstr ""
+msgstr "FIGYELMEZTETÉS: a cracklib 6 karakteres korláttal rendelkezik!\n"
 
 #: src/sanity_checks.c:278
 #, c-format
@@ -469,3 +465,6 @@ msgstr "Nem hozható létre fájlleíró: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "A(z) %s: %m létrehozása sikertelen\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"

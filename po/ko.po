@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
-"PO-Revision-Date: 2008-11-02 03:41+0900\n"
-"Last-Translator: YunSeok Choi <xein@naver.com>\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"PO-Revision-Date: 2009-10-23 02:32+0900\n"
+"Last-Translator: Yunseok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,7 +199,7 @@ msgstr "  -d, --delete      옵션 및 PAM 모듈 제거\n"
 
 #: src/pam-config.c:80
 msgid "      --confdir     Use a custom configuration directory\n"
-msgstr "      --confdir     사용자 정의 구성 디렉토리를 사용\n"
+msgstr "      --confdir     사용자 정의 구성 디렉터리를 사용\n"
 
 #: src/pam-config.c:82
 msgid "      --initialize  Convert old config and create new one\n"
@@ -266,8 +266,9 @@ msgstr "      이러한 모듈은 단일 서비스 파일에 추가됩니다.\n"
 msgid "Error activating %s (%m)\n"
 msgstr "%s 를 유효하게 하는 처리로 오류 발생 (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
@@ -276,11 +277,6 @@ msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "파일 %s 는 %s 로의 심볼릭 링크가 아닙니다.\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -446,3 +442,6 @@ msgstr "파일 핸들을 생성 할 수 없음: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "%s 를 생성 할 수 없음: %m\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "%s 로부터 새 설정은 사용되지 않음!\n"

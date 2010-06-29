@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.it\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-01 14:57+0100\n"
-"PO-Revision-Date: 2008-10-23 17:59+0200\n"
-"Last-Translator: Roberta <robynica@hotmail.com>\n"
+"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"PO-Revision-Date: 2010-04-08 12:24+0100\n"
+"Last-Translator: Andrea Florio <andrea@opensuse.org>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -240,11 +240,8 @@ msgstr ""
 "nuovo\n"
 
 #: src/pam-config.c:88
-#, fuzzy
 msgid "      --verify      Read and verify current configuration\n"
-msgstr ""
-"      --update      Legge il file di configurazione attuale e lo scrive "
-"nuovo\n"
+msgstr "      --verify      Legge e verica la configurazione attuale\n"
 
 #: src/pam-config.c:90
 msgid "  -q, --query       Query for installed modules and options\n"
@@ -297,8 +294,9 @@ msgstr ""
 msgid "Error activating %s (%m)\n"
 msgstr "Errore attivando %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:213 src/pam-config.c:983
-#: src/pam-config.c:993 src/pam-config.c:1003 src/pam-config.c:1014
+#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
+#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
+#: src/pam-config.c:1014
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "La nuova configurazione da %s non è in uso!\n"
@@ -307,11 +305,6 @@ msgstr "La nuova configurazione da %s non è in uso!\n"
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "Il file %s non è un link simbolico a %s.\n"
-
-#: src/pam-config.c:177
-#, c-format
-msgid "New config from %s is is not in use!\n"
-msgstr "La nuova configurazione da %s non è in uso!\n"
 
 #: src/pam-config.c:195
 #, c-format
@@ -393,7 +386,7 @@ msgstr "ERRORE: il modulo %s non è installato.\n"
 #: src/sanity_checks.c:79
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
-msgstr ""
+msgstr "ATTENZIONE: pam_unix.so e pam_unix2.so abilitati!\n"
 
 #: src/sanity_checks.c:84
 #, c-format
@@ -419,9 +412,9 @@ msgstr ""
 "Configurazione non modificata!\n"
 
 #: src/sanity_checks.c:148
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
-msgstr "ATTENZIONE: il modulo %s non è installato.\n"
+msgstr "ATTENZIONE: pam_localuser non è abilitato!\n"
 
 #: src/sanity_checks.c:182
 #, c-format
@@ -431,22 +424,22 @@ msgstr "ATTENZIONE: pam_ccreds.so richiede LDAP o Kerberos5, ignorato\n"
 #: src/sanity_checks.c:211
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
-msgstr ""
+msgstr "ATTENZIONE: pam_pwcheck e pam_cracklib abilitati!\n"
 
 #: src/sanity_checks.c:216
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_cracklib.so will be used.\n"
 msgstr ""
 "INFO: pam_pwcheck.so e pam_cracklib.so abilitati,\n"
-"INFO: solo pam_pwcheck.so con il supporto per cracklib abilitato sarà "
-"utilizzato.\n"
+"INFO: solamente pam_cracklib.so sarà utilizzato.\n"
 
 #: src/sanity_checks.c:256
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr ""
+"ATTENZIONE: lo stesso cracklib ha un limite di lunghezza di 6 caratteri!\n"
 
 #: src/sanity_checks.c:278
 #, c-format
@@ -481,3 +474,14 @@ msgstr "Impossibile creare il manipolatore del file: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Impossibile creare %s: %m\n"
+
+#~ msgid "New config from %s is is not in use!\n"
+#~ msgstr "La nuova configurazione da %s non è in uso!\n"
+
+#~ msgid ""
+#~ "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
+#~ "INFO: only pam_pwcheck.so with cracklib support enabled will be used.\n"
+#~ msgstr ""
+#~ "INFO: pam_pwcheck.so e pam_cracklib.so abilitati,\n"
+#~ "INFO: solo pam_pwcheck.so con il supporto per cracklib abilitato sarà "
+#~ "utilizzato.\n"
