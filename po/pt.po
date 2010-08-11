@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.pt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"POT-Creation-Date: 2010-08-11 16:53+0200\n"
 "PO-Revision-Date: 2008-10-18 22:01+0100\n"
 "Last-Translator: Carlos Gonçalves <cgoncalves@opensuse.org>\n"
 "Language-Team: Portuguese <opensuse-pt@opensuse.org>\n"
@@ -112,6 +112,44 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "ERRO: Não foi possível adicionar o pam_cryptpass.so ao serviço '%s'"
 
+#: src/mod_pam_exec.c:69
+#, c-format
+msgid "ERROR: Out of memory.\n"
+msgstr ""
+
+#: src/mod_pam_fp.c:91 src/mod_pam_thinkfinger.c:91
+#, c-format
+msgid "ERROR: No memory left to construct path.\n"
+msgstr "ERRO: Sem memória disponível para construir o caminho.\n"
+
+#: src/mod_pam_fp.c:106 src/mod_pam_thinkfinger.c:106
+#, c-format
+msgid "WARNING: Found no service files in '%s'.\n"
+msgstr "AVISO: Não foram encontrados os ficheiros do serviço em '%s'.\n"
+
+#: src/mod_pam_fp.c:116 src/mod_pam_thinkfinger.c:116
+#, c-format
+msgid "WARNING: Found module '%s' in file '%s'.\n"
+msgstr "AVISO: Foi encontrado o módulo '%s' no ficheiro '%s'.\n"
+
+#: src/mod_pam_fp.c:142
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"ERRO: o pam_mount.so está activado. De forma a utilizar o pam_thinkfinger."
+"so, necessita de o desactivar primeiro!\n"
+
+#: src/mod_pam_fp.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"ERRO: o pam_fp.so está activado. De forma a utilizar o pam_thinkfinger.so, "
+"necessita de o desactivar primeiro!\n"
+
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
 msgid ""
@@ -131,21 +169,6 @@ msgstr ""
 #, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "ERRO: O módulo pam_fp.so está activado. Desactive-o primeiro.\n"
-
-#: src/mod_pam_thinkfinger.c:91
-#, c-format
-msgid "ERROR: No memory left to construct path.\n"
-msgstr "ERRO: Sem memória disponível para construir o caminho.\n"
-
-#: src/mod_pam_thinkfinger.c:106
-#, c-format
-msgid "WARNING: Found no service files in '%s'.\n"
-msgstr "AVISO: Não foram encontrados os ficheiros do serviço em '%s'.\n"
-
-#: src/mod_pam_thinkfinger.c:116
-#, c-format
-msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr "AVISO: Foi encontrado o módulo '%s' no ficheiro '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:142
 #, c-format

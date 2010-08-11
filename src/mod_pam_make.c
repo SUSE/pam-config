@@ -1,4 +1,4 @@
-/* Copyright (C) 2007, 2008 Thorsten Kukuk
+/* Copyright (C) 2007, 2008, 2010 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -24,6 +24,8 @@
 
 #include "pam-config.h"
 #include "pam-module.h"
+
+/* read config of pam_make, but write config for pam_exec */
 
 static int
 parse_config_make (pam_module_t *this, char *args, write_type_t type)
@@ -78,27 +80,43 @@ write_config_make (pam_module_t *this, enum write_type op, FILE *fp)
   if (op != PASSWORD)
     return 0;
 
-  fprintf (fp, "password\toptional\tpam_make.so\t");
+  fprintf (fp, "password\toptional\tpam_exec.so\t");
 
   bool_option_t **cur_bool_opt = opt_set->bool_opts;
   string_option_t **cur_str_opt = opt_set->string_opts;
 
   while (*cur_bool_opt != NULL)
     {
-      if ((strcmp ((*cur_bool_opt)->key, "is_enabled") != 0)
-	  && ((*cur_bool_opt)->value == TRUE))
-	fprintf (fp, "%s ", (*cur_bool_opt)->key);
+      if (strcmp ((*cur_bool_opt)->key, "is_enabled") != 0)
+	{
+	  if (strcmp ((*cur_bool_opt)->key, "nosetuid") == 0)
+	    {
+	      if ((*cur_bool_opt)->value == FALSE)
+		fprintf (fp, "seteuid ");
+	    }
+	  else if ((*cur_bool_opt)->value == TRUE)
+	    fprintf (fp, "%s ", (*cur_bool_opt)->key);
+	}
       cur_bool_opt++;
     }
 
   while (*cur_str_opt != NULL)
     {
-      if ((strcmp ((*cur_str_opt)->key, "empty") != 0)
-	  && ((*cur_str_opt)->value))
+      if (strcmp ((*cur_str_opt)->key, "empty") != 0)
 	{
 	  if (strcmp ((*cur_str_opt)->key, "option") == 0)
-	    fprintf (fp, "%s", (*cur_str_opt)->value);
-	  else
+	    {
+	      if ((*cur_str_opt)->value)
+		fprintf (fp, "%s", (*cur_str_opt)->value);
+	    }
+	  else if (strcmp ((*cur_str_opt)->key, "make") == 0)
+	    {
+	      if ((*cur_str_opt)->value)
+		fprintf (fp, "%s ", (*cur_str_opt)->value);
+	      else
+		fprintf (fp, "/usr/bin/make -C ");
+	    }
+	  else if ((*cur_str_opt)->value)
 	    fprintf (fp, "%s=%s ", (*cur_str_opt)->key, (*cur_str_opt)->value);
 	}
       cur_str_opt++;
@@ -109,15 +127,15 @@ write_config_make (pam_module_t *this, enum write_type op, FILE *fp)
   return 0;
 }
 
-GETOPT_START_1(PASSWORD)
-GETOPT_END_1(PASSWORD)
+/* GETOPT_START_1(PASSWORD)
+   GETOPT_END_1(PASSWORD) */
 
-PRINT_ARGS("make")
-PRINT_XMLHELP("make")
+/* PRINT_ARGS("make")
+   PRINT_XMLHELP("make") */
 
 /* ---- contruct module object ---- */
-     DECLARE_BOOL_OPTS_3 (is_enabled, debug, nosetuid);
-DECLARE_STRING_OPTS_3 (make, log, option);
+DECLARE_BOOL_OPTS_3 (is_enabled, debug, nosetuid);
+DECLARE_STRING_OPTS_3 (log, make, option); /* order is important!!! */
 DECLARE_OPT_SETS;
 
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
@@ -128,6 +146,4 @@ pam_module_t mod_pam_make = { "pam_make.so", opt_sets, helptext,
 			      &def_print_module,
 			      &write_config_make,
 			      &get_opt_set,
-			      &getopt,
-			      &print_args,
-			      &print_xmlhelp};
+			      NULL, NULL, NULL};

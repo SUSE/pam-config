@@ -29,7 +29,8 @@ pam_config_SOURCES = pam-config.c load_config.c write_config.c \
 	mod_pam_cryptpass.c mod_pam_ck_connector.c mod_pam_thinkfinger.c \
 	mod_pam_group.c mod_pam_time.c mod_pam_ssh.c mod_pam_succeed_if.c \
 	mod_pam_csync.c mod_pam_fp.c mod_pam_pwhistory.c \
-	mod_pam_selinux.c mod_pam_gnome_keyring.c mod_pam_passwdqc.c
+	mod_pam_selinux.c mod_pam_gnome_keyring.c mod_pam_passwdqc.c \
+	mod_pam_exec.c
 
 noinst_HEADERS = pam-config.h pam-module.h
 

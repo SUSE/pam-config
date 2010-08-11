@@ -8,6 +8,9 @@ src/mod_pam_cryptpass.c
 src/mod_pam_csync.c
 src/mod_pam_deny.c
 src/mod_pam_env.c
+src/mod_pam_exec.c
+src/mod_pam_fp.c
+src/mod_pam_gnome_keyring.c
 src/mod_pam_group.c
 src/mod_pam_krb5.c
 src/mod_pam_lastlog.c
@@ -19,9 +22,13 @@ src/mod_pam_make.c
 src/mod_pam_mkhomedir.c
 src/mod_pam_mount.c
 src/mod_pam_nam.c
+src/mod_pam_passwdqc.c
 src/mod_pam_pkcs11.c
 src/mod_pam_pwcheck.c
+src/mod_pam_pwhistory.c
+src/mod_pam_selinux.c
 src/mod_pam_ssh.c
+src/mod_pam_succeed_if.c
 src/mod_pam_thinkfinger.c
 src/mod_pam_time.c
 src/mod_pam_umask.c

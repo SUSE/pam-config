@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"POT-Creation-Date: 2010-08-11 16:53+0200\n"
 "PO-Revision-Date: 2009-10-23 02:32+0900\n"
 "Last-Translator: Yunseok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -101,6 +101,44 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "오류: '%s' 서비스에 pam_cryptpass.so를 추가 할 수 없음"
 
+#: src/mod_pam_exec.c:69
+#, c-format
+msgid "ERROR: Out of memory.\n"
+msgstr ""
+
+#: src/mod_pam_fp.c:91 src/mod_pam_thinkfinger.c:91
+#, c-format
+msgid "ERROR: No memory left to construct path.\n"
+msgstr "오류: 경로를 구축하기 위한 메모리가 충분하지 않습니다.\n"
+
+#: src/mod_pam_fp.c:106 src/mod_pam_thinkfinger.c:106
+#, c-format
+msgid "WARNING: Found no service files in '%s'.\n"
+msgstr "경고: '%s' 에 서비스 파일이 없습니다.\n"
+
+#: src/mod_pam_fp.c:116 src/mod_pam_thinkfinger.c:116
+#, c-format
+msgid "WARNING: Found module '%s' in file '%s'.\n"
+msgstr "경고: '%s'('%s' 파일 내에) 모듈을 찾았습니다.\n"
+
+#: src/mod_pam_fp.c:142
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
+"저 이것을 비활성화 시켜주세요!\n"
+
+#: src/mod_pam_fp.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"오류: pam_fp.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼저 "
+"이것을 비활성화 시켜주세요!\n"
+
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
 msgid ""
@@ -121,21 +159,6 @@ msgstr ""
 #, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "오류: pam_fp.so 모듈이 활성화 상태입니다. 먼저 비활성화 시켜주세요.\n"
-
-#: src/mod_pam_thinkfinger.c:91
-#, c-format
-msgid "ERROR: No memory left to construct path.\n"
-msgstr "오류: 경로를 구축하기 위한 메모리가 충분하지 않습니다.\n"
-
-#: src/mod_pam_thinkfinger.c:106
-#, c-format
-msgid "WARNING: Found no service files in '%s'.\n"
-msgstr "경고: '%s' 에 서비스 파일이 없습니다.\n"
-
-#: src/mod_pam_thinkfinger.c:116
-#, c-format
-msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr "경고: '%s'('%s' 파일 내에) 모듈을 찾았습니다.\n"
 
 #: src/mod_pam_thinkfinger.c:142
 #, c-format

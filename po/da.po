@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"POT-Creation-Date: 2010-08-11 16:53+0200\n"
 "PO-Revision-Date: 2010-05-11 10:34+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <opensuse-translation@opensuse.org>\n"
@@ -109,6 +109,44 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "FEJL: Kunne ikke tilføje pam_cryptpass.so til tjenesten '%s'"
 
+#: src/mod_pam_exec.c:69
+#, c-format
+msgid "ERROR: Out of memory.\n"
+msgstr ""
+
+#: src/mod_pam_fp.c:91 src/mod_pam_thinkfinger.c:91
+#, c-format
+msgid "ERROR: No memory left to construct path.\n"
+msgstr "FEJL: Ingen hukommelse tilbage til at konstruere sti.\n"
+
+#: src/mod_pam_fp.c:106 src/mod_pam_thinkfinger.c:106
+#, c-format
+msgid "WARNING: Found no service files in '%s'.\n"
+msgstr "ADVARSEL: Fandt ingen tjeneste-filer i '%s'.\n"
+
+#: src/mod_pam_fp.c:116 src/mod_pam_thinkfinger.c:116
+#, c-format
+msgid "WARNING: Found module '%s' in file '%s'.\n"
+msgstr "ADVARSEL: Fandt modulet '%s' i filen '%s'.\n"
+
+#: src/mod_pam_fp.c:142
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"FEJL: pam_mount.so er aktiveret. For at kunne bruge pam_thinkfinger.so skal "
+"du deaktivere den først!\n"
+
+#: src/mod_pam_fp.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"FEJL: pam_fp er aktiveret. For at kunne bruge pam_thinkfinger.so skal du "
+"deaktivere det først!\n"
+
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
 msgid ""
@@ -127,21 +165,6 @@ msgstr "FEJL: Modulet pam_thinkfinger.so er aktiveret. Deaktivér det først.\n"
 #, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "FEJL: Modulet pam_fp er aktiveret. Deaktivér det først.\n"
-
-#: src/mod_pam_thinkfinger.c:91
-#, c-format
-msgid "ERROR: No memory left to construct path.\n"
-msgstr "FEJL: Ingen hukommelse tilbage til at konstruere sti.\n"
-
-#: src/mod_pam_thinkfinger.c:106
-#, c-format
-msgid "WARNING: Found no service files in '%s'.\n"
-msgstr "ADVARSEL: Fandt ingen tjeneste-filer i '%s'.\n"
-
-#: src/mod_pam_thinkfinger.c:116
-#, c-format
-msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr "ADVARSEL: Fandt modulet '%s' i filen '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:142
 #, c-format

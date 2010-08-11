@@ -330,6 +330,62 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--exec</option></term>
+            <listitem>
+              <para>
+                pam_exec for password management
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--exec-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_exec.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--exec-expose_authtok</option></term>
+            <listitem>
+              <para>
+                Add <option>expose_authtok</option> option to all pam_exec.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--exec-seteuid</option></term>
+            <listitem>
+              <para>
+                Add <option>seteuid</option> option to all pam_exec.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--exec-quiet</option></term>
+            <listitem>
+              <para>
+                Add <option>quiet</option> option to all pam_exec.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--exec-log=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>log=</option><replaceable>value</replaceable> option to pam_exec.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--exec-option=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>option=</option><replaceable>value</replaceable> option to pam_exec.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--fp</option></term>
             <listitem>
               <para>
@@ -486,54 +542,6 @@
             <listitem>
               <para>
                 Add <option>file=</option><replaceable>value</replaceable> option to pam_localuser.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--make</option></term>
-            <listitem>
-              <para>
-                Enable/Disable pam_make.so
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--make-debug</option></term>
-            <listitem>
-              <para>
-                Add <option>debug</option> option to all pam_make.so invocations.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--make-nosetuid</option></term>
-            <listitem>
-              <para>
-                Add <option>nosetuid</option> option to all pam_make.so invocations.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--make-make=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>make=</option><replaceable>value</replaceable> option to pam_make.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--make-log=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>log=</option><replaceable>value</replaceable> option to pam_make.so.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><option>--make-option=</option><replaceable>value</replaceable></term>
-            <listitem>
-              <para>
-                Add <option>option=</option><replaceable>value</replaceable> option to pam_make.so.
               </para>
             </listitem>
           </varlistentry>

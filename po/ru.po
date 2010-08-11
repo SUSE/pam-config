@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"POT-Creation-Date: 2010-08-11 16:53+0200\n"
 "PO-Revision-Date: 2010-04-10 20:32+0300\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
@@ -118,6 +118,45 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "ОШИБКА: Невозможно добавить pam_cryptpass.so к службе '%s'"
 
+#: src/mod_pam_exec.c:69
+#, c-format
+msgid "ERROR: Out of memory.\n"
+msgstr ""
+
+#: src/mod_pam_fp.c:91 src/mod_pam_thinkfinger.c:91
+#, c-format
+msgid "ERROR: No memory left to construct path.\n"
+msgstr "ОШИБКА: Не хватает памяти для создания пути.\n"
+
+#: src/mod_pam_fp.c:106 src/mod_pam_thinkfinger.c:106
+#, c-format
+msgid "WARNING: Found no service files in '%s'.\n"
+msgstr "ВНИМАНИЕ: Найдены неслужебные файлы в '%s'.\n"
+
+#  summary text heading
+#: src/mod_pam_fp.c:116 src/mod_pam_thinkfinger.c:116
+#, c-format
+msgid "WARNING: Found module '%s' in file '%s'.\n"
+msgstr "ВНИМАНИЕ: Найден модуль '%s' в файле '%s'.\n"
+
+#: src/mod_pam_fp.c:142
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
+"необходимо сначала отключить его!\n"
+
+#: src/mod_pam_fp.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"ОШИБКА: pam_fp.so включён. Чтобы использовать pam_thinkfinger.so вам "
+"необходимо сначала отключить его!\n"
+
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
 msgid ""
@@ -136,22 +175,6 @@ msgstr "ОШИБКА: Модуль pam_thinkfinger.so включён. Снача
 #, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "ОШИБКА: Модуль pam_fp.so включён. Сначала отключите его.\n"
-
-#: src/mod_pam_thinkfinger.c:91
-#, c-format
-msgid "ERROR: No memory left to construct path.\n"
-msgstr "ОШИБКА: Не хватает памяти для создания пути.\n"
-
-#: src/mod_pam_thinkfinger.c:106
-#, c-format
-msgid "WARNING: Found no service files in '%s'.\n"
-msgstr "ВНИМАНИЕ: Найдены неслужебные файлы в '%s'.\n"
-
-#  summary text heading
-#: src/mod_pam_thinkfinger.c:116
-#, c-format
-msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr "ВНИМАНИЕ: Найден модуль '%s' в файле '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:142
 #, c-format

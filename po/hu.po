@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"POT-Creation-Date: 2010-08-11 16:53+0200\n"
 "PO-Revision-Date: 2010-03-18 11:40+0100\n"
 "Last-Translator: Kalman Kemenczy <kkemenczy@novell.com>\n"
 "Language-Team: collection <kde-i18n-doc@kde.org>\n"
@@ -113,6 +113,46 @@ msgstr ""
 "HIBA: a pam_cryptpass.so modult nem sikerült hozzáadni a(z) '%s' "
 "szolgáltatáshoz"
 
+#: src/mod_pam_exec.c:69
+#, c-format
+msgid "ERROR: Out of memory.\n"
+msgstr ""
+
+#: src/mod_pam_fp.c:91 src/mod_pam_thinkfinger.c:91
+#, c-format
+msgid "ERROR: No memory left to construct path.\n"
+msgstr "Hiba: Az útvonal felépítéséhez nem maradt memória.\n"
+
+#: src/mod_pam_fp.c:106 src/mod_pam_thinkfinger.c:106
+#, c-format
+msgid "WARNING: Found no service files in '%s'.\n"
+msgstr ""
+"FIGYELMEZTETÉS: A szolgáltatás fájljai nem találhatók a következő helyen: '%"
+"s'.\n"
+
+#: src/mod_pam_fp.c:116 src/mod_pam_thinkfinger.c:116
+#, c-format
+msgid "WARNING: Found module '%s' in file '%s'.\n"
+msgstr "FIGYELMEZTETÉS: A(z) '%s' modul a '%s' fájlban található.\n"
+
+#: src/mod_pam_fp.c:142
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"HIBA: A pam_mount.so engedélyezve van, amit a pam_thinkfinger.so "
+"használatához le kell tiltani.\n"
+
+#: src/mod_pam_fp.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"HIBA: A pam_fp.so engedélyezve van, amit a pam_thinkfinger.so használatához "
+"le kell tiltani.\n"
+
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
 msgid ""
@@ -134,23 +174,6 @@ msgstr ""
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr ""
 "HIBA: A pam_fp.so modul engedélyezve van. Először ezt le kell tiltani.\n"
-
-#: src/mod_pam_thinkfinger.c:91
-#, c-format
-msgid "ERROR: No memory left to construct path.\n"
-msgstr "Hiba: Az útvonal felépítéséhez nem maradt memória.\n"
-
-#: src/mod_pam_thinkfinger.c:106
-#, c-format
-msgid "WARNING: Found no service files in '%s'.\n"
-msgstr ""
-"FIGYELMEZTETÉS: A szolgáltatás fájljai nem találhatók a következő helyen: '%"
-"s'.\n"
-
-#: src/mod_pam_thinkfinger.c:116
-#, c-format
-msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr "FIGYELMEZTETÉS: A(z) '%s' modul a '%s' fájlban található.\n"
 
 #: src/mod_pam_thinkfinger.c:142
 #, c-format

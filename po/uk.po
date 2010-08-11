@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-29 16:02+0200\n"
+"POT-Creation-Date: 2010-08-11 16:53+0200\n"
 "PO-Revision-Date: 2008-10-22 22:51-0700\n"
 "Last-Translator: Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
@@ -120,6 +120,44 @@ msgstr ""
 msgid "ERROR: Could not add pam_cryptpass.so to service '%s'"
 msgstr "ПОМИЛКА: Неможливо додати pam_cryptpass.so до служби '%s'"
 
+#: src/mod_pam_exec.c:69
+#, c-format
+msgid "ERROR: Out of memory.\n"
+msgstr ""
+
+#: src/mod_pam_fp.c:91 src/mod_pam_thinkfinger.c:91
+#, c-format
+msgid "ERROR: No memory left to construct path.\n"
+msgstr "ПОМИЛКА: Для створення шляху не залишилося місця.\n"
+
+#: src/mod_pam_fp.c:106 src/mod_pam_thinkfinger.c:106
+#, c-format
+msgid "WARNING: Found no service files in '%s'.\n"
+msgstr "ПОПЕРЕДЖЕННЯ: У '%s' не знайдено службових файлів.\n"
+
+#: src/mod_pam_fp.c:116 src/mod_pam_thinkfinger.c:116
+#, c-format
+msgid "WARNING: Found module '%s' in file '%s'.\n"
+msgstr "ПОПЕРЕДЖЕННЯ: Знайдено модуль '%s' у файлі '%s'.\n"
+
+#: src/mod_pam_fp.c:142
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"ПОМИЛКА: увімкнено pam_mount.so. Щоб використовувати pam_thinkfinger.so, вам "
+"слід спочатку вимкнути pam_mount.so!\n"
+
+#: src/mod_pam_fp.c:146
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"ПОМИЛКА: увімкнено pam_fp.so. Щоб використовувати pam_thinkfinger.so, вам "
+"слід спочатку вимкнути pam_fp.so!\n"
+
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
 msgid ""
@@ -139,21 +177,6 @@ msgstr ""
 #, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "ПОМИЛКА: Увімкнено модуль pam_fp.so. Спочатку вимкніть його.\n"
-
-#: src/mod_pam_thinkfinger.c:91
-#, c-format
-msgid "ERROR: No memory left to construct path.\n"
-msgstr "ПОМИЛКА: Для створення шляху не залишилося місця.\n"
-
-#: src/mod_pam_thinkfinger.c:106
-#, c-format
-msgid "WARNING: Found no service files in '%s'.\n"
-msgstr "ПОПЕРЕДЖЕННЯ: У '%s' не знайдено службових файлів.\n"
-
-#: src/mod_pam_thinkfinger.c:116
-#, c-format
-msgid "WARNING: Found module '%s' in file '%s'.\n"
-msgstr "ПОПЕРЕДЖЕННЯ: Знайдено модуль '%s' у файлі '%s'.\n"
 
 #: src/mod_pam_thinkfinger.c:142
 #, c-format

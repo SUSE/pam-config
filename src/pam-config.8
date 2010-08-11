@@ -1,12 +1,12 @@
 .\"     Title: pam-config
 .\"    Author: [see the "AUTHOR" section]
 .\" Generator: DocBook XSL Stylesheets v1.74.0 <http://docbook.sf.net/>
-.\"      Date: 06/29/2010
+.\"      Date: 08/11/2010
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"  Language: English
 .\"
-.TH "PAM\-CONFIG" "8" "06/29/2010" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "08/11/2010" "Reference Manual" "Reference Manual"
 .\" -----------------------------------------------------------------
 .\" * (re)Define some macros
 .\" -----------------------------------------------------------------
@@ -395,6 +395,53 @@ Add
 option to pam_env\&.so\&.
 .RE
 .PP
+\fB\-\-exec\fR
+.RS 4
+pam_exec for password management
+.RE
+.PP
+\fB\-\-exec\-debug\fR
+.RS 4
+Add
+\fBdebug\fR
+option to all pam_exec\&.so invocations\&.
+.RE
+.PP
+\fB\-\-exec\-expose_authtok\fR
+.RS 4
+Add
+\fBexpose_authtok\fR
+option to all pam_exec\&.so invocations\&.
+.RE
+.PP
+\fB\-\-exec\-seteuid\fR
+.RS 4
+Add
+\fBseteuid\fR
+option to all pam_exec\&.so invocations\&.
+.RE
+.PP
+\fB\-\-exec\-quiet\fR
+.RS 4
+Add
+\fBquiet\fR
+option to all pam_exec\&.so invocations\&.
+.RE
+.PP
+\fB\-\-exec\-log=\fR\fIvalue\fR
+.RS 4
+Add
+\fBlog=\fR\fIvalue\fR
+option to pam_exec\&.so\&.
+.RE
+.PP
+\fB\-\-exec\-option=\fR\fIvalue\fR
+.RS 4
+Add
+\fBoption=\fR\fIvalue\fR
+option to pam_exec\&.so\&.
+.RE
+.PP
 \fB\-\-fp\fR
 .RS 4
 Enable/Disable pam_fp\&.so
@@ -519,46 +566,6 @@ option to all pam_localuser\&.so invocations\&.
 Add
 \fBfile=\fR\fIvalue\fR
 option to pam_localuser\&.so\&.
-.RE
-.PP
-\fB\-\-make\fR
-.RS 4
-Enable/Disable pam_make\&.so
-.RE
-.PP
-\fB\-\-make\-debug\fR
-.RS 4
-Add
-\fBdebug\fR
-option to all pam_make\&.so invocations\&.
-.RE
-.PP
-\fB\-\-make\-nosetuid\fR
-.RS 4
-Add
-\fBnosetuid\fR
-option to all pam_make\&.so invocations\&.
-.RE
-.PP
-\fB\-\-make\-make=\fR\fIvalue\fR
-.RS 4
-Add
-\fBmake=\fR\fIvalue\fR
-option to pam_make\&.so\&.
-.RE
-.PP
-\fB\-\-make\-log=\fR\fIvalue\fR
-.RS 4
-Add
-\fBlog=\fR\fIvalue\fR
-option to pam_make\&.so\&.
-.RE
-.PP
-\fB\-\-make\-option=\fR\fIvalue\fR
-.RS 4
-Add
-\fBoption=\fR\fIvalue\fR
-option to pam_make\&.so\&.
 .RE
 .PP
 \fB\-\-mkhomedir\fR
