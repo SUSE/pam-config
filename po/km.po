@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-11 16:53+0200\n"
+"POT-Creation-Date: 2010-08-25 14:57+0200\n"
 "PO-Revision-Date: 2010-07-07 10:14+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -106,22 +106,22 @@ msgstr "កំហុស ៖ មិន​អាច​បន្ថែម pam_cryp
 msgid "ERROR: Out of memory.\n"
 msgstr ""
 
-#: src/mod_pam_fp.c:91 src/mod_pam_thinkfinger.c:91
+#: src/mod_pam_fp.c:91 src/mod_pam_fprint.c:91 src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
 msgstr "កំហុស ៖ គ្មាន​អង្គ​ចងចាំ​នៅ​សល់​ដើម្បី​ស្ថាបនា​ផ្លូវ ។\n"
 
-#: src/mod_pam_fp.c:106 src/mod_pam_thinkfinger.c:106
+#: src/mod_pam_fp.c:106 src/mod_pam_fprint.c:106 src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
 msgstr "ការ​ព្រមាន ៖ រក​ឃើញ​ឯកសារ​សេវា​នៅ​ក្នុង '%s' ។\n"
 
-#: src/mod_pam_fp.c:116 src/mod_pam_thinkfinger.c:116
+#: src/mod_pam_fp.c:116 src/mod_pam_fprint.c:116 src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "ការ​ព្រមាន ៖ រក​ឃើញ​ម៉ូឌុល '%s' នៅ​ក្នុង​ឯកសារ '%s' ។\n"
 
-#: src/mod_pam_fp.c:142
+#: src/mod_pam_fp.c:143
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
@@ -129,10 +129,42 @@ msgid ""
 msgstr ""
 "កំហុស ៖ pam_mount.so ត្រូវ​បាន​បើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវ​តែ​បិទ​វា​សិន !\n"
 
-#: src/mod_pam_fp.c:146
+#: src/mod_pam_fp.c:147
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"កំហុស ៖ pam_fp.so ត្រូវ​បានបើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវតែ​បិទ​វា​សិន !\n"
+
+#: src/mod_pam_fp.c:151
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprint.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"កំហុស ៖ pam_mount.so ត្រូវ​បាន​បើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវ​តែ​បិទ​វា​សិន !\n"
+
+#: src/mod_pam_fprint.c:143
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr ""
+"កំហុស ៖ pam_mount.so ត្រូវ​បាន​បើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវ​តែ​បិទ​វា​សិន !\n"
+
+#: src/mod_pam_fprint.c:147
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprint.so you need "
+"to disable it first!\n"
+msgstr ""
+"កំហុស ៖ pam_fp.so ត្រូវ​បានបើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវតែ​បិទ​វា​សិន !\n"
+
+#: src/mod_pam_fprint.c:151
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to "
 "disable it first!\n"
 msgstr ""
 "កំហុស ៖ pam_fp.so ត្រូវ​បានបើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវតែ​បិទ​វា​សិន !\n"
@@ -156,7 +188,12 @@ msgstr "កំហុស ៖ បាន​បើក​ម៉ូឌុល pam_thin
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "កំហុស ៖  Module pam_fp.so ត្រូវ​បានបើក ។ បិទ​វា​សិន ។\n"
 
-#: src/mod_pam_thinkfinger.c:142
+#: src/mod_pam_mount.c:136
+#, fuzzy, c-format
+msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
+msgstr "កំហុស ៖  Module pam_fp.so ត្រូវ​បានបើក ។ បិទ​វា​សិន ។\n"
+
+#: src/mod_pam_thinkfinger.c:143
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
@@ -164,11 +201,19 @@ msgid ""
 msgstr ""
 "កំហុស ៖ pam_mount.so ត្រូវ​បាន​បើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវ​តែ​បិទ​វា​សិន !\n"
 
-#: src/mod_pam_thinkfinger.c:146
+#: src/mod_pam_thinkfinger.c:147
 #, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
+msgstr ""
+"កំហុស ៖ pam_fp.so ត្រូវ​បានបើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវតែ​បិទ​វា​សិន !\n"
+
+#: src/mod_pam_thinkfinger.c:151
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprint.so is enabled. In order to use pam_thinkfinger.so you need "
+"to disable it first!\n"
 msgstr ""
 "កំហុស ៖ pam_fp.so ត្រូវ​បានបើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវតែ​បិទ​វា​សិន !\n"
 

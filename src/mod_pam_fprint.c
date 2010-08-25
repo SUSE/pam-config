@@ -124,10 +124,10 @@ check_service_files_for_module (const char *module)
 }
 
 static int
-write_config_thinkfinger (pam_module_t *this, enum write_type op, FILE *fp)
+write_config_fprint (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  int with_mount, with_fp, with_fprint;
+  int with_mount, with_thinkfinger, with_fp;
 
   if (debug)
     debug_write_call (this, op);
@@ -136,26 +136,26 @@ write_config_thinkfinger (pam_module_t *this, enum write_type op, FILE *fp)
     return 0;
 
   with_mount = check_service_files_for_module ("pam_mount.so");
+  with_thinkfinger = check_service_files_for_module ("pam_thinkfinger.so");
   with_fp = check_service_files_for_module ("pam_fp.so");
-  with_fprint = check_service_files_for_module ("pam_fprint.so");
 
   if (with_mount){
-    fprintf (stderr, _("ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need to disable it first!\n"));
+    fprintf (stderr, _("ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to disable it first!\n"));
+    return 1;
+  }
+  if (with_thinkfinger){
+    fprintf (stderr, _("ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprint.so you need to disable it first!\n"));
     return 1;
   }
   if (with_fp){
-    fprintf (stderr, _("ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to disable it first!\n"));
-    return 1;
-  }
-  if (with_fprint){
-    fprintf (stderr, _("ERROR: pam_fprint.so is enabled. In order to use pam_thinkfinger.so you need to disable it first!\n"));
+    fprintf (stderr, _("ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to disable it first!\n"));
     return 1;
   }
 
   switch (op)
   {
     case AUTH:
-	fprintf (fp, "auth\tsufficient\tpam_thinkfinger.so\t");
+	fprintf (fp, "auth\tsufficient\tpam_fprint.so\t");
     default:
       break;
   }
@@ -168,8 +168,8 @@ write_config_thinkfinger (pam_module_t *this, enum write_type op, FILE *fp)
 GETOPT_START_1(AUTH)
 GETOPT_END_1(AUTH)
 
-PRINT_ARGS("thinkfinger")
-PRINT_XMLHELP("thinkfinger")
+PRINT_ARGS("fprint")
+PRINT_XMLHELP("fprint")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2( is_enabled, debug );
@@ -179,10 +179,10 @@ DECLARE_OPT_SETS;
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
 
 /* at last construct the complete module object */
-pam_module_t mod_pam_thinkfinger = { "pam_thinkfinger.so", opt_sets, helptext,
+pam_module_t mod_pam_fprint = { "pam_fprint.so", opt_sets, helptext,
 				     &def_parse_config,
 				     &def_print_module,
-				     &write_config_thinkfinger,
+				     &write_config_fprint,
 				     &get_opt_set,
 				     &getopt,
 				     &print_args,

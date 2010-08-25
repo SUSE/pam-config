@@ -103,8 +103,8 @@ write_config_mount (  pam_module_t *this,
   {
     /* As this is a single service module, common-* files are not
      * parsed in. We need to know if pam_thinkfinger.so or pam_fp
-     * is enabled, which is a common-* module, so we parse common-auth
-     * in
+     * or pam_fprint is enabled, which is a common-* module, so we
+     * parse common-auth in
      */
 
     /* As the user might have supplied a custom confdir via the
@@ -129,6 +129,11 @@ write_config_mount (  pam_module_t *this,
     if (is_module_enabled (common_module_list, "pam_fp.so", AUTH))
     {
       fprintf (stderr, _("ERROR: Module pam_fp.so is enabled. Disable it first.\n"));
+      return 1;
+    }
+    if (is_module_enabled (common_module_list, "pam_fprint.so", AUTH))
+    {
+      fprintf (stderr, _("ERROR: Module pam_fprint.so is enabled. Disable it first.\n"));
       return 1;
     }
     /* pam_thinkfinger.so is not enabled so we can safely add

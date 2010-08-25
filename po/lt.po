@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.lt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-11 16:53+0200\n"
+"POT-Creation-Date: 2010-08-25 14:57+0200\n"
 "PO-Revision-Date: 2010-07-29 21:09+0300\n"
 "Last-Translator: Mindaugas Baranauskas <embar@users.berlios.de>\n"
 "Language-Team: Lithuanian <kde-i18n-doc@kde.org>\n"
@@ -116,22 +116,22 @@ msgstr "KLAIDA: prie paslaugos „%s“ nepavyksta pridėti pam_cryptpass.so"
 msgid "ERROR: Out of memory.\n"
 msgstr ""
 
-#: src/mod_pam_fp.c:91 src/mod_pam_thinkfinger.c:91
+#: src/mod_pam_fp.c:91 src/mod_pam_fprint.c:91 src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
 msgstr "KLAIDA: neliko atminties kelio konstravimui.\n"
 
-#: src/mod_pam_fp.c:106 src/mod_pam_thinkfinger.c:106
+#: src/mod_pam_fp.c:106 src/mod_pam_fprint.c:106 src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
 msgstr "DĖMESIO: ties „%s“ nerasta jokių paslaugos rinkmenų.\n"
 
-#: src/mod_pam_fp.c:116 src/mod_pam_thinkfinger.c:116
+#: src/mod_pam_fp.c:116 src/mod_pam_fprint.c:116 src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "DĖMESIO: modulis „%s“ rastas rinkmenoje „%s“.\n"
 
-#: src/mod_pam_fp.c:142
+#: src/mod_pam_fp.c:143
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
@@ -140,10 +140,46 @@ msgstr ""
 "KLAIDA: įgalintas pam_mount.so. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
 "turite uždrausti!\n"
 
-#: src/mod_pam_fp.c:146
+#: src/mod_pam_fp.c:147
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"KLAIDA: įgalintas pam_fp. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
+"turite uždrausti!\n"
+
+#: src/mod_pam_fp.c:151
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprint.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"KLAIDA: įgalintas pam_mount.so. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
+"turite uždrausti!\n"
+
+#: src/mod_pam_fprint.c:143
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr ""
+"KLAIDA: įgalintas pam_mount.so. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
+"turite uždrausti!\n"
+
+#: src/mod_pam_fprint.c:147
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprint.so you need "
+"to disable it first!\n"
+msgstr ""
+"KLAIDA: įgalintas pam_fp. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
+"turite uždrausti!\n"
+
+#: src/mod_pam_fprint.c:151
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to "
 "disable it first!\n"
 msgstr ""
 "KLAIDA: įgalintas pam_fp. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
@@ -168,7 +204,12 @@ msgstr "KLAIDA: įgalintas pam_thinkfinger.so modulis. Pirma uždrauskite jį.\n
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "KLAIDA: įgalintas pam_fp.so modulis. Pirma uždrauskite jį.\n"
 
-#: src/mod_pam_thinkfinger.c:142
+#: src/mod_pam_mount.c:136
+#, fuzzy, c-format
+msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
+msgstr "KLAIDA: įgalintas pam_fp.so modulis. Pirma uždrauskite jį.\n"
+
+#: src/mod_pam_thinkfinger.c:143
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
@@ -177,11 +218,20 @@ msgstr ""
 "KLAIDA: įgalintas pam_mount.so. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
 "turite uždrausti!\n"
 
-#: src/mod_pam_thinkfinger.c:146
+#: src/mod_pam_thinkfinger.c:147
 #, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
+msgstr ""
+"KLAIDA: įgalintas pam_fp. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
+"turite uždrausti!\n"
+
+#: src/mod_pam_thinkfinger.c:151
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprint.so is enabled. In order to use pam_thinkfinger.so you need "
+"to disable it first!\n"
 msgstr ""
 "KLAIDA: įgalintas pam_fp. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
 "turite uždrausti!\n"
