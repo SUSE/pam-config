@@ -29,6 +29,7 @@ src/mod_pam_pwcheck.c
 src/mod_pam_pwhistory.c
 src/mod_pam_selinux.c
 src/mod_pam_ssh.c
+src/mod_pam_sss.c
 src/mod_pam_succeed_if.c
 src/mod_pam_thinkfinger.c
 src/mod_pam_time.c

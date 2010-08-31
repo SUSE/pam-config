@@ -30,7 +30,7 @@ static int
 write_config_krb5 (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  int with_ldap, with_nam, with_winbind, with_ccreds;
+  int with_ldap, with_nam, with_sss, with_winbind, with_ccreds;
 
   if (debug)
     debug_write_call (this, op);
@@ -42,6 +42,8 @@ write_config_krb5 (pam_module_t *this, enum write_type op, FILE *fp)
 				 "pam_ldap.so", op);
   with_nam = is_module_enabled (common_module_list,
 				"pam_nam.so", op);
+  with_sss = is_module_enabled (common_module_list,
+				    "pam_sss.so", op);
   with_winbind = is_module_enabled (common_module_list,
 				    "pam_winbind.so", op);
   with_ccreds = is_module_enabled (common_module_list,
@@ -90,12 +92,12 @@ write_config_krb5 (pam_module_t *this, enum write_type op, FILE *fp)
       fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
     }
 
-  if (op == AUTH && !(with_ldap || with_nam || with_winbind ))
+  if (op == AUTH && !(with_ldap || with_nam || with_sss || with_winbind))
 	  fprintf (fp, "auth\trequired\tpam_deny.so\n");
 
   /* ldap and nam are behind this module. We write a deny
 	 only if we are the last module. */
-  if (op == PASSWORD && !(with_ldap || with_nam ))
+  if (op == PASSWORD && !(with_ldap || with_nam || with_sss ))
 	  fprintf (fp, "password\trequired\tpam_deny.so\n");
 
   return 0;

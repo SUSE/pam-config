@@ -30,7 +30,7 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
   int with_krb5, with_ldap, with_lum, with_winbind, with_pwcheck,
-    with_cracklib, with_mount;
+    with_cracklib, with_mount, with_sss;
 
   if (debug)
     debug_write_call (this, op);
@@ -42,6 +42,7 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
   with_ldap	= is_module_enabled (common_module_list, "pam_ldap.so"	  , op);
   with_lum	= is_module_enabled (common_module_list, "pam_lum.so"	  , op);
   with_winbind	= is_module_enabled (common_module_list, "pam_winbind.so" , op);
+  with_sss	= is_module_enabled (common_module_list, "pam_sss.so"	  , op);
   with_pwcheck	= is_module_enabled (common_module_list, "pam_pwcheck.so" , op);
   with_cracklib = is_module_enabled (common_module_list, "pam_cracklib.so", op);
   with_mount	= is_module_enabled (common_module_list, "pam_mount.so"	  , op);
@@ -49,7 +50,7 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
   switch (op)
   {
     case AUTH:
-      if (with_krb5 || with_ldap || with_lum || with_winbind)
+      if (with_krb5 || with_ldap || with_lum || with_winbind || with_sss)
 	/* Only sufficient if other modules follow */
 	fprintf (fp, "auth\tsufficient\tpam_unix.so\t");
       else
@@ -61,7 +62,7 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
 	fprintf (fp, "use_first_pass ");
       break;
     case ACCOUNT:
-      if (with_krb5 || with_ldap || with_lum || with_winbind)
+      if (with_krb5 || with_ldap || with_lum || with_winbind || with_sss)
 	fprintf (fp, "account\trequisite\tpam_unix.so\t");
       else
 	fprintf (fp, "account\trequired\tpam_unix.so\t");
@@ -75,7 +76,7 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
 			else
 				fprintf (fp, "quiet \n");
 		}
-		if (with_krb5 || with_ldap || with_lum)
+		if (with_krb5 || with_ldap || with_lum || with_sss)
 			fprintf (fp, "password\tsufficient\tpam_unix.so\t");
 		else
 			fprintf (fp, "password\trequired\tpam_unix.so\t");

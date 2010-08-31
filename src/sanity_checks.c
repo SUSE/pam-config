@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007, 2008, 2009 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2008, 2009, 2010 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -31,9 +31,10 @@ int
 check_for_pam_module (const char *name, int force)
 {
   const char *path[] = { "/lib/security", "/lib64/security" };
-  int i, retval = 0;
+  unsigned int i;
+  int retval = 0;
 
-  for (i = 0; i < 1; i++)
+  for (i = 0; i < (sizeof (path)/sizeof (char *)); i++)
     {
       if (access (path[i], F_OK) == 0)
 	{
@@ -110,7 +111,7 @@ int
 sanitize_check_account (pam_module_t **module_list, int verify)
 {
   int with_ldap_auth, with_ldap_account, with_krb5;
-  int with_nam, with_winbind, with_localuser;
+  int with_nam, with_winbind, with_localuser, with_sss;
   option_set_t *opt_set;
   int retval = 0;
 
@@ -133,6 +134,7 @@ sanitize_check_account (pam_module_t **module_list, int verify)
     }
 
   with_nam = is_module_enabled (module_list, "pam_nam.so", ACCOUNT);
+  with_sss = is_module_enabled (module_list, "pam_sss.so", ACCOUNT);
   with_winbind = is_module_enabled (module_list, "pam_winbind.so", ACCOUNT);
   with_localuser = is_module_enabled (module_list, "pam_localuser.so", ACCOUNT);
 
@@ -140,7 +142,7 @@ sanitize_check_account (pam_module_t **module_list, int verify)
    * These modules require pam_localuser. Enable it automaticaly if it is disabled.
    * See also bnc#371558 .
    */
-  if( (with_ldap_account || with_nam || with_winbind) && !with_localuser)
+  if( (with_ldap_account || with_nam || with_winbind || with_sss) && !with_localuser)
   {
     if (verify)
       {

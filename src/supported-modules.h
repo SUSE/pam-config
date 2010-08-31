@@ -22,6 +22,7 @@ extern pam_module_t mod_pam_pwcheck;
 extern pam_module_t mod_pam_pwhistory;
 extern pam_module_t mod_pam_selinux;
 extern pam_module_t mod_pam_ssh;
+extern pam_module_t mod_pam_sss;
 extern pam_module_t mod_pam_succeed_if;
 extern pam_module_t mod_pam_thinkfinger;
 extern pam_module_t mod_pam_time;
@@ -62,6 +63,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_pwhistory,
   &mod_pam_selinux,
   &mod_pam_ssh,
+  &mod_pam_sss,
   &mod_pam_succeed_if,
   &mod_pam_thinkfinger,
   &mod_pam_umask,
@@ -76,6 +78,7 @@ static pam_module_t *module_list_account[] = {
   &mod_pam_unix,
   &mod_pam_krb5,
   &mod_pam_localuser,
+  &mod_pam_sss,
   &mod_pam_ldap,
   &mod_pam_nam,
   &mod_pam_winbind,
@@ -95,6 +98,7 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_unix2,
   &mod_pam_unix,
   &mod_pam_krb5,
+  &mod_pam_sss,
   &mod_pam_ldap,
   &mod_pam_nam,
   &mod_pam_winbind,
@@ -115,6 +119,7 @@ static pam_module_t *module_list_password[] = {
   &mod_pam_make,
   &mod_pam_exec,
   &mod_pam_krb5,
+  &mod_pam_sss,
   &mod_pam_ldap,
   &mod_pam_nam,    /* Attention: if you add another module behind krb5
 					  you MUST change mod_pam_krb5.c */
@@ -129,6 +134,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_unix,
   &mod_pam_apparmor,
   &mod_pam_krb5,
+  &mod_pam_sss,
   &mod_pam_ldap,
   &mod_pam_winbind,
   &mod_pam_nam,

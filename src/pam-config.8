@@ -1,12 +1,12 @@
 .\"     Title: pam-config
 .\"    Author: [see the "AUTHOR" section]
 .\" Generator: DocBook XSL Stylesheets v1.74.0 <http://docbook.sf.net/>
-.\"      Date: 08/25/2010
+.\"      Date: 08/31/2010
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"  Language: English
 .\"
-.TH "PAM\-CONFIG" "8" "08/25/2010" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "08/31/2010" "Reference Manual" "Reference Manual"
 .\" -----------------------------------------------------------------
 .\" * (re)Define some macros
 .\" -----------------------------------------------------------------
@@ -891,6 +891,18 @@ option to all pam_ssh\&.so invocations\&.
 Add
 \fBkeyfiles=\fR\fIvalue\fR
 option to pam_ssh\&.so\&.
+.RE
+.PP
+\fB\-\-sss\fR
+.RS 4
+Enable/Disable pam_sss\&.so
+.RE
+.PP
+\fB\-\-sss\-debug\fR
+.RS 4
+Add
+\fBdebug\fR
+option to all pam_sss\&.so invocations\&.
 .RE
 .PP
 \fB\-\-thinkfinger\fR

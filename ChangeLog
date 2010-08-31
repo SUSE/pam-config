@@ -1,3 +1,12 @@
+2010-08-31  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.77
+
+	* src/sanity_checks.c (check_for_pam_module): Fix
+	check for existence of PAM module on lib64 archs [bnc#635098].
+
+	* src/mod_pam_sss.c: New file (from Ralf Haferkamp).
+
 2010-08-25  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.76

@@ -938,6 +938,22 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--sss</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_sss.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--thinkfinger</option></term>
             <listitem>
               <para>

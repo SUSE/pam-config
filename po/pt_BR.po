@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-25 14:57+0200\n"
+"POT-Creation-Date: 2010-08-31 17:03+0200\n"
 "PO-Revision-Date: 2009-12-01 16:03-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -347,15 +347,15 @@ msgstr ""
 "      Estes módulos somente podem ser adicionados pelos arquivos do serviço "
 "único.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:981
-#: src/pam-config.c:991 src/pam-config.c:1001 src/pam-config.c:1012
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1003
+#: src/pam-config.c:1013 src/pam-config.c:1023 src/pam-config.c:1034
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Erro ao ativar %s (%m)\n"
 
 #: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
-#: src/pam-config.c:983 src/pam-config.c:993 src/pam-config.c:1003
-#: src/pam-config.c:1014
+#: src/pam-config.c:1005 src/pam-config.c:1015 src/pam-config.c:1025
+#: src/pam-config.c:1036
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nova configuração de %s não está em uso!\n"
@@ -399,12 +399,12 @@ msgstr ""
 "\n"
 "Não foi possível carregar o arquivo de configuração, cancelado!\n"
 
-#: src/pam-config.c:705
+#: src/pam-config.c:727
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Módulos comuns suportados:\n"
 
-#: src/pam-config.c:707
+#: src/pam-config.c:729
 #, c-format
 msgid ""
 "\n"
@@ -413,12 +413,12 @@ msgstr ""
 "\n"
 "Módulos de serviço suportados:\n"
 
-#: src/pam-config.c:749
+#: src/pam-config.c:771
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: excesso de argumentos.\n"
 
-#: src/pam-config.c:902
+#: src/pam-config.c:924
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Não foi possível acessar '%s': %m\n"
@@ -429,22 +429,22 @@ msgstr "Não foi possível acessar '%s': %m\n"
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "Opção desconhecida para %s, ignorado: '%s'\n"
 
-#: src/sanity_checks.c:47
+#: src/sanity_checks.c:48
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "AVISO: o módulo %s não está instalado.\n"
 
-#: src/sanity_checks.c:52
+#: src/sanity_checks.c:53
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "ERRO: o módulo %s não está instalado.\n"
 
-#: src/sanity_checks.c:79
+#: src/sanity_checks.c:80
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr "AVISO: o pam_unix.so e o pam_unix2.so estão habilitados!\n"
 
-#: src/sanity_checks.c:84
+#: src/sanity_checks.c:85
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -453,12 +453,12 @@ msgstr ""
 "INFORMAÇÃO: o pam_unix.so e pam_unix2.so habilitados no serviço %s,\n"
 "INFORMAÇÃO: somente o pam_unix2.so será habilitado.\n"
 
-#: src/sanity_checks.c:95 src/sanity_checks.c:101
+#: src/sanity_checks.c:96 src/sanity_checks.c:102
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ERRO: falha ao desabilitar o pam_unix.so.\n"
 
-#: src/sanity_checks.c:128
+#: src/sanity_checks.c:129
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
@@ -467,22 +467,22 @@ msgstr ""
 "ERRO: o ldap-account_only somente é permitido em combinação com krb5.\n"
 "Configuração não alterada!\n"
 
-#: src/sanity_checks.c:148
+#: src/sanity_checks.c:150
 #, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "AVISO: o pam_localuser não está habilitado!\n"
 
-#: src/sanity_checks.c:182
+#: src/sanity_checks.c:184
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr "AVISO: o pam_ccreds.so necessita de LDAP ou Kerberos5, ignorado\n"
 
-#: src/sanity_checks.c:211
+#: src/sanity_checks.c:213
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr "AVISO: o pam_pwcheck e o pam_cracklib estão habilitados!\n"
 
-#: src/sanity_checks.c:216
+#: src/sanity_checks.c:218
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -491,12 +491,12 @@ msgstr ""
 "INFORMAÇÃO: o pam_pwcheck.so e pam_cracklib.so estão habilitados,\n"
 "INFORMAÇÃO: somente o pam_cracklib.so será utilizado.\n"
 
-#: src/sanity_checks.c:256
+#: src/sanity_checks.c:258
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr "AVISO: o cracklib tem um limite de 6 caracteres!\n"
 
-#: src/sanity_checks.c:278
+#: src/sanity_checks.c:280
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
