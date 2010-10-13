@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: installation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-31 17:03+0200\n"
+"POT-Creation-Date: 2010-10-13 14:13+0200\n"
 "PO-Revision-Date: 2006-11-03 14:26\n"
 "Last-Translator: Novell Language <language@novell.com>\n"
 "Language-Team: Novell Language <language@novell.com>\n"
@@ -119,45 +119,59 @@ msgstr ""
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "ISEXWAYISO: %s iyasebenzisana, yeqiwe."
 
-#: src/mod_pam_fp.c:143
+#: src/mod_pam_fp.c:144
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
 "disable it first!\n"
 msgstr ""
 
-#: src/mod_pam_fp.c:147
+#: src/mod_pam_fp.c:148
 #, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
 "disable it first!\n"
 msgstr ""
 
-#: src/mod_pam_fp.c:151
+#: src/mod_pam_fp.c:152
 #, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_fp.so you need to "
 "disable it first!\n"
 msgstr ""
 
-#: src/mod_pam_fprint.c:143
+#: src/mod_pam_fp.c:156
+#, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+
+#: src/mod_pam_fprint.c:144
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to "
 "disable it first!\n"
 msgstr ""
 
-#: src/mod_pam_fprint.c:147
+#: src/mod_pam_fprint.c:148
 #, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprint.so you need "
 "to disable it first!\n"
 msgstr ""
 
-#: src/mod_pam_fprint.c:151
+#: src/mod_pam_fprint.c:152
 #, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr ""
+
+#: src/mod_pam_fprint.c:156
+#, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fprint.so you need to "
 "disable it first!\n"
 msgstr ""
 
@@ -183,25 +197,32 @@ msgstr ""
 msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:143
+#: src/mod_pam_thinkfinger.c:144
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:147
+#: src/mod_pam_thinkfinger.c:148
 #, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr ""
 
-#: src/mod_pam_thinkfinger.c:151
+#: src/mod_pam_thinkfinger.c:152
 #, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+
+#: src/mod_pam_thinkfinger.c:156
+#, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_thinkfinger.so you "
+"need to disable it first!\n"
 msgstr ""
 
 #: src/pam-config.c:46

@@ -6,6 +6,7 @@ extern pam_module_t mod_pam_env;
 extern pam_module_t mod_pam_exec;
 extern pam_module_t mod_pam_fp;
 extern pam_module_t mod_pam_fprint;
+extern pam_module_t mod_pam_fprintd;
 extern pam_module_t mod_pam_gnome_keyring;
 extern pam_module_t mod_pam_group;
 extern pam_module_t mod_pam_krb5;
@@ -48,6 +49,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_exec,
   &mod_pam_fp,
   &mod_pam_fprint,
+  &mod_pam_fprintd,
   &mod_pam_gnome_keyring,
   &mod_pam_group,
   &mod_pam_krb5,
@@ -92,6 +94,7 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_pkcs11,
   &mod_pam_fp,
   &mod_pam_fprint,
+  &mod_pam_fprintd,
   &mod_pam_thinkfinger,
   &mod_pam_gnome_keyring,
   &mod_pam_ssh,     /* optional modules MUST executed before sufficient modules which also need a password. */
@@ -139,11 +142,11 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_winbind,
   &mod_pam_nam,
   &mod_pam_umask,
-  &mod_pam_env,
   &mod_pam_ssh,
   &mod_pam_selinux,
   &mod_pam_gnome_keyring,
   &mod_pam_exec,
+  &mod_pam_env,
   NULL
 };
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-31 17:03+0200\n"
+"POT-Creation-Date: 2010-10-13 14:13+0200\n"
 "PO-Revision-Date: 2009-12-02 21:03+0100\n"
 "Last-Translator: Óscar Abilleira Muñiz <oscar_abilleira@edu.xunta.es>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -126,7 +126,7 @@ msgstr "ERRO: Non se atoparon arquivos de servicio en '%s'.\n"
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "ATENCIÓN: Atopado o módulo  '%s' no arquivo '%s'.\n"
 
-#: src/mod_pam_fp.c:143
+#: src/mod_pam_fp.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
@@ -135,7 +135,7 @@ msgstr ""
 "ERRO: pam_mount.so está habilitado. Para poder empregar pam_thinkfinger.so "
 "necesitas deshabilitalo primeiro.\n"
 
-#: src/mod_pam_fp.c:147
+#: src/mod_pam_fp.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
@@ -144,7 +144,7 @@ msgstr ""
 "ERRO: pam_fp.so está habilitado. Para poder empregar pam_thinkfinger.so "
 "precisas deshabilitalo primeiro.\n"
 
-#: src/mod_pam_fp.c:151
+#: src/mod_pam_fp.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_fp.so you need to "
@@ -153,7 +153,16 @@ msgstr ""
 "ERRO: pam_mount.so está habilitado. Para poder empregar pam_thinkfinger.so "
 "necesitas deshabilitalo primeiro.\n"
 
-#: src/mod_pam_fprint.c:143
+#: src/mod_pam_fp.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"ERRO: pam_mount.so está habilitado. Para poder empregar pam_thinkfinger.so "
+"necesitas deshabilitalo primeiro.\n"
+
+#: src/mod_pam_fprint.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to "
@@ -162,7 +171,7 @@ msgstr ""
 "ERRO: pam_mount.so está habilitado. Para poder empregar pam_thinkfinger.so "
 "necesitas deshabilitalo primeiro.\n"
 
-#: src/mod_pam_fprint.c:147
+#: src/mod_pam_fprint.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprint.so you need "
@@ -171,7 +180,7 @@ msgstr ""
 "ERRO: pam_fp.so está habilitado. Para poder empregar pam_thinkfinger.so "
 "precisas deshabilitalo primeiro.\n"
 
-#: src/mod_pam_fprint.c:151
+#: src/mod_pam_fprint.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to "
@@ -179,6 +188,15 @@ msgid ""
 msgstr ""
 "ERRO: pam_fp.so está habilitado. Para poder empregar pam_thinkfinger.so "
 "precisas deshabilitalo primeiro.\n"
+
+#: src/mod_pam_fprint.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr ""
+"ERRO: pam_mount.so está habilitado. Para poder empregar pam_thinkfinger.so "
+"necesitas deshabilitalo primeiro.\n"
 
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
@@ -206,7 +224,7 @@ msgstr "ERRO: O módulo pam_fp.so está dispoñible. Deshabilítao primeiro.\n"
 msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
 msgstr "ERRO: O módulo pam_fp.so está dispoñible. Deshabilítao primeiro.\n"
 
-#: src/mod_pam_thinkfinger.c:143
+#: src/mod_pam_thinkfinger.c:144
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
@@ -215,7 +233,7 @@ msgstr ""
 "ERRO: pam_mount.so está habilitado. Para poder empregar pam_thinkfinger.so "
 "necesitas deshabilitalo primeiro.\n"
 
-#: src/mod_pam_thinkfinger.c:147
+#: src/mod_pam_thinkfinger.c:148
 #, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
@@ -224,11 +242,20 @@ msgstr ""
 "ERRO: pam_fp.so está habilitado. Para poder empregar pam_thinkfinger.so "
 "precisas deshabilitalo primeiro.\n"
 
-#: src/mod_pam_thinkfinger.c:151
+#: src/mod_pam_thinkfinger.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+"ERRO: pam_fp.so está habilitado. Para poder empregar pam_thinkfinger.so "
+"precisas deshabilitalo primeiro.\n"
+
+#: src/mod_pam_thinkfinger.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_thinkfinger.so you "
+"need to disable it first!\n"
 msgstr ""
 "ERRO: pam_fp.so está habilitado. Para poder empregar pam_thinkfinger.so "
 "precisas deshabilitalo primeiro.\n"

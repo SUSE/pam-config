@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-31 17:03+0200\n"
+"POT-Creation-Date: 2010-10-13 14:13+0200\n"
 "PO-Revision-Date: 2008-06-06 01:04+0100\n"
 "Last-Translator: Vasileios Giannakopoulos <billg@billg.gr>\n"
 "Language-Team: Ελληνικά <billg@billg.gr>\n"
@@ -131,45 +131,59 @@ msgstr "ΠΡΟΣΟΧΗ όχι"
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: %s είναι διαδραστικό, παραβλέπεται."
 
-#: src/mod_pam_fp.c:143
+#: src/mod_pam_fp.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
 "disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/mod_pam_fp.c:147
+#: src/mod_pam_fp.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
 "disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/mod_pam_fp.c:151
+#: src/mod_pam_fp.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_fp.so you need to "
 "disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/mod_pam_fprint.c:143
+#: src/mod_pam_fp.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
+
+#: src/mod_pam_fprint.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to "
 "disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/mod_pam_fprint.c:147
+#: src/mod_pam_fprint.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprint.so you need "
 "to disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/mod_pam_fprint.c:151
+#: src/mod_pam_fprint.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
+
+#: src/mod_pam_fprint.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fprint.so you need to "
 "disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
@@ -197,25 +211,32 @@ msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο Απενεργοποίηση"
 msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο Απενεργοποίηση"
 
-#: src/mod_pam_thinkfinger.c:143
+#: src/mod_pam_thinkfinger.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/mod_pam_thinkfinger.c:147
+#: src/mod_pam_thinkfinger.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
 "disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/mod_pam_thinkfinger.c:151
+#: src/mod_pam_thinkfinger.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
+
+#: src/mod_pam_thinkfinger.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_thinkfinger.so you "
+"need to disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
 #: src/pam-config.c:46

@@ -127,7 +127,7 @@ static int
 write_config_fprint (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  int with_mount, with_thinkfinger, with_fp;
+  int with_mount, with_thinkfinger, with_fp, with_fprintd;
 
   if (debug)
     debug_write_call (this, op);
@@ -138,6 +138,7 @@ write_config_fprint (pam_module_t *this, enum write_type op, FILE *fp)
   with_mount = check_service_files_for_module ("pam_mount.so");
   with_thinkfinger = check_service_files_for_module ("pam_thinkfinger.so");
   with_fp = check_service_files_for_module ("pam_fp.so");
+  with_fprintd = check_service_files_for_module ("pam_fprintd.so");
 
   if (with_mount){
     fprintf (stderr, _("ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to disable it first!\n"));
@@ -149,6 +150,10 @@ write_config_fprint (pam_module_t *this, enum write_type op, FILE *fp)
   }
   if (with_fp){
     fprintf (stderr, _("ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to disable it first!\n"));
+    return 1;
+  }
+  if (with_fprintd){
+    fprintf (stderr, _("ERROR: pam_fprintd.so is enabled. In order to use pam_fprint.so you need to disable it first!\n"));
     return 1;
   }
 

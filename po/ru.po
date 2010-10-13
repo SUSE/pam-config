@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-31 17:03+0200\n"
+"POT-Creation-Date: 2010-10-13 14:13+0200\n"
 "PO-Revision-Date: 2010-04-10 20:32+0300\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
@@ -139,7 +139,7 @@ msgstr "ВНИМАНИЕ: Найдены неслужебные файлы в '%
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "ВНИМАНИЕ: Найден модуль '%s' в файле '%s'.\n"
 
-#: src/mod_pam_fp.c:143
+#: src/mod_pam_fp.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
@@ -148,7 +148,7 @@ msgstr ""
 "ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
-#: src/mod_pam_fp.c:147
+#: src/mod_pam_fp.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
@@ -157,7 +157,7 @@ msgstr ""
 "ОШИБКА: pam_fp.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
-#: src/mod_pam_fp.c:151
+#: src/mod_pam_fp.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_fp.so you need to "
@@ -166,7 +166,16 @@ msgstr ""
 "ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
-#: src/mod_pam_fprint.c:143
+#: src/mod_pam_fp.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
+"необходимо сначала отключить его!\n"
+
+#: src/mod_pam_fprint.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to "
@@ -175,7 +184,7 @@ msgstr ""
 "ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
-#: src/mod_pam_fprint.c:147
+#: src/mod_pam_fprint.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprint.so you need "
@@ -184,13 +193,22 @@ msgstr ""
 "ОШИБКА: pam_fp.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
-#: src/mod_pam_fprint.c:151
+#: src/mod_pam_fprint.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to "
 "disable it first!\n"
 msgstr ""
 "ОШИБКА: pam_fp.so включён. Чтобы использовать pam_thinkfinger.so вам "
+"необходимо сначала отключить его!\n"
+
+#: src/mod_pam_fprint.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr ""
+"ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
@@ -217,7 +235,7 @@ msgstr "ОШИБКА: Модуль pam_fp.so включён. Сначала от
 msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
 msgstr "ОШИБКА: Модуль pam_fp.so включён. Сначала отключите его.\n"
 
-#: src/mod_pam_thinkfinger.c:143
+#: src/mod_pam_thinkfinger.c:144
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
@@ -226,7 +244,7 @@ msgstr ""
 "ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
-#: src/mod_pam_thinkfinger.c:147
+#: src/mod_pam_thinkfinger.c:148
 #, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
@@ -235,11 +253,20 @@ msgstr ""
 "ОШИБКА: pam_fp.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
-#: src/mod_pam_thinkfinger.c:151
+#: src/mod_pam_thinkfinger.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+"ОШИБКА: pam_fp.so включён. Чтобы использовать pam_thinkfinger.so вам "
+"необходимо сначала отключить его!\n"
+
+#: src/mod_pam_thinkfinger.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_thinkfinger.so you "
+"need to disable it first!\n"
 msgstr ""
 "ОШИБКА: pam_fp.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"

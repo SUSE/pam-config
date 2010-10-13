@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openSUSE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-31 17:03+0200\n"
+"POT-Creation-Date: 2010-10-13 14:13+0200\n"
 "PO-Revision-Date: 2010-04-30 16:32+0300\n"
 "Last-Translator: Lucian Oprea <oprea.luci@gmail.com>\n"
 "Language-Team: Comunitatea traducatorilor openSUSE Romania. Contact: <oprea."
@@ -128,7 +128,7 @@ msgstr "AVERTIZARE: Nu am găsit fişiere serviciu în '%s'.\n"
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "AVERTIZARE: Am găsit modulul '%s' în fişierul '%s'.\n"
 
-#: src/mod_pam_fp.c:143
+#: src/mod_pam_fp.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
@@ -137,7 +137,7 @@ msgstr ""
 "EROARE: pa_mmount.so este activat. Pentru a utiliza pam_thinkfinger.so "
 "trebuie să-l deactivaţi întâi!\n"
 
-#: src/mod_pam_fp.c:147
+#: src/mod_pam_fp.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
@@ -146,7 +146,7 @@ msgstr ""
 "EROARE: pam_fp.so este activat. Pentru a utiliza  pam_thinkfinger.so trebuie "
 "întâi să-l dezactivaţi!\n"
 
-#: src/mod_pam_fp.c:151
+#: src/mod_pam_fp.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_fp.so you need to "
@@ -155,7 +155,16 @@ msgstr ""
 "EROARE: pa_mmount.so este activat. Pentru a utiliza pam_thinkfinger.so "
 "trebuie să-l deactivaţi întâi!\n"
 
-#: src/mod_pam_fprint.c:143
+#: src/mod_pam_fp.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"EROARE: pa_mmount.so este activat. Pentru a utiliza pam_thinkfinger.so "
+"trebuie să-l deactivaţi întâi!\n"
+
+#: src/mod_pam_fprint.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to "
@@ -164,7 +173,7 @@ msgstr ""
 "EROARE: pa_mmount.so este activat. Pentru a utiliza pam_thinkfinger.so "
 "trebuie să-l deactivaţi întâi!\n"
 
-#: src/mod_pam_fprint.c:147
+#: src/mod_pam_fprint.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprint.so you need "
@@ -173,7 +182,7 @@ msgstr ""
 "EROARE: pam_fp.so este activat. Pentru a utiliza  pam_thinkfinger.so trebuie "
 "întâi să-l dezactivaţi!\n"
 
-#: src/mod_pam_fprint.c:151
+#: src/mod_pam_fprint.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to "
@@ -181,6 +190,15 @@ msgid ""
 msgstr ""
 "EROARE: pam_fp.so este activat. Pentru a utiliza  pam_thinkfinger.so trebuie "
 "întâi să-l dezactivaţi!\n"
+
+#: src/mod_pam_fprint.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr ""
+"EROARE: pa_mmount.so este activat. Pentru a utiliza pam_thinkfinger.so "
+"trebuie să-l deactivaţi întâi!\n"
 
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
@@ -206,7 +224,7 @@ msgstr "EROARE: Modulul pam_fp.so este activat. Dezactivaţi-l întâi.\n"
 msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
 msgstr "EROARE: Modulul pam_fp.so este activat. Dezactivaţi-l întâi.\n"
 
-#: src/mod_pam_thinkfinger.c:143
+#: src/mod_pam_thinkfinger.c:144
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
@@ -215,7 +233,7 @@ msgstr ""
 "EROARE: pa_mmount.so este activat. Pentru a utiliza pam_thinkfinger.so "
 "trebuie să-l deactivaţi întâi!\n"
 
-#: src/mod_pam_thinkfinger.c:147
+#: src/mod_pam_thinkfinger.c:148
 #, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
@@ -224,11 +242,20 @@ msgstr ""
 "EROARE: pam_fp.so este activat. Pentru a utiliza  pam_thinkfinger.so trebuie "
 "întâi să-l dezactivaţi!\n"
 
-#: src/mod_pam_thinkfinger.c:151
+#: src/mod_pam_thinkfinger.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+"EROARE: pam_fp.so este activat. Pentru a utiliza  pam_thinkfinger.so trebuie "
+"întâi să-l dezactivaţi!\n"
+
+#: src/mod_pam_thinkfinger.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_thinkfinger.so you "
+"need to disable it first!\n"
 msgstr ""
 "EROARE: pam_fp.so este activat. Pentru a utiliza  pam_thinkfinger.so trebuie "
 "întâi să-l dezactivaţi!\n"

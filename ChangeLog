@@ -1,3 +1,18 @@
+2010-10-13  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.78
+
+	* src/supported-modules.h: Move pam_env to the end of
+	session stack.
+
+	* src/Makefile.am: Add pam_fprintd.
+	* src/mod_pam_fp.c: Likewise.
+	* src/mod_pam_fprint.c: Likewise.
+	* src/mod_pam_thinkfinger.c: Likewise.
+	* src/supported-modules.h: Likewise.
+	* src/mod_pam_fprintd.c: New.
+	Based on patches from Frederic Crozat [bnc#644168].
+
 2010-08-31  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.77

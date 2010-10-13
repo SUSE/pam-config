@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-31 17:03+0200\n"
+"POT-Creation-Date: 2010-10-13 14:13+0200\n"
 "PO-Revision-Date: 2009-10-23 02:32+0900\n"
 "Last-Translator: Yunseok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -121,7 +121,7 @@ msgstr "경고: '%s' 에 서비스 파일이 없습니다.\n"
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "경고: '%s'('%s' 파일 내에) 모듈을 찾았습니다.\n"
 
-#: src/mod_pam_fp.c:143
+#: src/mod_pam_fp.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fp.so you need to "
@@ -130,7 +130,7 @@ msgstr ""
 "오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
 "저 이것을 비활성화 시켜주세요!\n"
 
-#: src/mod_pam_fp.c:147
+#: src/mod_pam_fp.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fp.so you need to "
@@ -139,7 +139,7 @@ msgstr ""
 "오류: pam_fp.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼저 "
 "이것을 비활성화 시켜주세요!\n"
 
-#: src/mod_pam_fp.c:151
+#: src/mod_pam_fp.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_fp.so you need to "
@@ -148,7 +148,16 @@ msgstr ""
 "오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
 "저 이것을 비활성화 시켜주세요!\n"
 
-#: src/mod_pam_fprint.c:143
+#: src/mod_pam_fp.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fp.so you need to "
+"disable it first!\n"
+msgstr ""
+"오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
+"저 이것을 비활성화 시켜주세요!\n"
+
+#: src/mod_pam_fprint.c:144
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_fprint.so you need to "
@@ -157,7 +166,7 @@ msgstr ""
 "오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
 "저 이것을 비활성화 시켜주세요!\n"
 
-#: src/mod_pam_fprint.c:147
+#: src/mod_pam_fprint.c:148
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprint.so you need "
@@ -166,7 +175,7 @@ msgstr ""
 "오류: pam_fp.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼저 "
 "이것을 비활성화 시켜주세요!\n"
 
-#: src/mod_pam_fprint.c:151
+#: src/mod_pam_fprint.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_fprint.so you need to "
@@ -174,6 +183,15 @@ msgid ""
 msgstr ""
 "오류: pam_fp.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼저 "
 "이것을 비활성화 시켜주세요!\n"
+
+#: src/mod_pam_fprint.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr ""
+"오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
+"저 이것을 비활성화 시켜주세요!\n"
 
 #: src/mod_pam_mount.c:120 src/pam-config.c:459
 #, c-format
@@ -201,7 +219,7 @@ msgstr "오류: pam_fp.so 모듈이 활성화 상태입니다. 먼저 비활성�
 msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
 msgstr "오류: pam_fp.so 모듈이 활성화 상태입니다. 먼저 비활성화 시켜주세요.\n"
 
-#: src/mod_pam_thinkfinger.c:143
+#: src/mod_pam_thinkfinger.c:144
 #, c-format
 msgid ""
 "ERROR: pam_mount.so is enabled. In order to use pam_thinkfinger.so you need "
@@ -210,7 +228,7 @@ msgstr ""
 "오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
 "저 이것을 비활성화 시켜주세요!\n"
 
-#: src/mod_pam_thinkfinger.c:147
+#: src/mod_pam_thinkfinger.c:148
 #, c-format
 msgid ""
 "ERROR: pam_fp.so is enabled. In order to use pam_thinkfinger.so you need to "
@@ -219,11 +237,20 @@ msgstr ""
 "오류: pam_fp.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼저 "
 "이것을 비활성화 시켜주세요!\n"
 
-#: src/mod_pam_thinkfinger.c:151
+#: src/mod_pam_thinkfinger.c:152
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprint.so is enabled. In order to use pam_thinkfinger.so you need "
 "to disable it first!\n"
+msgstr ""
+"오류: pam_fp.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼저 "
+"이것을 비활성화 시켜주세요!\n"
+
+#: src/mod_pam_thinkfinger.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprintd.so is enabled. In order to use pam_thinkfinger.so you "
+"need to disable it first!\n"
 msgstr ""
 "오류: pam_fp.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼저 "
 "이것을 비활성화 시켜주세요!\n"
