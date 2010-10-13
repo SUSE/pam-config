@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-13 14:13+0200\n"
+"POT-Creation-Date: 2010-10-13 14:45+0200\n"
 "PO-Revision-Date: 2010-07-07 10:14+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -106,17 +106,20 @@ msgstr "កំហុស ៖ មិន​អាច​បន្ថែម pam_cryp
 msgid "ERROR: Out of memory.\n"
 msgstr ""
 
-#: src/mod_pam_fp.c:91 src/mod_pam_fprint.c:91 src/mod_pam_thinkfinger.c:91
+#: src/mod_pam_fp.c:91 src/mod_pam_fprint.c:91 src/mod_pam_fprintd.c:91
+#: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
 msgstr "កំហុស ៖ គ្មាន​អង្គ​ចងចាំ​នៅ​សល់​ដើម្បី​ស្ថាបនា​ផ្លូវ ។\n"
 
-#: src/mod_pam_fp.c:106 src/mod_pam_fprint.c:106 src/mod_pam_thinkfinger.c:106
+#: src/mod_pam_fp.c:106 src/mod_pam_fprint.c:106 src/mod_pam_fprintd.c:106
+#: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
 msgstr "ការ​ព្រមាន ៖ រក​ឃើញ​ឯកសារ​សេវា​នៅ​ក្នុង '%s' ។\n"
 
-#: src/mod_pam_fp.c:116 src/mod_pam_fprint.c:116 src/mod_pam_thinkfinger.c:116
+#: src/mod_pam_fp.c:116 src/mod_pam_fprint.c:116 src/mod_pam_fprintd.c:116
+#: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "ការ​ព្រមាន ៖ រក​ឃើញ​ម៉ូឌុល '%s' នៅ​ក្នុង​ឯកសារ '%s' ។\n"
@@ -181,6 +184,38 @@ msgstr ""
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprintd.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr ""
+"កំហុស ៖ pam_mount.so ត្រូវ​បាន​បើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវ​តែ​បិទ​វា​សិន !\n"
+
+#: src/mod_pam_fprintd.c:144
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fprintd.so you need to "
+"disable it first!\n"
+msgstr ""
+"កំហុស ៖ pam_mount.so ត្រូវ​បាន​បើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវ​តែ​បិទ​វា​សិន !\n"
+
+#: src/mod_pam_fprintd.c:148
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprintd.so you "
+"need to disable it first!\n"
+msgstr ""
+"កំហុស ៖ pam_fp.so ត្រូវ​បានបើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវតែ​បិទ​វា​សិន !\n"
+
+#: src/mod_pam_fprintd.c:152
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_fprintd.so you need to "
+"disable it first!\n"
+msgstr ""
+"កំហុស ៖ pam_fp.so ត្រូវ​បានបើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវតែ​បិទ​វា​សិន !\n"
+
+#: src/mod_pam_fprintd.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprint.so is enabled. In order to use pam_fprintd.so you need to "
 "disable it first!\n"
 msgstr ""
 "កំហុស ៖ pam_mount.so ត្រូវ​បាន​បើក ។ ដើម្បី​ប្រើ pam_thinkfinger.so អ្នក​ត្រូវ​តែ​បិទ​វា​សិន !\n"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-13 14:13+0200\n"
+"POT-Creation-Date: 2010-10-13 14:45+0200\n"
 "PO-Revision-Date: 2010-05-11 10:34+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <opensuse-translation@opensuse.org>\n"
@@ -114,17 +114,20 @@ msgstr "FEJL: Kunne ikke tilføje pam_cryptpass.so til tjenesten '%s'"
 msgid "ERROR: Out of memory.\n"
 msgstr ""
 
-#: src/mod_pam_fp.c:91 src/mod_pam_fprint.c:91 src/mod_pam_thinkfinger.c:91
+#: src/mod_pam_fp.c:91 src/mod_pam_fprint.c:91 src/mod_pam_fprintd.c:91
+#: src/mod_pam_thinkfinger.c:91
 #, c-format
 msgid "ERROR: No memory left to construct path.\n"
 msgstr "FEJL: Ingen hukommelse tilbage til at konstruere sti.\n"
 
-#: src/mod_pam_fp.c:106 src/mod_pam_fprint.c:106 src/mod_pam_thinkfinger.c:106
+#: src/mod_pam_fp.c:106 src/mod_pam_fprint.c:106 src/mod_pam_fprintd.c:106
+#: src/mod_pam_thinkfinger.c:106
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
 msgstr "ADVARSEL: Fandt ingen tjeneste-filer i '%s'.\n"
 
-#: src/mod_pam_fp.c:116 src/mod_pam_fprint.c:116 src/mod_pam_thinkfinger.c:116
+#: src/mod_pam_fp.c:116 src/mod_pam_fprint.c:116 src/mod_pam_fprintd.c:116
+#: src/mod_pam_thinkfinger.c:116
 #, c-format
 msgid "WARNING: Found module '%s' in file '%s'.\n"
 msgstr "ADVARSEL: Fandt modulet '%s' i filen '%s'.\n"
@@ -196,6 +199,42 @@ msgstr ""
 #, fuzzy, c-format
 msgid ""
 "ERROR: pam_fprintd.so is enabled. In order to use pam_fprint.so you need to "
+"disable it first!\n"
+msgstr ""
+"FEJL: pam_mount.so er aktiveret. For at kunne bruge pam_thinkfinger.so skal "
+"du deaktivere den først!\n"
+
+#: src/mod_pam_fprintd.c:144
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_mount.so is enabled. In order to use pam_fprintd.so you need to "
+"disable it first!\n"
+msgstr ""
+"FEJL: pam_mount.so er aktiveret. For at kunne bruge pam_thinkfinger.so skal "
+"du deaktivere den først!\n"
+
+#: src/mod_pam_fprintd.c:148
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_thinkfinger.so is enabled. In order to use pam_fprintd.so you "
+"need to disable it first!\n"
+msgstr ""
+"FEJL: pam_fp er aktiveret. For at kunne bruge pam_thinkfinger.so skal du "
+"deaktivere det først!\n"
+
+#: src/mod_pam_fprintd.c:152
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fp.so is enabled. In order to use pam_fprintd.so you need to "
+"disable it first!\n"
+msgstr ""
+"FEJL: pam_fp er aktiveret. For at kunne bruge pam_thinkfinger.so skal du "
+"deaktivere det først!\n"
+
+#: src/mod_pam_fprintd.c:156
+#, fuzzy, c-format
+msgid ""
+"ERROR: pam_fprint.so is enabled. In order to use pam_fprintd.so you need to "
 "disable it first!\n"
 msgstr ""
 "FEJL: pam_mount.so er aktiveret. For at kunne bruge pam_thinkfinger.so skal "

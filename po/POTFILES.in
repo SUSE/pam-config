@@ -11,6 +11,7 @@ src/mod_pam_env.c
 src/mod_pam_exec.c
 src/mod_pam_fp.c
 src/mod_pam_fprint.c
+src/mod_pam_fprintd.c
 src/mod_pam_gnome_keyring.c
 src/mod_pam_group.c
 src/mod_pam_krb5.c
