@@ -1,6 +1,16 @@
     </refsect2>
   </refsect1>
 
+  <refsect1 id='NOTES'>
+    <title>NOTES</title>
+    <para>
+	The configuration for gobal service modules written by
+        pam-config is ignored by the system if the
+        common-{account,auth,password,session} symlinks don't point
+        to the common-{account,auth,password,session}-pc files.
+    </para>
+  </refsect1>
+
   <refsect1 id='examples'>
     <title>USAGE EXAMPLES</title>
     <variablelist>

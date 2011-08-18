@@ -1,3 +1,23 @@
+2011-08-18  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/Makefile.am: Add mod_pam_systemd.c
+	* src/mod_pam_systemd.c: New.
+	* src/supported-modules.h: Add pam_systemd.
+	Patch from Frederic Crozat <fcrozat@novell.com>, bnc#700053.
+
+2011-05-10  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.79
+
+	* src/pam-config.8.xml-footer: Document that if symlinks don't
+	point to *-pc files config for global modules is ignored
+	[FATE#310739].
+
+2011-05-09  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/mod_pam_lastlog.c (write_config_lastlog): Use optional
+	instead of required [bnc#686034].
+
 2010-10-13  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.78

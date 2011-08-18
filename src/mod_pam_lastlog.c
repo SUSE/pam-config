@@ -1,4 +1,4 @@
-/* Copyright (C) 2007, 2008 Thorsten Kukuk
+/* Copyright (C) 2007, 2008, 2011 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -29,7 +29,7 @@
 static void
 write_config_internal (FILE *fp, option_set_t *opt_set)
 {
-  fprintf (fp, "session  required\tpam_lastlog.so\t");
+  fprintf (fp, "session  optional\tpam_lastlog.so\t");
 
   WRITE_CONFIG_OPTIONS
 }

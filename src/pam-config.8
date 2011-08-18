@@ -1,12 +1,12 @@
 .\"     Title: pam-config
 .\"    Author: [see the "AUTHOR" section]
 .\" Generator: DocBook XSL Stylesheets v1.74.0 <http://docbook.sf.net/>
-.\"      Date: 10/13/2010
+.\"      Date: 08/18/2011
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"  Language: English
 .\"
-.TH "PAM\-CONFIG" "8" "10/13/2010" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "08/18/2011" "Reference Manual" "Reference Manual"
 .\" -----------------------------------------------------------------
 .\" * (re)Define some macros
 .\" -----------------------------------------------------------------
@@ -917,6 +917,53 @@ Add
 option to all pam_sss\&.so invocations\&.
 .RE
 .PP
+\fB\-\-systemd\fR
+.RS 4
+Enable/Disable pam_systemd\&.so
+.RE
+.PP
+\fB\-\-systemd\-debug\fR
+.RS 4
+Add
+\fBdebug\fR
+option to all pam_systemd\&.so invocations\&.
+.RE
+.PP
+\fB\-\-systemd\-kill_session_processes=\fR\fIvalue\fR
+.RS 4
+Add
+\fBkill_session_processes=\fR\fIvalue\fR
+option to pam_systemd\&.so\&.
+.RE
+.PP
+\fB\-\-systemd\-kill_only_users=\fR\fIvalue\fR
+.RS 4
+Add
+\fBkill_only_users=\fR\fIvalue\fR
+option to pam_systemd\&.so\&.
+.RE
+.PP
+\fB\-\-systemd\-kill_exclude_users=\fR\fIvalue\fR
+.RS 4
+Add
+\fBkill_exclude_users=\fR\fIvalue\fR
+option to pam_systemd\&.so\&.
+.RE
+.PP
+\fB\-\-systemd\-controllers=\fR\fIvalue\fR
+.RS 4
+Add
+\fBcontrollers=\fR\fIvalue\fR
+option to pam_systemd\&.so\&.
+.RE
+.PP
+\fB\-\-systemd\-reset_controllers=\fR\fIvalue\fR
+.RS 4
+Add
+\fBreset_controllers=\fR\fIvalue\fR
+option to pam_systemd\&.so\&.
+.RE
+.PP
 \fB\-\-thinkfinger\fR
 .RS 4
 Enable/Disable pam_thinkfinger\&.so
@@ -1266,6 +1313,9 @@ option to all pam_loginuid\&.so invocations\&.
 Enable/Disable pam_mount\&.so
 .RE
 .RE
+.SH "NOTES"
+.PP
+The configuration for gobal service modules written by pam\-config is ignored by the system if the common\-{account,auth,password,session} symlinks don\'t point to the common\-{account,auth,password,session}\-pc files\&.
 .SH "USAGE EXAMPLES"
 .PP
 pam\-config \-q \-\-unix2

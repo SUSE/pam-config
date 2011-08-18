@@ -1,8 +1,13 @@
 pam-config NEWS -- history of user-visible changes.
 
-Copyright (C) 2006-2010 Thorsten Kukuk <kukuk@suse.de>.
+Copyright (C) 2006-2011 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into bugzilla.novell.com.
+
+Version 0.79
+* Make pam_lastlog optional [bnc#686034].
+* Document that if symlinks don't point to *-pc files config is ignored
+  [FATE#310739].
 
 Version 0.78
 * Add support for pam_fprintd

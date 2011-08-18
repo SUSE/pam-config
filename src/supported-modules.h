@@ -39,6 +39,7 @@ extern pam_module_t mod_pam_cryptpass;
 extern pam_module_t mod_pam_csync;
 extern pam_module_t mod_pam_loginuid;
 extern pam_module_t mod_pam_mount;
+extern pam_module_t mod_pam_systemd;
 
 pam_module_t *common_module_list[] = {
   &mod_pam_apparmor,
@@ -67,6 +68,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_ssh,
   &mod_pam_sss,
   &mod_pam_succeed_if,
+  &mod_pam_systemd,
   &mod_pam_thinkfinger,
   &mod_pam_umask,
   &mod_pam_unix,
@@ -143,6 +145,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_nam,
   &mod_pam_umask,
   &mod_pam_ssh,
+  &mod_pam_systemd,
   &mod_pam_selinux,
   &mod_pam_gnome_keyring,
   &mod_pam_exec,

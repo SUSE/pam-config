@@ -970,6 +970,62 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--systemd</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_systemd.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--systemd-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_systemd.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--systemd-kill_session_processes=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>kill_session_processes=</option><replaceable>value</replaceable> option to pam_systemd.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--systemd-kill_only_users=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>kill_only_users=</option><replaceable>value</replaceable> option to pam_systemd.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--systemd-kill_exclude_users=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>kill_exclude_users=</option><replaceable>value</replaceable> option to pam_systemd.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--systemd-controllers=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>controllers=</option><replaceable>value</replaceable> option to pam_systemd.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--systemd-reset_controllers=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>reset_controllers=</option><replaceable>value</replaceable> option to pam_systemd.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--thinkfinger</option></term>
             <listitem>
               <para>
@@ -1389,6 +1445,16 @@
         </variablelist>
       </refsect3>
     </refsect2>
+  </refsect1>
+
+  <refsect1 id='NOTES'>
+    <title>NOTES</title>
+    <para>
+	The configuration for gobal service modules written by
+        pam-config is ignored by the system if the
+        common-{account,auth,password,session} symlinks don't point
+        to the common-{account,auth,password,session}-pc files.
+    </para>
   </refsect1>
 
   <refsect1 id='examples'>
