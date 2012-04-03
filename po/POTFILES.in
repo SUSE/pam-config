@@ -7,6 +7,7 @@ src/mod_pam_cracklib.c
 src/mod_pam_cryptpass.c
 src/mod_pam_csync.c
 src/mod_pam_deny.c
+src/mod_pam_ecryptfs.c
 src/mod_pam_env.c
 src/mod_pam_exec.c
 src/mod_pam_fp.c
@@ -32,6 +33,7 @@ src/mod_pam_selinux.c
 src/mod_pam_ssh.c
 src/mod_pam_sss.c
 src/mod_pam_succeed_if.c
+src/mod_pam_systemd.c
 src/mod_pam_thinkfinger.c
 src/mod_pam_time.c
 src/mod_pam_umask.c

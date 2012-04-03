@@ -1,3 +1,12 @@
+2012-04-03  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.80
+
+	* src/Makefile.am: Add mod_pam_ecryptfs.c
+	* src/mod_pam_cryptfs: New.
+	* src/supported-modules: Add pam_ecryptfs.c
+	Patch from Darin Perusich <darin@darins.net>, bnc#752851.
+
 2011-08-18  Thorsten Kukuk  <kukuk@suse.de>
 
 	* src/Makefile.am: Add mod_pam_systemd.c

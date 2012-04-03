@@ -290,6 +290,22 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--ecryptfs</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_ecryptfs.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--ecryptfs-unwrap</option></term>
+            <listitem>
+              <para>
+                Add <option>unwrap</option> option to all pam_ecryptfs.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--env</option></term>
             <listitem>
               <para>

@@ -1,12 +1,12 @@
 .\"     Title: pam-config
 .\"    Author: [see the "AUTHOR" section]
 .\" Generator: DocBook XSL Stylesheets v1.74.0 <http://docbook.sf.net/>
-.\"      Date: 08/18/2011
+.\"      Date: 04/03/2012
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"  Language: English
 .\"
-.TH "PAM\-CONFIG" "8" "08/18/2011" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "04/03/2012" "Reference Manual" "Reference Manual"
 .\" -----------------------------------------------------------------
 .\" * (re)Define some macros
 .\" -----------------------------------------------------------------
@@ -360,6 +360,18 @@ option to pam_cracklib\&.so\&.
 Add
 \fBdictpath=\fR\fIvalue\fR
 option to pam_cracklib\&.so\&.
+.RE
+.PP
+\fB\-\-ecryptfs\fR
+.RS 4
+Enable/Disable pam_ecryptfs\&.so
+.RE
+.PP
+\fB\-\-ecryptfs\-unwrap\fR
+.RS 4
+Add
+\fBunwrap\fR
+option to all pam_ecryptfs\&.so invocations\&.
 .RE
 .PP
 \fB\-\-env\fR

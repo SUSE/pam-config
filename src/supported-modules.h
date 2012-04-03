@@ -2,6 +2,7 @@ extern pam_module_t mod_pam_apparmor;
 extern pam_module_t mod_pam_ccreds;
 extern pam_module_t mod_pam_cracklib;
 extern pam_module_t mod_pam_deny;
+extern pam_module_t mod_pam_ecryptfs;
 extern pam_module_t mod_pam_env;
 extern pam_module_t mod_pam_exec;
 extern pam_module_t mod_pam_fp;
@@ -46,6 +47,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_ccreds,
   &mod_pam_cracklib,
   &mod_pam_deny,
+  &mod_pam_ecryptfs,
   &mod_pam_env,
   &mod_pam_exec,
   &mod_pam_fp,
@@ -91,6 +93,7 @@ static pam_module_t *module_list_account[] = {
 };
 
 static pam_module_t *module_list_auth[] = {
+  &mod_pam_ecryptfs,
   &mod_pam_env,
   &mod_pam_group,
   &mod_pam_pkcs11,
@@ -149,6 +152,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_selinux,
   &mod_pam_gnome_keyring,
   &mod_pam_exec,
+  &mod_pam_ecryptfs,
   &mod_pam_env,
   NULL
 };

@@ -4,6 +4,9 @@ Copyright (C) 2006-2011 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into bugzilla.novell.com.
 
+Version 0.80
+* Add pam_systemd and pam_ecryptfs [bnc#752851].
+
 Version 0.79
 * Make pam_lastlog optional [bnc#686034].
 * Document that if symlinks don't point to *-pc files config is ignored
