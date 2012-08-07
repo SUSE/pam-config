@@ -1,10 +1,20 @@
+2012-08-06  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.81
+
+	* src/mod_pam_ssh.c (write_config_ssh): Remove try_first_pass
+	as extra option and write it always in auth section [bnc#773560].
+
+	* src/supported-modules.h: Move pam_ecryptfs after pam_unix2.
+	Does not work with krb5, but else it does not work at all [bnc#740110].
+
 2012-04-03  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.80
 
 	* src/Makefile.am: Add mod_pam_ecryptfs.c
 	* src/mod_pam_cryptfs: New.
-	* src/supported-modules: Add pam_ecryptfs.c
+	* src/supported-modules.h: Add pam_ecryptfs.c
 	Patch from Darin Perusich <darin@darins.net>, bnc#752851.
 
 2011-08-18  Thorsten Kukuk  <kukuk@suse.de>

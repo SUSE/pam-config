@@ -93,7 +93,6 @@ static pam_module_t *module_list_account[] = {
 };
 
 static pam_module_t *module_list_auth[] = {
-  &mod_pam_ecryptfs,
   &mod_pam_env,
   &mod_pam_group,
   &mod_pam_pkcs11,
@@ -105,6 +104,7 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_ssh,     /* optional modules MUST executed before sufficient modules which also need a password. */
   &mod_pam_unix2,
   &mod_pam_unix,
+  &mod_pam_ecryptfs,
   &mod_pam_krb5,
   &mod_pam_sss,
   &mod_pam_ldap,

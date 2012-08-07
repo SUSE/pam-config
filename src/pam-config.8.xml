@@ -954,14 +954,6 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--ssh-try_first_pass</option></term>
-            <listitem>
-              <para>
-                Add <option>try_first_pass</option> option to all pam_ssh.so invocations.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--ssh-keyfiles=</option><replaceable>value</replaceable></term>
             <listitem>
               <para>

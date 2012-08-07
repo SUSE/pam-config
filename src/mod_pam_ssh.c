@@ -44,13 +44,13 @@ write_config_ssh (pam_module_t *this, enum write_type op, FILE *fp)
       break;
 
     case AUTH:
-      fprintf (fp, "auth\toptional\tpam_ssh.so\t");
+      fprintf (fp, "auth\toptional\tpam_ssh.so\ttry_first_pass ");
       break;
 
     case SESSION:
       fprintf (fp, "session\toptional\tpam_ssh.so\t");
       /* try_first_pass should not be used for session */
-      opt_set->enable (opt_set, "try_first_pass", FALSE);
+      /* opt_set->enable (opt_set, "try_first_pass", FALSE); */
       break;
   }
 
@@ -79,7 +79,7 @@ PRINT_ARGS("ssh")
 PRINT_XMLHELP("ssh")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_4 (is_enabled, debug, nullok, try_first_pass);
+DECLARE_BOOL_OPTS_3 (is_enabled, debug, nullok);
 DECLARE_STRING_OPTS_1 (keyfiles);
 DECLARE_OPT_SETS;
 
