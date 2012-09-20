@@ -1,3 +1,10 @@
+2012-09-20  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.82
+
+	* src/pam-config.c: Use pam_unix.so and pam_cracklib.so for
+	initial config instead of pam_unix2.so and pam_pwcheck.so.
+
 2012-08-06  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.81

@@ -4,6 +4,9 @@ Copyright (C) 2006-2012 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into bugzilla.novell.com.
 
+Version 0.82
+* pam-config: use pam_unix and pam_cracklib per default.
+
 Version 0.81
 * pam_ssh: Fix usage of try_first_pass option
 * pam_ecryptfs: Move after pam_unix2, even if this will not work with krb5

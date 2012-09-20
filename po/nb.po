@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-13 14:45+0200\n"
+"POT-Creation-Date: 2012-09-20 14:20+0200\n"
 "PO-Revision-Date: 2008-10-22 21:42+0200\n"
 "Last-Translator: Olav P. <olav.pet@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <>\n"
@@ -412,15 +412,15 @@ msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 "      Disse modulene kan bare legges til i filer for enkelttjenester.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1003
-#: src/pam-config.c:1013 src/pam-config.c:1023 src/pam-config.c:1034
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1014
+#: src/pam-config.c:1024 src/pam-config.c:1034 src/pam-config.c:1045
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Feil ved aktivering av %s (%m)\n"
 
 #: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
-#: src/pam-config.c:1005 src/pam-config.c:1015 src/pam-config.c:1025
-#: src/pam-config.c:1036
+#: src/pam-config.c:1016 src/pam-config.c:1026 src/pam-config.c:1036
+#: src/pam-config.c:1047
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nytt oppsett fra %s er ikke i bruk!\n"
@@ -466,12 +466,12 @@ msgstr ""
 "\n"
 "Kunne ikke laste oppsettsfil. Avbrutt!\n"
 
-#: src/pam-config.c:727
+#: src/pam-config.c:742
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Støttede vanlige moduler:\n"
 
-#: src/pam-config.c:729
+#: src/pam-config.c:744
 #, c-format
 msgid ""
 "\n"
@@ -480,12 +480,12 @@ msgstr ""
 "\n"
 "Støttede tjenestemoduler:\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:786
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: For mange argumenter.\n"
 
-#: src/pam-config.c:924
+#: src/pam-config.c:935
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Har ikke tilgang til '%s': %m\n"

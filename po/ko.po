@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-13 14:45+0200\n"
+"POT-Creation-Date: 2012-09-20 14:20+0200\n"
 "PO-Revision-Date: 2009-10-23 02:32+0900\n"
 "Last-Translator: Yunseok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -399,15 +399,15 @@ msgstr "단일 서비스 모듈 옵션:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      이러한 모듈은 단일 서비스 파일에 추가됩니다.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1003
-#: src/pam-config.c:1013 src/pam-config.c:1023 src/pam-config.c:1034
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1014
+#: src/pam-config.c:1024 src/pam-config.c:1034 src/pam-config.c:1045
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "%s 를 유효하게 하는 처리로 오류 발생 (%m)\n"
 
 #: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
-#: src/pam-config.c:1005 src/pam-config.c:1015 src/pam-config.c:1025
-#: src/pam-config.c:1036
+#: src/pam-config.c:1016 src/pam-config.c:1026 src/pam-config.c:1036
+#: src/pam-config.c:1047
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
@@ -451,12 +451,12 @@ msgstr ""
 "\n"
 "설정 파일을 불러올 수 없음, 중단되었음!\n"
 
-#: src/pam-config.c:727
+#: src/pam-config.c:742
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "지원하는 일반적인 모듈:\n"
 
-#: src/pam-config.c:729
+#: src/pam-config.c:744
 #, c-format
 msgid ""
 "\n"
@@ -465,12 +465,12 @@ msgstr ""
 "\n"
 "지원하는 서비스 모듈:\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:786
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 너무 많은 인수입니다.\n"
 
-#: src/pam-config.c:924
+#: src/pam-config.c:935
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "'%s' 에 접근 할 수 없습니다: %m\n"

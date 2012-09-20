@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007, 2008, 2009 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2008, 2009, 2012 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -846,30 +846,26 @@ main (int argc, char *argv[])
   if (opt.m_create)
     {
       /* Set and check sections.  */
-      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, ACCOUNT);
+      opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, ACCOUNT);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_account (common_module_list, 0) != 0)
 	return 1;
 
-      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, AUTH);
+      opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_auth (common_module_list, 0) != 0)
 	return 1;
 
-      opt_set = mod_pam_pwcheck.get_opt_set (&mod_pam_pwcheck, PASSWORD);
-      if (!opt_set->is_enabled (opt_set, "is_enabled"))
-	{
-	  opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
-	  opt_set->enable (opt_set, "is_enabled", TRUE);
-	  opt_set->enable (opt_set, "nullok", TRUE);
-	}
-      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, PASSWORD);
+      opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
+
+      opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       opt_set->enable (opt_set, "nullok", TRUE);
       if (sanitize_check_password (common_module_list, 0) != 0)
 	return 1;
 
-      opt_set = mod_pam_unix2.get_opt_set (&mod_pam_unix2, SESSION);
+      opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt.opt_val);
       opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt.opt_val);

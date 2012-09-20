@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-13 14:45+0200\n"
+"POT-Creation-Date: 2012-09-20 14:20+0200\n"
 "PO-Revision-Date: 2010-07-07 10:14+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -380,15 +380,15 @@ msgstr "ជម្រើស​ម៉ូឌុល​សេវា​តែ​មួ
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      ម៉ូឌុល​ទាំងនេះ​​អាច​ត្រូវ​បាន​បន្ថែម​តែ​ទៅ​កាន់​ឯកសារ​សេវា​ប៉ុណ្ណោះ ។\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1003
-#: src/pam-config.c:1013 src/pam-config.c:1023 src/pam-config.c:1034
+#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1014
+#: src/pam-config.c:1024 src/pam-config.c:1034 src/pam-config.c:1045
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "កំហុស​ក្នុង​ការ​ធ្វើ​ឲ្យ %s សកម្ម (%m)\n"
 
 #: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
-#: src/pam-config.c:1005 src/pam-config.c:1015 src/pam-config.c:1025
-#: src/pam-config.c:1036
+#: src/pam-config.c:1016 src/pam-config.c:1026 src/pam-config.c:1036
+#: src/pam-config.c:1047
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "config ថ្មី​ពី %s មិន​កំពុង​ប្រើ !\n"
@@ -432,12 +432,12 @@ msgstr ""
 "\n"
 "មិន​ផ្ទុក​ឯកសារ config បានបោះបង់ !\n"
 
-#: src/pam-config.c:727
+#: src/pam-config.c:742
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
 
-#: src/pam-config.c:729
+#: src/pam-config.c:744
 #, c-format
 msgid ""
 "\n"
@@ -446,12 +446,12 @@ msgstr ""
 "\n"
 "ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
 
-#: src/pam-config.c:771
+#: src/pam-config.c:786
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s ៖ មាន​អាគុយម៉ង់​ច្រើន​ពេក ។\n"
 
-#: src/pam-config.c:924
+#: src/pam-config.c:935
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "មិន​អាច​ចូល​ដំណើរការ '%s' ៖ %m\n"
