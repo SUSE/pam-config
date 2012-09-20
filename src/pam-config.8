@@ -1323,9 +1323,9 @@ Enable/Disable pam_mount\&.so
 The configuration for gobal service modules written by pam\-config is ignored by the system if the common\-{account,auth,password,session} symlinks don\'t point to the common\-{account,auth,password,session}\-pc files\&.
 .SH "USAGE EXAMPLES"
 .PP
-pam\-config \-q \-\-unix2
+pam\-config \-q \-\-unix
 .RS 4
-Query state of pam_unix2\&.so\&.
+Query state of pam_unix\&.so\&.
 .RE
 .PP
 pam\-config \-a \-\-ldap
@@ -1346,8 +1346,8 @@ Enable pam_umask\&.so whether installed or not, and print debug information duri
 .PP
 
 \fBPAM\fR(8),
-\fBpam_unix2\fR(8),
-\fBpam_pwcheck\fR(8),
+\fBpam_unix\fR(8),
+\fBpam_cracklib\fR(8),
 \fBpam_mkhomedir\fR(8),
 \fBpam_limits\fR(8),
 \fBpam_env\fR(8),
