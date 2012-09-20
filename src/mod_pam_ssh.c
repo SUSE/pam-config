@@ -44,7 +44,7 @@ write_config_ssh (pam_module_t *this, enum write_type op, FILE *fp)
       break;
 
     case AUTH:
-      fprintf (fp, "auth\toptional\tpam_ssh.so\ttry_first_pass ");
+      fprintf (fp, "auth\tsufficient\tpam_ssh.so\ttry_first_pass ");
       break;
 
     case SESSION:
