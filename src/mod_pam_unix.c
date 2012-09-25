@@ -1,4 +1,4 @@
-/* Copyright (C) 2007, 2008 Sven Schober
+/* Copyright (C) 2007, 2008, 2012 Sven Schober
    Author: Sven Schober <sschober@suse.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -59,7 +59,7 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
 	/* if pam_mount is enabled it asks for a pw so we use that
 	 * one.
 	 * */
-	fprintf (fp, "use_first_pass ");
+	opt_set->enable (opt_set, "use_first_pass", TRUE);
       break;
     case ACCOUNT:
       if (with_krb5 || with_ldap || with_lum || with_winbind || with_sss)
@@ -88,6 +88,10 @@ write_config_unix (pam_module_t *this, enum write_type op, FILE *fp)
       break;
   }
 
+  if (!opt_set->is_enabled (opt_set, "use_first_pass") &&
+      !opt_set->is_enabled (opt_set, "try_first_pass"))
+    opt_set->enable (opt_set, "try_first_pass", TRUE);
+
   WRITE_CONFIG_OPTIONS
 
   return 0;
@@ -100,8 +104,8 @@ PRINT_ARGS("unix")
 PRINT_XMLHELP("unix")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_11(is_enabled, debug, audit, nodelay, nullok, shadow, md5, bigcrypt, not_set_pass, nis, broken_shadow);
-DECLARE_STRING_OPTS_1(remember);
+DECLARE_BOOL_OPTS_16(is_enabled, debug, audit, nodelay, nullok, shadow, md5, bigcrypt, sha256, sha512, blowfish, not_set_pass, nis, broken_shadow, use_first_pass, try_first_pass);
+DECLARE_STRING_OPTS_3(remember, rounds, minlen);
 DECLARE_OPT_SETS;
 
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};

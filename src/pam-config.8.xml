@@ -1154,6 +1154,30 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--unix-sha256</option></term>
+            <listitem>
+              <para>
+                Add <option>sha256</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-sha512</option></term>
+            <listitem>
+              <para>
+                Add <option>sha512</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-blowfish</option></term>
+            <listitem>
+              <para>
+                Add <option>blowfish</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--unix-not_set_pass</option></term>
             <listitem>
               <para>
@@ -1178,10 +1202,42 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--unix-use_first_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>use_first_pass</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-try_first_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>try_first_pass</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--unix-remember=</option><replaceable>value</replaceable></term>
             <listitem>
               <para>
                 Add <option>remember=</option><replaceable>value</replaceable> option to pam_unix.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-rounds=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>rounds=</option><replaceable>value</replaceable> option to pam_unix.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-minlen=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>minlen=</option><replaceable>value</replaceable> option to pam_unix.so.
               </para>
             </listitem>
           </varlistentry>

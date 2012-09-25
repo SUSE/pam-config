@@ -1,12 +1,12 @@
 .\"     Title: pam-config
 .\"    Author: [see the "AUTHOR" section]
 .\" Generator: DocBook XSL Stylesheets v1.74.0 <http://docbook.sf.net/>
-.\"      Date: 09/20/2012
+.\"      Date: 09/25/2012
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"  Language: English
 .\"
-.TH "PAM\-CONFIG" "8" "09/20/2012" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "09/25/2012" "Reference Manual" "Reference Manual"
 .\" -----------------------------------------------------------------
 .\" * (re)Define some macros
 .\" -----------------------------------------------------------------
@@ -1068,6 +1068,27 @@ Add
 option to all pam_unix\&.so invocations\&.
 .RE
 .PP
+\fB\-\-unix\-sha256\fR
+.RS 4
+Add
+\fBsha256\fR
+option to all pam_unix\&.so invocations\&.
+.RE
+.PP
+\fB\-\-unix\-sha512\fR
+.RS 4
+Add
+\fBsha512\fR
+option to all pam_unix\&.so invocations\&.
+.RE
+.PP
+\fB\-\-unix\-blowfish\fR
+.RS 4
+Add
+\fBblowfish\fR
+option to all pam_unix\&.so invocations\&.
+.RE
+.PP
 \fB\-\-unix\-not_set_pass\fR
 .RS 4
 Add
@@ -1089,10 +1110,38 @@ Add
 option to all pam_unix\&.so invocations\&.
 .RE
 .PP
+\fB\-\-unix\-use_first_pass\fR
+.RS 4
+Add
+\fBuse_first_pass\fR
+option to all pam_unix\&.so invocations\&.
+.RE
+.PP
+\fB\-\-unix\-try_first_pass\fR
+.RS 4
+Add
+\fBtry_first_pass\fR
+option to all pam_unix\&.so invocations\&.
+.RE
+.PP
 \fB\-\-unix\-remember=\fR\fIvalue\fR
 .RS 4
 Add
 \fBremember=\fR\fIvalue\fR
+option to pam_unix\&.so\&.
+.RE
+.PP
+\fB\-\-unix\-rounds=\fR\fIvalue\fR
+.RS 4
+Add
+\fBrounds=\fR\fIvalue\fR
+option to pam_unix\&.so\&.
+.RE
+.PP
+\fB\-\-unix\-minlen=\fR\fIvalue\fR
+.RS 4
+Add
+\fBminlen=\fR\fIvalue\fR
 option to pam_unix\&.so\&.
 .RE
 .PP
