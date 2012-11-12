@@ -1,3 +1,10 @@
+2012-11-12  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.84
+
+	* src/pam-config.c (relink): Don't print wrong error messages,
+	enable pam_env by default.
+
 2012-09-25  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.83

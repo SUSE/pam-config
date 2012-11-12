@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 14:20+0200\n"
+"POT-Creation-Date: 2012-11-12 15:46+0100\n"
 "PO-Revision-Date: 2008-11-08 17:17+0100\n"
 "Last-Translator: Jonas Björk <jonas@jonasbjork.net>\n"
 "Language-Team: svenska <sv@li.org>\n"
@@ -243,7 +243,7 @@ msgstr ""
 "FEL: pam_mount.so är aktiverad. För att använda pam_thinkfinger.so måste du "
 "avaktivera den först!\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:459
+#: src/mod_pam_mount.c:120 src/pam-config.c:463
 #, c-format
 msgid ""
 "\n"
@@ -303,12 +303,12 @@ msgstr ""
 "FEL: pam_fp.so är aktiverad. För att använda pam_thinkfinger.so måste du "
 "avaktivera den först!\n"
 
-#: src/pam-config.c:46
+#: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr "Syntax: %s -a|-c|-d [...]\n"
 
-#: src/pam-config.c:55
+#: src/pam-config.c:56
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -321,12 +321,12 @@ msgstr ""
 "garanti, inte ens för KOMMERSIELL GÅNGBARHET eller LÄMPLIGHET FÖR ETT VISST "
 "SYFTE.\n"
 
-#: src/pam-config.c:67
+#: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr "Ange '%s --help' eller '%s --usage' om du vill ha mer information.\n"
 
-#: src/pam-config.c:75
+#: src/pam-config.c:76
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
@@ -335,65 +335,65 @@ msgstr ""
 "%s - skapa PAM-inställningsfiler\n"
 "\n"
 
-#: src/pam-config.c:77
+#: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr "  -a, --add         Lägg till alternativ/PAM-moduler\n"
 
-#: src/pam-config.c:78
+#: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
 msgstr "  -c, --create      Skapa ny inställning\n"
 
-#: src/pam-config.c:79
+#: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr "  -d, --delete      Ta bort alternativ/PAM-moduler\n"
 
-#: src/pam-config.c:80
+#: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr "      --confdir     Använd en anpassad konfigurationskatalog\n"
 
-#: src/pam-config.c:82
+#: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  Konvertera gammal inställning och skapa en ny\n"
 
-#: src/pam-config.c:84
+#: src/pam-config.c:85
 msgid "      --service config  Service to modify config of\n"
 msgstr "      --service config  Tjänst att förändra konfiguration för\n"
 
-#: src/pam-config.c:86
+#: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Läs aktuell inställning och skriv en ny\n"
 
-#: src/pam-config.c:88
+#: src/pam-config.c:89
 #, fuzzy
 msgid "      --verify      Read and verify current configuration\n"
 msgstr "      --update      Läs aktuell inställning och skriv en ny\n"
 
-#: src/pam-config.c:90
+#: src/pam-config.c:91
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr ""
 "  -q, --query       Förfrågan för installerade moduler och alternativ\n"
 
-#: src/pam-config.c:92
+#: src/pam-config.c:93
 msgid "      --list-modules  List all supported modules\n"
 msgstr "      --list-modules  Visa alla moduler som stödjs\n"
 
-#: src/pam-config.c:94
+#: src/pam-config.c:95
 msgid "      --help        Give this help list\n"
 msgstr "     --help         Visa den här hjälplistan\n"
 
-#: src/pam-config.c:95
+#: src/pam-config.c:96
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  -u, --usage        Visa ett kort syntaxmeddelande\n"
 
-#: src/pam-config.c:96
+#: src/pam-config.c:97
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version     Visa programversion\n"
 
-#: src/pam-config.c:99
+#: src/pam-config.c:100
 msgid "Global Module Options:\n"
 msgstr "Globala modulinställningar:\n"
 
-#: src/pam-config.c:100
+#: src/pam-config.c:101
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
@@ -403,59 +403,54 @@ msgstr ""
 "      {account,auth,password,session} filerna som inkluderas av\n"
 "      de enskilda tjänstefilerna.\n"
 
-#: src/pam-config.c:105
+#: src/pam-config.c:106
 msgid "Single Service Module Options:\n"
 msgstr "Val för enskilda tjänstemoduler:\n"
 
-#: src/pam-config.c:106
+#: src/pam-config.c:107
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      De här modulerna kan bara läggas till i ensamma tjänstefiler.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1014
-#: src/pam-config.c:1024 src/pam-config.c:1034 src/pam-config.c:1045
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1020
+#: src/pam-config.c:1030 src/pam-config.c:1040 src/pam-config.c:1051
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Fel vid aktivering av %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
-#: src/pam-config.c:1016 src/pam-config.c:1026 src/pam-config.c:1036
-#: src/pam-config.c:1047
+#: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
+#: src/pam-config.c:1022 src/pam-config.c:1032 src/pam-config.c:1042
+#: src/pam-config.c:1053
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Ny inställning från %s används inte!\n"
 
-#: src/pam-config.c:175
+#: src/pam-config.c:176
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "Filen %s är ingen symbolisk länk till %s.\n"
 
-#: src/pam-config.c:195
-#, c-format
-msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr "VARNING: filen '%s' hittades inte.Hoppar över säkerhetskopiering.\n"
-
-#: src/pam-config.c:199
+#: src/pam-config.c:203
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 "VARNING: Säkerhetskopian '%s' finns redan. Hoppar över säkerhetskopiering.\n"
 
-#: src/pam-config.c:202
+#: src/pam-config.c:206
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "FEL: Det gick inte att skapa säkerhetskopian '%s' (%m)\n"
 
-#: src/pam-config.c:206
+#: src/pam-config.c:210
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "FEL: Kan inte ta bort '%s' (%m)\n"
 
-#: src/pam-config.c:383
+#: src/pam-config.c:387
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "VARNING: Kan inte ladda gammal konfigurationsfil.\n"
 
-#: src/pam-config.c:389 src/pam-config.c:437
+#: src/pam-config.c:393 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -464,12 +459,12 @@ msgstr ""
 "\n"
 "Kunde inte ladda inställningsfil, avbryter.\n"
 
-#: src/pam-config.c:742
+#: src/pam-config.c:746
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Vanliga moduler som stöds:\n"
 
-#: src/pam-config.c:744
+#: src/pam-config.c:748
 #, c-format
 msgid ""
 "\n"
@@ -478,12 +473,12 @@ msgstr ""
 "\n"
 "Tjänstemoduler som stöds:\n"
 
-#: src/pam-config.c:786
+#: src/pam-config.c:790
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: För många argument.\n"
 
-#: src/pam-config.c:935
+#: src/pam-config.c:941
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Kan inte komma åt \"%s\": %m\n"
@@ -594,6 +589,9 @@ msgstr "Kan inte skapa filhandtag: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Kan inte skapa %s: %m\n"
+
+#~ msgid "WARNING: file '%s' not found. Omitting backup.\n"
+#~ msgstr "VARNING: filen '%s' hittades inte.Hoppar över säkerhetskopiering.\n"
 
 #~ msgid "New config from %s is is not in use!\n"
 #~ msgstr "Ny inställning från %s används inte.\n"

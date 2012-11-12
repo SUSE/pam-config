@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 14:20+0200\n"
+"POT-Creation-Date: 2012-11-12 15:46+0100\n"
 "PO-Revision-Date: 2010-05-24 03:00+0200\n"
 "Last-Translator: Mariusz Fik <fisiu@opensuse.org>\n"
 "Language-Team: Polish <opensuse-pl@opensuse.org>\n"
@@ -247,7 +247,7 @@ msgstr ""
 "BŁĄD: pam_mount.so jest włączony. Aby używać pam_thinkfinger.so, należy go "
 "najpierw wyłączyć.\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:459
+#: src/mod_pam_mount.c:120 src/pam-config.c:463
 #, c-format
 msgid ""
 "\n"
@@ -308,12 +308,12 @@ msgstr ""
 "BŁĄD: pam_fp.so jest włączony. Aby używać pam_thinkfinger.so, należy go "
 "najpierw wyłączyć!\n"
 
-#: src/pam-config.c:46
+#: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr "Użycie: %s -a|-c|-d [...]\n"
 
-#: src/pam-config.c:55
+#: src/pam-config.c:56
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -326,14 +326,14 @@ msgstr ""
 "Na oprogramowanie to nie udziela się ŻADNEJ gwarancji; ani na PRZYDATNOŚĆ\n"
 "DO SPRZEDAŻY, ani na PRZYDATNOŚĆ DO KONKRETNYCH ZASTOSOWAŃ.\n"
 
-#: src/pam-config.c:67
+#: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr ""
 "Proszę użyć \"%s --help\" lub \"%s --usage\", aby uzyskać więcej "
 "informacji.\n"
 
-#: src/pam-config.c:75
+#: src/pam-config.c:76
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
@@ -342,65 +342,65 @@ msgstr ""
 "%s - tworzy pliki konfiguracyjne PAM\n"
 "\n"
 
-#: src/pam-config.c:77
+#: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr "  -a, --add         Dodaje opcje/moduły PAM\n"
 
-#: src/pam-config.c:78
+#: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
 msgstr "  -c, --create      Tworzy nową konfigurację\n"
 
-#: src/pam-config.c:79
+#: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr "  -d, --delete      Usuwa opcje/moduły PAM\n"
 
-#: src/pam-config.c:80
+#: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr "      --confdir     Użycie własnego katalogu konfiguracji\n"
 
-#: src/pam-config.c:82
+#: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  Konwertuje starą konfigurację i tworzy nową\n"
 
-#: src/pam-config.c:84
+#: src/pam-config.c:85
 msgid "      --service config  Service to modify config of\n"
 msgstr "      --service config  Usługa modyfikująca konfigurację\n"
 
-#: src/pam-config.c:86
+#: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
 msgstr ""
 "      --update      Odczytuje bieżącą konfigurację i zapisuje ją na nowo\n"
 
-#: src/pam-config.c:88
+#: src/pam-config.c:89
 msgid "      --verify      Read and verify current configuration\n"
 msgstr "      --verify      Odczytuje i sprawdza bieżącą konfigurację\n"
 
-#: src/pam-config.c:90
+#: src/pam-config.c:91
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       Wyszukuje zainstalowane moduły i opcje\n"
 
-#: src/pam-config.c:92
+#: src/pam-config.c:93
 msgid "      --list-modules  List all supported modules\n"
 msgstr "      --list-modules  Wypisuje wszystkie obsługiwane moduły\n"
 
-#: src/pam-config.c:94
+#: src/pam-config.c:95
 msgid "      --help        Give this help list\n"
 msgstr "      --help         Wyświetla tę pomoc\n"
 
-#: src/pam-config.c:95
+#: src/pam-config.c:96
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr ""
 "  -u, --usage        Wyświetla krótką wiadomość dot. używania polecenia\n"
 
-#: src/pam-config.c:96
+#: src/pam-config.c:97
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version      Wyświetla wersję programu\n"
 
-#: src/pam-config.c:99
+#: src/pam-config.c:100
 msgid "Global Module Options:\n"
 msgstr "Globalne opcje modułu:\n"
 
-#: src/pam-config.c:100
+#: src/pam-config.c:101
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
@@ -410,60 +410,54 @@ msgstr ""
 "      plików common-{account,auth,password,session}, które są\n"
 "      dołączane przez pojedyncze pliki usług.\n"
 
-#: src/pam-config.c:105
+#: src/pam-config.c:106
 msgid "Single Service Module Options:\n"
 msgstr "Opcje modułu dla pojedynczej usługi:\n"
 
-#: src/pam-config.c:106
+#: src/pam-config.c:107
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Te moduły mogą by dodane tylko do pojedynczych plików usług.\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1014
-#: src/pam-config.c:1024 src/pam-config.c:1034 src/pam-config.c:1045
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1020
+#: src/pam-config.c:1030 src/pam-config.c:1040 src/pam-config.c:1051
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Błąd podczas aktywacji %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
-#: src/pam-config.c:1016 src/pam-config.c:1026 src/pam-config.c:1036
-#: src/pam-config.c:1047
+#: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
+#: src/pam-config.c:1022 src/pam-config.c:1032 src/pam-config.c:1042
+#: src/pam-config.c:1053
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nowa konfiguracja z %s nie jest używana.\n"
 
-#: src/pam-config.c:175
+#: src/pam-config.c:176
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "Plik %s nie jest dowiązaniem symbolicznym do %s.\n"
 
-#: src/pam-config.c:195
-#, c-format
-msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr ""
-"OSTRZEŻENIE: plik \"%s\" nie został znaleziony. Pominięto tworzenie kopii.\n"
-
-#: src/pam-config.c:199
+#: src/pam-config.c:203
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 "OSTRZEŻENIE: Kopia zapasowa \"%s\" już istnieje. Pominięto tworzenie kopii.\n"
 
-#: src/pam-config.c:202
+#: src/pam-config.c:206
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "BŁĄD: Nie można utworzyć pliku kopii zapasowej \"%s\" (%m)\n"
 
-#: src/pam-config.c:206
+#: src/pam-config.c:210
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "BŁĄD: Nie można usunąć \"%s\" (%m)\n"
 
-#: src/pam-config.c:383
+#: src/pam-config.c:387
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "OSTRZEŻENIE: Nie można wczytać poprzednich plików konfiguracji.\n"
 
-#: src/pam-config.c:389 src/pam-config.c:437
+#: src/pam-config.c:393 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -472,12 +466,12 @@ msgstr ""
 "\n"
 "Przerwano - nie można wczytać pliku konfiguracyjnego.\n"
 
-#: src/pam-config.c:742
+#: src/pam-config.c:746
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Obsługiwane wspólne moduły:\n"
 
-#: src/pam-config.c:744
+#: src/pam-config.c:748
 #, c-format
 msgid ""
 "\n"
@@ -486,12 +480,12 @@ msgstr ""
 "\n"
 "Obsługiwane moduły usług:\n"
 
-#: src/pam-config.c:786
+#: src/pam-config.c:790
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Zbyt wiele parametrów.\n"
 
-#: src/pam-config.c:935
+#: src/pam-config.c:941
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Brak dostępu do \"%s\": %m\n"
@@ -602,6 +596,11 @@ msgstr "Nie można utworzyć uchwytu pliku: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Nie można utworzyć %s: %m\n"
+
+#~ msgid "WARNING: file '%s' not found. Omitting backup.\n"
+#~ msgstr ""
+#~ "OSTRZEŻENIE: plik \"%s\" nie został znaleziony. Pominięto tworzenie "
+#~ "kopii.\n"
 
 #~ msgid "New config from %s is is not in use!\n"
 #~ msgstr "Nowa konfiguracja z %s nie jest używana.\n"

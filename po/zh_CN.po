@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 14:20+0200\n"
+"POT-Creation-Date: 2012-11-12 15:46+0100\n"
 "PO-Revision-Date: 2008-12-01 01:33+0800\n"
 "Last-Translator: Thruth Wang <wanglihao@gmail.com>\n"
 "Language-Team: Simplified Chinese\n"
@@ -223,7 +223,7 @@ msgid ""
 msgstr ""
 "错误：pam_mount.so 被启用了。为了使用 pam_thinkfinger.so 你需要先把它禁用！\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:459
+#: src/mod_pam_mount.c:120 src/pam-config.c:463
 #, c-format
 msgid ""
 "\n"
@@ -279,12 +279,12 @@ msgid ""
 msgstr ""
 "错误：pam_fp.so 被启用了。为了使用 pam_thinkfinger.so 你需要先把它禁用！\n"
 
-#: src/pam-config.c:46
+#: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr "用法：%s -a|-c|-d [...]\n"
 
-#: src/pam-config.c:55
+#: src/pam-config.c:56
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -295,12 +295,12 @@ msgstr ""
 "本程序为免费软件；请参阅复制条件限制的来源。不附有\n"
 "适销性和适用于某特定用途的保证。\n"
 
-#: src/pam-config.c:67
+#: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr "欲获取更多信息，请尝试使用 %s -help 或 %s -usage。\n"
 
-#: src/pam-config.c:75
+#: src/pam-config.c:76
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
@@ -309,64 +309,64 @@ msgstr ""
 "%s - 创建 PAM 配置文件\n"
 "\n"
 
-#: src/pam-config.c:77
+#: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr "  -a, --add         添加选项/PAM 模块\n"
 
-#: src/pam-config.c:78
+#: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
 msgstr "  -c, --create      创建新配置\n"
 
-#: src/pam-config.c:79
+#: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr "  -d, --delete      删除选项/PAM 模块\n"
 
-#: src/pam-config.c:80
+#: src/pam-config.c:81
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr "      --confdir     使用自定义配置目录\n"
 
-#: src/pam-config.c:82
+#: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  转换旧配置创建新配置\n"
 
-#: src/pam-config.c:84
+#: src/pam-config.c:85
 msgid "      --service config  Service to modify config of\n"
 msgstr "      --service config  修改配置的服务\n"
 
-#: src/pam-config.c:86
+#: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      读取当前配置并重新写入\n"
 
-#: src/pam-config.c:88
+#: src/pam-config.c:89
 #, fuzzy
 msgid "      --verify      Read and verify current configuration\n"
 msgstr "      --update      读取当前配置并重新写入\n"
 
-#: src/pam-config.c:90
+#: src/pam-config.c:91
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       查询已安装模块和选项\n"
 
-#: src/pam-config.c:92
+#: src/pam-config.c:93
 msgid "      --list-modules  List all supported modules\n"
 msgstr "      --list-modules  列出所有支持模块\n"
 
-#: src/pam-config.c:94
+#: src/pam-config.c:95
 msgid "      --help        Give this help list\n"
 msgstr "      --help         提供此帮助列表\n"
 
-#: src/pam-config.c:95
+#: src/pam-config.c:96
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  -u, --usage        提供简短的用法信息\n"
 
-#: src/pam-config.c:96
+#: src/pam-config.c:97
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version      打印程序版本\n"
 
-#: src/pam-config.c:99
+#: src/pam-config.c:100
 msgid "Global Module Options:\n"
 msgstr "全区模块选项：\n"
 
-#: src/pam-config.c:100
+#: src/pam-config.c:101
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
@@ -376,58 +376,53 @@ msgstr ""
 "      common-{account,auth,password,session} 文件里面的\n"
 "      全局模块。\n"
 
-#: src/pam-config.c:105
+#: src/pam-config.c:106
 msgid "Single Service Module Options:\n"
 msgstr "单个服务模块选项：\n"
 
-#: src/pam-config.c:106
+#: src/pam-config.c:107
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      这些模块只能被添加到单个服务文件中。\n"
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1014
-#: src/pam-config.c:1024 src/pam-config.c:1034 src/pam-config.c:1045
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1020
+#: src/pam-config.c:1030 src/pam-config.c:1040 src/pam-config.c:1051
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "激活 %s (%m) 出错\n"
 
-#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
-#: src/pam-config.c:1016 src/pam-config.c:1026 src/pam-config.c:1036
-#: src/pam-config.c:1047
+#: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
+#: src/pam-config.c:1022 src/pam-config.c:1032 src/pam-config.c:1042
+#: src/pam-config.c:1053
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "来自 %s 的新配置未被使用！\n"
 
-#: src/pam-config.c:175
+#: src/pam-config.c:176
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "文件 %s 不是 %s 符号链接。\n"
 
-#: src/pam-config.c:195
-#, c-format
-msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr "警告：没有找到文件'%s'，忽略备份。\n"
-
-#: src/pam-config.c:199
+#: src/pam-config.c:203
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr "警告：备份文件'%s'已经存在。忽略备份。\n"
 
-#: src/pam-config.c:202
+#: src/pam-config.c:206
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "错误：无法创建的备份文件'%s' (%m)\n"
 
-#: src/pam-config.c:206
+#: src/pam-config.c:210
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "错误：无法移除 '%s' (%m)\n"
 
-#: src/pam-config.c:383
+#: src/pam-config.c:387
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "警告：不能加载旧的配置文件。\n"
 
-#: src/pam-config.c:389 src/pam-config.c:437
+#: src/pam-config.c:393 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -436,12 +431,12 @@ msgstr ""
 "\n"
 "无法加载配置文件，已中止!\n"
 
-#: src/pam-config.c:742
+#: src/pam-config.c:746
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "支持的共同模块：\n"
 
-#: src/pam-config.c:744
+#: src/pam-config.c:748
 #, c-format
 msgid ""
 "\n"
@@ -450,12 +445,12 @@ msgstr ""
 "\n"
 "不支持的共同模块：\n"
 
-#: src/pam-config.c:786
+#: src/pam-config.c:790
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 太多自变量。\n"
 
-#: src/pam-config.c:935
+#: src/pam-config.c:941
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "无法访问  '%s': %m\n"
@@ -566,6 +561,9 @@ msgstr "无法创建文件柄：%m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "无法创建 %s: %m\n"
+
+#~ msgid "WARNING: file '%s' not found. Omitting backup.\n"
+#~ msgstr "警告：没有找到文件'%s'，忽略备份。\n"
 
 #~ msgid "New config from %s is is not in use!\n"
 #~ msgstr "来自 %s 的新配置未被使用！\n"

@@ -24,6 +24,7 @@
 #include <string.h>
 #include <syslog.h>
 #include <getopt.h>
+#include <errno.h>
 
 #include <pam-config.h>
 
@@ -192,8 +193,11 @@ relink (const char *file, const char *file_pc, const char *file_bak)
 		      log files.  */
 
   if (access (file, F_OK) != 0)
-    fprintf (stderr, _("WARNING: file '%s' not found. Omitting backup.\n"),
-	     file);
+    {
+      /* fprintf (stderr,
+	       _("WARNING: file '%s' not found. Omitting backup.\n"),
+	       file); */
+    }
   else if (access (file_bak, F_OK) == 0)
     fprintf (stderr,
 	     _("WARNING: Backup file '%s' already exist. Omitting backup.\n"),
@@ -202,7 +206,7 @@ relink (const char *file, const char *file_pc, const char *file_bak)
     fprintf (stderr, _("ERROR: Cannot create backup file '%s' (%m)\n"),
 	       file_bak);
 
-  if (unlink (file) != 0)
+  if (unlink (file) != 0 && errno != ENOENT)
     fprintf (stderr, _("ERROR: Cannot remove '%s' (%m)\n"), file);
 
   if (symlink (basename(file_pc), file) != 0)
@@ -851,6 +855,8 @@ main (int argc, char *argv[])
       if (sanitize_check_account (common_module_list, 0) != 0)
 	return 1;
 
+      opt_set = mod_pam_unix.get_opt_set (&mod_pam_env, AUTH);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
       opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_auth (common_module_list, 0) != 0)

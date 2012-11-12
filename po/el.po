@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 14:20+0200\n"
+"POT-Creation-Date: 2012-11-12 15:46+0100\n"
 "PO-Revision-Date: 2008-06-06 01:04+0100\n"
 "Last-Translator: Vasileios Giannakopoulos <billg@billg.gr>\n"
 "Language-Team: Ελληνικά <billg@billg.gr>\n"
@@ -218,7 +218,7 @@ msgid ""
 "disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:459
+#: src/mod_pam_mount.c:120 src/pam-config.c:463
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -270,12 +270,12 @@ msgid ""
 "need to disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/pam-config.c:46
+#: src/pam-config.c:47
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr "Χρήση: %s -a|-c|-d [...]\n"
 
-#: src/pam-config.c:55
+#: src/pam-config.c:56
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -287,12 +287,12 @@ msgstr ""
 "Δεν υπάρχει ΚΑΜΙΑ εγγύηση; ουτε καν για ΕΜΠΟΡΙΚΟΤΗΤΑ ή ΑΝΤΙΣΤΟΙΧΙΣΗ ΓΙΑ "
 "ΚΑΠΟΙΑ ΣΥΓΚΕΚΡΙΜΕΝΗ ΕΡΓΑΣΙΑ.\n"
 
-#: src/pam-config.c:67
+#: src/pam-config.c:68
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr "Δοκιμάστε `%s --help' ή `%s --usage' για περισσότερες πληροφορίες.\n"
 
-#: src/pam-config.c:75
+#: src/pam-config.c:76
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
@@ -301,129 +301,124 @@ msgstr ""
 "%s - δημιουργία αρχείων ρυθμίσεων PAM\n"
 "\n"
 
-#: src/pam-config.c:77
+#: src/pam-config.c:78
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr "  -a, --add         Προσθήκη επιλογών/μονάδες PAM\n"
 
-#: src/pam-config.c:78
+#: src/pam-config.c:79
 msgid "  -c, --create      Create new configuration\n"
 msgstr "  -c, --create      Δημιουργία νέας ρύθμισης\n"
 
-#: src/pam-config.c:79
+#: src/pam-config.c:80
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr "  -d, --delete      Αφαίρεση επιλογών/μονάδες PAM\n"
 
-#: src/pam-config.c:80
+#: src/pam-config.c:81
 #, fuzzy
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr "Χρήση"
 
-#: src/pam-config.c:82
+#: src/pam-config.c:83
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr ""
 "      --initialize  Μετατροπή παλαιάς ρύθμισης και δημιουργία μιας νέας\n"
 
-#: src/pam-config.c:84
+#: src/pam-config.c:85
 #, fuzzy
 msgid "      --service config  Service to modify config of\n"
 msgstr "Υπηρεσία"
 
-#: src/pam-config.c:86
+#: src/pam-config.c:87
 msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Ανάγνωση τρέχουσας ρύθμισης και εγγραφής νέας\n"
 
-#: src/pam-config.c:88
+#: src/pam-config.c:89
 #, fuzzy
 msgid "      --verify      Read and verify current configuration\n"
 msgstr "      --update      Ανάγνωση τρέχουσας ρύθμισης και εγγραφής νέας\n"
 
-#: src/pam-config.c:90
+#: src/pam-config.c:91
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       Έρευνα για εγκατεστημένες μονάδες και επιλογές\n"
 
-#: src/pam-config.c:92
+#: src/pam-config.c:93
 msgid "      --list-modules  List all supported modules\n"
 msgstr ""
 
-#: src/pam-config.c:94
+#: src/pam-config.c:95
 msgid "      --help        Give this help list\n"
 msgstr "      --help        Προβολή αυτής της λίστας βοήθειας\n"
 
-#: src/pam-config.c:95
+#: src/pam-config.c:96
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr " -u, --usage     Προβολή ενός σύντομου μηνύματος χρήσης\n"
 
-#: src/pam-config.c:96
+#: src/pam-config.c:97
 msgid "  -v, --version     Print program version\n"
 msgstr " -v, --version     Προβολή έκδοσης προγράμματος\n"
 
-#: src/pam-config.c:99
+#: src/pam-config.c:100
 #, fuzzy
 msgid "Global Module Options:\n"
 msgstr "Επιλογές Μόντεμ"
 
-#: src/pam-config.c:100
+#: src/pam-config.c:101
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
 "      the single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:105
+#: src/pam-config.c:106
 #, fuzzy
 msgid "Single Service Module Options:\n"
 msgstr "Προκαθορισμένες Επιλογές Προσάρτησης"
 
-#: src/pam-config.c:106
+#: src/pam-config.c:107
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:158 src/pam-config.c:211 src/pam-config.c:1014
-#: src/pam-config.c:1024 src/pam-config.c:1034 src/pam-config.c:1045
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1020
+#: src/pam-config.c:1030 src/pam-config.c:1040 src/pam-config.c:1051
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Σφάλμα κατα την ενεργοποίηση %s (%m)\n"
 
-#: src/pam-config.c:160 src/pam-config.c:177 src/pam-config.c:213
-#: src/pam-config.c:1016 src/pam-config.c:1026 src/pam-config.c:1036
-#: src/pam-config.c:1047
+#: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
+#: src/pam-config.c:1022 src/pam-config.c:1032 src/pam-config.c:1042
+#: src/pam-config.c:1053
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Νέα ρύθμιση από %s δεν είναι σε χρήση!\n"
 
-#: src/pam-config.c:175
+#: src/pam-config.c:176
 #, c-format
 msgid "File %s is no symlink to %s.\n"
 msgstr "Το αρχείο %s δεν έχει συμβολικό σύνδεσμο στο %s.\n"
 
-#: src/pam-config.c:195
-#, fuzzy, c-format
-msgid "WARNING: file '%s' not found. Omitting backup.\n"
-msgstr "ΠΡΟΣΟΧΗ"
-
-#: src/pam-config.c:199
+#: src/pam-config.c:203
 #, fuzzy, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr "ΠΡΟΣΟΧΗ"
 
-#: src/pam-config.c:202
+#: src/pam-config.c:206
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "Αδυναμία δημιουργίας αντιγράφου ασφαλείας του %s: %m"
 
-#: src/pam-config.c:206
+#: src/pam-config.c:210
 #, fuzzy, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "Αδυναμία δημιουργίας %s: %m\n"
 
-#: src/pam-config.c:383
+#: src/pam-config.c:387
 #, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 "\n"
 "Αδυναμία φόρτωσης αρχείου ρυθμίσεων, ματαίωση!\n"
 
-#: src/pam-config.c:389 src/pam-config.c:437
+#: src/pam-config.c:393 src/pam-config.c:441
 #, c-format
 msgid ""
 "\n"
@@ -432,24 +427,24 @@ msgstr ""
 "\n"
 "Αδυναμία φόρτωσης αρχείου ρυθμίσεων, ματαίωση!\n"
 
-#: src/pam-config.c:742
+#: src/pam-config.c:746
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:744
+#: src/pam-config.c:748
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:786
+#: src/pam-config.c:790
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Υπερβολικά πολλοί παράμετροι.\n"
 
-#: src/pam-config.c:935
+#: src/pam-config.c:941
 #, fuzzy, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Αδυναμία δημιουργίας %s: %m\n"
@@ -552,6 +547,10 @@ msgstr "Αδυναμία δημιουργίας %s: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Αδυναμία δημιουργίας %s: %m\n"
+
+#, fuzzy
+#~ msgid "WARNING: file '%s' not found. Omitting backup.\n"
+#~ msgstr "ΠΡΟΣΟΧΗ"
 
 #~ msgid "New config from %s is is not in use!\n"
 #~ msgstr "Νέα ρύθμιση από %s δεν είναι σε χρήση!\n"
