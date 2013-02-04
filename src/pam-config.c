@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007, 2008, 2009, 2012 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2008, 2009, 2012, 2013 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -868,6 +868,8 @@ main (int argc, char *argv[])
       opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       opt_set->enable (opt_set, "nullok", TRUE);
+      opt_set->enable (opt_set, "sha512", TRUE);
+      opt_set->enable (opt_set, "shadow", TRUE);
       if (sanitize_check_password (common_module_list, 0) != 0)
 	return 1;
 

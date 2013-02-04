@@ -1,8 +1,11 @@
 pam-config NEWS -- history of user-visible changes.
 
-Copyright (C) 2006-2012 Thorsten Kukuk <kukuk@suse.de>.
+Copyright (C) 2006-2013 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into bugzilla.novell.com.
+
+Version 0.85
+* pam_unix: use sha512 and shadow flags by default on new installations.
 
 Version 0.84
 * pam-config: don't print wrong error messages.
