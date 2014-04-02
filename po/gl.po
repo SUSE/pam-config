@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-12 15:46+0100\n"
+"POT-Creation-Date: 2013-02-07 09:58+0100\n"
 "PO-Revision-Date: 2009-12-02 21:03+0100\n"
 "Last-Translator: Óscar Abilleira Muñiz <oscar_abilleira@edu.xunta.es>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -411,15 +411,15 @@ msgstr ""
 "      Estes módulos só poden ser engadidos ós arquivos de servicio "
 "individual.\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1020
-#: src/pam-config.c:1030 src/pam-config.c:1040 src/pam-config.c:1051
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1021
+#: src/pam-config.c:1031 src/pam-config.c:1041 src/pam-config.c:1052
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Erro activando %s (%m)\n"
 
 #: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1022 src/pam-config.c:1032 src/pam-config.c:1042
-#: src/pam-config.c:1053
+#: src/pam-config.c:1023 src/pam-config.c:1033 src/pam-config.c:1043
+#: src/pam-config.c:1054
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "O novo formulario de configuración %s non está en uso!\n"
@@ -480,7 +480,7 @@ msgstr ""
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Demasiados argumentos.\n"
 
-#: src/pam-config.c:941
+#: src/pam-config.c:942
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Non se pode acceder a '%s': %m\n"

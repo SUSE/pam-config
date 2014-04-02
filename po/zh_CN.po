@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-12 15:46+0100\n"
+"POT-Creation-Date: 2013-02-07 09:58+0100\n"
 "PO-Revision-Date: 2008-12-01 01:33+0800\n"
 "Last-Translator: Thruth Wang <wanglihao@gmail.com>\n"
 "Language-Team: Simplified Chinese\n"
@@ -384,15 +384,15 @@ msgstr "单个服务模块选项：\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      这些模块只能被添加到单个服务文件中。\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1020
-#: src/pam-config.c:1030 src/pam-config.c:1040 src/pam-config.c:1051
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1021
+#: src/pam-config.c:1031 src/pam-config.c:1041 src/pam-config.c:1052
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "激活 %s (%m) 出错\n"
 
 #: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1022 src/pam-config.c:1032 src/pam-config.c:1042
-#: src/pam-config.c:1053
+#: src/pam-config.c:1023 src/pam-config.c:1033 src/pam-config.c:1043
+#: src/pam-config.c:1054
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "来自 %s 的新配置未被使用！\n"
@@ -450,7 +450,7 @@ msgstr ""
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 太多自变量。\n"
 
-#: src/pam-config.c:941
+#: src/pam-config.c:942
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "无法访问  '%s': %m\n"

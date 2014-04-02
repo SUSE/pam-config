@@ -1,3 +1,4 @@
+extern pam_module_t mod_pam_access;
 extern pam_module_t mod_pam_apparmor;
 extern pam_module_t mod_pam_ccreds;
 extern pam_module_t mod_pam_cracklib;
@@ -43,6 +44,7 @@ extern pam_module_t mod_pam_mount;
 extern pam_module_t mod_pam_systemd;
 
 pam_module_t *common_module_list[] = {
+  &mod_pam_access,
   &mod_pam_apparmor,
   &mod_pam_ccreds,
   &mod_pam_cracklib,
@@ -80,6 +82,7 @@ pam_module_t *common_module_list[] = {
 };
 
 static pam_module_t *module_list_account[] = {
+  &mod_pam_access,
   &mod_pam_unix2,
   &mod_pam_unix,
   &mod_pam_krb5,

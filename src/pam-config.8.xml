@@ -162,6 +162,62 @@
         </para>
         <variablelist>
           <varlistentry>
+            <term><option>--access</option></term>
+            <listitem>
+              <para>
+                pam_access for account access rules
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--access-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_access.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--access-nodefgroup</option></term>
+            <listitem>
+              <para>
+                Add <option>nodefgroup</option> option to all pam_access.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--access-noaudit</option></term>
+            <listitem>
+              <para>
+                Add <option>noaudit</option> option to all pam_access.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--access-accessfile=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>accessfile=</option><replaceable>value</replaceable> option to pam_access.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--access-fieldsep=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>fieldsep=</option><replaceable>value</replaceable> option to pam_access.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--access-listsep=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>listsep=</option><replaceable>value</replaceable> option to pam_access.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--apparmor</option></term>
             <listitem>
               <para>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-12 15:46+0100\n"
+"POT-Creation-Date: 2013-02-07 09:58+0100\n"
 "PO-Revision-Date: 2010-05-30 12:19+0200\n"
 "Last-Translator: Vojtěch Zeisek <Vojtech.Zeisek@opensuse.org>\n"
 "Language-Team: Czech <opensuse-translation@opensuse.org>\n"
@@ -404,15 +404,15 @@ msgstr "Volby modulu služby:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Tyto moduly lze vložit pouze do jednotlivých souborů služby.\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1020
-#: src/pam-config.c:1030 src/pam-config.c:1040 src/pam-config.c:1051
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1021
+#: src/pam-config.c:1031 src/pam-config.c:1041 src/pam-config.c:1052
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Chyba při aktivaci %s (%m)\n"
 
 #: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1022 src/pam-config.c:1032 src/pam-config.c:1042
-#: src/pam-config.c:1053
+#: src/pam-config.c:1023 src/pam-config.c:1033 src/pam-config.c:1043
+#: src/pam-config.c:1054
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nová konfigurace z %s není používána!\n"
@@ -470,7 +470,7 @@ msgstr ""
 msgid "%s: Too many arguments.\n"
 msgstr "%s: příliš mnoho argumentů.\n"
 
-#: src/pam-config.c:941
+#: src/pam-config.c:942
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Nelze přistupovat k '%s': %m\n"

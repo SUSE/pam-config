@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-12 15:46+0100\n"
+"POT-Creation-Date: 2013-02-07 09:58+0100\n"
 "PO-Revision-Date: 2008-06-06 01:04+0100\n"
 "Last-Translator: Vasileios Giannakopoulos <billg@billg.gr>\n"
 "Language-Team: Ελληνικά <billg@billg.gr>\n"
@@ -378,15 +378,15 @@ msgstr "Προκαθορισμένες Επιλογές Προσάρτησης"
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1020
-#: src/pam-config.c:1030 src/pam-config.c:1040 src/pam-config.c:1051
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1021
+#: src/pam-config.c:1031 src/pam-config.c:1041 src/pam-config.c:1052
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Σφάλμα κατα την ενεργοποίηση %s (%m)\n"
 
 #: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1022 src/pam-config.c:1032 src/pam-config.c:1042
-#: src/pam-config.c:1053
+#: src/pam-config.c:1023 src/pam-config.c:1033 src/pam-config.c:1043
+#: src/pam-config.c:1054
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Νέα ρύθμιση από %s δεν είναι σε χρήση!\n"
@@ -444,7 +444,7 @@ msgstr ""
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Υπερβολικά πολλοί παράμετροι.\n"
 
-#: src/pam-config.c:941
+#: src/pam-config.c:942
 #, fuzzy, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Αδυναμία δημιουργίας %s: %m\n"
