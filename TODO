@@ -1,3 +1,0 @@
-
-- call_modules= from pam_unix2.conf can have more than one entry
-- call_modules= from common-*-pc: strip of ldap and krb5
