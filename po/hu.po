@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-07 09:58+0100\n"
+"POT-Creation-Date: 2014-09-25 14:40+0200\n"
 "PO-Revision-Date: 2010-03-18 11:40+0100\n"
 "Last-Translator: Kalman Kemenczy <kkemenczy@novell.com>\n"
 "Language-Team: collection <kde-i18n-doc@kde.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,8 +130,8 @@ msgstr "Hiba: Az útvonal felépítéséhez nem maradt memória.\n"
 #, c-format
 msgid "WARNING: Found no service files in '%s'.\n"
 msgstr ""
-"FIGYELMEZTETÉS: A szolgáltatás fájljai nem találhatók a következő helyen: '%"
-"s'.\n"
+"FIGYELMEZTETÉS: A szolgáltatás fájljai nem találhatók a következő helyen: "
+"'%s'.\n"
 
 #: src/mod_pam_fp.c:116 src/mod_pam_fprint.c:116 src/mod_pam_fprintd.c:116
 #: src/mod_pam_thinkfinger.c:116

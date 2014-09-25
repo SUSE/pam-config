@@ -125,6 +125,7 @@ static pam_module_t *module_list_password[] = {
   &mod_pam_cracklib,
   &mod_pam_pwhistory,
   &mod_pam_gnome_keyring,
+  &mod_pam_ecryptfs,
   &mod_pam_unix2,
   &mod_pam_unix,
   &mod_pam_make,

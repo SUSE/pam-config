@@ -4,6 +4,9 @@ Copyright (C) 2006-2014 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into bugzilla.novell.com.
 
+Version 0.88
+* Add pam_ecryptfs to password section [bsc#895096].
+
 Version 0.87
 * Add support for pam_access.
 

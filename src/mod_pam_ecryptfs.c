@@ -44,6 +44,9 @@ write_config_ecryptfs (pam_module_t * this, enum write_type op, FILE * fp)
     case AUTH:
       fprintf (fp, "auth\trequired\tpam_ecryptfs.so\tunwrap\n");
       break;
+    case PASSWORD:
+      fprintf (fp, "password\toptional\tpam_ecryptfs.so\t\n");
+      break;
     case SESSION:
       fprintf (fp, "session\toptional\tpam_ecryptfs.so\tunwrap\n");
       break;

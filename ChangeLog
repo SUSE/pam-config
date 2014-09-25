@@ -1,6 +1,12 @@
+2014-09-25  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 0.88
+
+	* src/mod_pam_ecryptfs.c: write PASSWORD rule [bsc#895096].
+
 2014-04-02  Thorsten Kukuk  <kukuk@suse.de>
 
-	* rlease version 0.87
+	* release version 0.87
 
 	* src/mod_pam_access.c: New.
 	* src/supported-modules.h: Ad pam_access.
