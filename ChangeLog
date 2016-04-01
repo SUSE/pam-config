@@ -1,3 +1,15 @@
+2016-04-01  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* release version 0.89
+
+	* src/Makefile.am: Add pam_google_authenticator.
+	* src/supported-modules.h: Likewise.
+	* src/src/mod_pam_google_authenticator.c: New.
+	pam_google_authenticator patch from Darin Perusich [bsc#888149].
+
+	* src/sanity_checks.c (check_for_pam_module): Don't check only
+	for /lib*/security, but also if /lib*/libpam.so.0 exist.
+
 2014-09-25  Thorsten Kukuk  <kukuk@suse.de>
 
 	* release version 0.88

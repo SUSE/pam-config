@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 14:56+0200\n"
+"POT-Creation-Date: 2016-04-01 11:07+0200\n"
 "PO-Revision-Date: 2010-03-10 16:13+0900\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <opensuse-ja@opensuse.org>\n"
@@ -494,22 +494,22 @@ msgstr "'%s' にアクセスできません: %m\n"
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "%s に指定したオプションは未知のものです。無視されました: '%s'\n"
 
-#: src/sanity_checks.c:48
+#: src/sanity_checks.c:52
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "警告: モジュール %s はインストールされていません。\n"
 
-#: src/sanity_checks.c:53
+#: src/sanity_checks.c:57
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "エラー: モジュール %s はインストールされていません。\n"
 
-#: src/sanity_checks.c:80
+#: src/sanity_checks.c:84
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr "警告: pam_unix.so と pam_unix2.so の両方が有効になっています！\n"
 
-#: src/sanity_checks.c:85
+#: src/sanity_checks.c:89
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -519,12 +519,12 @@ msgstr ""
 "す。\n"
 "情報: pam_unix2.so だけが使われます。\n"
 
-#: src/sanity_checks.c:96 src/sanity_checks.c:102
+#: src/sanity_checks.c:100 src/sanity_checks.c:106
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "エラー: pam_unix.so を無効化する際に失敗しました。\n"
 
-#: src/sanity_checks.c:129
+#: src/sanity_checks.c:133
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
@@ -533,23 +533,23 @@ msgstr ""
 "エラー: ldap-account_only は krb5 と一緒に使う必要があります。\n"
 "設定を変更できませんでした。\n"
 
-#: src/sanity_checks.c:150
+#: src/sanity_checks.c:154
 #, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "警告: pam_localuser は有効化されていません！\n"
 
-#: src/sanity_checks.c:184
+#: src/sanity_checks.c:188
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr ""
 "警告: pam_ccreds.so には LDAP か Kerberos5 が必要です。無視されました。\n"
 
-#: src/sanity_checks.c:213
+#: src/sanity_checks.c:217
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr "警告: pam_pwcheck.so と pam_cracklib.so の両方が有効になっています！\n"
 
-#: src/sanity_checks.c:218
+#: src/sanity_checks.c:222
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -558,12 +558,12 @@ msgstr ""
 "情報: pam_pwcheck.so と pam_cracklib.so の両方が有効になっています。\n"
 "情報: pam_cracklib.so だけが使われます。\n"
 
-#: src/sanity_checks.c:258
+#: src/sanity_checks.c:262
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr "警告: cracklib 自身には 6 文字の長さ制限が存在します！\n"
 
-#: src/sanity_checks.c:280
+#: src/sanity_checks.c:284
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"

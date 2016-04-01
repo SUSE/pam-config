@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007, 2008, 2009, 2010 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2008, 2009, 2010, 2016 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -30,13 +30,17 @@
 int
 check_for_pam_module (const char *name, int force)
 {
+  const char *pamlib[] = { "/lib/libpam.so.0", "/lib64/libpam.so.0" };
   const char *path[] = { "/lib/security", "/lib64/security" };
   unsigned int i;
   int retval = 0;
 
   for (i = 0; i < (sizeof (path)/sizeof (char *)); i++)
     {
-      if (access (path[i], F_OK) == 0)
+      /* To check if we have a dual stack (32bit and 64bit), we do not need
+	 only a /lib* /security directory, but /lib* /libpam.so.0 should be 
+         installed, too. */
+      if (access (pamlib[i], F_OK) == 0 && access (path[i], F_OK) == 0)
 	{
 	  char module[strlen(path[i]) + strlen (name) + 2];
 

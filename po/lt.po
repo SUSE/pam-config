@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.lt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 14:56+0200\n"
+"POT-Creation-Date: 2016-04-01 11:07+0200\n"
 "PO-Revision-Date: 2010-07-29 21:09+0300\n"
 "Last-Translator: Mindaugas Baranauskas <embar@users.berlios.de>\n"
 "Language-Team: Lithuanian <kde-i18n-doc@kde.org>\n"
@@ -485,22 +485,22 @@ msgstr "Nepavyksta pasiekti „%s“: %m\n"
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "Nežinoma parinktis, kuri buvo skirta %s, nepaisoma: „%s“\n"
 
-#: src/sanity_checks.c:48
+#: src/sanity_checks.c:52
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "DĖMESIO: modulis %s neįdiegtas.\n"
 
-#: src/sanity_checks.c:53
+#: src/sanity_checks.c:57
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "KLAIDA: modulis %s neįdiegtas.\n"
 
-#: src/sanity_checks.c:80
+#: src/sanity_checks.c:84
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr "DĖMESIO: pam_unix.so ir pam_unix2.so yra įgalinti!\n"
 
-#: src/sanity_checks.c:85
+#: src/sanity_checks.c:89
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -509,12 +509,12 @@ msgstr ""
 "INFORMACIJA: %s paslaugoje pam_unix.so ir pam_unix2.so yra įgalinti,\n"
 "INFORMACIJA: bus įgalintas tik pam_unix2.so.\n"
 
-#: src/sanity_checks.c:96 src/sanity_checks.c:102
+#: src/sanity_checks.c:100 src/sanity_checks.c:106
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "KLAIDA: nepavyko uždrausti pam_unix.so.\n"
 
-#: src/sanity_checks.c:129
+#: src/sanity_checks.c:133
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
@@ -523,22 +523,22 @@ msgstr ""
 "KLAIDA: ldap-account_only leidžiama naudoti tik kartu su krb5.\n"
 "Konfigūracija nepakeista!\n"
 
-#: src/sanity_checks.c:150
+#: src/sanity_checks.c:154
 #, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "DĖMESIO: pam_localuser nėra įgalintas!\n"
 
-#: src/sanity_checks.c:184
+#: src/sanity_checks.c:188
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr "DĖMESIO: pam_ccreds.so reikalauja LDAP arba Kerberos5, nepaisoma\n"
 
-#: src/sanity_checks.c:213
+#: src/sanity_checks.c:217
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr "DĖMESIO: pam_pwcheck ir pam_cracklib yra įgalinti!\n"
 
-#: src/sanity_checks.c:218
+#: src/sanity_checks.c:222
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -547,12 +547,12 @@ msgstr ""
 "INFORMACIJA: pam_pwcheck.so ir pam_cracklib.so yra įgalinti,\n"
 "INFORMACIJA: bus naudojamas tik pam_cracklib.so.\n"
 
-#: src/sanity_checks.c:258
+#: src/sanity_checks.c:262
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr "DĖMESIO: cracklib pats savaime turi 6 rašmenų limitą!\n"
 
-#: src/sanity_checks.c:280
+#: src/sanity_checks.c:284
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"

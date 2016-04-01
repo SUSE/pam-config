@@ -42,6 +42,7 @@ extern pam_module_t mod_pam_csync;
 extern pam_module_t mod_pam_loginuid;
 extern pam_module_t mod_pam_mount;
 extern pam_module_t mod_pam_systemd;
+extern pam_module_t mod_pam_google_authenticator;
 
 pam_module_t *common_module_list[] = {
   &mod_pam_access,
@@ -168,5 +169,6 @@ pam_module_t *service_module_list[] = {
   &mod_pam_lastlog,
   &mod_pam_loginuid,
   &mod_pam_mount,
+  &mod_pam_google_authenticator,
   NULL
 };

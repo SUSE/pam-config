@@ -88,7 +88,7 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
     fprintf (fp, "# Account-related modules common to all services\n#\n");
     fprintf (fp,
 	     "# This file is included from other service-specific PAM config files,\n"
-	     "# and should contain a list of the accountorization modules that define\n"
+	     "# and should contain a list of the account modules that define\n"
 	     "# the central access policy for use on the system.  The default is to\n"
 	     "# only deny service to users whose accounts are expired.\n#\n");
 

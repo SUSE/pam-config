@@ -1,8 +1,12 @@
 pam-config NEWS -- history of user-visible changes.
 
-Copyright (C) 2006-2014 Thorsten Kukuk <kukuk@suse.de>.
+Copyright (C) 2006-2016 Thorsten Kukuk <kukuk@suse.de>.
 
-Please enter bug reports into bugzilla.novell.com.
+Please enter bug reports into https://bugzilla.suse.com.
+
+Version 0.89
+* Add pam_google_authenticator [bsc#888149].
+* For dual stack, check for libpam.so.0, too.
 
 Version 0.88
 * Add pam_ecryptfs to password section [bsc#895096].
