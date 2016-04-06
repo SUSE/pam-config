@@ -1,3 +1,10 @@
+2016-04-06  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* src/mod_pam_unix.c: Adjust list of parameters for new
+	pam_unix.so.
+	* src/pam-modules.h: Add more macros with different number of
+	arguments.
+
 2016-04-01  Thorsten Kukuk  <kukuk@thkukuk.de>
 
 	* release version 0.89

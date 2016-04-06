@@ -85,6 +85,7 @@ typedef struct {
 #define INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h) INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_4(PREFIX,TYPE,DEFAULT,e,f,g,h)
 #define INIT_OPT_10(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j) INIT_OPT_5(PREFIX,TYPE,DEFAULT,a,b,c,d,e); INIT_OPT_5(PREFIX,TYPE,DEFAULT,f,g,h,i,j)
 #define INIT_OPT_11(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k) INIT_OPT_6(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f); INIT_OPT_5(PREFIX,TYPE,DEFAULT,g,h,i,j,k)
+#define INIT_OPT_15(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o) INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h); INIT_OPT_7(PREFIX,TYPE,DEFAULT,i,j,k,l,m,n,o)
 #define INIT_OPT_16(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p) INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h); INIT_OPT_8(PREFIX,TYPE,DEFAULT,i,j,k,l,m,n,o,p)
 
 #define OPT_SET_START(PREFIX, TYPE) static TYPE ## _option_t * PREFIX ## _ ## TYPE ## _opts[] = {
@@ -100,6 +101,7 @@ typedef struct {
 #define OPT_SET_BODY_8(PREFIX, a,b,c,d,e,f,g,h) OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_6(PREFIX, c,d,e,f,g,h)
 #define OPT_SET_BODY_10(PREFIX, a,b,c,d,e,f,g,h,i,j) OPT_SET_BODY_5(PREFIX,a,b,c,d,e), OPT_SET_BODY_5(PREFIX, f,g,h,i,j)
 #define OPT_SET_BODY_11(PREFIX, a,b,c,d,e,f,g,h,i,j,k) OPT_SET_BODY_5(PREFIX,a,b,c,d,e), OPT_SET_BODY_6(PREFIX, f,g,h,i,j,k)
+#define OPT_SET_BODY_15(PREFIX, a,b,c,d,e,f,g,h,i,j,k,l,m,n,o) OPT_SET_BODY_8(PREFIX,a,b,c,d,e,f,g,h), OPT_SET_BODY_7(PREFIX, i,j,k,l,m,n,o)
 #define OPT_SET_BODY_16(PREFIX, a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p) OPT_SET_BODY_8(PREFIX,a,b,c,d,e,f,g,h), OPT_SET_BODY_8(PREFIX, i,j,k,l,m,n,o,p)
 
 #define GENERIC_OPT_SET_1(PREFIX,TYPE,DEFAULT,a)	      INIT_OPT_1(PREFIX, TYPE, DEFAULT, a); \
@@ -146,6 +148,11 @@ typedef struct {
 							          OPT_SET_BODY_11(PREFIX,a,b,c,d,e,f,g,h,i,j,k), \
 								  OPT_SET_END
 
+#define GENERIC_OPT_SET_15(PREFIX, TYPE, DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o) \
+                                                                  INIT_OPT_15(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o);     \
+                                                                  OPT_SET_START(PREFIX, TYPE) \
+                                                                  OPT_SET_BODY_15(PREFIX,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o), \
+                                                                  OPT_SET_END
 #define GENERIC_OPT_SET_16(PREFIX, TYPE, DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p) \
                                                                   INIT_OPT_16(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p);	\
 							          OPT_SET_START(PREFIX, TYPE) \
@@ -208,6 +215,11 @@ typedef struct {
   GENERIC_OPT_SET_11( password,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11); \
   GENERIC_OPT_SET_11( session,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11);
 
+#define DECLARE_BOOL_OPTS_15(OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11, OPT_12, OPT_13, OPT_14, OPT_15) \
+  GENERIC_OPT_SET_15( auth,     bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11, OPT_12, OPT_13, OPT_14, OPT_15); \
+  GENERIC_OPT_SET_15( account,  bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11, OPT_12, OPT_13, OPT_14, OPT_15); \
+  GENERIC_OPT_SET_15( password, bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11, OPT_12, OPT_13, OPT_14, OPT_15); \
+  GENERIC_OPT_SET_15( session,  bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11, OPT_12, OPT_13, OPT_14, OPT_15);
 #define DECLARE_BOOL_OPTS_16(OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11, OPT_12, OPT_13, OPT_14, OPT_15, OPT_16) \
   GENERIC_OPT_SET_16( auth,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11, OPT_12, OPT_13, OPT_14, OPT_15, OPT_16); \
   GENERIC_OPT_SET_16( account,	bool, BOOL_DEFAULT, OPT_1, OPT_2, OPT_3, OPT_4, OPT_5, OPT_6, OPT_7, OPT_8, OPT_9, OPT_10, OPT_11, OPT_12, OPT_13, OPT_14, OPT_15, OPT_16); \
@@ -233,11 +245,17 @@ typedef struct {
   GENERIC_OPT_SET_3( password,	string, STRING_DEFAULT,OPT_1,OPT_2,OPT_3); \
   GENERIC_OPT_SET_3( session,	string, STRING_DEFAULT,OPT_1,OPT_2,OPT_3);
 
+#define DECLARE_STRING_OPTS_4(OPT_1,OPT_2,OPT_3,OPT_4)    \
+  GENERIC_OPT_SET_4( auth,      string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4);       \
+  GENERIC_OPT_SET_4( account,   string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4);       \
+  GENERIC_OPT_SET_4( password,  string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4);       \
+  GENERIC_OPT_SET_4( session,   string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4);
+
 #define DECLARE_STRING_OPTS_5(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5)	\
-  GENERIC_OPT_SET_5( auth,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5 );	\
-  GENERIC_OPT_SET_5( account,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5 );	\
-  GENERIC_OPT_SET_5( password,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5 );	\
-  GENERIC_OPT_SET_5( session,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5 );
+  GENERIC_OPT_SET_5( auth,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5);	\
+  GENERIC_OPT_SET_5( account,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5);	\
+  GENERIC_OPT_SET_5( password,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5);	\
+  GENERIC_OPT_SET_5( session,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5);
 
 #define DECLARE_STRING_OPTS_6(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5,OPT_6)	\
   GENERIC_OPT_SET_6( auth,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6 );	\

@@ -1234,14 +1234,6 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--unix-not_set_pass</option></term>
-            <listitem>
-              <para>
-                Add <option>not_set_pass</option> option to all pam_unix.so invocations.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--unix-nis</option></term>
             <listitem>
               <para>
@@ -1270,6 +1262,14 @@
             <listitem>
               <para>
                 Add <option>try_first_pass</option> option to all pam_unix.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix-authtok_type=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>authtok_type=</option><replaceable>value</replaceable> option to pam_unix.so.
               </para>
             </listitem>
           </varlistentry>

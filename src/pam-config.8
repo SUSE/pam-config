@@ -2,12 +2,12 @@
 .\"     Title: pam-config
 .\"    Author: [see the "AUTHOR" section]
 .\" Generator: DocBook XSL Stylesheets v1.78.1 <http://docbook.sf.net/>
-.\"      Date: 04/01/2016
+.\"      Date: 04/06/2016
 .\"    Manual: Reference Manual
 .\"    Source: Reference Manual
 .\"  Language: English
 .\"
-.TH "PAM\-CONFIG" "8" "04/01/2016" "Reference Manual" "Reference Manual"
+.TH "PAM\-CONFIG" "8" "04/06/2016" "Reference Manual" "Reference Manual"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -992,13 +992,6 @@ Add
 option to all pam_unix\&.so invocations\&.
 .RE
 .PP
-\fB\-\-unix\-not_set_pass\fR
-.RS 4
-Add
-\fBnot_set_pass\fR
-option to all pam_unix\&.so invocations\&.
-.RE
-.PP
 \fB\-\-unix\-nis\fR
 .RS 4
 Add
@@ -1025,6 +1018,13 @@ option to all pam_unix\&.so invocations\&.
 Add
 \fBtry_first_pass\fR
 option to all pam_unix\&.so invocations\&.
+.RE
+.PP
+\fB\-\-unix\-authtok_type=\fR\fIvalue\fR
+.RS 4
+Add
+\fBauthtok_type=\fR\fIvalue\fR
+option to pam_unix\&.so\&.
 .RE
 .PP
 \fB\-\-unix\-remember=\fR\fIvalue\fR
