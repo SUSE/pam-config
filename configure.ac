@@ -1,9 +1,10 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(src/pam-config.c)
-AM_INIT_AUTOMAKE("pam-config", 0.89)
+AC_INIT(pam-config, 0.90)
+AM_INIT_AUTOMAKE
+AC_CONFIG_SRCDIR([src/pam-config.c])
 AM_CONFIG_HEADER(config.h)
+AC_CONFIG_MACRO_DIR([m4])
 AC_PREFIX_DEFAULT(/usr)
-
 AC_SUBST(PACKAGE)
 AC_SUBST(VERSION)
 

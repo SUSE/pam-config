@@ -1,6 +1,6 @@
 #!/bin/sh -x
 
-aclocal -I m4
+aclocal
 autoheader
 automake --add-missing --copy
 autoreconf

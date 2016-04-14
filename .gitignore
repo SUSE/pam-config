@@ -9,6 +9,7 @@
 *.so
 *.trs
 *~
+*.8
 .deps/
 .libs/
 /ABOUT-NLS
@@ -23,6 +24,17 @@
 /configure
 /libtool
 /stamp-h1
+config.guess
+config.sub
+depcomp
+install-sh
+missing
+po/POTFILES
+po/*.gmo
+po/remove-potcdate.sed
+po/stamp-po
+tests/site.exp
 Makefile
 Makefile.in
 pam-config*.tar.*
+src/pam-config

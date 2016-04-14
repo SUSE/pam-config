@@ -4,6 +4,9 @@ Copyright (C) 2006-2016 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into https://bugzilla.suse.com.
 
+Version 0.90
+* pam_unix: adjust for changes made in Linux-PAM 1.3.0
+
 Version 0.89
 * Add pam_google_authenticator [bsc#888149].
 * For dual stack, check for libpam.so.0, too.

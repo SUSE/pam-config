@@ -1,5 +1,5 @@
 #
-## Makefile.am for limal/testsuite
+## Makefile.am for pam-config/tests
 #
 SUBDIRS = etc 
 PACKAGE = pam-config

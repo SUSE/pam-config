@@ -1,4 +1,6 @@
-
-pam-config is a tool to adjust the PAM config from a
-RPM post/pre install script.
+pam-config is a command line utility to maintain the common PAM
+configuration files included by most PAM application configuration
+files. It can be used to configure a system for different network or
+hardware based authentication schemes. pam-config can also
+add/adjust/remove other PAM modules and their options.
 

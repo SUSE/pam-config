@@ -1,3 +1,9 @@
+2016-04-14  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* release version 0.90
+
+	* update autoconf and automake files
+
 2016-04-06  Thorsten Kukuk  <kukuk@thkukuk.de>
 
 	* src/mod_pam_unix.c: Adjust list of parameters for new
