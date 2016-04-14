@@ -12,7 +12,6 @@
 *.8
 .deps/
 .libs/
-/ABOUT-NLS
 /ChangeLog
 /INSTALL
 /aclocal.m4

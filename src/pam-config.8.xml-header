@@ -89,6 +89,30 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
+	<varlistentry>
+	  <term><option>--confdir</option> directory</term>
+	  <listitem>
+	    <para>
+	        Use a custom configuration directory.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>--initialize</option></term>
+	  <listitem>
+	    <para>
+	      Convert old config and create new one.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><option>--update</option></term>
+	  <listitem>
+	    <para>
+	      Read current config and write them new.
+	    </para>
+	  </listitem>
+	</varlistentry>
       </variablelist>
     </refsect2>
     <refsect2>
