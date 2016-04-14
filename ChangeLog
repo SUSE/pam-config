@@ -1,5 +1,7 @@
 2016-04-14  Thorsten Kukuk  <kukuk@thkukuk.de>
 
+	* src/pam-config.8.xml-header: Document some missing options.
+
 	* release version 0.90
 
 	* update autoconf and automake files
