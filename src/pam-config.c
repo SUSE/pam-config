@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007, 2008, 2009, 2012, 2013, 2014 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2008, 2009, 2012, 2013, 2014, 2016 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -219,6 +219,124 @@ relink (const char *file, const char *file_pc, const char *file_bak)
     }
   return 0;
 }
+
+static int
+replace_obsolete_modules (pam_module_t **module_list)
+{
+  int with_unix2, with_pwcheck;
+
+  with_unix2 = is_module_enabled (module_list, "pam_unix2.so", ACCOUNT) |
+    is_module_enabled (module_list, "pam_unix2.so", AUTH) |
+    is_module_enabled (module_list, "pam_unix2.so", PASSWORD) |
+    is_module_enabled (module_list, "pam_unix2.so", SESSION);
+
+  with_pwcheck = is_module_enabled (module_list, "pam_pwcheck.so", ACCOUNT) |
+    is_module_enabled (module_list, "pam_pwcheck.so", AUTH) |
+    is_module_enabled (module_list, "pam_pwcheck.so", PASSWORD) |
+    is_module_enabled (module_list, "pam_pwcheck.so", SESSION);
+
+  if (with_unix2 && check_for_pam_module ("pam_unix2.so", 1) == 1)
+    {
+      option_set_t *opt_set, *opt_set2;
+      pam_module_t *pam_unix2 = lookup (module_list, "pam_unix2.so");
+      pam_module_t *pam_unix = lookup (module_list, "pam_unix.so");
+
+      fprintf (stderr, "pam_unix2 used but not installed, replacing with pam_unix.so\n");
+
+      /* Set and check sections.  */
+      opt_set = pam_unix->get_opt_set (pam_unix, ACCOUNT);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
+      opt_set->enable (opt_set, "nis", TRUE);
+      opt_set2 = pam_unix2->get_opt_set (pam_unix2, ACCOUNT);
+      opt_set2->enable (opt_set2, "is_enabled", FALSE);
+      if (opt_set2->is_enabled (opt_set2, "debug"))
+	opt_set->enable (opt_set, "debug", TRUE);
+      if (opt_set2->is_enabled (opt_set2, "trace"))
+	opt_set->enable (opt_set, "audit", TRUE);
+      if (opt_set2->is_enabled (opt_set2, "nullok"))
+	opt_set->enable (opt_set, "nullok", TRUE);
+      if (sanitize_check_account (module_list, 0) != 0)
+	return 1;
+
+      opt_set = pam_unix->get_opt_set (pam_unix, AUTH);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
+      opt_set->enable (opt_set, "nis", TRUE);
+      opt_set2 = pam_unix2->get_opt_set (pam_unix2, AUTH);
+      opt_set2->enable (opt_set2, "is_enabled", FALSE);
+      if (opt_set2->is_enabled (opt_set2, "debug"))
+	opt_set->enable (opt_set, "debug", TRUE);
+      if (opt_set2->is_enabled (opt_set2, "trace"))
+	opt_set->enable (opt_set, "audit", TRUE);
+      if (opt_set2->is_enabled (opt_set2, "nullok"))
+	opt_set->enable (opt_set, "nullok", TRUE);
+      if (sanitize_check_auth (module_list, 0) != 0)
+	return 1;
+
+      opt_set = pam_unix->get_opt_set (pam_unix, PASSWORD);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
+      opt_set->enable (opt_set, "nis", TRUE);
+      opt_set->enable (opt_set, "shadow", TRUE);
+      opt_set2 = pam_unix2->get_opt_set (pam_unix2, PASSWORD);
+      opt_set2->enable (opt_set2, "is_enabled", FALSE);
+      if (opt_set2->is_enabled (opt_set2, "debug"))
+	opt_set->enable (opt_set, "debug", TRUE);
+      if (opt_set2->is_enabled (opt_set2, "trace"))
+	opt_set->enable (opt_set, "audit", TRUE);
+      if (opt_set2->is_enabled (opt_set2, "nullok"))
+	opt_set->enable (opt_set, "nullok", TRUE);
+      if (sanitize_check_password (module_list, 0) != 0)
+	return 1;
+
+      opt_set = pam_unix->get_opt_set (pam_unix, SESSION);
+      opt_set->enable (opt_set, "is_enabled", TRUE);
+      opt_set->enable (opt_set, "nis", TRUE);
+      opt_set2 = pam_unix2->get_opt_set (pam_unix2, SESSION);
+      opt_set2->enable (opt_set2, "is_enabled", FALSE);
+      if (opt_set2->is_enabled (opt_set2, "debug"))
+	opt_set->enable (opt_set, "debug", TRUE);
+      if (opt_set2->is_enabled (opt_set2, "trace"))
+	opt_set->enable (opt_set, "audit", TRUE);
+      if (opt_set2->is_enabled (opt_set2, "nullok"))
+	opt_set->enable (opt_set, "nullok", TRUE);
+      if (sanitize_check_session (module_list, 0) != 0)
+	return 1;
+    }
+
+  if (with_pwcheck && check_for_pam_module ("pam_pwcheck.so", 1) == 1)
+    {
+      option_set_t *opt_cracklib, *opt_pwcheck, *opt_pwhistory;
+      pam_module_t *pam_pwcheck = lookup (module_list, "pam_pwcheck.so");
+      pam_module_t *pam_cracklib = lookup (module_list, "pam_cracklib.so");
+      pam_module_t *pam_pwhistory = lookup (module_list, "pam_pwhistory.so");
+
+      fprintf (stderr, "pam_pwcheck used but not installed, replacing with pam_cracklib.\n");
+
+      opt_pwhistory = pam_pwhistory->get_opt_set (pam_pwhistory, PASSWORD);
+      opt_cracklib = pam_cracklib->get_opt_set (pam_cracklib, PASSWORD);
+      opt_cracklib->enable (opt_cracklib, "is_enabled", TRUE);
+      opt_pwcheck = pam_pwcheck->get_opt_set (pam_pwcheck, PASSWORD);
+      opt_pwcheck->enable (opt_pwcheck, "is_enabled", FALSE);
+      if (opt_pwcheck->is_enabled (opt_pwcheck, "debug"))
+	opt_cracklib->enable (opt_cracklib, "debug", TRUE);
+
+      /* check, if we need to enable pam_pwhistory */
+      if (opt_pwcheck->get_opt (opt_pwcheck, "remember") != NULL &&
+	  !is_module_enabled (module_list, "pam_pwhistory.so", PASSWORD))
+	{
+	  char *remember = opt_pwcheck->get_opt (opt_pwcheck, "remember");
+
+	  opt_pwhistory->enable (opt_pwhistory, "is_enabled", TRUE);
+	  opt_pwhistory->set_opt (opt_pwhistory, "remember", remember);
+	  if (opt_pwcheck->is_enabled (opt_pwcheck, "debug"))
+	    opt_pwhistory->enable (opt_pwhistory, "debug", TRUE);
+	}
+      if (sanitize_check_password (module_list, 0) != 0)
+	return 1;
+    }
+
+  return 0;
+}
+
 
 char *gl_service = NULL;
 
@@ -910,6 +1028,8 @@ main (int argc, char *argv[])
 
       if (sanitize_check_session (common_module_list, 0) != 0)
 	return 1;
+
+      replace_obsolete_modules (common_module_list);
 
       /* Write sections.  */
       if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
