@@ -369,6 +369,7 @@ main (int argc, char *argv[])
   {
 	  if (argc < 3)
 	  {
+	          fprintf (stderr, _("ERROR: too few arguments\n"));
 		  print_error (program);
 		  return 1;
 	  }
@@ -376,6 +377,7 @@ main (int argc, char *argv[])
 	  confdir = argv[2];
 	  if(confdir[0] != '/')
 	  {
+                  fprintf (stderr, _("ERROR: confdir must be an absolute path\n"));
 		  print_error(program);
 		  return 1;
 	  }
@@ -494,13 +496,14 @@ main (int argc, char *argv[])
 
       if (argc > 1 || gl_service)
 	{
+	  fprintf (stderr, _("ERROR: Too many arguments or incompatible service specified\n"));
 	  print_error (program);
 	  return 1;
 	}
 
       /* Load old /etc/security/{pam_unix2,pam_pwcheck}.conf
 	 files and delete them afterwards.  */
-      if ( load_obsolete_conf (common_module_list) != 0)
+      if (load_obsolete_conf (common_module_list) != 0)
       {
 	fprintf (stderr, _( "WARNING: Couldn't load old config files.\n"));
       }

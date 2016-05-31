@@ -1,3 +1,8 @@
+2016-05-31  Thorsten Kukuk  <kukuk@thkukuk.de>
+
+	* src/pam-config.c (main): Extend error messages about invalid
+	options.
+
 2016-04-15  Thorsten Kukuk  <kukuk@thkukuk.de>
 
 	* src/pam-config.c (replace_obsolete_modules): Replace used, but
