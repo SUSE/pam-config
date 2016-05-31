@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.pt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-14 11:28+0200\n"
+"POT-Creation-Date: 2016-05-31 15:09+0200\n"
 "PO-Revision-Date: 2008-10-18 22:01+0100\n"
 "Last-Translator: Carlos Gonçalves <cgoncalves@opensuse.org>\n"
 "Language-Team: Portuguese <opensuse-pt@opensuse.org>\n"
@@ -244,7 +244,7 @@ msgstr ""
 "ERRO: o pam_mount.so está activado. De forma a utilizar o pam_thinkfinger."
 "so, necessita de o desactivar primeiro!\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:463
+#: src/mod_pam_mount.c:120 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -414,15 +414,15 @@ msgstr ""
 "      Estes módulos podem apenas ser adicionados aos ficheiros de serviço "
 "simples.\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1021
-#: src/pam-config.c:1031 src/pam-config.c:1041 src/pam-config.c:1052
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1144
+#: src/pam-config.c:1154 src/pam-config.c:1164 src/pam-config.c:1175
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Erro ao activar %s (%m)\n"
 
 #: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1023 src/pam-config.c:1033 src/pam-config.c:1043
-#: src/pam-config.c:1054
+#: src/pam-config.c:1146 src/pam-config.c:1156 src/pam-config.c:1166
+#: src/pam-config.c:1177
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Nova configuração a partir de %s não está em uso!\n"
@@ -449,13 +449,28 @@ msgstr "ERRO: Não é possível criar ficheiro de cópia de segurança '%s' (%m)
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "ERRO: Não é possível remover '%s' (%m)\n"
 
-#: src/pam-config.c:387
+#: src/pam-config.c:372
+#, fuzzy, c-format
+msgid "ERROR: too few arguments\n"
+msgstr "%s: Demasiados argumentos.\n"
+
+#: src/pam-config.c:380
+#, c-format
+msgid "ERROR: confdir must be an absolute path\n"
+msgstr ""
+
+#: src/pam-config.c:499
+#, c-format
+msgid "ERROR: Too many arguments or incompatible service specified\n"
+msgstr ""
+
+#: src/pam-config.c:508
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 "AVISO: Não foi possível carregar os ficheiros de configuração antigos.\n"
 
-#: src/pam-config.c:393 src/pam-config.c:441
+#: src/pam-config.c:514 src/pam-config.c:562
 #, c-format
 msgid ""
 "\n"
@@ -464,12 +479,12 @@ msgstr ""
 "\n"
 "Não é possível carregar o ficheiro de configuração, a interromper!\n"
 
-#: src/pam-config.c:746
+#: src/pam-config.c:867
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Módulos comuns suportados:\n"
 
-#: src/pam-config.c:748
+#: src/pam-config.c:869
 #, c-format
 msgid ""
 "\n"
@@ -478,12 +493,12 @@ msgstr ""
 "\n"
 "Módulos de serviços suportados:\n"
 
-#: src/pam-config.c:790
+#: src/pam-config.c:911
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Demasiados argumentos.\n"
 
-#: src/pam-config.c:942
+#: src/pam-config.c:1065
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Não é possível aceder '%s': %m\n"

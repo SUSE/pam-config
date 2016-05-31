@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-14 11:28+0200\n"
+"POT-Creation-Date: 2016-05-31 15:09+0200\n"
 "PO-Revision-Date: 2009-10-23 02:32+0900\n"
 "Last-Translator: Yunseok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -233,7 +233,7 @@ msgstr ""
 "오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
 "저 이것을 비활성화 시켜주세요!\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:463
+#: src/mod_pam_mount.c:120 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -400,15 +400,15 @@ msgstr "단일 서비스 모듈 옵션:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      이러한 모듈은 단일 서비스 파일에 추가됩니다.\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1021
-#: src/pam-config.c:1031 src/pam-config.c:1041 src/pam-config.c:1052
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1144
+#: src/pam-config.c:1154 src/pam-config.c:1164 src/pam-config.c:1175
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "%s 를 유효하게 하는 처리로 오류 발생 (%m)\n"
 
 #: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1023 src/pam-config.c:1033 src/pam-config.c:1043
-#: src/pam-config.c:1054
+#: src/pam-config.c:1146 src/pam-config.c:1156 src/pam-config.c:1166
+#: src/pam-config.c:1177
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
@@ -433,12 +433,27 @@ msgstr "오류: 백업 파일 '%s' (%m) 를 생성할 수 없음\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "오류: '%s' (%m) 를 제거할 수 없음\n"
 
-#: src/pam-config.c:387
+#: src/pam-config.c:372
+#, fuzzy, c-format
+msgid "ERROR: too few arguments\n"
+msgstr "%s: 너무 많은 인수입니다.\n"
+
+#: src/pam-config.c:380
+#, c-format
+msgid "ERROR: confdir must be an absolute path\n"
+msgstr ""
+
+#: src/pam-config.c:499
+#, c-format
+msgid "ERROR: Too many arguments or incompatible service specified\n"
+msgstr ""
+
+#: src/pam-config.c:508
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "경고: 예전 설정 파일을 불러올 수 없습니다.\n"
 
-#: src/pam-config.c:393 src/pam-config.c:441
+#: src/pam-config.c:514 src/pam-config.c:562
 #, c-format
 msgid ""
 "\n"
@@ -447,12 +462,12 @@ msgstr ""
 "\n"
 "설정 파일을 불러올 수 없음, 중단되었음!\n"
 
-#: src/pam-config.c:746
+#: src/pam-config.c:867
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "지원하는 일반적인 모듈:\n"
 
-#: src/pam-config.c:748
+#: src/pam-config.c:869
 #, c-format
 msgid ""
 "\n"
@@ -461,12 +476,12 @@ msgstr ""
 "\n"
 "지원하는 서비스 모듈:\n"
 
-#: src/pam-config.c:790
+#: src/pam-config.c:911
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 너무 많은 인수입니다.\n"
 
-#: src/pam-config.c:942
+#: src/pam-config.c:1065
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "'%s' 에 접근 할 수 없습니다: %m\n"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-14 11:28+0200\n"
+"POT-Creation-Date: 2016-05-31 15:09+0200\n"
 "PO-Revision-Date: 2010-03-18 11:40+0100\n"
 "Last-Translator: Kalman Kemenczy <kkemenczy@novell.com>\n"
 "Language-Team: collection <kde-i18n-doc@kde.org>\n"
@@ -247,7 +247,7 @@ msgstr ""
 "HIBA: A pam_mount.so engedélyezve van, amit a pam_thinkfinger.so "
 "használatához le kell tiltani.\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:463
+#: src/mod_pam_mount.c:120 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -420,15 +420,15 @@ msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 "      ezek a modulok csak egyszeri szolgáltatás fájlokhoz adhatóak hozzá.\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1021
-#: src/pam-config.c:1031 src/pam-config.c:1041 src/pam-config.c:1052
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1144
+#: src/pam-config.c:1154 src/pam-config.c:1164 src/pam-config.c:1175
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "A(z) %s (%m) aktiválása sikertelen\n"
 
 #: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1023 src/pam-config.c:1033 src/pam-config.c:1043
-#: src/pam-config.c:1054
+#: src/pam-config.c:1146 src/pam-config.c:1156 src/pam-config.c:1166
+#: src/pam-config.c:1177
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"
@@ -453,12 +453,27 @@ msgstr "HIBA: A(z) %s mentési fájl nem hozható létre: %m\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "HIBA: A(z) %s nem távolítható el (%m)\n"
 
-#: src/pam-config.c:387
+#: src/pam-config.c:372
+#, fuzzy, c-format
+msgid "ERROR: too few arguments\n"
+msgstr "%s: Túl sok paraméter.\n"
+
+#: src/pam-config.c:380
+#, c-format
+msgid "ERROR: confdir must be an absolute path\n"
+msgstr ""
+
+#: src/pam-config.c:499
+#, c-format
+msgid "ERROR: Too many arguments or incompatible service specified\n"
+msgstr ""
+
+#: src/pam-config.c:508
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "Figyelem: A régi konfigurációs fájl betöltése sikertelen.\n"
 
-#: src/pam-config.c:393 src/pam-config.c:441
+#: src/pam-config.c:514 src/pam-config.c:562
 #, c-format
 msgid ""
 "\n"
@@ -467,12 +482,12 @@ msgstr ""
 "\n"
 "A beállítások betöltése sikertelen!\n"
 
-#: src/pam-config.c:746
+#: src/pam-config.c:867
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Támogatott általános modulok:\n"
 
-#: src/pam-config.c:748
+#: src/pam-config.c:869
 #, c-format
 msgid ""
 "\n"
@@ -481,12 +496,12 @@ msgstr ""
 "\n"
 "Támogatott szervizmodulok:\n"
 
-#: src/pam-config.c:790
+#: src/pam-config.c:911
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Túl sok paraméter.\n"
 
-#: src/pam-config.c:942
+#: src/pam-config.c:1065
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "A(z) %s nem érhető el: %m\n"

@@ -4,6 +4,10 @@ Copyright (C) 2006-2016 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into https://bugzilla.suse.com.
 
+Version 0.91
+* Automatically replace obsolete PAM modules if no longer installed.
+* Extend error messages for wrong arguments.
+
 Version 0.90
 * pam_unix: adjust for changes made in Linux-PAM 1.3.0
 

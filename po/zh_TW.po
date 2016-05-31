@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-14 11:28+0200\n"
+"POT-Creation-Date: 2016-05-31 15:09+0200\n"
 "PO-Revision-Date: 2009-09-18 21:45+0800\n"
 "Last-Translator: swyear <swyear@gmail.com>\n"
 "Language-Team: Chinese Traditional <zh@li.org>\n"
@@ -225,7 +225,7 @@ msgid ""
 msgstr ""
 "錯誤：pam_mount.so 已啟用。為了要使用 pam_thinkfinger.so 您必須先將它停用！\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:463
+#: src/mod_pam_mount.c:120 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -383,15 +383,15 @@ msgstr "單一服務模組選項：\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      這些模組僅能被加入到單一服務檔案。\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1021
-#: src/pam-config.c:1031 src/pam-config.c:1041 src/pam-config.c:1052
+#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1144
+#: src/pam-config.c:1154 src/pam-config.c:1164 src/pam-config.c:1175
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "啟用 %s (%m) 發生錯誤\n"
 
 #: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1023 src/pam-config.c:1033 src/pam-config.c:1043
-#: src/pam-config.c:1054
+#: src/pam-config.c:1146 src/pam-config.c:1156 src/pam-config.c:1166
+#: src/pam-config.c:1177
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "並未使用 %s 的新設定！\n"
@@ -416,12 +416,27 @@ msgstr "錯誤：無法建立備份檔 '%s' (%m)\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "錯誤：無法移除 '%s' (%m)\n"
 
-#: src/pam-config.c:387
+#: src/pam-config.c:372
+#, fuzzy, c-format
+msgid "ERROR: too few arguments\n"
+msgstr "%s：參數太多。\n"
+
+#: src/pam-config.c:380
+#, c-format
+msgid "ERROR: confdir must be an absolute path\n"
+msgstr ""
+
+#: src/pam-config.c:499
+#, c-format
+msgid "ERROR: Too many arguments or incompatible service specified\n"
+msgstr ""
+
+#: src/pam-config.c:508
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "警告：無法載入舊的設定檔。\n"
 
-#: src/pam-config.c:393 src/pam-config.c:441
+#: src/pam-config.c:514 src/pam-config.c:562
 #, c-format
 msgid ""
 "\n"
@@ -430,12 +445,12 @@ msgstr ""
 "\n"
 "無法載入設定檔，中止！\n"
 
-#: src/pam-config.c:746
+#: src/pam-config.c:867
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "支援的指令模組：\n"
 
-#: src/pam-config.c:748
+#: src/pam-config.c:869
 #, c-format
 msgid ""
 "\n"
@@ -444,12 +459,12 @@ msgstr ""
 "\n"
 "支援的服務模組：\n"
 
-#: src/pam-config.c:790
+#: src/pam-config.c:911
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s：參數太多。\n"
 
-#: src/pam-config.c:942
+#: src/pam-config.c:1065
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "無法存取 '%s'： %m\n"
