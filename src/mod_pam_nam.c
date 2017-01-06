@@ -43,6 +43,7 @@ write_config_nam (pam_module_t * this, enum write_type op, FILE * fp)
       break;
     case AUTH:
       fprintf (fp, "auth\trequired\tpam_nam.so\tuse_first_pass\n");
+      break;
     case PASSWORD:
       fprintf (fp, "password\trequired\tpam_nam.so\ttry_first_pass\n");
       break;
