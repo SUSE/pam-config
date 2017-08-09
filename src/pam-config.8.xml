@@ -594,6 +594,14 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--kwallet5</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_kwallet5.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--ldap</option></term>
             <listitem>
               <para>

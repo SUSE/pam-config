@@ -1,0 +1,10 @@
+#!/bin/sh
+# Testcase:	kwallet5
+# Module:	pam_kwallet5.so
+# Description:	Test for module pam_kwallet5.so
+
+. support/header.sh
+
+$PAMCONFIG -a --kwallet5
+
+. support/footer-common.sh
