@@ -1,6 +1,6 @@
 /* Copyright (C) 2017 Fabian Vogt
    Copyright (C) 2008 Vincent Untz
-   Author: Vincent Untz <fvogt@suse.com>
+   Author: Fabian Vogt <fvogt@suse.com>
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License version 2 as
