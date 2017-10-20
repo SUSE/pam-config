@@ -56,7 +56,7 @@ PRINT_ARGS("cracklib")
 PRINT_XMLHELP("cracklib")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_2(is_enabled, debug);
+DECLARE_BOOL_OPTS_3(is_enabled, debug, enforce_for_root);
 DECLARE_STRING_OPTS_11(authtok_type, retry, difok, difignore, minlen, dcredit, ucredit, lcredit, ocredit, minclass, dictpath);
 DECLARE_OPT_SETS;
 
