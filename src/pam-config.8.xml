@@ -282,6 +282,14 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--cracklib-enforce_for_root</option></term>
+            <listitem>
+              <para>
+                Add <option>enforce_for_root</option> option to all pam_cracklib.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--cracklib-authtok_type=</option><replaceable>value</replaceable></term>
             <listitem>
               <para>

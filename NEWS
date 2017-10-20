@@ -4,6 +4,9 @@ Copyright (C) 2006-2017 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into https://bugzilla.suse.com.
 
+Version 0.93
+* pam_cracklib: add enforce_for_root option
+
 Version 0.92
 * Add support for pam_kwallet5
 
