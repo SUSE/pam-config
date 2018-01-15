@@ -1,8 +1,11 @@
 pam-config NEWS -- history of user-visible changes.
 
-Copyright (C) 2006-2017 Thorsten Kukuk <kukuk@suse.de>.
+Copyright (C) 2006-2018 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into https://bugzilla.suse.com.
+
+Version 0.94
+* Add support for pam_keyinit
 
 Version 0.93
 * pam_cracklib: add enforce_for_root option
