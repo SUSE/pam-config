@@ -32,7 +32,7 @@ pam_config_SOURCES = pam-config.c load_config.c write_config.c \
 	mod_pam_selinux.c mod_pam_gnome_keyring.c mod_pam_passwdqc.c \
 	mod_pam_exec.c mod_pam_sss.c mod_pam_fprintd.c mod_pam_systemd.c \
 	mod_pam_ecryptfs.c mod_pam_access.c mod_pam_google_authenticator.c \
-	mod_pam_kwallet5.c
+	mod_pam_kwallet5.c mod_pam_keyinit.c
 
 noinst_HEADERS = pam-config.h pam-module.h
 

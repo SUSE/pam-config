@@ -40,6 +40,7 @@ extern pam_module_t mod_pam_winbind;
 extern pam_module_t mod_pam_ck_connector;
 extern pam_module_t mod_pam_cryptpass;
 extern pam_module_t mod_pam_csync;
+extern pam_module_t mod_pam_keyinit;
 extern pam_module_t mod_pam_loginuid;
 extern pam_module_t mod_pam_mount;
 extern pam_module_t mod_pam_systemd;
@@ -171,6 +172,7 @@ pam_module_t *service_module_list[] = {
   &mod_pam_ck_connector,
   &mod_pam_cryptpass,
   &mod_pam_csync,
+  &mod_pam_keyinit,
   &mod_pam_lastlog,
   &mod_pam_loginuid,
   &mod_pam_mount,

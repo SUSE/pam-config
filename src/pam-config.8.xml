@@ -1499,6 +1499,30 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--keyinit</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_keyinit.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--keyinit-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_keyinit.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--keyinit-force</option></term>
+            <listitem>
+              <para>
+                Add <option>force</option> option to all pam_keyinit.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--lastlog</option></term>
             <listitem>
               <para>
