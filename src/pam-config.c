@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007, 2008, 2009, 2012, 2013, 2014, 2016 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2008, 2009, 2012, 2013, 2014, 2016, 2018 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -235,7 +235,7 @@ replace_obsolete_modules (pam_module_t **module_list)
     is_module_enabled (module_list, "pam_pwcheck.so", PASSWORD) |
     is_module_enabled (module_list, "pam_pwcheck.so", SESSION);
 
-  if (with_unix2 && check_for_pam_module ("pam_unix2.so", 1) == 1)
+  if (with_unix2 && check_for_pam_module ("pam_unix2.so", 0) == 1)
     {
       option_set_t *opt_set, *opt_set2;
       pam_module_t *pam_unix2 = lookup (module_list, "pam_unix2.so");
@@ -302,7 +302,7 @@ replace_obsolete_modules (pam_module_t **module_list)
 	return 1;
     }
 
-  if (with_pwcheck && check_for_pam_module ("pam_pwcheck.so", 1) == 1)
+  if (with_pwcheck && check_for_pam_module ("pam_pwcheck.so", 0) == 1)
     {
       option_set_t *opt_cracklib, *opt_pwcheck, *opt_pwhistory;
       pam_module_t *pam_pwcheck = lookup (module_list, "pam_pwcheck.so");
@@ -1019,6 +1019,9 @@ main (int argc, char *argv[])
     }
   else if (!gl_service)
     {
+      /* Replace obsolete modules first */
+      replace_obsolete_modules (common_module_list);
+
       /* Check sections.  */
       if (sanitize_check_account (common_module_list, 0) != 0)
 	return 1;
@@ -1031,8 +1034,6 @@ main (int argc, char *argv[])
 
       if (sanitize_check_session (common_module_list, 0) != 0)
 	return 1;
-
-      replace_obsolete_modules (common_module_list);
 
       /* Write sections.  */
       if (write_config (ACCOUNT, conf_account_pc, module_list_account) != 0)
