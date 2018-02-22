@@ -4,6 +4,9 @@ Copyright (C) 2006-2018 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports into https://bugzilla.suse.com.
 
+Version 0.95
+* Fix replacing pam_unix2 and pam_pwcheck
+
 Version 0.94
 * Add support for pam_keyinit
 
