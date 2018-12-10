@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Thorsten Kukuk
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the pam-config package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: pam-config 0.95\n"
+"Project-Id-Version: pam-config 0.96\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-22 16:18+0100\n"
+"POT-Creation-Date: 2018-12-10 09:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
