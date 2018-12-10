@@ -1,4 +1,4 @@
-/* Copyright (C) 2007, 2008 Thorsten Kukuk
+/* Copyright (C) 2007, 2008, 2018 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -56,8 +56,8 @@ PRINT_ARGS("cracklib")
 PRINT_XMLHELP("cracklib")
 
 /* ---- contruct module object ---- */
-DECLARE_BOOL_OPTS_3(is_enabled, debug, enforce_for_root);
-DECLARE_STRING_OPTS_11(authtok_type, retry, difok, difignore, minlen, dcredit, ucredit, lcredit, ocredit, minclass, dictpath);
+DECLARE_BOOL_OPTS_5(is_enabled, debug, reject_username, gecoscheck, enforce_for_root);
+DECLARE_STRING_OPTS_14(authtok_type, retry, difok, difignore, minlen, dcredit, ucredit, lcredit, ocredit, minclass, dictpath, maxrepeat, maxsequence, maxclassrepeat);
 DECLARE_OPT_SETS;
 
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};

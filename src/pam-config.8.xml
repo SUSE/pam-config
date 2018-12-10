@@ -282,6 +282,22 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--cracklib-reject_username</option></term>
+            <listitem>
+              <para>
+                Add <option>reject_username</option> option to all pam_cracklib.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-gecoscheck</option></term>
+            <listitem>
+              <para>
+                Add <option>gecoscheck</option> option to all pam_cracklib.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--cracklib-enforce_for_root</option></term>
             <listitem>
               <para>
@@ -374,6 +390,30 @@
             <listitem>
               <para>
                 Add <option>dictpath=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-maxrepeat=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>maxrepeat=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-maxsequence=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>maxsequence=</option><replaceable>value</replaceable> option to pam_cracklib.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--cracklib-maxclassrepeat=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>maxclassrepeat=</option><replaceable>value</replaceable> option to pam_cracklib.so.
               </para>
             </listitem>
           </varlistentry>
