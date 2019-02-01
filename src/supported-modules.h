@@ -19,6 +19,7 @@ extern pam_module_t mod_pam_limits;
 extern pam_module_t mod_pam_localuser;
 extern pam_module_t mod_pam_make;
 extern pam_module_t mod_pam_mkhomedir;
+extern pam_module_t mod_pam_mktemp;
 extern pam_module_t mod_pam_nam;
 extern pam_module_t mod_pam_passwdqc;
 extern pam_module_t mod_pam_pkcs11;
@@ -67,6 +68,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_localuser,
   &mod_pam_make,
   &mod_pam_mkhomedir,
+  &mod_pam_mktemp,
   &mod_pam_nam,
   &mod_pam_passwdqc,
   &mod_pam_pkcs11,
@@ -165,6 +167,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_exec,
   &mod_pam_ecryptfs,
   &mod_pam_env,
+  &mod_pam_temp,
   NULL
 };
 
