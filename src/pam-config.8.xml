@@ -770,6 +770,22 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--mktemp</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_mktemp.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--mktemp-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_temp.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--nam</option></term>
             <listitem>
               <para>
