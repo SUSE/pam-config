@@ -167,7 +167,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_exec,
   &mod_pam_ecryptfs,
   &mod_pam_env,
-  &mod_pam_temp,
+  &mod_pam_mktemp,
   NULL
 };
 
