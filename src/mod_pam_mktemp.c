@@ -51,7 +51,7 @@ PRINT_XMLHELP("mktemp")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
-//DECLARE_STRING_OPTS_1 (file);
+DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
