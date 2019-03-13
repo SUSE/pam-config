@@ -36,7 +36,7 @@ write_config_mktemp (pam_module_t *this, enum write_type op, FILE *fp)
   if (op != SESSION)
     return 0;
 
-  fprintf (fp, "session\toptional\tpam_mktemp.so");
+  fprintf (fp, "session\toptional\tpam_mktemp.so\t");
 
   WRITE_CONFIG_OPTIONS
 
