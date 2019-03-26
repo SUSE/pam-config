@@ -5,7 +5,7 @@
  * @author Thorsten Kukuk
  * @date 2007-07-23
  */
-/* Copyright (C) 2006, 2007, 2009 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2009, 2019 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -26,16 +26,6 @@
 
 #include "pam-module.h"
 
-#define CONF_ACCOUNT CONFDIR"/pam.d/common-account"
-#define CONF_ACCOUNT_PC CONF_ACCOUNT"-pc"
-#define CONF_AUTH CONFDIR"/pam.d/common-auth"
-#define CONF_AUTH_PC CONF_AUTH"-pc"
-#define CONF_PASSWORD CONFDIR"/pam.d/common-password"
-#define CONF_PASSWORD_PC CONF_PASSWORD"-pc"
-#define CONF_SESSION CONFDIR"/pam.d/common-session"
-#define CONF_SESSION_PC CONF_SESSION"-pc"
-
-
 /**
  * @struct config_content_t
  * @brief Represents a service file as a singly linked list.
@@ -51,12 +41,23 @@ extern int debug;
 extern char *gl_service;
 extern char *confdir;
 
+#define CONF_FALLBACK_DIR1 "/usr/lib"
+#define CONF_FALLBACK_DIR2 "/usr/share/defaults"
+
+#define CONF_ACCOUNT "common-account"
+#define CONF_ACCOUNT_PC "common-account-pc"
+#define CONF_AUTH "common-auth"
+#define CONF_AUTH_PC "common-auth-pc"
+#define CONF_PASSWORD "common-password"
+#define CONF_PASSWORD_PC "common-password-pc"
+#define CONF_SESSION "common-session"
+#define CONF_SESSION_PC "common-session-pc"
 
 int load_obsolete_conf (pam_module_t **module_list);
 
-int load_config (const char *file, write_type_t wtype,
-                 pam_module_t **module_list, int warn_unknown_mod);
-int write_config (write_type_t op, const char *file,
+int load_config (const char *confdir, const char *file, write_type_t wtype,
+		 pam_module_t **module_list, int warn_unknown_mod);
+int write_config (const char *confdir, const char *file, write_type_t op,
 		  pam_module_t **module_list);
 
 int load_single_config (const char *config_name, config_content_t **ptr);

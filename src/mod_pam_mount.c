@@ -5,7 +5,7 @@
  * @date 2007-07-23
  */
 
-/* Copyright (C) 2007, 2008 Sven Schober
+/* Copyright (C) 2007, 2008, 2019 Sven Schober
    Author: Sven Schober <sschober@suse.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -111,10 +111,7 @@ write_config_mount (  pam_module_t *this,
      * --confdir option we have to check if conf_auth_pc was set in
      *  pam-config.c:main()
      */
-    char *conf_fname;
-    if (conf_auth_pc) conf_fname = conf_auth_pc;
-    else conf_fname = CONF_AUTH_PC;
-    if (load_config (conf_fname, AUTH, common_module_list, 1) != 0)
+    if (load_config (confdir, CONF_AUTH_PC, AUTH, common_module_list, 1) != 0)
     {
       fprintf (stderr,
 	       _("\nCouldn't load config file '%s', aborted!\n"),

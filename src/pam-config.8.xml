@@ -781,7 +781,7 @@
             <term><option>--mktemp-debug</option></term>
             <listitem>
               <para>
-                Add <option>debug</option> option to all pam_temp.so invocations.
+                Add <option>debug</option> option to all pam_mktemp.so invocations.
               </para>
             </listitem>
           </varlistentry>

@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2019 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@
 #define DEF_MODE 0644
 
 int
-write_config (write_type_t op, const char *file, pam_module_t **module_list)
+write_config (const char *sysconfdir, const char *file, write_type_t op, pam_module_t **module_list)
 {
   const char *opc = type2string (op);
   struct stat f_stat;
@@ -44,18 +44,23 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
   uid_t user_id = getuid();
   gid_t group_id = getgid();
   mode_t mode = DEF_MODE;
+  char *config = NULL;
 
   if (debug)
-    printf ("*** write_config (%s, %s, ...)\n", opc, file);
+    printf ("*** write_config (%s, %s/pam.d/%s, ...)\n", opc, sysconfdir, file);
 
-  if (asprintf (&tmpfname, "%s.XXXXXX", file) < 0)
+  if (asprintf (&config, "%s/pam.d/%s", sysconfdir, file) < 0)
     return -1;
 
-  if ( stat (file, &f_stat) == 0 ){
-    user_id = f_stat.st_uid;
-    group_id = f_stat.st_gid;
-    mode = f_stat.st_mode;
-  }
+  if (asprintf (&tmpfname, "%s.XXXXXX", config) < 0)
+    return -1;
+
+  if ( stat (config, &f_stat) == 0 )
+    {
+      user_id = f_stat.st_uid;
+      group_id = f_stat.st_gid;
+      mode = f_stat.st_mode;
+    }
 
   fd = mkstemp (tmpfname);
   if (fchmod (fd, mode) < 0)
@@ -76,7 +81,7 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
   if (fp == NULL)
     {
       fprintf (stderr, _("Cannot create %s: %m\n"),
-	       file);
+	       config);
       return -1;
     }
 
@@ -129,7 +134,7 @@ write_config (write_type_t op, const char *file, pam_module_t **module_list)
 
   fclose (fp);
 
-  rename (tmpfname, file);
+  rename (tmpfname, config);
   free (tmpfname);
 
   return result;

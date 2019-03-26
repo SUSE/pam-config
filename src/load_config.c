@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2019 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -24,24 +24,70 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/types.h>
 
 #include "pam-config.h"
 #include "pam-module.h"
 
+/* Load a configuration file. Try sysconfdir/pam.d/..., if that is not found, try
+   path2/pam.d/..., if not found, try path3/pam.d/... */
 int
-load_config (const char *file, write_type_t wtype,
-             pam_module_t **module_list, int warn_unknown_mod)
+load_config (const char *sysconfdir, const char *file, write_type_t wtype,
+	     pam_module_t **module_list, int warn_unknown_mod)
 {
   FILE *fp;
   char *buf = NULL;
   size_t buflen = 0;
+  char *configpath = NULL;
   const char *wanted = type2string (wtype);
 
   if (debug)
     printf ("*** load_config (%s, %s, ...)\n", file, wanted);
 
-  fp = fopen(file, "r");
+  if (asprintf (&configpath, "%s/pam.d/%s", sysconfdir, file) < 0)
+    {
+      fprintf (stderr, "Running out of memory\n");
+      return -1;
+    }
+
+  if (access (configpath, R_OK) < 0) {
+    free (configpath);
+    configpath = NULL;
+
+    if (asprintf (&configpath, "%s/pam.d/%s", CONF_FALLBACK_DIR1, file) < 0)
+      {
+	fprintf (stderr, "Running out of memory\n");
+	return -1;
+      }
+
+    if (access (configpath, R_OK) < 0) {
+      free (configpath);
+      configpath = NULL;
+
+      if (asprintf (&configpath, "%s/pam.d/%s", CONF_FALLBACK_DIR2, file) < 0)
+	{
+	  fprintf (stderr, "Running out of memory\n");
+	  return -1;
+	}
+
+      if (access (configpath, R_OK) < 0) {
+	free (configpath);
+	configpath = NULL;
+
+	if (debug)
+	  printf ("*** Config file %s not found\n", file);
+
+	return 0;
+      }
+    }
+  }
+
+  if (debug)
+    printf ("*** Using config file %s\n", configpath);
+
+
+  fp = fopen(configpath, "r");
   if (fp == NULL)
     {
       if (errno == ENOENT)
