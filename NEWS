@@ -4,6 +4,9 @@ Copyright (C) 2006-2019 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
 
+Version 1.1
+* Enhance comments in common-*-pc files
+
 Version 1.0
 * Implement search path for config files, so that they /etc/pam.d/
   can only contain the changes, but not the original files.
