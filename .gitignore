@@ -23,6 +23,7 @@
 /configure
 /libtool
 /stamp-h1
+/compile
 config.guess
 config.sub
 depcomp
