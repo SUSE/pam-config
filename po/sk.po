@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-10 09:04+0100\n"
+"POT-Creation-Date: 2019-03-26 13:36+0100\n"
 "PO-Revision-Date: 2010-04-23 16:47+0100\n"
 "Last-Translator: Rastislav Krupanský <rastislav.krupansky@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -21,12 +21,12 @@ msgstr ""
 "X-Poedit-Language: Slovak\n"
 "X-Poedit-Country: SLOVAKIA\n"
 
-#: src/load_config.c:131
+#: src/load_config.c:177
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr "%s (%s): Argumenty budú ignorované\n"
 
-#: src/load_config.c:135
+#: src/load_config.c:181
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr "%s: Neznámy modul %s, ignorujem ho!\n"
@@ -243,7 +243,7 @@ msgstr ""
 "CHYBA: pam_mount.so je povolený. Pre účel použitia je najskôr potrebné "
 "pam_thinkfinger.so zakázať!\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:584
+#: src/mod_pam_mount.c:117
 #, c-format
 msgid ""
 "\n"
@@ -252,17 +252,17 @@ msgstr ""
 "\n"
 "Nedá sa načítať konfiguračný súbor '%s', prerušené!\n"
 
-#: src/mod_pam_mount.c:126
+#: src/mod_pam_mount.c:123
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr "CHYBA: Modul pam_thinkfinger.so je povolený. Najskôr ho zakážte.\n"
 
-#: src/mod_pam_mount.c:131
+#: src/mod_pam_mount.c:128
 #, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "CHYBA: Modul pam_fp.so je povolený. Najskôr ho zakážte.\n"
 
-#: src/mod_pam_mount.c:136
+#: src/mod_pam_mount.c:133
 #, fuzzy, c-format
 msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
 msgstr "CHYBA: Modul pam_fp.so je povolený. Najskôr ho zakážte.\n"
@@ -303,12 +303,12 @@ msgstr ""
 "CHYBA: pam_fp.so je povolený. Pre účel použitia je najskôr potrebné "
 "pam_thinkfinger.so zakázať!\n"
 
-#: src/pam-config.c:47
+#: src/pam-config.c:39
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr "Použitie: %s -a|-c|-d [...]\n"
 
-#: src/pam-config.c:56
+#: src/pam-config.c:48
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -320,13 +320,13 @@ msgstr ""
 "NEEXISTUJE\n"
 "záruka; ani pre PREDAJNOSŤ, alebo VHODNOSŤ PRE PRÍSLUŠNÝ ÚČEL.\n"
 
-#: src/pam-config.c:68
+#: src/pam-config.c:60
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr ""
 "Viac informácií získate zadaním prepínača `%s --help' alebo `%s --usage'.\n"
 
-#: src/pam-config.c:76
+#: src/pam-config.c:68
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
@@ -335,63 +335,63 @@ msgstr ""
 "%s - vytvoriť konfiguračné PAM súbory\n"
 "\n"
 
-#: src/pam-config.c:78
+#: src/pam-config.c:70
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr "  -a, --add         Pridať voľby/PAM moduly\n"
 
-#: src/pam-config.c:79
+#: src/pam-config.c:71
 msgid "  -c, --create      Create new configuration\n"
 msgstr "  -c, --create      Vytvoriť novú konfiguráciu\n"
 
-#: src/pam-config.c:80
+#: src/pam-config.c:72
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr "  -d, --delete      Odstrániť voľby/PAM moduly\n"
 
-#: src/pam-config.c:81
+#: src/pam-config.c:73
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr "      --confdir     Použiť používateľský konfiguračný adresár\n"
 
-#: src/pam-config.c:83
+#: src/pam-config.c:75
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  Konvertovať starú konfiguráciu a vytvoriť novú\n"
 
-#: src/pam-config.c:85
+#: src/pam-config.c:77
 msgid "      --service config  Service to modify config of\n"
 msgstr "      --service config  Zmeniť konfiguráciu\n"
 
-#: src/pam-config.c:87
+#: src/pam-config.c:79
 msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Načítať aktuálnu konfiguráciu a zapísať ju\n"
 
-#: src/pam-config.c:89
+#: src/pam-config.c:81
 msgid "      --verify      Read and verify current configuration\n"
 msgstr "      --verify      Načítať a overiť aktuálnu konfiguráciu\n"
 
-#: src/pam-config.c:91
+#: src/pam-config.c:83
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       Spýtať sa na inštalované moduly a voľby\n"
 
-#: src/pam-config.c:93
+#: src/pam-config.c:85
 msgid "      --list-modules  List all supported modules\n"
 msgstr "      --list-modules  Zoznam všetkých podporovaných modulov\n"
 
-#: src/pam-config.c:95
+#: src/pam-config.c:87
 msgid "      --help        Give this help list\n"
 msgstr "      --help        Vypíše túto nápovedu\n"
 
-#: src/pam-config.c:96
+#: src/pam-config.c:88
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  -u, --usage       Podá krátky súhrn použitia\n"
 
-#: src/pam-config.c:97
+#: src/pam-config.c:89
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version     Vypíše verziu programu\n"
 
-#: src/pam-config.c:100
+#: src/pam-config.c:92
 msgid "Global Module Options:\n"
 msgstr "Obecné voľby modulu:\n"
 
-#: src/pam-config.c:101
+#: src/pam-config.c:93
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
@@ -402,25 +402,28 @@ msgstr ""
 "v\n"
 "      jednotlivých súboroch služieb.\n"
 
-#: src/pam-config.c:106
+#: src/pam-config.c:98
 msgid "Single Service Module Options:\n"
 msgstr "Voľby modulu služby:\n"
 
-#: src/pam-config.c:107
+#: src/pam-config.c:99
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Tieto moduly môžu byť pridané do jednotlivých súborov služby.\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1145
-#: src/pam-config.c:1155 src/pam-config.c:1165 src/pam-config.c:1176
+#: src/pam-config.c:150 src/pam-config.c:199 src/pam-config.c:205
+#: src/pam-config.c:212
+#, c-format
+msgid "Out of memory\n"
+msgstr ""
+
+#: src/pam-config.c:159 src/pam-config.c:239
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Chyba pri aktivácii %s (%m)\n"
 
-#: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1147 src/pam-config.c:1157 src/pam-config.c:1167
-#: src/pam-config.c:1178
-#, c-format
-msgid "New config from %s is not in use!\n"
+#: src/pam-config.c:161
+#, fuzzy, c-format
+msgid "New config from %s/pam.d/%s is not in use!\n"
 msgstr "Nová konfigurácia z %s nie je používaná!\n"
 
 #: src/pam-config.c:176
@@ -428,42 +431,47 @@ msgstr "Nová konfigurácia z %s nie je používaná!\n"
 msgid "File %s is no symlink to %s.\n"
 msgstr "Súbor %s nie je symbolický odkaz na %s.\n"
 
-#: src/pam-config.c:203
+#: src/pam-config.c:178 src/pam-config.c:241
+#, c-format
+msgid "New config from %s is not in use!\n"
+msgstr "Nová konfigurácia z %s nie je používaná!\n"
+
+#: src/pam-config.c:227
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr "VAROVANIE: Záložný súbor '%s' už existuje. Vynechávam zálohu.\n"
 
-#: src/pam-config.c:206
+#: src/pam-config.c:230
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "CHYBA: Nedá sa vytvoriť záložný súbor '%s' (%m)\n"
 
-#: src/pam-config.c:210
+#: src/pam-config.c:234
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "CHYBA: Nedá sa odstrániť '%s' (%m)\n"
 
-#: src/pam-config.c:372
+#: src/pam-config.c:396
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Príliš veľa argumentov.\n"
 
-#: src/pam-config.c:380
+#: src/pam-config.c:404
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:499
+#: src/pam-config.c:481
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:508
+#: src/pam-config.c:490
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "VAROVANIE: Nedali sa načítať staré konfiguračné súbory.\n"
 
-#: src/pam-config.c:514 src/pam-config.c:562
+#: src/pam-config.c:496 src/pam-config.c:544
 #, c-format
 msgid ""
 "\n"
@@ -472,12 +480,21 @@ msgstr ""
 "\n"
 "Nedal sa načítať konfiguračný súbor, prerušené!\n"
 
-#: src/pam-config.c:867
+#: src/pam-config.c:561
+#, fuzzy, c-format
+msgid ""
+"\n"
+"Couldn't load config file '%s/pam.d/%s', aborted!\n"
+msgstr ""
+"\n"
+"Nedá sa načítať konfiguračný súbor '%s', prerušené!\n"
+
+#: src/pam-config.c:844
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Podporované bežné moduly:\n"
 
-#: src/pam-config.c:869
+#: src/pam-config.c:846
 #, c-format
 msgid ""
 "\n"
@@ -486,12 +503,12 @@ msgstr ""
 "\n"
 "Podporované moduly služieb:\n"
 
-#: src/pam-config.c:911
+#: src/pam-config.c:888
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Príliš veľa argumentov.\n"
 
-#: src/pam-config.c:1066
+#: src/pam-config.c:1043
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Nedá sa pristupovať k '%s': %m\n"
@@ -583,12 +600,12 @@ msgstr ""
 msgid "Cannot stat '%s': %m\n"
 msgstr "Nedajú sa získať informácie '%s': %m\n"
 
-#: src/single_config.c:259 src/write_config.c:63
+#: src/single_config.c:259 src/write_config.c:68
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Nedajú sa nastaviť práva pre '%s': %m\n"
 
-#: src/single_config.c:268 src/write_config.c:70
+#: src/single_config.c:268 src/write_config.c:75
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Nedá sa zmeniť vlastník/skupina pre `%s': %m\n"
@@ -598,7 +615,7 @@ msgstr "Nedá sa zmeniť vlastník/skupina pre `%s': %m\n"
 msgid "Cannot create file handle: %m\n"
 msgstr "Nedá sa vytvoriť súbor: %m\n"
 
-#: src/write_config.c:78
+#: src/write_config.c:83
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Nedá sa vytvoriť %s: %m\n"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-10 09:04+0100\n"
+"POT-Creation-Date: 2019-03-26 13:36+0100\n"
 "PO-Revision-Date: 2010-04-10 21:36+0300\n"
 "Last-Translator: Jyri Palokangas <jmp@opensuse.org>\n"
 "Language-Team: TRANSLATIONS <kde-i18n-doc@kde.org>\n"
@@ -21,12 +21,12 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms:  nplurals=2; plural=n != 1;\n"
 
-#: src/load_config.c:131
+#: src/load_config.c:177
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr "%s (%s): Argumentit ohitetaan\n"
 
-#: src/load_config.c:135
+#: src/load_config.c:181
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr "%s: Tuntematon moduuli %s, ohitetaan!\n"
@@ -243,7 +243,7 @@ msgstr ""
 "VIRHE: pam_mount.so moduuli on käytössä. Käyttääksesi pam_thinkfinger.so "
 "moduulia se pitää poistaa ensin käytöstä!\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:584
+#: src/mod_pam_mount.c:117
 #, c-format
 msgid ""
 "\n"
@@ -252,18 +252,18 @@ msgstr ""
 "\n"
 "Määritystiedoston '%s' lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/mod_pam_mount.c:126
+#: src/mod_pam_mount.c:123
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr ""
 "VIRHE: pam_thinkfinger.so moduuli on käytössä. Poista se ensin käytöstä.\n"
 
-#: src/mod_pam_mount.c:131
+#: src/mod_pam_mount.c:128
 #, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr "VIRHE: pam_fp.so moduuli on käytössä. Poista se ensin käytöstä.\n"
 
-#: src/mod_pam_mount.c:136
+#: src/mod_pam_mount.c:133
 #, fuzzy, c-format
 msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
 msgstr "VIRHE: pam_fp.so moduuli on käytössä. Poista se ensin käytöstä.\n"
@@ -304,12 +304,12 @@ msgstr ""
 "VIRHE: pam_fp.so moduuli on käytössä. Käyttääksesi pam_thinkfinger.so "
 "moduulia se pitää poistaa ensin käytöstä!\n"
 
-#: src/pam-config.c:47
+#: src/pam-config.c:39
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr "Käyttö: %s -a|-c|-d [...]\n"
 
-#: src/pam-config.c:56
+#: src/pam-config.c:48
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -320,12 +320,12 @@ msgstr ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
-#: src/pam-config.c:68
+#: src/pam-config.c:60
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr "Käytä `%s --help' tai `%s --usage' saadaksesi lisätietoa.\n"
 
-#: src/pam-config.c:76
+#: src/pam-config.c:68
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
@@ -334,63 +334,63 @@ msgstr ""
 "%s - luo PAM määritystiedostot\n"
 "\n"
 
-#: src/pam-config.c:78
+#: src/pam-config.c:70
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr "  -a, --add         Lisää valintoja/PAM moduuleja\n"
 
-#: src/pam-config.c:79
+#: src/pam-config.c:71
 msgid "  -c, --create      Create new configuration\n"
 msgstr "  -c, --create      Luo uusi määritys\n"
 
-#: src/pam-config.c:80
+#: src/pam-config.c:72
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr "  -d, --delete      Poistaa valintoja/PAM moduuleja\n"
 
-#: src/pam-config.c:81
+#: src/pam-config.c:73
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr "      --confdir     Käytä omaa määrityshakemistoa\n"
 
-#: src/pam-config.c:83
+#: src/pam-config.c:75
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  Muunna vanha määritys ja luo uusi\n"
 
-#: src/pam-config.c:85
+#: src/pam-config.c:77
 msgid "      --service config  Service to modify config of\n"
 msgstr "      --palvelun määritys  Palvelu määrityksen muokkaamiseen\n"
 
-#: src/pam-config.c:87
+#: src/pam-config.c:79
 msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Lue nykyinen määritys ja kirjoita ne uuteen\n"
 
-#: src/pam-config.c:89
+#: src/pam-config.c:81
 msgid "      --verify      Read and verify current configuration\n"
 msgstr "      --verify      Lue ja varmista nykyinen määritys\n"
 
-#: src/pam-config.c:91
+#: src/pam-config.c:83
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       Kysele asennettuja moduuleita ja valintoja\n"
 
-#: src/pam-config.c:93
+#: src/pam-config.c:85
 msgid "      --list-modules  List all supported modules\n"
 msgstr "      --list-modules  Listaa kaikki tuetut moduulit\n"
 
-#: src/pam-config.c:95
+#: src/pam-config.c:87
 msgid "      --help        Give this help list\n"
 msgstr "      --help        Näytä tämä ohjeluettelo\n"
 
-#: src/pam-config.c:96
+#: src/pam-config.c:88
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  -u, --usage       Näytä lyhyt käyttöohje\n"
 
-#: src/pam-config.c:97
+#: src/pam-config.c:89
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version     Tulostaa ohjelman version\n"
 
-#: src/pam-config.c:100
+#: src/pam-config.c:92
 msgid "Global Module Options:\n"
 msgstr "Yleiset moduulivalinnat:\n"
 
-#: src/pam-config.c:101
+#: src/pam-config.c:93
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
@@ -401,27 +401,30 @@ msgstr ""
 "sisällytetään\n"
 "       yksittäisten palveluiden tiedostoihin.\n"
 
-#: src/pam-config.c:106
+#: src/pam-config.c:98
 msgid "Single Service Module Options:\n"
 msgstr "Yleiset liittämisvalinnat\n"
 
-#: src/pam-config.c:107
+#: src/pam-config.c:99
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 "       Näitä moduuleita voidaan lisätä vain yksittäisiin "
 "palvelutiedostoihin.\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1145
-#: src/pam-config.c:1155 src/pam-config.c:1165 src/pam-config.c:1176
+#: src/pam-config.c:150 src/pam-config.c:199 src/pam-config.c:205
+#: src/pam-config.c:212
+#, c-format
+msgid "Out of memory\n"
+msgstr ""
+
+#: src/pam-config.c:159 src/pam-config.c:239
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Virhe otettaessa käyttöön %s (%m)\n"
 
-#: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1147 src/pam-config.c:1157 src/pam-config.c:1167
-#: src/pam-config.c:1178
-#, c-format
-msgid "New config from %s is not in use!\n"
+#: src/pam-config.c:161
+#, fuzzy, c-format
+msgid "New config from %s/pam.d/%s is not in use!\n"
 msgstr "Uusi määritys %s ei ole käytössä!\n"
 
 #: src/pam-config.c:176
@@ -429,44 +432,49 @@ msgstr "Uusi määritys %s ei ole käytössä!\n"
 msgid "File %s is no symlink to %s.\n"
 msgstr "Tiedosto %s ei ole symbolinen linkki %s.\n"
 
-#: src/pam-config.c:203
+#: src/pam-config.c:178 src/pam-config.c:241
+#, c-format
+msgid "New config from %s is not in use!\n"
+msgstr "Uusi määritys %s ei ole käytössä!\n"
+
+#: src/pam-config.c:227
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 "VAROITUS: Varmuuskopiotiedosto '%s' on jo olemassa. Jätetään varmuuskopio "
 "huomiotta.\n"
 
-#: src/pam-config.c:206
+#: src/pam-config.c:230
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "VIRHE: Varmuuskopion '%s' (%m) luominen ei onnistunut.\n"
 
-#: src/pam-config.c:210
+#: src/pam-config.c:234
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "VIRHE: '%s' (%m) poistaminen ei onnistunut (%m)\n"
 
-#: src/pam-config.c:372
+#: src/pam-config.c:396
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Liian monta argumenttia.\n"
 
-#: src/pam-config.c:380
+#: src/pam-config.c:404
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:499
+#: src/pam-config.c:481
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:508
+#: src/pam-config.c:490
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "VAROITUS: Vanhojen määritystiedostojen lataaminen ei onnistunut.\n"
 
-#: src/pam-config.c:514 src/pam-config.c:562
+#: src/pam-config.c:496 src/pam-config.c:544
 #, c-format
 msgid ""
 "\n"
@@ -475,12 +483,21 @@ msgstr ""
 "\n"
 "Määritystiedoston lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:867
+#: src/pam-config.c:561
+#, fuzzy, c-format
+msgid ""
+"\n"
+"Couldn't load config file '%s/pam.d/%s', aborted!\n"
+msgstr ""
+"\n"
+"Määritystiedoston '%s' lataaminen ei onnistu, keskeytetään!\n"
+
+#: src/pam-config.c:844
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Tuetut yleiset moduulit:\n"
 
-#: src/pam-config.c:869
+#: src/pam-config.c:846
 #, c-format
 msgid ""
 "\n"
@@ -489,12 +506,12 @@ msgstr ""
 "\n"
 "Tuetut palvelumoduulit:\n"
 
-#: src/pam-config.c:911
+#: src/pam-config.c:888
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Liian monta argumenttia.\n"
 
-#: src/pam-config.c:1066
+#: src/pam-config.c:1043
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Ei voi yhdistää %s: %m\n"
@@ -586,12 +603,12 @@ msgstr ""
 msgid "Cannot stat '%s': %m\n"
 msgstr "stat ei onnistu '%s': %m\n"
 
-#: src/single_config.c:259 src/write_config.c:63
+#: src/single_config.c:259 src/write_config.c:68
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "%s oikeuksien asetus ei onnistunut: %m\n"
 
-#: src/single_config.c:268 src/write_config.c:70
+#: src/single_config.c:268 src/write_config.c:75
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "'%s' omistajan/ryhmän muutos ei onnistunut: %m\n"
@@ -601,7 +618,7 @@ msgstr "'%s' omistajan/ryhmän muutos ei onnistunut: %m\n"
 msgid "Cannot create file handle: %m\n"
 msgstr "Ei voitu luoda tiedostokahvaa: %m\n"
 
-#: src/write_config.c:78
+#: src/write_config.c:83
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Ei voi luoda %s: %m\n"

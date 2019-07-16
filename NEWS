@@ -1,8 +1,12 @@
 pam-config NEWS -- history of user-visible changes.
 
-Copyright (C) 2006-2018 Thorsten Kukuk <kukuk@suse.de>.
+Copyright (C) 2006-2019 Thorsten Kukuk <kukuk@suse.de>.
 
-Please enter bug reports into https://bugzilla.suse.com.
+Please enter bug reports at https://github.com/SUSE/pam-config/issues
+
+Version 1.0
+* Implement search path for config files, so that they /etc/pam.d/
+  can only contain the changes, but not the original files.
 
 Version 0.96
 * Add missing pam_cracklib options [bsc#1114835]

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-10 09:04+0100\n"
+"POT-Creation-Date: 2019-03-26 13:36+0100\n"
 "PO-Revision-Date: 2010-03-18 11:40+0100\n"
 "Last-Translator: Kalman Kemenczy <kkemenczy@novell.com>\n"
 "Language-Team: collection <kde-i18n-doc@kde.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
-#: src/load_config.c:131
+#: src/load_config.c:177
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr "%s (%s): A paraméter figyelmen kívül marad\n"
 
-#: src/load_config.c:135
+#: src/load_config.c:181
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr "%s: a(z) %s modul ismeretlen!\n"
@@ -247,7 +247,7 @@ msgstr ""
 "HIBA: A pam_mount.so engedélyezve van, amit a pam_thinkfinger.so "
 "használatához le kell tiltani.\n"
 
-#: src/mod_pam_mount.c:120 src/pam-config.c:584
+#: src/mod_pam_mount.c:117
 #, c-format
 msgid ""
 "\n"
@@ -256,20 +256,20 @@ msgstr ""
 "\n"
 "A(z) \"%s\" beállításfájl nem tölthető be, megszakítva!\n"
 
-#: src/mod_pam_mount.c:126
+#: src/mod_pam_mount.c:123
 #, c-format
 msgid "ERROR: Module pam_thinkfinger.so is enabled. Disable it first.\n"
 msgstr ""
 "HIBA: A pam_thinkfinger.so modul engedélyezve van. Először ezt le kell "
 "tiltani.\n"
 
-#: src/mod_pam_mount.c:131
+#: src/mod_pam_mount.c:128
 #, c-format
 msgid "ERROR: Module pam_fp.so is enabled. Disable it first.\n"
 msgstr ""
 "HIBA: A pam_fp.so modul engedélyezve van. Először ezt le kell tiltani.\n"
 
-#: src/mod_pam_mount.c:136
+#: src/mod_pam_mount.c:133
 #, fuzzy, c-format
 msgid "ERROR: Module pam_fprint.so is enabled. Disable it first.\n"
 msgstr ""
@@ -311,12 +311,12 @@ msgstr ""
 "HIBA: A pam_fp.so engedélyezve van, amit a pam_thinkfinger.so használatához "
 "le kell tiltani.\n"
 
-#: src/pam-config.c:47
+#: src/pam-config.c:39
 #, c-format
 msgid "Usage: %s -a|-c|-d [...]\n"
 msgstr "Használat: %s -a|-c|-d [...]\n"
 
-#: src/pam-config.c:56
+#: src/pam-config.c:48
 #, c-format
 msgid ""
 "Copyright (C) %s Thorsten Kukuk.\n"
@@ -328,14 +328,14 @@ msgstr ""
 "feltételekkel\n"
 "kapcsolatban.  Semmilyen körülmények között SEM tartalmaz garanciát.\n"
 
-#: src/pam-config.c:68
+#: src/pam-config.c:60
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr ""
 "További információért próbálja meg a `%s --help' vagy a `%s --usage' "
 "parancsot.\n"
 
-#: src/pam-config.c:76
+#: src/pam-config.c:68
 #, c-format
 msgid ""
 "%s - create PAM config files\n"
@@ -344,64 +344,64 @@ msgstr ""
 "%s - PAM beállítófájl létrehozása\n"
 "\n"
 
-#: src/pam-config.c:78
+#: src/pam-config.c:70
 msgid "  -a, --add         Add options/PAM modules\n"
 msgstr "  -a, --add         Kapcsoló/PAM modul hozzáadása\n"
 
-#: src/pam-config.c:79
+#: src/pam-config.c:71
 msgid "  -c, --create      Create new configuration\n"
 msgstr "  -c, --create      Új beállítás készítése\n"
 
-#: src/pam-config.c:80
+#: src/pam-config.c:72
 msgid "  -d, --delete      Remove options/PAM modules\n"
 msgstr "  -d, --delete      Kapcsoló/PAM modul eltávolítása\n"
 
-#: src/pam-config.c:81
+#: src/pam-config.c:73
 msgid "      --confdir     Use a custom configuration directory\n"
 msgstr "      --confdir     Egyedi konfigurációs könyvtár használata\n"
 
-#: src/pam-config.c:83
+#: src/pam-config.c:75
 msgid "      --initialize  Convert old config and create new one\n"
 msgstr "      --initialize  Régi beállítás konverziója és új készítése\n"
 
-#: src/pam-config.c:85
+#: src/pam-config.c:77
 msgid "      --service config  Service to modify config of\n"
 msgstr ""
 "      --service beállítás  A szolgáltatás, amely beállítása módosítandó\n"
 
-#: src/pam-config.c:87
+#: src/pam-config.c:79
 msgid "      --update      Read current config and write them new\n"
 msgstr "      --update      Jelenlegi beállítás beolvasása és kiírása\n"
 
-#: src/pam-config.c:89
+#: src/pam-config.c:81
 msgid "      --verify      Read and verify current configuration\n"
 msgstr "      --verify      Jelenlegi beállítás beolvasása és ellenőrzése\n"
 
-#: src/pam-config.c:91
+#: src/pam-config.c:83
 msgid "  -q, --query       Query for installed modules and options\n"
 msgstr "  -q, --query       Telepített modulok és kapcsolók lekérdezése\n"
 
-#: src/pam-config.c:93
+#: src/pam-config.c:85
 msgid "      --list-modules  List all supported modules\n"
 msgstr "      --list-modules  Támogatott modulok listázása\n"
 
-#: src/pam-config.c:95
+#: src/pam-config.c:87
 msgid "      --help        Give this help list\n"
 msgstr "      --help        Súgófájl\n"
 
-#: src/pam-config.c:96
+#: src/pam-config.c:88
 msgid "  -u, --usage       Give a short usage message\n"
 msgstr "  -u, --usage       Rövid használati leírás\n"
 
-#: src/pam-config.c:97
+#: src/pam-config.c:89
 msgid "  -v, --version     Print program version\n"
 msgstr "  -v, --version     Programverzió kiírása\n"
 
-#: src/pam-config.c:100
+#: src/pam-config.c:92
 msgid "Global Module Options:\n"
 msgstr "Globális modulbeállítások:\n"
 
-#: src/pam-config.c:101
+#: src/pam-config.c:93
 msgid ""
 "      The global modules get inserted into the \n"
 "      common-{account,auth,password,session} files which are included by\n"
@@ -411,26 +411,29 @@ msgstr ""
 "      common-{account,auth,password,session}, amelyek beépülnek az\n"
 "      egyszeres szolgáltatások fájljaiba.\n"
 
-#: src/pam-config.c:106
+#: src/pam-config.c:98
 msgid "Single Service Module Options:\n"
 msgstr "Egyszeri Szolgáltatás Modul beállításai:\n"
 
-#: src/pam-config.c:107
+#: src/pam-config.c:99
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 "      ezek a modulok csak egyszeri szolgáltatás fájlokhoz adhatóak hozzá.\n"
 
-#: src/pam-config.c:159 src/pam-config.c:215 src/pam-config.c:1145
-#: src/pam-config.c:1155 src/pam-config.c:1165 src/pam-config.c:1176
+#: src/pam-config.c:150 src/pam-config.c:199 src/pam-config.c:205
+#: src/pam-config.c:212
+#, c-format
+msgid "Out of memory\n"
+msgstr ""
+
+#: src/pam-config.c:159 src/pam-config.c:239
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "A(z) %s (%m) aktiválása sikertelen\n"
 
-#: src/pam-config.c:161 src/pam-config.c:178 src/pam-config.c:217
-#: src/pam-config.c:1147 src/pam-config.c:1157 src/pam-config.c:1167
-#: src/pam-config.c:1178
-#, c-format
-msgid "New config from %s is not in use!\n"
+#: src/pam-config.c:161
+#, fuzzy, c-format
+msgid "New config from %s/pam.d/%s is not in use!\n"
 msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"
 
 #: src/pam-config.c:176
@@ -438,42 +441,47 @@ msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"
 msgid "File %s is no symlink to %s.\n"
 msgstr "A(z) %s fájl nem szimbolikus linkje a(z) %s fájlnak.\n"
 
-#: src/pam-config.c:203
+#: src/pam-config.c:178 src/pam-config.c:241
+#, c-format
+msgid "New config from %s is not in use!\n"
+msgstr "A(z) %s új beállítása nem kerül felhasználásra!\n"
+
+#: src/pam-config.c:227
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr "Figyelem: a(z) '%s' mentési fájl már létezik. A mentés kimarad.\n"
 
-#: src/pam-config.c:206
+#: src/pam-config.c:230
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "HIBA: A(z) %s mentési fájl nem hozható létre: %m\n"
 
-#: src/pam-config.c:210
+#: src/pam-config.c:234
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "HIBA: A(z) %s nem távolítható el (%m)\n"
 
-#: src/pam-config.c:372
+#: src/pam-config.c:396
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Túl sok paraméter.\n"
 
-#: src/pam-config.c:380
+#: src/pam-config.c:404
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:499
+#: src/pam-config.c:481
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:508
+#: src/pam-config.c:490
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "Figyelem: A régi konfigurációs fájl betöltése sikertelen.\n"
 
-#: src/pam-config.c:514 src/pam-config.c:562
+#: src/pam-config.c:496 src/pam-config.c:544
 #, c-format
 msgid ""
 "\n"
@@ -482,12 +490,21 @@ msgstr ""
 "\n"
 "A beállítások betöltése sikertelen!\n"
 
-#: src/pam-config.c:867
+#: src/pam-config.c:561
+#, fuzzy, c-format
+msgid ""
+"\n"
+"Couldn't load config file '%s/pam.d/%s', aborted!\n"
+msgstr ""
+"\n"
+"A(z) \"%s\" beállításfájl nem tölthető be, megszakítva!\n"
+
+#: src/pam-config.c:844
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Támogatott általános modulok:\n"
 
-#: src/pam-config.c:869
+#: src/pam-config.c:846
 #, c-format
 msgid ""
 "\n"
@@ -496,12 +513,12 @@ msgstr ""
 "\n"
 "Támogatott szervizmodulok:\n"
 
-#: src/pam-config.c:911
+#: src/pam-config.c:888
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Túl sok paraméter.\n"
 
-#: src/pam-config.c:1066
+#: src/pam-config.c:1043
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "A(z) %s nem érhető el: %m\n"
@@ -597,12 +614,12 @@ msgstr ""
 msgid "Cannot stat '%s': %m\n"
 msgstr "A(z) %s nem érhető el: %m\n"
 
-#: src/single_config.c:259 src/write_config.c:63
+#: src/single_config.c:259 src/write_config.c:68
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "A(z) \"%s\" fájl jogosultságai nem állíthatók be : %m\n"
 
-#: src/single_config.c:268 src/write_config.c:70
+#: src/single_config.c:268 src/write_config.c:75
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "A(z) \"%s\" tulajdonosa vagy csoporttagsága nem módosítható: %m\n"
@@ -612,7 +629,7 @@ msgstr "A(z) \"%s\" tulajdonosa vagy csoporttagsága nem módosítható: %m\n"
 msgid "Cannot create file handle: %m\n"
 msgstr "Nem hozható létre fájlleíró: %m\n"
 
-#: src/write_config.c:78
+#: src/write_config.c:83
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "A(z) %s: %m létrehozása sikertelen\n"
