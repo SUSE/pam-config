@@ -42,7 +42,7 @@ extern char *gl_service;
 extern char *confdir;
 
 #define CONF_FALLBACK_DIR1 "/usr/lib"
-#define CONF_FALLBACK_DIR2 "/usr/share/defaults"
+#define CONF_FALLBACK_DIR2 "/usr/etc"
 
 #define CONF_ACCOUNT "common-account"
 #define CONF_ACCOUNT_PC "common-account-pc"
