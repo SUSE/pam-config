@@ -11,7 +11,7 @@
  * @date 2007-07-23
  */
 /*
- * Copyright (C) 2007, 2008, 2009, 2012, 2018 - Thorsten Kukuk, Sven Schober
+ * Copyright (C) 2007, 2008, 2009, 2012, 2018, 2020 - Thorsten Kukuk, Sven Schober
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -83,11 +83,13 @@ typedef struct {
 #define INIT_OPT_6(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f)     INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_2(PREFIX,TYPE,DEFAULT,e,f)
 #define INIT_OPT_7(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g)   INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_3(PREFIX,TYPE,DEFAULT,e,f,g)
 #define INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h) INIT_OPT_4(PREFIX,TYPE,DEFAULT,a,b,c,d); INIT_OPT_4(PREFIX,TYPE,DEFAULT,e,f,g,h)
-#define INIT_OPT_10(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j) INIT_OPT_5(PREFIX,TYPE,DEFAULT,a,b,c,d,e); INIT_OPT_5(PREFIX,TYPE,DEFAULT,f,g,h,i,j)
+#define INIT_OPT_9(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i)      INIT_OPT_5(PREFIX,TYPE,DEFAULT,a,b,c,d,e); INIT_OPT_4(PREFIX,TYPE,DEFAULT,f,g,h,i)
+#define INIT_OPT_10(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j)   INIT_OPT_5(PREFIX,TYPE,DEFAULT,a,b,c,d,e); INIT_OPT_5(PREFIX,TYPE,DEFAULT,f,g,h,i,j)
 #define INIT_OPT_11(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k) INIT_OPT_6(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f); INIT_OPT_5(PREFIX,TYPE,DEFAULT,g,h,i,j,k)
 #define INIT_OPT_14(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n) INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h); INIT_OPT_6(PREFIX,TYPE,DEFAULT,i,j,k,l,m,n)
 #define INIT_OPT_15(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o) INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h); INIT_OPT_7(PREFIX,TYPE,DEFAULT,i,j,k,l,m,n,o)
 #define INIT_OPT_16(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p) INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h); INIT_OPT_8(PREFIX,TYPE,DEFAULT,i,j,k,l,m,n,o,p)
+#define INIT_OPT_17(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q) INIT_OPT_8(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h); INIT_OPT_9(PREFIX,TYPE,DEFAULT,i,j,k,l,m,n,o,p,q)
 
 #define OPT_SET_START(PREFIX, TYPE) static TYPE ## _option_t * PREFIX ## _ ## TYPE ## _opts[] = {
 #define OPT_SET_END NULL }
@@ -100,11 +102,13 @@ typedef struct {
 #define OPT_SET_BODY_6(PREFIX, a,b,c,d,e,f) OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_4(PREFIX, c,d,e,f)
 #define OPT_SET_BODY_7(PREFIX, a,b,c,d,e,f,g) OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_5(PREFIX, c,d,e,f,g)
 #define OPT_SET_BODY_8(PREFIX, a,b,c,d,e,f,g,h) OPT_SET_BODY_2(PREFIX,a,b), OPT_SET_BODY_6(PREFIX, c,d,e,f,g,h)
+#define OPT_SET_BODY_9(PREFIX, a,b,c,d,e,f,g,h,i) OPT_SET_BODY_3(PREFIX,a,b,c), OPT_SET_BODY_6(PREFIX, d,e,f,g,h,i)
 #define OPT_SET_BODY_10(PREFIX, a,b,c,d,e,f,g,h,i,j) OPT_SET_BODY_5(PREFIX,a,b,c,d,e), OPT_SET_BODY_5(PREFIX, f,g,h,i,j)
 #define OPT_SET_BODY_11(PREFIX, a,b,c,d,e,f,g,h,i,j,k) OPT_SET_BODY_5(PREFIX,a,b,c,d,e), OPT_SET_BODY_6(PREFIX, f,g,h,i,j,k)
 #define OPT_SET_BODY_14(PREFIX, a,b,c,d,e,f,g,h,i,j,k,l,m,n) OPT_SET_BODY_8(PREFIX,a,b,c,d,e,f,g,h), OPT_SET_BODY_6(PREFIX, i,j,k,l,m,n)
 #define OPT_SET_BODY_15(PREFIX, a,b,c,d,e,f,g,h,i,j,k,l,m,n,o) OPT_SET_BODY_8(PREFIX,a,b,c,d,e,f,g,h), OPT_SET_BODY_7(PREFIX, i,j,k,l,m,n,o)
 #define OPT_SET_BODY_16(PREFIX, a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p) OPT_SET_BODY_8(PREFIX,a,b,c,d,e,f,g,h), OPT_SET_BODY_8(PREFIX, i,j,k,l,m,n,o,p)
+#define OPT_SET_BODY_17(PREFIX, a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q) OPT_SET_BODY_8(PREFIX,a,b,c,d,e,f,g,h), OPT_SET_BODY_9(PREFIX, i,j,k,l,m,n,o,p,q)
 
 #define GENERIC_OPT_SET_1(PREFIX,TYPE,DEFAULT,a)	      INIT_OPT_1(PREFIX, TYPE, DEFAULT, a); \
 							      OPT_SET_START(PREFIX, TYPE) \
@@ -163,6 +167,11 @@ typedef struct {
                                                                   INIT_OPT_16(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p);	\
 							          OPT_SET_START(PREFIX, TYPE) \
 								  OPT_SET_BODY_16(PREFIX,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p), \
+								  OPT_SET_END
+#define GENERIC_OPT_SET_17(PREFIX, TYPE, DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q) \
+                                                                  INIT_OPT_17(PREFIX,TYPE,DEFAULT,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q);	\
+							          OPT_SET_START(PREFIX, TYPE) \
+								  OPT_SET_BODY_17(PREFIX,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q), \
 								  OPT_SET_END
 
 #define DECLARE_BOOL_OPTS_1(OPT_1)					\
@@ -293,6 +302,24 @@ typedef struct {
   GENERIC_OPT_SET_14( password,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14 ); \
   GENERIC_OPT_SET_14( session,	string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14 );
 
+#define DECLARE_STRING_OPTS_15(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15) \
+  GENERIC_OPT_SET_15( auth, string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15 ); \
+  GENERIC_OPT_SET_15( account,  string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15 ); \
+  GENERIC_OPT_SET_15( password, string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15 ); \
+  GENERIC_OPT_SET_15( session,  string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15 );
+
+#define DECLARE_STRING_OPTS_16(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16) \
+  GENERIC_OPT_SET_16( auth, string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16 ); \
+  GENERIC_OPT_SET_16( account,  string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16 ); \
+  GENERIC_OPT_SET_16( password, string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16 ); \
+  GENERIC_OPT_SET_16( session,  string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16 );
+
+
+#define DECLARE_STRING_OPTS_17(OPT_1,OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16,OPT_17) \
+  GENERIC_OPT_SET_17( auth, string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16,OPT_17 ); \
+  GENERIC_OPT_SET_17( account,  string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16,OPT_17 ); \
+  GENERIC_OPT_SET_17( password, string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16,OPT_17 ); \
+  GENERIC_OPT_SET_17( session,  string, STRING_DEFAULT, OPT_1, OPT_2,OPT_3,OPT_4,OPT_5,OPT_6,OPT_7,OPT_8,OPT_9,OPT_10,OPT_11,OPT_12,OPT_13,OPT_14,OPT_15,OPT_16,OPT_17 );
 
 #define DECLARE_OPT_SETS						\
   static option_set_t auth_opts	    = { auth_bool_opts,	    auth_string_opts,	  &is_enabled, &enable, &get_opt, &set_opt }; \

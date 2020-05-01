@@ -1066,6 +1066,198 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--pwquality</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_pwquality.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_pwquality.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-reject_username</option></term>
+            <listitem>
+              <para>
+                Add <option>reject_username</option> option to all pam_pwquality.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-gecoscheck</option></term>
+            <listitem>
+              <para>
+                Add <option>gecoscheck</option> option to all pam_pwquality.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-enforce_for_root</option></term>
+            <listitem>
+              <para>
+                Add <option>enforce_for_root</option> option to all pam_pwquality.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-local_users_only</option></term>
+            <listitem>
+              <para>
+                Add <option>local_users_only</option> option to all pam_pwquality.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-use_authtok</option></term>
+            <listitem>
+              <para>
+                Add <option>use_authtok</option> option to all pam_pwquality.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-authtok_type=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>authtok_type=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-retry=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>retry=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-difok=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>difok=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-minlen=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>minlen=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-dcredit=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>dcredit=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-ucredit=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>ucredit=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-lcredit=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>lcredit=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-ocredit=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>ocredit=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-minclass=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>minclass=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-dictpath=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>dictpath=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-maxrepeat=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>maxrepeat=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-maxsequence=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>maxsequence=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-maxclassrepeat=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>maxclassrepeat=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-dictcheck=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>dictcheck=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-usercheck=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>usercheck=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-enforcing=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>enforcing=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwquality-badwords=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>badwords=</option><replaceable>value</replaceable> option to pam_pwquality.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--selinux</option></term>
             <listitem>
               <para>

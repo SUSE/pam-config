@@ -25,6 +25,7 @@ extern pam_module_t mod_pam_passwdqc;
 extern pam_module_t mod_pam_pkcs11;
 extern pam_module_t mod_pam_pwcheck;
 extern pam_module_t mod_pam_pwhistory;
+extern pam_module_t mod_pam_pwquality;
 extern pam_module_t mod_pam_selinux;
 extern pam_module_t mod_pam_ssh;
 extern pam_module_t mod_pam_sss;
@@ -74,6 +75,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_pkcs11,
   &mod_pam_pwcheck,
   &mod_pam_pwhistory,
+  &mod_pam_pwquality,
   &mod_pam_selinux,
   &mod_pam_ssh,
   &mod_pam_sss,
@@ -129,6 +131,7 @@ static pam_module_t *module_list_password[] = {
   &mod_pam_winbind,
   &mod_pam_pwcheck,
   &mod_pam_passwdqc,
+  &mod_pam_pwquality,
   &mod_pam_cracklib,
   &mod_pam_pwhistory,
   &mod_pam_gnome_keyring,
