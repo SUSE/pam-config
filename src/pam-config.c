@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007, 2008, 2009, 2012, 2013, 2014, 2016, 2018, 2019 Thorsten Kukuk
+/* Copyright (C) 2006, 2007, 2008, 2009, 2012, 2013, 2014, 2016, 2018, 2019, 2020 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -247,7 +247,7 @@ relink (const char *sysconfdir, const char *file, const char *file_pc)
 static int
 replace_obsolete_modules (pam_module_t **module_list)
 {
-  int with_unix2, with_pwcheck;
+  int with_unix2, with_pwcheck, with_cracklib;
 
   with_unix2 = is_module_enabled (module_list, "pam_unix2.so", ACCOUNT) |
     is_module_enabled (module_list, "pam_unix2.so", AUTH) |
@@ -258,6 +258,8 @@ replace_obsolete_modules (pam_module_t **module_list)
     is_module_enabled (module_list, "pam_pwcheck.so", AUTH) |
     is_module_enabled (module_list, "pam_pwcheck.so", PASSWORD) |
     is_module_enabled (module_list, "pam_pwcheck.so", SESSION);
+
+  with_cracklib = is_module_enabled (module_list, "pam_cracklib.so", PASSWORD);
 
   if (with_unix2 && check_for_pam_module ("pam_unix2.so", 0) == 1)
     {
@@ -326,22 +328,60 @@ replace_obsolete_modules (pam_module_t **module_list)
 	return 1;
     }
 
+  /* If pam_cracklib is enabled and pam_pwquality.so installed, replace it
+     with pam_pwquality. */
+  if (with_cracklib && check_for_pam_module ("pam_pwquality.so", 0) == 0)
+    {
+      char *cracklib_opts_bool[] = {"debug", "reject_username",
+				    "gecoscheck", "enforce_for_root"};
+      char *cracklib_opts_str[] = {"authtok_type", "retry", "difok",
+				   "minlen", "dcredit",
+				   "ucredit", "lcredit", "ocredit",
+				   "minclass", "dictpath", "maxrepeat",
+				   "maxsequence", "maxclassrepeat"};
+      option_set_t *opt_cracklib, *opt_pwquality;
+      pam_module_t *pam_cracklib = lookup (module_list, "pam_cracklib.so");
+      pam_module_t *pam_pwquality = lookup (module_list, "pam_pwquality.so");
+
+      fprintf (stderr, "pam_cracklib used, replacing with pam_pwquality.\n");
+
+      opt_cracklib = pam_cracklib->get_opt_set (pam_cracklib, PASSWORD);
+      opt_pwquality = pam_pwquality->get_opt_set (pam_pwquality, PASSWORD);
+
+      opt_cracklib->enable (opt_cracklib, "is_enabled", FALSE);
+      opt_pwquality->enable (opt_pwquality, "is_enabled", TRUE);
+
+      for (size_t i = 0; i < sizeof (cracklib_opts_bool)/sizeof (char *); i++)
+
+	opt_pwquality->enable (opt_pwquality, cracklib_opts_bool[i],
+				opt_cracklib->is_enabled (opt_cracklib,
+							  cracklib_opts_bool[i]));
+      for (size_t i = 0; i < sizeof (cracklib_opts_str)/sizeof (char *); i++)
+
+	opt_pwquality->set_opt (opt_pwquality, cracklib_opts_str[i],
+				opt_cracklib->get_opt (opt_cracklib,
+						       cracklib_opts_str[i]));
+
+      if (sanitize_check_password (module_list, 0) != 0)
+	return 1;
+    }
+
   if (with_pwcheck && check_for_pam_module ("pam_pwcheck.so", 0) == 1)
     {
-      option_set_t *opt_cracklib, *opt_pwcheck, *opt_pwhistory;
+      option_set_t *opt_pwquality, *opt_pwcheck, *opt_pwhistory;
       pam_module_t *pam_pwcheck = lookup (module_list, "pam_pwcheck.so");
-      pam_module_t *pam_cracklib = lookup (module_list, "pam_cracklib.so");
+      pam_module_t *pam_pwquality = lookup (module_list, "pam_pwquality.so");
       pam_module_t *pam_pwhistory = lookup (module_list, "pam_pwhistory.so");
 
-      fprintf (stderr, "pam_pwcheck used but not installed, replacing with pam_cracklib.\n");
+      fprintf (stderr, "pam_pwcheck used but not installed, replacing with pam_pwquality.\n");
 
       opt_pwhistory = pam_pwhistory->get_opt_set (pam_pwhistory, PASSWORD);
-      opt_cracklib = pam_cracklib->get_opt_set (pam_cracklib, PASSWORD);
-      opt_cracklib->enable (opt_cracklib, "is_enabled", TRUE);
+      opt_pwquality = pam_pwquality->get_opt_set (pam_pwquality, PASSWORD);
+      opt_pwquality->enable (opt_pwquality, "is_enabled", TRUE);
       opt_pwcheck = pam_pwcheck->get_opt_set (pam_pwcheck, PASSWORD);
       opt_pwcheck->enable (opt_pwcheck, "is_enabled", FALSE);
       if (opt_pwcheck->is_enabled (opt_pwcheck, "debug"))
-	opt_cracklib->enable (opt_cracklib, "debug", TRUE);
+	opt_pwquality->enable (opt_pwquality, "debug", TRUE);
 
       /* check, if we need to enable pam_pwhistory */
       if (opt_pwcheck->get_opt (opt_pwcheck, "remember") != NULL &&
@@ -960,9 +1000,11 @@ main (int argc, char *argv[])
       if (sanitize_check_auth (common_module_list, 0) != 0)
 	return 1;
 
-      opt_set = mod_pam_cracklib.get_opt_set (&mod_pam_cracklib, PASSWORD);
-      opt_set->enable (opt_set, "is_enabled", TRUE);
-
+      if (check_for_pam_module ("pam_pwquality.so", 0) == 0)
+	{
+	  opt_set = mod_pam_pwquality.get_opt_set (&mod_pam_pwquality, PASSWORD);
+	  opt_set->enable (opt_set, "is_enabled", TRUE);
+	}
       opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, PASSWORD);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       opt_set->enable (opt_set, "nullok", TRUE);
