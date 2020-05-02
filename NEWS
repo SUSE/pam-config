@@ -4,6 +4,12 @@ Copyright (C) 2006-2019 Thorsten Kukuk <kukuk@suse.de>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
 
+Version 1.3
+* Add support for pam_pwquality
+* Replace pam_cracklib with pam_pwquality
+* Add pam_systemd if installed and we create a new configuration
+* Change check for existence of a Module
+
 Version 1.2
 * Change /usr/share/defaults to /usr/etc
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 19:37+0200\n"
+"POT-Creation-Date: 2020-05-01 22:24+0200\n"
 "PO-Revision-Date: 2009-12-02 21:03+0100\n"
 "Last-Translator: Óscar Abilleira Muñiz <oscar_abilleira@edu.xunta.es>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -455,28 +455,28 @@ msgstr "ERRO: Non se pode crear arquivo de copia de seguridade '%s' (%m)\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "ERRO: Non se pode eliminar '%s' (%m)\n"
 
-#: src/pam-config.c:396
+#: src/pam-config.c:436
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Demasiados argumentos.\n"
 
-#: src/pam-config.c:404
+#: src/pam-config.c:444
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:481
+#: src/pam-config.c:521
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:490
+#: src/pam-config.c:530
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 "ATENCIÓN:  Non foi posible cargar os antigos arquivos de configuración.\n"
 
-#: src/pam-config.c:496 src/pam-config.c:544
+#: src/pam-config.c:536 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -485,7 +485,7 @@ msgstr ""
 "\n"
 "Non se pudo cargar o arquivo de configuración, abortado!\n"
 
-#: src/pam-config.c:561
+#: src/pam-config.c:601
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -494,12 +494,12 @@ msgstr ""
 "\n"
 "Non e pudo cargar o arquivo de configuración '%s', abortado!\n"
 
-#: src/pam-config.c:844
+#: src/pam-config.c:884
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Módulos comúns soportados:\n"
 
-#: src/pam-config.c:846
+#: src/pam-config.c:886
 #, c-format
 msgid ""
 "\n"
@@ -508,12 +508,12 @@ msgstr ""
 "\n"
 "Módulos de servicio soportados:\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:928
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Demasiados argumentos.\n"
 
-#: src/pam-config.c:1043
+#: src/pam-config.c:1085
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Non se pode acceder a '%s': %m\n"

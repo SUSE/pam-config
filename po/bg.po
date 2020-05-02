@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 19:37+0200\n"
+"POT-Creation-Date: 2020-05-01 22:24+0200\n"
 "PO-Revision-Date: 2009-10-15 15:55+0300\n"
 "Last-Translator: Borislav Mitev <morbid_viper@tkzs.org>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
@@ -458,27 +458,27 @@ msgstr "ГРЕШКА: Не може да бъде създадено резер�
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "ГРЕШКА: Не може да се създаде „%s“ (%m)\n"
 
-#: src/pam-config.c:396
+#: src/pam-config.c:436
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Твърде много аргументи.\n"
 
-#: src/pam-config.c:404
+#: src/pam-config.c:444
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:481
+#: src/pam-config.c:521
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:490
+#: src/pam-config.c:530
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "ВНИМАНИЕ: не може да се се заредят стари файлове с настройки.\n"
 
-#: src/pam-config.c:496 src/pam-config.c:544
+#: src/pam-config.c:536 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -487,7 +487,7 @@ msgstr ""
 "\n"
 "Прекъсване поради невъзможност да се зареди файл с настройки!\n"
 
-#: src/pam-config.c:561
+#: src/pam-config.c:601
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -496,12 +496,12 @@ msgstr ""
 "\n"
 "Прекъсване поради невъзможност  да се зареди файлът с настройките „%s“!\n"
 
-#: src/pam-config.c:844
+#: src/pam-config.c:884
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Поддържани общи модули:\n"
 
-#: src/pam-config.c:846
+#: src/pam-config.c:886
 #, c-format
 msgid ""
 "\n"
@@ -510,12 +510,12 @@ msgstr ""
 "\n"
 "Поддържани модули на услугата:\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:928
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Твърде много аргументи.\n"
 
-#: src/pam-config.c:1043
+#: src/pam-config.c:1085
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Не може да се достъпи %s: %m\n"

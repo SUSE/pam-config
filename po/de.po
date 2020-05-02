@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 19:37+0200\n"
+"POT-Creation-Date: 2020-05-01 22:24+0200\n"
 "PO-Revision-Date: 2009-08-20 21:23+0200\n"
 "Last-Translator: Hermann-Josef Beckers <hj.beckers@onlinehome.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -463,27 +463,27 @@ msgstr "FEHLER: Kann Sicherungsdatei '%s' (%m) nicht erstellen\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "FEHLER: Kann '%s' (%m) nicht entfernen\n"
 
-#: src/pam-config.c:396
+#: src/pam-config.c:436
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Zu viele Argumente.\n"
 
-#: src/pam-config.c:404
+#: src/pam-config.c:444
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:481
+#: src/pam-config.c:521
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:490
+#: src/pam-config.c:530
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "ACHTUNG: Konnte alte Konfigurationsdateien nicht laden.\n"
 
-#: src/pam-config.c:496 src/pam-config.c:544
+#: src/pam-config.c:536 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -492,7 +492,7 @@ msgstr ""
 "\n"
 "Konnte Konfigurationsdatei nicht laden, abgebrochen!\n"
 
-#: src/pam-config.c:561
+#: src/pam-config.c:601
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -501,12 +501,12 @@ msgstr ""
 "\n"
 "Konnte Konfigurationsdatei '%s' nicht laden, abgebrochen!\n"
 
-#: src/pam-config.c:844
+#: src/pam-config.c:884
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Unterstützte übliche Module:\n"
 
-#: src/pam-config.c:846
+#: src/pam-config.c:886
 #, c-format
 msgid ""
 "\n"
@@ -515,12 +515,12 @@ msgstr ""
 "\n"
 "Unterstützte Dienstmodule:\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:928
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Zu viele Argumente.\n"
 
-#: src/pam-config.c:1043
+#: src/pam-config.c:1085
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Kann nicht auf '%s' zugreifen: %m\n"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 19:37+0200\n"
+"POT-Creation-Date: 2020-05-01 22:24+0200\n"
 "PO-Revision-Date: 2010-04-10 21:36+0300\n"
 "Last-Translator: Jyri Palokangas <jmp@opensuse.org>\n"
 "Language-Team: TRANSLATIONS <kde-i18n-doc@kde.org>\n"
@@ -454,27 +454,27 @@ msgstr "VIRHE: Varmuuskopion '%s' (%m) luominen ei onnistunut.\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "VIRHE: '%s' (%m) poistaminen ei onnistunut (%m)\n"
 
-#: src/pam-config.c:396
+#: src/pam-config.c:436
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Liian monta argumenttia.\n"
 
-#: src/pam-config.c:404
+#: src/pam-config.c:444
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:481
+#: src/pam-config.c:521
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:490
+#: src/pam-config.c:530
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "VAROITUS: Vanhojen määritystiedostojen lataaminen ei onnistunut.\n"
 
-#: src/pam-config.c:496 src/pam-config.c:544
+#: src/pam-config.c:536 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -483,7 +483,7 @@ msgstr ""
 "\n"
 "Määritystiedoston lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:561
+#: src/pam-config.c:601
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -492,12 +492,12 @@ msgstr ""
 "\n"
 "Määritystiedoston '%s' lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:844
+#: src/pam-config.c:884
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Tuetut yleiset moduulit:\n"
 
-#: src/pam-config.c:846
+#: src/pam-config.c:886
 #, c-format
 msgid ""
 "\n"
@@ -506,12 +506,12 @@ msgstr ""
 "\n"
 "Tuetut palvelumoduulit:\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:928
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Liian monta argumenttia.\n"
 
-#: src/pam-config.c:1043
+#: src/pam-config.c:1085
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Ei voi yhdistää %s: %m\n"

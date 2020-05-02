@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 19:37+0200\n"
+"POT-Creation-Date: 2020-05-01 22:24+0200\n"
 "PO-Revision-Date: 2008-06-06 01:04+0100\n"
 "Last-Translator: Vasileios Giannakopoulos <billg@billg.gr>\n"
 "Language-Team: Ελληνικά <billg@billg.gr>\n"
@@ -420,29 +420,29 @@ msgstr "Αδυναμία δημιουργίας αντιγράφου ασφαλ�
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "Αδυναμία δημιουργίας %s: %m\n"
 
-#: src/pam-config.c:396
+#: src/pam-config.c:436
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Υπερβολικά πολλοί παράμετροι.\n"
 
-#: src/pam-config.c:404
+#: src/pam-config.c:444
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:481
+#: src/pam-config.c:521
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:490
+#: src/pam-config.c:530
 #, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 "\n"
 "Αδυναμία φόρτωσης αρχείου ρυθμίσεων, ματαίωση!\n"
 
-#: src/pam-config.c:496 src/pam-config.c:544
+#: src/pam-config.c:536 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -451,7 +451,7 @@ msgstr ""
 "\n"
 "Αδυναμία φόρτωσης αρχείου ρυθμίσεων, ματαίωση!\n"
 
-#: src/pam-config.c:561
+#: src/pam-config.c:601
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -460,24 +460,24 @@ msgstr ""
 "\n"
 "Αδυναμία φόρτωσης αρχείου ρυθμίσεων, ματαίωση!\n"
 
-#: src/pam-config.c:844
+#: src/pam-config.c:884
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:846
+#: src/pam-config.c:886
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:888
+#: src/pam-config.c:928
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Υπερβολικά πολλοί παράμετροι.\n"
 
-#: src/pam-config.c:1043
+#: src/pam-config.c:1085
 #, fuzzy, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "Αδυναμία δημιουργίας %s: %m\n"

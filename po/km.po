@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 19:37+0200\n"
+"POT-Creation-Date: 2020-05-01 22:24+0200\n"
 "PO-Revision-Date: 2010-07-07 10:14+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -422,27 +422,27 @@ msgstr "កំហុស ៖ មិនអាច​បង្កើត​ឯកស
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "កំហុស ៖ មិនអាច​យក '%s' (%m)​ ចេញ​បាន​ទេ\n"
 
-#: src/pam-config.c:396
+#: src/pam-config.c:436
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s ៖ មាន​អាគុយម៉ង់​ច្រើន​ពេក ។\n"
 
-#: src/pam-config.c:404
+#: src/pam-config.c:444
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:481
+#: src/pam-config.c:521
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:490
+#: src/pam-config.c:530
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "ព្រមាន ៖ មិន​អាច​ផ្ទុក​ឯកសារ config ចាស់ៗ ។\n"
 
-#: src/pam-config.c:496 src/pam-config.c:544
+#: src/pam-config.c:536 src/pam-config.c:584
 #, c-format
 msgid ""
 "\n"
@@ -451,7 +451,7 @@ msgstr ""
 "\n"
 "មិន​ផ្ទុក​ឯកសារ config បានបោះបង់ !\n"
 
-#: src/pam-config.c:561
+#: src/pam-config.c:601
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -460,12 +460,12 @@ msgstr ""
 "\n"
 "មិន​ផ្ទុក​ឯកសារ​កំណត់​រចនាសម្ព័ន្ធ '%s' បាន​បោះបង់ !\n"
 
-#: src/pam-config.c:844
+#: src/pam-config.c:884
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
 
-#: src/pam-config.c:846
+#: src/pam-config.c:886
 #, c-format
 msgid ""
 "\n"
@@ -474,12 +474,12 @@ msgstr ""
 "\n"
 "ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:928
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s ៖ មាន​អាគុយម៉ង់​ច្រើន​ពេក ។\n"
 
-#: src/pam-config.c:1043
+#: src/pam-config.c:1085
 #, c-format
 msgid "Cannot access '%s': %m\n"
 msgstr "មិន​អាច​ចូល​ដំណើរការ '%s' ៖ %m\n"
