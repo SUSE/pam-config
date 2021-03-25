@@ -1378,6 +1378,30 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--systemd_home</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_systemd_home.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--systemd_home-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_systemd_home.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--systemd_home-suspend=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>suspend=</option><replaceable>value</replaceable> option to pam_systemd_home.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--thinkfinger</option></term>
             <listitem>
               <para>
