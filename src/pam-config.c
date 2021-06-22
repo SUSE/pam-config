@@ -1085,19 +1085,10 @@ main (int argc, char *argv[])
       if (debug)
 		  printf ("*** write_config (%s/pam.d/%s)\n", confdir, gl_service);
 
-      /* Check if service file exists */
-      char *conffile;
-      if (asprintf (&conffile, "%s/pam.d/%s", confdir, gl_service) < 0)
-	return 1;
-
-      if (access (conffile, R_OK) != 0)
-      {
-	fprintf (stderr, _("Cannot access '%s': %m\n"), conffile);
-	free (conffile);
-	return 1;
-      }
-      free (conffile);
-
+      /*
+       * Note that the modules in service_module_list[]
+       * do not use the "op" and the "fp" parameters.
+       */
       while (*modptr != NULL)
 	{
 	  retval |= (*modptr)->write_config (*modptr, -1, NULL);
