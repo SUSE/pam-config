@@ -245,12 +245,15 @@ create_service_file (const char *service)
     return NULL;
 
   if (stat (conffile, &f_stat) != 0)
-  {
-    fprintf (stderr, _("Cannot stat '%s': %m\n"), conffile);
-    free (tmp_file);
-    free (conffile);
-    return NULL;
-  }
+    {
+      /* Make them owned by root and writable only by root */
+      fprintf (stderr, _("Cannot stat '%s': %m\n"), conffile);
+
+      memset(&f_stat, 0, sizeof(struct stat));	/* To be on the safe side ... */
+      f_stat.st_mode = 0644;
+      f_stat.st_uid = 0;
+      f_stat.st_gid = 0;
+    }
 
   free (conffile);
   fd = mkstemp (tmp_file);
