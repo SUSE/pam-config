@@ -1,4 +1,4 @@
-/* Copyright (C) 2006, 2007, 2008, 2009, 2012, 2013, 2014, 2016, 2018, 2019, 2020 Thorsten Kukuk
+/* Copyright (C) 2006-2021 Thorsten Kukuk
    Author: Thorsten Kukuk <kukuk@thkukuk.de>
 
    This program is free software; you can redistribute it and/or modify
@@ -580,16 +580,36 @@ main (int argc, char *argv[])
 	{
 	  if (load_config (confdir, CONF_ACCOUNT_PC, ACCOUNT, common_module_list, 1) != 0)
 	    {
-	    load_config_error:
-	      fprintf (stderr, _("\nCouldn't load config file, aborted!\n"));
-	      return 1;
+	      if (load_config (confdir, CONF_ACCOUNT, ACCOUNT, common_module_list, 1) != 0)
+		{
+		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_ACCOUNT);
+		  return 1;
+		}
 	    }
 	  if (load_config (confdir, CONF_AUTH_PC, AUTH, common_module_list, 1) != 0)
-	    goto load_config_error;
+	    {
+	      if (load_config (confdir, CONF_AUTH, AUTH, common_module_list, 1) != 0)
+		{
+		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_AUTH);
+		  return 1;
+		}
+	    }
 	  if (load_config (confdir, CONF_PASSWORD_PC, PASSWORD, common_module_list, 1) != 0)
-	    goto load_config_error;
+	    {
+	      if (load_config (confdir, CONF_PASSWORD, PASSWORD, common_module_list, 1) != 0)
+		{
+		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_PASSWORD);
+		  return 1;
+		}
+	    }
 	  if (load_config (confdir, CONF_SESSION_PC, SESSION, common_module_list, 1) != 0)
-	    goto load_config_error;
+	    {
+	      if (load_config (confdir, CONF_SESSION, SESSION, common_module_list, 1) != 0)
+		{
+		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_SESSION);
+		  return 1;
+		}
+	    }
 	}
       else
 	{
@@ -598,8 +618,7 @@ main (int argc, char *argv[])
 	    {
 	    load_config_error2:
 	      fprintf (stderr,
-		       _("\nCouldn't load config file '%s/pam.d/%s', aborted!\n"),
-		       confdir, gl_service);
+		       _("\nCouldn't load config file '%s', aborted!\n"), gl_service);
 	      return 1;
 	    }
 	  if (load_config (confdir, gl_service, AUTH, service_module_list, 0) != 0)
