@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 22:24+0200\n"
+"POT-Creation-Date: 2021-09-07 15:55+0200\n"
 "PO-Revision-Date: 2010-03-10 16:13+0900\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <opensuse-ja@opensuse.org>\n"
@@ -15,12 +15,12 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/load_config.c:177
+#: src/load_config.c:183
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr "%s (%s): パラメータは無視されます\n"
 
-#: src/load_config.c:181
+#: src/load_config.c:187
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr "%s: 未知のモジュール %s です、無視されました。\n"
@@ -246,7 +246,7 @@ msgstr ""
 "エラー: pam_mount.so が有効になっています。pam_thinkfinger.so を使うには、ま"
 "ずこれを無効にしてください。\n"
 
-#: src/mod_pam_mount.c:117
+#: src/mod_pam_mount.c:117 src/pam-config.c:621
 #, c-format
 msgid ""
 "\n"
@@ -478,7 +478,7 @@ msgstr ""
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "警告: 古い設定ファイルを読み込むことができませんでした。\n"
 
-#: src/pam-config.c:536 src/pam-config.c:584
+#: src/pam-config.c:536
 #, c-format
 msgid ""
 "\n"
@@ -487,21 +487,25 @@ msgstr ""
 "\n"
 "設定ファイルを読み込めませんでした。中止します。\n"
 
-#: src/pam-config.c:601
+#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
+#: src/pam-config.c:609
 #, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Couldn't load config file '%s', aborted!\n"
 msgid ""
 "\n"
-"Couldn't load config file '%s/pam.d/%s', aborted!\n"
+"Couldn't load '%s', aborted!\n"
 msgstr ""
 "\n"
 "設定ファイル '%s' を読み込めなかったため中止しました。\n"
 
-#: src/pam-config.c:884
+#: src/pam-config.c:903
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "サポートされている汎用モジュール:\n"
 
-#: src/pam-config.c:886
+#: src/pam-config.c:905
 #, c-format
 msgid ""
 "\n"
@@ -510,15 +514,10 @@ msgstr ""
 "\n"
 "サポートされているサービスモジュール:\n"
 
-#: src/pam-config.c:928
+#: src/pam-config.c:947
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 引数が多すぎます。\n"
-
-#: src/pam-config.c:1085
-#, c-format
-msgid "Cannot access '%s': %m\n"
-msgstr "'%s' にアクセスできません: %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:150
@@ -526,22 +525,22 @@ msgstr "'%s' にアクセスできません: %m\n"
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "%s に指定したオプションは未知のものです。無視されました: '%s'\n"
 
-#: src/sanity_checks.c:52
+#: src/sanity_checks.c:41
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "警告: モジュール %s はインストールされていません。\n"
 
-#: src/sanity_checks.c:57
+#: src/sanity_checks.c:48
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "エラー: モジュール %s はインストールされていません。\n"
 
-#: src/sanity_checks.c:84
+#: src/sanity_checks.c:95
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr "警告: pam_unix.so と pam_unix2.so の両方が有効になっています！\n"
 
-#: src/sanity_checks.c:89
+#: src/sanity_checks.c:100
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -551,12 +550,12 @@ msgstr ""
 "す。\n"
 "情報: pam_unix2.so だけが使われます。\n"
 
-#: src/sanity_checks.c:100 src/sanity_checks.c:106
+#: src/sanity_checks.c:111 src/sanity_checks.c:117
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "エラー: pam_unix.so を無効化する際に失敗しました。\n"
 
-#: src/sanity_checks.c:133
+#: src/sanity_checks.c:144
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
@@ -565,23 +564,23 @@ msgstr ""
 "エラー: ldap-account_only は krb5 と一緒に使う必要があります。\n"
 "設定を変更できませんでした。\n"
 
-#: src/sanity_checks.c:154
+#: src/sanity_checks.c:165
 #, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "警告: pam_localuser は有効化されていません！\n"
 
-#: src/sanity_checks.c:188
+#: src/sanity_checks.c:199
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr ""
 "警告: pam_ccreds.so には LDAP か Kerberos5 が必要です。無視されました。\n"
 
-#: src/sanity_checks.c:217
+#: src/sanity_checks.c:228
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr "警告: pam_pwcheck.so と pam_cracklib.so の両方が有効になっています！\n"
 
-#: src/sanity_checks.c:222
+#: src/sanity_checks.c:233
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -590,12 +589,12 @@ msgstr ""
 "情報: pam_pwcheck.so と pam_cracklib.so の両方が有効になっています。\n"
 "情報: pam_cracklib.so だけが使われます。\n"
 
-#: src/sanity_checks.c:262
+#: src/sanity_checks.c:273
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr "警告: cracklib 自身には 6 文字の長さ制限が存在します！\n"
 
-#: src/sanity_checks.c:284
+#: src/sanity_checks.c:295
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
@@ -604,22 +603,22 @@ msgstr ""
 "エラー: pam_apparmor と pam_selinux を同時に使用することはできません。\n"
 "設定は変更されませんでした。\n"
 
-#: src/single_config.c:249
+#: src/single_config.c:250
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "'%s' の情報を取得できませんでした: %m\n"
 
-#: src/single_config.c:259 src/write_config.c:68
+#: src/single_config.c:262 src/write_config.c:68
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "'%s' のパーミッションの変更ができませんでした: %m\n"
 
-#: src/single_config.c:268 src/write_config.c:75
+#: src/single_config.c:271 src/write_config.c:75
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "'%s' の所有者／グループの変更ができませんでした: %m\n"
 
-#: src/single_config.c:278
+#: src/single_config.c:281
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "ファイルハンドルを作成できませんでした: %m\n"
@@ -628,6 +627,18 @@ msgstr "ファイルハンドルを作成できませんでした: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "%s を作成できませんでした: %m\n"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "\n"
+#~ "Couldn't load config file '%s/pam.d/%s', aborted!\n"
+#~ msgstr ""
+#~ "\n"
+#~ "設定ファイル '%s' を読み込めなかったため中止しました。\n"
+
+#, c-format
+#~ msgid "Cannot access '%s': %m\n"
+#~ msgstr "'%s' にアクセスできません: %m\n"
 
 #~ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 #~ msgstr ""

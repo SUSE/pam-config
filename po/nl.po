@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 22:24+0200\n"
+"POT-Creation-Date: 2021-09-07 15:55+0200\n"
 "PO-Revision-Date: 2010-04-05 11:30+0200\n"
 "Last-Translator: Freek de Kruijf <freek@opensuse.org>\n"
 "Language-Team: Dutch <yast-nl-l10n@lists.sf.kovoks.nl>\n"
@@ -21,12 +21,12 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural= n != 1;\n"
 
-#: src/load_config.c:177
+#: src/load_config.c:183
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr "%s (%s): Argumenten worden genegeerd\n"
 
-#: src/load_config.c:181
+#: src/load_config.c:187
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr "%s: onbekende module %s, genegeerd.\n"
@@ -245,7 +245,7 @@ msgstr ""
 "FOUT: pam_mount.so is geactiveerd. Om pam_thinkfinger.so te kunnen gebruiken "
 "dient u deze eerst uit te schakelen.\n"
 
-#: src/mod_pam_mount.c:117
+#: src/mod_pam_mount.c:117 src/pam-config.c:621
 #, c-format
 msgid ""
 "\n"
@@ -480,7 +480,7 @@ msgstr ""
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "WAARSCHUWING: Kan oude configuratiebestanden niet laden.\n"
 
-#: src/pam-config.c:536 src/pam-config.c:584
+#: src/pam-config.c:536
 #, c-format
 msgid ""
 "\n"
@@ -489,21 +489,25 @@ msgstr ""
 "\n"
 "Kon configuratiebestand niet laden. Gestopt.\n"
 
-#: src/pam-config.c:601
+#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
+#: src/pam-config.c:609
 #, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Couldn't load config file '%s', aborted!\n"
 msgid ""
 "\n"
-"Couldn't load config file '%s/pam.d/%s', aborted!\n"
+"Couldn't load '%s', aborted!\n"
 msgstr ""
 "\n"
 "Kan configuratiebestand %s niet laden. Gestopt.\n"
 
-#: src/pam-config.c:884
+#: src/pam-config.c:903
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Ondersteunde algemene modules:\n"
 
-#: src/pam-config.c:886
+#: src/pam-config.c:905
 #, c-format
 msgid ""
 "\n"
@@ -513,15 +517,10 @@ msgstr ""
 "Ondersteunde servicemodules:\n"
 
 # /usr/lib/YaST2/clients/lan_inetd_custom.ycp:764
-#: src/pam-config.c:928
+#: src/pam-config.c:947
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: teveel argumenten.\n"
-
-#: src/pam-config.c:1085
-#, c-format
-msgid "Cannot access '%s': %m\n"
-msgstr "Geen toegang tot '%s': %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:150
@@ -529,22 +528,22 @@ msgstr "Geen toegang tot '%s': %m\n"
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "Onbekende optie voor %s, genegeerd: %s\n"
 
-#: src/sanity_checks.c:52
+#: src/sanity_checks.c:41
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "WAARSCHUWING: module %s is niet geïnstalleerd.\n"
 
-#: src/sanity_checks.c:57
+#: src/sanity_checks.c:48
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "FOUT: module %s is niet geïnstalleerd.\n"
 
-#: src/sanity_checks.c:84
+#: src/sanity_checks.c:95
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr "WAARSCHUWING: pam_unix.so en pam_unix2.so ingeschakeld!\n"
 
-#: src/sanity_checks.c:89
+#: src/sanity_checks.c:100
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -553,12 +552,12 @@ msgstr ""
 "INFO: pam_unix.so en pam_unix2.so zijn geactiveerd in service %s,\n"
 "INFO: alleen pam_unix2.so zal worden geactiveerd.\n"
 
-#: src/sanity_checks.c:100 src/sanity_checks.c:106
+#: src/sanity_checks.c:111 src/sanity_checks.c:117
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "FOUT: Kan pam_unix.so niet deactiveren.\n"
 
-#: src/sanity_checks.c:133
+#: src/sanity_checks.c:144
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
@@ -567,22 +566,22 @@ msgstr ""
 "FOUT: ldap-account_only is alleen toegestaan in combinatie met krb5.\n"
 "Configuratie niet gewijzigd!\n"
 
-#: src/sanity_checks.c:154
+#: src/sanity_checks.c:165
 #, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "WAARSCHUWING: pam_localuser is niet ingeschakeld!\n"
 
-#: src/sanity_checks.c:188
+#: src/sanity_checks.c:199
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr "WAARSCHUWING: pam_ccreds.so heeft LDAP of Kerberos5 nodig, genegeerd\n"
 
-#: src/sanity_checks.c:217
+#: src/sanity_checks.c:228
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr "WAARSCHUWING: pam_pwcheck en pam_cracklib ingeschakeld!\n"
 
-#: src/sanity_checks.c:222
+#: src/sanity_checks.c:233
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -591,12 +590,12 @@ msgstr ""
 "INFO: pam_pwcheck.so en pam_cracklib.so zijn geactiveerd.\n"
 "INFO: alleen pam_cracklib zal worden gebruikt.\n"
 
-#: src/sanity_checks.c:262
+#: src/sanity_checks.c:273
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr "WAARSCHUWING: cracklib zelf heeft een lengtelimiet van 6 tekens!\n"
 
-#: src/sanity_checks.c:284
+#: src/sanity_checks.c:295
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
@@ -605,22 +604,22 @@ msgstr ""
 "FOUT: pam_apparmor en pam_selinux samen is niet toegestaan.\n"
 "Configuratie niet gewijzigd!\n"
 
-#: src/single_config.c:249
+#: src/single_config.c:250
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Kan de status van %s niet bepalen: %m\n"
 
-#: src/single_config.c:259 src/write_config.c:68
+#: src/single_config.c:262 src/write_config.c:68
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Kan toegangsrechten voor %s niet wijzigen: %m\n"
 
-#: src/single_config.c:268 src/write_config.c:75
+#: src/single_config.c:271 src/write_config.c:75
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Kan eigenaar/groep van '%s' niet wijzigen: %m\n"
 
-#: src/single_config.c:278
+#: src/single_config.c:281
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Kan bestandshendel niet aanmaken: %m\n"
@@ -629,6 +628,18 @@ msgstr "Kan bestandshendel niet aanmaken: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Kan %s niet aanmaken: %m\n"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "\n"
+#~ "Couldn't load config file '%s/pam.d/%s', aborted!\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Kan configuratiebestand %s niet laden. Gestopt.\n"
+
+#, c-format
+#~ msgid "Cannot access '%s': %m\n"
+#~ msgstr "Geen toegang tot '%s': %m\n"
 
 #~ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 #~ msgstr "WAARSCHUWING: bestand '%s' is niet gevonden. Backup overgeslagen.\n"

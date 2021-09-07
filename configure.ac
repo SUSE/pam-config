@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(pam-config, 1.3)
+AC_INIT(pam-config, 1.4)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/pam-config.c])
 AM_CONFIG_HEADER(config.h)
@@ -54,8 +54,9 @@ JH_CHECK_XML_CATALOG([http://docbook.sourceforge.net/release/xsl/current/manpage
 AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test x$enable_man != xno)
 
 
-dnl gettext support
-AM_GNU_GETTEXT_VERSION
+dnl internationalization macros
+AM_GNU_GETTEXT_REQUIRE_VERSION([0.19.2])
+AM_GNU_GETTEXT_VERSION([0.20.2])
 AM_GNU_GETTEXT([external])
 AC_CHECK_FUNCS(dngettext)
 

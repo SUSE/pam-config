@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 22:24+0200\n"
+"POT-Creation-Date: 2021-09-07 15:55+0200\n"
 "PO-Revision-Date: 2008-11-08 17:17+0100\n"
 "Last-Translator: Jonas Björk <jonas@jonasbjork.net>\n"
 "Language-Team: svenska <sv@li.org>\n"
@@ -22,12 +22,12 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/load_config.c:177
+#: src/load_config.c:183
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr "%s (%s): Argumenten kommer att ignoreras\n"
 
-#: src/load_config.c:181
+#: src/load_config.c:187
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr "%s: Okänd modul %s, ignorerad!\n"
@@ -244,7 +244,7 @@ msgstr ""
 "FEL: pam_mount.so är aktiverad. För att använda pam_thinkfinger.so måste du "
 "avaktivera den först!\n"
 
-#: src/mod_pam_mount.c:117
+#: src/mod_pam_mount.c:117 src/pam-config.c:621
 #, c-format
 msgid ""
 "\n"
@@ -474,7 +474,7 @@ msgstr ""
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "VARNING: Kan inte ladda gammal konfigurationsfil.\n"
 
-#: src/pam-config.c:536 src/pam-config.c:584
+#: src/pam-config.c:536
 #, c-format
 msgid ""
 "\n"
@@ -483,21 +483,25 @@ msgstr ""
 "\n"
 "Kunde inte ladda inställningsfil, avbryter.\n"
 
-#: src/pam-config.c:601
+#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
+#: src/pam-config.c:609
 #, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Couldn't load config file '%s', aborted!\n"
 msgid ""
 "\n"
-"Couldn't load config file '%s/pam.d/%s', aborted!\n"
+"Couldn't load '%s', aborted!\n"
 msgstr ""
 "\n"
 "Kunde inte ladda inställningsfil \"%s\", avbryter.\n"
 
-#: src/pam-config.c:884
+#: src/pam-config.c:903
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Vanliga moduler som stöds:\n"
 
-#: src/pam-config.c:886
+#: src/pam-config.c:905
 #, c-format
 msgid ""
 "\n"
@@ -506,15 +510,10 @@ msgstr ""
 "\n"
 "Tjänstemoduler som stöds:\n"
 
-#: src/pam-config.c:928
+#: src/pam-config.c:947
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: För många argument.\n"
-
-#: src/pam-config.c:1085
-#, c-format
-msgid "Cannot access '%s': %m\n"
-msgstr "Kan inte komma åt \"%s\": %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:150
@@ -522,22 +521,22 @@ msgstr "Kan inte komma åt \"%s\": %m\n"
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "Okänt alternativ för %s, ignorerat: \"%s\"\n"
 
-#: src/sanity_checks.c:52
+#: src/sanity_checks.c:41
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "Varning: Modulen %s är inte installerad.\n"
 
-#: src/sanity_checks.c:57
+#: src/sanity_checks.c:48
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "Fel: Modulen %s är inte installerad.\n"
 
-#: src/sanity_checks.c:84
+#: src/sanity_checks.c:95
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:89
+#: src/sanity_checks.c:100
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -546,12 +545,12 @@ msgstr ""
 "INFO: pam_unix.so och pam_unix2.so är aktiverade i tjänsten %s,\n"
 "INFO: enbart pam_unix2.so kommer vara aktiverad.\n"
 
-#: src/sanity_checks.c:100 src/sanity_checks.c:106
+#: src/sanity_checks.c:111 src/sanity_checks.c:117
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "Fel: Misslyckades med att inaktivera pam_unix.so.\n"
 
-#: src/sanity_checks.c:133
+#: src/sanity_checks.c:144
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
@@ -560,22 +559,22 @@ msgstr ""
 "FEL: ldap-account_only får bara användas tillsammans med krb5.\n"
 "Konfigurationen ändrades inte!\n"
 
-#: src/sanity_checks.c:154
+#: src/sanity_checks.c:165
 #, fuzzy, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "Varning: Modulen %s är inte installerad.\n"
 
-#: src/sanity_checks.c:188
+#: src/sanity_checks.c:199
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr "VARNING: pam_ccreds.so behöver LDAP eller Kerberos5, ignorerad\n"
 
-#: src/sanity_checks.c:217
+#: src/sanity_checks.c:228
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:222
+#: src/sanity_checks.c:233
 #, fuzzy, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -584,12 +583,12 @@ msgstr ""
 "INFO: både pam_pwcheck.so och pam_cracklib.so är aktiverade,\n"
 "INFO: enbart pam_pwcheck.so med cracklib stöd aktiverat kommer användas.\n"
 
-#: src/sanity_checks.c:262
+#: src/sanity_checks.c:273
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr ""
 
-#: src/sanity_checks.c:284
+#: src/sanity_checks.c:295
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
@@ -598,22 +597,22 @@ msgstr ""
 "FEL: Kan inte använda pam_apparmor och pam_selinux tillsammans.\n"
 "Konfigurationen ändrades inte!\n"
 
-#: src/single_config.c:249
+#: src/single_config.c:250
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Kan inte ta status på \"%s\": %m\n"
 
-#: src/single_config.c:259 src/write_config.c:68
+#: src/single_config.c:262 src/write_config.c:68
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Kan inte ställa in behörigheter för \"%s\": %m\n"
 
-#: src/single_config.c:268 src/write_config.c:75
+#: src/single_config.c:271 src/write_config.c:75
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Kan inte ändra ägare/grupp för \"%s\": %m\n"
 
-#: src/single_config.c:278
+#: src/single_config.c:281
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Kan inte skapa filhandtag: %m\n"
@@ -622,6 +621,18 @@ msgstr "Kan inte skapa filhandtag: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Kan inte skapa %s: %m\n"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "\n"
+#~ "Couldn't load config file '%s/pam.d/%s', aborted!\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Kunde inte ladda inställningsfil \"%s\", avbryter.\n"
+
+#, c-format
+#~ msgid "Cannot access '%s': %m\n"
+#~ msgstr "Kan inte komma åt \"%s\": %m\n"
 
 #~ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 #~ msgstr "VARNING: filen '%s' hittades inte.Hoppar över säkerhetskopiering.\n"

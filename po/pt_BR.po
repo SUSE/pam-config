@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 22:24+0200\n"
+"POT-Creation-Date: 2021-09-07 15:55+0200\n"
 "PO-Revision-Date: 2009-12-01 16:03-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -24,12 +24,12 @@ msgstr ""
 "X-Poedit-Country: BRAZIL\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: src/load_config.c:177
+#: src/load_config.c:183
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr "%s (%s): argumentos serão ignorados\n"
 
-#: src/load_config.c:181
+#: src/load_config.c:187
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr "%s: módulo desconhecido %s, ignorado!\n"
@@ -246,7 +246,7 @@ msgstr ""
 "ERRO: o pam_mount.so está habilitado. Para usar o pam_thinkfinger.so você "
 "precisa desabilitá-lo antes!\n"
 
-#: src/mod_pam_mount.c:117
+#: src/mod_pam_mount.c:117 src/pam-config.c:621
 #, c-format
 msgid ""
 "\n"
@@ -475,7 +475,7 @@ msgstr ""
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "AVISO: não foi possível carregar arquivos de configuração antigos.\n"
 
-#: src/pam-config.c:536 src/pam-config.c:584
+#: src/pam-config.c:536
 #, c-format
 msgid ""
 "\n"
@@ -484,21 +484,25 @@ msgstr ""
 "\n"
 "Não foi possível carregar o arquivo de configuração, cancelado!\n"
 
-#: src/pam-config.c:601
+#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
+#: src/pam-config.c:609
 #, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Couldn't load config file '%s', aborted!\n"
 msgid ""
 "\n"
-"Couldn't load config file '%s/pam.d/%s', aborted!\n"
+"Couldn't load '%s', aborted!\n"
 msgstr ""
 "\n"
 "Não foi possível carregar o arquivo de configuração '%s', cancelado!\n"
 
-#: src/pam-config.c:884
+#: src/pam-config.c:903
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Módulos comuns suportados:\n"
 
-#: src/pam-config.c:886
+#: src/pam-config.c:905
 #, c-format
 msgid ""
 "\n"
@@ -507,15 +511,10 @@ msgstr ""
 "\n"
 "Módulos de serviço suportados:\n"
 
-#: src/pam-config.c:928
+#: src/pam-config.c:947
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: excesso de argumentos.\n"
-
-#: src/pam-config.c:1085
-#, c-format
-msgid "Cannot access '%s': %m\n"
-msgstr "Não foi possível acessar '%s': %m\n"
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:150
@@ -523,22 +522,22 @@ msgstr "Não foi possível acessar '%s': %m\n"
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "Opção desconhecida para %s, ignorado: '%s'\n"
 
-#: src/sanity_checks.c:52
+#: src/sanity_checks.c:41
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "AVISO: o módulo %s não está instalado.\n"
 
-#: src/sanity_checks.c:57
+#: src/sanity_checks.c:48
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "ERRO: o módulo %s não está instalado.\n"
 
-#: src/sanity_checks.c:84
+#: src/sanity_checks.c:95
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr "AVISO: o pam_unix.so e o pam_unix2.so estão habilitados!\n"
 
-#: src/sanity_checks.c:89
+#: src/sanity_checks.c:100
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -547,12 +546,12 @@ msgstr ""
 "INFORMAÇÃO: o pam_unix.so e pam_unix2.so habilitados no serviço %s,\n"
 "INFORMAÇÃO: somente o pam_unix2.so será habilitado.\n"
 
-#: src/sanity_checks.c:100 src/sanity_checks.c:106
+#: src/sanity_checks.c:111 src/sanity_checks.c:117
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "ERRO: falha ao desabilitar o pam_unix.so.\n"
 
-#: src/sanity_checks.c:133
+#: src/sanity_checks.c:144
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
@@ -561,22 +560,22 @@ msgstr ""
 "ERRO: o ldap-account_only somente é permitido em combinação com krb5.\n"
 "Configuração não alterada!\n"
 
-#: src/sanity_checks.c:154
+#: src/sanity_checks.c:165
 #, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "AVISO: o pam_localuser não está habilitado!\n"
 
-#: src/sanity_checks.c:188
+#: src/sanity_checks.c:199
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr "AVISO: o pam_ccreds.so necessita de LDAP ou Kerberos5, ignorado\n"
 
-#: src/sanity_checks.c:217
+#: src/sanity_checks.c:228
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr "AVISO: o pam_pwcheck e o pam_cracklib estão habilitados!\n"
 
-#: src/sanity_checks.c:222
+#: src/sanity_checks.c:233
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -585,12 +584,12 @@ msgstr ""
 "INFORMAÇÃO: o pam_pwcheck.so e pam_cracklib.so estão habilitados,\n"
 "INFORMAÇÃO: somente o pam_cracklib.so será utilizado.\n"
 
-#: src/sanity_checks.c:262
+#: src/sanity_checks.c:273
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr "AVISO: o cracklib tem um limite de 6 caracteres!\n"
 
-#: src/sanity_checks.c:284
+#: src/sanity_checks.c:295
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
@@ -599,22 +598,22 @@ msgstr ""
 "ERRO: o pam_apparmor e o pam_selinux juntos não são permitidos.\n"
 "Configuração não alterada!\n"
 
-#: src/single_config.c:249
+#: src/single_config.c:250
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Não foi possível analisar '%s': %m\n"
 
-#: src/single_config.c:259 src/write_config.c:68
+#: src/single_config.c:262 src/write_config.c:68
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Não foi possível alterar as permissões de '%s': %m\n"
 
-#: src/single_config.c:268 src/write_config.c:75
+#: src/single_config.c:271 src/write_config.c:75
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Não foi possível alterar o proprietário/grupo de '%s': %m\n"
 
-#: src/single_config.c:278
+#: src/single_config.c:281
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Não foi possível criar o handle de arquivo: %m\n"
@@ -623,6 +622,18 @@ msgstr "Não foi possível criar o handle de arquivo: %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Não foi possível criar %s: %m\n"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "\n"
+#~ "Couldn't load config file '%s/pam.d/%s', aborted!\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Não foi possível carregar o arquivo de configuração '%s', cancelado!\n"
+
+#, c-format
+#~ msgid "Cannot access '%s': %m\n"
+#~ msgstr "Não foi possível acessar '%s': %m\n"
 
 #~ msgid "WARNING: file '%s' not found. Omitting backup.\n"
 #~ msgstr "AVISO: arquivo '%s' não encontrado. Omitindo o backup.\n"

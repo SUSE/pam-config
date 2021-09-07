@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yast memory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 22:24+0200\n"
+"POT-Creation-Date: 2021-09-07 15:55+0200\n"
 "PO-Revision-Date: 2004-04-05 17:37+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <i18n@suse.de>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/load_config.c:177
+#: src/load_config.c:183
 #, c-format
 msgid "%s (%s): Arguments will be ignored\n"
 msgstr ""
 
-#: src/load_config.c:181
+#: src/load_config.c:187
 #, c-format
 msgid "%s: Unknown module %s, ignored!\n"
 msgstr ""
@@ -209,7 +209,7 @@ msgid ""
 "disable it first!\n"
 msgstr "'{0}' n' est nén astalé."
 
-#: src/mod_pam_mount.c:117
+#: src/mod_pam_mount.c:117 src/pam-config.c:621
 #, c-format
 msgid ""
 "\n"
@@ -417,41 +417,37 @@ msgstr ""
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "'{0}' n' est nén astalé."
 
-#: src/pam-config.c:536 src/pam-config.c:584
+#: src/pam-config.c:536
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:601
+#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
+#: src/pam-config.c:609
 #, fuzzy, c-format
 msgid ""
 "\n"
-"Couldn't load config file '%s/pam.d/%s', aborted!\n"
+"Couldn't load '%s', aborted!\n"
 msgstr "'{0}' n' est nén astalé."
 
-#: src/pam-config.c:884
+#: src/pam-config.c:903
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:886
+#: src/pam-config.c:905
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:928
+#: src/pam-config.c:947
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""
-
-#: src/pam-config.c:1085
-#, fuzzy, c-format
-msgid "Cannot access '%s': %m\n"
-msgstr "Dji n' pout nén fé l' ridant '%1'."
 
 #. TRANSLATORS: first argument is name of a PAM module
 #: src/pam-module.c:150
@@ -459,90 +455,90 @@ msgstr "Dji n' pout nén fé l' ridant '%1'."
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "Tchuze nén cnoxhowe pol comande '%1': %2"
 
-#: src/sanity_checks.c:52
+#: src/sanity_checks.c:41
 #, fuzzy, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "'{0}' n' est nén astalé."
 
-#: src/sanity_checks.c:57
+#: src/sanity_checks.c:48
 #, fuzzy, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "'{0}' n' est nén astalé."
 
-#: src/sanity_checks.c:84
+#: src/sanity_checks.c:95
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:89
+#: src/sanity_checks.c:100
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
 "INFO: only pam_unix2.so will be enabled.\n"
 msgstr ""
 
-#: src/sanity_checks.c:100 src/sanity_checks.c:106
+#: src/sanity_checks.c:111 src/sanity_checks.c:117
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr ""
 
-#: src/sanity_checks.c:133
+#: src/sanity_checks.c:144
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/sanity_checks.c:154
+#: src/sanity_checks.c:165
 #, fuzzy, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "'{0}' n' est nén astalé."
 
-#: src/sanity_checks.c:188
+#: src/sanity_checks.c:199
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr ""
 
-#: src/sanity_checks.c:217
+#: src/sanity_checks.c:228
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:222
+#: src/sanity_checks.c:233
 #, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
 "INFO: only pam_cracklib.so will be used.\n"
 msgstr ""
 
-#: src/sanity_checks.c:262
+#: src/sanity_checks.c:273
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr ""
 
-#: src/sanity_checks.c:284
+#: src/sanity_checks.c:295
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/single_config.c:249
+#: src/single_config.c:250
 #, fuzzy, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."
 
-#: src/single_config.c:259 src/write_config.c:68
+#: src/single_config.c:262 src/write_config.c:68
 #, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."
 
-#: src/single_config.c:268 src/write_config.c:75
+#: src/single_config.c:271 src/write_config.c:75
 #, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."
 
-#: src/single_config.c:278
+#: src/single_config.c:281
 #, fuzzy, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."
@@ -551,3 +547,7 @@ msgstr "Dji n' pout nén fé l' ridant '%1'."
 #, fuzzy, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."
+
+#, fuzzy, c-format
+#~ msgid "Cannot access '%s': %m\n"
+#~ msgstr "Dji n' pout nén fé l' ridant '%1'."
