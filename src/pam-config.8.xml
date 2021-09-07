@@ -1795,6 +1795,14 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--keyinit-revoke</option></term>
+            <listitem>
+              <para>
+                Add <option>revoke</option> option to all pam_keyinit.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--lastlog</option></term>
             <listitem>
               <para>
