@@ -51,6 +51,8 @@ load_config (const char *sysconfdir, const char *file, write_type_t wtype,
       return -1;
     }
 
+  if (debug)
+    printf ("**** Trying %s...\n", configpath);
   if (access (configpath, R_OK) < 0) {
     free (configpath);
     configpath = NULL;
@@ -61,6 +63,8 @@ load_config (const char *sysconfdir, const char *file, write_type_t wtype,
 	return -1;
       }
 
+    if (debug)
+      printf ("**** Trying %s...\n", configpath);
     if (access (configpath, R_OK) < 0) {
       free (configpath);
       configpath = NULL;
@@ -71,6 +75,8 @@ load_config (const char *sysconfdir, const char *file, write_type_t wtype,
 	  return -1;
 	}
 
+      if (debug)
+	printf ("**** Trying %s...\n", configpath);
       if (access (configpath, R_OK) < 0) {
 	free (configpath);
 	configpath = NULL;
@@ -78,7 +84,7 @@ load_config (const char *sysconfdir, const char *file, write_type_t wtype,
 	if (debug)
 	  printf ("*** Config file %s not found\n", file);
 
-	return 0;
+	return -1;
       }
     }
   }
