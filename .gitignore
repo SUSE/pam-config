@@ -48,3 +48,5 @@ m4/lib-prefix.m4
 m4/nls.m4
 m4/po.m4
 m4/progtest.m4
+config.rpath
+po/pam-config.pot

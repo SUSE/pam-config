@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 15:55+0200\n"
+"POT-Creation-Date: 2021-10-11 10:18+0200\n"
 "PO-Revision-Date: 2009-10-23 02:32+0900\n"
 "Last-Translator: Yunseok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -508,22 +508,22 @@ msgstr "%s: 너무 많은 인수입니다.\n"
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "%s 에 대한 알 수 없는 옵션, 무시되었음: '%s'\n"
 
-#: src/sanity_checks.c:41
+#: src/sanity_checks.c:43
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "경고: %s 모듈은 설치되어 있지 않습니다.\n"
 
-#: src/sanity_checks.c:48
+#: src/sanity_checks.c:51
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "오류: %s 는 설치되어 있지 않습니다.\n"
 
-#: src/sanity_checks.c:95
+#: src/sanity_checks.c:101
 #, c-format
 msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:100
+#: src/sanity_checks.c:106
 #, c-format
 msgid ""
 "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
@@ -532,12 +532,12 @@ msgstr ""
 "정보: pam_unix.so 와 pam_unix2.so 는 활성화 상태(%s 서비스 내에서),\n"
 "정보: pam_unix2.so 만 활성화 됩니다.\n"
 
-#: src/sanity_checks.c:111 src/sanity_checks.c:117
+#: src/sanity_checks.c:117 src/sanity_checks.c:123
 #, c-format
 msgid "ERROR: Failed to disable pam_unix.so.\n"
 msgstr "오류: pam_unix.so 비활성화에 실패했습니다.\n"
 
-#: src/sanity_checks.c:144
+#: src/sanity_checks.c:150
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
@@ -546,22 +546,22 @@ msgstr ""
 "오류: ldap-account_only 는 krb5와 함께 사용되어야 합니다.\n"
 "구성이 변경되지 않았습니다!\n"
 
-#: src/sanity_checks.c:165
+#: src/sanity_checks.c:171
 #, fuzzy, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "경고: %s 모듈은 설치되어 있지 않습니다.\n"
 
-#: src/sanity_checks.c:199
+#: src/sanity_checks.c:205
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr "경고: pam_ccreds.so 는 LDAP 나 Kerberos5 가 필요합니다, 무시됨\n"
 
-#: src/sanity_checks.c:228
+#: src/sanity_checks.c:234
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:233
+#: src/sanity_checks.c:239
 #, fuzzy, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -570,12 +570,12 @@ msgstr ""
 "정보: pam_pwcheck.so 과 pam_cracklib.so 은 활성화 상태,\n"
 "정보: cracklib 를 지원하는 pam_pwcheck.so 만 사용됩니다.\n"
 
-#: src/sanity_checks.c:273
+#: src/sanity_checks.c:279
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr ""
 
-#: src/sanity_checks.c:295
+#: src/sanity_checks.c:301
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
