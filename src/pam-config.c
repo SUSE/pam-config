@@ -1044,11 +1044,6 @@ main (int argc, char *argv[])
 	  opt_set = mod_pam_systemd.get_opt_set (&mod_pam_systemd, SESSION);
 	  opt_set->enable (opt_set, "is_enabled", TRUE);
 	}
-      if (check_for_pam_module ("pam_systemd_home.so", 0, 1) == 0)
-	{
-	  opt_set = mod_pam_systemd_home.get_opt_set (&mod_pam_systemd_home, SESSION);
-	  opt_set->enable (opt_set, "is_enabled", TRUE);
-	}
       if (sanitize_check_session (common_module_list, 0) != 0)
 	return 1;
 
