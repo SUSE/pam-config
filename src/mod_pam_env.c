@@ -68,7 +68,7 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt)
       else
 	{
 	  if (!g_opt->m_delete &&
-	      check_for_pam_module (this->name, g_opt->force) != 0)
+	      check_for_pam_module (this->name, g_opt->force, 0) != 0)
 	    return 1;
 	  /* Remove in every case from auth,
 	     else we will have it twice.  */

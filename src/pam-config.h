@@ -144,6 +144,6 @@ int sanitize_check_account (pam_module_t **module_list, int verify);
 int sanitize_check_auth (pam_module_t **module_list, int verify);
 int sanitize_check_password (pam_module_t **module_list, int verify);
 int sanitize_check_session (pam_module_t **module_list, int verify);
-int check_for_pam_module (const char *name, int force);
+int check_for_pam_module (const char *name, int force, int check_only);
 
 #endif

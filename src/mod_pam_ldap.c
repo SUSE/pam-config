@@ -116,7 +116,7 @@ getopt (pam_module_t *this, char *opt, char *optarg, global_opt_t *g_opt)
       else
 	{
 	  if (!g_opt->m_delete &&
-	      check_for_pam_module (this->name, g_opt->force) != 0)
+	      check_for_pam_module (this->name, g_opt->force, 0) != 0)
 	    return 1;
 	  opt_set = this->get_opt_set (this, ACCOUNT);
 	  opt_set->enable (opt_set, "is_enabled", g_opt->opt_val);

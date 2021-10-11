@@ -261,7 +261,7 @@ replace_obsolete_modules (pam_module_t **module_list)
 
   with_cracklib = is_module_enabled (module_list, "pam_cracklib.so", PASSWORD);
 
-  if (with_unix2 && check_for_pam_module ("pam_unix2.so", 0) == 1)
+  if (with_unix2 && check_for_pam_module ("pam_unix2.so", 0, 1) == 1)
     {
       option_set_t *opt_set, *opt_set2;
       pam_module_t *pam_unix2 = lookup (module_list, "pam_unix2.so");
@@ -330,7 +330,7 @@ replace_obsolete_modules (pam_module_t **module_list)
 
   /* If pam_cracklib is enabled and pam_pwquality.so installed, replace it
      with pam_pwquality. */
-  if (with_cracklib && check_for_pam_module ("pam_pwquality.so", 0) == 0)
+  if (with_cracklib && check_for_pam_module ("pam_pwquality.so", 0, 1) == 0)
     {
       char *cracklib_opts_bool[] = {"debug", "reject_username",
 				    "gecoscheck", "enforce_for_root"};
@@ -366,7 +366,7 @@ replace_obsolete_modules (pam_module_t **module_list)
 	return 1;
     }
 
-  if (with_pwcheck && check_for_pam_module ("pam_pwcheck.so", 0) == 1)
+  if (with_pwcheck && check_for_pam_module ("pam_pwcheck.so", 0, 1) == 1)
     {
       option_set_t *opt_pwquality, *opt_pwcheck, *opt_pwhistory;
       pam_module_t *pam_pwcheck = lookup (module_list, "pam_pwcheck.so");
@@ -771,7 +771,7 @@ main (int argc, char *argv[])
 	  }
 	  else
 	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_ldap.so", opt.force) != 0)
+	      if (!opt.m_delete && check_for_pam_module ("pam_ldap.so", opt.force, 0) != 0)
 		return 1;
 	      opt_set = mod_pam_ldap.get_opt_set (&mod_pam_ldap, ACCOUNT);
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
@@ -792,7 +792,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_nam.so");
 	  else
 	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_nam.so", opt.force) != 0)
+	      if (!opt.m_delete && check_for_pam_module ("pam_nam.so", opt.force, 0) != 0)
 		return 1;
 
 	      opt_set = mod_pam_nam.get_opt_set (&mod_pam_nam, ACCOUNT);
@@ -814,7 +814,7 @@ main (int argc, char *argv[])
             print_module_config (common_module_list, "pam_winbind.so");
 	  else
 	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_winbind.so", opt.force) != 0)
+	      if (!opt.m_delete && check_for_pam_module ("pam_winbind.so", opt.force, 0) != 0)
 		return 1;
               opt_set = mod_pam_winbind.get_opt_set (&mod_pam_winbind,
 						     ACCOUNT);
@@ -839,7 +839,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_sss.so");
 	  else
 	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_sss.so", opt.force) != 0)
+	      if (!opt.m_delete && check_for_pam_module ("pam_sss.so", opt.force, 0) != 0)
 		return 1;
 	      opt_set = mod_pam_sss.get_opt_set (&mod_pam_sss, ACCOUNT);
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
@@ -860,7 +860,7 @@ main (int argc, char *argv[])
 	    print_module_config (common_module_list, "pam_ecryptfs.so");
 	  else
 	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_ecryptfs.so", opt.force) != 0)
+	      if (!opt.m_delete && check_for_pam_module ("pam_ecryptfs.so", opt.force, 0) != 0)
 		return 1;
 	      opt_set = mod_pam_ecryptfs.get_opt_set (&mod_pam_ecryptfs, AUTH);
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
@@ -875,7 +875,7 @@ main (int argc, char *argv[])
 	    print_module_config (service_module_list, "pam_cryptpass.so");
 	  else
 	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_cryptpass.so", opt.force) != 0)
+	      if (!opt.m_delete && check_for_pam_module ("pam_cryptpass.so", opt.force, 0) != 0)
 		return 1;
 	      opt_set = mod_pam_cryptpass.get_opt_set (&mod_pam_cryptpass, SESSION);
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
@@ -887,7 +887,7 @@ main (int argc, char *argv[])
 	    print_module_config (service_module_list, "pam_cryptpass.so");
 	  else
 	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_cryptpass.so", opt.force) != 0)
+	      if (!opt.m_delete && check_for_pam_module ("pam_cryptpass.so", opt.force, 0) != 0)
 		return 1;
 	      opt_set = mod_pam_cryptpass.get_opt_set (&mod_pam_cryptpass, PASSWORD);
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
@@ -995,7 +995,7 @@ main (int argc, char *argv[])
 	      opt_set_password->is_enabled (opt_set_password, "is_enabled") ||
 	      opt_set_session->is_enabled (opt_set_session, "is_enabled"))
 	    {
-	      if (check_for_pam_module ((*modptr)->name, 0))
+	      if (check_for_pam_module ((*modptr)->name, 0, 0))
 		retval = 1;
 	    }
 	  ++modptr;
@@ -1019,7 +1019,7 @@ main (int argc, char *argv[])
       if (sanitize_check_auth (common_module_list, 0) != 0)
 	return 1;
 
-      if (check_for_pam_module ("pam_pwquality.so", 0) == 0)
+      if (check_for_pam_module ("pam_pwquality.so", 0, 0) == 0)
 	{
 	  opt_set = mod_pam_pwquality.get_opt_set (&mod_pam_pwquality, PASSWORD);
 	  opt_set->enable (opt_set, "is_enabled", TRUE);
@@ -1039,12 +1039,12 @@ main (int argc, char *argv[])
       opt_set->enable (opt_set, "is_enabled", opt.opt_val);
       opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-      if (check_for_pam_module ("pam_systemd.so", 0) == 0)
+      if (check_for_pam_module ("pam_systemd.so", 0, 1) == 0)
 	{
 	  opt_set = mod_pam_systemd.get_opt_set (&mod_pam_systemd, SESSION);
 	  opt_set->enable (opt_set, "is_enabled", TRUE);
 	}
-      if (check_for_pam_module ("pam_systemd_home.so", 0) == 0)
+      if (check_for_pam_module ("pam_systemd_home.so", 0, 1) == 0)
 	{
 	  opt_set = mod_pam_systemd_home.get_opt_set (&mod_pam_systemd_home, SESSION);
 	  opt_set->enable (opt_set, "is_enabled", TRUE);

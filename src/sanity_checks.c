@@ -28,7 +28,8 @@
 #include "pam-module.h"
 
 static int
-check_for_pam_module_path (const char *path, const char *name, int force)
+check_for_pam_module_path (const char *path, const char *name,
+			   int force, int check_only)
 {
   char module[strlen(path) + strlen (name) + 2];
 
@@ -38,15 +39,17 @@ check_for_pam_module_path (const char *path, const char *name, int force)
     {
       if (force)
 	{
-	  fprintf (stderr, _("WARNING: module %s is not installed.\n"),
-		   module);
+	  if (!check_only)
+	    fprintf (stderr, _("WARNING: module %s is not installed.\n"),
+		     module);
 	  return 0;
 	}
       else
 	{
-	  fprintf (stderr,
-		   _("ERROR: module %s is not installed.\n"),
-		   module);
+	  if (!check_only)
+	    fprintf (stderr,
+		     _("ERROR: module %s is not installed.\n"),
+		     module);
 	  return 1;
 	}
     }
@@ -54,19 +57,22 @@ check_for_pam_module_path (const char *path, const char *name, int force)
 }
 
 int
-check_for_pam_module (const char *name, int force)
+check_for_pam_module (const char *name, int force, int check_only)
 {
 #if defined(__LP64__)
-  int i = check_for_pam_module_path ("/lib64/security", name, force);
+  int i = check_for_pam_module_path ("/lib64/security", name,
+				     force, check_only);
 
   if (i > 0)
     return 1;
 
   /* Only print warning if 32bit PAM module is missing */
   if (access("/lib/libpam.so.0", F_OK) == 0)
-    return check_for_pam_module_path ("/lib/security", name, 1);
+    return check_for_pam_module_path ("/lib/security", name,
+				      1, check_only);
 #else
-  int i = check_for_pam_module_path ("/lib/security", name, force);
+  int i = check_for_pam_module_path ("/lib/security", name,
+				     force, check_only);
 
   if (i > 0)
     return 1;
