@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-11 10:18+0200\n"
+"POT-Creation-Date: 2022-02-07 15:13+0100\n"
 "PO-Revision-Date: 2010-07-07 10:14+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -570,12 +570,12 @@ msgstr ""
 msgid "Cannot stat '%s': %m\n"
 msgstr "មិន​អាច​បញ្ជាក់ '%s' ៖ %m\n"
 
-#: src/single_config.c:262 src/write_config.c:68
+#: src/single_config.c:262 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "មិន​អាច​កំណត់​សិទ្ធិ​សម្រាប់ '%s': %m\n"
 
-#: src/single_config.c:271 src/write_config.c:75
+#: src/single_config.c:271 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "មិន​អាច​ផ្លាស់ប្ដូរ​ក្រុម/ម្ចាស់​សម្រាប់ `%s': %m\n"
@@ -585,7 +585,7 @@ msgstr "មិន​អាច​ផ្លាស់ប្ដូរ​ក្រុ
 msgid "Cannot create file handle: %m\n"
 msgstr "មិន​អាច​បង្កើត​ឯកសារ ៖ %m\n"
 
-#: src/write_config.c:83
+#: src/write_config.c:60 src/write_config.c:98
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "មិន​អាច​បង្កើត %s ៖ %m\n"

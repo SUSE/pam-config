@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-11 10:18+0200\n"
+"POT-Creation-Date: 2022-02-07 15:13+0100\n"
 "PO-Revision-Date: 2010-05-05 21:07+0100\n"
 "Last-Translator: Guillaume GARDET <guillaume.gardet@free.fr>\n"
 "Language-Team: French <opensuse-fr@opensuse.org>\n"
@@ -618,12 +618,12 @@ msgstr ""
 msgid "Cannot stat '%s': %m\n"
 msgstr "Impossible de faire la commande stat sur  %s : %m\n"
 
-#: src/single_config.c:262 src/write_config.c:68
+#: src/single_config.c:262 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Impossible de modifier les autorisations de %s : %m\n"
 
-#: src/single_config.c:271 src/write_config.c:75
+#: src/single_config.c:271 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Impossible de modifier le propriétaire/groupe de %s : %m\n"
@@ -633,7 +633,7 @@ msgstr "Impossible de modifier le propriétaire/groupe de %s : %m\n"
 msgid "Cannot create file handle: %m\n"
 msgstr "Impossible de créer le descripteur de fichier : %m\n"
 
-#: src/write_config.c:83
+#: src/write_config.c:60 src/write_config.c:98
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Création de %s impossible : %m\n"

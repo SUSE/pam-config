@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-11 10:18+0200\n"
+"POT-Creation-Date: 2022-02-07 15:13+0100\n"
 "PO-Revision-Date: 2010-04-10 20:32+0300\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
@@ -614,12 +614,12 @@ msgstr ""
 msgid "Cannot stat '%s': %m\n"
 msgstr "Невозможно вывести статистику '%s': %m\n"
 
-#: src/single_config.c:262 src/write_config.c:68
+#: src/single_config.c:262 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Невозможно установить права для '%s': %m\n"
 
-#: src/single_config.c:271 src/write_config.c:75
+#: src/single_config.c:271 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Невозможно изменить владельца/группу `%s': %m\n"
@@ -629,7 +629,7 @@ msgstr "Невозможно изменить владельца/группу `%
 msgid "Cannot create file handle: %m\n"
 msgstr "Невозможно создать обработчик файла: %m\n"
 
-#: src/write_config.c:83
+#: src/write_config.c:60 src/write_config.c:98
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "Не удалось создать %s: %m\n"

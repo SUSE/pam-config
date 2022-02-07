@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-11 10:18+0200\n"
+"POT-Creation-Date: 2022-02-07 15:13+0100\n"
 "PO-Revision-Date: 2005-08-03 21:03+0200\n"
 "Last-Translator: Данило Шеган <danilo@gnome.org>\n"
 "Language-Team: Serbian <novell@prevod.org>\n"
@@ -532,12 +532,12 @@ msgstr ""
 msgid "Cannot stat '%s': %m\n"
 msgstr ""
 
-#: src/single_config.c:262 src/write_config.c:68
+#: src/single_config.c:262 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr ""
 
-#: src/single_config.c:271 src/write_config.c:75
+#: src/single_config.c:271 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr ""
@@ -547,7 +547,7 @@ msgstr ""
 msgid "Cannot create file handle: %m\n"
 msgstr ""
 
-#: src/write_config.c:83
+#: src/write_config.c:60 src/write_config.c:98
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr ""
