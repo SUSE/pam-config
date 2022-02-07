@@ -45,9 +45,24 @@ write_config (const char *sysconfdir, const char *file, write_type_t op, pam_mod
   gid_t group_id = getgid();
   mode_t mode = DEF_MODE;
   char *config = NULL;
+  char *pamddir = NULL;
 
   if (debug)
     printf ("*** write_config (%s, %s/pam.d/%s, ...)\n", opc, sysconfdir, file);
+
+  if (asprintf (&pamddir, "%s/pam.d", sysconfdir) < 0)
+    return -1;
+
+  if (access(pamddir, F_OK) < 0)
+    {
+      if (mkdir (pamddir, 0755) < 0)
+	{
+	  fprintf (stderr, _("Cannot create %s: %m\n"), pamddir);
+	  free (pamddir);
+	  return -1;
+	}
+    }
+  free (pamddir);
 
   if (asprintf (&config, "%s/pam.d/%s", sysconfdir, file) < 0)
     return -1;
@@ -55,7 +70,7 @@ write_config (const char *sysconfdir, const char *file, write_type_t op, pam_mod
   if (asprintf (&tmpfname, "%s.XXXXXX", config) < 0)
     return -1;
 
-  if ( stat (config, &f_stat) == 0 )
+  if (stat (config, &f_stat) == 0)
     {
       user_id = f_stat.st_uid;
       group_id = f_stat.st_gid;
