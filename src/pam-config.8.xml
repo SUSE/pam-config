@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-                   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 <refentry id='pam-config'>
 
@@ -1062,6 +1062,14 @@
             <listitem>
               <para>
                 Add <option>authtok_type=</option><replaceable>value</replaceable> option to pam_pwhistory.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--pwhistory-file=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>file=</option><replaceable>value</replaceable> option to pam_pwhistory.so.
               </para>
             </listitem>
           </varlistentry>

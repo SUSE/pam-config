@@ -57,7 +57,7 @@ PRINT_XMLHELP("pwhistory")
 
 /* ---- contruct module object ---- */
 DECLARE_BOOL_OPTS_4(is_enabled, debug, use_authtok, enforce_for_root);
-DECLARE_STRING_OPTS_3(remember, retry, authtok_type);
+DECLARE_STRING_OPTS_4(remember, retry, authtok_type, file);
 DECLARE_OPT_SETS;
 
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
