@@ -48,7 +48,7 @@ write_config_ecryptfs (pam_module_t * this, enum write_type op, FILE * fp)
       fprintf (fp, "password\toptional\tpam_ecryptfs.so\t\n");
       break;
     case SESSION:
-      fprintf (fp, "session\toptional\tpam_ecryptfs.so\tunwrap\n");
+      fprintf (fp, "session\toptional\tpam_ecryptfs.so\tunwrap try_first_pass\n");
       break;
     default:
       return 0;
