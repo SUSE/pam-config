@@ -48,6 +48,26 @@ load_single_config (const char *config_name, config_content_t **ptr)
   if (debug)
     printf ("*** load_single_config (%s)\n", file);
 
+  // Check if files exists or need to load from vendor path
+  if (access(file, F_OK) < 0)
+    {
+      free(file);
+      file = NULL;
+      if (asprintf (&file, "%s/pam.d/%s", CONF_FALLBACK_DIR2, config_name) < 0)
+        return -1;
+      if (debug)
+        printf ("*** Trying %s...\n", file);
+    }
+  if (access(file, F_OK) < 0)
+    {
+      free(file);
+      file = NULL;
+      if (asprintf (&file, "%s/pam.d/%s", CONF_FALLBACK_DIR1, config_name) < 0)
+        return -1;
+      if (debug)
+        printf ("*** Trying %s...\n", file);
+    }
+
   fp = fopen(file, "r");
   if (fp == NULL)
     {
