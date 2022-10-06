@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2010-04-10 20:32+0300\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
@@ -609,22 +609,22 @@ msgstr ""
 "ОШИБКА: не разрешено иметь pam_apparmor вместе с pam_selinux.\n"
 "Настройка не изменена!\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Невозможно вывести статистику '%s': %m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Невозможно установить права для '%s': %m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Невозможно изменить владельца/группу `%s': %m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Невозможно создать обработчик файла: %m\n"

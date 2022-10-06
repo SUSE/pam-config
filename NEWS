@@ -4,6 +4,9 @@ Copyright (C) 2006-2022 Thorsten Kukuk <kukuk@suse.com>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
 
+Version 1.7
+* Correctly handle --service option with /usr/lib/pam.d and /usr/etc/pam.d
+
 Version 1.6
 * Create /etc/pam.d if it does not exist
 * Support file option of pam_pwhistory

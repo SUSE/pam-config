@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2007-08-24 20:43+0530\n"
 "Last-Translator: Sangeeta Kumari <k.sangeeta09@gmail.com>\n"
 "Language-Team: Hindi <en@li.org>\n"
@@ -528,22 +528,22 @@ msgid ""
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, fuzzy, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "%s नहीं शुरू हो सकता: %m "
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "%s टेम फाइल की अनुमति सेट नहीं कर सकता: %m"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "%s टेम फाइल का मालिक/ग्रुप सेट नहीं कर सकता: %m"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, fuzzy, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "`%1' को नहीं पढ़ सकता है: %2"

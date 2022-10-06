@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2009-12-28 00:19-0300\n"
 "Last-Translator: Ricardo Varas Santana <ricardoivaras@gmail.com>\n"
 "Language-Team: Spanish <opensuse-translation-es@opensuse.org>\n"
@@ -617,22 +617,22 @@ msgstr ""
 "ERROR: Sólo se permite pam_apparmor o pam_selinux, pero no ambos.\n"
 "¡La configuración no se ha cambiado!\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "No se pueden mostrar las propiedades del archivo (stat) '%s': %m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "No se pueden establecer los permisos para '%s': %m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "No se puede cambiar el propietario/grupo para `%s': %m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "No se puede crear la referencia de archivo:  %m\n"

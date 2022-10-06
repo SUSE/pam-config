@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2009-12-02 21:03+0100\n"
 "Last-Translator: Óscar Abilleira Muñiz <oscar_abilleira@edu.xunta.es>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -599,22 +599,22 @@ msgstr ""
 "ERRO: non está permitido pam_apparmor e pam_selinux de forma conxunta .\n"
 "Configuración non cambiada!\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Non se pode facer estatística de '%s': %m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Non se poden establecer permisos para '%s': %m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Non se pode cambiar propietario/grupo de `%s': %m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Non se pode crear arquivo de mantemento: %m\n"

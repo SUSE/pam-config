@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2009-10-15 15:55+0300\n"
 "Last-Translator: Borislav Mitev <morbid_viper@tkzs.org>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
@@ -601,22 +601,22 @@ msgstr ""
 "ГРЕШКА: pam_apparmor не е допустимо в комбинация с pam_selinux.\n"
 "Настройката не е променена!\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Възникнала е грешка при изваждането на състоянието %s: %m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Правата на %s не могат да бъдат променени: %m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Собственикът/групата на %s не може да бъде променен: %m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Не може да се създаде файлов манипулатор: %m\n"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2008-12-01 01:33+0800\n"
 "Last-Translator: Thruth Wang <wanglihao@gmail.com>\n"
 "Language-Team: Simplified Chinese\n"
@@ -569,22 +569,22 @@ msgstr ""
 "错误：pam_apparmor 不能和 pam_selinux 组合使用。\n"
 "配置没有改变！\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "无法启动'%s'：%m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "无法设置'%s'的权限：%m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "无法更改'%s'的所有者/组：%m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "无法创建文件柄：%m\n"

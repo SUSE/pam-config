@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yast memory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2004-04-05 17:37+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <i18n@suse.de>\n"
@@ -523,22 +523,22 @@ msgid ""
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, fuzzy, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, fuzzy, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Dji n' pout nén fé l' ridant '%1'."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.lt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2010-07-29 21:09+0300\n"
 "Last-Translator: Mindaugas Baranauskas <embar@users.berlios.de>\n"
 "Language-Team: Lithuanian <kde-i18n-doc@kde.org>\n"
@@ -592,22 +592,22 @@ msgstr ""
 "KLAIDA: negalima kartu naudoti pam_apparmor ir pam_selinux.\n"
 "Konfigūracija nepakeista!\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Nepavyksta paleisti „%s“: %m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Nepavyksta pakeisti „%s“ leidimų: %m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Nepavyksta pakeisti „%s“ savininko arba grupės: %m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Nepavyksta sukurti atvertos rinkmenos numerio: %m\n"

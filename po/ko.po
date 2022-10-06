@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2009-10-23 02:32+0900\n"
 "Last-Translator: Yunseok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -584,22 +584,22 @@ msgstr ""
 "오류: pam_apparmor 와 pam_selinux 는 함께 사용될 수 없습니다.\n"
 "구성이 변경되지 않았습니다!\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "'%s'의 정보를 가져올 수 없음: %m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "'%s'의 퍼미션 변경을 할 수 없음: %m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "`%s'의 소유자/그룹을 변경 할 수 없음: %m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "파일 핸들을 생성 할 수 없음: %m\n"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.pt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2008-10-18 22:01+0100\n"
 "Last-Translator: Carlos Gonçalves <cgoncalves@opensuse.org>\n"
 "Language-Team: Portuguese <opensuse-pt@opensuse.org>\n"
@@ -601,22 +601,22 @@ msgstr ""
 "ERRO: ldap-account_only is apenas permitido em combinação com krb5.\n"
 "Configuração não alterada!\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Não é possível analisar '%s': %m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Não é possível definir permissões para '%s': %m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Não é possível alterar o grupo/proprietário para `%s': %m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Não é possível criar ficheiro de processamento: %m\n"

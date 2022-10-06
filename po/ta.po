@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2003-08-14 10:47+0200\n"
 "Last-Translator: xxx <yyy@example.org>\n"
 "Language-Team: Tamil <i18n@suse.de>\n"
@@ -527,22 +527,22 @@ msgid ""
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, fuzzy, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "%s: %mஐ நிலைப்படுத்த முடியவில்லை"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, fuzzy, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "%s தற்காலிக கோப்பின்;: %m அனுமதிகளை அமைக்க முடியவில்லை "
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, fuzzy, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "%s தற்காலிக கோப்பின்: %m உரிமையாளர்/குழுவை அமைக்க முடியவில்லை"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, fuzzy, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "`%1'ஐ படிக்க முடியவில்லை: %2"

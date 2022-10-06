@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2010-03-18 11:40+0100\n"
 "Last-Translator: Kalman Kemenczy <kkemenczy@novell.com>\n"
 "Language-Team: collection <kde-i18n-doc@kde.org>\n"
@@ -608,22 +608,22 @@ msgstr ""
 "HIBA: a pam_apparmor és a pam_selinux együtt nem használható.\n"
 "A beállítások nem változtak!\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "A(z) %s nem érhető el: %m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "A(z) \"%s\" fájl jogosultságai nem állíthatók be : %m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "A(z) \"%s\" tulajdonosa vagy csoporttagsága nem módosítható: %m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Nem hozható létre fájlleíró: %m\n"

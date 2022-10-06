@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 15:13+0100\n"
+"POT-Creation-Date: 2022-10-06 14:14+0200\n"
 "PO-Revision-Date: 2008-10-22 22:51-0700\n"
 "Last-Translator: Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
@@ -608,22 +608,22 @@ msgstr ""
 "ПОМИЛКА: не дозволено вживати pam_apparmor з pam_selinux.\n"
 "Налаштування не змінено!\n"
 
-#: src/single_config.c:250
+#: src/single_config.c:270
 #, c-format
 msgid "Cannot stat '%s': %m\n"
 msgstr "Неможливо stat \"%s\": %m\n"
 
-#: src/single_config.c:262 src/write_config.c:83
+#: src/single_config.c:282 src/write_config.c:83
 #, c-format
 msgid "Cannot set permissions for '%s': %m\n"
 msgstr "Неможливо встановити права доступу для \"%s\": %m\n"
 
-#: src/single_config.c:271 src/write_config.c:90
+#: src/single_config.c:291 src/write_config.c:90
 #, c-format
 msgid "Cannot change owner/group for `%s': %m\n"
 msgstr "Неможливо змінити власника/групу для \"%s\": %m\n"
 
-#: src/single_config.c:281
+#: src/single_config.c:301
 #, c-format
 msgid "Cannot create file handle: %m\n"
 msgstr "Неможливо створити держак файла: %m\n"
