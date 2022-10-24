@@ -1779,6 +1779,38 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--google_authenticator</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_google_authenticator.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--google_authenticator-noskewadj</option></term>
+            <listitem>
+              <para>
+                Add <option>noskewadj</option> option to all pam_google_authenticator.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--google_authenticator-nullok</option></term>
+            <listitem>
+              <para>
+                Add <option>nullok</option> option to all pam_google_authenticator.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--google_authenticator-secret=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>secret=</option><replaceable>value</replaceable> option to pam_google_authenticator.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--keyinit</option></term>
             <listitem>
               <para>
@@ -1915,34 +1947,170 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--google_authenticator</option></term>
+            <term><option>--u2f</option></term>
             <listitem>
               <para>
-                Enable/Disable pam_google_authenticator.so
+                Enable/Disable pam_u2f.so
               </para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--google_authenticator-noskewadj</option></term>
+            <term><option>--u2f-debug</option></term>
             <listitem>
               <para>
-                Add <option>noskewadj</option> option to all pam_google_authenticator.so invocations.
+                Add <option>debug</option> option to all pam_u2f.so invocations.
               </para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--google_authenticator-nullok</option></term>
+            <term><option>--u2f-nouserok</option></term>
             <listitem>
               <para>
-                Add <option>nullok</option> option to all pam_google_authenticator.so invocations.
+                Add <option>nouserok</option> option to all pam_u2f.so invocations.
               </para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--google_authenticator-secret=</option><replaceable>value</replaceable></term>
+            <term><option>--u2f-openasuser</option></term>
             <listitem>
               <para>
-                Add <option>secret=</option><replaceable>value</replaceable> option to pam_google_authenticator.so.
+                Add <option>openasuser</option> option to all pam_u2f.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-alwaysok</option></term>
+            <listitem>
+              <para>
+                Add <option>alwaysok</option> option to all pam_u2f.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-interactive</option></term>
+            <listitem>
+              <para>
+                Add <option>interactive</option> option to all pam_u2f.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-manual</option></term>
+            <listitem>
+              <para>
+                Add <option>manual</option> option to all pam_u2f.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-cue</option></term>
+            <listitem>
+              <para>
+                Add <option>cue</option> option to all pam_u2f.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-nodetect</option></term>
+            <listitem>
+              <para>
+                Add <option>nodetect</option> option to all pam_u2f.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-sshformat</option></term>
+            <listitem>
+              <para>
+                Add <option>sshformat</option> option to all pam_u2f.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-debug_file=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>debug_file=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-origin=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>origin=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-appid=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>appid=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-authfile=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>authfile=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-authpending_file=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>authpending_file=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-max_devices=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>max_devices=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-prompt=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>prompt=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-cue_prompt=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>cue_prompt=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-userpresence=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>userpresence=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-userverification=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>userverification=</option><replaceable>value</replaceable> option to pam_u2f.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--u2f-pinverification=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>pinverification=</option><replaceable>value</replaceable> option to pam_u2f.so.
               </para>
             </listitem>
           </varlistentry>

@@ -30,24 +30,24 @@ extern pam_module_t mod_pam_selinux;
 extern pam_module_t mod_pam_ssh;
 extern pam_module_t mod_pam_sss;
 extern pam_module_t mod_pam_succeed_if;
+extern pam_module_t mod_pam_systemd_home;
 extern pam_module_t mod_pam_thinkfinger;
 extern pam_module_t mod_pam_time;
 extern pam_module_t mod_pam_umask;
 extern pam_module_t mod_pam_unix2;
 extern pam_module_t mod_pam_unix;
 extern pam_module_t mod_pam_winbind;
-extern pam_module_t mod_pam_systemd_home;
-
 
 /* modules for single services only.  */
 extern pam_module_t mod_pam_ck_connector;
 extern pam_module_t mod_pam_cryptpass;
 extern pam_module_t mod_pam_csync;
+extern pam_module_t mod_pam_google_authenticator;
 extern pam_module_t mod_pam_keyinit;
 extern pam_module_t mod_pam_loginuid;
 extern pam_module_t mod_pam_mount;
 extern pam_module_t mod_pam_systemd;
-extern pam_module_t mod_pam_google_authenticator;
+extern pam_module_t mod_pam_u2f;
 
 pam_module_t *common_module_list[] = {
   &mod_pam_access,
@@ -184,10 +184,11 @@ pam_module_t *service_module_list[] = {
   &mod_pam_ck_connector,
   &mod_pam_cryptpass,
   &mod_pam_csync,
+  &mod_pam_google_authenticator,
   &mod_pam_keyinit,
   &mod_pam_lastlog,
   &mod_pam_loginuid,
   &mod_pam_mount,
-  &mod_pam_google_authenticator,
+  &mod_pam_u2f,
   NULL
 };
