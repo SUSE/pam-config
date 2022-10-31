@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Testcase:	faildelay
+# Module:	pam_faildelay.so
+# Description:	Test for module pam_faildelay.so .
+
+. support/header.sh
+
+# Add module pam_faildelay
+$PAMCONFIG -a --faildelay
+
+. support/footer-common.sh
