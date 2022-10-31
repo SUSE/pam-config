@@ -530,6 +530,30 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--faildelay</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_faildelay.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--faildelay-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_faildelay.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--faildelay-delay=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>delay=</option><replaceable>value</replaceable> option to pam_faildelay.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--fp</option></term>
             <listitem>
               <para>
