@@ -101,7 +101,7 @@ GETOPT_END_1(SESSION)
 PRINT_ARGS("systemd")
 PRINT_XMLHELP("systemd")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_5 (kill_session_processes, kill_only_users, kill_exclude_users, controllers, reset_controllers);
 DECLARE_OPT_SETS;

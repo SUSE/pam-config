@@ -63,7 +63,7 @@ GETOPT_END_ALL
 PRINT_ARGS("winbind")
 PRINT_XMLHELP("winbind")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

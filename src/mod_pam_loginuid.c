@@ -84,7 +84,7 @@ GETOPT_END_1(SESSION)
 PRINT_ARGS("loginuid")
 PRINT_XMLHELP("loginuid")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, require_auditd);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

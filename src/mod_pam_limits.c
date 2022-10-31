@@ -56,7 +56,7 @@ GETOPT_END_1(SESSION)
 PRINT_ARGS("limits")
 PRINT_XMLHELP("limits")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_4 (is_enabled, debug, change_uid, utmp_early);
 DECLARE_STRING_OPTS_1 (conf);
 DECLARE_OPT_SETS;

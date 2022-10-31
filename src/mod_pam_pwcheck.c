@@ -143,7 +143,7 @@ GETOPT_END_1(PASSWORD)
 PRINT_ARGS("pwcheck");
 PRINT_XMLHELP("pwcheck");
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_6(is_enabled, debug, nullok, cracklib, no_obscure_checks, enforce_for_root);
 DECLARE_STRING_OPTS_5(cracklib_path, maxlen, minlen, tries, remember);
 DECLARE_OPT_SETS;

@@ -78,7 +78,7 @@ GETOPT_END_ALL
 PRINT_ARGS("ssh")
 PRINT_XMLHELP("ssh")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_3 (is_enabled, debug, nullok);
 DECLARE_STRING_OPTS_1 (keyfiles);
 DECLARE_OPT_SETS;

@@ -58,7 +58,7 @@ write_config_nam (pam_module_t * this, enum write_type op, FILE * fp)
 PRINT_ARGS("nam")
 PRINT_XMLHELP("nam")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_1 (is_enabled);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

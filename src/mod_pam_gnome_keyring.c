@@ -70,7 +70,7 @@ GETOPT_END_ALL
 PRINT_ARGS("gnome_keyring");
 PRINT_XMLHELP("gnome_keyring");
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2(is_enabled, auto_start);
 DECLARE_STRING_OPTS_1(only_if);
 DECLARE_OPT_SETS;

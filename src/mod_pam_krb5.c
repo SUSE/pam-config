@@ -134,7 +134,7 @@ GETOPT_END_ALL
 PRINT_ARGS("krb5")
 PRINT_XMLHELP("krb5")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_3 (is_enabled, debug, ignore_unknown_principals);
 DECLARE_STRING_OPTS_1 (minimum_uid);
 DECLARE_OPT_SETS;

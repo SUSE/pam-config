@@ -150,7 +150,7 @@ GETOPT_END_1(PASSWORD)
 PRINT_ARGS("exec")
 PRINT_XMLHELP("exec")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_5 (is_enabled, debug, expose_authtok, seteuid, quiet);
 DECLARE_STRING_OPTS_2 (log, option);
 DECLARE_OPT_SETS;

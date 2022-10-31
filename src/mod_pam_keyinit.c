@@ -114,7 +114,7 @@ GETOPT_END_ALL
 PRINT_ARGS("keyinit")
 PRINT_XMLHELP("keyinit")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_4 (is_enabled, debug, force, revoke);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

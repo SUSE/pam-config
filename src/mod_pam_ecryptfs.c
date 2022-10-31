@@ -59,7 +59,7 @@ write_config_ecryptfs (pam_module_t * this, enum write_type op, FILE * fp)
 PRINT_ARGS("ecryptfs")
 PRINT_XMLHELP("ecryptfs")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, unwrap);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

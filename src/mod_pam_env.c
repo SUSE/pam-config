@@ -83,7 +83,7 @@ GETOPT_END_1(SESSION)
 PRINT_ARGS("env")
 PRINT_XMLHELP("env")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_3 (conffile, envfile, readenv);
 DECLARE_OPT_SETS;

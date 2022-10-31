@@ -133,7 +133,7 @@ write_config_make (pam_module_t *this, enum write_type op, FILE *fp)
 /* PRINT_ARGS("make")
    PRINT_XMLHELP("make") */
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_3 (is_enabled, debug, nosetuid);
 DECLARE_STRING_OPTS_3 (log, make, option); /* order is important!!! */
 DECLARE_OPT_SETS;

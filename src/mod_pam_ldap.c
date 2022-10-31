@@ -136,7 +136,7 @@ GETOPT_END_ALL
 PRINT_ARGS("ldap");
 PRINT_XMLHELP("ldap");
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

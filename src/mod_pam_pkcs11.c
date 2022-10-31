@@ -52,7 +52,7 @@ GETOPT_END_1(AUTH)
 PRINT_ARGS("pkcs11")
 PRINT_XMLHELP("pkcs11")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_1 (configfile);
 DECLARE_OPT_SETS;

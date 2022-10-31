@@ -55,7 +55,7 @@ GETOPT_END_1(PASSWORD)
 PRINT_ARGS("passwdqc")
 PRINT_XMLHELP("passwdqc")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_5(is_enabled, ask_oldauthtok, check_oldauthtok, use_first_pass, use_authtok);
 DECLARE_STRING_OPTS_8(min, max, passphrase, match, similar, random, enforce, retry);
 DECLARE_OPT_SETS;

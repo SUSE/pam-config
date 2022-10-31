@@ -99,7 +99,7 @@ GETOPT_END_ALL
 PRINT_ARGS("unix2");
 PRINT_XMLHELP("unix2");
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_5( is_enabled, nullok, debug, trace, none );
 DECLARE_STRING_OPTS_2( call_modules, nisdir);
 DECLARE_OPT_SETS;

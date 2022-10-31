@@ -55,7 +55,7 @@ GETOPT_END_1(ACCOUNT)
 PRINT_ARGS("access")
 PRINT_XMLHELP("access")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_4 (is_enabled, debug, nodefgroup, noaudit);
 DECLARE_STRING_OPTS_3 (accessfile, fieldsep, listsep);
 DECLARE_OPT_SETS;

@@ -92,7 +92,7 @@ GETOPT_END_ALL
 PRINT_ARGS("google_authenticator")
 PRINT_XMLHELP("google_authenticator")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_3 (is_enabled, noskewadj, nullok);
 DECLARE_STRING_OPTS_1 (secret);
 DECLARE_OPT_SETS;
