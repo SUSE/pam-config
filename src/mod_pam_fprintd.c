@@ -176,7 +176,7 @@ GETOPT_END_1(AUTH)
 PRINT_ARGS("fprintd")
 PRINT_XMLHELP("fprintd")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2( is_enabled, debug );
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

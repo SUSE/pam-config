@@ -111,7 +111,7 @@ GETOPT_END_ALL
 PRINT_ARGS("csync")
 PRINT_XMLHELP("csync")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_7 (is_enabled, use_first_pass, try_first_pass, soft_try_pass,
 		     nullok, debug, silent);
 DECLARE_STRING_OPTS_0;

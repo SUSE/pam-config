@@ -98,7 +98,7 @@ GETOPT_END_ALL
 PRINT_ARGS("systemd_home")
 PRINT_XMLHELP("systemd_home")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_1 (suspend);
 DECLARE_OPT_SETS;

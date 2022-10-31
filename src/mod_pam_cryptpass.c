@@ -123,7 +123,7 @@ write_config_cryptpass (  pam_module_t *this,
 PRINT_ARGS("cryptpass")
 PRINT_XMLHELP("cryptpass")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_1( is_enabled );
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

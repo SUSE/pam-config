@@ -45,7 +45,7 @@ GETOPT_END_1(AUTH)
 PRINT_ARGS("ccreds")
 PRINT_XMLHELP("ccreds")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_1( is_enabled );
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

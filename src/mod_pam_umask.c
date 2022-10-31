@@ -52,7 +52,7 @@ GETOPT_END_1(SESSION)
 PRINT_ARGS("umask")
 PRINT_XMLHELP("umask")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_4 (is_enabled, debug, silent, usergroups);
 DECLARE_STRING_OPTS_1 (umask);
 DECLARE_OPT_SETS;

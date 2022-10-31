@@ -55,7 +55,7 @@ GETOPT_END_1(PASSWORD)
 PRINT_ARGS("pwquality")
 PRINT_XMLHELP("pwquality")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_7(is_enabled, debug, reject_username, gecoscheck, enforce_for_root, local_users_only, use_authtok);
 DECLARE_STRING_OPTS_17(authtok_type, retry, difok, minlen, dcredit, ucredit, lcredit, ocredit, minclass, dictpath, maxrepeat, maxsequence, maxclassrepeat, dictcheck, usercheck, enforcing, badwords);
 DECLARE_OPT_SETS;

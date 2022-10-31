@@ -55,7 +55,7 @@ GETOPT_END_1(PASSWORD)
 PRINT_ARGS("cracklib")
 PRINT_XMLHELP("cracklib")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_5(is_enabled, debug, reject_username, gecoscheck, enforce_for_root);
 DECLARE_STRING_OPTS_14(authtok_type, retry, difok, difignore, minlen, dcredit, ucredit, lcredit, ocredit, minclass, dictpath, maxrepeat, maxsequence, maxclassrepeat);
 DECLARE_OPT_SETS;

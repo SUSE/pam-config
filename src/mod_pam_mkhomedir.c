@@ -36,7 +36,7 @@ GETOPT_END_1(SESSION)
 PRINT_ARGS("mkhomedir")
 PRINT_XMLHELP("mkhomedir")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_3( is_enabled, debug, silent );
 DECLARE_STRING_OPTS_2( umask, skel );
 DECLARE_OPT_SETS;

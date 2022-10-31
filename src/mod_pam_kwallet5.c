@@ -68,7 +68,7 @@ GETOPT_END_ALL
 PRINT_ARGS("kwallet5");
 PRINT_XMLHELP("kwallet5");
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_1(is_enabled);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

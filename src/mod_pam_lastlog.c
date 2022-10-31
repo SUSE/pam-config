@@ -94,7 +94,7 @@ GETOPT_END_1(SESSION)
 PRINT_ARGS("lastlog")
 PRINT_XMLHELP("lastlog")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_10 (is_enabled, debug, silent, never, nodate, nohost, noterm, nowtmp, noupdate, showfailed);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;

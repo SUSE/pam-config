@@ -103,7 +103,7 @@ GETOPT_END_ALL
 PRINT_ARGS("unix")
 PRINT_XMLHELP("unix")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_15(is_enabled, debug, audit, nodelay, nullok, shadow, md5, bigcrypt, sha256, sha512, blowfish, nis, broken_shadow, use_first_pass, try_first_pass);
 DECLARE_STRING_OPTS_4(authtok_type, remember, rounds, minlen);
 DECLARE_OPT_SETS;

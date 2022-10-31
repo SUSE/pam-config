@@ -55,7 +55,7 @@ GETOPT_END_1(PASSWORD)
 PRINT_ARGS("pwhistory")
 PRINT_XMLHELP("pwhistory")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_4(is_enabled, debug, use_authtok, enforce_for_root);
 DECLARE_STRING_OPTS_4(remember, retry, authtok_type, file);
 DECLARE_OPT_SETS;

@@ -62,7 +62,7 @@ GETOPT_END_1(SESSION)
 PRINT_ARGS("selinux")
 PRINT_XMLHELP("selinux")
 
-/* ---- contruct module object ---- */
+/* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
