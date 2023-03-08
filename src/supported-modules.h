@@ -10,6 +10,7 @@ extern pam_module_t mod_pam_faildelay;
 extern pam_module_t mod_pam_fp;
 extern pam_module_t mod_pam_fprint;
 extern pam_module_t mod_pam_fprintd;
+extern pam_module_t mod_pam_fscrypt;
 extern pam_module_t mod_pam_gnome_keyring;
 extern pam_module_t mod_pam_group;
 extern pam_module_t mod_pam_krb5;
@@ -64,6 +65,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_fp,
   &mod_pam_fprint,
   &mod_pam_fprintd,
+  &mod_pam_fscrypt,
   &mod_pam_gnome_keyring,
   &mod_pam_group,
   &mod_pam_krb5,
@@ -126,6 +128,7 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_unix2,
   &mod_pam_unix,
   &mod_pam_ecryptfs,
+  &mod_pam_fscrypt,
   &mod_pam_krb5,
   &mod_pam_sss,
   &mod_pam_ldap,
@@ -149,6 +152,7 @@ static pam_module_t *module_list_password[] = {
   &mod_pam_systemd_home,
   &mod_pam_unix2,
   &mod_pam_unix,
+  &mod_pam_fscrypt,
   &mod_pam_make,
   &mod_pam_exec,
   &mod_pam_krb5,
@@ -181,6 +185,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_kwallet5,
   &mod_pam_exec,
   &mod_pam_ecryptfs,
+  &mod_pam_fscrypt,
   &mod_pam_env,
   &mod_pam_mktemp,
   NULL
