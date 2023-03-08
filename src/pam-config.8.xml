@@ -602,6 +602,14 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--fscrypt</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_fscrypt.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--gnome_keyring</option></term>
             <listitem>
               <para>
