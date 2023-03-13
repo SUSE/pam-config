@@ -1,8 +1,11 @@
 pam-config NEWS -- history of user-visible changes.
 
-Copyright (C) 2006-2022 Thorsten Kukuk <kukuk@suse.com>.
+Copyright (C) 2006-2023 Thorsten Kukuk <kukuk@suse.com>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
+
+Version 1.9
+* Add support for pam_lastlog2
 
 Version 1.8
 * Move systemd_home after all optional modules (#13)
