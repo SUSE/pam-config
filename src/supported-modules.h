@@ -15,6 +15,7 @@ extern pam_module_t mod_pam_group;
 extern pam_module_t mod_pam_krb5;
 extern pam_module_t mod_pam_kwallet5;
 extern pam_module_t mod_pam_lastlog;
+extern pam_module_t mod_pam_lastlog2;
 extern pam_module_t mod_pam_ldap;
 extern pam_module_t mod_pam_limits;
 extern pam_module_t mod_pam_localuser;
@@ -67,6 +68,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_group,
   &mod_pam_krb5,
   &mod_pam_kwallet5,
+  &mod_pam_lastlog2,
   &mod_pam_ldap,
   &mod_pam_limits,
   &mod_pam_localuser,
@@ -162,6 +164,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_mkhomedir,
   &mod_pam_systemd_home,
   &mod_pam_systemd,
+  &mod_pam_lastlog2,
   &mod_pam_limits,
   &mod_pam_unix2,
   &mod_pam_unix,

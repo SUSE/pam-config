@@ -674,6 +674,38 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--lastlog2</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_lastlog2.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog2-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_lastlog2.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog2-silent</option></term>
+            <listitem>
+              <para>
+                Add <option>silent</option> option to all pam_lastlog2.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--lastlog2-database=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>database=</option><replaceable>value</replaceable> option to pam_lastlog2.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--ldap</option></term>
             <listitem>
               <para>
