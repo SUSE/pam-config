@@ -52,6 +52,8 @@ extern char *confdir;
 #define CONF_PASSWORD_PC "common-password-pc"
 #define CONF_SESSION "common-session"
 #define CONF_SESSION_PC "common-session-pc"
+#define CONF_SESSION_NONLOGIN "common-session-nonlogin"
+#define CONF_SESSION_NONLOGIN_PC "common-session-nonlogin-pc"
 
 int load_obsolete_conf (pam_module_t **module_list);
 

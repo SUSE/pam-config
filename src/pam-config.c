@@ -1044,6 +1044,9 @@ main (int argc, char *argv[])
 
       if (write_config (confdir, CONF_SESSION_PC, SESSION, module_list_session) != 0)
 	return 1;
+
+      if (write_config (confdir, CONF_SESSION_NONLOGIN_PC, SESSION, module_list_session) != 0)
+	return 1;
     }
   else if (!gl_service)
     {
@@ -1074,6 +1077,9 @@ main (int argc, char *argv[])
 	return 1;
 
       if (write_config (confdir, CONF_SESSION_PC, SESSION, module_list_session) != 0)
+	return 1;
+
+      if (write_config (confdir, CONF_SESSION_NONLOGIN_PC, SESSION, module_list_session) != 0)
 	return 1;
     }
   else
@@ -1109,6 +1115,9 @@ main (int argc, char *argv[])
       if (relink (confdir, CONF_SESSION, CONF_SESSION_PC) != 0)
 	retval = 1;
 
+      if (relink (confdir, CONF_SESSION_NONLOGIN, CONF_SESSION_NONLOGIN_PC) != 0)
+	retval = 1;
+
       if (opt.m_init && retval == 0)
 	{
 	  rename ("/etc/security/pam_pwcheck.conf",
@@ -1131,6 +1140,9 @@ main (int argc, char *argv[])
 
       if (relink (confdir, CONF_SESSION, CONF_SESSION_PC) != 0)
 	retval = 1;
+
+      if (relink (confdir, CONF_SESSION_NONLOGIN, CONF_SESSION_NONLOGIN_PC) != 0)
+	retval = 1;
     }
 
   if (!gl_service)
@@ -1142,6 +1154,8 @@ main (int argc, char *argv[])
       if (check_symlink (confdir, CONF_PASSWORD_PC, CONF_PASSWORD) != 0)
 	retval = 1;
       if (check_symlink (confdir, CONF_SESSION_PC, CONF_SESSION) != 0)
+	retval = 1;
+      if (check_symlink (confdir, CONF_SESSION_NONLOGIN_PC, CONF_SESSION_NONLOGIN) != 0)
 	retval = 1;
     }
 
