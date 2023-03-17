@@ -186,6 +186,32 @@ static pam_module_t *module_list_session[] = {
   NULL
 };
 
+static pam_module_t *module_list_session_nl[] = {
+  &mod_pam_selinux,
+  &mod_pam_mkhomedir,
+  &mod_pam_systemd_home,
+  // &mod_pam_systemd,
+  &mod_pam_limits,
+  &mod_pam_unix2,
+  &mod_pam_unix,
+  &mod_pam_apparmor,
+  &mod_pam_krb5,
+  &mod_pam_sss,
+  &mod_pam_ldap,
+  &mod_pam_winbind,
+  &mod_pam_nam,
+  &mod_pam_umask,
+  &mod_pam_ssh,
+  &mod_pam_selinux,
+  &mod_pam_gnome_keyring,
+  &mod_pam_kwallet5,
+  &mod_pam_exec,
+  &mod_pam_ecryptfs,
+  &mod_pam_env,
+  &mod_pam_mktemp,
+  NULL
+};
+
 pam_module_t *service_module_list[] = {
   &mod_pam_ck_connector,
   &mod_pam_cryptpass,

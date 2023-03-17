@@ -1045,7 +1045,7 @@ main (int argc, char *argv[])
       if (write_config (confdir, CONF_SESSION_PC, SESSION, module_list_session) != 0)
 	return 1;
 
-      if (write_config (confdir, CONF_SESSION_NONLOGIN_PC, SESSION, module_list_session) != 0)
+      if (write_config (confdir, CONF_SESSION_NONLOGIN_PC, SESSION, module_list_session_nl) != 0)
 	return 1;
     }
   else if (!gl_service)
@@ -1079,7 +1079,7 @@ main (int argc, char *argv[])
       if (write_config (confdir, CONF_SESSION_PC, SESSION, module_list_session) != 0)
 	return 1;
 
-      if (write_config (confdir, CONF_SESSION_NONLOGIN_PC, SESSION, module_list_session) != 0)
+      if (write_config (confdir, CONF_SESSION_NONLOGIN_PC, SESSION, module_list_session_nl) != 0)
 	return 1;
     }
   else
