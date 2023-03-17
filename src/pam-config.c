@@ -649,7 +649,6 @@ main (int argc, char *argv[])
         {"winbind",               no_argument,       NULL, 2200 },
         {"winbind-debug",         no_argument,       NULL, 2201 },
 	{"sss",                   no_argument,       NULL, 2300 },
-	{"ecryptfs",              no_argument,       NULL, 2400 },
         {NULL,                    0,                 NULL,    0 }
       };
       static struct option service_long_options[] = {
@@ -851,20 +850,6 @@ main (int argc, char *argv[])
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
 	      opt_set =
 		mod_pam_localuser.get_opt_set (&mod_pam_localuser, ACCOUNT);
-	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	    }
-	  break;
-	case 2400:
-	  /* pam_ecryptfs.so */
-	  if (opt.m_query)
-	    print_module_config (common_module_list, "pam_ecryptfs.so");
-	  else
-	    {
-	      if (!opt.m_delete && check_for_pam_module ("pam_ecryptfs.so", opt.force, 0) != 0)
-		return 1;
-	      opt_set = mod_pam_ecryptfs.get_opt_set (&mod_pam_ecryptfs, AUTH);
-	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-	      opt_set = mod_pam_ecryptfs.get_opt_set (&mod_pam_ecryptfs, SESSION);
 	      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
 	    }
 	  break;
