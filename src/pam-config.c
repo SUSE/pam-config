@@ -1047,6 +1047,18 @@ main (int argc, char *argv[])
 
       if (write_config (confdir, CONF_SESSION_NONLOGIN_PC, SESSION, module_list_session_nl) != 0)
 	return 1;
+
+      if (write_config (confdir, CONF_POSTLOGIN_ACCOUNT_PC, ACCOUNT, module_list_postlogin_account) != 0)
+	return 1;
+
+      if (write_config (confdir, CONF_POSTLOGIN_AUTH_PC, AUTH, module_list_postlogin_auth) != 0)
+	return 1;
+
+      if (write_config (confdir, CONF_POSTLOGIN_PASSWORD_PC, PASSWORD, module_list_postlogin_password) != 0)
+	return 1;
+
+      if (write_config (confdir, CONF_POSTLOGIN_SESSION_PC, SESSION, module_list_postlogin_session) != 0)
+	return 1;
     }
   else if (!gl_service)
     {
@@ -1080,6 +1092,18 @@ main (int argc, char *argv[])
 	return 1;
 
       if (write_config (confdir, CONF_SESSION_NONLOGIN_PC, SESSION, module_list_session_nl) != 0)
+	return 1;
+
+      if (write_config (confdir, CONF_POSTLOGIN_ACCOUNT_PC, ACCOUNT, module_list_postlogin_account) != 0)
+	return 1;
+
+      if (write_config (confdir, CONF_POSTLOGIN_AUTH_PC, AUTH, module_list_postlogin_auth) != 0)
+	return 1;
+
+      if (write_config (confdir, CONF_POSTLOGIN_PASSWORD_PC, PASSWORD, module_list_postlogin_password) != 0)
+	return 1;
+
+      if (write_config (confdir, CONF_POSTLOGIN_SESSION_PC, SESSION, module_list_postlogin_session) != 0)
 	return 1;
     }
   else
@@ -1118,6 +1142,18 @@ main (int argc, char *argv[])
       if (relink (confdir, CONF_SESSION_NONLOGIN, CONF_SESSION_NONLOGIN_PC) != 0)
 	retval = 1;
 
+      if (relink (confdir, CONF_POSTLOGIN_ACCOUNT, CONF_POSTLOGIN_ACCOUNT_PC) != 0)
+	retval = 1;
+
+      if (relink (confdir, CONF_POSTLOGIN_AUTH, CONF_AUTH_PC) != 0)
+	retval = 1;
+
+      if (relink (confdir, CONF_POSTLOGIN_PASSWORD, CONF_POSTLOGIN_PASSWORD_PC) != 0)
+	retval = 1;
+
+      if (relink (confdir, CONF_POSTLOGIN_SESSION, CONF_POSTLOGIN_SESSION_PC) != 0)
+	retval = 1;
+
       if (opt.m_init && retval == 0)
 	{
 	  rename ("/etc/security/pam_pwcheck.conf",
@@ -1143,6 +1179,18 @@ main (int argc, char *argv[])
 
       if (relink (confdir, CONF_SESSION_NONLOGIN, CONF_SESSION_NONLOGIN_PC) != 0)
 	retval = 1;
+
+      if (relink (confdir, CONF_POSTLOGIN_ACCOUNT, CONF_POSTLOGIN_ACCOUNT_PC) != 0)
+	retval = 1;
+
+      if (relink (confdir, CONF_POSTLOGIN_AUTH, CONF_POSTLOGIN_AUTH_PC) != 0)
+	retval = 1;
+
+      if (relink (confdir, CONF_POSTLOGIN_PASSWORD, CONF_POSTLOGIN_PASSWORD_PC) != 0)
+	retval = 1;
+
+      if (relink (confdir, CONF_POSTLOGIN_SESSION, CONF_POSTLOGIN_SESSION_PC) != 0)
+	retval = 1;
     }
 
   if (!gl_service)
@@ -1156,6 +1204,15 @@ main (int argc, char *argv[])
       if (check_symlink (confdir, CONF_SESSION_PC, CONF_SESSION) != 0)
 	retval = 1;
       if (check_symlink (confdir, CONF_SESSION_NONLOGIN_PC, CONF_SESSION_NONLOGIN) != 0)
+	retval = 1;
+
+      if (check_symlink (confdir, CONF_POSTLOGIN_ACCOUNT_PC, CONF_POSTLOGIN_ACCOUNT) != 0)
+	retval = 1;
+      if (check_symlink (confdir, CONF_POSTLOGIN_AUTH_PC, CONF_POSTLOGIN_AUTH) != 0)
+	retval = 1;
+      if (check_symlink (confdir, CONF_POSTLOGIN_PASSWORD_PC, CONF_POSTLOGIN_PASSWORD) != 0)
+	retval = 1;
+      if (check_symlink (confdir, CONF_POSTLOGIN_SESSION_PC, CONF_POSTLOGIN_SESSION) != 0)
 	retval = 1;
     }
 

@@ -168,7 +168,6 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_mkhomedir,
   &mod_pam_systemd_home,
   &mod_pam_systemd,
-  &mod_pam_lastlog2,
   &mod_pam_limits,
   &mod_pam_unix2,
   &mod_pam_unix,
@@ -215,6 +214,23 @@ static pam_module_t *module_list_session_nl[] = {
   &mod_pam_fscrypt,
   &mod_pam_env,
   &mod_pam_mktemp,
+  NULL
+};
+
+static pam_module_t *module_list_postlogin_account[] = {
+  NULL
+};
+
+static pam_module_t *module_list_postlogin_auth[] = {
+  NULL
+};
+
+static pam_module_t *module_list_postlogin_password[] = {
+  NULL
+};
+
+static pam_module_t *module_list_postlogin_session[] = {
+  &mod_pam_lastlog2,
   NULL
 };
 

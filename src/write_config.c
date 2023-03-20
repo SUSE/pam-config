@@ -107,11 +107,15 @@ write_config (const char *sysconfdir, const char *file, write_type_t op, pam_mod
 	   "# The pam-config configuration files can be used as template\n"
 	   "# for an own PAM configuration not managed by pam-config:\n"
 	   "#\n"
-	   "# for i in account auth password session; do \\\n"
+	   "# for i in account auth password session session-nonlogin; do \\\n"
 	   "#      rm -f common-$i; sed '/^#.*/d' common-$i-pc > common-$i; \\\n"
+	   "# done\n"
+	   "# for i in account auth password session; do \\\n"
+	   "#      rm -f postlogin-$i; sed '/^#.*/d' postlogin-$i-pc > postlogin-$i; \\\n"
 	   "# done\n#\n"
-	   "# Afterwards common-{account, auth, password, session} can be\n"
-	   "# adjusted. Never edit or delete common-*-pc files!\n#\n"
+	   "# Afterwards common-{account, auth, password, session, session-nonlogin}\n"
+	   "# and postlogin-{account, auth, password, session} can be\n"
+	   "# adjusted. Never edit or delete common-*-pc or postlogin-*-pc files!\n#\n"
 	   "# WARNING: changes done by pam-config afterwards are not\n"
 	   "# visible to the PAM stack anymore!\n"
 	   "#\n"
@@ -120,7 +124,7 @@ write_config (const char *sysconfdir, const char *file, write_type_t op, pam_mod
 	   "# insecure or break system functionality through system updates!\n#\n#\n");
   switch (op) {
   case ACCOUNT:
-    fprintf (fp, "# Account-related modules common to all services\n#\n");
+    fprintf (fp, "# Account-related modules common to all or login services\n#\n");
     fprintf (fp,
 	     "# This file is included from other service-specific PAM config files,\n"
 	     "# and should contain a list of the account modules that define\n"
@@ -128,7 +132,7 @@ write_config (const char *sysconfdir, const char *file, write_type_t op, pam_mod
 
     break;
   case AUTH:
-    fprintf (fp, "# Authentication-related modules common to all services\n#\n");
+    fprintf (fp, "# Authentication-related modules common to all or login services\n#\n");
     fprintf (fp,
 	     "# This file is included from other service-specific PAM config files,\n"
 	     "# and should contain a list of the authentication modules that define\n"
@@ -137,14 +141,14 @@ write_config (const char *sysconfdir, const char *file, write_type_t op, pam_mod
 	     "# traditional Unix authentication mechanisms.\n#\n");
     break;
   case PASSWORD:
-    fprintf (fp, "# Password-related modules common to all services\n#\n");
+    fprintf (fp, "# Password-related modules common to all or login services\n#\n");
     fprintf (fp,
 	     "# This file is included from other service-specific PAM config files,\n"
 	     "# and should contain a list of modules that define  the services to be\n"
 	     "# used to change user passwords.\n#\n");
     break;
   case SESSION:
-    fprintf (fp, "# Session-related modules common to all services\n#\n");
+    fprintf (fp, "# Session-related modules common to all or login services\n#\n");
     fprintf (fp,
 	     "# This file is included from other service-specific PAM config files,\n"
 	     "# and should contain a list of modules that define tasks to be performed\n"

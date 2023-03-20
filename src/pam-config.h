@@ -54,6 +54,14 @@ extern char *confdir;
 #define CONF_SESSION_PC "common-session-pc"
 #define CONF_SESSION_NONLOGIN "common-session-nonlogin"
 #define CONF_SESSION_NONLOGIN_PC "common-session-nonlogin-pc"
+#define CONF_POSTLOGIN_ACCOUNT "postlogin-account"
+#define CONF_POSTLOGIN_ACCOUNT_PC "postlogin-account-pc"
+#define CONF_POSTLOGIN_AUTH "postlogin-auth"
+#define CONF_POSTLOGIN_AUTH_PC "postlogin-auth-pc"
+#define CONF_POSTLOGIN_PASSWORD "postlogin-password"
+#define CONF_POSTLOGIN_PASSWORD_PC "postlogin-password-pc"
+#define CONF_POSTLOGIN_SESSION "postlogin-session"
+#define CONF_POSTLOGIN_SESSION_PC "postlogin-session-pc"
 
 int load_obsolete_conf (pam_module_t **module_list);
 
