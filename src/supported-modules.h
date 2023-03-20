@@ -212,6 +212,7 @@ static pam_module_t *module_list_session_nl[] = {
   &mod_pam_kwallet5,
   &mod_pam_exec,
   &mod_pam_ecryptfs,
+  &mod_pam_fscrypt,
   &mod_pam_env,
   &mod_pam_mktemp,
   NULL
