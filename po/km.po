@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-13 15:35+0100\n"
+"POT-Creation-Date: 2023-03-20 16:14+0100\n"
 "PO-Revision-Date: 2010-07-07 10:14+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -464,12 +464,12 @@ msgstr ""
 "\n"
 "មិន​ផ្ទុក​ឯកសារ​កំណត់​រចនាសម្ព័ន្ធ '%s' បាន​បោះបង់ !\n"
 
-#: src/pam-config.c:903
+#: src/pam-config.c:888
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
 
-#: src/pam-config.c:905
+#: src/pam-config.c:890
 #, c-format
 msgid ""
 "\n"
@@ -478,7 +478,7 @@ msgstr ""
 "\n"
 "ម៉ូឌុល​សេវា​ដែល​បាន​គាំទ្រ ៖\n"
 
-#: src/pam-config.c:947
+#: src/pam-config.c:932
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s ៖ មាន​អាគុយម៉ង់​ច្រើន​ពេក ។\n"

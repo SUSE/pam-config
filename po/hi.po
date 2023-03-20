@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.hi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-13 15:35+0100\n"
+"POT-Creation-Date: 2023-03-20 16:14+0100\n"
 "PO-Revision-Date: 2007-08-24 20:43+0530\n"
 "Last-Translator: Sangeeta Kumari <k.sangeeta09@gmail.com>\n"
 "Language-Team: Hindi <en@li.org>\n"
@@ -437,19 +437,19 @@ msgid ""
 "Couldn't load '%s', aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:903
+#: src/pam-config.c:888
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:905
+#: src/pam-config.c:890
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:947
+#: src/pam-config.c:932
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""

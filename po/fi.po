@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-13 15:35+0100\n"
+"POT-Creation-Date: 2023-03-20 16:14+0100\n"
 "PO-Revision-Date: 2010-04-10 21:36+0300\n"
 "Last-Translator: Jyri Palokangas <jmp@opensuse.org>\n"
 "Language-Team: TRANSLATIONS <kde-i18n-doc@kde.org>\n"
@@ -496,12 +496,12 @@ msgstr ""
 "\n"
 "Määritystiedoston '%s' lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:903
+#: src/pam-config.c:888
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Tuetut yleiset moduulit:\n"
 
-#: src/pam-config.c:905
+#: src/pam-config.c:890
 #, c-format
 msgid ""
 "\n"
@@ -510,7 +510,7 @@ msgstr ""
 "\n"
 "Tuetut palvelumoduulit:\n"
 
-#: src/pam-config.c:947
+#: src/pam-config.c:932
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Liian monta argumenttia.\n"
