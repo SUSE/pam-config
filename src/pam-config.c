@@ -1145,7 +1145,7 @@ main (int argc, char *argv[])
       if (relink (confdir, CONF_POSTLOGIN_ACCOUNT, CONF_POSTLOGIN_ACCOUNT_PC) != 0)
 	retval = 1;
 
-      if (relink (confdir, CONF_POSTLOGIN_AUTH, CONF_AUTH_PC) != 0)
+      if (relink (confdir, CONF_POSTLOGIN_AUTH, CONF_POSTLOGIN_AUTH_PC) != 0)
 	retval = 1;
 
       if (relink (confdir, CONF_POSTLOGIN_PASSWORD, CONF_POSTLOGIN_PASSWORD_PC) != 0)
