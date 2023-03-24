@@ -40,6 +40,7 @@ extern pam_module_t mod_pam_umask;
 extern pam_module_t mod_pam_unix2;
 extern pam_module_t mod_pam_unix;
 extern pam_module_t mod_pam_winbind;
+extern pam_module_t mod_pam_wtmpdb;
 
 /* modules for single services only.  */
 extern pam_module_t mod_pam_ck_connector;
@@ -94,6 +95,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_unix,
   &mod_pam_unix2,
   &mod_pam_winbind,
+  &mod_pam_wtmpdb,
   NULL
 };
 
@@ -230,6 +232,7 @@ static pam_module_t *module_list_postlogin_password[] = {
 };
 
 static pam_module_t *module_list_postlogin_session[] = {
+  &mod_pam_wtmpdb,
   &mod_pam_lastlog2,
   NULL
 };
