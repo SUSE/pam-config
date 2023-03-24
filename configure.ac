@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(pam-config, 2.0)
+AC_INIT(pam-config, 2.1)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/pam-config.c])
 AM_CONFIG_HEADER(config.h)

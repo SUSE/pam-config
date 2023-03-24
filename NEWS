@@ -4,6 +4,9 @@ Copyright (C) 2006-2023 Thorsten Kukuk <kukuk@suse.com>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
 
+Version 2.1
+* Bug fix release
+
 Version 2.0
 * Add support for pam_fscrypt
 * Add support for pam.d/common-session-nonlogin
