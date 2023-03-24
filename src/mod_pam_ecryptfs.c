@@ -45,7 +45,7 @@ write_config_ecryptfs (pam_module_t * this, enum write_type op, FILE * fp)
       fprintf (fp, "auth\trequired\tpam_ecryptfs.so\tunwrap\n");
       break;
     case PASSWORD:
-      fprintf (fp, "password\toptional\tpam_ecryptfs.so\t\n");
+      fprintf (fp, "password\toptional\tpam_ecryptfs.so\n");
       break;
     case SESSION:
       fprintf (fp, "session\toptional\tpam_ecryptfs.so\tunwrap\n");
@@ -55,6 +55,9 @@ write_config_ecryptfs (pam_module_t * this, enum write_type op, FILE * fp)
     }
   return 0;
 }
+
+GETOPT_START_ALL
+GETOPT_END_ALL
 
 PRINT_ARGS("ecryptfs")
 PRINT_XMLHELP("ecryptfs")
@@ -72,6 +75,6 @@ pam_module_t mod_pam_ecryptfs = { "pam_ecryptfs.so", opt_sets, helptext,
 			     &def_print_module,
 			     &write_config_ecryptfs,
 			     &get_opt_set,
-			     NULL,
+			     getopt,
 			     &print_args,
 			     &print_xmlhelp};

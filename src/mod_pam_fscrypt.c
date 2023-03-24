@@ -52,6 +52,9 @@ write_config_fscrypt (pam_module_t * this, enum write_type op, FILE * fp)
   return 0;
 }
 
+GETOPT_START_ALL
+GETOPT_END_ALL
+
 PRINT_ARGS("fscrypt")
 PRINT_XMLHELP("fscrypt")
 
@@ -68,6 +71,6 @@ pam_module_t mod_pam_fscrypt = { "pam_fscrypt.so", opt_sets, helptext,
 			     &def_print_module,
 			     &write_config_fscrypt,
 			     &get_opt_set,
-			     NULL,
+			     getopt,
 			     &print_args,
 			     &print_xmlhelp};
