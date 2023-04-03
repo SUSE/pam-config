@@ -4,6 +4,9 @@ Copyright (C) 2006-2023 Thorsten Kukuk <kukuk@suse.com>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
 
+Version 2.3
+* Add silent_if option to pam_lastlog2
+
 Version 2.2
 * Fix ecryptfs and fscrypt support
 * Add support for pam_wtmpdb
