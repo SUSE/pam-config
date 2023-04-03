@@ -542,6 +542,16 @@ main (int argc, char *argv[])
 	goto load_old_config_error;
       if (load_config (confdir, CONF_SESSION, SESSION, common_module_list, 1) != 0)
 	goto load_old_config_error;
+      if (load_config (confdir, CONF_SESSION_NONLOGIN, SESSION, common_module_list, 1) != 0)
+	goto load_old_config_error;
+      if (load_config (confdir, CONF_POSTLOGIN_ACCOUNT, ACCOUNT, common_module_list, 1) != 0)
+	goto load_old_config_error;
+      if (load_config (confdir, CONF_POSTLOGIN_AUTH, AUTH, common_module_list, 1) != 0)
+	goto load_old_config_error;
+      if (load_config (confdir, CONF_POSTLOGIN_PASSWORD, PASSWORD, common_module_list, 1) != 0)
+	goto load_old_config_error;
+      if (load_config (confdir, CONF_POSTLOGIN_SESSION, SESSION, common_module_list, 1) != 0)
+	goto load_old_config_error;
     }
   else if (strcmp (argv[1], "--update") == 0)
     {
@@ -607,6 +617,46 @@ main (int argc, char *argv[])
 	      if (load_config (confdir, CONF_SESSION, SESSION, common_module_list, 1) != 0)
 		{
 		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_SESSION);
+		  return 1;
+		}
+	    }
+	  if (load_config (confdir, CONF_SESSION_NONLOGIN_PC, SESSION, common_module_list, 1) != 0)
+	    {
+	      if (load_config (confdir, CONF_SESSION_NONLOGIN, SESSION, common_module_list, 1) != 0)
+		{
+		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_SESSION_NONLOGIN);
+		  return 1;
+		}
+	    }
+	  if (load_config (confdir, CONF_POSTLOGIN_ACCOUNT_PC, ACCOUNT, common_module_list, 1) != 0)
+	    {
+	      if (load_config (confdir, CONF_POSTLOGIN_ACCOUNT, ACCOUNT, common_module_list, 1) != 0)
+		{
+		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_POSTLOGIN_ACCOUNT);
+		  return 1;
+		}
+	    }
+	  if (load_config (confdir, CONF_POSTLOGIN_AUTH_PC, AUTH, common_module_list, 1) != 0)
+	    {
+	      if (load_config (confdir, CONF_POSTLOGIN_AUTH, AUTH, common_module_list, 1) != 0)
+		{
+		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_POSTLOGIN_AUTH);
+		  return 1;
+		}
+	    }
+	  if (load_config (confdir, CONF_POSTLOGIN_PASSWORD_PC, PASSWORD, common_module_list, 1) != 0)
+	    {
+	      if (load_config (confdir, CONF_POSTLOGIN_PASSWORD, PASSWORD, common_module_list, 1) != 0)
+		{
+		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_POSTLOGIN_PASSWORD);
+		  return 1;
+		}
+	    }
+	  if (load_config (confdir, CONF_POSTLOGIN_SESSION_PC, SESSION, common_module_list, 1) != 0)
+	    {
+	      if (load_config (confdir, CONF_POSTLOGIN_SESSION, SESSION, common_module_list, 1) != 0)
+		{
+		  fprintf (stderr, _("\nCouldn't load '%s', aborted!\n"), CONF_POSTLOGIN_SESSION);
 		  return 1;
 		}
 	    }
