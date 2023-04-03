@@ -714,6 +714,14 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--lastlog2-silent_if=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>silent_if=</option><replaceable>value</replaceable> option to pam_lastlog2.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--ldap</option></term>
             <listitem>
               <para>
