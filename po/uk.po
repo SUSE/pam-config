@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 14:32+0200\n"
+"POT-Creation-Date: 2023-04-03 22:31+0200\n"
 "PO-Revision-Date: 2008-10-22 22:51-0700\n"
 "Last-Translator: Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
@@ -252,7 +252,7 @@ msgstr ""
 "ПОМИЛКА: увімкнено pam_mount.so. Щоб використовувати pam_thinkfinger.so, вам "
 "слід спочатку вимкнути pam_mount.so!\n"
 
-#: src/mod_pam_mount.c:117 src/pam-config.c:621
+#: src/mod_pam_mount.c:117 src/pam-config.c:671
 #, c-format
 msgid ""
 "\n"
@@ -493,8 +493,9 @@ msgstr ""
 "\n"
 "Не вдалося завантажити файл конфігурації!\n"
 
-#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
-#: src/pam-config.c:609
+#: src/pam-config.c:595 src/pam-config.c:603 src/pam-config.c:611
+#: src/pam-config.c:619 src/pam-config.c:627 src/pam-config.c:635
+#: src/pam-config.c:643 src/pam-config.c:651 src/pam-config.c:659
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -506,12 +507,12 @@ msgstr ""
 "\n"
 "Не вдалося завантажити файл конфігурації \"%s\"; вихід!\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:938
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Загальні модулі, що підтримуються:\n"
 
-#: src/pam-config.c:890
+#: src/pam-config.c:940
 #, c-format
 msgid ""
 "\n"
@@ -520,7 +521,7 @@ msgstr ""
 "\n"
 "Модулі служб, що підтримуються:\n"
 
-#: src/pam-config.c:932
+#: src/pam-config.c:982
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Забагато аргументів.\n"

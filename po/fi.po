@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 14:32+0200\n"
+"POT-Creation-Date: 2023-04-03 22:31+0200\n"
 "PO-Revision-Date: 2010-04-10 21:36+0300\n"
 "Last-Translator: Jyri Palokangas <jmp@opensuse.org>\n"
 "Language-Team: TRANSLATIONS <kde-i18n-doc@kde.org>\n"
@@ -243,7 +243,7 @@ msgstr ""
 "VIRHE: pam_mount.so moduuli on käytössä. Käyttääksesi pam_thinkfinger.so "
 "moduulia se pitää poistaa ensin käytöstä!\n"
 
-#: src/mod_pam_mount.c:117 src/pam-config.c:621
+#: src/mod_pam_mount.c:117 src/pam-config.c:671
 #, c-format
 msgid ""
 "\n"
@@ -483,8 +483,9 @@ msgstr ""
 "\n"
 "Määritystiedoston lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
-#: src/pam-config.c:609
+#: src/pam-config.c:595 src/pam-config.c:603 src/pam-config.c:611
+#: src/pam-config.c:619 src/pam-config.c:627 src/pam-config.c:635
+#: src/pam-config.c:643 src/pam-config.c:651 src/pam-config.c:659
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -496,12 +497,12 @@ msgstr ""
 "\n"
 "Määritystiedoston '%s' lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:938
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Tuetut yleiset moduulit:\n"
 
-#: src/pam-config.c:890
+#: src/pam-config.c:940
 #, c-format
 msgid ""
 "\n"
@@ -510,7 +511,7 @@ msgstr ""
 "\n"
 "Tuetut palvelumoduulit:\n"
 
-#: src/pam-config.c:932
+#: src/pam-config.c:982
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Liian monta argumenttia.\n"

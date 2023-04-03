@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 14:32+0200\n"
+"POT-Creation-Date: 2023-04-03 22:31+0200\n"
 "PO-Revision-Date: 2009-12-28 00:19-0300\n"
 "Last-Translator: Ricardo Varas Santana <ricardoivaras@gmail.com>\n"
 "Language-Team: Spanish <opensuse-translation-es@opensuse.org>\n"
@@ -250,7 +250,7 @@ msgstr ""
 "necesita inhabilitarlo primero!\n"
 
 # include/backup/ui.ycp:1661
-#: src/mod_pam_mount.c:117 src/pam-config.c:621
+#: src/mod_pam_mount.c:117 src/pam-config.c:671
 #, c-format
 msgid ""
 "\n"
@@ -502,8 +502,9 @@ msgstr ""
 "No se puede cargar el archivo de configuración, ¡cancelado!\n"
 
 # include/backup/ui.ycp:1661
-#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
-#: src/pam-config.c:609
+#: src/pam-config.c:595 src/pam-config.c:603 src/pam-config.c:611
+#: src/pam-config.c:619 src/pam-config.c:627 src/pam-config.c:635
+#: src/pam-config.c:643 src/pam-config.c:651 src/pam-config.c:659
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -516,12 +517,12 @@ msgstr ""
 "No se puede cargar el archivo de configuración '%s', ¡cancelado!\n"
 
 # Cam: mantengo el término en inglés porque los archivos se llaman "common-módulo"
-#: src/pam-config.c:888
+#: src/pam-config.c:938
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Módulos estándar (common) soportados:\n"
 
-#: src/pam-config.c:890
+#: src/pam-config.c:940
 #, c-format
 msgid ""
 "\n"
@@ -530,7 +531,7 @@ msgstr ""
 "\n"
 "Módulos de servicio soportados:\n"
 
-#: src/pam-config.c:932
+#: src/pam-config.c:982
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Demasiados argumentos.\n"

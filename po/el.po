@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 14:32+0200\n"
+"POT-Creation-Date: 2023-04-03 22:31+0200\n"
 "PO-Revision-Date: 2008-06-06 01:04+0100\n"
 "Last-Translator: Vasileios Giannakopoulos <billg@billg.gr>\n"
 "Language-Team: Ελληνικά <billg@billg.gr>\n"
@@ -219,7 +219,7 @@ msgid ""
 "disable it first!\n"
 msgstr "ΣΦΑΛΜΑ Ενεργοποιημένο"
 
-#: src/mod_pam_mount.c:117 src/pam-config.c:621
+#: src/mod_pam_mount.c:117 src/pam-config.c:671
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -451,8 +451,9 @@ msgstr ""
 "\n"
 "Αδυναμία φόρτωσης αρχείου ρυθμίσεων, ματαίωση!\n"
 
-#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
-#: src/pam-config.c:609
+#: src/pam-config.c:595 src/pam-config.c:603 src/pam-config.c:611
+#: src/pam-config.c:619 src/pam-config.c:627 src/pam-config.c:635
+#: src/pam-config.c:643 src/pam-config.c:651 src/pam-config.c:659
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -461,19 +462,19 @@ msgstr ""
 "\n"
 "Αδυναμία φόρτωσης αρχείου ρυθμίσεων, ματαίωση!\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:938
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:890
+#: src/pam-config.c:940
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:932
+#: src/pam-config.c:982
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Υπερβολικά πολλοί παράμετροι.\n"

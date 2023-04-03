@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.lt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 14:32+0200\n"
+"POT-Creation-Date: 2023-04-03 22:31+0200\n"
 "PO-Revision-Date: 2010-07-29 21:09+0300\n"
 "Last-Translator: Mindaugas Baranauskas <embar@users.berlios.de>\n"
 "Language-Team: Lithuanian <kde-i18n-doc@kde.org>\n"
@@ -243,7 +243,7 @@ msgstr ""
 "KLAIDA: įgalintas pam_mount.so. Norėdami naudoti pam_thinkfinger.so, pirmąjį "
 "turite uždrausti!\n"
 
-#: src/mod_pam_mount.c:117 src/pam-config.c:621
+#: src/mod_pam_mount.c:117 src/pam-config.c:671
 #, c-format
 msgid ""
 "\n"
@@ -478,8 +478,9 @@ msgstr ""
 "\n"
 "Nepavyksta įkelti konfigūracijos rinkmenos, nutraukta!\n"
 
-#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
-#: src/pam-config.c:609
+#: src/pam-config.c:595 src/pam-config.c:603 src/pam-config.c:611
+#: src/pam-config.c:619 src/pam-config.c:627 src/pam-config.c:635
+#: src/pam-config.c:643 src/pam-config.c:651 src/pam-config.c:659
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -491,12 +492,12 @@ msgstr ""
 "\n"
 "Nepavyksta įkelti konfigūracijos rinkmenos „%s“, nutraukta!\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:938
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Palaikomi bendri moduliai:\n"
 
-#: src/pam-config.c:890
+#: src/pam-config.c:940
 #, c-format
 msgid ""
 "\n"
@@ -505,7 +506,7 @@ msgstr ""
 "\n"
 "Palaikomi paslaugų moduliai:\n"
 
-#: src/pam-config.c:932
+#: src/pam-config.c:982
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Per daug argumentų.\n"

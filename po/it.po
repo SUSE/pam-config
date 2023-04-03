@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.it\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 14:32+0200\n"
+"POT-Creation-Date: 2023-04-03 22:31+0200\n"
 "PO-Revision-Date: 2010-04-08 12:24+0100\n"
 "Last-Translator: Andrea Florio <andrea@opensuse.org>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -252,7 +252,7 @@ msgstr ""
 "prima disabilitarlo.\n"
 
 # TLABEL modules/sound/sound.ycp:620
-#: src/mod_pam_mount.c:117 src/pam-config.c:621
+#: src/mod_pam_mount.c:117 src/pam-config.c:671
 #, c-format
 msgid ""
 "\n"
@@ -503,8 +503,9 @@ msgstr ""
 "Non è possibile caricare il file di configurazione, operazione interrotta!\n"
 
 # TLABEL modules/sound/sound.ycp:620
-#: src/pam-config.c:585 src/pam-config.c:593 src/pam-config.c:601
-#: src/pam-config.c:609
+#: src/pam-config.c:595 src/pam-config.c:603 src/pam-config.c:611
+#: src/pam-config.c:619 src/pam-config.c:627 src/pam-config.c:635
+#: src/pam-config.c:643 src/pam-config.c:651 src/pam-config.c:659
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -517,12 +518,12 @@ msgstr ""
 "Non è possibile caricare il file di configurazione '%s', operazione "
 "interrotta!\n"
 
-#: src/pam-config.c:888
+#: src/pam-config.c:938
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Moduli comuni supportati:\n"
 
-#: src/pam-config.c:890
+#: src/pam-config.c:940
 #, c-format
 msgid ""
 "\n"
@@ -531,7 +532,7 @@ msgstr ""
 "\n"
 "Moduli di servizio supportati:\n"
 
-#: src/pam-config.c:932
+#: src/pam-config.c:982
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Troppi argomenti.\n"
