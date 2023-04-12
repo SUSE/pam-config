@@ -58,7 +58,7 @@ PRINT_XMLHELP("wtmpdb")
 
 /* ---- construct module object ---- */
 DECLARE_BOOL_OPTS_3 (is_enabled, debug, silent);
-DECLARE_STRING_OPTS_1 (database);
+DECLARE_STRING_OPTS_2 (database, skip_if);
 DECLARE_OPT_SETS;
 
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
