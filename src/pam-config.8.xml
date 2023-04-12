@@ -1793,6 +1793,14 @@
               </para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term><option>--wtmpdb-skip_if=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>skip_if=</option><replaceable>value</replaceable> option to pam_wtmpdb.so.
+              </para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </refsect3>
       <refsect3>
