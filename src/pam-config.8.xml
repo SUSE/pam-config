@@ -184,7 +184,15 @@
           common-{account,auth,password,session} files
           which are included by the single service files.
         </para>
-        <variablelist>
+	<variablelist>
+          <varlistentry>
+            <term><option>--aad</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_aad.so
+              </para>
+            </listitem>
+          </varlistentry>
           <varlistentry>
             <term><option>--access</option></term>
             <listitem>
