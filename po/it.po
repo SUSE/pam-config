@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.it\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-12 14:48+0200\n"
+"POT-Creation-Date: 2023-09-06 16:36+0200\n"
 "PO-Revision-Date: 2010-04-08 12:24+0100\n"
 "Last-Translator: Andrea Florio <andrea@opensuse.org>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -252,7 +252,7 @@ msgstr ""
 "prima disabilitarlo.\n"
 
 # TLABEL modules/sound/sound.ycp:620
-#: src/mod_pam_mount.c:117 src/pam-config.c:671
+#: src/mod_pam_mount.c:117 src/pam-config.c:684
 #, c-format
 msgid ""
 "\n"
@@ -470,30 +470,30 @@ msgstr "Impossibile creare il file di backup di %s (%m)\n"
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "Impossibile rimuovere %s: %m\n"
 
-#: src/pam-config.c:436
+#: src/pam-config.c:449
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Troppi argomenti.\n"
 
-#: src/pam-config.c:444
+#: src/pam-config.c:457
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:521
+#: src/pam-config.c:534
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
 # TLABEL modules/sound/sound.ycp:620
-#: src/pam-config.c:530
+#: src/pam-config.c:543
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 "ATTENZIONE: Non è possibile caricare il vecchio file di configurazione\n"
 
 # TLABEL modules/sound/sound.ycp:620
-#: src/pam-config.c:536
+#: src/pam-config.c:549
 #, c-format
 msgid ""
 "\n"
@@ -503,9 +503,9 @@ msgstr ""
 "Non è possibile caricare il file di configurazione, operazione interrotta!\n"
 
 # TLABEL modules/sound/sound.ycp:620
-#: src/pam-config.c:595 src/pam-config.c:603 src/pam-config.c:611
-#: src/pam-config.c:619 src/pam-config.c:627 src/pam-config.c:635
-#: src/pam-config.c:643 src/pam-config.c:651 src/pam-config.c:659
+#: src/pam-config.c:608 src/pam-config.c:616 src/pam-config.c:624
+#: src/pam-config.c:632 src/pam-config.c:640 src/pam-config.c:648
+#: src/pam-config.c:656 src/pam-config.c:664 src/pam-config.c:672
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -518,12 +518,12 @@ msgstr ""
 "Non è possibile caricare il file di configurazione '%s', operazione "
 "interrotta!\n"
 
-#: src/pam-config.c:938
+#: src/pam-config.c:951
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Moduli comuni supportati:\n"
 
-#: src/pam-config.c:940
+#: src/pam-config.c:953
 #, c-format
 msgid ""
 "\n"
@@ -532,7 +532,7 @@ msgstr ""
 "\n"
 "Moduli di servizio supportati:\n"
 
-#: src/pam-config.c:982
+#: src/pam-config.c:995
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Troppi argomenti.\n"

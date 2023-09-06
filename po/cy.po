@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-12 14:48+0200\n"
+"POT-Creation-Date: 2023-09-06 16:36+0200\n"
 "PO-Revision-Date: 2003-09-23 10:33+0200\n"
 "Last-Translator: Kevin Donnelly <kevin@dotmon.com>\n"
 "Language-Team: Welsh <i18n@suse.de>\n"
@@ -205,7 +205,7 @@ msgid ""
 "disable it first!\n"
 msgstr ""
 
-#: src/mod_pam_mount.c:117 src/pam-config.c:671
+#: src/mod_pam_mount.c:117 src/pam-config.c:684
 #, c-format
 msgid ""
 "\n"
@@ -393,55 +393,55 @@ msgstr ""
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr ""
 
-#: src/pam-config.c:436
+#: src/pam-config.c:449
 #, c-format
 msgid "ERROR: too few arguments\n"
 msgstr ""
 
-#: src/pam-config.c:444
+#: src/pam-config.c:457
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:521
+#: src/pam-config.c:534
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:530
+#: src/pam-config.c:543
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 
-#: src/pam-config.c:536
+#: src/pam-config.c:549
 #, c-format
 msgid ""
 "\n"
 "Couldn't load config file, aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:595 src/pam-config.c:603 src/pam-config.c:611
-#: src/pam-config.c:619 src/pam-config.c:627 src/pam-config.c:635
-#: src/pam-config.c:643 src/pam-config.c:651 src/pam-config.c:659
+#: src/pam-config.c:608 src/pam-config.c:616 src/pam-config.c:624
+#: src/pam-config.c:632 src/pam-config.c:640 src/pam-config.c:648
+#: src/pam-config.c:656 src/pam-config.c:664 src/pam-config.c:672
 #, c-format
 msgid ""
 "\n"
 "Couldn't load '%s', aborted!\n"
 msgstr ""
 
-#: src/pam-config.c:938
+#: src/pam-config.c:951
 #, c-format
 msgid "Supported common modules:\n"
 msgstr ""
 
-#: src/pam-config.c:940
+#: src/pam-config.c:953
 #, c-format
 msgid ""
 "\n"
 "Supported service modules:\n"
 msgstr ""
 
-#: src/pam-config.c:982
+#: src/pam-config.c:995
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr ""
