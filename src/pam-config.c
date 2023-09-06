@@ -365,6 +365,19 @@ replace_obsolete_modules (pam_module_t **module_list)
       if (sanitize_check_password (module_list, 0) != 0)
 	return 1;
     }
+  else if (with_cracklib && check_for_pam_module ("pam_cracklib.so", 0, 1) != 0)
+    {
+      /* pam_cracklib got removed and no pam_pwquality as replacement, remove it */
+      pam_module_t *pam_cracklib = lookup (module_list, "pam_cracklib.so");
+      option_set_t *opt_cracklib = pam_cracklib->get_opt_set (pam_cracklib, PASSWORD);
+
+      fprintf (stderr, "pam_cracklib used but not installed, disabling.\n");
+
+      opt_cracklib->enable (opt_cracklib, "is_enabled", FALSE);
+
+      if (sanitize_check_password (module_list, 0) != 0)
+	return 1;
+    }
 
   if (with_pwcheck && check_for_pam_module ("pam_pwcheck.so", 0, 1) == 1)
     {
