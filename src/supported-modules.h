@@ -1,4 +1,4 @@
-extern pam_module_t mod_pam_aad;
+extern pam_module_t mod_pam_himmelblau;
 extern pam_module_t mod_pam_access;
 extern pam_module_t mod_pam_apparmor;
 extern pam_module_t mod_pam_ccreds;
@@ -55,7 +55,7 @@ extern pam_module_t mod_pam_systemd;
 extern pam_module_t mod_pam_u2f;
 
 pam_module_t *common_module_list[] = {
-  &mod_pam_aad,
+  &mod_pam_himmelblau,
   &mod_pam_access,
   &mod_pam_apparmor,
   &mod_pam_ccreds,
@@ -138,7 +138,7 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_ldap,
   &mod_pam_nam,
   &mod_pam_winbind,
-  &mod_pam_aad,
+  &mod_pam_himmelblau,
                    /* Attention: if you add another module behind krb5
 					  you MUST change mod_pam_krb5.c */
   NULL
