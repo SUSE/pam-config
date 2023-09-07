@@ -4,8 +4,12 @@ Copyright (C) 2006-2023 Thorsten Kukuk <kukuk@suse.com>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
 
+Version 2.7
+* Add support for PAM aad module
+
 Version 2.6
 * pam-config: Remove pam_cracklib if not installed, and no successor
+
 Version 2.5
 * pam_wtmpdb: add skip_if option
 
