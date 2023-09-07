@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(pam-config, 2.7)
+AC_INIT([pam-config],[2.7])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/pam-config.c])
 AM_CONFIG_HEADER(config.h)
@@ -23,9 +23,9 @@ fi
 EXTRA_CFLAGS="-Werror -W -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -DXTSTRINGDEFINES -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef"
 AC_SUBST(EXTRA_CFLAGS)
 dnl Checks for programs.
-AC_GNU_SOURCE
+AC_USE_SYSTEM_EXTENSIONS
 AC_PROG_CC
-AC_ISC_POSIX
+AC_SEARCH_LIBS([strerror],[cposix])
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 AC_PROG_RANLIB
@@ -71,4 +71,5 @@ AH_VERBATIM([__ZZENABLE_NLS],
 #define N_(msgid) msgid
 #endif /* ENABLE_NLS */])
 
-AC_OUTPUT([Makefile src/Makefile po/Makefile.in tests/Makefile tests/config/Makefile tests/pam-config.test/Makefile tests/etc/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in tests/Makefile tests/config/Makefile tests/pam-config.test/Makefile tests/etc/Makefile])
+AC_OUTPUT

@@ -30,7 +30,7 @@ static int
 write_config_krb5 (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  int with_ldap, with_nam, with_sss, with_winbind, with_ccreds, with_aad;
+  int with_ldap, with_nam, with_sss, with_winbind, with_ccreds, with_himmelblau;
 
   if (debug)
     debug_write_call (this, op);
@@ -48,8 +48,8 @@ write_config_krb5 (pam_module_t *this, enum write_type op, FILE *fp)
 				    "pam_winbind.so", op);
   with_ccreds = is_module_enabled (common_module_list,
 				   "pam_ccreds.so", op);
-  with_aad = is_module_enabled (common_module_list,
-				"pam_aad.so", op);
+  with_himmelblau = is_module_enabled (common_module_list,
+				       "pam_himmelblau.so", op);
   
   switch (op)
     {
@@ -94,7 +94,7 @@ write_config_krb5 (pam_module_t *this, enum write_type op, FILE *fp)
       fprintf (fp, "auth\t[default=bad]\tpam_ccreds.so\taction=update\n");
     }
 
-  if (op == AUTH && !(with_ldap || with_nam || with_sss || with_winbind || with_aad))
+  if (op == AUTH && !(with_ldap || with_nam || with_sss || with_winbind || with_himmelblau))
 	  fprintf (fp, "auth\trequired\tpam_deny.so\n");
 
   /* ldap and nam are behind this module. We write a deny

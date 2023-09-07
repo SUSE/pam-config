@@ -26,7 +26,7 @@
 #include "pam-module.h"
 
 static int
-write_config_aad (pam_module_t * this, enum write_type op, FILE * fp)
+write_config_himmelblau (pam_module_t * this, enum write_type op, FILE * fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
 
@@ -36,9 +36,20 @@ write_config_aad (pam_module_t * this, enum write_type op, FILE * fp)
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
-  if (op == AUTH) {
-    fprintf (fp, "auth\trequired\tpam_aad.so\t");
-  }
+  switch (op)
+    {
+    case ACCOUNT:
+      fprintf (fp, "account\trequired\tpam_himmelblau.so\tuse_first_pass\t");
+      break;
+    case AUTH:
+      fprintf (fp, "auth\trequired\tpam_himmelblau.so\tuse_first_pass\t");
+      break;
+    case SESSION:
+      fprintf (fp, "session\trequired\tpam_himmelblau.so\t");
+      break;
+    case PASSWORD:
+      break;
+    }
 
   WRITE_CONFIG_OPTIONS
 
@@ -48,21 +59,21 @@ write_config_aad (pam_module_t * this, enum write_type op, FILE * fp)
 GETOPT_START_ALL
 GETOPT_END_ALL
 
-PRINT_ARGS("aad")
-PRINT_XMLHELP("aad")
+PRINT_ARGS("himmelblau")
+PRINT_XMLHELP("himmelblau")
 
 /* ---- construct module object ---- */
-DECLARE_BOOL_OPTS_1 (is_enabled);
+DECLARE_BOOL_OPTS_2 (is_enabled, debug);
 DECLARE_STRING_OPTS_0;
 DECLARE_OPT_SETS;
 
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
 
 /* at last construct the complete module object */
-pam_module_t mod_pam_aad = { "pam_aad.so", opt_sets, helptext,
+pam_module_t mod_pam_himmelblau = { "pam_himmelblau.so", opt_sets, helptext,
 				 &def_parse_config,
 				 &def_print_module,
-				 &write_config_aad,
+				 &write_config_himmelblau,
 				 &get_opt_set,
 				 &getopt,
 				 &print_args,
