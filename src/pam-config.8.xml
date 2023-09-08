@@ -186,6 +186,22 @@
         </para>
         <variablelist>
           <varlistentry>
+            <term><option>--himmelblau</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_himmelblau.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--himmelblau-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_himmelblau.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--access</option></term>
             <listitem>
               <para>
@@ -642,14 +658,6 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--himmelblau</option></term>
-            <listitem>
-              <para>
-                Enable/Disable pam_himmelblau.so
-              </para>
-            </listitem>
-          </varlistentry>
-	  <varlistentry>
             <term><option>--krb5</option></term>
             <listitem>
               <para>
