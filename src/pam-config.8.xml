@@ -202,6 +202,22 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--kanidm</option></term>
+            <listitem>
+              <para>
+                Enable/Disable pam_kanidm.so
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--kanidm-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_kanidm.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--access</option></term>
             <listitem>
               <para>
