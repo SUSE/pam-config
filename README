@@ -1,6 +1,22 @@
+# pam-config
+
 pam-config is a command line utility to maintain the common PAM
 configuration files included by most PAM application configuration
 files. It can be used to configure a system for different network or
 hardware based authentication schemes. pam-config can also
 add/adjust/remove other PAM modules and their options.
+
+## Contributing
+
+```bash
+sudo zypper install autoconf make gcc autogen gettext-tools
+```
+
+```bash
+cd pam-config
+./autogen.sh
+./configure --help
+./configure --prefix=/tmp/pam-config
+make
+```
 

@@ -12,8 +12,10 @@ CLEANFILES = *~
 
 EXTRA_DIST = ${MANS} ${XMLS} pam-config.8.xml-header pam-config.8.xml-footer
 
+if ENABLE_REGENERATE_MAN
 man_MANS = pam-config.8
 XMLS = pam-config.8.xml
+endif
 
 sbin_PROGRAMS = pam-config
 
