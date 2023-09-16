@@ -56,8 +56,6 @@ extern pam_module_t mod_pam_systemd;
 extern pam_module_t mod_pam_u2f;
 
 pam_module_t *common_module_list[] = {
-  &mod_pam_himmelblau,
-  &mod_pam_kanidm,
   &mod_pam_access,
   &mod_pam_apparmor,
   &mod_pam_ccreds,
@@ -73,6 +71,8 @@ pam_module_t *common_module_list[] = {
   &mod_pam_fscrypt,
   &mod_pam_gnome_keyring,
   &mod_pam_group,
+  &mod_pam_himmelblau,
+  &mod_pam_kanidm,
   &mod_pam_krb5,
   &mod_pam_kwallet5,
   &mod_pam_lastlog2,
