@@ -4,6 +4,9 @@ Copyright (C) 2006-2023 Thorsten Kukuk <kukuk@suse.com>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
 
+Version 2.9
+* Add support for kanidm
+
 Version 2.8
 * Replace aad PAM module with himmelblau
 
