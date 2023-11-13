@@ -115,6 +115,8 @@ static pam_module_t *module_list_account[] = {
   &mod_pam_nam,
   &mod_pam_winbind,
   &mod_pam_time,
+  &mod_pam_himmelblau,
+  &mod_pam_kanidm,
   NULL
 };
 
@@ -195,6 +197,8 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_fscrypt,
   &mod_pam_env,
   &mod_pam_mktemp,
+  &mod_pam_himmelblau,
+  &mod_pam_kanidm,
   NULL
 };
 
