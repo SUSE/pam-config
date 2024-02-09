@@ -40,9 +40,7 @@ write_config_gnome_keyring (pam_module_t *this, enum write_type op, FILE *fp)
   switch (op)
     {
     case AUTH:
-      /* No options: we put the auto_start options in SESSION only */
-      fprintf (fp, "auth\toptional\tpam_gnome_keyring.so\n");
-      return 0;
+      fprintf (fp, "auth\toptional\tpam_gnome_keyring.so\t");
       break;
     case ACCOUNT:
       return 0;
@@ -65,6 +63,13 @@ write_config_gnome_keyring (pam_module_t *this, enum write_type op, FILE *fp)
 }
 
 GETOPT_START_ALL
+  /* We put the auto_start options in SESSION only */
+  else if (strcmp ("auto_start", opt) == 0) {
+    opt_set = this->get_opt_set (this, SESSION);
+    if (opt_set->enable (opt_set, opt, g_opt->opt_val) == FALSE) {
+      return 1;
+    }
+  }
 GETOPT_END_ALL
 
 PRINT_ARGS("gnome_keyring");
