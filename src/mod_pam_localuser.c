@@ -30,7 +30,7 @@ write_config_localuser (pam_module_t *this, enum write_type op,
 			FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  int with_ldap, with_nam, with_winbind, with_sss;
+  int with_ldap, with_nam, with_winbind, with_sss, with_himmelblau;
 
   if (debug)
     debug_write_call (this, op);
@@ -50,8 +50,10 @@ write_config_localuser (pam_module_t *this, enum write_type op,
                                     "pam_winbind.so", op);
   with_sss = is_module_enabled (common_module_list,
                                 "pam_sss.so", op);
+  with_himmelblau = is_module_enabled (common_module_list,
+				       "pam_himmelblau.so", op);
 
-  if (with_ldap || with_nam || with_winbind || with_sss)
+  if (with_ldap || with_nam || with_winbind || with_sss || with_himmelblau)
     fprintf (fp, "account\tsufficient\tpam_localuser.so ");
   else
     fprintf (fp, "account\trequired\tpam_localuser.so ");
