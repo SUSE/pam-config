@@ -45,7 +45,7 @@ write_config_himmelblau (pam_module_t * this, enum write_type op, FILE * fp)
       fprintf (fp, "auth\trequired\tpam_himmelblau.so\tuse_first_pass\t");
       break;
     case SESSION:
-      fprintf (fp, "session\trequired\tpam_himmelblau.so\t");
+      fprintf (fp, "session\toptional\tpam_himmelblau.so\t");
       break;
     case PASSWORD:
       break;
