@@ -31,7 +31,7 @@ static int
 write_config_sss (pam_module_t * this, enum write_type op, FILE * fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  int with_winbind, with_ldap;
+  int with_winbind, with_ldap, with_himmelblau;
   if (debug)
     debug_write_call (this, op);
 
@@ -42,16 +42,18 @@ write_config_sss (pam_module_t * this, enum write_type op, FILE * fp)
 				    "pam_winbind.so", op);
   with_ldap = is_module_enabled (common_module_list,
 				 "pam_ldap.so", op);
+  with_himmelblau = is_module_enabled (common_module_list,
+				       "pam_himmelblau.so", op);
   switch (op)
     {
     case ACCOUNT:
-      if (with_winbind || with_ldap)
+      if (with_winbind || with_ldap || with_himmelblau)
 	fprintf (fp, "account\tsufficient\tpam_sss.so\tuse_first_pass\t");
       else
 	fprintf (fp, "account\trequired\tpam_sss.so\tuse_first_pass\t");
       break;
     case AUTH:
-      if (with_winbind || with_ldap)
+      if (with_winbind || with_ldap || with_himmelblau)
 	fprintf (fp, "auth\tsufficient\tpam_sss.so\tuse_first_pass\t");
       else
 	fprintf (fp, "auth\trequired\tpam_sss.so\tuse_first_pass\t");
