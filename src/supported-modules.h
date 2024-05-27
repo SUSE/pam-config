@@ -1,5 +1,3 @@
-extern pam_module_t mod_pam_himmelblau;
-extern pam_module_t mod_pam_kanidm;
 extern pam_module_t mod_pam_access;
 extern pam_module_t mod_pam_apparmor;
 extern pam_module_t mod_pam_ccreds;
@@ -15,10 +13,12 @@ extern pam_module_t mod_pam_fprintd;
 extern pam_module_t mod_pam_fscrypt;
 extern pam_module_t mod_pam_gnome_keyring;
 extern pam_module_t mod_pam_group;
+extern pam_module_t mod_pam_himmelblau;
+extern pam_module_t mod_pam_kanidm;
 extern pam_module_t mod_pam_krb5;
 extern pam_module_t mod_pam_kwallet5;
-extern pam_module_t mod_pam_lastlog;
 extern pam_module_t mod_pam_lastlog2;
+extern pam_module_t mod_pam_lastlog;
 extern pam_module_t mod_pam_ldap;
 extern pam_module_t mod_pam_limits;
 extern pam_module_t mod_pam_localuser;
@@ -190,11 +190,11 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_umask,
   &mod_pam_ssh,
   &mod_pam_selinux,
+  &mod_pam_ecryptfs,
+  &mod_pam_fscrypt,
   &mod_pam_gnome_keyring,
   &mod_pam_kwallet5,
   &mod_pam_exec,
-  &mod_pam_ecryptfs,
-  &mod_pam_fscrypt,
   &mod_pam_env,
   &mod_pam_mktemp,
   &mod_pam_himmelblau,
