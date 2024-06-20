@@ -174,6 +174,8 @@ static pam_module_t *module_list_password[] = {
 };
 
 static pam_module_t *module_list_session[] = {
+  &mod_pam_ecryptfs,
+  &mod_pam_fscrypt,
   &mod_pam_selinux,
   &mod_pam_mkhomedir,
   &mod_pam_systemd_home,
@@ -190,8 +192,6 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_umask,
   &mod_pam_ssh,
   &mod_pam_selinux,
-  &mod_pam_ecryptfs,
-  &mod_pam_fscrypt,
   &mod_pam_gnome_keyring,
   &mod_pam_kwallet5,
   &mod_pam_exec,
@@ -203,6 +203,8 @@ static pam_module_t *module_list_session[] = {
 };
 
 static pam_module_t *module_list_session_nl[] = {
+  &mod_pam_ecryptfs,
+  &mod_pam_fscrypt,
   &mod_pam_selinux,
   &mod_pam_mkhomedir,
   &mod_pam_systemd_home,
@@ -222,8 +224,6 @@ static pam_module_t *module_list_session_nl[] = {
   &mod_pam_gnome_keyring,
   &mod_pam_kwallet5,
   &mod_pam_exec,
-  &mod_pam_ecryptfs,
-  &mod_pam_fscrypt,
   &mod_pam_env,
   &mod_pam_mktemp,
   NULL
