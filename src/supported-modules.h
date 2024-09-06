@@ -174,13 +174,13 @@ static pam_module_t *module_list_password[] = {
 };
 
 static pam_module_t *module_list_session[] = {
+  &mod_pam_selinux,
+  &mod_pam_limits,
   &mod_pam_ecryptfs,
   &mod_pam_fscrypt,
-  &mod_pam_selinux,
   &mod_pam_mkhomedir,
   &mod_pam_systemd_home,
   &mod_pam_systemd,
-  &mod_pam_limits,
   &mod_pam_unix2,
   &mod_pam_unix,
   &mod_pam_apparmor,
