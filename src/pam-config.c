@@ -1081,12 +1081,15 @@ main (int argc, char *argv[])
 
       opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt.opt_val);
-      opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
-      opt_set->enable (opt_set, "is_enabled", opt.opt_val);
       opt_set = mod_pam_env.get_opt_set (&mod_pam_env, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt.opt_val);
       opt_set = mod_pam_umask.get_opt_set (&mod_pam_umask, SESSION);
       opt_set->enable (opt_set, "is_enabled", opt.opt_val);
+      if (check_for_pam_module ("pam_limits.so", 0, 0) == 0)
+	{
+	  opt_set = mod_pam_limits.get_opt_set (&mod_pam_limits, SESSION);
+	  opt_set->enable (opt_set, "is_enabled", opt.opt_val);
+	}
       if (check_for_pam_module ("pam_systemd.so", 0, 1) == 0)
 	{
 	  opt_set = mod_pam_systemd.get_opt_set (&mod_pam_systemd, SESSION);
