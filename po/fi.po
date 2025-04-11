@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 11:54+0100\n"
+"POT-Creation-Date: 2025-04-11 10:08+0200\n"
 "PO-Revision-Date: 2010-04-10 21:36+0300\n"
 "Last-Translator: Jyri Palokangas <jmp@opensuse.org>\n"
 "Language-Team: TRANSLATIONS <kde-i18n-doc@kde.org>\n"
@@ -243,7 +243,7 @@ msgstr ""
 "VIRHE: pam_mount.so moduuli on käytössä. Käyttääksesi pam_thinkfinger.so "
 "moduulia se pitää poistaa ensin käytöstä!\n"
 
-#: src/mod_pam_mount.c:117 src/pam-config.c:684
+#: src/mod_pam_mount.c:117 src/pam-config.c:683
 #, c-format
 msgid ""
 "\n"
@@ -411,13 +411,13 @@ msgstr ""
 "       Näitä moduuleita voidaan lisätä vain yksittäisiin "
 "palvelutiedostoihin.\n"
 
-#: src/pam-config.c:150 src/pam-config.c:199 src/pam-config.c:205
-#: src/pam-config.c:212
+#: src/pam-config.c:150 src/pam-config.c:198 src/pam-config.c:204
+#: src/pam-config.c:211
 #, c-format
 msgid "Out of memory\n"
 msgstr ""
 
-#: src/pam-config.c:159 src/pam-config.c:239
+#: src/pam-config.c:159 src/pam-config.c:238
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Virhe otettaessa käyttöön %s (%m)\n"
@@ -432,49 +432,49 @@ msgstr "Uusi määritys %s ei ole käytössä!\n"
 msgid "File %s is no symlink to %s.\n"
 msgstr "Tiedosto %s ei ole symbolinen linkki %s.\n"
 
-#: src/pam-config.c:178 src/pam-config.c:241
+#: src/pam-config.c:178 src/pam-config.c:240
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Uusi määritys %s ei ole käytössä!\n"
 
-#: src/pam-config.c:227
+#: src/pam-config.c:226
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 "VAROITUS: Varmuuskopiotiedosto '%s' on jo olemassa. Jätetään varmuuskopio "
 "huomiotta.\n"
 
-#: src/pam-config.c:230
+#: src/pam-config.c:229
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "VIRHE: Varmuuskopion '%s' (%m) luominen ei onnistunut.\n"
 
-#: src/pam-config.c:234
+#: src/pam-config.c:233
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "VIRHE: '%s' (%m) poistaminen ei onnistunut (%m)\n"
 
-#: src/pam-config.c:449
+#: src/pam-config.c:448
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Liian monta argumenttia.\n"
 
-#: src/pam-config.c:457
+#: src/pam-config.c:456
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:534
+#: src/pam-config.c:533
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:543
+#: src/pam-config.c:542
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "VAROITUS: Vanhojen määritystiedostojen lataaminen ei onnistunut.\n"
 
-#: src/pam-config.c:549
+#: src/pam-config.c:548
 #, c-format
 msgid ""
 "\n"
@@ -483,9 +483,9 @@ msgstr ""
 "\n"
 "Määritystiedoston lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:608 src/pam-config.c:616 src/pam-config.c:624
-#: src/pam-config.c:632 src/pam-config.c:640 src/pam-config.c:648
-#: src/pam-config.c:656 src/pam-config.c:664 src/pam-config.c:672
+#: src/pam-config.c:607 src/pam-config.c:615 src/pam-config.c:623
+#: src/pam-config.c:631 src/pam-config.c:639 src/pam-config.c:647
+#: src/pam-config.c:655 src/pam-config.c:663 src/pam-config.c:671
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -497,12 +497,12 @@ msgstr ""
 "\n"
 "Määritystiedoston '%s' lataaminen ei onnistu, keskeytetään!\n"
 
-#: src/pam-config.c:951
+#: src/pam-config.c:950
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Tuetut yleiset moduulit:\n"
 
-#: src/pam-config.c:953
+#: src/pam-config.c:952
 #, c-format
 msgid ""
 "\n"
@@ -511,7 +511,7 @@ msgstr ""
 "\n"
 "Tuetut palvelumoduulit:\n"
 
-#: src/pam-config.c:995
+#: src/pam-config.c:994
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Liian monta argumenttia.\n"

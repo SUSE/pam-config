@@ -1,8 +1,12 @@
 pam-config NEWS -- history of user-visible changes.
 
-Copyright (C) 2006-2024 Thorsten Kukuk <kukuk@suse.com>.
+Copyright (C) 2006-2025 Thorsten Kukuk <kukuk@suse.com>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
+
+Version 2.12
+* Call ecryptfs/fscrypt before pam_unix (#30)
+* Don't exit with error if admin disabled pam-config
 
 Version 2.11
 * pam_gnome_keyring: use option in AUTH

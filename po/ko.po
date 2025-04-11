@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 11:54+0100\n"
+"POT-Creation-Date: 2025-04-11 10:08+0200\n"
 "PO-Revision-Date: 2009-10-23 02:32+0900\n"
 "Last-Translator: Yunseok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -233,7 +233,7 @@ msgstr ""
 "오류: pam_mount.so 가 활성화 상태입니다. pam_thinkfinger.so 를 사용하려면 먼"
 "저 이것을 비활성화 시켜주세요!\n"
 
-#: src/mod_pam_mount.c:117 src/pam-config.c:684
+#: src/mod_pam_mount.c:117 src/pam-config.c:683
 #, c-format
 msgid ""
 "\n"
@@ -400,13 +400,13 @@ msgstr "단일 서비스 모듈 옵션:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      이러한 모듈은 단일 서비스 파일에 추가됩니다.\n"
 
-#: src/pam-config.c:150 src/pam-config.c:199 src/pam-config.c:205
-#: src/pam-config.c:212
+#: src/pam-config.c:150 src/pam-config.c:198 src/pam-config.c:204
+#: src/pam-config.c:211
 #, c-format
 msgid "Out of memory\n"
 msgstr ""
 
-#: src/pam-config.c:159 src/pam-config.c:239
+#: src/pam-config.c:159 src/pam-config.c:238
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "%s 를 유효하게 하는 처리로 오류 발생 (%m)\n"
@@ -421,47 +421,47 @@ msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
 msgid "File %s is no symlink to %s.\n"
 msgstr "파일 %s 는 %s 로의 심볼릭 링크가 아닙니다.\n"
 
-#: src/pam-config.c:178 src/pam-config.c:241
+#: src/pam-config.c:178 src/pam-config.c:240
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s 로부터 새 설정은 사용되지 않음!\n"
 
-#: src/pam-config.c:227
+#: src/pam-config.c:226
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr "경고: 백업 파일 '%s' 가 이미 있습니다. 백업처리를 생략합니다.\n"
 
-#: src/pam-config.c:230
+#: src/pam-config.c:229
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "오류: 백업 파일 '%s' (%m) 를 생성할 수 없음\n"
 
-#: src/pam-config.c:234
+#: src/pam-config.c:233
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "오류: '%s' (%m) 를 제거할 수 없음\n"
 
-#: src/pam-config.c:449
+#: src/pam-config.c:448
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: 너무 많은 인수입니다.\n"
 
-#: src/pam-config.c:457
+#: src/pam-config.c:456
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:534
+#: src/pam-config.c:533
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:543
+#: src/pam-config.c:542
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "경고: 예전 설정 파일을 불러올 수 없습니다.\n"
 
-#: src/pam-config.c:549
+#: src/pam-config.c:548
 #, c-format
 msgid ""
 "\n"
@@ -470,9 +470,9 @@ msgstr ""
 "\n"
 "설정 파일을 불러올 수 없음, 중단되었음!\n"
 
-#: src/pam-config.c:608 src/pam-config.c:616 src/pam-config.c:624
-#: src/pam-config.c:632 src/pam-config.c:640 src/pam-config.c:648
-#: src/pam-config.c:656 src/pam-config.c:664 src/pam-config.c:672
+#: src/pam-config.c:607 src/pam-config.c:615 src/pam-config.c:623
+#: src/pam-config.c:631 src/pam-config.c:639 src/pam-config.c:647
+#: src/pam-config.c:655 src/pam-config.c:663 src/pam-config.c:671
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -484,12 +484,12 @@ msgstr ""
 "\n"
 "'%s' 설정 파일을 불러올 수 없음, 중단되었음!\n"
 
-#: src/pam-config.c:951
+#: src/pam-config.c:950
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "지원하는 일반적인 모듈:\n"
 
-#: src/pam-config.c:953
+#: src/pam-config.c:952
 #, c-format
 msgid ""
 "\n"
@@ -498,7 +498,7 @@ msgstr ""
 "\n"
 "지원하는 서비스 모듈:\n"
 
-#: src/pam-config.c:995
+#: src/pam-config.c:994
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: 너무 많은 인수입니다.\n"

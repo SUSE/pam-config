@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 11:54+0100\n"
+"POT-Creation-Date: 2025-04-11 10:08+0200\n"
 "PO-Revision-Date: 2010-04-10 20:32+0300\n"
 "Last-Translator: Alexander Melentiev <alex239@gmail.com>\n"
 "Language-Team: Russian <opensuse-translation-ru@opensuse.org>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.0\n"
 
 #: src/load_config.c:183
@@ -251,7 +251,7 @@ msgstr ""
 "ОШИБКА: pam_mount.so включён. Чтобы использовать pam_thinkfinger.so вам "
 "необходимо сначала отключить его!\n"
 
-#: src/mod_pam_mount.c:117 src/pam-config.c:684
+#: src/mod_pam_mount.c:117 src/pam-config.c:683
 #, c-format
 msgid ""
 "\n"
@@ -333,8 +333,8 @@ msgstr ""
 #, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr ""
-"Для получения дополнительных сведений попробуйте воспользоваться командой `"
-"%s --help' или `%s --usage'.\n"
+"Для получения дополнительных сведений попробуйте воспользоваться командой "
+"`%s --help' или `%s --usage'.\n"
 
 #: src/pam-config.c:68
 #, c-format
@@ -420,13 +420,13 @@ msgstr "Параметры одного модуля службы:\n"
 msgid "      These modules can only be added to single service files.\n"
 msgstr "      Эти модули могут быть добавлены к файлам одной службы.\n"
 
-#: src/pam-config.c:150 src/pam-config.c:199 src/pam-config.c:205
-#: src/pam-config.c:212
+#: src/pam-config.c:150 src/pam-config.c:198 src/pam-config.c:204
+#: src/pam-config.c:211
 #, c-format
 msgid "Out of memory\n"
 msgstr ""
 
-#: src/pam-config.c:159 src/pam-config.c:239
+#: src/pam-config.c:159 src/pam-config.c:238
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "Ошибка активации %s (%m)\n"
@@ -441,49 +441,49 @@ msgstr "Новая конфигурация из %s не используетс�
 msgid "File %s is no symlink to %s.\n"
 msgstr "Файл %s не является символической связью с %s.\n"
 
-#: src/pam-config.c:178 src/pam-config.c:241
+#: src/pam-config.c:178 src/pam-config.c:240
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "Новая конфигурация из %s не используется!\n"
 
-#: src/pam-config.c:227
+#: src/pam-config.c:226
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 "ВНИМАНИЕ: Файл резервной копии '%s' уже существует. Резервное копирование "
 "пропускается.\n"
 
-#: src/pam-config.c:230
+#: src/pam-config.c:229
 #, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "ОШИБКА: Невозможно создать резервный файл \"%s\" (%m)\n"
 
-#: src/pam-config.c:234
+#: src/pam-config.c:233
 #, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "ОШИБКА: Не удалось удалить \"%s\" (%m)\n"
 
-#: src/pam-config.c:449
+#: src/pam-config.c:448
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: Слишком много параметров.\n"
 
-#: src/pam-config.c:457
+#: src/pam-config.c:456
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:534
+#: src/pam-config.c:533
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:543
+#: src/pam-config.c:542
 #, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr "ВНИМАНИЕ: Не удалось загрузить старые файлы настроек.\n"
 
-#: src/pam-config.c:549
+#: src/pam-config.c:548
 #, c-format
 msgid ""
 "\n"
@@ -492,9 +492,9 @@ msgstr ""
 "\n"
 "Не удалось загрузить конфигурационный файл, прерывание!\n"
 
-#: src/pam-config.c:608 src/pam-config.c:616 src/pam-config.c:624
-#: src/pam-config.c:632 src/pam-config.c:640 src/pam-config.c:648
-#: src/pam-config.c:656 src/pam-config.c:664 src/pam-config.c:672
+#: src/pam-config.c:607 src/pam-config.c:615 src/pam-config.c:623
+#: src/pam-config.c:631 src/pam-config.c:639 src/pam-config.c:647
+#: src/pam-config.c:655 src/pam-config.c:663 src/pam-config.c:671
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -506,12 +506,12 @@ msgstr ""
 "\n"
 "Не удалось загрузить файл конфигурации '%s', прерывание!\n"
 
-#: src/pam-config.c:951
+#: src/pam-config.c:950
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "Поддерживаемые общие модули:\n"
 
-#: src/pam-config.c:953
+#: src/pam-config.c:952
 #, c-format
 msgid ""
 "\n"
@@ -520,7 +520,7 @@ msgstr ""
 "\n"
 "Поддерживаемые служебные модули:\n"
 
-#: src/pam-config.c:995
+#: src/pam-config.c:994
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: Слишком много параметров.\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config.pa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 11:54+0100\n"
+"POT-Creation-Date: 2025-04-11 10:08+0200\n"
 "PO-Revision-Date: 2007-08-21 23:07+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Panjabi <punjabi-l10n@lists.sf.net>\n"
@@ -236,7 +236,7 @@ msgstr ""
 "ਗਲਤੀ: pam_mount.so ਯੋਗ ਹੈ। pam_thinkfinger.so ਵਰਤਣ ਲਈ ਤੁਹਾਨੂੰ ਪਹਿਲਾਂ ਇਹ ਆਯੋਗ ਕਰਨਾ "
 "ਪਵੇਗਾ।\n"
 
-#: src/mod_pam_mount.c:117 src/pam-config.c:684
+#: src/mod_pam_mount.c:117 src/pam-config.c:683
 #, c-format
 msgid ""
 "\n"
@@ -402,13 +402,13 @@ msgstr "ਆਮ ਮਾਊਂਟ ਚੋਣਾਂ"
 msgid "      These modules can only be added to single service files.\n"
 msgstr ""
 
-#: src/pam-config.c:150 src/pam-config.c:199 src/pam-config.c:205
-#: src/pam-config.c:212
+#: src/pam-config.c:150 src/pam-config.c:198 src/pam-config.c:204
+#: src/pam-config.c:211
 #, c-format
 msgid "Out of memory\n"
 msgstr ""
 
-#: src/pam-config.c:159 src/pam-config.c:239
+#: src/pam-config.c:159 src/pam-config.c:238
 #, c-format
 msgid "Error activating %s (%m)\n"
 msgstr "%s ਐਕਟਿਵੇਟਿੰਗ ਗਲਤੀ (%m)\n"
@@ -423,49 +423,49 @@ msgstr "%s ਤੋਂ ਨਵੀਂ ਸੰਰਚਨਾ ਵਰਤੋਂ ਵਿੱ�
 msgid "File %s is no symlink to %s.\n"
 msgstr "ਫਾਇਲ %s %s ਨਾਲ ਸਿਮਲਿੰਕ ਨਹੀਂ ਹੈ।\n"
 
-#: src/pam-config.c:178 src/pam-config.c:241
+#: src/pam-config.c:178 src/pam-config.c:240
 #, c-format
 msgid "New config from %s is not in use!\n"
 msgstr "%s ਤੋਂ ਨਵੀਂ ਸੰਰਚਨਾ ਵਰਤੋਂ ਵਿੱਚ ਨਹੀਂ ਹੈ!\n"
 
-#: src/pam-config.c:227
+#: src/pam-config.c:226
 #, c-format
 msgid "WARNING: Backup file '%s' already exist. Omitting backup.\n"
 msgstr ""
 
-#: src/pam-config.c:230
+#: src/pam-config.c:229
 #, fuzzy, c-format
 msgid "ERROR: Cannot create backup file '%s' (%m)\n"
 msgstr "%s ਦੀ ਬੈਕਅੱਪ ਬਣਾਉਣ ਲਈ ਗਲਤੀ: %m"
 
-#: src/pam-config.c:234
+#: src/pam-config.c:233
 #, fuzzy, c-format
 msgid "ERROR: Cannot remove '%s' (%m)\n"
 msgstr "%s ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕਦੀ: %m\n"
 
-#: src/pam-config.c:449
+#: src/pam-config.c:448
 #, fuzzy, c-format
 msgid "ERROR: too few arguments\n"
 msgstr "%s: ਬਹੁਤ ਵੱਧ ਆਰਗੂਮਿੰਟ।\n"
 
-#: src/pam-config.c:457
+#: src/pam-config.c:456
 #, c-format
 msgid "ERROR: confdir must be an absolute path\n"
 msgstr ""
 
-#: src/pam-config.c:534
+#: src/pam-config.c:533
 #, c-format
 msgid "ERROR: Too many arguments or incompatible service specified\n"
 msgstr ""
 
-#: src/pam-config.c:543
+#: src/pam-config.c:542
 #, fuzzy, c-format
 msgid "WARNING: Couldn't load old config files.\n"
 msgstr ""
 "\n"
 "ਸੰਰਚਨਾ ਫਾਇਲ ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ, ਵਿੱਚੇ ਛੱਡਿਆ!\n"
 
-#: src/pam-config.c:549
+#: src/pam-config.c:548
 #, c-format
 msgid ""
 "\n"
@@ -474,9 +474,9 @@ msgstr ""
 "\n"
 "ਸੰਰਚਨਾ ਫਾਇਲ ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ, ਵਿੱਚੇ ਛੱਡਿਆ!\n"
 
-#: src/pam-config.c:608 src/pam-config.c:616 src/pam-config.c:624
-#: src/pam-config.c:632 src/pam-config.c:640 src/pam-config.c:648
-#: src/pam-config.c:656 src/pam-config.c:664 src/pam-config.c:672
+#: src/pam-config.c:607 src/pam-config.c:615 src/pam-config.c:623
+#: src/pam-config.c:631 src/pam-config.c:639 src/pam-config.c:647
+#: src/pam-config.c:655 src/pam-config.c:663 src/pam-config.c:671
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -488,12 +488,12 @@ msgstr ""
 "\n"
 "ਸੰਰਚਨਾ ਫਾਇਲ '%s' ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ, ਛੱਡਿਆ!\n"
 
-#: src/pam-config.c:951
+#: src/pam-config.c:950
 #, c-format
 msgid "Supported common modules:\n"
 msgstr "ਸਹਿਯੋਗੀ ਆਮ ਮੋਡੀਊਲ:\n"
 
-#: src/pam-config.c:953
+#: src/pam-config.c:952
 #, c-format
 msgid ""
 "\n"
@@ -502,7 +502,7 @@ msgstr ""
 "\n"
 "ਸਹਿਯੋਗੀ ਸਰਵਿਸ ਮੋਡੀਊਲ:\n"
 
-#: src/pam-config.c:995
+#: src/pam-config.c:994
 #, c-format
 msgid "%s: Too many arguments.\n"
 msgstr "%s: ਬਹੁਤ ਵੱਧ ਆਰਗੂਮਿੰਟ।\n"
