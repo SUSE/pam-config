@@ -177,7 +177,6 @@ check_symlink (const char *sysconfdir, const char *file_pc, const char *file)
 	  fprintf (stderr,
 		   _("New config from %s is not in use!\n"),
 		   file_pc);
-	  return 1;
 	}
       return 0;
     }
