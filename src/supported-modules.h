@@ -133,10 +133,10 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_kwallet5, /* optional modules MUST be executed before sufficient modules which also need a password. */
   &mod_pam_systemd_home,
   &mod_pam_ssh,
-  &mod_pam_unix2,
-  &mod_pam_unix,
   &mod_pam_ecryptfs,
   &mod_pam_fscrypt,
+  &mod_pam_unix2,
+  &mod_pam_unix,
   &mod_pam_krb5,
   &mod_pam_sss,
   &mod_pam_ldap,
