@@ -121,7 +121,6 @@ static pam_module_t *module_list_account[] = {
 };
 
 static pam_module_t *module_list_auth[] = {
-  &mod_pam_env,
   &mod_pam_faildelay,
   &mod_pam_group,
   &mod_pam_pkcs11,
@@ -195,10 +194,10 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_gnome_keyring,
   &mod_pam_kwallet5,
   &mod_pam_exec,
-  &mod_pam_env,
   &mod_pam_mktemp,
   &mod_pam_himmelblau,
   &mod_pam_kanidm,
+  &mod_pam_env,
   NULL
 };
 
@@ -224,8 +223,8 @@ static pam_module_t *module_list_session_nl[] = {
   &mod_pam_gnome_keyring,
   &mod_pam_kwallet5,
   &mod_pam_exec,
-  &mod_pam_env,
   &mod_pam_mktemp,
+  &mod_pam_env,
   NULL
 };
 

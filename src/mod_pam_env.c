@@ -38,9 +38,6 @@ write_config_env (pam_module_t * this, enum write_type op, FILE * fp)
 
   switch (op)
     {
-    case AUTH:
-      fprintf (fp, "auth\trequired\tpam_env.so\t");
-      break;
     case SESSION:
       fprintf (fp, "session\toptional\tpam_env.so\t");
       break;

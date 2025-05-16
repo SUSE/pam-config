@@ -1059,8 +1059,6 @@ main (int argc, char *argv[])
       if (sanitize_check_account (common_module_list, 0) != 0)
 	return 1;
 
-      opt_set = mod_pam_unix.get_opt_set (&mod_pam_env, AUTH);
-      opt_set->enable (opt_set, "is_enabled", TRUE);
       opt_set = mod_pam_unix.get_opt_set (&mod_pam_unix, AUTH);
       opt_set->enable (opt_set, "is_enabled", TRUE);
       if (sanitize_check_auth (common_module_list, 0) != 0)
