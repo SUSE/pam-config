@@ -29,7 +29,6 @@ static int
 write_config_himmelblau (pam_module_t * this, enum write_type op, FILE * fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  int with_winbind, with_ldap, with_sss;
 
   if (debug)
     debug_write_call (this, op);
@@ -37,30 +36,19 @@ write_config_himmelblau (pam_module_t * this, enum write_type op, FILE * fp)
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
-  with_winbind = is_module_enabled(common_module_list, "pam_winbind.so", op);
-  with_ldap = is_module_enabled(common_module_list, "pam_ldap.so", op);
-  with_sss = is_module_enabled(common_module_list, "pam_sss.so", op);
-
   switch (op)
     {
     case ACCOUNT:
-      if (with_winbind || with_ldap || with_sss) {
-        fprintf (fp, "account\tsufficient\tpam_himmelblau.so\tuse_first_pass\t");
-      } else {
-        fprintf (fp, "account\trequired\tpam_himmelblau.so\tuse_first_pass\t");
-      }
+      fprintf (fp, "account\trequired\tpam_himmelblau.so\tignore_unknown_user\t");
       break;
     case AUTH:
-      if (with_winbind || with_ldap || with_sss) {
-        fprintf (fp, "auth\tsufficient\tpam_himmelblau.so\tuse_first_pass\t");
-      } else {
-        fprintf (fp, "auth\trequired\tpam_himmelblau.so\tuse_first_pass\t");
-      }
+      fprintf (fp, "auth\tsufficient\tpam_himmelblau.so\tignore_unknown_user\t");
       break;
     case SESSION:
       fprintf (fp, "session\toptional\tpam_himmelblau.so\t");
       break;
     case PASSWORD:
+      fprintf (fp, "password\tsufficient\tpam_himmelblau.so\tignore_unknown_user\t");
       break;
     }
 
