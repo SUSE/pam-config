@@ -106,6 +106,7 @@ pam_module_t *common_module_list[] = {
 static pam_module_t *module_list_account[] = {
   &mod_pam_access,
   &mod_pam_systemd_home,
+  &mod_pam_himmelblau,
   &mod_pam_unix2,
   &mod_pam_unix,
   &mod_pam_krb5,
@@ -115,7 +116,6 @@ static pam_module_t *module_list_account[] = {
   &mod_pam_nam,
   &mod_pam_winbind,
   &mod_pam_time,
-  &mod_pam_himmelblau,
   &mod_pam_kanidm,
   NULL
 };
@@ -129,6 +129,7 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_fprint,
   &mod_pam_fprintd,
   &mod_pam_thinkfinger,
+  &mod_pam_himmelblau,
   &mod_pam_gnome_keyring,
   &mod_pam_kwallet5, /* optional modules MUST be executed before sufficient modules which also need a password. */
   &mod_pam_systemd_home,
@@ -142,7 +143,6 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_ldap,
   &mod_pam_nam,
   &mod_pam_winbind,
-  &mod_pam_himmelblau,
   &mod_pam_kanidm,
                    /* Attention: if you add another module behind krb5
 					  you MUST change mod_pam_krb5.c */
@@ -150,6 +150,7 @@ static pam_module_t *module_list_auth[] = {
 };
 
 static pam_module_t *module_list_password[] = {
+  &mod_pam_himmelblau,
   &mod_pam_winbind,
   &mod_pam_pwcheck,
   &mod_pam_passwdqc,
