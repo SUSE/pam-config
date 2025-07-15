@@ -4,6 +4,10 @@ Copyright (C) 2006-2025 Thorsten Kukuk <kukuk@suse.com>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
 
+Version 2.13
+* Place himmelblau near the top of pam stack
+* Don't add pam_env twice (fixes a regression)
+
 Version 2.12
 * Call ecryptfs/fscrypt before pam_unix (#30)
 * Don't exit with error if admin disabled pam-config
