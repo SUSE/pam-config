@@ -1778,6 +1778,62 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--unix_ng</option></term>
+            <listitem>
+              <para>
+                Use pam_unix_ng.so as standard UNIX PAM module.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix_ng-nullok</option></term>
+            <listitem>
+              <para>
+                Add <option>nullok</option> option to all pam_unix_ng.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix_ng-debug</option></term>
+            <listitem>
+              <para>
+                Add <option>debug</option> option to all pam_unix_ng.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix_ng-quiet</option></term>
+            <listitem>
+              <para>
+                Add <option>quiet</option> option to pam_unix_ng.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix_ng-use_first_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>use_first_pass</option> option to all pam_unix_ng.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix_ng-try_first_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>try_first_pass</option> option to all pam_unix_ng.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--unix_ng-authtok_type=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>authtok_type=</option><replaceable>value</replaceable> option to pam_unix_ng.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--winbind</option></term>
             <listitem>
               <para>

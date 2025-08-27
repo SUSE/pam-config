@@ -41,6 +41,7 @@ extern pam_module_t mod_pam_time;
 extern pam_module_t mod_pam_umask;
 extern pam_module_t mod_pam_unix2;
 extern pam_module_t mod_pam_unix;
+extern pam_module_t mod_pam_unix_ng;
 extern pam_module_t mod_pam_winbind;
 extern pam_module_t mod_pam_wtmpdb;
 
@@ -98,6 +99,7 @@ pam_module_t *common_module_list[] = {
   &mod_pam_umask,
   &mod_pam_unix,
   &mod_pam_unix2,
+  &mod_pam_unix_ng,
   &mod_pam_winbind,
   &mod_pam_wtmpdb,
   NULL
@@ -109,6 +111,7 @@ static pam_module_t *module_list_account[] = {
   &mod_pam_himmelblau,
   &mod_pam_unix2,
   &mod_pam_unix,
+  &mod_pam_unix_ng,
   &mod_pam_krb5,
   &mod_pam_localuser,
   &mod_pam_sss,
@@ -137,6 +140,7 @@ static pam_module_t *module_list_auth[] = {
   &mod_pam_fscrypt,
   &mod_pam_unix2,
   &mod_pam_unix,
+  &mod_pam_unix_ng,
   &mod_pam_krb5,
   &mod_pam_sss,
   &mod_pam_ldap,
@@ -162,6 +166,7 @@ static pam_module_t *module_list_password[] = {
   &mod_pam_systemd_home,
   &mod_pam_unix2,
   &mod_pam_unix,
+  &mod_pam_unix_ng,
   &mod_pam_fscrypt,
   &mod_pam_make,
   &mod_pam_exec,
@@ -183,6 +188,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_systemd,
   &mod_pam_unix2,
   &mod_pam_unix,
+  &mod_pam_unix_ng,
   &mod_pam_apparmor,
   &mod_pam_krb5,
   &mod_pam_sss,
@@ -212,6 +218,7 @@ static pam_module_t *module_list_session_nl[] = {
   &mod_pam_limits,
   &mod_pam_unix2,
   &mod_pam_unix,
+  &mod_pam_unix_ng,
   &mod_pam_apparmor,
   &mod_pam_krb5,
   &mod_pam_sss,

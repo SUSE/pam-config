@@ -36,7 +36,7 @@ pam_config_SOURCES = pam-config.c load_config.c write_config.c \
 	mod_pam_kwallet5.c mod_pam_keyinit.c mod_pam_mktemp.c \
 	mod_pam_pwquality.c mod_pam_u2f.c mod_pam_faildelay.c \
 	mod_pam_lastlog2.c mod_pam_fscrypt.c mod_pam_wtmpdb.c \
-	mod_pam_himmelblau.c mod_pam_kanidm.c
+	mod_pam_himmelblau.c mod_pam_kanidm.c mod_pam_unix_ng.c
 
 noinst_HEADERS = pam-config.h pam-module.h
 

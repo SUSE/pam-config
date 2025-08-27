@@ -19,6 +19,7 @@
 #include <config.h>
 #endif
 
+#include <assert.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -85,47 +86,82 @@ static int
 check_for_unix_conflict (pam_module_t **module_list, write_type_t op,
 			 int verify)
 {
-  int with_unix, with_unix2;
+  int with_unix, with_unix2, with_unix_ng;
   int retval = 0;
 
   with_unix = is_module_enabled (module_list,
 				 "pam_unix.so", op );
   with_unix2 = is_module_enabled (module_list,
 				  "pam_unix2.so", op );
+  with_unix_ng = is_module_enabled (module_list,
+                                    "pam_unix_ng.so", op );
 
-  if (with_unix && with_unix2 )
+
+  /* exactly one should be enabled */
+  if ((with_unix + with_unix2 + with_unix_ng) == 1)
+    return retval;
+
+  if (verify)
     {
-      if (verify)
+      /* no one enabled, enable pam_unix */
+      if ((with_unix + with_unix2 + with_unix_ng) == 0)
+	fprintf (stderr,
+		 _("WARNING: no unix module is enabled!\n"));
+      else
+	fprintf (stderr,
+		 _("WARNING: pam_unix.so, pam_unix2.so and/or pam_unix_ng.so are enabled!\n"));
+      retval = 1;
+    }
+  else
+    {
+      pam_module_t *mod_unix_ng = lookup (module_list, "pam_unix_ng.so");
+      pam_module_t *mod_unix = lookup (module_list, "pam_unix.so");
+      pam_module_t *mod_unix2 = lookup (module_list, "pam_unix2.so");
+
+      assert(mod_unix_ng);
+      assert(mod_unix);
+      assert(mod_unix2);
+
+      if ((with_unix + with_unix2 + with_unix_ng) == 0)
 	{
+	  option_set_t *opt_set_unix = mod_unix->get_opt_set (mod_unix, op);
+
 	  fprintf (stderr,
-		   _("WARNING: pam_unix.so and pam_unix2.so enabled!\n"));
-	  retval = 1;
+		   _("INFO: no unix module is enabled for service %s,\nINFO: enabling pam_unix.so.\n"),
+		   type2string(op));
+
+	  opt_set_unix->enable (opt_set_unix, "is_enabled", TRUE);
+	}
+      else if (with_unix_ng)
+	{
+	  option_set_t *opt_set_unix = mod_unix->get_opt_set (mod_unix, op);
+	  option_set_t *opt_set_unix2 = mod_unix2->get_opt_set (mod_unix2, op);
+
+	  fprintf (stderr,
+		   _("INFO: pam_unix.so, pam_unix2 and/or pam_unix_ng.so are enabled in service %s,\nINFO: only pam_unix_ng.so will be enabled.\n"),
+		   type2string (op));
+
+	  opt_set_unix->enable (opt_set_unix, "is_enabled", FALSE);
+	  opt_set_unix2->enable (opt_set_unix2, "is_enabled", FALSE);
+	}
+      else if (with_unix)
+	{
+	  option_set_t *opt_set = mod_unix2->get_opt_set (mod_unix2, op);
+
+	  fprintf (stderr,
+		   _("INFO: pam_unix.so and pam_unix2 are enabled in service %s,\nINFO: only pam_unix.so will be enabled.\n"),
+		   type2string (op));
+
+	  opt_set->enable (opt_set, "is_enabled", FALSE);
 	}
       else
 	{
-	  fprintf (stderr, _("INFO: pam_unix.so and pam_unix2.so enabled in service %s,\nINFO: only pam_unix2.so will be enabled.\n"), type2string (op));
-	  pam_module_t *mod_unix = lookup (module_list, "pam_unix.so");
-	  if (mod_unix)
-	    {
-	      option_set_t *opt_set = mod_unix->get_opt_set (mod_unix, op);
-	      if (opt_set)
-		{
-		  opt_set->enable (opt_set, "is_enabled", FALSE);
-		}
-	      else
-		{
-		  fprintf(stderr, _("ERROR: Failed to disable pam_unix.so.\n"));
-		  retval = 1;
-		}
-	    }
-	  else
-	    {
-	      fprintf(stderr, _("ERROR: Failed to disable pam_unix.so.\n"));
-	      retval = 1;
-	    }
+	  fprintf(stderr, _("ERROR: something did go wrong with counting unix modules...\n"));
+	  retval = 1;
 	}
-      }
-  return retval;
+    }
+
+return retval;
 }
 
 int
