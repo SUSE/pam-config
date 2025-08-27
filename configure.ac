@@ -1,9 +1,9 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT([pam-config],[2.13])
+AC_INIT([pam-config],[2.14])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/pam-config.c])
-AM_CONFIG_HEADER(config.h)
 AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_HEADERS([config.h])
 AC_PREFIX_DEFAULT(/usr)
 AC_SUBST(PACKAGE)
 AC_SUBST(VERSION)
@@ -25,7 +25,6 @@ AC_SUBST(EXTRA_CFLAGS)
 dnl Checks for programs.
 AC_USE_SYSTEM_EXTENSIONS
 AC_PROG_CC
-AC_SEARCH_LIBS([strerror],[cposix])
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 AC_PROG_RANLIB
@@ -55,9 +54,9 @@ AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test x$enable_man != xno)
 
 
 dnl internationalization macros
-AM_GNU_GETTEXT_REQUIRE_VERSION([0.19.2])
-AM_GNU_GETTEXT_VERSION([0.20.2])
 AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_REQUIRE_VERSION([0.20.2])
+
 AC_CHECK_FUNCS(dngettext)
 
 AH_VERBATIM([__ZZENABLE_NLS],
