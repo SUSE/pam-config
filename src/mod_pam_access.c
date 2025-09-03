@@ -71,4 +71,9 @@ pam_module_t mod_pam_access = { "pam_access.so", opt_sets, helptext,
 			      &get_opt_set,
 			      &getopt,
 			      &print_args,
-			      &print_xmlhelp};
+			      &print_xmlhelp,
+			      -1,
+			      PAM_ACCESS_ACCOUNT_PRIORITY,
+			      -1,
+			      -1
+};

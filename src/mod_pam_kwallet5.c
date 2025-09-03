@@ -85,4 +85,9 @@ pam_module_t mod_pam_kwallet5 = { "pam_kwallet5.so", opt_sets,
 				       &get_opt_set,
 				       &getopt,
 				       &print_args,
-				       &print_xmlhelp};
+				       &print_xmlhelp,
+				       PAM_KWALLET5_AUTH_PRIORITY,
+				       -1,
+				       PAM_KWALLET5_PASSWORD_PRIORITY,
+				       PAM_KWALLET5_SESSION_PRIORITY
+};

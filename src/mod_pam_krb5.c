@@ -153,4 +153,9 @@ pam_module_t mod_pam_krb5 = { "pam_krb5.so", opt_sets, helptext,
 			      &get_opt_set,
 			      &getopt,
 			      &print_args,
-			      &print_xmlhelp};
+			      &print_xmlhelp,
+			      PAM_KRB5_AUTH_PRIORITY,
+			      PAM_KRB5_ACCOUNT_PRIORITY,
+			      PAM_KRB5_PASSWORD_PRIORITY,
+			      PAM_KRB5_SESSION_PRIORITY
+};

@@ -119,4 +119,9 @@ pam_module_t mod_pam_ck_connector = { "pam_ck_connector.so", opt_sets,
 				      &get_opt_set,
 				      &getopt,
                                       &print_args,
-				      &print_xmlhelp};
+				      &print_xmlhelp,
+				      -1,
+				      -1,
+				      -1,
+				      -1
+};

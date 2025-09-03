@@ -73,4 +73,9 @@ pam_module_t mod_pam_fscrypt = { "pam_fscrypt.so", opt_sets, helptext,
 			     &get_opt_set,
 			     getopt,
 			     &print_args,
-			     &print_xmlhelp};
+			     &print_xmlhelp,
+			     PAM_FSCRYPT_AUTH_PRIORITY,
+			     -1,
+			     PAM_FSCRYPT_PASSWORD_PRIORITY,
+			     PAM_FSCRYPT_SESSION_PRIORITY
+};

@@ -78,4 +78,9 @@ pam_module_t mod_pam_winbind = { "pam_winbind.so", opt_sets, helptext,
 				 &get_opt_set,
 				 &getopt,
 				 &print_args,
-				 &print_xmlhelp};
+				 &print_xmlhelp,
+				 PAM_WINBIND_AUTH_PRIORITY,
+				 PAM_WINBIND_ACCOUNT_PRIORITY,
+				 PAM_WINBIND_PASSWORD_PRIORITY,
+				 PAM_WINBIND_SESSION_PRIORITY
+};

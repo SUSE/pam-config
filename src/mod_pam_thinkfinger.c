@@ -191,4 +191,9 @@ pam_module_t mod_pam_thinkfinger = { "pam_thinkfinger.so", opt_sets, helptext,
 				     &get_opt_set,
 				     &getopt,
 				     &print_args,
-				     &print_xmlhelp};
+				     &print_xmlhelp,
+				     PAM_THINKFINGER_AUTH_PRIORITY,
+				     -1,
+				     -1,
+				     -1
+};

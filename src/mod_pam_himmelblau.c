@@ -78,4 +78,9 @@ pam_module_t mod_pam_himmelblau = { "pam_himmelblau.so", opt_sets, helptext,
 				 &get_opt_set,
 				 &getopt,
 				 &print_args,
-				 &print_xmlhelp};
+				 &print_xmlhelp,
+				 PAM_HIMMELBLAU_AUTH_PRIORITY,
+				 PAM_HIMMELBLAU_ACCOUNT_PRIORITY,
+				 PAM_HIMMELBLAU_PASSWORD_PRIORITY,
+				 PAM_HIMMELBLAU_SESSION_PRIORITY
+};

@@ -105,7 +105,46 @@ pam_module_t *common_module_list[] = {
   NULL
 };
 
-static pam_module_t *module_list_account[] = {
+#define DEFINE_MODULE_SORTER(field)                                            \
+  static int cmp_##field(const void *a, const void *b) {                       \
+    const pam_module_t *const *pa = (const pam_module_t *const *)a;            \
+    const pam_module_t *const *pb = (const pam_module_t *const *)b;            \
+    const pam_module_t *ma = *pa;                                              \
+    const pam_module_t *mb = *pb;                                              \
+    return (ma->field - mb->field);                                            \
+  }                                                                            \
+                                                                               \
+  static pam_module_t **sort_##field(pam_module_t **list, size_t n) {          \
+    qsort(list, n, sizeof(pam_module_t *), cmp_##field);                       \
+    return list;                                                               \
+  }
+
+/* Generate four sorter functions */
+DEFINE_MODULE_SORTER(priority_auth)
+DEFINE_MODULE_SORTER(priority_account)
+DEFINE_MODULE_SORTER(priority_password)
+DEFINE_MODULE_SORTER(priority_session)
+
+#ifndef ARRAY_LEN
+#  define ARRAY_LEN(a) (sizeof(a) / sizeof((a)[0]))
+#endif
+
+#define BUILD_SORTED_LIST(varname, field, src_array)                           \
+    static pam_module_t *varname[ARRAY_LEN(src_array)];                        \
+    static void init_##varname(void) __attribute__((constructor));             \
+    static void init_##varname(void) {                                         \
+        size_t n = ARRAY_LEN(src_array);                                       \
+        /* If src ends with NULL, don't sort it, just append after sort */     \
+        if (n > 0 && (src_array)[n - 1] == NULL) n--;                          \
+        memcpy(varname, (src_array), n * sizeof((src_array)[0]));              \
+        sort_##field(varname, n);                                              \
+        varname[n] = NULL;                                                     \
+    }
+
+/* Modifying the order of these modules no longer effects the order of placement
+ * in pam. Use the module ordering in module_priorities.h instead.
+ */
+static pam_module_t *account_modules[] = {
   &mod_pam_access,
   &mod_pam_systemd_home,
   &mod_pam_himmelblau,
@@ -122,8 +161,12 @@ static pam_module_t *module_list_account[] = {
   &mod_pam_kanidm,
   NULL
 };
+BUILD_SORTED_LIST(module_list_account, priority_account, account_modules)
 
-static pam_module_t *module_list_auth[] = {
+/* Modifying the order of these modules no longer effects the order of placement
+ * in pam. Use the module ordering in module_priorities.h instead.
+ */
+static pam_module_t *auth_modules[] = {
   &mod_pam_faildelay,
   &mod_pam_group,
   &mod_pam_pkcs11,
@@ -151,8 +194,12 @@ static pam_module_t *module_list_auth[] = {
 					  you MUST change mod_pam_krb5.c */
   NULL
 };
+BUILD_SORTED_LIST(module_list_auth, priority_auth, auth_modules)
 
-static pam_module_t *module_list_password[] = {
+/* Modifying the order of these modules no longer effects the order of placement
+ * in pam. Use the module ordering in module_priorities.h instead.
+ */
+static pam_module_t *password_modules[] = {
   &mod_pam_himmelblau,
   &mod_pam_winbind,
   &mod_pam_pwcheck,
@@ -177,8 +224,12 @@ static pam_module_t *module_list_password[] = {
 					  you MUST change mod_pam_krb5.c */
   NULL
 };
+BUILD_SORTED_LIST(module_list_password, priority_password, password_modules)
 
-static pam_module_t *module_list_session[] = {
+/* Modifying the order of these modules no longer effects the order of placement
+ * in pam. Use the module ordering in module_priorities.h instead.
+ */
+static pam_module_t *session_modules[] = {
   &mod_pam_selinux,
   &mod_pam_limits,
   &mod_pam_ecryptfs,
@@ -207,6 +258,7 @@ static pam_module_t *module_list_session[] = {
   &mod_pam_env,
   NULL
 };
+BUILD_SORTED_LIST(module_list_session, priority_session, session_modules)
 
 static pam_module_t *module_list_session_nl[] = {
   &mod_pam_ecryptfs,

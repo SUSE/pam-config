@@ -67,4 +67,9 @@ pam_module_t mod_pam_apparmor = { "pam_apparmor.so", opt_sets, helptext,
 				  &get_opt_set,
 				  &getopt,
 				  &print_args,
-				  &print_xmlhelp};
+				  &print_xmlhelp,
+				  -1,
+				  -1,
+				  -1,
+				  PAM_APPARMOR_SESSION_PRIORITY
+};
