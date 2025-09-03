@@ -60,4 +60,9 @@ pam_module_t mod_pam_succeed_if = {"pam_succeed_if.so",
 				   &get_opt_set,
 				   NULL /* Only used internal */,
 				   NULL /* Only used internal */,
-				   NULL /* Only used internal */};
+				   NULL /* Only used internal */,
+				   -1,
+				   -1,
+				   -1,
+				   -1
+};

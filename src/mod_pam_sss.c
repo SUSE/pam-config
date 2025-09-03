@@ -95,4 +95,9 @@ pam_module_t mod_pam_sss = { "pam_sss.so", opt_sets, helptext,
 				 &get_opt_set,
 				 &getopt,
 				 &print_args,
-				 &print_xmlhelp};
+				 &print_xmlhelp,
+				 PAM_SSS_AUTH_PRIORITY,
+				 PAM_SSS_ACCOUNT_PRIORITY,
+				 PAM_SSS_PASSWORD_PRIORITY,
+				 PAM_SSS_SESSION_PRIORITY
+};

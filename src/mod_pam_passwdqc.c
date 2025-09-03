@@ -70,4 +70,9 @@ pam_module_t mod_pam_passwdqc = { "pam_passwdqc.so", opt_sets, helptext,
 				  &get_opt_set,
 				  &getopt,
 				  &print_args,
-				  &print_xmlhelp};
+				  &print_xmlhelp,
+				  -1,
+				  -1,
+				  PAM_PASSWDQC_PASSWORD_PRIORITY,
+				  -1
+};

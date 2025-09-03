@@ -73,4 +73,9 @@ pam_module_t mod_pam_umask = { "pam_umask.so", opt_sets, umask_help,
 			       &get_opt_set,
                                &getopt,
 			       &print_args,
-			       &print_xmlhelp};
+			       &print_xmlhelp,
+			       -1,
+			       -1,
+			       -1,
+			       PAM_UMASK_SESSION_PRIORITY
+};

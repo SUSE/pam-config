@@ -67,5 +67,10 @@ pam_module_t mod_pam_faildelay = { "pam_faildelay.so", opt_sets,
     &get_opt_set,
     &getopt,
     &print_args,
-    &print_xmlhelp};
+    &print_xmlhelp,
+    PAM_FAILDELAY_AUTH_PRIORITY,
+    -1,
+    -1,
+    -1
+};
 

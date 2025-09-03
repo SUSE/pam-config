@@ -1,0 +1,110 @@
+/*
+ * Priority values for the built-in PAM modules.
+ *
+ * These constants determine the relative position of each module within the
+ * four PAM stacks (auth, account, password, session). In earlier versions
+ * of pam-config, the ordering of modules was fixed by the arrays
+ *   module_list_auth, module_list_account, module_list_password,
+ *   and module_list_session.
+ * That implicit ordering has been replaced with explicit numeric priorities.
+ *
+ * Lower numbers are placed earlier in the stack, higher numbers later.
+ * The values here were chosen to preserve the historical order from the
+ * original lists, with gaps between them so that new modules can be inserted
+ * without renumbering everything.
+ *
+ * To adjust the position of a built-in module in one of the PAM stacks,
+ * simply change its priority value below. For example, increasing
+ * PAM_UNIX_AUTH_PRIORITY will cause pam_unix to be invoked later in the
+ * authentication stack, while decreasing it will move it earlier.
+ *
+ * Custom modules defined through pam-config can likewise assign themselves
+ * priorities relative to these built-ins to control where they appear.
+ */
+
+#define PAM_FAILDELAY_AUTH_PRIORITY 100
+#define PAM_GROUP_AUTH_PRIORITY 200
+#define PAM_PKCS11_AUTH_PRIORITY 300
+#define PAM_FP_AUTH_PRIORITY 400
+#define PAM_FPRINT_AUTH_PRIORITY 500
+#define PAM_FPRINTD_AUTH_PRIORITY 600
+#define PAM_THINKFINGER_AUTH_PRIORITY 700
+#define PAM_HIMMELBLAU_AUTH_PRIORITY 800
+#define PAM_GNOME_KEYRING_AUTH_PRIORITY 900
+#define PAM_KWALLET5_AUTH_PRIORITY 1000
+#define PAM_SYSTEMD_HOME_AUTH_PRIORITY 1100
+#define PAM_SSH_AUTH_PRIORITY 1200
+#define PAM_ECRYPTFS_AUTH_PRIORITY 1300
+#define PAM_FSCRYPT_AUTH_PRIORITY 1400
+#define PAM_UNIX2_AUTH_PRIORITY 1500
+#define PAM_UNIX_AUTH_PRIORITY 1600
+#define PAM_UNIX_NG_AUTH_PRIORITY 1700
+#define PAM_KRB5_AUTH_PRIORITY 1800
+#define PAM_SSS_AUTH_PRIORITY 1800
+#define PAM_LDAP_AUTH_PRIORITY 2000
+#define PAM_NAM_AUTH_PRIORITY 2100
+#define PAM_WINBIND_AUTH_PRIORITY 2200
+#define PAM_KANIDM_AUTH_PRIORITY 2300
+
+#define PAM_ACCESS_ACCOUNT_PRIORITY 100
+#define PAM_SYSTEMD_HOME_ACCOUNT_PRIORITY 200
+#define PAM_HIMMELBLAU_ACCOUNT_PRIORITY 300
+#define PAM_UNIX2_ACCOUNT_PRIORITY 400
+#define PAM_UNIX_ACCOUNT_PRIORITY 500
+#define PAM_UNIX_NG_ACCOUNT_PRIORITY 600
+#define PAM_KRB5_ACCOUNT_PRIORITY 700
+#define PAM_LOCALUSER_ACCOUNT_PRIORITY 800
+#define PAM_SSS_ACCOUNT_PRIORITY 900
+#define PAM_LDAP_ACCOUNT_PRIORITY 1000
+#define PAM_NAM_ACCOUNT_PRIORITY 1100
+#define PAM_WINBIND_ACCOUNT_PRIORITY 1200
+#define PAM_TIME_ACCOUNT_PRIORITY 1300
+#define PAM_KANIDM_ACCOUNT_PRIORITY 1400
+
+#define PAM_HIMMELBLAU_PASSWORD_PRIORITY 100
+#define PAM_WINBIND_PASSWORD_PRIORITY 200
+#define PAM_PWCHECK_PASSWORD_PRIORITY 300
+#define PAM_PASSWDQC_PASSWORD_PRIORITY 400
+#define PAM_PWQUALITY_PASSWORD_PRIORITY 500
+#define PAM_CRACKLIB_PASSWORD_PRIORITY 600
+#define PAM_PWHISTORY_PASSWORD_PRIORITY 700
+#define PAM_GNOME_KEYRING_PASSWORD_PRIORITY 800
+#define PAM_KWALLET5_PASSWORD_PRIORITY 900
+#define PAM_ECRYPTFS_PASSWORD_PRIORITY 1000
+#define PAM_SYSTEMD_HOME_PASSWORD_PRIORITY 1100
+#define PAM_UNIX2_PASSWORD_PRIORITY 1200
+#define PAM_UNIX_PASSWORD_PRIORITY 1300
+#define PAM_UNIX_NG_PASSWORD_PRIORITY 1400
+#define PAM_FSCRYPT_PASSWORD_PRIORITY 1500
+#define PAM_MAKE_PASSWORD_PRIORITY 1600
+#define PAM_EXEC_PASSWORD_PRIORITY 1700
+#define PAM_KRB5_PASSWORD_PRIORITY 1800
+#define PAM_SSS_PASSWORD_PRIORITY 1900
+#define PAM_LDAP_PASSWORD_PRIORITY 2000
+#define PAM_NAM_PASSWORD_PRIORITY 2100
+
+#define PAM_SELINUX_SESSION_PRIORITY 100
+#define PAM_LIMITS_SESSION_PRIORITY 200
+#define PAM_ECRYPTFS_SESSION_PRIORITY 300
+#define PAM_FSCRYPT_SESSION_PRIORITY 400
+#define PAM_MKHOMEDIR_SESSION_PRIORITY 500
+#define PAM_SYSTEMD_HOME_SESSION_PRIORITY 600
+#define PAM_SYSTEMD_SESSION_PRIORITY 700
+#define PAM_UNIX2_SESSION_PRIORITY 800
+#define PAM_UNIX_SESSION_PRIORITY 900
+#define PAM_UNIX_NG_SESSION_PRIORITY 1000
+#define PAM_APPARMOR_SESSION_PRIORITY 1100
+#define PAM_KRB5_SESSION_PRIORITY 1200
+#define PAM_SSS_SESSION_PRIORITY 1300
+#define PAM_LDAP_SESSION_PRIORITY 1400
+#define PAM_WINBIND_SESSION_PRIORITY 1500
+#define PAM_NAM_SESSION_PRIORITY 1600
+#define PAM_UMASK_SESSION_PRIORITY 1700
+#define PAM_SSH_SESSION_PRIORITY 1800
+#define PAM_GNOME_KEYRING_SESSION_PRIORITY 1900
+#define PAM_KWALLET5_SESSION_PRIORITY 2000
+#define PAM_EXEC_SESSION_PRIORITY 2100
+#define PAM_MKTEMP_SESSION_PRIORITY 2200
+#define PAM_HIMMELBLAU_SESSION_PRIORITY 2300
+#define PAM_KANIDM_SESSION_PRIORITY 2400
+#define PAM_ENV_SESSION_PRIORITY 2500

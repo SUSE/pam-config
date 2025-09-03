@@ -123,4 +123,9 @@ pam_module_t mod_pam_unix2 = { "pam_unix2.so", opt_sets, unix2_help,
 			       &get_opt_set,
 			       &getopt,
 			       &print_args,
-			       &print_xmlhelp};
+			       &print_xmlhelp,
+			       PAM_UNIX2_AUTH_PRIORITY,
+			       PAM_UNIX2_ACCOUNT_PRIORITY,
+			       PAM_UNIX2_PASSWORD_PRIORITY,
+			       PAM_UNIX2_SESSION_PRIORITY
+};

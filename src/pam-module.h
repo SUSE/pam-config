@@ -33,6 +33,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "option_set.h"
+#include "module_priorities.h"
 
 /**
  * @typedef global_opt_t
@@ -672,6 +673,12 @@ typedef struct pam_module {
 	void (*print_args)(struct pam_module *this);
 	/** Pointer to print function, used for XML output. */
 	void (*print_xmlhelp)(struct pam_module *this);
+
+	/** Stack priorities **/
+	int priority_auth;
+	int priority_account;
+	int priority_password;
+	int priority_session;
 } pam_module_t;
 
 /**
