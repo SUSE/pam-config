@@ -70,5 +70,13 @@ AH_VERBATIM([__ZZENABLE_NLS],
 #define N_(msgid) msgid
 #endif /* ENABLE_NLS */])
 
+PKG_CHECK_MODULES([INIH], [inih],
+  [AC_DEFINE([HAVE_LIBINIH], [1], [Define to 1 if inih is available])],
+  [AC_MSG_ERROR([inih library is required])])
+
+dnl Add the variables to the output
+AC_SUBST([INIH_CFLAGS])
+AC_SUBST([INIH_LIBS])
+
 AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in tests/Makefile tests/config/Makefile tests/pam-config.test/Makefile tests/etc/Makefile])
 AC_OUTPUT
