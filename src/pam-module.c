@@ -232,3 +232,12 @@ debug_write_call (pam_module_t *this, enum write_type type)
 	  type2string (type),
 	  is_used?"enabled":"disabled");
 }
+
+void configurable_module_free(configurable_module_t *sp) {
+  free(sp->modname);
+  free(sp->account_line);
+  free(sp->auth_line);
+  free(sp->password_line);
+  free(sp->session_line);
+  free(sp);
+}
