@@ -112,6 +112,17 @@ pam_module_t **common_module_list = NULL;
 static pam_module_t **configurable_modules = NULL;
 static size_t configurable_count = 0;
 
+static inline int is_overridden_builtin(const pam_module_t *m) {
+  if (!m || !m->name || !configurable_modules) return 0;
+  for (size_t i = 0; configurable_modules[i]; ++i) {
+    const pam_module_t *cm = configurable_modules[i];
+    if (cm && cm->name && strcmp(cm->name, m->name) == 0) {
+      return 1; /* a configurable with the same soname exists */
+    }
+  }
+  return 0;
+}
+
 __attribute__((constructor)) static void init_configurable_modules_ctor(void) {
   size_t n = load_configurable_modules(&configurable_modules);
   if (n > 0) {
@@ -134,7 +145,10 @@ __attribute__((constructor)) static void init_configurable_modules_ctor(void) {
 
   n = 0;
   for (size_t i = 0; i < builtin_count; ++i) {
-    common_module_list[n++] = common_builtin_modules[i];
+    pam_module_t *m = common_builtin_modules[i];
+    if (!is_overridden_builtin(m)) {
+      common_module_list[n++] = m;
+    }
   }
   for (size_t i = 0; i < cfg_count; ++i) {
     common_module_list[n++] = configurable_modules[i];
@@ -196,10 +210,13 @@ DEFINE_MODULE_SORTER(priority_session)
     if (!varname) {                                                            \
       return;                                                                  \
     }                                                                          \
-    /* copy base */                                                            \
+    /* copy base, but skip overridden built-ins */                             \
     size_t n = 0;                                                              \
     for (size_t i = 0; i < base_n; ++i) {                                      \
-      varname[n++] = (stack##_modules)[i];                                     \
+      pam_module_t *m = (stack##_modules)[i];                                  \
+      if (!is_overridden_builtin(m)) {                                         \
+        varname[n++] = m;                                                      \
+      }                                                                        \
     }                                                                          \
     /* append eligible configurables */                                        \
     if (configurable_modules) {                                                \
