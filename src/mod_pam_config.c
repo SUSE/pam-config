@@ -323,7 +323,22 @@ static int is_conf(const char *name) {
   return n >= 6 && strcmp(name + (n - 5), ".conf") == 0;
 }
 
-static int append_module(pam_module_t ***list, size_t *n, pam_module_t *pm) {
+static int replace_or_append_configurable(pam_module_t ***list, size_t *n, pam_module_t *pm)
+{
+  /* replace existing module with same soname */
+  for (size_t i = 0; i < *n; ++i) {
+    pam_module_t *old = (*list)[i];
+    if (old && old->name && pm->name && strcasecmp(old->name, pm->name) == 0) {
+      /* free the old configurable module object */
+      configurable_module_free(old->config);
+      free(old->name);
+      free(old);
+      (*list)[i] = pm;
+      return 0;
+    }
+  }
+
+  /* append if not found */
   pam_module_t **tmp = realloc(*list, (*n + 2) * sizeof(pam_module_t*));
   if (!tmp) {
     return -1;
@@ -365,8 +380,11 @@ static int load_dir(const char *dir, pam_module_t ***out, size_t *count) {
       free(pm);
       continue;
     }
-    if (append_module(out, count, pm) != 0) {
-      rc = -1; /* out of memory; bail after closing */
+    if (replace_or_append_configurable(out, count, pm) != 0) {
+      configurable_module_free(pm->config);
+      free(pm->name);
+      free(pm);
+      rc = -1;
       break;
     }
   }
