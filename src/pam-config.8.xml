@@ -1434,6 +1434,110 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term><option>--sss-quiet</option></term>
+            <listitem>
+              <para>
+                Add <option>quiet</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-forward_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>forward_pass</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-use_first_pass</option></term>
+            <listitem>
+              <para>
+                Add <option>use_first_pass</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-use_authtok</option></term>
+            <listitem>
+              <para>
+                Add <option>use_authtok</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-ignore_unknown_user</option></term>
+            <listitem>
+              <para>
+                Add <option>ignore_unknown_user</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-ignore_authinfo_unavail</option></term>
+            <listitem>
+              <para>
+                Add <option>ignore_authinfo_unavail</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-allow_missing_name</option></term>
+            <listitem>
+              <para>
+                Add <option>allow_missing_name</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-prompt_always</option></term>
+            <listitem>
+              <para>
+                Add <option>prompt_always</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-try_cert_auth</option></term>
+            <listitem>
+              <para>
+                Add <option>try_cert_auth</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-require_cert_auth</option></term>
+            <listitem>
+              <para>
+                Add <option>require_cert_auth</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-allow_chauthtok_by_root</option></term>
+            <listitem>
+              <para>
+                Add <option>allow_chauthtok_by_root</option> option to all pam_sss.so invocations.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-retry=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>retry=</option><replaceable>value</replaceable> option to pam_sss.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>--sss-domains=</option><replaceable>value</replaceable></term>
+            <listitem>
+              <para>
+                Add <option>domains=</option><replaceable>value</replaceable> option to pam_sss.so.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term><option>--systemd</option></term>
             <listitem>
               <para>

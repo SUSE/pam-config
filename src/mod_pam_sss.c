@@ -81,8 +81,8 @@ PRINT_ARGS("sss")
 PRINT_XMLHELP("sss")
 
 /* ---- construct module object ---- */
-DECLARE_BOOL_OPTS_2 (is_enabled, debug);
-DECLARE_STRING_OPTS_0;
+DECLARE_BOOL_OPTS_13(is_enabled, debug, quiet, forward_pass, use_first_pass, use_authtok, ignore_unknown_user, ignore_authinfo_unavail, allow_missing_name, prompt_always, try_cert_auth, require_cert_auth, allow_chauthtok_by_root);
+DECLARE_STRING_OPTS_2(retry, domains);
 DECLARE_OPT_SETS;
 
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
