@@ -620,6 +620,8 @@ typedef enum write_type {
   SESSION
 } write_type_t;
 
+typedef struct pam_module pam_module_t;
+
 /**
  * @struct configurable_module
  * @brief Fields parsed from config
@@ -637,6 +639,7 @@ typedef struct configurable_module {
   char *account_line;
   char *password_line;
   char *session_line;
+  pam_module_t *fallback;
 } configurable_module_t;
 
 /**
@@ -649,7 +652,7 @@ typedef struct configurable_module {
  * @typedef pam_module_t
  * @brief Creates a type for pam_module
  */
-typedef struct pam_module {
+struct pam_module {
 	char *name;		      /**< The name of the module. */
 	option_set_t **option_sets;   /**< Pointer to a NULL terminated list of options_set_t's. */
         module_helptext_t *helptxt;  /**< Pointer to struct with help text. */
@@ -679,7 +682,7 @@ typedef struct pam_module {
 	int priority_account;
 	int priority_password;
 	int priority_session;
-} pam_module_t;
+};
 
 /**
  *  @brief Modules need access to these lists to check, which other modules

@@ -112,15 +112,24 @@ pam_module_t **common_module_list = NULL;
 static pam_module_t **configurable_modules = NULL;
 static size_t configurable_count = 0;
 
-static inline int is_overridden_builtin(const pam_module_t *m) {
+static inline pam_module_t* is_overridden_builtin(const pam_module_t *m) {
   if (!m || !m->name || !configurable_modules) return 0;
   for (size_t i = 0; configurable_modules[i]; ++i) {
-    const pam_module_t *cm = configurable_modules[i];
+    pam_module_t *cm = configurable_modules[i];
     if (cm && cm->name && strcmp(cm->name, m->name) == 0) {
-      return 1; /* a configurable with the same soname exists */
+      return cm; /* a configurable with the same soname exists */
     }
   }
-  return 0;
+  return NULL;
+}
+
+static void inject_fallback(pam_module_t *override, pam_module_t *fallback) {
+  if (!override || !fallback) return;
+  if (override->config->fallback) {
+    inject_fallback(override->config->fallback, fallback);
+  } else {
+    override->config->fallback = fallback;
+  }
 }
 
 __attribute__((constructor)) static void init_configurable_modules_ctor(void) {
@@ -145,9 +154,12 @@ __attribute__((constructor)) static void init_configurable_modules_ctor(void) {
 
   n = 0;
   for (size_t i = 0; i < builtin_count; ++i) {
-    pam_module_t *m = common_builtin_modules[i];
-    if (!is_overridden_builtin(m)) {
-      common_module_list[n++] = m;
+    pam_module_t *common_module = common_builtin_modules[i];
+    pam_module_t *override_module;
+    if (!(override_module = is_overridden_builtin(common_module))) {
+      common_module_list[n++] = common_module;
+    } else {
+      inject_fallback(override_module, common_module);
     }
   }
   for (size_t i = 0; i < cfg_count; ++i) {

@@ -30,7 +30,119 @@
 #include "pam-module.h"
 #include <linux/limits.h>
 
-#if 0
+/* --- generic write_config that uses the per-instance spec ----------- */
+
+static int write_config_configurable(pam_module_t *pm, enum write_type op,
+                                     FILE *fp) {
+  configurable_module_t *sp = pm->config;
+  pam_module_t *ov = sp->fallback;
+  option_set_t *opt_set = pm->get_opt_set(pm, op);
+
+  if (debug) {
+    debug_write_call(pm, op);
+  }
+
+  if (!opt_set->is_enabled(opt_set, "is_enabled")) {
+    return 0;
+  }
+
+  const char *line = NULL;
+  switch (op) {
+  case AUTH:
+    line = sp->auth_line;
+    break;
+  case ACCOUNT:
+    line = sp->account_line;
+    break;
+  case PASSWORD:
+    line = sp->password_line;
+    break;
+  case SESSION:
+    line = sp->session_line;
+    break;
+  }
+  if (!line) {
+    if (ov) {
+      return ov->write_config(ov, op, fp);
+    }
+    return 0; /* nothing local and no fallback */
+  }
+
+  /* Each stored line already contains:
+   * "<stack>\t<control>\t<soname>\t<args...>" */
+  fputs(line, fp);
+  fputc('\t', fp);
+
+  WRITE_CONFIG_OPTIONS /* append options, consistent with built-ins */
+
+  return 0;
+}
+
+GETOPT_START_ALL
+GETOPT_END_ALL
+
+static void print_args(pam_module_t *this) {
+  option_set_t *opt_set = this->get_opt_set(this, AUTH);
+  bool_option_t **cur_bool_opt = opt_set->bool_opts;
+  string_option_t **cur_str_opt = opt_set->string_opts;
+
+  printf("   --%s\n", this->config->modname);
+
+  while (*cur_bool_opt != NULL) {
+    if (strcmp((*cur_bool_opt)->key, "is_enabled") != 0) {
+      printf("   --%s-%s\n", this->config->modname, (*cur_bool_opt)->key);
+    }
+    cur_bool_opt++;
+  }
+
+  while (*cur_str_opt != NULL) {
+    if (strcmp((*cur_str_opt)->key, "empty") != 0) {
+      printf("   --%s-%s=<value>\n", this->config->modname,
+             (*cur_str_opt)->key);
+    }
+    cur_str_opt++;
+  }
+}
+
+/* --- options & plumbing ------------------------------------------- */
+
+DECLARE_BOOL_OPTS_2(is_enabled, debug);
+DECLARE_STRING_OPTS_0;
+DECLARE_OPT_SETS;
+
+static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
+
+/* --- parser -------------------------------------------------------- */
+
+static int free_pam_module(pam_module_t *m) {
+  if (!m) {
+    return -1;
+  }
+
+  free(m->name);
+  configurable_module_t *sp = m->config;
+  if (sp) {
+    free_pam_module(sp->fallback);
+    sp->fallback = NULL;
+    configurable_module_free(sp);
+  }
+  free(m);
+  return 0;
+}
+
+static inline bool
+econf_key_is_missing(econf_err rc)
+{
+    switch (rc) {
+    case ECONF_NOKEY:
+    case ECONF_EMPTYKEY:
+    case ECONF_KEY_HAS_NULL_VALUE:
+        return true;
+    default:
+        return false;
+    }
+}
+
 /* Treat only [A-Za-z0-9_.-] as valid characters, replace others with '-' */
 static inline char sanitize_char(char c)
 {
@@ -80,9 +192,9 @@ static char *pam_mod_basename(const char *soname) {
 }
 
 /* ---- config format --------------------------------------------------
- * Minimal, INI-like "key: value" per line. Empty lines and '#' comments ok.
+ * Minimal, INI "key: value" per line. Empty lines and '#' comments ok.
  * Keys (case-insensitive):
- *   Name: pam_example.so                   (required)
+ *   [pam_example.so]
  *   Auth-Priority: <int>                   (optional; default -1)
  *   Account-Priority: <int>                (optional; default -1)
  *   Password-Priority: <int>               (optional; default -1)
@@ -105,235 +217,6 @@ static char *pam_mod_basename(const char *soname) {
  *   Session:  session\toptional\tpam_himmelblau.so
  *   Session-Priority: 2300
  * ------------------------------------------------------------------- */
-static int parse_handler(void *in, const char *section, const char *key,
-                         const char *value) {
-  pam_module_t *m = (pam_module_t *)in;
-
-  if (strcmp(section, "") != 0) {
-    return 0; /* we ignore section names */
-  }
-
-  if (m->config == NULL) {
-    m->config = malloc(sizeof(configurable_module_t));
-    memset(m->config, 0, sizeof(configurable_module_t));
-  }
-
-  if (strcasecmp(key, "Name") == 0) {
-    free(m->name);
-    m->name = strdup(value);
-    m->config->modname = pam_mod_basename(value);
-  } else if (strcasecmp(key, "Auth") == 0) {
-    free(m->config->auth_line);
-    m->config->auth_line = strdup(value);
-  } else if (strcasecmp(key, "Auth-Priority") == 0) {
-    m->priority_auth = atoi(value);
-  } else if (strcasecmp(key, "Account") == 0) {
-    free(m->config->account_line);
-    m->config->account_line = strdup(value);
-  } else if (strcasecmp(key, "Account-Priority") == 0) {
-    m->priority_account = atoi(value);
-  } else if (strcasecmp(key, "Password") == 0) {
-    free(m->config->password_line);
-    m->config->password_line = strdup(value);
-  } else if (strcasecmp(key, "Password-Priority") == 0) {
-    m->priority_password = atoi(value);
-  } else if (strcasecmp(key, "Session") == 0) {
-    free(m->config->session_line);
-    m->config->session_line = strdup(value);
-  } else if (strcasecmp(key, "Session-Priority") == 0) {
-    m->priority_session = atoi(value);
-  } else {
-    return 0;
-  }
-
-  return 1;
-}
-#endif
-
-/* --- generic write_config that uses the per-instance spec ----------- */
-
-static int write_config_configurable(pam_module_t *pm, enum write_type op,
-                                     FILE *fp) {
-  configurable_module_t *sp = pm->config;
-  option_set_t *opt_set = pm->get_opt_set(pm, op);
-
-  if (debug) {
-    debug_write_call(pm, op);
-  }
-
-  if (!opt_set->is_enabled(opt_set, "is_enabled")) {
-    return 0;
-  }
-
-  const char *line = NULL;
-  switch (op) {
-  case AUTH:
-    line = sp->auth_line;
-    break;
-  case ACCOUNT:
-    line = sp->account_line;
-    break;
-  case PASSWORD:
-    line = sp->password_line;
-    break;
-  case SESSION:
-    line = sp->session_line;
-    break;
-  }
-  if (!line) {
-    return 0; /* Nothing to emit for this stack */
-  }
-
-  /* Each stored line already contains:
-   * "<stack>\t<control>\t<soname>\t<args...>" */
-  fputs(line, fp);
-  fputc('\t', fp);
-
-  WRITE_CONFIG_OPTIONS /* append options, consistent with built-ins */
-
-  return 0;
-}
-
-GETOPT_START_ALL
-GETOPT_END_ALL
-
-static void print_args(pam_module_t *this) {
-  option_set_t *opt_set = this->get_opt_set(this, AUTH);
-  bool_option_t **cur_bool_opt = opt_set->bool_opts;
-  string_option_t **cur_str_opt = opt_set->string_opts;
-
-  printf("   --%s\n", this->config->modname);
-
-  while (*cur_bool_opt != NULL) {
-    if (strcmp((*cur_bool_opt)->key, "is_enabled") != 0) {
-      printf("   --%s-%s\n", this->config->modname, (*cur_bool_opt)->key);
-    }
-    cur_bool_opt++;
-  }
-
-  while (*cur_str_opt != NULL) {
-    if (strcmp((*cur_str_opt)->key, "empty") != 0) {
-      printf("   --%s-%s=<value>\n", this->config->modname,
-             (*cur_str_opt)->key);
-    }
-    cur_str_opt++;
-  }
-}
-
-/* --- options & plumbing ------------------------------------------- */
-
-DECLARE_BOOL_OPTS_2(is_enabled, debug);
-DECLARE_STRING_OPTS_0;
-DECLARE_OPT_SETS;
-
-static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
-
-/* --- parser -------------------------------------------------------- */
-
-#if 0
-static int parse_config_file(const char *path, pam_module_t **out_pm) {
-  if (!out_pm) {
-    return -1;
-  }
-  *out_pm = malloc(sizeof(pam_module_t));
-  if (!*out_pm) {
-    return -1;
-  }
-  memset(*out_pm, 0, sizeof(pam_module_t));
-
-  pam_module_t *pm = *out_pm;
-  pm->priority_auth = -1;
-  pm->priority_account = -1;
-  pm->priority_password = -1;
-  pm->priority_session = -1;
-
-  if (ini_parse(path, parse_handler, pm) < 0) {
-    free(*out_pm);
-    *out_pm = NULL;
-    return -1;
-  }
-
-  /* Validate the result */
-  if (!pm->name) {
-    fprintf(stderr, "%s: Name (ex. 'pam_example.so') is required", path);
-    free(pm);
-    *out_pm = NULL;
-    return -1;
-  }
-  if (!pm->config) {
-    free(pm->name);
-    free(pm);
-    *out_pm = NULL;
-    return -1;
-  }
-  if (!pm->config->modname) {
-    free(pm->name);
-    configurable_module_free(pm->config);
-    free(pm);
-    *out_pm = NULL;
-    return -1;
-  }
-  if (pm->config->auth_line && pm->priority_auth < 0) {
-    fprintf(stderr, "%s: Auth cannot be configured without Auth-Priority", path);
-    free(pm->name);
-    configurable_module_free(pm->config);
-    free(pm);
-    *out_pm = NULL;
-    return -1;
-  }
-  if (pm->config->account_line && pm->priority_account < 0) {
-    fprintf(stderr, "%s: Account cannot be configured without Account-Priority", path);
-    free(pm->name);
-    configurable_module_free(pm->config);
-    free(pm);
-    *out_pm = NULL;
-    return -1;
-  }
-  if (pm->config->password_line && pm->priority_password < 0) {
-    fprintf(stderr, "%s: Password cannot be configured without Password-Priority", path);
-    free(pm->name);
-    configurable_module_free(pm->config);
-    free(pm);
-    *out_pm = NULL;
-    return -1;
-  }
-  if (pm->config->session_line && pm->priority_session < 0) {
-    fprintf(stderr, "%s: Session cannot be configured without Session-Priority", path);
-    free(pm->name);
-    configurable_module_free(pm->config);
-    free(pm);
-    *out_pm = NULL;
-    return -1;
-  }
-
-  /* Fill in the variables and helper functions */
-  pm->option_sets = opt_sets;
-  pm->helptxt = helptext;
-  pm->parse_config = def_parse_config;
-  pm->print_module = def_print_module;
-  pm->write_config = write_config_configurable;
-  pm->get_opt_set = get_opt_set;
-  pm->getopt = getopt;
-  pm->print_args = print_args;
-
-  return 0;
-}
-#endif
-
-static int free_pam_module(pam_module_t *m) {
-  if (!m) {
-    return -1;
-  }
-
-  free(m->name);
-  configurable_module_t *sp = m->config;
-  if (sp) {
-    configurable_module_free(sp);
-  }
-  free(m);
-  return 0;
-}
-
 static int parse_config_modules(const char *path, pam_module_t ***out_list, size_t *out_len) {
   if (!out_list || !out_len) {
     return -1;
@@ -373,25 +256,36 @@ static int parse_config_modules(const char *path, pam_module_t ***out_list, size
     }
     memset(pm, 0, sizeof(pam_module_t));
 
+    pm->config = malloc(sizeof(configurable_module_t));
+    if (!pm->config) {
+      free(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+    memset(pm->config, 0, sizeof(configurable_module_t));
+
     pm->name = strdup(section);
-    if (!pm->name) {
+    pm->config->modname = pam_mod_basename(section);
+    if (!pm->config->modname) {
+      free(pm->name);
       free(pm);
       econf_freeFile(kf);
       free_configurable_modules(ret);
       return -1;
     }
 
-    /* TODO: DON'T fail if something is missing, just leave it blank. */
-
     rc = econf_getStringValue(kf, section, "Auth", &pm->config->auth_line);
-    if (rc != ECONF_SUCCESS) {
+    if (rc != ECONF_SUCCESS && !econf_key_is_missing(rc)) {
       free_pam_module(pm);
       econf_freeFile(kf);
       free_configurable_modules(ret);
       return -1;
     }
     rc = econf_getIntValue(kf, section, "Auth-Priority", &pm->priority_auth);
-    if (rc != ECONF_SUCCESS) {
+    if (econf_key_is_missing(rc)) {
+      pm->priority_auth = -1;
+    } else if (rc != ECONF_SUCCESS) {
       free_pam_module(pm);
       econf_freeFile(kf);
       free_configurable_modules(ret);
@@ -399,14 +293,16 @@ static int parse_config_modules(const char *path, pam_module_t ***out_list, size
     }
 
     rc = econf_getStringValue(kf, section, "Account", &pm->config->account_line);
-    if (rc != ECONF_SUCCESS) {
+    if (rc != ECONF_SUCCESS && !econf_key_is_missing(rc)) {
       free_pam_module(pm);
       econf_freeFile(kf);
       free_configurable_modules(ret);
       return -1;
     }
     rc = econf_getIntValue(kf, section, "Account-Priority", &pm->priority_account);
-    if (rc != ECONF_SUCCESS) {
+    if (econf_key_is_missing(rc)) {
+      pm->priority_account = -1;
+    } else if (rc != ECONF_SUCCESS) {
       free_pam_module(pm);
       econf_freeFile(kf);
       free_configurable_modules(ret);
@@ -414,14 +310,16 @@ static int parse_config_modules(const char *path, pam_module_t ***out_list, size
     }
 
     rc = econf_getStringValue(kf, section, "Password", &pm->config->password_line);
-    if (rc != ECONF_SUCCESS) {
+    if (rc != ECONF_SUCCESS && !econf_key_is_missing(rc)) {
       free_pam_module(pm);
       econf_freeFile(kf);
       free_configurable_modules(ret);
       return -1;
     }
     rc = econf_getIntValue(kf, section, "Password-Priority", &pm->priority_password);
-    if (rc != ECONF_SUCCESS) {
+    if (econf_key_is_missing(rc)) {
+      pm->priority_password = -1;
+    } else if (rc != ECONF_SUCCESS) {
       free_pam_module(pm);
       econf_freeFile(kf);
       free_configurable_modules(ret);
@@ -429,14 +327,16 @@ static int parse_config_modules(const char *path, pam_module_t ***out_list, size
     }
 
     rc = econf_getStringValue(kf, section, "Session", &pm->config->session_line);
-    if (rc != ECONF_SUCCESS) {
+    if (rc != ECONF_SUCCESS && !econf_key_is_missing(rc)) {
       free_pam_module(pm);
       econf_freeFile(kf);
       free_configurable_modules(ret);
       return -1;
     }
     rc = econf_getIntValue(kf, section, "Session-Priority", &pm->priority_session);
-    if (rc != ECONF_SUCCESS) {
+    if (econf_key_is_missing(rc)) {
+      pm->priority_session = -1;
+    } else if (rc != ECONF_SUCCESS) {
       free_pam_module(pm);
       econf_freeFile(kf);
       free_configurable_modules(ret);
@@ -482,12 +382,23 @@ static int replace_or_append_configurable(pam_module_t ***list, size_t *n, pam_m
     for (size_t j = 0; j < *n; ++j) {
       pam_module_t *old = (*list)[j];
       if (old && old->name && pm->name && strcasecmp(old->name, pm->name) == 0) {
-        /* TODO: COPY any unfilled data from the existing module into this new one. */
+        /* Keep the old module for items not overridden. */
+        pm->config->fallback = old;
 
-        /* free the old configurable module object */
-        configurable_module_free(old->config);
-        free(old->name);
-        free(old);
+        /* Restore module priority if necessary. */
+        if (pm->priority_account == -1) {
+          pm->priority_account = old->priority_account;
+        }
+        if (pm->priority_auth == -1) {
+          pm->priority_auth = old->priority_auth;
+        }
+        if (pm->priority_password == -1) {
+          pm->priority_password = old->priority_password;
+        }
+        if (pm->priority_session == -1) {
+          pm->priority_session = old->priority_session;
+        }
+
         (*list)[j] = pm;
         return 0;
       }
