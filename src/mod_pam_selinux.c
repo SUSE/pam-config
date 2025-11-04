@@ -31,7 +31,7 @@ write_config_selinux (pam_module_t * this, enum write_type op, FILE * fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
   static int called = 0;
-  
+
   if (debug)
     debug_write_call (this, op);
 
@@ -50,7 +50,9 @@ write_config_selinux (pam_module_t * this, enum write_type op, FILE * fp)
 	  fprintf (fp, "session\trequired\tpam_selinux.so\topen ");
   }
   called++;
-  
+  if (called > 1)
+    called = 0;
+
   WRITE_CONFIG_OPTIONS
 
   return 0;
@@ -78,33 +80,33 @@ selinux_parse_config (pam_module_t *this, char *args, write_type_t type)
 
   opt_set->enable (opt_set, "is_enabled", TRUE);
 
-  while (args && strlen (args) > 0)             
-  {                                           
-      char *key = strsep (&args, " \t");        
-      char *val;                                
-      
-      if (args)                                 
-		  while (isspace ((int) *args))           
-			  ++args;                               
-	  
-      if (strcmp (key, "use_first_pass") == 0)  
-	  { /* will be ignored */ }                       
-      else if (strcmp (key, "try_first_pass") == 0)     
-	  { /* will be ignored */ }                       
-      else if (strcmp (key, "use_authtok") == 0)        
-	  { /* will be ignored */ }                       
-      else if (strcmp (key, "open") == 0)        
-	  { /* will be ignored */ }                       
-      else if (strcmp (key, "close") == 0)        
-	  { /* will be ignored */ }                       
-      else if (NULL != (val = strchr (key, '=')))       
-	  {                                                               
-          *val++='\0';                                                  
-          if (opt_set->set_opt (opt_set, key, strdup (val)) == FALSE)   
-			  print_unknown_option_error (this->name, key);               
-	  }                                                               
-      else if (opt_set->enable (opt_set, key, TRUE) == FALSE)           
-		  print_unknown_option_error (this->name, key);                   
+  while (args && strlen (args) > 0)
+  {
+      char *key = strsep (&args, " \t");
+      char *val;
+
+      if (args)
+		  while (isspace ((int) *args))
+			  ++args;
+
+      if (strcmp (key, "use_first_pass") == 0)
+	  { /* will be ignored */ }
+      else if (strcmp (key, "try_first_pass") == 0)
+	  { /* will be ignored */ }
+      else if (strcmp (key, "use_authtok") == 0)
+	  { /* will be ignored */ }
+      else if (strcmp (key, "open") == 0)
+	  { /* will be ignored */ }
+      else if (strcmp (key, "close") == 0)
+	  { /* will be ignored */ }
+      else if (NULL != (val = strchr (key, '=')))
+	  {
+          *val++='\0';
+          if (opt_set->set_opt (opt_set, key, strdup (val)) == FALSE)
+			  print_unknown_option_error (this->name, key);
+	  }
+      else if (opt_set->enable (opt_set, key, TRUE) == FALSE)
+		  print_unknown_option_error (this->name, key);
   }
   return 1;
 }
