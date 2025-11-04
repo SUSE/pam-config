@@ -119,14 +119,16 @@ static int free_pam_module(pam_module_t *m) {
     return -1;
   }
 
-  free(m->name);
-  configurable_module_t *sp = m->config;
-  if (sp) {
-    free_pam_module(sp->fallback);
-    sp->fallback = NULL;
-    configurable_module_free(sp);
+  if (m->config) {
+    free(m->name);
+    configurable_module_t *sp = m->config;
+    if (sp) {
+      free_pam_module(sp->fallback);
+      sp->fallback = NULL;
+      configurable_module_free(sp);
+    }
+    free(m);
   }
-  free(m);
   return 0;
 }
 
