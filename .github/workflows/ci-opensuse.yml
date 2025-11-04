@@ -13,7 +13,7 @@ jobs:
     - name: Install devel packages
       run: |
         zypper ref
-        zypper --non-interactive in --no-recommends autoconf automake diffutils docbook-xsl-stylesheets gcc gettext-tools make valgrind libinih-devel
+        zypper --non-interactive in --no-recommends autoconf automake diffutils docbook-xsl-stylesheets gcc gettext-tools make valgrind libeconf-devel
 
     - name: Setup configure
       run: |

@@ -20,7 +20,7 @@
 
 #include <ctype.h>
 #include <dirent.h>
-#include <ini.h>
+#include <libeconf.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -30,6 +30,7 @@
 #include "pam-module.h"
 #include <linux/limits.h>
 
+#if 0
 /* Treat only [A-Za-z0-9_.-] as valid characters, replace others with '-' */
 static inline char sanitize_char(char c)
 {
@@ -147,6 +148,7 @@ static int parse_handler(void *in, const char *section, const char *key,
 
   return 1;
 }
+#endif
 
 /* --- generic write_config that uses the per-instance spec ----------- */
 
@@ -228,6 +230,7 @@ static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
 
 /* --- parser -------------------------------------------------------- */
 
+#if 0
 static int parse_config_file(const char *path, pam_module_t **out_pm) {
   if (!out_pm) {
     return -1;
@@ -315,6 +318,150 @@ static int parse_config_file(const char *path, pam_module_t **out_pm) {
 
   return 0;
 }
+#endif
+
+static int free_pam_module(pam_module_t *m) {
+  if (!m) {
+    return -1;
+  }
+
+  free(m->name);
+  configurable_module_t *sp = m->config;
+  if (sp) {
+    configurable_module_free(sp);
+  }
+  free(m);
+  return 0;
+}
+
+static int parse_config_modules(const char *path, pam_module_t ***out_list, size_t *out_len) {
+  if (!out_list || !out_len) {
+    return -1;
+  }
+  *out_list = NULL;
+  *out_len = 0;
+
+  econf_file *kf = NULL;
+  econf_err rc = econf_readFile(&kf, path, ":", "#");
+  if (rc != ECONF_SUCCESS) {
+    return -1;
+  }
+
+  char **modules = NULL;
+  size_t modules_len = 0;
+  rc = econf_getGroups(kf, &modules_len, &modules);
+  if (rc != ECONF_SUCCESS) {
+    econf_freeFile(kf);
+    return -1;
+  }
+
+  pam_module_t **ret = calloc(modules_len+1, sizeof(pam_module_t*));
+  if (!ret) {
+    econf_freeFile(kf);
+    return -1;
+  }
+  memset(ret, 0, sizeof(pam_module_t*)*(modules_len+1));
+
+  for (size_t i = 0; i < modules_len; ++i) {
+    const char *section = modules[i];
+
+    pam_module_t *pm = malloc(sizeof(pam_module_t));
+    if (!pm) {
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+    memset(pm, 0, sizeof(pam_module_t));
+
+    pm->name = strdup(section);
+    if (!pm->name) {
+      free(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+
+    /* TODO: DON'T fail if something is missing, just leave it blank. */
+
+    rc = econf_getStringValue(kf, section, "Auth", &pm->config->auth_line);
+    if (rc != ECONF_SUCCESS) {
+      free_pam_module(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+    rc = econf_getIntValue(kf, section, "Auth-Priority", &pm->priority_auth);
+    if (rc != ECONF_SUCCESS) {
+      free_pam_module(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+
+    rc = econf_getStringValue(kf, section, "Account", &pm->config->account_line);
+    if (rc != ECONF_SUCCESS) {
+      free_pam_module(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+    rc = econf_getIntValue(kf, section, "Account-Priority", &pm->priority_account);
+    if (rc != ECONF_SUCCESS) {
+      free_pam_module(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+
+    rc = econf_getStringValue(kf, section, "Password", &pm->config->password_line);
+    if (rc != ECONF_SUCCESS) {
+      free_pam_module(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+    rc = econf_getIntValue(kf, section, "Password-Priority", &pm->priority_password);
+    if (rc != ECONF_SUCCESS) {
+      free_pam_module(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+
+    rc = econf_getStringValue(kf, section, "Session", &pm->config->session_line);
+    if (rc != ECONF_SUCCESS) {
+      free_pam_module(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+    rc = econf_getIntValue(kf, section, "Session-Priority", &pm->priority_session);
+    if (rc != ECONF_SUCCESS) {
+      free_pam_module(pm);
+      econf_freeFile(kf);
+      free_configurable_modules(ret);
+      return -1;
+    }
+    econf_freeFile(kf);
+
+    /* Fill in the variables and helper functions */
+    pm->option_sets = opt_sets;
+    pm->helptxt = helptext;
+    pm->parse_config = def_parse_config;
+    pm->print_module = def_print_module;
+    pm->write_config = write_config_configurable;
+    pm->get_opt_set = get_opt_set;
+    pm->getopt = getopt;
+    pm->print_args = print_args;
+
+    ret[i] = pm;
+  }
+
+  *out_list = ret;
+  *out_len = modules_len;
+  econf_freeArray(modules);
+  return 0;
+}
 
 /* --- directory scan & loader -------------------------------------- */
 
@@ -323,30 +470,40 @@ static int is_conf(const char *name) {
   return n >= 6 && strcmp(name + (n - 5), ".conf") == 0;
 }
 
-static int replace_or_append_configurable(pam_module_t ***list, size_t *n, pam_module_t *pm)
+static int replace_or_append_configurable(pam_module_t ***list, size_t *n, pam_module_t **modules, size_t count)
 {
-  /* replace existing module with same soname */
-  for (size_t i = 0; i < *n; ++i) {
-    pam_module_t *old = (*list)[i];
-    if (old && old->name && pm->name && strcasecmp(old->name, pm->name) == 0) {
-      /* free the old configurable module object */
-      configurable_module_free(old->config);
-      free(old->name);
-      free(old);
-      (*list)[i] = pm;
-      return 0;
+  for (size_t i = 0; i < count; ++i) {
+    pam_module_t *pm = modules[i];
+    if (!pm) {
+      continue;
     }
+
+    /* replace existing module with same soname */
+    for (size_t j = 0; j < *n; ++j) {
+      pam_module_t *old = (*list)[j];
+      if (old && old->name && pm->name && strcasecmp(old->name, pm->name) == 0) {
+        /* TODO: COPY any unfilled data from the existing module into this new one. */
+
+        /* free the old configurable module object */
+        configurable_module_free(old->config);
+        free(old->name);
+        free(old);
+        (*list)[j] = pm;
+        return 0;
+      }
+    }
+
+    /* append if not found */
+    pam_module_t **tmp = realloc(*list, (*n + 2) * sizeof(pam_module_t*));
+    if (!tmp) {
+      return -1;
+    }
+    tmp[*n] = pm;
+    tmp[*n + 1] = NULL;
+    *list = tmp;
+    (*n)++;
   }
 
-  /* append if not found */
-  pam_module_t **tmp = realloc(*list, (*n + 2) * sizeof(pam_module_t*));
-  if (!tmp) {
-    return -1;
-  }
-  tmp[*n] = pm;
-  tmp[*n + 1] = NULL;
-  *list = tmp;
-  (*n)++;
   return 0;
 }
 
@@ -370,20 +527,13 @@ static int load_dir(const char *dir, pam_module_t ***out, size_t *count) {
     char path[PATH_MAX];
     snprintf(path, sizeof(path), "%s/%s", dir, de->d_name);
 
-    pam_module_t *pm = NULL;
-    if (parse_config_file(path, &pm) != 0) {
+    pam_module_t **modules = NULL;
+    size_t n = 0;
+    if (parse_config_modules(path, &modules, &n) != 0) {
       continue; /* skip bad files, keep going */
     }
-    if (!pm) {
-      free(pm->name);
-      configurable_module_free(pm->config);
-      free(pm);
-      continue;
-    }
-    if (replace_or_append_configurable(out, count, pm) != 0) {
-      configurable_module_free(pm->config);
-      free(pm->name);
-      free(pm);
+    if (replace_or_append_configurable(out, count, modules, n) != 0) {
+      free_configurable_modules(modules);
       rc = -1;
       break;
     }
@@ -415,12 +565,7 @@ void free_configurable_modules(pam_module_t **list) {
 
   for (size_t i = 0; list[i]; ++i) {
     pam_module_t *m = list[i];
-    free(m->name);
-    configurable_module_t *sp = m->config;
-    if (sp) {
-      configurable_module_free(sp);
-    }
-    free(m);
+    free_pam_module(m);
   }
   free(list);
 }

@@ -6,9 +6,9 @@ localedir = $(datadir)/locale
 
 DEFS = @DEFS@ -DLOCALEDIR=\"$(localedir)\" -DCONFDIR=\"$(sysconfdir)\"
 
-pam_config_LDADD = $(INIH_LIBS)
+pam_config_LDADD = $(ECONF_LIBS)
 
-AM_CFLAGS = @EXTRA_CFLAGS@ $(INIH_CFLAGS)
+AM_CFLAGS = @EXTRA_CFLAGS@ $(ECONF_CFLAGS)
 
 CLEANFILES = *~
 
