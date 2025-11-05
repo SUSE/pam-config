@@ -211,7 +211,7 @@ static pam_module_t *module_list_session[] = {
 static pam_module_t *module_list_session_nl[] = {
   &mod_pam_ecryptfs,
   &mod_pam_fscrypt,
-  &mod_pam_selinux,
+  // &mod_pam_selinux,
   &mod_pam_mkhomedir,
   &mod_pam_systemd_home,
   // &mod_pam_systemd,
@@ -227,7 +227,7 @@ static pam_module_t *module_list_session_nl[] = {
   &mod_pam_nam,
   &mod_pam_umask,
   &mod_pam_ssh,
-  &mod_pam_selinux,
+  // &mod_pam_selinux,
   &mod_pam_gnome_keyring,
   &mod_pam_kwallet5,
   &mod_pam_exec,
