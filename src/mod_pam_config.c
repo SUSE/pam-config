@@ -310,7 +310,7 @@ static char *pam_mod_basename(const char *soname) {
  *   Session:  <stack>\t<control>\t<soname>\t<args...>
  *
  * Example:
- *   Name: pam_himmelblau.so
+ *   [pam_himmelblau.so]
  *   Auth:     auth\tsufficient\tpam_himmelblau.so\tignore_unknown_user
  *   Auth-Priority: 800
  *   Account:  account\trequired\tpam_himmelblau.so\tignore_unknown_user

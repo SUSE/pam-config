@@ -130,6 +130,18 @@ static void inject_fallback(pam_module_t *override, pam_module_t *fallback) {
   } else {
     override->config->fallback = fallback;
   }
+  if (override->priority_account == -1) {
+    override->priority_account = fallback->priority_account;
+  }
+  if (override->priority_auth == -1) {
+    override->priority_auth = fallback->priority_auth;
+  }
+  if (override->priority_password == -1) {
+    override->priority_password = fallback->priority_password;
+  }
+  if (override->priority_session == -1) {
+    override->priority_session = fallback->priority_session;
+  }
 }
 
 __attribute__((constructor)) static void init_configurable_modules_ctor(void) {
@@ -234,8 +246,7 @@ DEFINE_MODULE_SORTER(priority_session)
     if (configurable_modules) {                                                \
       for (size_t i = 0; configurable_modules[i]; ++i) {                       \
         pam_module_t *m = configurable_modules[i];                             \
-        if (m && m->config && m->config->stack##_line &&                       \
-            m->priority_##stack >= 0) {                                        \
+        if (m && m->config && m->priority_##stack >= 0) {                      \
           varname[n++] = m;                                                    \
         }                                                                      \
       }                                                                        \
