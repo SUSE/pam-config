@@ -61,4 +61,10 @@ pam_module_t mod_pam_deny = {"pam_deny.so",
 			     &get_opt_set,
 			     NULL /* Only used internal */,
 			     NULL /* Only used internal */,
-			     NULL /* Only used internal */};
+			     NULL /* Only used internal */,
+			     NULL,
+			     -1,
+			     -1,
+			     -1,
+			     -1
+};

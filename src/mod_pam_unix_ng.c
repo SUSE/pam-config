@@ -91,4 +91,10 @@ pam_module_t mod_pam_unix_ng = { "pam_unix_ng.so", opt_sets, unix_ng_help,
 				 &get_opt_set,
 				 &getopt,
 				 &print_args,
-				 &print_xmlhelp};
+				 &print_xmlhelp,
+				 NULL,
+				 PAM_UNIX_NG_AUTH_PRIORITY,
+				 PAM_UNIX_NG_ACCOUNT_PRIORITY,
+				 PAM_UNIX_NG_PASSWORD_PRIORITY,
+				 PAM_UNIX_NG_SESSION_PRIORITY
+};

@@ -77,4 +77,10 @@ pam_module_t mod_pam_ecryptfs = { "pam_ecryptfs.so", opt_sets, helptext,
 			     &get_opt_set,
 			     getopt,
 			     &print_args,
-			     &print_xmlhelp};
+			     &print_xmlhelp,
+			     NULL,
+			     PAM_ECRYPTFS_AUTH_PRIORITY,
+			     -1,
+			     PAM_ECRYPTFS_PASSWORD_PRIORITY,
+			     PAM_ECRYPTFS_SESSION_PRIORITY
+};

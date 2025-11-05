@@ -70,5 +70,13 @@ AH_VERBATIM([__ZZENABLE_NLS],
 #define N_(msgid) msgid
 #endif /* ENABLE_NLS */])
 
+PKG_CHECK_MODULES([ECONF], [libeconf],
+  [AC_DEFINE([HAVE_LIBECONF], [1], [Define to 1 if econf is available])],
+  [AC_MSG_ERROR([econf library is required])])
+
+dnl Add the variables to the output
+AC_SUBST([ECONF_CFLAGS])
+AC_SUBST([ECONF_LIBS])
+
 AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in tests/Makefile tests/config/Makefile tests/pam-config.test/Makefile tests/etc/Makefile])
 AC_OUTPUT

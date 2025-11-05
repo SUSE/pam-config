@@ -119,4 +119,10 @@ pam_module_t mod_pam_unix = { "pam_unix.so", opt_sets, helptext,
 			      &get_opt_set,
 			      &getopt,
 			      &print_args,
-			      &print_xmlhelp};
+			      &print_xmlhelp,
+			      NULL,
+			      PAM_UNIX_AUTH_PRIORITY,
+			      PAM_UNIX_ACCOUNT_PRIORITY,
+			      PAM_UNIX_PASSWORD_PRIORITY,
+			      PAM_UNIX_SESSION_PRIORITY
+};

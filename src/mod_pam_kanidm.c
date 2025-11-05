@@ -78,4 +78,10 @@ pam_module_t mod_pam_kanidm = { "pam_kanidm.so", opt_sets, helptext,
                  &get_opt_set,
                  &getopt,
                  &print_args,
-                 &print_xmlhelp};
+                 &print_xmlhelp,
+		 NULL,
+		 PAM_KANIDM_AUTH_PRIORITY,
+		 PAM_KANIDM_ACCOUNT_PRIORITY,
+		 -1,
+		 PAM_KANIDM_SESSION_PRIORITY
+};

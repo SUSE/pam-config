@@ -33,6 +33,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "option_set.h"
+#include "module_priorities.h"
 
 /**
  * @typedef global_opt_t
@@ -641,6 +642,28 @@ typedef enum write_type {
   SESSION
 } write_type_t;
 
+typedef struct pam_module pam_module_t;
+
+/**
+ * @struct configurable_module
+ * @brief Fields parsed from config
+ *
+ * This struct defines the values parsed from a configurable pam module.
+ */
+/**
+ * @typedef configurable_module_t
+ * @brief Creates a type for configurable_module
+ */
+typedef struct configurable_module {
+  char *modname;
+  /* Raw lines for stacks; if NULL, stack is not emitted */
+  char *auth_line;
+  char *account_line;
+  char *password_line;
+  char *session_line;
+  pam_module_t *fallback;
+} configurable_module_t;
+
 /**
  * @struct pam_module
  * @brief Layout of a pam-config module.
@@ -651,7 +674,7 @@ typedef enum write_type {
  * @typedef pam_module_t
  * @brief Creates a type for pam_module
  */
-typedef struct pam_module {
+struct pam_module {
 	char *name;		      /**< The name of the module. */
 	option_set_t **option_sets;   /**< Pointer to a NULL terminated list of options_set_t's. */
         module_helptext_t *helptxt;  /**< Pointer to struct with help text. */
@@ -672,13 +695,22 @@ typedef struct pam_module {
 	void (*print_args)(struct pam_module *this);
 	/** Pointer to print function, used for XML output. */
 	void (*print_xmlhelp)(struct pam_module *this);
-} pam_module_t;
+
+	/** Optional user supplied configuration **/
+	configurable_module_t *config;
+
+	/** Stack priorities **/
+	int priority_auth;
+	int priority_account;
+	int priority_password;
+	int priority_session;
+};
 
 /**
  *  @brief Modules need access to these lists to check, which other modules
  *  are enabled
  *  */
-extern pam_module_t *common_module_list[];
+extern pam_module_t **common_module_list;
 extern pam_module_t *service_module_list[];
 
 /* default handlers */
@@ -839,5 +871,14 @@ int def_parse_config (pam_module_t *this, char *args, write_type_t type);
  */
 void debug_write_call (pam_module_t *this, enum write_type type);
 
+/**
+ * @brief free an instance of a configurable_module_t
+ *
+ * Function for freeing instances of configurable_module_t allocated for
+ * configurable pam modules.
+ *
+ * @param sp the configurable_module_t to be freed
+ */
+void configurable_module_free(configurable_module_t *sp);
 
 #endif

@@ -73,4 +73,10 @@ pam_module_t mod_pam_nam = { "pam_nam.so", opt_sets, helptext,
 			     &get_opt_set,
 			     NULL,
 			     &print_args,
-			     &print_xmlhelp};
+			     &print_xmlhelp,
+			     NULL,
+			     PAM_NAM_AUTH_PRIORITY,
+			     PAM_NAM_ACCOUNT_PRIORITY,
+			     PAM_NAM_PASSWORD_PRIORITY,
+			     PAM_NAM_SESSION_PRIORITY
+};

@@ -114,4 +114,10 @@ pam_module_t mod_pam_systemd_home = { "pam_systemd_home.so", opt_sets, helptext,
 				     &get_opt_set,
 				     &getopt,
 				     &print_args,
-				     &print_xmlhelp};
+				     &print_xmlhelp,
+				     NULL,
+				     PAM_SYSTEMD_HOME_AUTH_PRIORITY,
+				     PAM_SYSTEMD_HOME_ACCOUNT_PRIORITY,
+				     PAM_SYSTEMD_HOME_PASSWORD_PRIORITY,
+				     PAM_SYSTEMD_HOME_SESSION_PRIORITY
+};

@@ -146,4 +146,10 @@ pam_module_t mod_pam_make = { "pam_make.so", opt_sets, helptext,
 			      &def_print_module,
 			      &write_config_make,
 			      &get_opt_set,
-			      NULL, NULL, NULL};
+			      NULL, NULL, NULL,
+			      NULL,
+			      -1,
+			      -1,
+			      PAM_MAKE_PASSWORD_PRIORITY,
+			      -1
+};

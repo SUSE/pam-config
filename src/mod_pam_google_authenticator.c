@@ -107,4 +107,10 @@ pam_module_t mod_pam_google_authenticator = { "pam_google_authenticator.so", opt
 			     &get_opt_set,
 			     &getopt,
 			     &print_args,
-			     &print_xmlhelp};
+			     &print_xmlhelp,
+			     NULL,
+			     -1,
+			     -1,
+			     -1,
+			     -1
+};

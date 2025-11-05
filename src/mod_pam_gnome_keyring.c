@@ -92,4 +92,10 @@ pam_module_t mod_pam_gnome_keyring = { "pam_gnome_keyring.so", opt_sets,
 				       &get_opt_set,
 				       &getopt,
 				       &print_args,
-				       &print_xmlhelp};
+				       &print_xmlhelp,
+				       NULL,
+				       PAM_GNOME_KEYRING_AUTH_PRIORITY,
+				       -1,
+				       PAM_GNOME_KEYRING_PASSWORD_PRIORITY,
+				       PAM_GNOME_KEYRING_SESSION_PRIORITY
+};

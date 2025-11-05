@@ -170,4 +170,10 @@ pam_module_t mod_pam_pwcheck = { "pam_pwcheck.so", opt_sets, pwcheck_help,
 				 &get_opt_set,
 				 &getopt,
 				 &print_args,
-				 &print_xmlhelp};
+				 &print_xmlhelp,
+				 NULL,
+				 -1,
+				 -1,
+				 PAM_PWCHECK_PASSWORD_PRIORITY,
+				 -1
+};

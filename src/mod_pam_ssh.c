@@ -93,4 +93,10 @@ pam_module_t mod_pam_ssh = { "pam_ssh.so", opt_sets, helptext,
 			     &get_opt_set,
 			     &getopt,
 			     &print_args,
-			     &print_xmlhelp};
+			     &print_xmlhelp,
+			     NULL,
+			     PAM_SSH_AUTH_PRIORITY,
+			     -1,
+			     -1,
+			     PAM_SSH_SESSION_PRIORITY
+};

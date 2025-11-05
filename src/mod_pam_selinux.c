@@ -122,4 +122,10 @@ pam_module_t mod_pam_selinux = { "pam_selinux.so", opt_sets, helptext,
 				  &get_opt_set,
 				  &getopt,
 				  &print_args,
-				  &print_xmlhelp};
+				  &print_xmlhelp,
+				  NULL,
+				  -1,
+				  -1,
+				  -1,
+				  PAM_SELINUX_SESSION_PRIORITY
+};

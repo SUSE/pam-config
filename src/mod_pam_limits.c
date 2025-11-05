@@ -71,4 +71,10 @@ pam_module_t mod_pam_limits = {"pam_limits.so", opt_sets, helptext,
 			       &get_opt_set,
 			       &getopt,
 			       &print_args,
-			       &print_xmlhelp};
+			       &print_xmlhelp,
+			       NULL,
+			       -1,
+			       -1,
+			       -1,
+			       PAM_LIMITS_SESSION_PRIORITY
+};

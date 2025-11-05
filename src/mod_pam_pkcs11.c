@@ -67,4 +67,10 @@ pam_module_t mod_pam_pkcs11 = { "pam_pkcs11.so", opt_sets, helptext,
 				&get_opt_set,
 				&getopt,
 				&print_args,
-				&print_xmlhelp};
+				&print_xmlhelp,
+				NULL,
+				PAM_PKCS11_AUTH_PRIORITY,
+				-1,
+				-1,
+				-1
+};

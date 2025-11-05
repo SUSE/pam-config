@@ -127,4 +127,10 @@ pam_module_t mod_pam_csync = { "pam_csync.so", opt_sets, helptext,
 			       &get_opt_set,
 			       &getopt,
 			       &print_args,
-			       &print_xmlhelp};
+			       &print_xmlhelp,
+			       NULL,
+			       -1,
+			       -1,
+			       -1,
+			       -1
+};

@@ -151,4 +151,10 @@ pam_module_t mod_pam_ldap = { "pam_ldap.so", opt_sets, helptext,
 			      &get_opt_set,
 			      &getopt,
 			      &print_args,
-			      &print_xmlhelp};
+			      &print_xmlhelp,
+			      NULL,
+			      PAM_LDAP_AUTH_PRIORITY,
+			      PAM_LDAP_ACCOUNT_PRIORITY,
+			      PAM_LDAP_PASSWORD_PRIORITY,
+			      PAM_LDAP_SESSION_PRIORITY
+};

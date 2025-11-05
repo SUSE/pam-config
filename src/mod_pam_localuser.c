@@ -84,4 +84,10 @@ pam_module_t mod_pam_localuser = { "pam_localuser.so", opt_sets, helptext,
 				   &get_opt_set,
 				   &getopt,
 				   &print_args,
-				   &print_xmlhelp};
+				   &print_xmlhelp,
+				   NULL,
+				   -1,
+				   PAM_LOCALUSER_ACCOUNT_PRIORITY,
+				   -1,
+				   -1
+};
