@@ -106,9 +106,109 @@ static void print_args(pam_module_t *this) {
 
 /* --- options & plumbing ------------------------------------------- */
 
-DECLARE_BOOL_OPTS_2(is_enabled, debug);
-DECLARE_STRING_OPTS_0;
-DECLARE_OPT_SETS;
+static bool_option_t** generate_bool_opts(void) {
+  bool_option_t *bool_opt_debug = malloc(sizeof(bool_option_t));
+  bool_opt_debug->key = "debug";
+  bool_opt_debug->value = 0;
+  bool_option_t *bool_opt_is_enabled = malloc(sizeof(bool_option_t));
+  bool_opt_is_enabled->key = "is_enabled";
+  bool_opt_is_enabled->value = 0;
+
+  bool_option_t **bool_opts = calloc(3, sizeof(bool_option_t*));
+  bool_opts[0] = bool_opt_debug;
+  bool_opts[1] = bool_opt_is_enabled;
+  bool_opts[2] = NULL;
+
+  return bool_opts;
+}
+
+static option_set_t **generate_opt_sets(void) {
+  string_option_t *str_opt_empty = malloc(sizeof(string_option_t));
+  str_opt_empty->key = "empty";
+  str_opt_empty->value = NULL;
+
+  string_option_t **str_opts = calloc(2, sizeof(string_option_t*));
+  str_opts[0] = str_opt_empty;
+  str_opts[1] = NULL;
+
+  option_set_t *auth_opts = malloc(sizeof(option_set_t));
+  auth_opts->bool_opts = generate_bool_opts();
+  auth_opts->string_opts = str_opts;
+  auth_opts->is_enabled = is_enabled;
+  auth_opts->enable = enable;
+  auth_opts->get_opt = get_opt;
+  auth_opts->set_opt = set_opt;
+  option_set_t *account_opts = malloc(sizeof(option_set_t));
+  account_opts->bool_opts = generate_bool_opts();
+  account_opts->string_opts = str_opts;
+  account_opts->is_enabled = is_enabled;
+  account_opts->enable = enable;
+  account_opts->get_opt = get_opt;
+  account_opts->set_opt = set_opt;
+  option_set_t *password_opts = malloc(sizeof(option_set_t));
+  password_opts->bool_opts = generate_bool_opts();
+  password_opts->string_opts = str_opts;
+  password_opts->is_enabled = is_enabled;
+  password_opts->enable = enable;
+  password_opts->get_opt = get_opt;
+  password_opts->set_opt = set_opt;
+  option_set_t *session_opts = malloc(sizeof(option_set_t));
+  session_opts->bool_opts = generate_bool_opts();
+  session_opts->string_opts = str_opts;
+  session_opts->is_enabled = is_enabled;
+  session_opts->enable = enable;
+  session_opts->get_opt = get_opt;
+  session_opts->set_opt = set_opt;
+
+  option_set_t **opt_sets = calloc(5, sizeof(option_set_t*));
+  opt_sets[0] = auth_opts;
+  opt_sets[1] = account_opts;
+  opt_sets[2] = password_opts;
+  opt_sets[3] = session_opts;
+  opt_sets[4] = NULL;
+
+  return opt_sets;
+}
+
+static void free_opt_sets(option_set_t **sets)
+{
+    if (!sets) return;
+
+    // Free the 4 option_set_t structs while collecting the shared str_opts
+    string_option_t **shared_str = NULL;
+
+    for (size_t i = 0; i < 4 && sets[i]; i++) {
+        option_set_t *os = sets[i];
+
+        // Free per-stack bool opts (entries then the array)
+        if (os->bool_opts) {
+            for (size_t j = 0; os->bool_opts[j]; j++) {
+                // keys are string literals ("debug","is_enabled") -> don't free key
+                free(os->bool_opts[j]);
+            }
+            free(os->bool_opts);
+        }
+
+        // Remember the shared string_opts pointer (same for all four)
+        if (!shared_str && os->string_opts) {
+            shared_str = os->string_opts;
+        }
+
+        free(os);
+    }
+
+    // Free the shared string opts once
+    if (shared_str) {
+        for (size_t j = 0; shared_str[j]; j++) {
+            // key is a string literal "empty" -> don't free key
+            // value is NULL -> nothing to free there
+            free(shared_str[j]);
+        }
+        free(shared_str);
+    }
+
+    free(sets);
+}
 
 static module_helptext_t helptext[] = {{NULL, NULL, NULL}};
 
@@ -127,6 +227,7 @@ static int free_pam_module(pam_module_t *m) {
       sp->fallback = NULL;
       configurable_module_free(sp);
     }
+    free_opt_sets(m->option_sets);
     free(m);
   }
   return 0;
@@ -347,7 +448,7 @@ static int parse_config_modules(const char *path, pam_module_t ***out_list, size
     econf_freeFile(kf);
 
     /* Fill in the variables and helper functions */
-    pm->option_sets = opt_sets;
+    pm->option_sets = generate_opt_sets();
     pm->helptxt = helptext;
     pm->parse_config = def_parse_config;
     pm->print_module = def_print_module;
