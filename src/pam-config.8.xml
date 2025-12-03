@@ -1426,14 +1426,6 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><option>--sss-debug</option></term>
-            <listitem>
-              <para>
-                Add <option>debug</option> option to all pam_sss.so invocations.
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term><option>--sss-quiet</option></term>
             <listitem>
               <para>
