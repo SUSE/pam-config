@@ -29,7 +29,7 @@ static int
 write_config_unix_ng (pam_module_t *this, enum write_type op, FILE *fp)
 {
   option_set_t *opt_set = this->get_opt_set (this, op);
-  int with_pwquality;
+  int with_pwquality, with_sss;
 
   if (debug)
     debug_write_call (this, op);
@@ -37,27 +37,38 @@ write_config_unix_ng (pam_module_t *this, enum write_type op, FILE *fp)
   if (!opt_set->is_enabled (opt_set, "is_enabled"))
     return 0;
 
-  with_pwquality = is_module_enabled (common_module_list, "pam_pwquality.so" , op);
+  with_pwquality = is_module_enabled (common_module_list, "pam_pwquality.so", op);
+  with_sss       = is_module_enabled (common_module_list, "pam_sss.so",       op);
+
 
   switch (op)
   {
     case AUTH:
-      fprintf (fp, "auth\trequired\tpam_unix_ng.so\t");
+      if (with_sss)
+	fprintf (fp, "auth\tsufficient\tpam_unix_ng.so\t");
+      else
+	fprintf (fp, "auth\trequired\tpam_unix_ng.so\t");
       if (!opt_set->is_enabled (opt_set, "use_first_pass") &&
           !opt_set->is_enabled (opt_set, "try_first_pass"))
         opt_set->enable (opt_set, "try_first_pass", TRUE);
       break;
     case ACCOUNT:
-      fprintf (fp, "account\trequired\tpam_unix_ng.so\t");
+      if (with_sss)
+	fprintf (fp, "account\trequisite\tpam_unix_ng.so\t");
+      else
+	fprintf (fp, "account\trequired\tpam_unix_ng.so\t");
       break;
     case PASSWORD:
-      fprintf (fp, "password\trequired\tpam_unix_ng.so\t");
+      if (with_sss)
+	fprintf (fp, "password\tsufficient\tpam_unix_ng.so\t");
+      else
+	fprintf (fp, "password\trequired\tpam_unix_ng.so\t");
       if (with_pwquality)
 	fprintf (fp, "use_authtok ");
       break;
-  case SESSION:
-    fprintf (fp, "session\trequired\tpam_unix_ng.so\t");
-    break;
+    case SESSION:
+      fprintf (fp, "session\trequired\tpam_unix_ng.so\t");
+      break;
   }
 
   WRITE_CONFIG_OPTIONS
