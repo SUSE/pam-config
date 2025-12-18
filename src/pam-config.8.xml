@@ -2319,6 +2319,77 @@
     </refsect2>
   </refsect1>
 
+  <refsect1 id='pam_config_d'>
+    <title>CUSTOM MODULE DEFINITIONS (pam-config.d)</title>
+
+    <para>
+      In addition to the built-in module definitions, <emphasis remap='B'>pam-config</emphasis>
+      can load module behavior from configuration snippets.
+      These snippets allow administrators (or packages) to override how a supported PAM module
+      is written into the common PAM stacks, including the per-stack ordering priority.
+    </para>
+
+    <para>
+      <emphasis remap='B'>pam-config</emphasis> searches for configuration files in the following
+      directories (later entries override earlier ones):
+    </para>
+
+    <itemizedlist>
+      <listitem><para><filename>/usr/lib/pam-config.d</filename> (lowest precedence)</para></listitem>
+      <listitem><para><filename>/usr/local/lib/pam-config.d</filename></para></listitem>
+      <listitem><para><filename>/etc/pam-config.d</filename> (highest precedence)</para></listitem>
+    </itemizedlist>
+
+    <para>
+      A custom configuration overrides a built-in module definition when it targets the same
+      module <filename>.so</filename> name. Keys are read case-insensitively.
+    </para>
+
+    <para>
+      Each configuration file contains one or more module “groups”, where the group name is the
+      PAM module filename. For each PAM stack, you can define both the line to write and the
+      priority that controls ordering in the generated <filename>common-*</filename> stacks.
+    </para>
+
+    <screen><![CDATA[
+/etc/pam-config.d/himmelblau.conf
+[pam_himmelblau.so]
+
+# Authentication stack
+Auth: auth     sufficient    pam_himmelblau.so    ignore_unknown_user etc
+Auth-Priority: 1500
+
+# Account stack
+Account: account        required      pam_himmelblau.so    ignore_unknown_user etc
+Account-Priority: 0
+
+# Password stack
+Password: password     sufficient    pam_himmelblau.so    use_authtok etc
+Password-Priority: 1200
+
+# Session stack
+Session: session       optional      pam_himmelblau.so    etc
+Session-Priority: 2100
+]]></screen>
+
+    <para>
+      You do <emphasis remap='B'>not</emphasis> need to provide all stacks in the configuration
+      definition. If a given module group omits (for example) <emphasis>Auth</emphasis> and
+      <emphasis>Auth-Priority</emphasis>, <emphasis remap='B'>pam-config</emphasis> will fall back to
+      the next lower-precedence definition for that stack, and finally to the built-in definition.
+      This allows fine-grained overrides such as changing only one stack’s priority while keeping
+      the rest unchanged.
+    </para>
+
+    <screen><![CDATA[
+# Example: override only the session priority for pam_unix.so
+/etc/pam-config.d/pam_unix.conf
+[pam_unix.so]
+Session-Priority: 100
+]]></screen>
+
+  </refsect1>
+
   <refsect1 id='NOTES'>
     <title>NOTES</title>
     <para>
