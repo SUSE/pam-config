@@ -63,7 +63,14 @@ static int write_config_configurable(pam_module_t *pm, enum write_type op,
   }
   if (!line) {
     if (ov) {
-      return ov->write_config(ov, op, fp);
+      // We have to temporarily enable the fallback, otherwise
+      // it won't write anything.
+      option_set_t *ov_opt_set = ov->get_opt_set(ov, op);
+      bool was_enabled = ov_opt_set->is_enabled(ov_opt_set, "is_enabled");
+      ov_opt_set->enable(ov_opt_set, "is_enabled", 1);
+      int ret = ov->write_config(ov, op, fp);
+      ov_opt_set->enable(ov_opt_set, "is_enabled", was_enabled);
+      return ret;
     }
     return 0; /* nothing local and no fallback */
   }
