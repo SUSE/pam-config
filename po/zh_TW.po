@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-config\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-16 10:17+0200\n"
+"POT-Creation-Date: 2026-01-20 09:59+0100\n"
 "PO-Revision-Date: 2009-09-18 21:45+0800\n"
 "Last-Translator: swyear <swyear@gmail.com>\n"
 "Language-Team: Chinese Traditional <zh@li.org>\n"
@@ -492,58 +492,96 @@ msgstr "%s：參數太多。\n"
 msgid "Unknown option for %s, ignored: '%s'\n"
 msgstr "對 %s 而言的未知選項，忽略： '%s'\n"
 
-#: src/sanity_checks.c:43
+#: src/sanity_checks.c:44
 #, c-format
 msgid "WARNING: module %s is not installed.\n"
 msgstr "警告：未安裝 %s 模組。\n"
 
-#: src/sanity_checks.c:51
+#: src/sanity_checks.c:52
 #, c-format
 msgid "ERROR: module %s is not installed.\n"
 msgstr "警告：未安裝 %s 模組。\n"
 
-#: src/sanity_checks.c:101
-#, c-format
-msgid "WARNING: pam_unix.so and pam_unix2.so enabled!\n"
-msgstr ""
+#: src/sanity_checks.c:109
+#, fuzzy, c-format
+msgid "WARNING: no unix module is enabled!\n"
+msgstr "警告：未安裝 %s 模組。\n"
 
-#: src/sanity_checks.c:106
-#, c-format
-msgid ""
-"INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
-"INFO: only pam_unix2.so will be enabled.\n"
+#: src/sanity_checks.c:112
+#, fuzzy, c-format
+#| msgid ""
+#| "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
+#| "INFO: only pam_unix2.so will be enabled.\n"
+msgid "WARNING: pam_unix.so, pam_unix2.so and/or pam_unix_ng.so are enabled!\n"
 msgstr ""
 "訊息： pam_unix.so 和 pam_unix2.so 已在服務 %s 啟用，\n"
 "訊息：只有 pam_unix2.so 會被啟用。\n"
 
-#: src/sanity_checks.c:117 src/sanity_checks.c:123
-#, c-format
-msgid "ERROR: Failed to disable pam_unix.so.\n"
-msgstr "錯誤：無法停用 pam_unix.so。\n"
+#: src/sanity_checks.c:130
+#, fuzzy, c-format
+#| msgid ""
+#| "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
+#| "INFO: only pam_unix2.so will be enabled.\n"
+msgid ""
+"INFO: no unix module is enabled for service %s,\n"
+"INFO: enabling pam_unix.so.\n"
+msgstr ""
+"訊息： pam_unix.so 和 pam_unix2.so 已在服務 %s 啟用，\n"
+"訊息：只有 pam_unix2.so 會被啟用。\n"
 
-#: src/sanity_checks.c:150
+#: src/sanity_checks.c:141
+#, fuzzy, c-format
+#| msgid ""
+#| "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
+#| "INFO: only pam_unix2.so will be enabled.\n"
+msgid ""
+"INFO: pam_unix.so, pam_unix2 and/or pam_unix_ng.so are enabled in service "
+"%s,\n"
+"INFO: only pam_unix_ng.so will be enabled.\n"
+msgstr ""
+"訊息： pam_unix.so 和 pam_unix2.so 已在服務 %s 啟用，\n"
+"訊息：只有 pam_unix2.so 會被啟用。\n"
+
+#: src/sanity_checks.c:152
+#, fuzzy, c-format
+#| msgid ""
+#| "INFO: pam_unix.so and pam_unix2.so enabled in service %s,\n"
+#| "INFO: only pam_unix2.so will be enabled.\n"
+msgid ""
+"INFO: pam_unix.so and pam_unix2 are enabled in service %s,\n"
+"INFO: only pam_unix.so will be enabled.\n"
+msgstr ""
+"訊息： pam_unix.so 和 pam_unix2.so 已在服務 %s 啟用，\n"
+"訊息：只有 pam_unix2.so 會被啟用。\n"
+
+#: src/sanity_checks.c:159
+#, c-format
+msgid "ERROR: something did go wrong with counting unix modules...\n"
+msgstr ""
+
+#: src/sanity_checks.c:186
 #, c-format
 msgid ""
 "ERROR: ldap-account_only is only allowed in combination with krb5.\n"
 "Configuration not changed!\n"
 msgstr ""
 
-#: src/sanity_checks.c:171
+#: src/sanity_checks.c:207
 #, fuzzy, c-format
 msgid "WARNING: pam_localuser is not enabled!\n"
 msgstr "警告：未安裝 %s 模組。\n"
 
-#: src/sanity_checks.c:205
+#: src/sanity_checks.c:241
 #, c-format
 msgid "WARNING: pam_ccreds.so needs LDAP or Kerberos5, ignored\n"
 msgstr "警告： pam_ccreds.so 需要 LDAP 或 Kerberos5，忽略\n"
 
-#: src/sanity_checks.c:234
+#: src/sanity_checks.c:270
 #, c-format
 msgid "WARNING: pam_pwcheck and pam_cracklib enabled!\n"
 msgstr ""
 
-#: src/sanity_checks.c:239
+#: src/sanity_checks.c:275
 #, fuzzy, c-format
 msgid ""
 "INFO: pam_pwcheck.so and pam_cracklib.so enabled,\n"
@@ -552,12 +590,12 @@ msgstr ""
 "訊息：pam_pwcheck.so 和 pam_cracklib.so 已啟用，\n"
 "訊息：只有啟用 cracklib 支援的 pam_pwcheck.so 會被使用。\n"
 
-#: src/sanity_checks.c:279
+#: src/sanity_checks.c:315
 #, c-format
 msgid "WARNING: cracklib itself has a length limit of 6 characters!\n"
 msgstr ""
 
-#: src/sanity_checks.c:301
+#: src/sanity_checks.c:337
 #, c-format
 msgid ""
 "ERROR: pam_apparmor and pam_selinux together is not allowed.\n"
@@ -588,6 +626,10 @@ msgstr "無法建立檔案處理： %m\n"
 #, c-format
 msgid "Cannot create %s: %m\n"
 msgstr "無法建立 %s： %m\n"
+
+#, c-format
+#~ msgid "ERROR: Failed to disable pam_unix.so.\n"
+#~ msgstr "錯誤：無法停用 pam_unix.so。\n"
 
 #, fuzzy, c-format
 #~ msgid ""

@@ -1,8 +1,16 @@
 pam-config NEWS -- history of user-visible changes.
 
-Copyright (C) 2006-2025 Thorsten Kukuk <kukuk@suse.com>.
+Copyright (C) 2006-2026 Thorsten Kukuk <kukuk@suse.com>.
 
 Please enter bug reports at https://github.com/SUSE/pam-config/issues
+
+Version 2.14
+* Add support for custom pam configuration
+* Disable SELinux for nonlogin session config, too
+* pam_selinux: fix counter for session stacks
+* pam_sss: add all possible options
+* Add support for pam_unix_ng
+* pam_unix: fix {use|try}_first_pass and use_authtok
 
 Version 2.13
 * Place himmelblau near the top of pam stack
