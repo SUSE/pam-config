@@ -144,7 +144,11 @@ static void inject_fallback(pam_module_t *override, pam_module_t *fallback) {
   }
 }
 
-__attribute__((constructor)) static void init_configurable_modules_ctor(void) {
+/* NOTE: The configurable_modules list is initialized by this constructor
+ * before main() executes. The module_list_{account,session,auth,password}
+ * also have their own constructors but they must run after this one
+ * (priorities 1-100 are reserverd for the implementation) */
+__attribute__((constructor(110))) static void init_configurable_modules_ctor(void) {
   size_t n = load_configurable_modules(&configurable_modules);
   if (n > 0) {
     configurable_count = (size_t)n;
@@ -220,9 +224,9 @@ DEFINE_MODULE_SORTER(priority_session)
 #endif
 
 /* Merge base + configurable into varname[] */
-#define BUILD_SORTED_LIST(varname, stack)                                      \
+#define BUILD_SORTED_LIST(varname, stack, ctor_prio)                           \
   static pam_module_t **varname = NULL;                                        \
-  static void init_##varname(void) __attribute__((constructor));               \
+  static void init_##varname(void) __attribute__((constructor(ctor_prio)));    \
   static void init_##varname(void) {                                           \
     size_t base_n = ARRAY_LEN(stack##_modules);                                \
     if (base_n && (stack##_modules)[base_n - 1] == NULL) {                     \
@@ -276,7 +280,7 @@ static pam_module_t *account_modules[] = {
   &mod_pam_kanidm,
   NULL
 };
-BUILD_SORTED_LIST(module_list_account, account)
+BUILD_SORTED_LIST(module_list_account, account, 120)
 
 /* Modifying the order of these modules no longer effects the order of placement
  * in pam. Use the module ordering in module_priorities.h instead.
@@ -309,7 +313,7 @@ static pam_module_t *auth_modules[] = {
 					  you MUST change mod_pam_krb5.c */
   NULL
 };
-BUILD_SORTED_LIST(module_list_auth, auth)
+BUILD_SORTED_LIST(module_list_auth, auth, 130)
 
 /* Modifying the order of these modules no longer effects the order of placement
  * in pam. Use the module ordering in module_priorities.h instead.
@@ -339,7 +343,7 @@ static pam_module_t *password_modules[] = {
 					  you MUST change mod_pam_krb5.c */
   NULL
 };
-BUILD_SORTED_LIST(module_list_password, password)
+BUILD_SORTED_LIST(module_list_password, password, 140)
 
 /* Modifying the order of these modules no longer effects the order of placement
  * in pam. Use the module ordering in module_priorities.h instead.
@@ -373,7 +377,7 @@ static pam_module_t *session_modules[] = {
   &mod_pam_env,
   NULL
 };
-BUILD_SORTED_LIST(module_list_session, session)
+BUILD_SORTED_LIST(module_list_session, session, 150)
 
 static pam_module_t *module_list_session_nl[] = {
   &mod_pam_ecryptfs,
